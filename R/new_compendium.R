@@ -7,6 +7,11 @@
 #' `overwrite = TRUE`, this file will be erased and replaced.
 #' 
 #' @export
+#' 
+#' @examples 
+#' \dontrun{
+#' rcompendium::new_compendium()
+#' }
 
 new_compendium <- function(overwrite = FALSE) {
   
@@ -17,7 +22,7 @@ new_compendium <- function(overwrite = FALSE) {
   
   
   
-  usethis::ui_line()
+  ui_line()
   if (!dir.exists(".git")) {
     gert::git_init(here::here())
     ui_done("Init {ui_value('git')} versioning")
@@ -31,7 +36,7 @@ new_compendium <- function(overwrite = FALSE) {
   
   
   
-  usethis::ui_line()
+  ui_line()
   cat(clisymbols::symbol$radio_on, 
       crayon::bold(crayon::underline("Creating Package Structure")))
   ui_line()
@@ -102,12 +107,17 @@ new_compendium <- function(overwrite = FALSE) {
   ui_done("Creating {ui_value('analysis/figures/')} directory")
   ui_todo("Export your figures in the {ui_value('analysis/figures/')} directory")
   
-  # add_readme()
-  # add_github_actions()
+  ui_line()
+  add_readme_rmd()
+  ui_todo("Edit the {ui_value('README.Rmd')} and do not forget to knit it with {ui_code('rmarkdown::render()')}.")
+  
+  
   
   ui_line()
   cat(clisymbols::symbol$radio_on, 
       crayon::bold(crayon::underline("Done!")))
+  
+  
   
   invisible(NULL)
 }

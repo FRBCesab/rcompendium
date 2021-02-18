@@ -14,3 +14,8 @@ new_compendium(overwrite = FALSE)
 This function creates a new files and folders structure according to the
 research compendium paradigm. The project will be installed as a package.
 }
+\examples{
+\dontrun{
+rcompendium::new_compendium()
+}
+}

@@ -2,6 +2,7 @@
 
 export(add_description)
 export(add_makefile)
+export(add_readme_rmd)
 export(add_to_buildignore)
 export(add_to_gitignore)
 export(new_compendium)

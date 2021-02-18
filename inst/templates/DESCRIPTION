@@ -1,0 +1,30 @@
+Package: {{project_name}}
+Type: Package
+Title: The Title of the Project
+Version: 1.0.0
+Authors@R: c(
+    person(given   = "Nicolas",
+           family  = "Casajus",
+           role    = c("aut", "cre"),
+           email   = "nicolas.casajus@fondationbiodiversite.fr",
+           comment = c(ORCID = "0000-0002-5537-5294")))
+Description: A paragraph providing a full description of the project.
+    Please write your description on several lines...
+URL: https://github.com/ahasverus/{{project_name}}
+BugReports: https://github.com/ahasverus/{{project_name}}/issues
+License: GPL (>= 2)
+Encoding: UTF-8
+LazyData: true
+Depends:
+    {{r_version}}
+Imports:
+    devtools,
+    here,
+    stats,
+    usethis,
+    utils
+Suggests:
+    knitr,
+    rmarkdown
+Roxygen: list(markdown = TRUE)
+RoxygenNote: {{roxygen2_version}}

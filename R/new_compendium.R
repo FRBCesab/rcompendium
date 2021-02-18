@@ -34,6 +34,10 @@ new_compendium <- function(overwrite = FALSE) {
   
   add_to_gitignore()
   
+  ui_line()
+  add_readme_rmd(open = FALSE)
+  ui_todo("Edit the {ui_value('README.Rmd')} and do not forget to knit it with {ui_code('rmarkdown::render()')}")
+  
   
   
   ui_line()
@@ -106,10 +110,6 @@ new_compendium <- function(overwrite = FALSE) {
   dir.create(here::here("analysis", "figures"), showWarnings = FALSE)
   ui_done("Creating {ui_value('analysis/figures/')} directory")
   ui_todo("Export your figures in the {ui_value('analysis/figures/')} directory")
-  
-  ui_line()
-  add_readme_rmd()
-  ui_todo("Edit the {ui_value('README.Rmd')} and do not forget to knit it with {ui_code('rmarkdown::render()')}.")
   
   
   

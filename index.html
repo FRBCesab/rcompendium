@@ -67,24 +67,28 @@
 
 <p>The goal of <code>rcompendium</code> is to create a research compendium, i.e. a predefined folder structure with the following content:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>compendium           <span class="co"># Project Root</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a>├── .git</span>
-<span id="cb1-3"><a href="#cb1-3"></a>├── R<span class="op">/</span><span class="st">               </span><span class="co"># Contains R functions</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a>├── man<span class="op">/</span><span class="st">             </span><span class="co"># Contains R functions helps (automatically updated)</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a>├── analysis<span class="op">/</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a>│   ├── data<span class="op">/</span><span class="st">        </span><span class="co"># Contains user raw data (.csv, .xlsx, .shp, etc.)</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a>│   ├── rscripts<span class="op">/</span><span class="st">    </span><span class="co"># Contains R scripts to run analyses</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a>│   ├── outputs<span class="op">/</span><span class="st">     </span><span class="co"># Contains outputs created by user</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a>│   └── figures<span class="op">/</span><span class="st">     </span><span class="co"># Contains figures created by user</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>│</span>
+<span id="cb1-3"><a href="#cb1-3"></a>├── .git             <span class="co"># Automatically created (or not)</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>├── .Rbuildignore    <span class="co"># Contains make.R and analysis/</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>├── .gitignore       <span class="co"># Specific to R projects</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>├── compendium.Rproj <span class="co"># Created by user (if using RStudio IDE)</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a>│</span>
+<span id="cb1-8"><a href="#cb1-8"></a>├── R<span class="op">/</span><span class="st">               </span><span class="co"># Contains R functions</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a>├── man<span class="op">/</span><span class="st">             </span><span class="co"># Contains R functions helps (automatically updated)</span></span>
 <span id="cb1-10"><a href="#cb1-10"></a>├── DESCRIPTION      <span class="co"># Project metadata (author, date, dependencies, etc.)</span></span>
 <span id="cb1-11"><a href="#cb1-11"></a>├── NAMESPACE</span>
 <span id="cb1-12"><a href="#cb1-12"></a>├── LICENSE          <span class="co"># License GPL &gt;=2</span></span>
 <span id="cb1-13"><a href="#cb1-13"></a>├── LICENSE.md       <span class="co"># Content of the GPL &gt;=2 License</span></span>
-<span id="cb1-14"><a href="#cb1-14"></a>├── make.R           <span class="co"># Master R scripts to run all analyses</span></span>
-<span id="cb1-15"><a href="#cb1-15"></a>├── README.md</span>
-<span id="cb1-16"><a href="#cb1-16"></a>├── README.Rmd</span>
-<span id="cb1-17"><a href="#cb1-17"></a>├── compendium.Rproj <span class="co"># RStudio project file (created by user)</span></span>
-<span id="cb1-18"><a href="#cb1-18"></a>├── .Rbuildignore    <span class="co"># Contains make.R and analysis/</span></span>
-<span id="cb1-19"><a href="#cb1-19"></a>└── .gitignore</span></code></pre></div>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="op">|</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a>├── analysis<span class="op">/</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a>│   ├── data<span class="op">/</span><span class="st">        </span><span class="co"># Contains user raw data (.csv, .xlsx, .shp, etc.)</span></span>
+<span id="cb1-17"><a href="#cb1-17"></a>│   ├── rscripts<span class="op">/</span><span class="st">    </span><span class="co"># Contains R scripts to run analyses</span></span>
+<span id="cb1-18"><a href="#cb1-18"></a>│   ├── outputs<span class="op">/</span><span class="st">     </span><span class="co"># Contains outputs created by user</span></span>
+<span id="cb1-19"><a href="#cb1-19"></a>│   └── figures<span class="op">/</span><span class="st">     </span><span class="co"># Contains figures created by user</span></span>
+<span id="cb1-20"><a href="#cb1-20"></a>├── make.R           <span class="co"># Master R scripts to run all analyses</span></span>
+<span id="cb1-21"><a href="#cb1-21"></a>│</span>
+<span id="cb1-22"><a href="#cb1-22"></a>├── README.md        <span class="co"># GitHub README (automatically updated)</span></span>
+<span id="cb1-23"><a href="#cb1-23"></a>└── README.Rmd       <span class="co"># GitHub README (to rmarkdown::render)</span></span></code></pre></div>
 <p><strong>N.B. 1.</strong> the research compendium can be built as an R package with <code><a href="https://devtools.r-lib.org//reference/install.html">devtools::install()</a></code> but only R functions stored in the <strong>R/</strong> folder will be available (do not forget to edit R functions documentation and to run <code><a href="https://devtools.r-lib.org//reference/document.html">devtools::document()</a></code>). The content of the <strong>analysis/</strong> folder must be run by sourcing the <code>make.R</code> file. All files created by user must be saved in the subfolders of <strong>analysis/</strong>.</p>
 <p><strong>N.B. 2.</strong> the files <code>DESCRIPTION</code> and <code>make.R</code> are written from templates and are specific to myself.</p>
 <div id="installation" class="section level2">

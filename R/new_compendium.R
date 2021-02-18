@@ -37,6 +37,8 @@ new_compendium <- function(overwrite = FALSE) {
   ui_line()
   add_readme_rmd(open = FALSE)
   ui_todo("Edit the {ui_value('README.Rmd')} and do not forget to knit it with {ui_code('rmarkdown::render()')}")
+  add_to_buildignore("README.Rmd")
+  add_to_buildignore("README.html")
   
   
   

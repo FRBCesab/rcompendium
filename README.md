@@ -16,10 +16,10 @@ predefined folder structure with the following content:
 
     compendium           # Project Root
     │
-    ├── .git
+    ├── .git             # Automatically created (or not)
     ├── .Rbuildignore    # Contains make.R and analysis/
-    ├── .gitignore
-    ├── compendium.Rproj # RStudio project file (created by user)
+    ├── .gitignore       # Specific to R projects
+    ├── compendium.Rproj # Created by user (if using RStudio IDE)
     │
     ├── R/               # Contains R functions
     ├── man/             # Contains R functions helps (automatically updated)
@@ -33,10 +33,10 @@ predefined folder structure with the following content:
     │   ├── rscripts/    # Contains R scripts to run analyses
     │   ├── outputs/     # Contains outputs created by user
     │   └── figures/     # Contains figures created by user
-    |
     ├── make.R           # Master R scripts to run all analyses
-    ├── README.md
-    └── README.Rmd
+    │
+    ├── README.md        # GitHub README (automatically updated)
+    └── README.Rmd       # GitHub README (to rmarkdown::render)
 
 **N.B. 1.** the research compendium can be built as an R package with
 `devtools::install()` but only R functions stored in the **R/** folder

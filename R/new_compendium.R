@@ -20,7 +20,7 @@ new_compendium <- function(overwrite = FALSE) {
   usethis::ui_line()
   if (!dir.exists(".git")) {
     gert::git_init(here::here())
-    ui_done("Init {ui_value('git')} versioning.")
+    ui_done("Init {ui_value('git')} versioning")
   }
   
   if (file.exists(".gitignore")) {
@@ -43,21 +43,21 @@ new_compendium <- function(overwrite = FALSE) {
   
   ui_line()
   add_description(open = FALSE, overwrite = overwrite)
-  ui_todo("Edit project metadata in the {ui_value('DESCRIPTION')} file.")
+  ui_todo("Edit project metadata in the {ui_value('DESCRIPTION')} file")
   
   ui_line()
-  ui_done("Writing {ui_value('LICENSE.md (GPL >= 2)')} file.")
+  ui_done("Writing {ui_value('LICENSE.md (GPL >= 2)')} file")
   add_to_buildignore("LICENSE.md")
   
   ui_line()
   dir.create(here::here("R"), showWarnings = FALSE)
-  ui_done("Creating {ui_value('R/')} directory.")
-  ui_todo("Write your R functions in the {ui_value('R/')} directory.")
+  ui_done("Creating {ui_value('R/')} directory")
+  ui_todo("Write your R functions in the {ui_value('R/')} directory")
   
   ui_line()
   dir.create(here::here("man"), showWarnings = FALSE)
-  ui_done("Creating {ui_value('man/')} directory.")
-  ui_todo("Use {ui_code('devtools::document()')} to add functions helps in {ui_value('man/')} directory.")
+  ui_done("Creating {ui_value('man/')} directory")
+  ui_todo("Use {ui_code('devtools::document()')} to add functions helps in {ui_value('man/')} directory")
   
   ui_line()
   add_package_doc()

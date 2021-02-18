@@ -48,7 +48,7 @@ add_description <- function(open = TRUE, overwrite = FALSE) {
   
   ## Message ----
   
-  ui_done("Writing {ui_value('DESCRIPTION')} file.")
+  ui_done("Writing {ui_value('DESCRIPTION')} file")
   
   if (open) file.edit(here::here("DESCRIPTION"))
   

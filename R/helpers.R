@@ -12,7 +12,7 @@ add_package_doc <- function() {
     file.copy(system.file("templates/xxx-package.R", package = "rcompendium"), 
               here::here("R", filename)))
   
-  ui_done("Writing {ui_value(paste0('R/', filename))} file.")
+  ui_done("Writing {ui_value(paste0('R/', filename))} file")
   
   invisible(NULL)
 }

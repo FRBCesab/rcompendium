@@ -30,7 +30,7 @@ add_to_buildignore <- function(x, open = FALSE) {
   
   if (!file.exists(here::here(".Rbuildignore"))) {
     invisible(file.create(here::here(".Rbuildignore")))
-    ui_done("Writing {ui_value('.Rbuildignore')} file.")
+    ui_done("Writing {ui_value('.Rbuildignore')} file")
   }
   
   

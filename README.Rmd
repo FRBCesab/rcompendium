@@ -30,24 +30,28 @@ folder structure with the following content:
 
 ```
 compendium           # Project Root
+│
 ├── .git
+├── .Rbuildignore    # Contains make.R and analysis/
+├── .gitignore
+├── compendium.Rproj # RStudio project file (created by user)
+│
 ├── R/               # Contains R functions
 ├── man/             # Contains R functions helps (automatically updated)
+├── DESCRIPTION      # Project metadata (author, date, dependencies, etc.)
+├── NAMESPACE
+├── LICENSE          # License GPL >=2
+├── LICENSE.md       # Content of the GPL >=2 License
+|
 ├── analysis/
 │   ├── data/        # Contains user raw data (.csv, .xlsx, .shp, etc.)
 │   ├── rscripts/    # Contains R scripts to run analyses
 │   ├── outputs/     # Contains outputs created by user
 │   └── figures/     # Contains figures created by user
-├── DESCRIPTION      # Project metadata (author, date, dependencies, etc.)
-├── NAMESPACE
-├── LICENSE          # License GPL >=2
-├── LICENSE.md       # Content of the GPL >=2 License
+|
 ├── make.R           # Master R scripts to run all analyses
 ├── README.md
-├── README.Rmd
-├── compendium.Rproj # RStudio project file (created by user)
-├── .Rbuildignore    # Contains make.R and analysis/
-└── .gitignore
+└── README.Rmd
 ```
 
 

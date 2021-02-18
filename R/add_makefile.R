@@ -42,7 +42,7 @@ add_makefile <- function(open = TRUE, overwrite = FALSE) {
                   project_name, fixed = TRUE)
   
   
-  ui_done("Writing {ui_value('make.R')} file.")
+  ui_done("Writing {ui_value('make.R')} file")
   
   if (open) file.edit(here::here("make.R"))
   

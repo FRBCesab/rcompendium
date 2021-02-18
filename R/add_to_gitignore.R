@@ -23,7 +23,7 @@ add_to_gitignore <- function(x, open = FALSE) {
       file.copy(system.file("templates/gitignore", package = "rcompendium"),
                 here::here(".gitignore")))
     
-    ui_done("Writing {ui_value('.gitignore')} file.")
+    ui_done("Writing {ui_value('.gitignore')} file")
   }
   
   

@@ -1,5 +1,5 @@
 
-# rcompendium
+# rcompendium <img src="man/figures/hexsticker.png" height="120" align="right"/>
 
 <!-- badges: start -->
 

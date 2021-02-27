@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create a DESCRIPTION File — add_description • rcompendium</title>
+<title>Get all dependencies of the project — get_all_dependencies • rcompendium</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,9 @@
 
 
 
-<meta property="og:title" content="Create a DESCRIPTION File — add_description" />
-<meta property="og:description" content="This function creates a DESCRIPTION file at the root of the project based on
-a template." />
+<meta property="og:title" content="Get all dependencies of the project — get_all_dependencies" />
+<meta property="og:description" content="This function gets all the external packages that the project needs. It is
+used the generate the Dependencies badge." />
 
 
 
@@ -104,43 +104,55 @@ a template." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Create a DESCRIPTION File</h1>
+    <h1>Get all dependencies of the project</h1>
     
-    <div class="hidden name"><code>add_description.Rd</code></div>
+    <div class="hidden name"><code>get_all_dependencies.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function creates a DESCRIPTION file at the root of the project based on
-a template.</p>
+    <p>This function gets all the external packages that the project needs. It is
+used the generate the Dependencies badge.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>add_description</span><span class='op'>(</span>open <span class='op'>=</span> <span class='cn'>TRUE</span>, overwrite <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>get_all_dependencies</span><span class='op'>(</span>pkg <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>open</th>
-      <td><p>a logical value. If <code>TRUE</code> (default) the file is opened in the
-editor.</p></td>
-    </tr>
-    <tr>
-      <th>overwrite</th>
-      <td><p>a logical value. If a <code>DESCRIPTION</code> is already present and
-<code>overwrite = TRUE</code>, this file will be erased and replaced.</p></td>
+      <th>pkg</th>
+      <td><p>name of a CRAN package or <code>NULL</code>. If <code>NULL</code> get dependencies
+of the local (uninstalled) project (package or compendium).</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A list of three vectors:</p><ul>
+<li><p><code>base_deps</code>, a vector of base packages;</p></li>
+<li><p><code>direct_deps</code>, a vector of direct packages;</p></li>
+<li><p><code>all_deps</code>, a vector of all dependencies (recursively obtained).</p></li>
+</ul>
+
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other create files: 
-<code><a href='add_makefile.html'>add_makefile</a>()</code>,
-<code><a href='add_package_doc.html'>add_package_doc</a>()</code>,
-<code><a href='add_readme_rmd.html'>add_readme_rmd</a>()</code></p></div>
+    <div class='dont-index'><p>Other utilities functions: 
+<code><a href='get_all_functions.html'>get_all_functions</a>()</code>,
+<code><a href='get_minimal_r_version.html'>get_minimal_r_version</a>()</code>,
+<code><a href='get_rd_families.html'>get_rd_families</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='fu'>add_description</span><span class='op'>(</span><span class='op'>)</span>
+<span class='co'>## Update dependencies ----</span>
+<span class='fu'><a href='add_dependencies.html'>add_dependencies</a></span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='co'>## Get all dependencies ----</span>
+<span class='va'>deps</span> <span class='op'>&lt;-</span> <span class='fu'>get_all_dependencies</span><span class='op'>(</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/unlist.html'>unlist</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span><span class='op'>(</span><span class='va'>deps</span>, <span class='va'>length</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='co'>## Can be used for a specific package ----</span>
+<span class='va'>deps</span> <span class='op'>&lt;-</span> <span class='fu'>get_all_dependencies</span><span class='op'>(</span><span class='st'>"usethis"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/unlist.html'>unlist</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span><span class='op'>(</span><span class='va'>deps</span>, <span class='va'>length</span><span class='op'>)</span><span class='op'>)</span>
 <span class='op'>}</span>
 </div></pre>
   </div>

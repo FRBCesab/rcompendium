@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Add Dependencies in DESCRIPTION File — add_dependencies • rcompendium</title>
+<title>Add dependencies in DESCRIPTION — add_dependencies • rcompendium</title>
 
 
 <!-- jquery -->
@@ -39,10 +39,27 @@
 
 
 
-<meta property="og:title" content="Add Dependencies in DESCRIPTION File — add_dependencies" />
-<meta property="og:description" content="This function detects dependencies used in R/, NAMESPACE, and @examples
-and automatically adds these dependencies in Imports section of the
-DESCRIPTION file." />
+<meta property="og:title" content="Add dependencies in DESCRIPTION — add_dependencies" />
+<meta property="og:description" content="This function detects dependencies used in R/, NAMESPACE, and
+@examples sections and automatically adds these dependencies in the
+Imports section of the DESCRIPTION file.
+In the NAMESPACE this function detects dependencies mentioned as
+import(pkg) and importFrom(pkg,fun).
+In the R/ folder it detects functions called as pkg::fun() in the code
+of each R files. In @examples sections it also detects packages attached
+using library() or require().
+The vignettes/ folder is also inspected and detected dependencies
+(pkg::fun(), library() or require()) are added in the Suggests
+section of the DESCRIPTION file.
+If the project is a research compendium user can also inspect one
+additional folder (i.e. analysis/) with the argument import to add
+dependencies used in this folder in the section Imports of the
+DESCRIPTION file. The detection process is the same as the one used
+for vignettes/.
+If a .Rmd file is detected packages knitr and rmarkdown are added in
+Imports field of DESCRIPTION file (for .Rmd stored in analysis/)
+or in Suggests field of DESCRIPTION file (for .Rmd stored in
+vignettes/ if these two packages are not present in the Imports field)." />
 
 
 
@@ -105,56 +122,59 @@ DESCRIPTION file." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Add Dependencies in DESCRIPTION File</h1>
+    <h1>Add dependencies in DESCRIPTION</h1>
     
     <div class="hidden name"><code>add_dependencies.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function detects dependencies used in <code>R/</code>, <code>NAMESPACE</code>, and <code>@examples</code>
-and automatically adds these dependencies in <strong>Imports</strong> section of the
-<code>DESCRIPTION</code> file.</p>
+    <p>This function detects dependencies used in <strong>R/</strong>, <strong>NAMESPACE</strong>, and
+<code>@examples</code> sections and automatically adds these dependencies in the
+<code>Imports</code> section of the <strong>DESCRIPTION</strong> file.</p>
+<p>In the <strong>NAMESPACE</strong> this function detects dependencies mentioned as
+<code>import(pkg)</code> and <code>importFrom(pkg,fun)</code>.</p>
+<p>In the <strong>R/</strong> folder it detects functions called as <code>pkg::fun()</code> in the code
+of each R files. In <code>@examples</code> sections it also detects packages attached
+using <code><a href='https://rdrr.io/r/base/library.html'>library()</a></code> or <code><a href='https://rdrr.io/r/base/library.html'>require()</a></code>.</p>
+<p>The <strong>vignettes/</strong> folder is also inspected and detected dependencies
+(<code>pkg::fun()</code>, <code><a href='https://rdrr.io/r/base/library.html'>library()</a></code> or <code><a href='https://rdrr.io/r/base/library.html'>require()</a></code>) are added in the <code>Suggests</code>
+section of the <strong>DESCRIPTION</strong> file.</p>
+<p>If the project is a research compendium user can also inspect one
+additional folder (i.e. <strong>analysis/</strong>) with the argument <code>import</code> to add
+dependencies used in this folder in the section <code>Imports</code> of the
+<strong>DESCRIPTION</strong> file. The detection process is the same as the one used
+for <strong>vignettes/</strong>.</p>
+<p>If a <code>.Rmd</code> file is detected packages <code>knitr</code> and <code>rmarkdown</code> are added in
+<code>Imports</code> field of <strong>DESCRIPTION</strong> file (for <code>.Rmd</code> stored in <strong>analysis/</strong>)
+or in <code>Suggests</code> field of <strong>DESCRIPTION</strong> file (for <code>.Rmd</code> stored in
+<strong>vignettes/</strong> if these two packages are not present in the <code>Imports</code> field).</p>
     </div>
 
-    <pre class="usage"><span class='fu'>add_dependencies</span><span class='op'>(</span>path <span class='op'>=</span> <span class='st'>"."</span>, import <span class='op'>=</span> <span class='cn'>NULL</span>, suggest <span class='op'>=</span> <span class='st'>"vignettes"</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>add_dependencies</span><span class='op'>(</span>import <span class='op'>=</span> <span class='cn'>NULL</span>, suggest <span class='op'>=</span> <span class='st'>"vignettes"</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>path</th>
-      <td><p>the path to the package/research compendium (must have a
-<code>DESCRIPTION</code> file) in which dependencies are recursively detected.</p></td>
-    </tr>
-    <tr>
       <th>import</th>
       <td><p>(optional) the name of the folder to recursively detect
-dependencies to be added in the <strong>Imports</strong> field of <code>DESCRIPTION</code> file.
-Default is <code>import = NULL</code> (but <code>R/</code>, <code>NAMESPACE</code>, and <code>@examples</code> are still
-inspected).</p></td>
+dependencies to be added in the <code>Imports</code> field of <strong>DESCRIPTION</strong> file.
+Default is <code>import = NULL</code> (but <strong>R/</strong>, <strong>NAMESPACE</strong>, and <code>@examples</code> are
+still inspected).</p></td>
     </tr>
     <tr>
       <th>suggest</th>
       <td><p>the name of the folder to recursively detect dependencies to
-be added in the <strong>Suggests</strong> field of <code>DESCRIPTION</code> file.
+be added in the <code>Suggests</code> field of <strong>DESCRIPTION</strong> file.
 Default is <code>suggest = "vignettes"</code>.</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p>In the <code>NAMESPACE</code> file it detects dependencies mentionned as <code>import(pkg)</code>
-and <code>importFrom(pkg,fun)</code>.</p>
-<p>In the <code>R/</code> folder it detects functions called as <code>pkg::fun()</code> in the code
-of each R files. In <code>@examples</code> section it also detects packages attached
-using <code><a href='https://rdrr.io/r/base/library.html'>library(pkg)</a></code> or <code><a href='https://rdrr.io/r/base/library.html'>require(pkg)</a></code>.</p>
-<p>The folder <code>vignettes/</code> is also inspected and detected dependencies
-(<code>pkg::fun()</code>, <code><a href='https://rdrr.io/r/base/library.html'>library(pkg)</a></code> or <code><a href='https://rdrr.io/r/base/library.html'>require(pkg)</a></code>) are added in the section
-<strong>Suggests</strong> of the <code>DESCRIPTION</code> file.</p>
-<p>If the project is a research compendium user can also inspect one
-additional folder (i.e. <code>analysis/</code>) with the argument <code>import</code> to detected
-dependencies to be added in the section <strong>Imports</strong> of the <code>DESCRIPTION</code>
-file. The detection process is the same as the one used for <code>vignettes/</code>.</p>
+    <div class='dont-index'><p>Other development functions: 
+<code><a href='add_to_buildignore.html'>add_to_buildignore</a>()</code>,
+<code><a href='add_to_gitignore.html'>add_to_gitignore</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create a DESCRIPTION File — add_description • rcompendium</title>
+<title>Create a package-level documentation file — add_package_doc • rcompendium</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,11 @@
 
 
 
-<meta property="og:title" content="Create a DESCRIPTION File — add_description" />
-<meta property="og:description" content="This function creates a DESCRIPTION file at the root of the project based on
-a template." />
+<meta property="og:title" content="Create a package-level documentation file — add_package_doc" />
+<meta property="og:description" content="This function adds a package-level documentation file (.R) in the R/
+folder. This file will make help available to the user via ?pkg (where
+pkg is the name of the project). It a good place to put general directives
+like @import and @importFrom." />
 
 
 
@@ -104,17 +106,19 @@ a template." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Create a DESCRIPTION File</h1>
+    <h1>Create a package-level documentation file</h1>
     
-    <div class="hidden name"><code>add_description.Rd</code></div>
+    <div class="hidden name"><code>add_package_doc.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function creates a DESCRIPTION file at the root of the project based on
-a template.</p>
+    <p>This function adds a package-level documentation file (<code>.R</code>) in the <strong>R/</strong>
+folder. This file will make help available to the user via <code>?pkg</code> (where
+<code>pkg</code> is the name of the project). It a good place to put general directives
+like <code>@import</code> and <code>@importFrom</code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>add_description</span><span class='op'>(</span>open <span class='op'>=</span> <span class='cn'>TRUE</span>, overwrite <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>add_package_doc</span><span class='op'>(</span>open <span class='op'>=</span> <span class='cn'>TRUE</span>, overwrite <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -126,21 +130,21 @@ editor.</p></td>
     </tr>
     <tr>
       <th>overwrite</th>
-      <td><p>a logical value. If a <code>DESCRIPTION</code> is already present and
-<code>overwrite = TRUE</code>, this file will be erased and replaced.</p></td>
+      <td><p>a logical value. If a file is already present and
+<code>overwrite = TRUE</code>, it will be erased and replaced.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other create files: 
+<code><a href='add_description.html'>add_description</a>()</code>,
 <code><a href='add_makefile.html'>add_makefile</a>()</code>,
-<code><a href='add_package_doc.html'>add_package_doc</a>()</code>,
 <code><a href='add_readme_rmd.html'>add_readme_rmd</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='fu'>add_description</span><span class='op'>(</span><span class='op'>)</span>
+<span class='fu'>add_package_doc</span><span class='op'>(</span><span class='op'>)</span>
 <span class='op'>}</span>
 </div></pre>
   </div>

@@ -1,0 +1,67 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  eval      = FALSE,
+  collapse  = TRUE,
+  comment   = "#>",
+  fig.path  = "man/figures/",
+  out.width = "100%"
+)
+```
+
+
+
+{{project_name}} <img src="man/figures/hexsticker.png" height="120" align="right"/>
+=========================================================
+
+<!-- badges: start -->
+[![CRAN status](https://www.r-pkg.org/badges/version/{{project_name}})](https://CRAN.R-project.org/package={{project_name}})
+<!-- badges: end -->
+
+
+The goal of the R package `{{project_name}}` is to...
+
+
+
+## Installation
+
+You can install the development version from [GitHub](https://github.com/) with:
+
+```r
+# install.packages("remotes")
+remotes::install_github("{{github}}/{{project_name}}")
+```
+
+Then you can attach the package `{{project_name}}`:
+
+```r
+library("{{project_name}}")
+```
+
+
+
+## Overview
+
+Here is an overview of `{{project_name}}` content:
+
+
+
+## Citation
+
+Please cite this package as: 
+
+> {{family}} {{given}} (`r format(Sys.Date(), "%Y")`) {{project_name}}: {{title}}. R package version {{pkg_version}}.
+
+
+
+## Code of Conduct
+
+Please note that the `{{project_name}}` project is released with a 
+[Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). 
+By contributing to this project, you agree to abide by its terms.

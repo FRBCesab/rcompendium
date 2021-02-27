@@ -9,15 +9,16 @@ Authors@R: c(
            email   = "nicolas.casajus@fondationbiodiversite.fr",
            comment = c(ORCID = "0000-0002-5537-5294")))
 Description: This package creates a research compendium, i.e. a predefined
-    folder structure.
+    folder structure. It can be also used to create a new R package as an
+    alternative to usethis::create_package().
 License: GPL (>= 2)
 Encoding: UTF-8
 LazyData: true
 Imports: 
-    cli,
     clisymbols,
     crayon,
     devtools,
+    fs,
     gert,
     here,
     usethis,

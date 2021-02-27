@@ -1,8 +1,8 @@
 ^LICENSE\.md$
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^make\.R$
 ^README\.Rmd$
 ^README\.html$
 ^\.github$
 ^CODE_OF_CONDUCT\.md$
+^rcompendium\.Rproj$

@@ -2,20 +2,104 @@
 % Please edit documentation in R/new_compendium.R
 \name{new_compendium}
 \alias{new_compendium}
-\title{Create a Research Compendium}
+\title{Create a research compendium}
 \usage{
-new_compendium(overwrite = FALSE)
+new_compendium(
+  status = "concept",
+  lifecycle = "experimental",
+  cran = TRUE,
+  codeofconduct = TRUE,
+  check = FALSE,
+  deploy = FALSE,
+  create_repo = TRUE,
+  given = NULL,
+  family = NULL,
+  short = NULL,
+  email = NULL,
+  orcid = NULL,
+  github = NULL,
+  license = NULL,
+  overwrite = FALSE
+)
 }
 \arguments{
-\item{overwrite}{a logical value. If a \code{make.R} is already present and
+\item{status}{a character. One among 'concept' (default), 'wip',
+'suspended', 'abandoned', 'active', 'inactive', or 'unsupported'. This will
+add a Repo Status badge to the \strong{README.Rmd}. If you don't want to add
+this badge, set \code{status} to \code{NULL}. For further information see
+\code{\link[=add_repostatus_badge]{add_repostatus_badge()}}.}
+
+\item{lifecycle}{\strong{!!! \strong{ADD} !!!}}
+
+\item{cran}{a boolean. If \code{TRUE} adds a CRAN version badge to the
+\strong{README.Rmd}. Default is \code{FALSE} (this badge is more appropriate for an
+R package).}
+
+\item{codeofconduct}{a boolean. If \code{TRUE} (default) adds a Code of Conduct
+badge and a paragraph to the \strong{README.Rmd}. The content of the Code of
+Conduct is also added at the root of the project.}
+
+\item{check}{\strong{!!! \strong{ADD} !!!}}
+
+\item{deploy}{\strong{!!! \strong{ADD} !!!}}
+
+\item{create_repo}{\strong{!!! \strong{ADD} !!!}}
+
+\item{given}{a character of length 1. User given name to be used for this
+project. Default is \code{NULL} and the value of this parameter will be
+obtained from the \strong{.Rprofile} file (if \code{\link[=set_credentials]{set_credentials()}} was previously
+used). For further information see \code{\link[=set_credentials]{set_credentials()}}.}
+
+\item{family}{a character of length 1. User family name to be used for this
+project. Default is \code{NULL} and the value of this parameter will be
+obtained from the \strong{.Rprofile} file (if \code{\link[=set_credentials]{set_credentials()}} was previously
+used). For further information see \code{\link[=set_credentials]{set_credentials()}}.}
+
+\item{short}{a character of length 1. User short name to be used for this
+project. Default is \code{NULL} and the value of this parameter will be
+obtained from the \strong{.Rprofile} file (if \code{\link[=set_credentials]{set_credentials()}} was previously
+used). For further information see \code{\link[=set_credentials]{set_credentials()}}.}
+
+\item{email}{a character of length 1. User email address to be used for this
+project. Default is \code{NULL} and the value of this parameter will be
+obtained from the \strong{.Rprofile} file (if \code{\link[=set_credentials]{set_credentials()}} was previously
+used). For further information see \code{\link[=set_credentials]{set_credentials()}}.}
+
+\item{orcid}{a character of length 1. User ORCID to be used for this
+project. Default is \code{NULL} and the value of this parameter will be
+obtained from the \strong{.Rprofile} file (if \code{\link[=set_credentials]{set_credentials()}} was previously
+used). For further information see \code{\link[=set_credentials]{set_credentials()}}.}
+
+\item{github}{a character of length 1. User GitHub pseudo/organization to be
+used for this project. Default is \code{NULL} and the value of this parameter
+will be obtained from the \strong{.Rprofile} file (if \code{\link[=set_credentials]{set_credentials()}} was
+previously used). For further information see \code{\link[=set_credentials]{set_credentials()}}.}
+
+\item{license}{a character of length 1. User preferred license to be
+used for this project. Default is \code{NULL} and the value of this parameter
+will be obtained from the \strong{.Rprofile} file (if \code{\link[=set_credentials]{set_credentials()}} was
+previously used). For further information see \code{\link[=set_credentials]{set_credentials()}}.}
+
+\item{overwrite}{a logical value. If a \strong{make.R} is already present and
 \code{overwrite = TRUE}, this file will be erased and replaced.}
 }
 \description{
-This function creates a new files and folders structure according to the
-research compendium paradigm. The project will be installed as a package.
+This function creates a new files-folders structure according to the
+research compendium paradigm. The project can be (if required) installed
+as an R package.
+}
+\details{
+...
 }
 \examples{
 \dontrun{
 rcompendium::new_compendium()
 }
 }
+\seealso{
+\code{\link[=set_credentials]{set_credentials()}}, \code{\link[=new_package]{new_package()}}
+
+Other core functions: 
+\code{\link{set_credentials}()}
+}
+\concept{core functions}

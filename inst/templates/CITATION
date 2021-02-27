@@ -1,0 +1,20 @@
+citHeader("To cite {{project_name}} in publications use:")
+
+bibentry(
+  bibtype = "Article",
+  title   = "{{Article Title}}",
+  author  = c(person("{{short}}")),
+  year    = "{{Year}}",
+  journal = "{{Journal Name}}",
+  volume  = "{{Volume}}",
+  pages   = "{{PP-PP}}",
+  doi     = "{{DOI}}")
+
+bibentry(
+  bibtype = "Manual",
+  title   = "{{project_name}}: {An} {R} package to ...",
+  author  = c(person("{{short}}")),
+  year    = "{{Year}}",
+  note    = "R package version {{r_pkg_version}}",
+  url     = "https://cran.r-project.org/package={{project_name}}"
+)

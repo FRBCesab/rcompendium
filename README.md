@@ -66,7 +66,7 @@ need to create a **New folder** and to open R in this directory (by
 using `setwd()`).
 
 **N.B.** the name of the compendium will be the same as the current
-directory.
+directory. Don’t worry you will be ask before any file is created.
 
 Then you can create the compendium:
 
@@ -80,8 +80,9 @@ You can now start working!
 
 Please cite this package as:
 
-> Casajus N. (2021) rcompendium: Create a Research Compendium. R package
-> version 1.0.0.
+> Casajus N. (2021) rcompendium: An R package to create a research
+> compendium. Version 1.0.0, &lt;URL:
+> <https://github.com/ahasverus/rcompendium>&gt;.
 
 ## Code of Conduct
 

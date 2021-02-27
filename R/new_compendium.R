@@ -166,12 +166,12 @@ new_compendium <- function(status = "concept", lifecycle = "experimental",
     
     ## Badges ----
     
-    if (check) add_github_actions_badge()
-    if (cran) add_cran_badge()
-    add_license_badge(license)
-    if (!is.null(status)) add_repostatus_badge(status)
-    if (!is.null(lifecycle)) add_lifecycle_badge(lifecycle)
-    if (codeofconduct) add_codeofconduct_badge()
+    # if (check) add_github_actions_badge()
+    # if (cran) add_cran_badge()
+    # add_license_badge(license)
+    # if (!is.null(status)) add_repostatus_badge(status)
+    # if (!is.null(lifecycle)) add_lifecycle_badge(lifecycle)
+    # if (codeofconduct) add_codeofconduct_badge()
     
     
     ## Compendium ----

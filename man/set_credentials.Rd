@@ -48,8 +48,6 @@ set_credentials(given = "Nicolas", family = "Casajus", short = "Casajus N.",
 }
 }
 \seealso{
-\code{\link[=new_compendium]{new_compendium()}}, \code{\link[=new_package]{new_package()}}
-
 Other core functions: 
 \code{\link{new_compendium}()}
 }

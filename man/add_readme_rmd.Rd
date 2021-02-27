@@ -4,9 +4,13 @@
 \alias{add_readme_rmd}
 \title{Create a README File}
 \usage{
-add_readme_rmd(open = TRUE, overwrite = FALSE)
+add_readme_rmd(type = "package", open = TRUE, overwrite = FALSE)
 }
 \arguments{
+\item{type}{a character. If \code{package} (default) a GitHub \code{README.Rmd}
+specific to an R package will be created. If \code{compendium} a GitHub
+\code{README.Rmd} specific to a research compendium will be created.}
+
 \item{open}{a logical value. If \code{TRUE} (default) the file is opened in the
 editor.}
 
@@ -15,5 +19,5 @@ editor.}
 }
 \description{
 This function creates a \code{README.Rmd} file at the root of the project based on
-a template. Once edited user needs to knit the file (\code{rmarkdown::render()}).
+a template. Once edited user needs to knit it into a \code{README.md}.
 }

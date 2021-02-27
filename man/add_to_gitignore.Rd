@@ -15,6 +15,6 @@ Default is \code{FALSE}.}
 }
 \description{
 This function creates a \code{.gitignore} file at the root of the project based on
-a template (specific to R). If a \code{.gitignore} is already present files to
+a template (specific to R). If a \code{.gitignore} is already present, files to
 be untracked by \strong{git} are just added to this file.
 }

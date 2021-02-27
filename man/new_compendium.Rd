@@ -97,8 +97,6 @@ rcompendium::new_compendium()
 }
 }
 \seealso{
-\code{\link[=set_credentials]{set_credentials()}}, \code{\link[=new_package]{new_package()}}
-
 Other core functions: 
 \code{\link{set_credentials}()}
 }

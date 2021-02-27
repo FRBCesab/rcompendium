@@ -1,7 +1,7 @@
 #' Create a .gitignore File
 #' 
 #' This function creates a `.gitignore` file at the root of the project based on
-#' a template (specific to R). If a `.gitignore` is already present files to
+#' a template (specific to R). If a `.gitignore` is already present, files to
 #' be untracked by **git** are just added to this file.
 #' 
 #' @param x a character of one or several files/directories names to add to the 
@@ -20,7 +20,8 @@ add_to_gitignore <- function(x, open = FALSE) {
   if (!file.exists(here::here(".gitignore"))) {
     
     invisible(
-      file.copy(system.file("templates/gitignore", package = "rcompendium"),
+      file.copy(system.file(file.path("templates", "GITIGNORE"), 
+                            package = "rcompendium"),
                 here::here(".gitignore")))
     
     ui_done("Writing {ui_value('.gitignore')} file")
@@ -48,7 +49,7 @@ add_to_gitignore <- function(x, open = FALSE) {
     }
   }
   
-  if (open) file.edit(here::here(".gitignore"))
+  if (open) utils::file.edit(here::here(".gitignore"))
   
   invisible(NULL)
 }

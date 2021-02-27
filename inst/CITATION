@@ -1,0 +1,10 @@
+citHeader("To cite rcompendium in publications use:")
+
+bibentry(
+  bibtype = "Manual",
+  title   = "{rcompendium}: {An} {R} package to create a research compendium",
+  author  = c(person("Casajus N.")),
+  year    = "2021",
+  note    = "R package version 1.0.0",
+  url     = "https://github.com/ahasverus/rcompendium"
+)

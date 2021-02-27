@@ -81,8 +81,7 @@ You can now start working!
 Please cite this package as:
 
 > Casajus N. (2021) rcompendium: An R package to create a research
-> compendium. Version 1.0.0, &lt;URL:
-> <https://github.com/ahasverus/rcompendium>&gt;.
+> compendium. Version 1.0, <https://github.com/ahasverus/rcompendium>.
 
 ## Code of Conduct
 

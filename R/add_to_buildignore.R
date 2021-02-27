@@ -1,8 +1,8 @@
 #' Add to .Rbuildignore File
 #' 
 #' This function adds files/folders to the `.Rbuildignore` file. If a 
-#' `.Rbuildignore` is already present files to be ignored are just added to this 
-#' file. Otherwise a new file is created.
+#' `.Rbuildignore` is already present, files to be ignored are just added to  
+#' this file. Otherwise a new file is created.
 #' 
 #' @param x a character of one or several files/directories names to add to the 
 #' `.Rbuildignore`. This argument is mandatory.
@@ -29,6 +29,7 @@ add_to_buildignore <- function(x, open = FALSE) {
   ## Create new file (if missing) ----
   
   if (!file.exists(here::here(".Rbuildignore"))) {
+    
     invisible(file.create(here::here(".Rbuildignore")))
     ui_done("Writing {ui_value('.Rbuildignore')} file")
   }
@@ -50,7 +51,7 @@ add_to_buildignore <- function(x, open = FALSE) {
     ui_oops("{ui_value(x)} is already present in {ui_value('.Rbuildignore')}")  
   }
   
-  if (open) file.edit(here::here(".Rbuildignore"))
+  if (open) utils::file.edit(here::here(".Rbuildignore"))
   
   invisible(NULL)
 }

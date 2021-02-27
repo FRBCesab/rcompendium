@@ -18,7 +18,7 @@ add_makefile <- function(open = TRUE, overwrite = FALSE) {
   
   if (!overwrite) {
     if (file.exists("make.R")) {
-      stop("A `make.R` file is already present. If you want to replace ",
+      stop("A **make.R** file is already present. If you want to replace ",
            "it, please use `overwrite = TRUE`.")
     }
   }
@@ -27,7 +27,8 @@ add_makefile <- function(open = TRUE, overwrite = FALSE) {
   ## Copy Template ----
   
   invisible(
-    file.copy(system.file("templates/make.R", package = "rcompendium"),
+    file.copy(system.file(file.path("templates", "MAKE"), 
+                          package = "rcompendium"),
               here::here("make.R")))
   
   
@@ -42,9 +43,32 @@ add_makefile <- function(open = TRUE, overwrite = FALSE) {
                   project_name, fixed = TRUE)
   
   
+  ## Change user credentials ----
+  
+  given_name <- getOption("given")
+  if (!is.null(given_name)) {
+    xfun::gsub_file(here::here("make.R"), "{{given}}", given_name, 
+                    fixed = TRUE)
+  }
+  
+  family_name <- getOption("family")
+  if (!is.null(family_name)) {
+    xfun::gsub_file(here::here("make.R"), "{{family}}", family_name, 
+                    fixed = TRUE)
+  }
+  
+  email <- getOption("email")
+  if (!is.null(email)) {
+    xfun::gsub_file(here::here("make.R"), "{{email}}", email, 
+                    fixed = TRUE)
+  }
+  
+  
+  ## Message ----
+  
   ui_done("Writing {ui_value('make.R')} file")
   
-  if (open) file.edit(here::here("make.R"))
+  if (open) utils::file.edit(here::here("make.R"))
   
   invisible(NULL)
 }

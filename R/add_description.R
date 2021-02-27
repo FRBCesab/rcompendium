@@ -18,8 +18,8 @@ add_description <- function(open = TRUE, overwrite = FALSE) {
   
   if (!overwrite) {
     if (file.exists("DESCRIPTION")) {
-      stop("A `DESCRIPTION` file is already present. If you want to replace ",
-           "it, please use `overwrite = TRUE`.")
+      stop("A **DESCRIPTION** file is already present. If you want to ",
+           "replace it, please use `overwrite = TRUE`.")
     }
   }
   
@@ -27,7 +27,8 @@ add_description <- function(open = TRUE, overwrite = FALSE) {
   ## Copy Template ----
   
   invisible(
-    file.copy(system.file("templates/DESCRIPTION", package = "rcompendium"),
+    file.copy(system.file(file.path("templates", "DESCRIPTION"), 
+                          package = "rcompendium"),
               here::here("DESCRIPTION")))
   
   
@@ -46,11 +47,50 @@ add_description <- function(open = TRUE, overwrite = FALSE) {
                   roxygen2_version, fixed = TRUE)
   
   
+  ## Change user credentials ----
+  
+  given_name <- getOption("given")
+  if (!is.null(given_name)) {
+    xfun::gsub_file(here::here("DESCRIPTION"), "{{given}}", given_name, 
+                    fixed = TRUE)
+  }
+  
+  family_name <- getOption("family")
+  if (!is.null(family_name)) {
+    xfun::gsub_file(here::here("DESCRIPTION"), "{{family}}", family_name, 
+                    fixed = TRUE)
+  }
+  
+  email <- getOption("email")
+  if (!is.null(email)) {
+    xfun::gsub_file(here::here("DESCRIPTION"), "{{email}}", email, 
+                    fixed = TRUE)
+  }
+  
+  orcid <- getOption("orcid")
+  if (!is.null(orcid)) {
+    xfun::gsub_file(here::here("DESCRIPTION"), "{{orcid}}", orcid, 
+                    fixed = TRUE)
+  }
+  
+  github <- getOption("github")
+  if (!is.null(github)) {
+    xfun::gsub_file(here::here("DESCRIPTION"), "{{github}}", github, 
+                    fixed = TRUE)
+  }
+  
+  license_pref <- getOption("license")
+  if (!is.null(license_pref)) {
+    xfun::gsub_file(here::here("DESCRIPTION"), "{{license}}", license_pref, 
+                    fixed = TRUE)
+  }
+  
+  
   ## Message ----
   
   ui_done("Writing {ui_value('DESCRIPTION')} file")
   
-  if (open) file.edit(here::here("DESCRIPTION"))
+  if (open) utils::file.edit(here::here("DESCRIPTION"))
   
   invisible(NULL)
 }

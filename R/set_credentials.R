@@ -22,8 +22,6 @@
 #' @export
 #' 
 #' @family core functions
-#' @seealso [new_compendium()], [new_package()]
-#' 
 #'
 #' @examples
 #' \dontrun{

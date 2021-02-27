@@ -20,7 +20,9 @@ Imports:
     devtools,
     fs,
     gert,
+    gtools,
     here,
+    stringr,
     usethis,
     utils,
     xfun

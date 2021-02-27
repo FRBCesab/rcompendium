@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create a Research Compendium — new_compendium • rcompendium</title>
+<title>Create a research compendium — new_compendium • rcompendium</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,10 @@
 
 
 
-<meta property="og:title" content="Create a Research Compendium — new_compendium" />
-<meta property="og:description" content="This function creates a new files and folders structure according to the
-research compendium paradigm. The project will be installed as a package." />
+<meta property="og:title" content="Create a research compendium — new_compendium" />
+<meta property="og:description" content="This function creates a new files-folders structure according to the
+research compendium paradigm. The project can be (if required) installed
+as an R package." />
 
 
 
@@ -104,28 +105,137 @@ research compendium paradigm. The project will be installed as a package." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Create a Research Compendium</h1>
+    <h1>Create a research compendium</h1>
     
     <div class="hidden name"><code>new_compendium.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function creates a new files and folders structure according to the
-research compendium paradigm. The project will be installed as a package.</p>
+    <p>This function creates a new files-folders structure according to the
+research compendium paradigm. The project can be (if required) installed
+as an R package.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>new_compendium</span><span class='op'>(</span>overwrite <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>new_compendium</span><span class='op'>(</span>
+  status <span class='op'>=</span> <span class='st'>"concept"</span>,
+  lifecycle <span class='op'>=</span> <span class='st'>"experimental"</span>,
+  cran <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  codeofconduct <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  check <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  deploy <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  create_repo <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  given <span class='op'>=</span> <span class='cn'>NULL</span>,
+  family <span class='op'>=</span> <span class='cn'>NULL</span>,
+  short <span class='op'>=</span> <span class='cn'>NULL</span>,
+  email <span class='op'>=</span> <span class='cn'>NULL</span>,
+  orcid <span class='op'>=</span> <span class='cn'>NULL</span>,
+  github <span class='op'>=</span> <span class='cn'>NULL</span>,
+  license <span class='op'>=</span> <span class='cn'>NULL</span>,
+  overwrite <span class='op'>=</span> <span class='cn'>FALSE</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
+      <th>status</th>
+      <td><p>a character. One among 'concept' (default), 'wip',
+'suspended', 'abandoned', 'active', 'inactive', or 'unsupported'. This will
+add a Repo Status badge to the <strong>README.Rmd</strong>. If you don't want to add
+this badge, set <code>status</code> to <code>NULL</code>. For further information see
+<code><a href='add_repostatus_badge.html'>add_repostatus_badge()</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>lifecycle</th>
+      <td><p><strong>!!! <strong>ADD</strong> !!!</strong></p></td>
+    </tr>
+    <tr>
+      <th>cran</th>
+      <td><p>a boolean. If <code>TRUE</code> adds a CRAN version badge to the
+<strong>README.Rmd</strong>. Default is <code>FALSE</code> (this badge is more appropriate for an
+R package).</p></td>
+    </tr>
+    <tr>
+      <th>codeofconduct</th>
+      <td><p>a boolean. If <code>TRUE</code> (default) adds a Code of Conduct
+badge and a paragraph to the <strong>README.Rmd</strong>. The content of the Code of
+Conduct is also added at the root of the project.</p></td>
+    </tr>
+    <tr>
+      <th>check</th>
+      <td><p><strong>!!! <strong>ADD</strong> !!!</strong></p></td>
+    </tr>
+    <tr>
+      <th>deploy</th>
+      <td><p><strong>!!! <strong>ADD</strong> !!!</strong></p></td>
+    </tr>
+    <tr>
+      <th>create_repo</th>
+      <td><p><strong>!!! <strong>ADD</strong> !!!</strong></p></td>
+    </tr>
+    <tr>
+      <th>given</th>
+      <td><p>a character of length 1. User given name to be used for this
+project. Default is <code>NULL</code> and the value of this parameter will be
+obtained from the <strong>.Rprofile</strong> file (if <code><a href='set_credentials.html'>set_credentials()</a></code> was previously
+used). For further information see <code><a href='set_credentials.html'>set_credentials()</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>family</th>
+      <td><p>a character of length 1. User family name to be used for this
+project. Default is <code>NULL</code> and the value of this parameter will be
+obtained from the <strong>.Rprofile</strong> file (if <code><a href='set_credentials.html'>set_credentials()</a></code> was previously
+used). For further information see <code><a href='set_credentials.html'>set_credentials()</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>short</th>
+      <td><p>a character of length 1. User short name to be used for this
+project. Default is <code>NULL</code> and the value of this parameter will be
+obtained from the <strong>.Rprofile</strong> file (if <code><a href='set_credentials.html'>set_credentials()</a></code> was previously
+used). For further information see <code><a href='set_credentials.html'>set_credentials()</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>email</th>
+      <td><p>a character of length 1. User email address to be used for this
+project. Default is <code>NULL</code> and the value of this parameter will be
+obtained from the <strong>.Rprofile</strong> file (if <code><a href='set_credentials.html'>set_credentials()</a></code> was previously
+used). For further information see <code><a href='set_credentials.html'>set_credentials()</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>orcid</th>
+      <td><p>a character of length 1. User ORCID to be used for this
+project. Default is <code>NULL</code> and the value of this parameter will be
+obtained from the <strong>.Rprofile</strong> file (if <code><a href='set_credentials.html'>set_credentials()</a></code> was previously
+used). For further information see <code><a href='set_credentials.html'>set_credentials()</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>github</th>
+      <td><p>a character of length 1. User GitHub pseudo/organization to be
+used for this project. Default is <code>NULL</code> and the value of this parameter
+will be obtained from the <strong>.Rprofile</strong> file (if <code><a href='set_credentials.html'>set_credentials()</a></code> was
+previously used). For further information see <code><a href='set_credentials.html'>set_credentials()</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>license</th>
+      <td><p>a character of length 1. User preferred license to be
+used for this project. Default is <code>NULL</code> and the value of this parameter
+will be obtained from the <strong>.Rprofile</strong> file (if <code><a href='set_credentials.html'>set_credentials()</a></code> was
+previously used). For further information see <code><a href='set_credentials.html'>set_credentials()</a></code>.</p></td>
+    </tr>
+    <tr>
       <th>overwrite</th>
-      <td><p>a logical value. If a <code>make.R</code> is already present and
+      <td><p>a logical value. If a <strong>make.R</strong> is already present and
 <code>overwrite = TRUE</code>, this file will be erased and replaced.</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>...</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other core functions: 
+<code><a href='set_credentials.html'>set_credentials</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>

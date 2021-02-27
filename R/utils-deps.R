@@ -1,41 +1,17 @@
+#' **Detect dependencies in R functions**
+#' 
+#' Detect dependencies in R functions as `pkg::fun()`.
+#' 
 #' @noRd
 
-is_package <- function(path = ".") {
+get_deps_in_functions_r <- function() {
   
-  if (!file.exists(file.path(path, "DESCRIPTION"))) {
-    stop("The directory '", path, "' is not a package (no 'DESCRIPTION' file)")
-  }
-}
-
-
-
-#' @noRd
-
-get_package_name <- function(path = ".") {
-  
-  is_package(path)
-  
-  package_name <- read.dcf(file.path(path, "DESCRIPTION"))
-  
-  pkg_name <- as.character(package_name[1, "Package"])
-  
-  if (!length(pkg_name)) stop("Malformed 'DESCRIPTION' file")
-  
-  return(pkg_name)
-}
-
-
-
-#' @noRd
-
-get_deps_in_functions_r <- function(path = ".") {
-  
-  if (!dir.exists(file.path(path, "R"))) {
-    stop("The directory 'R/' cannot be found")
+  if (!dir.exists(here::here("R"))) {
+    stop("The directory 'R/' cannot be found.")
   }
   
   
-  x <- list.files(path = file.path(path, "R"), pattern = "\\.R$", 
+  x <- list.files(path = here::here("R"), pattern = "\\.R$", 
                   full.names = TRUE, ignore.case = TRUE)
   
   
@@ -75,7 +51,7 @@ get_deps_in_functions_r <- function(path = ".") {
       return(NULL)
       
     } else {
-    
+      
       return(sort(unique(funs)))
     }
   }
@@ -83,26 +59,30 @@ get_deps_in_functions_r <- function(path = ".") {
 
 
 
+#' **Detect dependencies in NAMESPACE**
+#' 
+#' Detect dependencies in NAMESPACE as `import(pkg)` and `importFrom(pkg,fun)`.
+#' 
 #' @noRd
 
-get_deps_in_namespace <- function(path = ".") {
+get_deps_in_namespace <- function() {
   
-  if (file.exists(file.path(path, "NAMESPACE"))) {
+  if (file.exists(here::here("NAMESPACE"))) {
     
-    namespace <- readLines(con = file.path(path, "NAMESPACE"), warn = FALSE)
+    namespace <- readLines(con = here::here("NAMESPACE"), warn = FALSE)
     
     imports <- gsub("importFrom\\(|import\\(|\\)", "", 
-                        namespace[grep("^import", namespace)])
+                    namespace[grep("^import", namespace)])
     
     if (!length(imports)) {
       
       return(NULL)
       
     } else {
-    
+      
       return(gsub(",", "::", imports))
     }
-  
+    
   } else {
     
     ui_oops("No {ui_value('NAMESPACE')} file found")
@@ -112,15 +92,20 @@ get_deps_in_namespace <- function(path = ".") {
 
 
 
+#' **Detect dependencies in @examples**
+#' 
+#' Detect dependencies in **@examples** as `pkg::fun()`, `library(pkg)`, and
+#' `require(pkg)`.
+#' 
 #' @noRd
 
-get_deps_in_examples <- function(path = ".") { 
+get_deps_in_examples <- function() { 
   
-  if (!dir.exists(file.path(path, "R"))) {
-    stop("The directory 'R/' cannot be found")
+  if (!dir.exists(here::here("R"))) {
+    stop("The directory 'R/' cannot be found.")
   }
   
-  x <- list.files(path = file.path(path, "R"), pattern = "\\.R$", 
+  x <- list.files(path = here::here("R"), pattern = "\\.R$", 
                   full.names = TRUE, ignore.case = TRUE)
   
   if (!length(x)) {
@@ -137,7 +122,7 @@ get_deps_in_examples <- function(path = ".") {
     x <- lapply(x, function(x) readLines(con = x, warn = FALSE))
     
     
-    ## Remove comments ----
+    ## Select comments ----
     
     x <- lapply(x, function(x) x[grep("^\\s*#'", x)] )
     
@@ -182,19 +167,25 @@ get_deps_in_examples <- function(path = ".") {
 
 
 
+#' **Detect dependencies in EXTRA folder**
+#' 
+#' Detect dependencies in additional folder as `pkg::fun()`, `library(pkg)`, 
+#' and `require(pkg)`. If `.Rmd` files are detected packages `knitr` and 
+#' `rmarkdown` are added to function return.
+#' 
 #' @noRd
 
-get_deps_extra <- function(path = ".", import = NULL) { 
-
+get_deps_extra <- function(import = NULL) { 
+  
   if (is.null(import)) {
     return(NULL)
   }
   
-  if (!dir.exists(file.path(path, import))) {
+  if (!dir.exists(here::here(import))) {
     return(NULL)
   }
   
-  x <- list.files(path = file.path(path, import), pattern = "\\.R$|\\.Rmd$", 
+  x <- list.files(path = here::here(import), pattern = "\\.R$|\\.Rmd$", 
                   full.names = TRUE, ignore.case = TRUE, recursive = TRUE)
   
   if (!length(x)) {
@@ -247,7 +238,7 @@ get_deps_extra <- function(path = ".", import = NULL) {
     
     ## Check if .Rmd ----
     
-    x <- list.files(path = file.path(path, import), pattern = "\\.Rmd$", 
+    x <- list.files(path = here::here(import), pattern = "\\.Rmd$", 
                     full.names = TRUE, ignore.case = TRUE, recursive = TRUE)
     
     if (length(x)) funs <- sort(unique(c(funs, "knitr", "rmarkdown")))
@@ -266,19 +257,25 @@ get_deps_extra <- function(path = ".", import = NULL) {
 
 
 
+#' **Detect dependencies in VIGNETTES**
+#' 
+#' Detect dependencies in Vignettes as `pkg::fun()`, `library(pkg)`, 
+#' and `require(pkg)`. If `.Rmd` files are detected packages `knitr` and 
+#' `rmarkdown` are added to function return.
+#' 
 #' @noRd
 
-get_deps_in_vignettes <- function(path = ".", suggest = "vignettes") { 
+get_deps_in_vignettes <- function(suggest = "vignettes") { 
   
   if (is.null(suggest)) {
     return(NULL)
   }
   
-  if (!dir.exists(file.path(path, suggest))) {
+  if (!dir.exists(here::here(suggest))) {
     return(NULL)
   }
   
-  x <- list.files(path = file.path(path, suggest), pattern = "\\.R$|\\.Rmd$", 
+  x <- list.files(path = here::here(suggest), pattern = "\\.R$|\\.Rmd$", 
                   full.names = TRUE, ignore.case = TRUE, recursive = TRUE)
   
   if (!length(x)) {
@@ -331,7 +328,7 @@ get_deps_in_vignettes <- function(path = ".", suggest = "vignettes") {
     
     ## Check if .Rmd ----
     
-    x <- list.files(path = file.path(path, suggest), pattern = "\\.Rmd$", 
+    x <- list.files(path = here::here(suggest), pattern = "\\.Rmd$", 
                     full.names = TRUE, ignore.case = TRUE, recursive = TRUE)
     
     if (length(x)) funs <- sort(unique(c(funs, "knitr", "rmarkdown")))
@@ -350,11 +347,15 @@ get_deps_in_vignettes <- function(path = ".", suggest = "vignettes") {
 
 
 
+#' **Detect dependencies in Depends field of DESCRIPTION**
+#' 
+#' Detect dependencies in the `Depends` field of **DESCRIPTION**.
+#' 
 #' @noRd
 
-get_deps_in_depends <- function(path = ".") {
+get_deps_in_depends <- function() {
   
-  descr <- read_descr(path)
+  descr <- read_descr()
   
   if (!is.null(descr$"Depends")) {
     depends <- unlist(strsplit(descr$"Depends", "\n\\s+|,|,\\s+"))
@@ -363,40 +364,9 @@ get_deps_in_depends <- function(path = ".") {
     if (length(r_version)) depends <- depends[-r_version]
     
     return(depends[!(depends == "")])
-  
+    
   } else {
     
     return(NULL)
   }
 }
-
-
-#' @noRd
-
-read_descr <- function(path = ".") { 
-  
-  is_package(path)
-  
-  descr <- read.dcf(file.path(path, "DESCRIPTION"), 
-                    keep.white = c("Authors@R", "Depends", "Imports", 
-                                   "Suggests"))
-  
-  if (nrow(descr) != 1) stop("Malformed 'DESCRIPTION' file")
-  
-  as.data.frame(descr)
-}
-
-
-
-#' @noRd
-
-write_descr <- function(path = ".", descr_file) { 
-  
-  is_package(path)
-  
-  write.dcf(descr_file, file = file.path(path, "DESCRIPTION"), indent = 4, 
-            width = 80, keep.white = c("Authors@R", "Depends", "Imports", 
-                                       "Suggests"))
-}
-
-

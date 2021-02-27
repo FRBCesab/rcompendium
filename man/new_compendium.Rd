@@ -23,10 +23,10 @@ new_compendium(
 )
 }
 \arguments{
-\item{status}{a character. One among 'concept' (default), 'wip',
-'suspended', 'abandoned', 'active', 'inactive', or 'unsupported'. This will
-add a Repo Status badge to the \strong{README.Rmd}. If you don't want to add
-this badge, set \code{status} to \code{NULL}. For further information see
+\item{status}{a character. One among \code{'concept'} (default), \code{'wip'},
+'\verb{suspended'}, \code{'abandoned'}, \code{'active'}, \code{'inactive'}, or \code{'unsupported'}.
+This will add a Repo Status badge to the \strong{README.Rmd}. If you don't want
+to add this badge, set \code{status} to \code{NULL}. For further information see
 \code{\link[=add_repostatus_badge]{add_repostatus_badge()}}.}
 
 \item{lifecycle}{\strong{!!! \strong{ADD} !!!}}
@@ -84,7 +84,7 @@ previously used). For further information see \code{\link[=set_credentials]{set_
 \code{overwrite = TRUE}, this file will be erased and replaced.}
 }
 \description{
-This function creates a new files-folders structure according to the
+This function creates a new files/folders structure according to the
 research compendium paradigm. The project can be (if required) installed
 as an R package.
 }
@@ -97,7 +97,7 @@ rcompendium::new_compendium()
 }
 }
 \seealso{
-Other core functions: 
+Other setup projects: 
 \code{\link{set_credentials}()}
 }
-\concept{core functions}
+\concept{setup projects}

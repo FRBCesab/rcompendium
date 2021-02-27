@@ -10,6 +10,13 @@
 #' `overwrite = TRUE`, this file will be erased and replaced.
 #' 
 #' @export
+#' 
+#' @family create files
+#'
+#' @examples
+#' \dontrun{
+#' add_description()
+#' }
 
 add_description <- function(open = TRUE, overwrite = FALSE) {
   
@@ -34,7 +41,7 @@ add_description <- function(open = TRUE, overwrite = FALSE) {
   
   ## Change default values (in file) ----
   
-  project_name <- get_project_name()
+  project_name <- get_package_name()
   xfun::gsub_file(here::here("DESCRIPTION"), "{{project_name}}", 
                   project_name, fixed = TRUE)
   

@@ -11,6 +11,13 @@
 #' Default is `FALSE`.
 #' 
 #' @export
+#' 
+#' @family development functions
+#'
+#' @examples
+#' \dontrun{
+#' add_to_buildignore(".DS_Store")
+#' }
 
 add_to_buildignore <- function(x, open = FALSE) {
   

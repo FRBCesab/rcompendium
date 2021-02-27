@@ -33,7 +33,7 @@
 #'
 #' @export
 #' 
-#' @family badge functions
+#' @family adding badges
 #'
 #' @examples
 #' \dontrun{

@@ -17,3 +17,15 @@ editor.}
 This function creates a Make-like R file (\code{make.R}) at the root of the
 project based on a template.
 }
+\examples{
+\dontrun{
+add_makefile()
+}
+}
+\seealso{
+Other create files: 
+\code{\link{add_description}()},
+\code{\link{add_package_doc}()},
+\code{\link{add_readme_rmd}()}
+}
+\concept{create files}

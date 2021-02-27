@@ -11,6 +11,14 @@
 #' Default is `FALSE`.
 #' 
 #' @export
+#' 
+#' @family development functions
+#' 
+#' @examples
+#' \dontrun{
+#' add_to_gitignore()
+#' add_to_gitignore(".DS_Store")
+#' }
 
 add_to_gitignore <- function(x, open = FALSE) {
   

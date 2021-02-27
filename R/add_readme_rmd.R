@@ -14,6 +14,13 @@
 #' `overwrite = TRUE`, this file will be erased and replaced.
 #' 
 #' @export
+#' 
+#' @family create files
+#'
+#' @examples
+#' \dontrun{
+#' add_readme_rmd(type = "package")
+#' }
 
 add_readme_rmd <- function(type = "package", open = TRUE, overwrite = FALSE) {
   
@@ -51,7 +58,7 @@ add_readme_rmd <- function(type = "package", open = TRUE, overwrite = FALSE) {
   
   ## Change default values (in file) ----
   
-  project_name <- get_project_name()
+  project_name <- get_package_name()
   xfun::gsub_file(here::here("README.Rmd"), "{{project_name}}", 
                   project_name, fixed = TRUE)
   
@@ -73,7 +80,7 @@ add_readme_rmd <- function(type = "package", open = TRUE, overwrite = FALSE) {
                     fixed = TRUE)
   }
   
-  pkg_version <- get_pkg_version()
+  pkg_version <- get_package_version()
   xfun::gsub_file(here::here("README.Rmd"), "{{pkg_version}}", 
                   project_name, fixed = TRUE)
 

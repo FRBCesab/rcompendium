@@ -10,6 +10,13 @@
 #' `overwrite = TRUE`, this file will be erased and replaced.
 #' 
 #' @export
+#' 
+#' @family create files
+#'
+#' @examples
+#' \dontrun{
+#' add_makefile()
+#' }
 
 add_makefile <- function(open = TRUE, overwrite = FALSE) { 
   
@@ -38,7 +45,7 @@ add_makefile <- function(open = TRUE, overwrite = FALSE) {
   xfun::gsub_file(here::here("make.R"), "{{date}}", 
                   today, fixed = TRUE)
   
-  project_name <- get_project_name()
+  project_name <- get_package_name()
   xfun::gsub_file(here::here("make.R"), "{{project_name}}", 
                   project_name, fixed = TRUE)
   

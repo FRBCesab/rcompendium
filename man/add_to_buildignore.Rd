@@ -18,3 +18,14 @@ This function adds files/folders to the \code{.Rbuildignore} file. If a
 \code{.Rbuildignore} is already present, files to be ignored are just added to
 this file. Otherwise a new file is created.
 }
+\examples{
+\dontrun{
+add_to_buildignore(".DS_Store")
+}
+}
+\seealso{
+Other development functions: 
+\code{\link{add_dependencies}()},
+\code{\link{add_to_gitignore}()}
+}
+\concept{development functions}

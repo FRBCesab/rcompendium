@@ -1,15 +1,15 @@
 #' Store credentials to the .RProfile
 #' 
 #' @description 
-#' This function adds user credentials in the `.Rprofile` file. Accepted 
+#' This function stores user credentials in the **.Rprofile** file. Accepted 
 #' credentials are listed below. This function is useful if user creates a lot
 #' of packages and/or research compendiums.
 #' 
-#' If the `.Rprofile` file does not exist this function will create it. Note
+#' If the **.Rprofile** file does not exist this function will create it. Note
 #' that credentials are added at the end of the file: if you run this function
 #' two times, credentials will be added twice. User can run the command 
-#' `usethis::edit_r_profile()` to open the `.Rprofile` and clean its content. 
-#' **Be careful**.
+#' `usethis::edit_r_profile()` to open the **.Rprofile** and clean its content. 
+#' **Be careful when modifying this file!**.
 #'
 #' @param given (optional) user given name (i.e. "Nicolas")
 #' @param family (optional) user family name (i.e. "Casajus")
@@ -21,7 +21,7 @@
 #'
 #' @export
 #' 
-#' @family core functions
+#' @family setup projects
 #'
 #' @examples
 #' \dontrun{

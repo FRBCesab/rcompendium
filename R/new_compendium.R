@@ -1,14 +1,14 @@
 #' Create a research compendium
 #' 
 #' @description 
-#' This function creates a new files-folders structure according to the
+#' This function creates a new files/folders structure according to the
 #' research compendium paradigm. The project can be (if required) installed 
 #' as an R package.
 #' 
-#' @param status a character. One among 'concept' (default), 'wip', 
-#'   'suspended', 'abandoned', 'active', 'inactive', or 'unsupported'. This will
-#'   add a Repo Status badge to the **README.Rmd**. If you don't want to add 
-#'   this badge, set `status` to `NULL`. For further information see 
+#' @param status a character. One among `'concept'` (default), `'wip'`, 
+#'   '`suspended'`, `'abandoned'`, `'active'`, `'inactive'`, or `'unsupported'`.
+#'   This will add a Repo Status badge to the **README.Rmd**. If you don't want 
+#'   to add this badge, set `status` to `NULL`. For further information see 
 #'   [add_repostatus_badge()].
 #'   
 #' @param lifecycle **!!! __ADD__ !!!**
@@ -70,7 +70,7 @@
 #' 
 #' @export
 #' 
-#' @family core functions
+#' @family setup projects
 #' 
 #' @examples 
 #' \dontrun{
@@ -85,7 +85,7 @@ new_compendium <- function(status = "concept", lifecycle = "experimental",
                            overwrite = FALSE) {
   
   
-  project_name <- get_project_name()
+  project_name <- get_package_name()
   
   response <- ui_yeah("Is your project name correct: {ui_value(project_name)}?", 
                       yes = "Absolutely", no = "No", n_no = 1)
@@ -129,7 +129,8 @@ new_compendium <- function(status = "concept", lifecycle = "experimental",
     ui_line()
     
     ui_line()
-    add_to_buildignore(paste0(get_project_name(), ".Rproj"))
+    add_to_buildignore(".DS_Store")
+    add_to_buildignore(paste0(get_package_name(), ".Rproj"))
     
     ui_line()
     add_description(open = FALSE, overwrite = overwrite)
@@ -151,7 +152,7 @@ new_compendium <- function(status = "concept", lifecycle = "experimental",
                    "helps in {ui_value('man/')} directory"))
     
     ui_line()
-    add_package_doc()
+    add_package_doc(open = FALSE, overwrite = overwrite)
     
     
     ## README ----

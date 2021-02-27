@@ -18,3 +18,15 @@ This function creates a \code{.gitignore} file at the root of the project based 
 a template (specific to R). If a \code{.gitignore} is already present, files to
 be untracked by \strong{git} are just added to this file.
 }
+\examples{
+\dontrun{
+add_to_gitignore()
+add_to_gitignore(".DS_Store")
+}
+}
+\seealso{
+Other development functions: 
+\code{\link{add_dependencies}()},
+\code{\link{add_to_buildignore}()}
+}
+\concept{development functions}

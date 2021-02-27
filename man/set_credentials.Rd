@@ -30,15 +30,15 @@ set_credentials(
 \item{license}{(optional) user preferred license (i.e. "GPL (>= 2)")}
 }
 \description{
-This function adds user credentials in the \code{.Rprofile} file. Accepted
+This function stores user credentials in the \strong{.Rprofile} file. Accepted
 credentials are listed below. This function is useful if user creates a lot
 of packages and/or research compendiums.
 
-If the \code{.Rprofile} file does not exist this function will create it. Note
+If the \strong{.Rprofile} file does not exist this function will create it. Note
 that credentials are added at the end of the file: if you run this function
 two times, credentials will be added twice. User can run the command
-\code{usethis::edit_r_profile()} to open the \code{.Rprofile} and clean its content.
-\strong{Be careful}.
+\code{usethis::edit_r_profile()} to open the \strong{.Rprofile} and clean its content.
+\strong{Be careful when modifying this file!}.
 }
 \examples{
 \dontrun{
@@ -48,7 +48,7 @@ set_credentials(given = "Nicolas", family = "Casajus", short = "Casajus N.",
 }
 }
 \seealso{
-Other core functions: 
+Other setup projects: 
 \code{\link{new_compendium}()}
 }
-\concept{core functions}
+\concept{setup projects}

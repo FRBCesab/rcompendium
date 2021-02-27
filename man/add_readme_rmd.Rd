@@ -21,3 +21,15 @@ editor.}
 This function creates a \code{README.Rmd} file at the root of the project based on
 a template. Once edited user needs to knit it into a \code{README.md}.
 }
+\examples{
+\dontrun{
+add_readme_rmd(type = "package")
+}
+}
+\seealso{
+Other create files: 
+\code{\link{add_description}()},
+\code{\link{add_makefile}()},
+\code{\link{add_package_doc}()}
+}
+\concept{create files}

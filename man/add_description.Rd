@@ -17,3 +17,15 @@ editor.}
 This function creates a DESCRIPTION file at the root of the project based on
 a template.
 }
+\examples{
+\dontrun{
+add_description()
+}
+}
+\seealso{
+Other create files: 
+\code{\link{add_makefile}()},
+\code{\link{add_package_doc}()},
+\code{\link{add_readme_rmd}()}
+}
+\concept{create files}

@@ -44,4 +44,4 @@ add_repostatus_badge(status = "wip")
 add_repostatus_badge(status = "active")
 }
 }
-\concept{badge functions}
+\concept{adding badges}

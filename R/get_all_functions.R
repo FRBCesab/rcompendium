@@ -2,25 +2,25 @@
 #' 
 #' @description
 #' This function returns a list of all the functions (exported and internal) 
-#' available with the package. As this function scans the **NAMESPACE** it is
-#' recommended to update this file with [devtools::document()].
+#' available with the package. As this function scans the **NAMESPACE** and the
+#' **R/** folder, it is recommended to run [devtools::document()] before.
 #' 
 #' @return 
-#' A vector of internal and external (exported) functions of the packages.
-#' Exported functions are noted `pkg::fun()` while internal functions are noted 
-#' `pkg:::fun()`.
-#' 
-#' @family utilitaries functions
+#' A list of two vectors: 
+#' * `external`, a vector of exported functions name (`pkg::fun()`);
+#' * `internal`, a vector of internal functions name (`pkg:::fun()`).
 #' 
 #' @export
+#' 
+#' @family utilities functions
 #'
 #' @examples
 #' \dontrun{
 #' devtools::document()
-#' get_pkg_functions()
+#' get_all_functions()
 #' }
 
-get_pkg_functions <- function() {
+get_all_functions <- function() {
   
   if (!dir.exists(here::here("R"))) {
     stop("The directory 'R/' cannot be found.")
@@ -52,7 +52,7 @@ get_pkg_functions <- function() {
     
     x <- unlist(x)
     x <- gsub("\\s", "", x)
-    x <- sort(unlist(x))
+    x <- sort(unique(x))
     
     
     if (length(x)) {
@@ -64,24 +64,21 @@ get_pkg_functions <- function() {
         exports <- gsub("export\\(|\\)", "", 
                         namespace[grep("^export", namespace)])
         
+        funs <- list("external" = character(0), "internal" = character(0))
+        
         if (length(exports)) {
           
-          funs <- c(
-            paste0(get_project_name(), "::", 
-                   x[(x %in% exports)], "()"),
-            
-            paste0(get_project_name(), ":::", 
-                   x[!(x %in% exports)], "()")
-          )
+          funs$"external" <- paste0(x[ (x %in% exports)], "()")
+          funs$"internal" <- paste0(x[!(x %in% exports)], "()")
           
         } else {
           
-          funs <- paste0(get_project_name(), ":::", x, "()")
+          funs$"internal" <- paste0(x, "()")
         }
         
       } else {
         
-        funs <- paste0(get_project_name(), ":::", x, "()")
+        funs$"internal" <- paste0(x, "()")
       }
       
       return(funs)

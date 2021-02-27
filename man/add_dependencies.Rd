@@ -2,47 +2,55 @@
 % Please edit documentation in R/add_dependencies.R
 \name{add_dependencies}
 \alias{add_dependencies}
-\title{Add Dependencies in DESCRIPTION File}
+\title{Add dependencies in DESCRIPTION}
 \usage{
-add_dependencies(path = ".", import = NULL, suggest = "vignettes")
+add_dependencies(import = NULL, suggest = "vignettes")
 }
 \arguments{
-\item{path}{the path to the package/research compendium (must have a
-\code{DESCRIPTION} file) in which dependencies are recursively detected.}
-
 \item{import}{(optional) the name of the folder to recursively detect
-dependencies to be added in the \strong{Imports} field of \code{DESCRIPTION} file.
-Default is \code{import = NULL} (but \verb{R/}, \code{NAMESPACE}, and \verb{@examples} are still
-inspected).}
+dependencies to be added in the \code{Imports} field of \strong{DESCRIPTION} file.
+Default is \code{import = NULL} (but \strong{R/}, \strong{NAMESPACE}, and \verb{@examples} are
+still inspected).}
 
 \item{suggest}{the name of the folder to recursively detect dependencies to
-be added in the \strong{Suggests} field of \code{DESCRIPTION} file.
+be added in the \code{Suggests} field of \strong{DESCRIPTION} file.
 Default is \code{suggest = "vignettes"}.}
 }
 \description{
-This function detects dependencies used in \verb{R/}, \code{NAMESPACE}, and \verb{@examples}
-and automatically adds these dependencies in \strong{Imports} section of the
-\code{DESCRIPTION} file.
-}
-\details{
-In the \code{NAMESPACE} file it detects dependencies mentionned as \code{import(pkg)}
-and \code{importFrom(pkg,fun)}.
+This function detects dependencies used in \strong{R/}, \strong{NAMESPACE}, and
+\verb{@examples} sections and automatically adds these dependencies in the
+\code{Imports} section of the \strong{DESCRIPTION} file.
 
-In the \verb{R/} folder it detects functions called as \code{pkg::fun()} in the code
-of each R files. In \verb{@examples} section it also detects packages attached
-using \code{library(pkg)} or \code{require(pkg)}.
+In the \strong{NAMESPACE} this function detects dependencies mentioned as
+\code{import(pkg)} and \code{importFrom(pkg,fun)}.
 
-The folder \verb{vignettes/} is also inspected and detected dependencies
-(\code{pkg::fun()}, \code{library(pkg)} or \code{require(pkg)}) are added in the section
-\strong{Suggests} of the \code{DESCRIPTION} file.
+In the \strong{R/} folder it detects functions called as \code{pkg::fun()} in the code
+of each R files. In \verb{@examples} sections it also detects packages attached
+using \code{library()} or \code{require()}.
+
+The \strong{vignettes/} folder is also inspected and detected dependencies
+(\code{pkg::fun()}, \code{library()} or \code{require()}) are added in the \code{Suggests}
+section of the \strong{DESCRIPTION} file.
 
 If the project is a research compendium user can also inspect one
-additional folder (i.e. \verb{analysis/}) with the argument \code{import} to detected
-dependencies to be added in the section \strong{Imports} of the \code{DESCRIPTION}
-file. The detection process is the same as the one used for \verb{vignettes/}.
+additional folder (i.e. \strong{analysis/}) with the argument \code{import} to add
+dependencies used in this folder in the section \code{Imports} of the
+\strong{DESCRIPTION} file. The detection process is the same as the one used
+for \strong{vignettes/}.
+
+If a \code{.Rmd} file is detected packages \code{knitr} and \code{rmarkdown} are added in
+\code{Imports} field of \strong{DESCRIPTION} file (for \code{.Rmd} stored in \strong{analysis/})
+or in \code{Suggests} field of \strong{DESCRIPTION} file (for \code{.Rmd} stored in
+\strong{vignettes/} if these two packages are not present in the \code{Imports} field).
 }
 \examples{
 \dontrun{
 add_dependencies()
 }
 }
+\seealso{
+Other development functions: 
+\code{\link{add_to_buildignore}()},
+\code{\link{add_to_gitignore}()}
+}
+\concept{development functions}

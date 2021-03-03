@@ -2,10 +2,10 @@
 #' 
 #' @description 
 #' This function refreshes a research compendium/package. It will:
-#' * Update Rd files and NAMESPACE, using [devtools::document()];
-#' * Update external packages (DESCRIPTION);
-#' * Update badges in README.Rmd (if already present);
-#' * Re-knitr the README.Rmd, using [rmarkdown::render()];
+#' * Update `.Rd` files and `NAMESPACE`, using [devtools::document()];
+#' * Update external packages (in `DESCRIPTION` file);
+#' * Update badges in `README.Rmd` (if already present);
+#' * Re-knitr the `README.Rmd`, using [rmarkdown::render()];
 #' * Check package integrity with [devtools::check()].
 #' 
 #' @param quiet a logical value. If `TRUE` (default) no message are printed.

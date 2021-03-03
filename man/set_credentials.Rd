@@ -28,14 +28,14 @@ set_credentials(
 Default is \code{open = FALSE}}
 }
 \description{
-This function stores user credentials in the \emph{.Rprofile} file. Accepted
+This function stores user credentials in the \code{.Rprofile} file. Accepted
 credentials are listed below. This function is useful if user creates a lot
 of packages and/or research compendiums.
 
-If the \emph{.Rprofile} file does not exist this function will create it. Note
+If the \code{.Rprofile} file does not exist this function will create it. Note
 that credentials are added at the end of the file: if you run this function
 two times, credentials will be added twice. User can run the command
-\code{usethis::edit_r_profile()} to open the \emph{.Rprofile} and clean its content.
+\code{usethis::edit_r_profile()} to open the \code{.Rprofile} and clean its content.
 \strong{Be careful while modifying this file!}.
 }
 \examples{

@@ -20,10 +20,10 @@ still inspected).}
 \description{
 This function refreshes a research compendium/package. It will:
 \itemize{
-\item Update Rd files and NAMESPACE, using \code{\link[devtools:document]{devtools::document()}};
-\item Update external packages (DESCRIPTION);
-\item Update badges in README.Rmd (if already present);
-\item Re-knitr the README.Rmd, using \code{\link[rmarkdown:render]{rmarkdown::render()}};
+\item Update \code{.Rd} files and \code{NAMESPACE}, using \code{\link[devtools:document]{devtools::document()}};
+\item Update external packages (in \code{DESCRIPTION} file);
+\item Update badges in \code{README.Rmd} (if already present);
+\item Re-knitr the \code{README.Rmd}, using \code{\link[rmarkdown:render]{rmarkdown::render()}};
 \item Check package integrity with \code{\link[devtools:check]{devtools::check()}}.
 }
 }

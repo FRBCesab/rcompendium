@@ -308,21 +308,22 @@ Default is <code>overwrite = FALSE</code>. <strong>Be careful while using this a
 
 <p>With default settings the package <code>pkg</code> will contain:</p><pre>.
 │
-├── .git/                     # Automatically created
+├── .git/                     # GIT tracking folder
 ├── .github/                  # (optional) GitHub Actions settings
 │   └── workflows/
-│       ├── pkgdown.yaml      # Configuration file to deploy website
-│       └── R-CMD-check.yaml  # Configuration file to check package
+│       ├── pkgdown.yaml      # Configuration file to build &amp; deploy website
+│       └── R-CMD-check.yaml  # Configuration file to check &amp; test package
 ├── .Rbuildignore             # Automatically generated
 ├── .gitignore                # Specific to R packages
 ├── pkg.Rproj                 # (optional) Created by user 
-├── _pkgdown.yaml             # User website settings
+├── _pkgdown.yaml             # (optional) User website settings
 │
 ├── R/                        # R functions
 │   └── pkg-package.R         # Dummy R file for package-level documentation
 │
 ├── man/                      # R functions helps (automatically updated)
 │   ├── figures/              # Figures for the README 
+│       └── hexsticker.png    # Template R package HexSticker
 │   └── pkg-package.Rd        # Package-level documentation
 │
 ├── inst/
@@ -344,6 +345,24 @@ Default is <code>overwrite = FALSE</code>. <strong>Be careful while using this a
     some information.
 
 </pre>
+
+
+<h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Recommended Workflow</h3>
+
+
+<p>The purpose of the package <code>rcompendium</code> is to make easier the creation of R
+package/research compendium so that user can focus on the coding/analysis
+instead of wasting time organizing files.</p>
+<p>The recommended workflow is as follow:</p><ul>
+<li><p>Create an empty RStudio project;</p></li>
+<li><p>Run <code>new_package()</code> to create the package structure (and the GitHub
+repository);</p></li>
+<li><p>Edit some metadata in DESCRIPTION, CITATION, and README.Rmd</p></li>
+<li><p>Implement function, add data, test functions, etc.;</p></li>
+<li><p>Update the project (functions documentations, NAMESPACE, external
+dependencies in DESCRIPTION, re-knit README, and check package integrity)
+with <code><a href='refresh.html'>refresh()</a></code>.</p></li>
+</ul>
 
 
 <h3 class='hasAnchor' id='arguments'><a class='anchor' href='#arguments'></a>Managing Credentials</h3>

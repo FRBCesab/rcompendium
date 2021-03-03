@@ -11,15 +11,15 @@
 #' `usethis::edit_r_profile()` to open the _.Rprofile_ and clean its content. 
 #' **Be careful while modifying this file!**.
 #'
-#' @param given (optional) user given name (i.e. "Nicolas")
+#' @param given (optional) given name of the package maintainer
 #' 
-#' @param family (optional) user family name (i.e. "Casajus")
+#' @param family (optional) family name of the package maintainer
 #' 
-#' @param email (optional) user email address (i.e. "nicolas.casajus@gmail.com")
+#' @param email (optional) email address of the package maintainer
 #' 
-#' @param github (optional) user GitHub pseudo/organization (i.e. "ahasverus")
+#' @param github (optional) GitHub pseudo/organization to host the package
 #' 
-#' @param orcid (optional) user ORCID (i.e. "0000-0002-5537-5294")
+#' @param orcid (optional) ORCID of the package maintainer
 #' 
 #' @param open a logical value. If `TRUE` the file is opened in the editor.
 #'   Default is `open = FALSE`

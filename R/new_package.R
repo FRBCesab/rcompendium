@@ -158,21 +158,22 @@
 #' ```
 #' .
 #' │
-#' ├── .git/                     # Automatically created
+#' ├── .git/                     # GIT tracking folder
 #' ├── .github/                  # (optional) GitHub Actions settings
 #' │   └── workflows/
-#' │       ├── pkgdown.yaml      # Configuration file to deploy website
-#' │       └── R-CMD-check.yaml  # Configuration file to check package
+#' │       ├── pkgdown.yaml      # Configuration file to build & deploy website
+#' │       └── R-CMD-check.yaml  # Configuration file to check & test package
 #' ├── .Rbuildignore             # Automatically generated
 #' ├── .gitignore                # Specific to R packages
 #' ├── pkg.Rproj                 # (optional) Created by user 
-#' ├── _pkgdown.yaml             # User website settings
+#' ├── _pkgdown.yaml             # (optional) User website settings
 #' │
 #' ├── R/                        # R functions
 #' │   └── pkg-package.R         # Dummy R file for package-level documentation
 #' │
 #' ├── man/                      # R functions helps (automatically updated)
 #' │   ├── figures/              # Figures for the README 
+#' │       └── hexsticker.png    # Template R package HexSticker
 #' │   └── pkg-package.Rd        # Package-level documentation
 #' │
 #' ├── inst/
@@ -194,6 +195,23 @@
 #'     some information.
 #' 
 #' ```
+#' 
+#' 
+#' ## Recommended Workflow
+#' 
+#' The purpose of the package `rcompendium` is to make easier the creation of R
+#' package/research compendium so that user can focus on the coding/analysis 
+#' instead of wasting time organizing files.
+#' 
+#' The recommended workflow is as follow:
+#' * Create an empty RStudio project;
+#' * Run [new_package()] to create the package structure (and the GitHub 
+#'   repository);
+#' * Edit some metadata in DESCRIPTION, CITATION, and README.Rmd
+#' * Implement function, add data, test functions, etc.;
+#' * Update the project (functions documentations, NAMESPACE, external 
+#'   dependencies in DESCRIPTION, re-knit README, and check package integrity) 
+#'   with [refresh()].
 #' 
 #' 
 #' ## Managing Credentials

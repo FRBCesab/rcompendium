@@ -14,11 +14,11 @@ add_makefile(
 )
 }
 \arguments{
-\item{given}{(optional) user given name (i.e. "Nicolas")}
+\item{given}{(optional) given name of the package maintainer}
 
-\item{family}{(optional) user family name (i.e. "Casajus")}
+\item{family}{(optional) family name of the package maintainer}
 
-\item{email}{(optional) user email address (i.e. "nicolas.casajus@gmail.com")}
+\item{email}{(optional) email address of the package maintainer}
 
 \item{open}{a logical value. If \code{TRUE} (default) the file is opened in the
 editor.}

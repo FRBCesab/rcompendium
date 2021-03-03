@@ -14,15 +14,15 @@ set_credentials(
 )
 }
 \arguments{
-\item{given}{(optional) user given name (i.e. "Nicolas")}
+\item{given}{(optional) given name of the package maintainer}
 
-\item{family}{(optional) user family name (i.e. "Casajus")}
+\item{family}{(optional) family name of the package maintainer}
 
-\item{email}{(optional) user email address (i.e. "nicolas.casajus@gmail.com")}
+\item{email}{(optional) email address of the package maintainer}
 
-\item{github}{(optional) user GitHub pseudo/organization (i.e. "ahasverus")}
+\item{github}{(optional) GitHub pseudo/organization to host the package}
 
-\item{orcid}{(optional) user ORCID (i.e. "0000-0002-5537-5294")}
+\item{orcid}{(optional) ORCID of the package maintainer}
 
 \item{open}{a logical value. If \code{TRUE} the file is opened in the editor.
 Default is \code{open = FALSE}}

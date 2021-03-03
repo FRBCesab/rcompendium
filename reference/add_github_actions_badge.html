@@ -91,7 +91,12 @@ Actions (checks and tests)." />
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/FRBCesab/rcompendium/">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -106,12 +111,12 @@ Actions (checks and tests)." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Add a R-CMD-CHECK badge</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/FRBCesab/rcompendium/blob/master/R/add_github_actions_badge.R'><code>R/add_github_actions_badge.R</code></a></small>
     <div class="hidden name"><code>add_github_actions_badge.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function adds a R-CMD-CHECK badge to the <em>README.Rmd</em>. This function
+    <p>This function adds a R-CMD-CHECK badge to the <code>README.Rmd</code>. This function
 must be run after <code><a href='add_github_actions_check.html'>add_github_actions_check()</a></code> which will setup GitHub
 Actions (checks and tests).</p>
     </div>
@@ -123,13 +128,15 @@ Actions (checks and tests).</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>github</th>
-      <td><p>user GITHUB account where the project is hosted.</p></td>
+      <td><p>user GitHub account where the project is hosted. If <code>NULL</code>
+(default) the function will try to get this value by reading the
+<code>.Rprofile</code> file (unless <code>!is.null(organisation)</code>).</p></td>
     </tr>
     <tr>
       <th>organisation</th>
-      <td><p>(alternative) name of the GITHUB organisation where the
-project is hosted.  If <code>NULL</code> (default) the GITHUB account will be used.
-Otherwise the argument will be used.</p></td>
+      <td><p>(alternative) name of the GitHub organisation where the
+project is hosted.  If <code>NULL</code> (default) the GitHub account <code>github</code> will
+be used.</p></td>
     </tr>
     <tr>
       <th>quiet</th>

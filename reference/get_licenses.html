@@ -42,7 +42,7 @@
 <meta property="og:title" content="List all available licenses — get_licenses" />
 <meta property="og:description" content="This function returns a list of all available licenses. This is particularly
 useful to get the right spelling of the license to be passed to
-set_credentials(), new_compendium(), or add_license()." />
+new_package(), new_compendium(), or add_license()." />
 
 
 
@@ -91,7 +91,12 @@ set_credentials(), new_compendium(), or add_license()." />
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/FRBCesab/rcompendium/">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -106,14 +111,14 @@ set_credentials(), new_compendium(), or add_license()." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>List all available licenses</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/FRBCesab/rcompendium/blob/master/R/get_licenses.R'><code>R/get_licenses.R</code></a></small>
     <div class="hidden name"><code>get_licenses.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p>This function returns a list of all available licenses. This is particularly
 useful to get the right spelling of the license to be passed to
-<code><a href='set_credentials.html'>set_credentials()</a></code>, <code><a href='new_compendium.html'>new_compendium()</a></code>, or <code><a href='add_license.html'>add_license()</a></code>.</p>
+<code><a href='new_package.html'>new_package()</a></code>, <code><a href='new_compendium.html'>new_compendium()</a></code>, or <code><a href='add_license.html'>add_license()</a></code>.</p>
     </div>
 
     <pre class="usage"><span class='fu'>get_licenses</span><span class='op'>(</span><span class='op'>)</span></pre>
@@ -131,8 +136,7 @@ useful to get the right spelling of the license to be passed to
     <div class='dont-index'><p>Other utilities functions: 
 <code><a href='get_all_dependencies.html'>get_all_dependencies</a>()</code>,
 <code><a href='get_all_functions.html'>get_all_functions</a>()</code>,
-<code><a href='get_minimal_r_version.html'>get_minimal_r_version</a>()</code>,
-<code><a href='get_rd_families.html'>get_rd_families</a>()</code></p></div>
+<code><a href='get_minimal_r_version.html'>get_minimal_r_version</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>

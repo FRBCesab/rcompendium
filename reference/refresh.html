@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Refresh a research compendium/package — refresh • rcompendium</title>
+<title>Refresh a package/research compendium — refresh • rcompendium</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Refresh a research compendium/package — refresh" />
-<meta property="og:description" content="This function refreshes a research compendium/package. It will:
+<meta property="og:title" content="Refresh a package/research compendium — refresh" />
+<meta property="og:description" content="This function refreshes a package/research compendium. It will:
 Update .Rd files and NAMESPACE, using devtools::document();
 Update external packages (in DESCRIPTION file);
 Update badges in README.Rmd (if already present);
@@ -96,7 +96,12 @@ Check package integrity with devtools::check().
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/FRBCesab/rcompendium/">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -110,13 +115,13 @@ Check package integrity with devtools::check().
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Refresh a research compendium/package</h1>
-    
+    <h1>Refresh a package/research compendium</h1>
+    <small class="dont-index">Source: <a href='https://github.com/FRBCesab/rcompendium/blob/master/R/refresh.R'><code>R/refresh.R</code></a></small>
     <div class="hidden name"><code>refresh.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function refreshes a research compendium/package. It will:</p><ul>
+    <p>This function refreshes a package/research compendium. It will:</p><ul>
 <li><p>Update <code>.Rd</code> files and <code>NAMESPACE</code>, using <code><a href='https://devtools.r-lib.org//reference/document.html'>devtools::document()</a></code>;</p></li>
 <li><p>Update external packages (in <code>DESCRIPTION</code> file);</p></li>
 <li><p>Update badges in <code>README.Rmd</code> (if already present);</p></li>

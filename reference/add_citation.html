@@ -41,7 +41,8 @@
 
 <meta property="og:title" content="Create a CITATION file — add_citation" />
 <meta property="og:description" content="This function creates a CITATION file in the folder inst/. This file
-contains a BiBTeX entry to cite the package as a manual." />
+contains a BiBTeX entry to cite the package as a manual. User will need to
+edit by hand some information (title, version, etc.)." />
 
 
 
@@ -90,7 +91,12 @@ contains a BiBTeX entry to cite the package as a manual." />
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/FRBCesab/rcompendium/">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -105,13 +111,14 @@ contains a BiBTeX entry to cite the package as a manual." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Create a CITATION file</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/FRBCesab/rcompendium/blob/master/R/add_citation.R'><code>R/add_citation.R</code></a></small>
     <div class="hidden name"><code>add_citation.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function creates a <em>CITATION</em> file in the folder <em>inst/</em>. This file
-contains a BiBTeX entry to cite the package as a manual.</p>
+    <p>This function creates a <code>CITATION</code> file in the folder <code>inst/</code>. This file
+contains a BiBTeX entry to cite the package as a manual. User will need to
+edit by hand some information (title, version, etc.).</p>
     </div>
 
     <pre class="usage"><span class='fu'>add_citation</span><span class='op'>(</span>
@@ -151,7 +158,7 @@ editor.</p></td>
     </tr>
     <tr>
       <th>overwrite</th>
-      <td><p>a logical value. If a <em>CITATION</em> is already present and
+      <td><p>a logical value. If a <code>CITATION</code> is already present and
 <code>overwrite = TRUE</code>, this file will be erased and replaced.</p></td>
     </tr>
     <tr>

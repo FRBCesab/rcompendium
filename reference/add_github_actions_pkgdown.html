@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Setup website deployment with GitHub Actions — add_github_actions_pkgdown • rcompendium</title>
+<title>Setup GitHub Actions to build and deploy package website — add_github_actions_pkgdown • rcompendium</title>
 
 
 <!-- jquery -->
@@ -39,12 +39,12 @@
 
 
 
-<meta property="og:title" content="Setup website deployment with GitHub Actions — add_github_actions_pkgdown" />
+<meta property="og:title" content="Setup GitHub Actions to build and deploy package website — add_github_actions_pkgdown" />
 <meta property="og:description" content="This function creates a configuration file (.yaml) to setup GitHub Actions
-to automatically deploy a website using pkgdown. This file will be added
-(from a template) in the folder .github/workflows/pkgdown.yaml. An
-additional (empty) file _\emphpkgdown.yaml will also be written: it can be use
-to customize website." />
+to automatically build and deploy the website using pkgdown::pkgdown().
+This file will be added (from a template) in the folder
+.github/workflows/pkgdown.yaml. An additional (empty) file _pkgdown.yaml
+will also be written: it can be use to customize the package website." />
 
 
 
@@ -93,7 +93,12 @@ to customize website." />
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/FRBCesab/rcompendium/">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -107,17 +112,17 @@ to customize website." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Setup website deployment with GitHub Actions</h1>
-    
+    <h1>Setup GitHub Actions to build and deploy package website</h1>
+    <small class="dont-index">Source: <a href='https://github.com/FRBCesab/rcompendium/blob/master/R/add_github_actions_pkgdown.R'><code>R/add_github_actions_pkgdown.R</code></a></small>
     <div class="hidden name"><code>add_github_actions_pkgdown.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p>This function creates a configuration file (<code>.yaml</code>) to setup GitHub Actions
-to automatically deploy a website using <code>pkgdown</code>. This file will be added
-(from a template) in the folder <em>.github/workflows/pkgdown.yaml</em>. An
-additional (empty) file _\emphpkgdown.yaml will also be written: it can be use
-to customize website.</p>
+to automatically build and deploy the website using <code><a href='https://pkgdown.r-lib.org/reference/pkgdown-package.html'>pkgdown::pkgdown()</a></code>.
+This file will be added (from a template) in the folder
+<code>.github/workflows/pkgdown.yaml</code>. An additional (empty) file <code>_pkgdown.yaml</code>
+will also be written: it can be use to customize the package website.</p>
     </div>
 
     <pre class="usage"><span class='fu'>add_github_actions_pkgdown</span><span class='op'>(</span>open <span class='op'>=</span> <span class='cn'>FALSE</span>, overwrite <span class='op'>=</span> <span class='cn'>FALSE</span>, quiet <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>

@@ -91,7 +91,12 @@ package are just added to this file. Otherwise a new file is created." />
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/FRBCesab/rcompendium/">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -106,13 +111,13 @@ package are just added to this file. Otherwise a new file is created." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Add to .Rbuildignore file</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/FRBCesab/rcompendium/blob/master/R/add_to_buildignore.R'><code>R/add_to_buildignore.R</code></a></small>
     <div class="hidden name"><code>add_to_buildignore.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p>This function adds files/folders to the <code>.Rbuildignore</code> file. If a
-<em>.Rbuildignore</em> is already present, files to be ignored while checking
+<code>.Rbuildignore</code> is already present, files to be ignored while checking
 package are just added to this file. Otherwise a new file is created.</p>
     </div>
 
@@ -123,8 +128,8 @@ package are just added to this file. Otherwise a new file is created.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>a character of one or several files/directories names to add to the
-<em>.Rbuildignore</em>. This argument is mandatory.</p></td>
+      <td><p>a character vector of one or several files/directories names to add
+to the <code>.Rbuildignore</code>. This argument is mandatory.</p></td>
     </tr>
     <tr>
       <th>open</th>

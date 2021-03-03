@@ -40,10 +40,10 @@
 
 
 <meta property="og:title" content="Create a package-level documentation file — add_package_doc" />
-<meta property="og:description" content="This function adds a package-level documentation file (.R) in the R/
-folder. This file will make help available to the user via ?pkg (where
-pkg is the name of the package). It a good place to put general directives
-like @import and @importFrom." />
+<meta property="og:description" content="This function adds a package-level documentation file (pkg-package.R) in
+the R/ folder. This file will make help available to the user via ?pkg
+(where pkg is the name of the package). It a good place to put general
+directives like @import and @importFrom." />
 
 
 
@@ -92,7 +92,12 @@ like @import and @importFrom." />
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/FRBCesab/rcompendium/">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -107,15 +112,15 @@ like @import and @importFrom." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Create a package-level documentation file</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/FRBCesab/rcompendium/blob/master/R/add_package_doc.R'><code>R/add_package_doc.R</code></a></small>
     <div class="hidden name"><code>add_package_doc.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function adds a package-level documentation file (<code>.R</code>) in the <em>R/</em>
-folder. This file will make help available to the user via <code>?pkg</code> (where
-<code>pkg</code> is the name of the package). It a good place to put general directives
-like <code>@import</code> and <code>@importFrom</code>.</p>
+    <p>This function adds a package-level documentation file (<code>pkg-package.R</code>) in
+the <code>R/</code> folder. This file will make help available to the user via <code>?pkg</code>
+(where <code>pkg</code> is the name of the package). It a good place to put general
+directives like <code>@import</code> and <code>@importFrom</code>.</p>
     </div>
 
     <pre class="usage"><span class='fu'>add_package_doc</span><span class='op'>(</span>open <span class='op'>=</span> <span class='cn'>TRUE</span>, overwrite <span class='op'>=</span> <span class='cn'>FALSE</span>, quiet <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>

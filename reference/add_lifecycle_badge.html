@@ -92,7 +92,12 @@ listed below." />
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/FRBCesab/rcompendium/">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -107,12 +112,12 @@ listed below." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Add a life cycle badge</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/FRBCesab/rcompendium/blob/master/R/add_lifecycle_badge.R'><code>R/add_lifecycle_badge.R</code></a></small>
     <div class="hidden name"><code>add_lifecycle_badge.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function adds or updates the Life cycle badge to the <strong>README.Rmd</strong>. It
+    <p>This function adds or updates the Life cycle badge to the <code>README.Rmd</code>. It
 is based on the standard defined at
 <a href='https://lifecycle.r-lib.org/articles/stages.html'>https://lifecycle.r-lib.org/articles/stages.html</a>. Accepted stages are
 listed below.</p>
@@ -125,8 +130,8 @@ listed below.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>lifecycle</th>
-      <td><p>a character. One among 'experimental', 'stable',
-'deprecated', or 'superseded'.</p></td>
+      <td><p>a character. One among <code>'experimental'</code> (default),
+<code>'stable'</code>, <code>'deprecated'</code>, or <code>'superseded'</code>.</p></td>
     </tr>
     <tr>
       <th>quiet</th>

@@ -91,7 +91,12 @@ recommended to store them in the .Rprofile file with set_credentials()." />
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/FRBCesab/rcompendium/">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -106,14 +111,14 @@ recommended to store them in the .Rprofile file with set_credentials()." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Create a DESCRIPTION file</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/FRBCesab/rcompendium/blob/master/R/add_description.R'><code>R/add_description.R</code></a></small>
     <div class="hidden name"><code>add_description.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function creates a <em>DESCRIPTION</em> file at the root of the project based
+    <p>This function creates a <code>DESCRIPTION</code> file at the root of the project based
 on a template. User credentials can be passed as arguments but it is
-recommended to store them in the <em>.Rprofile</em> file with <code><a href='set_credentials.html'>set_credentials()</a></code>.</p>
+recommended to store them in the <code>.Rprofile</code> file with <code><a href='set_credentials.html'>set_credentials()</a></code>.</p>
     </div>
 
     <pre class="usage"><span class='fu'>add_description</span><span class='op'>(</span>
@@ -163,7 +168,7 @@ editor.</p></td>
     </tr>
     <tr>
       <th>overwrite</th>
-      <td><p>a logical value. If a <em>DESCRIPTION</em> is already present and
+      <td><p>a logical value. If a <code>DESCRIPTION</code> is already present and
 <code>overwrite = TRUE</code>, this file will be erased and replaced.</p></td>
     </tr>
     <tr>

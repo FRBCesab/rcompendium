@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Setup GitHub Actions (checks and tests) — add_github_actions_check • rcompendium</title>
+<title>Setup GitHub Actions to check and test package — add_github_actions_check • rcompendium</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,9 @@
 
 
 
-<meta property="og:title" content="Setup GitHub Actions (checks and tests) — add_github_actions_check" />
+<meta property="og:title" content="Setup GitHub Actions to check and test package — add_github_actions_check" />
 <meta property="og:description" content="This function creates a configuration file (.yaml) to setup GitHub Actions
-to checks and tests the package. This file will be added (from a template)
+to check and test the package. This file will be added (from a template)
 in the folder .github/workflows/R-CMD-check.yaml." />
 
 
@@ -91,7 +91,12 @@ in the folder .github/workflows/R-CMD-check.yaml." />
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/FRBCesab/rcompendium/">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -105,15 +110,15 @@ in the folder .github/workflows/R-CMD-check.yaml." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Setup GitHub Actions (checks and tests)</h1>
-    
+    <h1>Setup GitHub Actions to check and test package</h1>
+    <small class="dont-index">Source: <a href='https://github.com/FRBCesab/rcompendium/blob/master/R/add_github_actions_check.R'><code>R/add_github_actions_check.R</code></a></small>
     <div class="hidden name"><code>add_github_actions_check.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p>This function creates a configuration file (<code>.yaml</code>) to setup GitHub Actions
-to checks and tests the package. This file will be added (from a template)
-in the folder <em>.github/workflows/R-CMD-check.yaml</em>.</p>
+to check and test the package. This file will be added (from a template)
+in the folder <code>.github/workflows/R-CMD-check.yaml</code>.</p>
     </div>
 
     <pre class="usage"><span class='fu'>add_github_actions_check</span><span class='op'>(</span>open <span class='op'>=</span> <span class='cn'>FALSE</span>, overwrite <span class='op'>=</span> <span class='cn'>FALSE</span>, quiet <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>

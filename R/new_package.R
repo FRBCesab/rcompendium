@@ -2,9 +2,9 @@
 #' 
 #' @description 
 #' This function creates a new R package structure according to the CRAN 
-#' policies. Essential features of an R package are created (DESCRIPTION and
-#' NAMESPACE files, and R/ and man/ folders). The project is also **versioning** 
-#' with git and a generic R _.gitignore_ is added.
+#' policies. Essential features of an R package are created (`DESCRIPTION` and
+#' `NAMESPACE` files, and `R/` and `man/` folders). The project is also 
+#' **versioning with git** and a generic R `.gitignore` is added.
 #' 
 #' **IMPORTANT -** Before using this function user needs to create a new folder 
 #' (or a new project if using RStudio) and run this function inside this folder 
@@ -13,20 +13,20 @@
 #' some rules must be respected**: 
 #' \url{https://r-pkgs.org/workflows101.html#naming}.
 #' 
-#' Some fields of the DESCRIPTION file (maintainer information, package name, 
+#' Some fields of the `DESCRIPTION` file (maintainer information, package name, 
 #' license, URLs, and  `roxygen2` version)  are automatically filled but
 #' others (title and description) need to be edited manually.
 #' 
-#' Additional features are also created: a _CITATION_ file, a _README.Rmd_, and
-#' a _vignettes/_ folder (optional). See below the section **Package Content** 
+#' Additional features are also created: a `CITATION` file, a `README.Rmd`, and
+#' a `vignettes/` folder (optional). See below the section **Package Content** 
 #' to see the full structure of the R package.
 #' 
 #' A GitHub repository can also be created (default) following the 
 #' "GitHub last" workflow
 #' (\url{https://happygitwithr.com/existing-github-last.html}).
 #' Configuration files for GitHub Actions to automatically check the package and 
-#' deploy the website (`pkgdown`) will be added in the _.github/_ folder. See 
-#' below the section **Creating a GITHUB Repository**.
+#' deploy the website [pkgdown::pkgdown()] will be added in the `.github/`
+#' folder. See below the section **Creating a GITHUB Repository**.
 #' 
 #' @param license a character vector of length 1
 #' 
@@ -43,7 +43,7 @@
 #'   `'wip'`, `'suspended'`, `'abandoned'`, `'active'`, `'inactive'`, or 
 #'   `'unsupported'`. See [add_repostatus_badge()] for further information. 
 #'   
-#'   This argument is used to add a badge to the _README.Rmd_ to help visitors 
+#'   This argument is used to add a badge to the `README.Rmd` to help visitors 
 #'   to better understand your project. If you don't want this badge use 
 #'   `status = NULL`.
 #'   
@@ -56,7 +56,7 @@
 #'   `'experimental'` (default), `'stable'`, `'deprecated'`, or `'superseded'`.
 #'   See [add_lifecycle_badge()] for further information. 
 #'   
-#'   This argument is used to add a badge to the _README.Rmd_ to help visitors 
+#'   This argument is used to add a badge to the `README.Rmd` to help visitors 
 #'   to better understand your project. If you don't want this badge use 
 #'   `lifecycle = NULL`. 
 #'   
@@ -85,7 +85,7 @@
 #' @param website a logical value
 #' 
 #'   If `TRUE` (default) configures GitHub Actions to automatically build and 
-#'   deploy the package website (using `pkgdown`) after each push. A 
+#'   deploy the package website (using [pkgdown::pkgdown()]) after each push. A 
 #'   **gh-pages** branch will be created using [usethis::use_github_pages()] 
 #'   and the GitHub repository will be automatically configured. 
 #'   
@@ -94,7 +94,7 @@
 #' @param given a character vector of length 1
 #' 
 #'   The given name of the maintainer of the package. If `NULL` (default) the 
-#'   function will try to get this value by reading the _.Rprofile_ file. 
+#'   function will try to get this value by reading the `.Rprofile` file. 
 #'   
 #'   For further information see [set_credentials()] and below the section 
 #'   **Managing Credentials**.
@@ -102,7 +102,7 @@
 #' @param family a character vector of length 1
 #' 
 #'   The family name of the maintainer of the package. If `NULL` (default) the 
-#'   function will try to get this value by reading the _.Rprofile_ file. 
+#'   function will try to get this value by reading the `.Rprofile` file. 
 #'   
 #'   For further information see [set_credentials()] and below the section 
 #'   **Managing Credentials**.
@@ -110,7 +110,7 @@
 #' @param email a character vector of length 1
 #' 
 #'   The email address of the maintainer of the package. If `NULL` (default) the 
-#'   function will try to get this value by reading the _.Rprofile_ file. 
+#'   function will try to get this value by reading the `.Rprofile` file. 
 #'   
 #'   For further information see [set_credentials()] and below the section 
 #'   **Managing Credentials**.
@@ -118,7 +118,7 @@
 #' @param orcid a character vector of length 1
 #' 
 #'   The ORCID of the maintainer of the package. If `NULL` (default) the 
-#'   function will try to get this value by reading the _.Rprofile_ file. 
+#'   function will try to get this value by reading the `.Rprofile` file. 
 #'   
 #'   For further information see [set_credentials()] and below the section 
 #'   **Managing Credentials**.
@@ -131,7 +131,7 @@
 #'   argument `organisation`).
 #'   
 #'   If `NULL` (default) the function will try to get this value by reading 
-#'   the _.Rprofile_ file (unless `!is.null(organisation)`). 
+#'   the `.Rprofile` file (unless `!is.null(organisation)`). 
 #' 
 #' @param organisation a character vector of length 1
 #' 
@@ -200,18 +200,19 @@
 #' ## Recommended Workflow
 #' 
 #' The purpose of the package `rcompendium` is to make easier the creation of R
-#' package/research compendium so that user can focus on the coding/analysis 
+#' package/research compendium so that user can focus on the code/analysis 
 #' instead of wasting time organizing files.
 #' 
 #' The recommended workflow is as follow:
 #' * Create an empty RStudio project;
+#' * Store your credentials with [set_credentials()] (if not already done);
 #' * Run [new_package()] to create the package structure (and the GitHub 
 #'   repository);
-#' * Edit some metadata in DESCRIPTION, CITATION, and README.Rmd
-#' * Implement function, add data, test functions, etc.;
-#' * Update the project (functions documentations, NAMESPACE, external 
-#'   dependencies in DESCRIPTION, re-knit README, and check package integrity) 
-#'   with [refresh()].
+#' * Edit some metadata in `DESCRIPTION`, `CITATION`, and `README.Rmd`;
+#' * Implement, document & test functions (the fun part);
+#' * Update the project (update `.Rd` files, `NAMESPACE`, external dependencies 
+#'   in `DESCRIPTION`, re-knit `README.Rmd`, and check package integrity) with
+#'   [refresh()].
 #' 
 #' 
 #' ## Managing Credentials
@@ -223,11 +224,11 @@
 #' 
 #' An alternative is to use **ONCE AND FOR ALL** the function 
 #' [set_credentials()] to permanently store this information in the 
-#' **.Rprofile** file. If these arguments are set to `NULL` (default) each 
-#' function of the package `rcompendium` will search in this **.Rprofile** file.
+#' `.Rprofile` file. If these arguments are set to `NULL` (default) each 
+#' function of the package `rcompendium` will search in this `.Rprofile` file.
 #' It will save your time (it's the purpose of this package).
 #' 
-#' Even if you have stored your information in the **.Rprofile** file you will 
+#' Even if you have stored your information in the `.Rprofile` file you will 
 #' always be able to modify them on-the-fly (i.e. by using arguments of the
 #' [new_package()]) or permanently by re-running [set_credentials()].
 #' 
@@ -251,16 +252,16 @@
 #' To create the GitHub repository directly from R, the package `rcompendium` 
 #' uses the function [usethis::use_github()], an interface to the GitHub 
 #' REST API. The interaction with this API required an authentication method:
-#' a GITHUB PAT (Personal Access Token).
+#' a **GITHUB PAT** (Personal Access Token).
 #' 
-#' If you don't have a GITHUB PAT locally stored, you must:
+#' If you don't have a **GITHUB PAT** locally stored, you must:
 #' 1. Obtain a new one from your GitHub account. **Make sure to select 
 #' at least the first two scopes (private repository and workflow)**
-#' 2. Store it in the **.Renviron** file by using [usethis::edit_r_environ()] 
+#' 2. Store it in the `.Renviron` file by using [usethis::edit_r_environ()] 
 #' and adding the following line: `GITHUB_PAT='99z9...z9'`
 #' 
 #' See [usethis::gh_token_help()] for more information about getting and 
-#' configuring a (GITHUB) PAT.
+#' configuring a **GITHUB PAT**.
 #' 
 #' If everything is well configured you should see something like:
 #' 

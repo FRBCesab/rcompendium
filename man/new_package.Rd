@@ -38,7 +38,7 @@ The status of the project according to the standard defined by the
 \code{'wip'}, \code{'suspended'}, \code{'abandoned'}, \code{'active'}, \code{'inactive'}, or
 \code{'unsupported'}. See \code{\link[=add_repostatus_badge]{add_repostatus_badge()}} for further information.
 
-This argument is used to add a badge to the \emph{README.Rmd} to help visitors
+This argument is used to add a badge to the \code{README.Rmd} to help visitors
 to better understand your project. If you don't want this badge use
 \code{status = NULL}.
 
@@ -51,7 +51,7 @@ The lifecycle stage of the project according to the standard defined at
 \code{'experimental'} (default), \code{'stable'}, \code{'deprecated'}, or \code{'superseded'}.
 See \code{\link[=add_lifecycle_badge]{add_lifecycle_badge()}} for further information.
 
-This argument is used to add a badge to the \emph{README.Rmd} to help visitors
+This argument is used to add a badge to the \code{README.Rmd} to help visitors
 to better understand your project. If you don't want this badge use
 \code{lifecycle = NULL}.
 
@@ -80,7 +80,7 @@ If \code{create_repo = FALSE} this argument is ignored.}
 \item{website}{a logical value
 
 If \code{TRUE} (default) configures GitHub Actions to automatically build and
-deploy the package website (using \code{pkgdown}) after each push. A
+deploy the package website (using \code{\link[pkgdown:pkgdown-package]{pkgdown::pkgdown()}}) after each push. A
 \strong{gh-pages} branch will be created using \code{\link[usethis:use_github_pages]{usethis::use_github_pages()}}
 and the GitHub repository will be automatically configured.
 
@@ -89,7 +89,7 @@ If \code{create_repo = FALSE} this argument is ignored.}
 \item{given}{a character vector of length 1
 
 The given name of the maintainer of the package. If \code{NULL} (default) the
-function will try to get this value by reading the \emph{.Rprofile} file.
+function will try to get this value by reading the \code{.Rprofile} file.
 
 For further information see \code{\link[=set_credentials]{set_credentials()}} and below the section
 \strong{Managing Credentials}.}
@@ -97,7 +97,7 @@ For further information see \code{\link[=set_credentials]{set_credentials()}} an
 \item{family}{a character vector of length 1
 
 The family name of the maintainer of the package. If \code{NULL} (default) the
-function will try to get this value by reading the \emph{.Rprofile} file.
+function will try to get this value by reading the \code{.Rprofile} file.
 
 For further information see \code{\link[=set_credentials]{set_credentials()}} and below the section
 \strong{Managing Credentials}.}
@@ -105,7 +105,7 @@ For further information see \code{\link[=set_credentials]{set_credentials()}} an
 \item{email}{a character vector of length 1
 
 The email address of the maintainer of the package. If \code{NULL} (default) the
-function will try to get this value by reading the \emph{.Rprofile} file.
+function will try to get this value by reading the \code{.Rprofile} file.
 
 For further information see \code{\link[=set_credentials]{set_credentials()}} and below the section
 \strong{Managing Credentials}.}
@@ -113,7 +113,7 @@ For further information see \code{\link[=set_credentials]{set_credentials()}} an
 \item{orcid}{a character vector of length 1
 
 The ORCID of the maintainer of the package. If \code{NULL} (default) the
-function will try to get this value by reading the \emph{.Rprofile} file.
+function will try to get this value by reading the \code{.Rprofile} file.
 
 For further information see \code{\link[=set_credentials]{set_credentials()}} and below the section
 \strong{Managing Credentials}.}
@@ -126,7 +126,7 @@ repository will be created on the GitHub organisation specified by the
 argument \code{organisation}).
 
 If \code{NULL} (default) the function will try to get this value by reading
-the \emph{.Rprofile} file (unless \code{!is.null(organisation)}).}
+the \code{.Rprofile} file (unless \code{!is.null(organisation)}).}
 
 \item{organisation}{a character vector of length 1
 
@@ -146,9 +146,9 @@ If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
 }
 \description{
 This function creates a new R package structure according to the CRAN
-policies. Essential features of an R package are created (DESCRIPTION and
-NAMESPACE files, and R/ and man/ folders). The project is also \strong{versioning}
-with git and a generic R \emph{.gitignore} is added.
+policies. Essential features of an R package are created (\code{DESCRIPTION} and
+\code{NAMESPACE} files, and \verb{R/} and \verb{man/} folders). The project is also
+\strong{versioning with git} and a generic R \code{.gitignore} is added.
 
 \strong{IMPORTANT -} Before using this function user needs to create a new folder
 (or a new project if using RStudio) and run this function inside this folder
@@ -157,20 +157,20 @@ with git and a generic R \emph{.gitignore} is added.
 some rules must be respected}:
 \url{https://r-pkgs.org/workflows101.html#naming}.
 
-Some fields of the DESCRIPTION file (maintainer information, package name,
+Some fields of the \code{DESCRIPTION} file (maintainer information, package name,
 license, URLs, and  \code{roxygen2} version)  are automatically filled but
 others (title and description) need to be edited manually.
 
-Additional features are also created: a \emph{CITATION} file, a \emph{README.Rmd}, and
-a \emph{vignettes/} folder (optional). See below the section \strong{Package Content}
+Additional features are also created: a \code{CITATION} file, a \code{README.Rmd}, and
+a \verb{vignettes/} folder (optional). See below the section \strong{Package Content}
 to see the full structure of the R package.
 
 A GitHub repository can also be created (default) following the
 "GitHub last" workflow
 (\url{https://happygitwithr.com/existing-github-last.html}).
 Configuration files for GitHub Actions to automatically check the package and
-deploy the website (\code{pkgdown}) will be added in the \emph{.github/} folder. See
-below the section \strong{Creating a GITHUB Repository}.
+deploy the website \code{\link[pkgdown:pkgdown-package]{pkgdown::pkgdown()}} will be added in the \verb{.github/}
+folder. See below the section \strong{Creating a GITHUB Repository}.
 }
 \details{
 \subsection{Package Content}{
@@ -219,19 +219,20 @@ With default settings the package \code{pkg} will contain:\preformatted{.
 \subsection{Recommended Workflow}{
 
 The purpose of the package \code{rcompendium} is to make easier the creation of R
-package/research compendium so that user can focus on the coding/analysis
+package/research compendium so that user can focus on the code/analysis
 instead of wasting time organizing files.
 
 The recommended workflow is as follow:
 \itemize{
 \item Create an empty RStudio project;
+\item Store your credentials with \code{\link[=set_credentials]{set_credentials()}} (if not already done);
 \item Run \code{\link[=new_package]{new_package()}} to create the package structure (and the GitHub
 repository);
-\item Edit some metadata in DESCRIPTION, CITATION, and README.Rmd
-\item Implement function, add data, test functions, etc.;
-\item Update the project (functions documentations, NAMESPACE, external
-dependencies in DESCRIPTION, re-knit README, and check package integrity)
-with \code{\link[=refresh]{refresh()}}.
+\item Edit some metadata in \code{DESCRIPTION}, \code{CITATION}, and \code{README.Rmd};
+\item Implement, document & test functions (the fun part);
+\item Update the project (update \code{.Rd} files, \code{NAMESPACE}, external dependencies
+in \code{DESCRIPTION}, re-knit \code{README.Rmd}, and check package integrity) with
+\code{\link[=refresh]{refresh()}}.
 }
 }
 
@@ -244,11 +245,11 @@ long run.
 
 An alternative is to use \strong{ONCE AND FOR ALL} the function
 \code{\link[=set_credentials]{set_credentials()}} to permanently store this information in the
-\strong{.Rprofile} file. If these arguments are set to \code{NULL} (default) each
-function of the package \code{rcompendium} will search in this \strong{.Rprofile} file.
+\code{.Rprofile} file. If these arguments are set to \code{NULL} (default) each
+function of the package \code{rcompendium} will search in this \code{.Rprofile} file.
 It will save your time (it's the purpose of this package).
 
-Even if you have stored your information in the \strong{.Rprofile} file you will
+Even if you have stored your information in the \code{.Rprofile} file you will
 always be able to modify them on-the-fly (i.e. by using arguments of the
 \code{\link[=new_package]{new_package()}}) or permanently by re-running \code{\link[=set_credentials]{set_credentials()}}.
 }
@@ -269,18 +270,18 @@ Otherwise see \code{\link[gert:git_config]{gert::git_config()}} to debug.
 To create the GitHub repository directly from R, the package \code{rcompendium}
 uses the function \code{\link[usethis:use_github]{usethis::use_github()}}, an interface to the GitHub
 REST API. The interaction with this API required an authentication method:
-a GITHUB PAT (Personal Access Token).
+a \strong{GITHUB PAT} (Personal Access Token).
 
-If you don't have a GITHUB PAT locally stored, you must:
+If you don't have a \strong{GITHUB PAT} locally stored, you must:
 \enumerate{
 \item Obtain a new one from your GitHub account. \strong{Make sure to select
 at least the first two scopes (private repository and workflow)}
-\item Store it in the \strong{.Renviron} file by using \code{\link[usethis:edit]{usethis::edit_r_environ()}}
+\item Store it in the \code{.Renviron} file by using \code{\link[usethis:edit]{usethis::edit_r_environ()}}
 and adding the following line: \code{GITHUB_PAT='99z9...z9'}
 }
 
 See \code{\link[usethis:github-token]{usethis::gh_token_help()}} for more information about getting and
-configuring a (GITHUB) PAT.
+configuring a \strong{GITHUB PAT}.
 
 If everything is well configured you should see something like:\preformatted{\{
 "name": "Given Family",

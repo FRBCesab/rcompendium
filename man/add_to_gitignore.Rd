@@ -7,18 +7,18 @@
 add_to_gitignore(x, open = FALSE, quiet = FALSE)
 }
 \arguments{
-\item{x}{a character of one or several files/directories names to add to the
-\emph{.gitignore}.}
+\item{x}{a character vector of one or several files/directories names to add
+to the \code{.gitignore}.}
 
-\item{open}{a logical value. If \code{TRUE} the \emph{.gitignore} file is opened in
+\item{open}{a logical value. If \code{TRUE} the \code{.gitignore} file is opened in
 the editor. Default is \code{FALSE}.}
 
 \item{quiet}{a logical value. If \code{TRUE} messages are deleted. Default is
 \code{FALSE}.}
 }
 \description{
-This function creates a \emph{.gitignore} file at the root of the project based on
-a template (specific to R). If a \emph{.gitignore} is already present, files to
+This function creates a \code{.gitignore} file at the root of the project based on
+a template (specific to R). If a \code{.gitignore} is already present, files to
 be untracked by \strong{git} are just added to this file.
 }
 \examples{

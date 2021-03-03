@@ -1,7 +1,7 @@
-#' Refresh a research compendium/package
+#' Refresh a package/research compendium
 #' 
 #' @description 
-#' This function refreshes a research compendium/package. It will:
+#' This function refreshes a package/research compendium. It will:
 #' * Update `.Rd` files and `NAMESPACE`, using [devtools::document()];
 #' * Update external packages (in `DESCRIPTION` file);
 #' * Update badges in `README.Rmd` (if already present);

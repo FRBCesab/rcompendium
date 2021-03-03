@@ -1,11 +1,11 @@
-#' Setup website deployment with GitHub Actions
+#' Setup GitHub Actions to build and deploy package website
 #' 
 #' @description 
 #' This function creates a configuration file (`.yaml`) to setup GitHub Actions 
-#' to automatically deploy a website using `pkgdown`. This file will be added 
-#' (from a template) in the folder _.github/workflows/pkgdown.yaml_. An 
-#' additional (empty) file _\_pkgdown.yaml_ will also be written: it can be use
-#' to customize website.
+#' to automatically build and deploy the website using [pkgdown::pkgdown()]. 
+#' This file will be added (from a template) in the folder 
+#' `.github/workflows/pkgdown.yaml`. An additional (empty) file `_pkgdown.yaml` 
+#' will also be written: it can be use to customize the package website.
 #' 
 #' @param open a logical value. If `TRUE` the file is opened in the editor.
 #'   Default is `FALSE`.

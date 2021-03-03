@@ -1,13 +1,10 @@
-#' List all Rd function families
+#' List all Rd functions families
 #' 
 #' @description 
-#' This function parses all R functions to detect `@family` tag.
+#' This function parses all R functions to detect `@family` tag. For internal
+#' purpose.
 #' 
 #' @return A vector of Rd function families.
-#' 
-#' @export
-#' 
-#' @family utilities functions
 #'
 #' @examples
 #' \dontrun{

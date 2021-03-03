@@ -2,7 +2,7 @@
 % Please edit documentation in R/add_github_actions_pkgdown.R
 \name{add_github_actions_pkgdown}
 \alias{add_github_actions_pkgdown}
-\title{Setup website deployment with GitHub Actions}
+\title{Setup GitHub Actions to build and deploy package website}
 \usage{
 add_github_actions_pkgdown(open = FALSE, overwrite = FALSE, quiet = FALSE)
 }
@@ -18,10 +18,10 @@ Default is \code{FALSE}.}
 }
 \description{
 This function creates a configuration file (\code{.yaml}) to setup GitHub Actions
-to automatically deploy a website using \code{pkgdown}. This file will be added
-(from a template) in the folder \emph{.github/workflows/pkgdown.yaml}. An
-additional (empty) file _\\emph{pkgdown.yaml} will also be written: it can be use
-to customize website.
+to automatically build and deploy the website using \code{\link[pkgdown:pkgdown-package]{pkgdown::pkgdown()}}.
+This file will be added (from a template) in the folder
+\code{.github/workflows/pkgdown.yaml}. An additional (empty) file \verb{_pkgdown.yaml}
+will also be written: it can be use to customize the package website.
 }
 \examples{
 \dontrun{

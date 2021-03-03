@@ -16,7 +16,7 @@ A character with the minimal required R version.
 \description{
 This function detects the minimal required R version for the project based
 on minimal required R version of its dependencies. It can be used to update
-the \code{Depends} field of the \strong{DESCRIPTION} file.
+the \code{Depends} field of the \code{DESCRIPTION} file.
 }
 \examples{
 \dontrun{
@@ -34,7 +34,6 @@ get_minimal_r_version("usethis")
 Other utilities functions: 
 \code{\link{get_all_dependencies}()},
 \code{\link{get_all_functions}()},
-\code{\link{get_licenses}()},
-\code{\link{get_rd_families}()}
+\code{\link{get_licenses}()}
 }
 \concept{utilities functions}

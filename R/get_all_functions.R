@@ -2,8 +2,8 @@
 #' 
 #' @description
 #' This function returns a list of all the functions (exported and internal) 
-#' available with the package. As this function scans the **NAMESPACE** and the
-#' **R/** folder, it is recommended to run [devtools::document()] before.
+#' available with the package. As this function scans the `NAMESPACE` and the
+#' `R/` folder, it is recommended to run [devtools::document()] before.
 #' 
 #' @return 
 #' A list of two vectors: 

@@ -15,8 +15,8 @@ A list of two vectors:
 }
 \description{
 This function returns a list of all the functions (exported and internal)
-available with the package. As this function scans the \strong{NAMESPACE} and the
-\strong{R/} folder, it is recommended to run \code{\link[devtools:document]{devtools::document()}} before.
+available with the package. As this function scans the \code{NAMESPACE} and the
+\verb{R/} folder, it is recommended to run \code{\link[devtools:document]{devtools::document()}} before.
 }
 \examples{
 \dontrun{
@@ -28,7 +28,6 @@ get_all_functions()
 Other utilities functions: 
 \code{\link{get_all_dependencies}()},
 \code{\link{get_licenses}()},
-\code{\link{get_minimal_r_version}()},
-\code{\link{get_rd_families}()}
+\code{\link{get_minimal_r_version}()}
 }
 \concept{utilities functions}

@@ -11,7 +11,7 @@ add_dependencies_badge(quiet = FALSE)
 \code{FALSE}.}
 }
 \description{
-This function adds a dependencies badge to the \strong{README.Rmd}. The first
+This function adds a dependencies badge to the \code{README.Rmd}. The first
 number corresponds to the direct dependencies and the second to the recursive
 dependencies.
 

@@ -3,7 +3,7 @@
 #' @description 
 #' This function detects the minimal required R version for the project based 
 #' on minimal required R version of its dependencies. It can be used to update
-#' the `Depends` field of the **DESCRIPTION** file.
+#' the `Depends` field of the `DESCRIPTION` file.
 #' 
 #' @param pkg name of a CRAN package or `NULL`. If `NULL` get minimal required 
 #'   R version of the local (uninstalled) project (package or compendium).

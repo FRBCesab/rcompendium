@@ -2,9 +2,9 @@
 #' 
 #' @description 
 #' This function adds the minimal R version to the `Depends` field of the 
-#' DESCRIPTION file. This version corresponds to the higher version of R among
+#' `DESCRIPTION` file. This version corresponds to the higher version of R among
 #' all dependencies. If no dependencies mentioned minimal R version, the
-#' DESCRIPTION is not modified.
+#' `DESCRIPTION` is not modified.
 #' 
 #' @export
 #' 

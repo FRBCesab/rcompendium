@@ -11,8 +11,8 @@ add_license_badge(quiet = FALSE)
 \code{FALSE}.}
 }
 \description{
-This function adds or updates the license badge to the \strong{README.Rmd}. This
-function reads the \code{License} field of the DESCRIPTION file. Be sure to
+This function adds or updates the license badge to the \code{README.Rmd}. This
+function reads the \code{License} field of the \code{DESCRIPTION} file. Be sure to
 previously run \code{\link[=add_license]{add_license()}} function.
 }
 \examples{

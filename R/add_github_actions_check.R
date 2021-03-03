@@ -1,9 +1,9 @@
-#' Setup GitHub Actions (checks and tests)
+#' Setup GitHub Actions to check and test package
 #' 
 #' @description 
 #' This function creates a configuration file (`.yaml`) to setup GitHub Actions 
-#' to checks and tests the package. This file will be added (from a template)
-#' in the folder _.github/workflows/R-CMD-check.yaml_.
+#' to check and test the package. This file will be added (from a template)
+#' in the folder `.github/workflows/R-CMD-check.yaml`.
 #' 
 #' @param open a logical value. If `TRUE` the file is opened in the editor.
 #'   Default is `FALSE`.
@@ -16,7 +16,7 @@
 #'   
 #' @details 
 #' This workflow runs `R CMD check` on the three major operating systems
-#'  (Ubuntu, macOS, and Windows) on the latest release of R.
+#' (Ubuntu, macOS, and Windows) on the latest release of R.
 #' 
 #' @export
 #' 

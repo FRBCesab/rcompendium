@@ -7,8 +7,8 @@
 add_to_buildignore(x, open = FALSE, quiet = FALSE)
 }
 \arguments{
-\item{x}{a character of one or several files/directories names to add to the
-\emph{.Rbuildignore}. This argument is mandatory.}
+\item{x}{a character vector of one or several files/directories names to add
+to the \code{.Rbuildignore}. This argument is mandatory.}
 
 \item{open}{a logical value. If \code{TRUE} the file is opened in the editor.
 Default is \code{FALSE}.}
@@ -18,7 +18,7 @@ Default is \code{FALSE}.}
 }
 \description{
 This function adds files/folders to the \code{.Rbuildignore} file. If a
-\emph{.Rbuildignore} is already present, files to be ignored while checking
+\code{.Rbuildignore} is already present, files to be ignored while checking
 package are just added to this file. Otherwise a new file is created.
 }
 \examples{

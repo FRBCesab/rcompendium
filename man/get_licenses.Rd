@@ -16,7 +16,7 @@ A data frame with the following two variables:
 \description{
 This function returns a list of all available licenses. This is particularly
 useful to get the right spelling of the license to be passed to
-\code{\link[=set_credentials]{set_credentials()}}, \code{\link[=new_compendium]{new_compendium()}}, or \code{\link[=add_license]{add_license()}}.
+\code{\link[=new_package]{new_package()}}, \code{\link[=new_compendium]{new_compendium()}}, or \code{\link[=add_license]{add_license()}}.
 }
 \examples{
 \dontrun{
@@ -44,7 +44,6 @@ get_licenses()
 Other utilities functions: 
 \code{\link{get_all_dependencies}()},
 \code{\link{get_all_functions}()},
-\code{\link{get_minimal_r_version}()},
-\code{\link{get_rd_families}()}
+\code{\link{get_minimal_r_version}()}
 }
 \concept{utilities functions}

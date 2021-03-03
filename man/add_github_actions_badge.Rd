@@ -7,17 +7,19 @@
 add_github_actions_badge(github = NULL, organisation = NULL, quiet = FALSE)
 }
 \arguments{
-\item{github}{user GITHUB account where the project is hosted.}
+\item{github}{user GitHub account where the project is hosted. If \code{NULL}
+(default) the function will try to get this value by reading the
+\code{.Rprofile} file (unless \code{!is.null(organisation)}).}
 
-\item{organisation}{(alternative) name of the GITHUB organisation where the
-project is hosted.  If \code{NULL} (default) the GITHUB account will be used.
-Otherwise the argument will be used.}
+\item{organisation}{(alternative) name of the GitHub organisation where the
+project is hosted.  If \code{NULL} (default) the GitHub account \code{github} will
+be used.}
 
 \item{quiet}{a logical value. If \code{TRUE} messages are deleted. Default is
 \code{FALSE}.}
 }
 \description{
-This function adds a R-CMD-CHECK badge to the \emph{README.Rmd}. This function
+This function adds a R-CMD-CHECK badge to the \code{README.Rmd}. This function
 must be run after \code{\link[=add_github_actions_check]{add_github_actions_check()}} which will setup GitHub
 Actions (checks and tests).
 }

@@ -1,13 +1,13 @@
 #' Add a life cycle badge
 #'
 #' @description 
-#' This function adds or updates the Life cycle badge to the **README.Rmd**. It 
+#' This function adds or updates the Life cycle badge to the `README.Rmd`. It 
 #' is based on the standard defined at 
 #' \url{https://lifecycle.r-lib.org/articles/stages.html}. Accepted stages are 
 #' listed below.
 #'
-#' @param lifecycle a character. One among 'experimental', 'stable', 
-#'   'deprecated', or 'superseded'.
+#' @param lifecycle a character. One among `'experimental'` (default), 
+#'   `'stable'`, `'deprecated'`, or `'superseded'`.
 #' 
 #' @param quiet a logical value. If `TRUE` messages are deleted. Default is 
 #'   `FALSE`.

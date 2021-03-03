@@ -1,8 +1,8 @@
 #' Add a license badge
 #'
 #' @description 
-#' This function adds or updates the license badge to the **README.Rmd**. This
-#' function reads the `License` field of the DESCRIPTION file. Be sure to 
+#' This function adds or updates the license badge to the `README.Rmd`. This
+#' function reads the `License` field of the `DESCRIPTION` file. Be sure to 
 #' previously run [add_license()] function.
 #' 
 #' @param quiet a logical value. If `TRUE` messages are deleted. Default is 

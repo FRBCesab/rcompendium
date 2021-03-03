@@ -8,9 +8,9 @@ add_r_depend()
 }
 \description{
 This function adds the minimal R version to the \code{Depends} field of the
-DESCRIPTION file. This version corresponds to the higher version of R among
+\code{DESCRIPTION} file. This version corresponds to the higher version of R among
 all dependencies. If no dependencies mentioned minimal R version, the
-DESCRIPTION is not modified.
+\code{DESCRIPTION} is not modified.
 }
 \examples{
 \dontrun{

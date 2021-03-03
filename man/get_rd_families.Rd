@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_rd_families.R
 \name{get_rd_families}
 \alias{get_rd_families}
-\title{List all Rd function families}
+\title{List all Rd functions families}
 \usage{
 get_rd_families()
 }
@@ -10,18 +10,11 @@ get_rd_families()
 A vector of Rd function families.
 }
 \description{
-This function parses all R functions to detect \verb{@family} tag.
+This function parses all R functions to detect \verb{@family} tag. For internal
+purpose.
 }
 \examples{
 \dontrun{
 get_rd_families()
 }
 }
-\seealso{
-Other utilities functions: 
-\code{\link{get_all_dependencies}()},
-\code{\link{get_all_functions}()},
-\code{\link{get_licenses}()},
-\code{\link{get_minimal_r_version}()}
-}
-\concept{utilities functions}

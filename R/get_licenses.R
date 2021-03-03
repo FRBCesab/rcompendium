@@ -3,7 +3,7 @@
 #' @description
 #' This function returns a list of all available licenses. This is particularly
 #' useful to get the right spelling of the license to be passed to 
-#' [set_credentials()], [new_compendium()], or [add_license()].
+#' [new_package()], [new_compendium()], or [add_license()].
 #' 
 #' @return 
 #' A data frame with the following two variables: 

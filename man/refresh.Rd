@@ -2,7 +2,7 @@
 % Please edit documentation in R/refresh.R
 \name{refresh}
 \alias{refresh}
-\title{Refresh a research compendium/package}
+\title{Refresh a package/research compendium}
 \usage{
 refresh(quiet = FALSE, check = TRUE, import = NULL)
 }
@@ -18,7 +18,7 @@ Default is \code{import = NULL} (but \strong{R/}, \strong{NAMESPACE}, and \verb{
 still inspected).}
 }
 \description{
-This function refreshes a research compendium/package. It will:
+This function refreshes a package/research compendium. It will:
 \itemize{
 \item Update \code{.Rd} files and \code{NAMESPACE}, using \code{\link[devtools:document]{devtools::document()}};
 \item Update external packages (in \code{DESCRIPTION} file);

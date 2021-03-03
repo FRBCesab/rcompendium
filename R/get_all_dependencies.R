@@ -1,8 +1,8 @@
-#' Get all dependencies of the project
+#' Get all external dependencies
 #' 
 #' @description 
 #' This function gets all the external packages that the project needs. It is 
-#' used the generate the Dependencies badge.
+#' used the generate the _dependencies_ badge.
 #'
 #' @param pkg name of a CRAN package or `NULL`. If `NULL` get dependencies 
 #'   of the local (uninstalled) project (package or compendium).

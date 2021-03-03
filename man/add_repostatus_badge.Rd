@@ -7,16 +7,16 @@
 add_repostatus_badge(status = "concept", quiet = FALSE)
 }
 \arguments{
-\item{status}{a character. One among 'concept', 'wip', 'suspended',
-'abandoned', 'active', 'inactive', or 'unsupported'.}
+\item{status}{a character. One among \code{'concept'} (default), \code{'wip'},
+\code{'suspended'}, \code{'abandoned'}, \code{'active'}, \code{'inactive'}, or \code{'unsupported'}.}
 
 \item{quiet}{a logical value. If \code{TRUE} messages are deleted. Default is
 \code{FALSE}.}
 }
 \description{
-This function adds or updates the Repo Status badge of the project. It is
-based on the standard defined by the \url{https://www.repostatus.org/}
-project. Accepted status are listed below.
+This function adds or updates the Repo Status badge of the project to the
+\code{README.Rmd}. It is based on the standard defined by the
+\url{https://www.repostatus.org/} project. Accepted status are listed below.
 }
 \details{
 The project can have the following status:

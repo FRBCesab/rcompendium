@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_all_dependencies.R
 \name{get_all_dependencies}
 \alias{get_all_dependencies}
-\title{Get all dependencies of the project}
+\title{Get all external dependencies}
 \usage{
 get_all_dependencies(pkg = NULL)
 }
@@ -20,7 +20,7 @@ A list of three vectors:
 }
 \description{
 This function gets all the external packages that the project needs. It is
-used the generate the Dependencies badge.
+used the generate the \emph{dependencies} badge.
 }
 \examples{
 \dontrun{
@@ -40,7 +40,6 @@ unlist(lapply(deps, length))
 Other utilities functions: 
 \code{\link{get_all_functions}()},
 \code{\link{get_licenses}()},
-\code{\link{get_minimal_r_version}()},
-\code{\link{get_rd_families}()}
+\code{\link{get_minimal_r_version}()}
 }
 \concept{utilities functions}

@@ -7,14 +7,14 @@
 add_lifecycle_badge(lifecycle = "experimental", quiet = FALSE)
 }
 \arguments{
-\item{lifecycle}{a character. One among 'experimental', 'stable',
-'deprecated', or 'superseded'.}
+\item{lifecycle}{a character. One among \code{'experimental'} (default),
+\code{'stable'}, \code{'deprecated'}, or \code{'superseded'}.}
 
 \item{quiet}{a logical value. If \code{TRUE} messages are deleted. Default is
 \code{FALSE}.}
 }
 \description{
-This function adds or updates the Life cycle badge to the \strong{README.Rmd}. It
+This function adds or updates the Life cycle badge to the \code{README.Rmd}. It
 is based on the standard defined at
 \url{https://lifecycle.r-lib.org/articles/stages.html}. Accepted stages are
 listed below.

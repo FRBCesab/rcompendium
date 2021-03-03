@@ -1,7 +1,7 @@
 #' Add a dependencies badge
 #'
 #' @description 
-#' This function adds a dependencies badge to the **README.Rmd**. The first
+#' This function adds a dependencies badge to the `README.Rmd`. The first
 #' number corresponds to the direct dependencies and the second to the recursive
 #' dependencies.
 #' 

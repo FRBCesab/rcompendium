@@ -33,16 +33,16 @@ host the package. If \code{NULL} it uses the GITHUB account.}
 \item{open}{a logical value. If \code{TRUE} (default) the file is opened in the
 editor.}
 
-\item{overwrite}{a logical value. If a \emph{DESCRIPTION} is already present and
+\item{overwrite}{a logical value. If a \code{DESCRIPTION} is already present and
 \code{overwrite = TRUE}, this file will be erased and replaced.}
 
 \item{quiet}{a logical value. If \code{TRUE} messages are deleted. Default is
 \code{FALSE}.}
 }
 \description{
-This function creates a \emph{DESCRIPTION} file at the root of the project based
+This function creates a \code{DESCRIPTION} file at the root of the project based
 on a template. User credentials can be passed as arguments but it is
-recommended to store them in the \emph{.Rprofile} file with \code{\link[=set_credentials]{set_credentials()}}.
+recommended to store them in the \code{.Rprofile} file with \code{\link[=set_credentials]{set_credentials()}}.
 }
 \examples{
 \dontrun{

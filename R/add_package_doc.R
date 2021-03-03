@@ -1,10 +1,10 @@
 #' Create a package-level documentation file
 #'
 #' @description 
-#' This function adds a package-level documentation file (`.R`) in the _R/_
-#' folder. This file will make help available to the user via `?pkg` (where 
-#' `pkg` is the name of the package). It a good place to put general directives
-#' like `@import` and `@importFrom`.
+#' This function adds a package-level documentation file (`pkg-package.R`) in 
+#' the `R/` folder. This file will make help available to the user via `?pkg` 
+#' (where `pkg` is the name of the package). It a good place to put general 
+#' directives like `@import` and `@importFrom`.
 #' 
 #' @param open a logical value. If `TRUE` (default) the file is opened in the 
 #'   editor.

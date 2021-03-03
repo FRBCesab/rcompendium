@@ -17,10 +17,10 @@ editor.}
 \code{FALSE}.}
 }
 \description{
-This function adds a package-level documentation file (\code{.R}) in the \emph{R/}
-folder. This file will make help available to the user via \code{?pkg} (where
-\code{pkg} is the name of the package). It a good place to put general directives
-like \verb{@import} and \verb{@importFrom}.
+This function adds a package-level documentation file (\code{pkg-package.R}) in
+the \verb{R/} folder. This file will make help available to the user via \code{?pkg}
+(where \code{pkg} is the name of the package). It a good place to put general
+directives like \verb{@import} and \verb{@importFrom}.
 }
 \examples{
 \dontrun{

@@ -9,12 +9,12 @@
 #' @param given a character of length 1. User given name of the copyright 
 #'   holder. Only required if `license = 'MIT'`. If is `NULL` (default) and 
 #'   `license = 'MIT'`, this function will try to retrieve the value of this 
-#'   parameter from the _.Rprofile_ file (edited with [set_credentials()]).
+#'   parameter from the `.Rprofile` file (edited with [set_credentials()]).
 #'   
 #' @param family a character of length 1. User family name of the copyright 
 #'   holder. Only required if `license = 'MIT'`. If is `NULL` (default) and 
 #'   `license = 'MIT'`, this function will try to retrieve the value of this 
-#'   parameter from the _.Rprofile_ file (edited with [set_credentials()]).
+#'   parameter from the `.Rprofile` file (edited with [set_credentials()]).
 #'   
 #' @param quiet a logical value. If `TRUE` messages are deleted. Default is 
 #'   `FALSE`.

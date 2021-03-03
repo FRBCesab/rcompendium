@@ -1,7 +1,8 @@
 #' Create a README file
 #' 
-#' This function creates a _README.Rmd_ file at the root of the project based on 
-#' a template. Once edited user needs to knit it into a _README.md_.
+#' This function creates a `README.Rmd` file at the root of the project based on 
+#' a template. Once edited user needs to knit it into a `README.Rmd` (or use the
+#' function [refresh()].
 #' 
 #' @param type a character. If `package` (default) a GitHub `README.Rmd` 
 #'   specific to an R package will be created. If `compendium` a GitHub 
@@ -13,7 +14,7 @@
 #' @param open a logical value. If `TRUE` (default) the file is opened in the 
 #'   editor.
 #' 
-#' @param overwrite a logical value. If a _README.Rmd_ is already present and 
+#' @param overwrite a logical value. If a `README.Rmd` is already present and 
 #' `overwrite = TRUE`, this file will be erased and replaced.
 #' 
 #' @param quiet a logical value. If `TRUE` messages are deleted. Default is 

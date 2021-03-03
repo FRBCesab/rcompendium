@@ -13,12 +13,12 @@ add_license(license = NULL, given = NULL, family = NULL, quiet = FALSE)
 \item{given}{a character of length 1. User given name of the copyright
 holder. Only required if \code{license = 'MIT'}. If is \code{NULL} (default) and
 \code{license = 'MIT'}, this function will try to retrieve the value of this
-parameter from the \emph{.Rprofile} file (edited with \code{\link[=set_credentials]{set_credentials()}}).}
+parameter from the \code{.Rprofile} file (edited with \code{\link[=set_credentials]{set_credentials()}}).}
 
 \item{family}{a character of length 1. User family name of the copyright
 holder. Only required if \code{license = 'MIT'}. If is \code{NULL} (default) and
 \code{license = 'MIT'}, this function will try to retrieve the value of this
-parameter from the \emph{.Rprofile} file (edited with \code{\link[=set_credentials]{set_credentials()}}).}
+parameter from the \code{.Rprofile} file (edited with \code{\link[=set_credentials]{set_credentials()}}).}
 
 \item{quiet}{a logical value. If \code{TRUE} messages are deleted. Default is
 \code{FALSE}.}

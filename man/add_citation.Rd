@@ -27,15 +27,16 @@ host the package. If \code{NULL} it uses the GITHUB account.}
 \item{open}{a logical value. If \code{TRUE} (default) the file is opened in the
 editor.}
 
-\item{overwrite}{a logical value. If a \emph{CITATION} is already present and
+\item{overwrite}{a logical value. If a \code{CITATION} is already present and
 \code{overwrite = TRUE}, this file will be erased and replaced.}
 
 \item{quiet}{a logical value. If \code{TRUE} messages are deleted. Default is
 \code{FALSE}.}
 }
 \description{
-This function creates a \emph{CITATION} file in the folder \emph{inst/}. This file
-contains a BiBTeX entry to cite the package as a manual.
+This function creates a \code{CITATION} file in the folder \verb{inst/}. This file
+contains a BiBTeX entry to cite the package as a manual. User will need to
+edit by hand some information (title, version, etc.).
 }
 \examples{
 \dontrun{

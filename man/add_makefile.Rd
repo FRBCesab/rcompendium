@@ -23,14 +23,14 @@ add_makefile(
 \item{open}{a logical value. If \code{TRUE} (default) the file is opened in the
 editor.}
 
-\item{overwrite}{a logical value. If a \emph{make.R} is already present and
+\item{overwrite}{a logical value. If a \code{make.R} is already present and
 \code{overwrite = TRUE}, this file will be erased and replaced.}
 
 \item{quiet}{a logical value. If \code{TRUE} messages are deleted. Default is
 \code{FALSE}.}
 }
 \description{
-This function creates a Make-like R file ( \emph{make.R} ) at the root of the
+This function creates a Make-like R file (\code{make.R}) at the root of the
 project based on a template.
 }
 \examples{

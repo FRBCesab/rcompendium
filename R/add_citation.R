@@ -1,8 +1,9 @@
 #' Create a CITATION file
 #' 
 #' @description 
-#' This function creates a _CITATION_ file in the folder _inst/_. This file
-#' contains a BiBTeX entry to cite the package as a manual.
+#' This function creates a `CITATION` file in the folder `inst/`. This file
+#' contains a BiBTeX entry to cite the package as a manual. User will need to
+#' edit by hand some information (title, version, etc.).
 #' 
 #' @param organisation a character. The name of the GITHUB organisation to
 #'   host the package. If `NULL` it uses the GITHUB account.
@@ -10,7 +11,7 @@
 #' @param open a logical value. If `TRUE` (default) the file is opened in the 
 #'   editor.
 #' 
-#' @param overwrite a logical value. If a _CITATION_ is already present and 
+#' @param overwrite a logical value. If a `CITATION` is already present and 
 #'   `overwrite = TRUE`, this file will be erased and replaced.
 #' 
 #' @param quiet a logical value. If `TRUE` messages are deleted. Default is 

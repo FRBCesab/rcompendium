@@ -32,15 +32,16 @@ host the package. If \code{NULL} it uses the GITHUB account.}
 \item{open}{a logical value. If \code{TRUE} (default) the file is opened in the
 editor.}
 
-\item{overwrite}{a logical value. If a \emph{README.Rmd} is already present and
+\item{overwrite}{a logical value. If a \code{README.Rmd} is already present and
 \code{overwrite = TRUE}, this file will be erased and replaced.}
 
 \item{quiet}{a logical value. If \code{TRUE} messages are deleted. Default is
 \code{FALSE}.}
 }
 \description{
-This function creates a \emph{README.Rmd} file at the root of the project based on
-a template. Once edited user needs to knit it into a \emph{README.md}.
+This function creates a \code{README.Rmd} file at the root of the project based on
+a template. Once edited user needs to knit it into a \code{README.Rmd} (or use the
+function \code{\link[=refresh]{refresh()}}.
 }
 \examples{
 \dontrun{

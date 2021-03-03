@@ -1,9 +1,9 @@
 #' Create a DESCRIPTION file
 #' 
 #' @description 
-#' This function creates a _DESCRIPTION_ file at the root of the project based  
+#' This function creates a `DESCRIPTION` file at the root of the project based  
 #' on a template. User credentials can be passed as arguments but it is 
-#' recommended to store them in the _.Rprofile_ file with [set_credentials()].
+#' recommended to store them in the `.Rprofile` file with [set_credentials()].
 #' 
 #' @param organisation a character. The name of the GITHUB organisation to
 #'   host the package. If `NULL` it uses the GITHUB account.
@@ -11,7 +11,7 @@
 #' @param open a logical value. If `TRUE` (default) the file is opened in the 
 #'   editor.
 #' 
-#' @param overwrite a logical value. If a _DESCRIPTION_ is already present and 
+#' @param overwrite a logical value. If a `DESCRIPTION` is already present and 
 #'   `overwrite = TRUE`, this file will be erased and replaced.
 #'   
 #' @param quiet a logical value. If `TRUE` messages are deleted. Default is 

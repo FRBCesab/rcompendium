@@ -1,13 +1,13 @@
 #' Create a Make-like R file
 #' 
 #' @description
-#' This function creates a Make-like R file ( _make.R_ ) at the root of the 
+#' This function creates a Make-like R file (`make.R`) at the root of the 
 #' project based on a template.
 #' 
 #' @param open a logical value. If `TRUE` (default) the file is opened in the 
 #'   editor.
 #' 
-#' @param overwrite a logical value. If a _make.R_ is already present and 
+#' @param overwrite a logical value. If a `make.R` is already present and 
 #'   `overwrite = TRUE`, this file will be erased and replaced.
 #' 
 #' @param quiet a logical value. If `TRUE` messages are deleted. Default is 

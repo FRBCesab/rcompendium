@@ -25,5 +25,5 @@ hexSticker::sticker(
   
   s_width  = 0.50,        # Subplot
   
-  url      = "https://ahasverus.github.io/rcompendium"
+  url      = "https://frbcesab.github.io/rcompendium"
 )

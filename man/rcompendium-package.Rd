@@ -4,11 +4,19 @@
 \name{rcompendium-package}
 \alias{rcompendium}
 \alias{rcompendium-package}
-\title{rcompendium: Create a Research Compendium}
+\title{rcompendium: Create a Package or Research Compendium Structure}
 \description{
 This package creates a research compendium, i.e. a predefined
     folder structure. It can be also used to create a new R package as an
     alternative to usethis::create_package().
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/FRBCesab/rcompendium}
+  \item Report bugs at \url{https://github.com/FRBCesab/rcompendium/issues}
+}
+
 }
 \author{
 \strong{Maintainer}: Nicolas Casajus \email{nicolas.casajus@fondationbiodiversite.fr} (\href{https://orcid.org/0000-0002-5537-5294}{ORCID})

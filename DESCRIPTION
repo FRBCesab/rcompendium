@@ -1,6 +1,6 @@
 Package: rcompendium
 Type: Package
-Title: Create a Research Compendium
+Title: Create a Package or Research Compendium Structure
 Version: 0.1
 Authors@R: c(
     person(given   = "Nicolas",
@@ -11,6 +11,8 @@ Authors@R: c(
 Description: This package creates a research compendium, i.e. a predefined
     folder structure. It can be also used to create a new R package as an
     alternative to usethis::create_package().
+URL: https://github.com/FRBCesab/rcompendium
+BugReports: https://github.com/FRBCesab/rcompendium/issues
 License: GPL (>= 2)
 Encoding: UTF-8
 LazyData: true
@@ -25,6 +27,7 @@ Imports:
     gtools,
     here,
     httr,
+    pkgdown,
     rmarkdown,
     rstudioapi,
     stringr,

@@ -2,7 +2,7 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/ahasverus/rcompendium/workflows/R-CMD-check/badge.svg)](https://github.com/ahasverus/rcompendium/actions)
+[![R-CMD-check](https://github.com/FRBCesab/rcompendium/workflows/R-CMD-check/badge.svg)](https://github.com/FRBCesab/rcompendium/actions)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/rcompendium)](https://CRAN.R-project.org/package=rcompendium)
 [![License: GPL (&gt;=
@@ -10,7 +10,7 @@ status](https://www.r-pkg.org/badges/version/rcompendium)](https://CRAN.R-projec
 [![LifeCycle](man/figures/lifecycle/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![Project Status:
 Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![Dependencies](https://img.shields.io/badge/dependencies-14/75-red?style=flat)](#)
+[![Dependencies](https://img.shields.io/badge/dependencies-15/80-red?style=flat)](#)
 <!-- badges: end -->
 
 The goal of `rcompendium` is to create a research compendium, i.e. a
@@ -88,7 +88,7 @@ You can install the development version from
 [GitHub](https://github.com/) with:
 
     # install.packages("remotes")
-    remotes::install_github("ahasverus/rcompendium")
+    remotes::install_github("FRBCesab/rcompendium")
 
 ## Usage
 
@@ -111,7 +111,7 @@ You can now start working!
 Please cite this package as:
 
 > Casajus N. (2021) rcompendium: An R package to create a research
-> compendium. Version 0.1, <https://github.com/ahasverus/rcompendium>.
+> compendium. Version 0.1, <https://github.com/FRBCesab/rcompendium>.
 
 ## Code of Conduct
 

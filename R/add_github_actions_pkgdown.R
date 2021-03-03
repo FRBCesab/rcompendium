@@ -1,0 +1,86 @@
+#' Setup website deployment with GitHub Actions
+#' 
+#' @description 
+#' This function creates a configuration file (`.yaml`) to setup GitHub Actions 
+#' to automatically deploy a website using `pkgdown`. This file will be added 
+#' (from a template) in the folder _.github/workflows/pkgdown.yaml_. An 
+#' additional (empty) file _\_pkgdown.yaml_ will also be written: it can be use
+#' to customize website.
+#' 
+#' @param open a logical value. If `TRUE` the file is opened in the editor.
+#'   Default is `FALSE`.
+#' 
+#' @param overwrite a logical value. If this file already exists and 
+#'   `overwrite = TRUE`, its content will be erased.
+#' 
+#' @param quiet a logical value. If `TRUE` messages are deleted. Default is 
+#'   `FALSE`.
+#' 
+#' @export
+#' 
+#' @family development functions
+#'
+#' @examples
+#' \dontrun{
+#' add_github_actions_pkgdown()
+#' }
+
+add_github_actions_pkgdown <- function(open = FALSE, overwrite = FALSE, 
+                                       quiet = FALSE) {
+
+  
+  
+  if (!dir.exists(here::here(".git"))) {
+    stop("The project is not versioning with git.")
+  }
+  
+  path <- here::here(".github", "workflows", "pkgdown.yaml")
+  
+  
+  ## Do not replace current file but open it if required ----
+  
+  if (file.exists(path) && !overwrite) {
+    
+    if (!open) {
+      
+      stop("An '.github/workflows/pkgdown.yaml' file is already present. ",
+           "If you want to replace it, please use `overwrite = TRUE`.")
+      
+    } else {
+      
+      edit_file(path)
+      return(invisible(NULL))
+    }
+  }
+  
+  
+  if ((file.exists(path) && overwrite) || !file.exists(path)) {
+    
+    
+    ## Copy Template ----
+    
+    dir.create(here::here(".github", "workflows"), showWarnings = FALSE, 
+               recursive = TRUE)
+    
+    invisible(
+      file.copy(system.file(file.path("templates", "__PKGDOWN__"), 
+                            package = "rcompendium"), path))
+    
+    
+    if (!quiet) 
+      ui_done("Writing {ui_value('.github/workflows/pkgdown.yaml')} file")
+    
+    
+    ## Write (Empty) Custom Config file ---
+    
+    if (!file.exists(here::here("_pkgdown.yaml"))) {
+      file.create(here::here("_pkgdown.yaml"))
+      add_to_buildignore("_pkgdown.yaml", quiet = quiet)
+    }
+    
+    
+    if (open) edit_file(path)
+    
+    invisible(NULL)
+  }
+}

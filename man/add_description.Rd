@@ -2,28 +2,57 @@
 % Please edit documentation in R/add_description.R
 \name{add_description}
 \alias{add_description}
-\title{Create a DESCRIPTION File}
+\title{Create a DESCRIPTION file}
 \usage{
-add_description(open = TRUE, overwrite = FALSE)
+add_description(
+  given = NULL,
+  family = NULL,
+  email = NULL,
+  orcid = NULL,
+  github = NULL,
+  organisation = NULL,
+  open = TRUE,
+  overwrite = FALSE,
+  quiet = FALSE
+)
 }
 \arguments{
+\item{given}{(optional) user given name (i.e. "Nicolas")}
+
+\item{family}{(optional) user family name (i.e. "Casajus")}
+
+\item{email}{(optional) user email address (i.e. "nicolas.casajus@gmail.com")}
+
+\item{orcid}{(optional) user ORCID (i.e. "0000-0002-5537-5294")}
+
+\item{github}{(optional) user GitHub pseudo/organization (i.e. "ahasverus")}
+
+\item{organisation}{a character. The name of the GITHUB organisation to
+host the package. If \code{NULL} it uses the GITHUB account.}
+
 \item{open}{a logical value. If \code{TRUE} (default) the file is opened in the
 editor.}
 
-\item{overwrite}{a logical value. If a \code{DESCRIPTION} is already present and
+\item{overwrite}{a logical value. If a \emph{DESCRIPTION} is already present and
 \code{overwrite = TRUE}, this file will be erased and replaced.}
+
+\item{quiet}{a logical value. If \code{TRUE} messages are deleted. Default is
+\code{FALSE}.}
 }
 \description{
-This function creates a DESCRIPTION file at the root of the project based on
-a template.
+This function creates a \emph{DESCRIPTION} file at the root of the project based
+on a template. User credentials can be passed as arguments but it is
+recommended to store them in the \emph{.Rprofile} file with \code{\link[=set_credentials]{set_credentials()}}.
 }
 \examples{
 \dontrun{
-add_description()
+add_description(organisation = "FRBCesab")
 }
 }
 \seealso{
 Other create files: 
+\code{\link{add_citation}()},
+\code{\link{add_license}()},
 \code{\link{add_makefile}()},
 \code{\link{add_package_doc}()},
 \code{\link{add_readme_rmd}()}

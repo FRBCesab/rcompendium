@@ -2,19 +2,35 @@
 % Please edit documentation in R/add_makefile.R
 \name{add_makefile}
 \alias{add_makefile}
-\title{Create a Make-like R File}
+\title{Create a Make-like R file}
 \usage{
-add_makefile(open = TRUE, overwrite = FALSE)
+add_makefile(
+  given = NULL,
+  family = NULL,
+  email = NULL,
+  open = TRUE,
+  overwrite = FALSE,
+  quiet = FALSE
+)
 }
 \arguments{
+\item{given}{(optional) user given name (i.e. "Nicolas")}
+
+\item{family}{(optional) user family name (i.e. "Casajus")}
+
+\item{email}{(optional) user email address (i.e. "nicolas.casajus@gmail.com")}
+
 \item{open}{a logical value. If \code{TRUE} (default) the file is opened in the
 editor.}
 
-\item{overwrite}{a logical value. If a \code{make.R} is already present and
+\item{overwrite}{a logical value. If a \emph{make.R} is already present and
 \code{overwrite = TRUE}, this file will be erased and replaced.}
+
+\item{quiet}{a logical value. If \code{TRUE} messages are deleted. Default is
+\code{FALSE}.}
 }
 \description{
-This function creates a Make-like R file (\code{make.R}) at the root of the
+This function creates a Make-like R file ( \emph{make.R} ) at the root of the
 project based on a template.
 }
 \examples{
@@ -24,7 +40,9 @@ add_makefile()
 }
 \seealso{
 Other create files: 
+\code{\link{add_citation}()},
 \code{\link{add_description}()},
+\code{\link{add_license}()},
 \code{\link{add_package_doc}()},
 \code{\link{add_readme_rmd}()}
 }

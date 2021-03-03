@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_minimal_r_version.R
 \name{get_minimal_r_version}
 \alias{get_minimal_r_version}
-\title{Get Required Minimal R Version}
+\title{Get required minimal R version}
 \usage{
 get_minimal_r_version(pkg = NULL)
 }
@@ -34,6 +34,7 @@ get_minimal_r_version("usethis")
 Other utilities functions: 
 \code{\link{get_all_dependencies}()},
 \code{\link{get_all_functions}()},
+\code{\link{get_licenses}()},
 \code{\link{get_rd_families}()}
 }
 \concept{utilities functions}

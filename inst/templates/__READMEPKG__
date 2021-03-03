@@ -7,7 +7,6 @@ output: github_document
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
-  eval      = FALSE,
   collapse  = TRUE,
   comment   = "#>",
   fig.path  = "man/figures/",
@@ -21,11 +20,10 @@ knitr::opts_chunk$set(
 =========================================================
 
 <!-- badges: start -->
-[![CRAN status](https://www.r-pkg.org/badges/version/{{project_name}})](https://CRAN.R-project.org/package={{project_name}})
 <!-- badges: end -->
 
 
-The goal of the R package `{{project_name}}` is to...
+The goal of the R package `{{project_name}}` is to **{{ PLEASE ADD A FEW LINES }}**
 
 
 
@@ -33,14 +31,14 @@ The goal of the R package `{{project_name}}` is to...
 
 You can install the development version from [GitHub](https://github.com/) with:
 
-```r
+```{r eval = FALSE}
 # install.packages("remotes")
 remotes::install_github("{{github}}/{{project_name}}")
 ```
 
 Then you can attach the package `{{project_name}}`:
 
-```r
+```{r eval = FALSE}
 library("{{project_name}}")
 ```
 
@@ -48,7 +46,7 @@ library("{{project_name}}")
 
 ## Overview
 
-Here is an overview of `{{project_name}}` content:
+Here is an overview of `{{project_name}}` content: **{{ PLEASE ADD A FEW LINES }}**
 
 
 
@@ -56,7 +54,8 @@ Here is an overview of `{{project_name}}` content:
 
 Please cite this package as: 
 
-> {{family}} {{given}} (`r format(Sys.Date(), "%Y")`) {{project_name}}: {{title}}. R package version {{pkg_version}}.
+> {{family}} {{given}} (`r format(Sys.Date(), "%Y")`) {{project_name}}: An R 
+package to **{{ TITLE }}**. R package version {{pkg_version}}.
 
 
 

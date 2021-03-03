@@ -1,7 +1,7 @@
 Package: {{project_name}}
 Type: Package
 Title: The Title of the Project
-Version: 1.0.0
+Version: 0.1
 Authors@R: c(
     person(given   = "{{given}}",
            family  = "{{family}}",
@@ -15,6 +15,5 @@ BugReports: https://github.com/{{github}}/{{project_name}}/issues
 License: {{license}}
 Encoding: UTF-8
 LazyData: true
-Depends: {{r_version}}
 Roxygen: list(markdown = TRUE)
 RoxygenNote: {{roxygen2_version}}

@@ -2,6 +2,25 @@
 
 
 
+#' **Open a file in editor**
+#' 
+#' @noRd
+
+edit_file <- function(path) {
+  
+  if (rstudioapi::isAvailable() && rstudioapi::hasFun("navigateToFile")) {
+    
+    rstudioapi::navigateToFile(path)
+    
+  } else {
+    
+    utils::file.edit(path)  
+  }
+  
+  invisible(NULL)
+}
+
+
 #' **Import DESCRIPTION content**
 #' 
 #' @noRd
@@ -107,4 +126,46 @@ add_badge <- function(badge, pattern) {
   
   writeLines(read_me, con = here::here("README.Rmd"))
   invisible(NULL)
+}
+
+
+
+#' **Add Template sticker**
+#' 
+#' @param overwrite a logical value. If a file is already present and 
+#'   `overwrite = TRUE`, it will be erased and replaced.
+#'   
+#' @param quiet a logical value. If `TRUE` messages are deleted. Default is 
+#'   `FALSE`.
+#'   
+#' @noRd
+
+add_sticker <- function(overwrite = FALSE, quiet = FALSE) {
+  
+  path <- here::here("man", "figures", "hexsticker.png")
+  
+  if (file.exists(path) && !overwrite) {
+    
+    stop("A 'man/figures/hexsticker.png' is already present. If you want to ",
+         "replace it, please use `overwrite = TRUE`.")
+  }
+  
+  
+  if ((file.exists(path) && overwrite) || !file.exists(path)) {
+    
+    if (!dir.exists(here::here("man", "figures")))
+      dir.create(here::here("man", "figures"), showWarnings = FALSE, 
+                 recursive = TRUE)
+    
+    invisible(
+      file.copy(system.file(file.path("templates", "hexsticker.png"), 
+                            package = "rcompendium"), path))
+    
+    
+    if (!quiet) {
+      ui_done("Adding {ui_value('Sticker')} to {ui_value('README.Rmd')}")
+    }
+    
+    invisible(NULL)
+  }
 }

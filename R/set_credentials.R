@@ -1,50 +1,58 @@
 #' Store credentials to the .RProfile
 #' 
 #' @description 
-#' This function stores user credentials in the **.Rprofile** file. Accepted 
+#' This function stores user credentials in the _.Rprofile_ file. Accepted 
 #' credentials are listed below. This function is useful if user creates a lot
 #' of packages and/or research compendiums.
 #' 
-#' If the **.Rprofile** file does not exist this function will create it. Note
+#' If the _.Rprofile_ file does not exist this function will create it. Note
 #' that credentials are added at the end of the file: if you run this function
 #' two times, credentials will be added twice. User can run the command 
-#' `usethis::edit_r_profile()` to open the **.Rprofile** and clean its content. 
-#' **Be careful when modifying this file!**.
+#' `usethis::edit_r_profile()` to open the _.Rprofile_ and clean its content. 
+#' **Be careful while modifying this file!**.
 #'
 #' @param given (optional) user given name (i.e. "Nicolas")
+#' 
 #' @param family (optional) user family name (i.e. "Casajus")
-#' @param short (optional) user short name (e.g. "Casajus N.")
+#' 
 #' @param email (optional) user email address (i.e. "nicolas.casajus@gmail.com")
-#' @param orcid (optional) user ORCID (i.e. "0000-0002-5537-5294")
+#' 
 #' @param github (optional) user GitHub pseudo/organization (i.e. "ahasverus")
-#' @param license (optional) user preferred license (i.e. "GPL (>= 2)")
+#' 
+#' @param orcid (optional) user ORCID (i.e. "0000-0002-5537-5294")
+#' 
+#' @param open a logical value. If `TRUE` the file is opened in the editor.
+#'   Default is `open = FALSE`
 #'
 #' @export
 #' 
-#' @family setup projects
+#' @family setup functions
 #'
 #' @examples
 #' \dontrun{
-#' set_credentials(given = "Nicolas", family = "Casajus", short = "Casajus N.",
-#'                 email = "nicolas.casajus@gmail.com", github = "ahasverus", 
-#'                 orcid = "0000-0002-5537-5294", license = "GPL (>= 2)")
+#' library(rcompendium)
+#' 
+#' ## Define **ONCE FOR ALL** your credentials ----
+#' set_credentials("Given", "Family", "email.address@domain.com", 
+#'                 github = "pseudo", orcid = "0000-0000-0000-0000")
 #' }
 
-set_credentials <- function(given = NULL, family = NULL, short = NULL, 
-                            email = NULL, orcid = NULL, github = NULL, 
-                            license = NULL) {
+set_credentials <- function(given = NULL, family = NULL, email = NULL, 
+                            github = NULL, orcid = NULL, open = FALSE) {
   
   credentials <- as.list(match.call())[-1]
   
+  path <- fs::path_home_r(".Rprofile")
+  
   if (length(credentials)) {
     
-    if (!file.exists(fs::path_home_r(".Rprofile"))) {
+    if (!file.exists(path)) {
       
       r_prof <- NULL
       
     } else {
       
-      r_prof <- readLines(fs::path_home_r(".Rprofile"))
+      r_prof <- readLines(path)
     }
     
     r_prof <- c(r_prof, "## Credentials ----")
@@ -54,9 +62,11 @@ set_credentials <- function(given = NULL, family = NULL, short = NULL,
     
     r_prof <- c(r_prof, paste0("options(", opts, ")", ""))
     
-    writeLines(r_prof, con = fs::path_home_r(".Rprofile"))
+    writeLines(r_prof, con = path)
     
     ui_done("The file {ui_value('.Rprofile')} has been successfully updated")
     ui_todo("Restart R for changes to take effect")
   }
+  
+  if (open) edit_file(path)
 }

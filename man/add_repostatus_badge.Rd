@@ -4,11 +4,14 @@
 \alias{add_repostatus_badge}
 \title{Add a repository status badge}
 \usage{
-add_repostatus_badge(status = "concept")
+add_repostatus_badge(status = "concept", quiet = FALSE)
 }
 \arguments{
 \item{status}{a character. One among 'concept', 'wip', 'suspended',
 'abandoned', 'active', 'inactive', or 'unsupported'.}
+
+\item{quiet}{a logical value. If \code{TRUE} messages are deleted. Default is
+\code{FALSE}.}
 }
 \description{
 This function adds or updates the Repo Status badge of the project. It is
@@ -40,8 +43,16 @@ the author(s) have ceased all work on it. A new maintainer may be desired.
 }
 \examples{
 \dontrun{
-add_repostatus_badge(status = "wip")
+add_repostatus_badge()
 add_repostatus_badge(status = "active")
 }
+}
+\seealso{
+Other adding badges: 
+\code{\link{add_cran_badge}()},
+\code{\link{add_dependencies_badge}()},
+\code{\link{add_github_actions_badge}()},
+\code{\link{add_license_badge}()},
+\code{\link{add_lifecycle_badge}()}
 }
 \concept{adding badges}

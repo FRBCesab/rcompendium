@@ -1,32 +1,42 @@
-
 # rcompendium <img src="man/figures/hexsticker.png" height="120" align="right"/>
 
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/ahasverus/rcompendium/workflows/R-CMD-check/badge.svg)](https://github.com/ahasverus/rcompendium/actions)
 [![CRAN
-status](https://www.r-pkg.org/badges/version/mFD)](https://CRAN.R-project.org/package=mFD)
-[![License: GPL
-v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
-[![LifeCycle](man/figures/lifecycle-experimental.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+status](https://www.r-pkg.org/badges/version/rcompendium)](https://CRAN.R-project.org/package=rcompendium)
+[![License: GPL (&gt;=
+2)](https://img.shields.io/badge/License-GPL%20%28%3E%3D%202%29-blue.svg)](https://choosealicense.com/licenses/gpl-2.0)
+[![LifeCycle](man/figures/lifecycle/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![Project Status:
+Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![Dependencies](https://img.shields.io/badge/dependencies-14/75-red?style=flat)](#)
 <!-- badges: end -->
 
 The goal of `rcompendium` is to create a research compendium, i.e. a
-predefined folder structure with the following content:
+predefined folder structure.
+
+## Mea culpa
+
+…
+
+## Structure of the compendium
+
+Here is the structure of the research compendium created by
+`rcompendium`:
 
     compendium           # Project Root
     │
     ├── .git             # Automatically created (or not)
     ├── .Rbuildignore    # Contains make.R and analysis/
     ├── .gitignore       # Specific to R projects
-    ├── compendium.Rproj # Created by user (if using RStudio IDE)
+    ├── compendium.Rproj # Created by user (optional)
     │
     ├── R/               # Contains R functions
     ├── man/             # Contains R functions helps (automatically updated)
     ├── DESCRIPTION      # Project metadata (author, date, dependencies, etc.)
     ├── NAMESPACE
-    ├── LICENSE          # License GPL >=2
-    ├── LICENSE.md       # Content of the GPL >=2 License
+    ├── LICENSE.md       # Content of the chosen license
     |
     ├── analysis/
     │   ├── data/        # Contains user raw data (.csv, .xlsx, .shp, etc.)
@@ -34,6 +44,30 @@ predefined folder structure with the following content:
     │   ├── outputs/     # Contains outputs created by user
     │   └── figures/     # Contains figures created by user
     ├── make.R           # Master R scripts to run all analyses
+    │
+    ├── README.md        # GitHub README (automatically updated)
+    └── README.Rmd       # GitHub README (to rmarkdown::render)
+
+The package `rcompendium` can also be used to create an R package with
+the following content:
+
+    package              # Package Root
+    │
+    ├── .git/            # Automatically created (or not)
+    ├── .github/         # GitHub Actions settings (check and deploy)
+    ├── .Rbuildignore
+    ├── .gitignore       # Specific to R projects
+    ├── compendium.Rproj # Created by user (optional)
+    ├── _pkgdown.yml     # Website settings
+    │
+    ├── R/               # Contains R functions
+    ├── man/             # Contains R functions helps (automatically updated)
+    ├── inst/            # (optional)
+    ├── tests/           # (optional)
+    ├── vignettes/       # (optional)
+    ├── DESCRIPTION      # Project metadata (author, dependencies, etc.)
+    ├── NAMESPACE
+    ├── LICENSE.md       # Content of the chosen license
     │
     ├── README.md        # GitHub README (automatically updated)
     └── README.Rmd       # GitHub README (to rmarkdown::render)
@@ -53,10 +87,8 @@ templates and are specific to myself.
 You can install the development version from
 [GitHub](https://github.com/) with:
 
-``` r
-# install.packages("remotes")
-remotes::install_github("ahasverus/rcompendium")
-```
+    # install.packages("remotes")
+    remotes::install_github("ahasverus/rcompendium")
 
 ## Usage
 
@@ -66,13 +98,11 @@ need to create a **New folder** and to open R in this directory (by
 using `setwd()`).
 
 **N.B.** the name of the compendium will be the same as the current
-directory. Don’t worry you will be ask before any file is created.
+directory. Don’t worry you will be asked before any file is created.
 
 Then you can create the compendium:
 
-``` r
-rcompendium::new_compendium()
-```
+    rcompendium::new_compendium()
 
 You can now start working!
 
@@ -81,7 +111,7 @@ You can now start working!
 Please cite this package as:
 
 > Casajus N. (2021) rcompendium: An R package to create a research
-> compendium. Version 1.0, <https://github.com/ahasverus/rcompendium>.
+> compendium. Version 0.1, <https://github.com/ahasverus/rcompendium>.
 
 ## Code of Conduct
 

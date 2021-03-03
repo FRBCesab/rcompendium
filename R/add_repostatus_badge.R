@@ -7,7 +7,10 @@
 #'
 #' @param status a character. One among 'concept', 'wip', 'suspended', 
 #'   'abandoned', 'active', 'inactive', or 'unsupported'.
-#'
+#' 
+#' @param quiet a logical value. If `TRUE` messages are deleted. Default is 
+#'   `FALSE`.
+#'   
 #' @details 
 #' The project can have the following status:
 #' \itemize{
@@ -37,11 +40,11 @@
 #'
 #' @examples
 #' \dontrun{
-#' add_repostatus_badge(status = "wip")
+#' add_repostatus_badge()
 #' add_repostatus_badge(status = "active")
 #' }
 
-add_repostatus_badge <- function(status = "concept") {
+add_repostatus_badge <- function(status = "concept", quiet = FALSE) {
   
 
   ## Checks ----
@@ -81,8 +84,11 @@ add_repostatus_badge <- function(status = "concept") {
   
   add_badge(badge, pattern = "Project Status")
   
-  ui_done("Adding {ui_field('Repo Status')} badge to {ui_value('README.Rmd')}")
-  ui_todo("Re-knit {ui_value('README.Rmd')}")
+  
+  if (!quiet) {
+    ui_done(paste0("Adding {ui_field('Repo Status')} badge to ", 
+                   "{ui_value('README.Rmd')}"))
+  }
   
   invisible(NULL)
 }

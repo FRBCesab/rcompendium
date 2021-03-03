@@ -1,4 +1,4 @@
-#' Get Required Minimal R Version
+#' Get required minimal R version
 #'
 #' @description 
 #' This function detects the minimal required R version for the project based 

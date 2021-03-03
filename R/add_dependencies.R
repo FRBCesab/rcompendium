@@ -63,8 +63,7 @@ add_dependencies <- function(import = NULL, suggest = "vignettes") {
   
   ## Update Documentation & NAMESPACE ----
   
-  devtools::document(quiet = TRUE)
-  
+  suppressMessages(devtools::document(quiet = TRUE))
   
   ## Detect Dependencies in NAMESPACE ----
   
@@ -152,6 +151,7 @@ add_dependencies <- function(import = NULL, suggest = "vignettes") {
   }
   
   deps_in_package <- sort(unique(deps_in_package))
+  deps_in_package <- deps_in_package[!(deps_in_package %in% "rcompendium")]
   
   
   ## Read DESCRIPTION File ----
@@ -174,8 +174,6 @@ add_dependencies <- function(import = NULL, suggest = "vignettes") {
     ui_line(paste0("  {clisymbols::symbol$radio_on} Found ", 
                    "{ui_value(length(pkgs_in_depends))} package(s)"))
   }
-  
-  ui_line()
   
   
   ## Dependencies in IMPORTS ----
@@ -206,7 +204,7 @@ add_dependencies <- function(import = NULL, suggest = "vignettes") {
     if (length(pos)) descr <- descr[ , -pos]
   }
   
-  ui_line()
+  # ui_line()
   
   
   ## Dependencies in SUGGESTS ----

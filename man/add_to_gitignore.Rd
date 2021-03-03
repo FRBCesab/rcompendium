@@ -2,31 +2,37 @@
 % Please edit documentation in R/add_to_gitignore.R
 \name{add_to_gitignore}
 \alias{add_to_gitignore}
-\title{Create a .gitignore File}
+\title{Create a .gitignore file}
 \usage{
-add_to_gitignore(x, open = FALSE)
+add_to_gitignore(x, open = FALSE, quiet = FALSE)
 }
 \arguments{
 \item{x}{a character of one or several files/directories names to add to the
-\code{.gitignore}.}
+\emph{.gitignore}.}
 
-\item{open}{a logical value. If \code{TRUE} the file is opened in the editor.
-Default is \code{FALSE}.}
+\item{open}{a logical value. If \code{TRUE} the \emph{.gitignore} file is opened in
+the editor. Default is \code{FALSE}.}
+
+\item{quiet}{a logical value. If \code{TRUE} messages are deleted. Default is
+\code{FALSE}.}
 }
 \description{
-This function creates a \code{.gitignore} file at the root of the project based on
-a template (specific to R). If a \code{.gitignore} is already present, files to
+This function creates a \emph{.gitignore} file at the root of the project based on
+a template (specific to R). If a \emph{.gitignore} is already present, files to
 be untracked by \strong{git} are just added to this file.
 }
 \examples{
 \dontrun{
-add_to_gitignore()
+add_to_gitignore(open = TRUE)
 add_to_gitignore(".DS_Store")
 }
 }
 \seealso{
 Other development functions: 
 \code{\link{add_dependencies}()},
+\code{\link{add_github_actions_check}()},
+\code{\link{add_github_actions_pkgdown}()},
+\code{\link{add_r_depend}()},
 \code{\link{add_to_buildignore}()}
 }
 \concept{development functions}

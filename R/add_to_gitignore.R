@@ -1,38 +1,43 @@
-#' Create a .gitignore File
+#' Create a .gitignore file
 #' 
-#' This function creates a `.gitignore` file at the root of the project based on
-#' a template (specific to R). If a `.gitignore` is already present, files to
+#' @description 
+#' This function creates a _.gitignore_ file at the root of the project based on
+#' a template (specific to R). If a _.gitignore_ is already present, files to
 #' be untracked by **git** are just added to this file.
 #' 
 #' @param x a character of one or several files/directories names to add to the 
-#' `.gitignore`.
+#'   _.gitignore_.
 #' 
-#' @param open a logical value. If `TRUE` the file is opened in the editor.
-#' Default is `FALSE`.
+#' @param open a logical value. If `TRUE` the _.gitignore_ file is opened in 
+#'   the editor. Default is `FALSE`.
 #' 
+#' @param quiet a logical value. If `TRUE` messages are deleted. Default is 
+#'   `FALSE`.
+#'   
 #' @export
 #' 
 #' @family development functions
 #' 
 #' @examples
 #' \dontrun{
-#' add_to_gitignore()
+#' add_to_gitignore(open = TRUE)
 #' add_to_gitignore(".DS_Store")
 #' }
 
-add_to_gitignore <- function(x, open = FALSE) {
+add_to_gitignore <- function(x, open = FALSE, quiet = FALSE) {
+  
+  path <- here::here(".gitignore")
   
   
   ## Copy Template ----
   
-  if (!file.exists(here::here(".gitignore"))) {
+  if (!file.exists(path)) {
     
     invisible(
-      file.copy(system.file(file.path("templates", "GITIGNORE"), 
-                            package = "rcompendium"),
-                here::here(".gitignore")))
+      file.copy(system.file(file.path("templates", "__GITIGNORE__"), 
+                            package = "rcompendium"), path))
     
-    ui_done("Writing {ui_value('.gitignore')} file")
+    if (!quiet) ui_done("Writing {ui_value('.gitignore')} file")
   }
   
   
@@ -42,22 +47,19 @@ add_to_gitignore <- function(x, open = FALSE) {
     
     stopifnot(is.character(x))
     
-    git_ignore <- readLines(here::here(".gitignore"))
+    git_ignore <- readLines(path)
     
     if (!(x %in% git_ignore)) {
       
       git_ignore <- c(git_ignore, x)
       
-      writeLines(git_ignore, con = here::here(".gitignore"))
-      ui_done("Adding {ui_value(x)} to {ui_value('.gitignore')}")
+      writeLines(git_ignore, con = path)
       
-    } else {
-      
-      ui_oops("{ui_value(x)} is already present in {ui_value('.gitignore')}")  
+      if (!quiet) ui_done("Adding {ui_value(x)} to {ui_value('.gitignore')}")
     }
   }
   
-  if (open) utils::file.edit(here::here(".gitignore"))
+  if (open) edit_file(path)
   
   invisible(NULL)
 }

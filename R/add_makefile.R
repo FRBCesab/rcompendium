@@ -1,14 +1,20 @@
-#' Create a Make-like R File
+#' Create a Make-like R file
 #' 
-#' This function creates a Make-like R file (`make.R`) at the root of the 
+#' @description
+#' This function creates a Make-like R file ( _make.R_ ) at the root of the 
 #' project based on a template.
 #' 
 #' @param open a logical value. If `TRUE` (default) the file is opened in the 
-#' editor.
+#'   editor.
 #' 
-#' @param overwrite a logical value. If a `make.R` is already present and 
-#' `overwrite = TRUE`, this file will be erased and replaced.
+#' @param overwrite a logical value. If a _make.R_ is already present and 
+#'   `overwrite = TRUE`, this file will be erased and replaced.
 #' 
+#' @param quiet a logical value. If `TRUE` messages are deleted. Default is 
+#'   `FALSE`.
+#'   
+#' @inheritParams set_credentials
+#'   
 #' @export
 #' 
 #' @family create files
@@ -18,64 +24,70 @@
 #' add_makefile()
 #' }
 
-add_makefile <- function(open = TRUE, overwrite = FALSE) { 
+add_makefile <- function(given = NULL, family = NULL, email = NULL, 
+                         open = TRUE, overwrite = FALSE, quiet = FALSE) { 
   
   
-  ## Do not replace current file ----
+  path <- here::here("make.R")
   
-  if (!overwrite) {
-    if (file.exists("make.R")) {
-      stop("A **make.R** file is already present. If you want to replace ",
-           "it, please use `overwrite = TRUE`.")
+  
+  ## Do not replace current file but open it if required ----
+  
+  if (file.exists(path) && !overwrite) {
+    
+    if (!open) {
+      
+      stop("A 'make.R' file is already present. If you want to ",
+           "replace it, please use `overwrite = TRUE`.")
+      
+    } else {
+      
+      edit_file(path)
+      return(invisible(NULL))
     }
   }
   
   
-  ## Copy Template ----
-  
-  invisible(
-    file.copy(system.file(file.path("templates", "MAKE"), 
-                          package = "rcompendium"),
-              here::here("make.R")))
+  if ((file.exists(path) && overwrite) || !file.exists(path)) {
   
   
-  ## Update date and project name ----
-  
-  today <- format(Sys.time(), "%Y/%m/%d")
-  xfun::gsub_file(here::here("make.R"), "{{date}}", 
-                  today, fixed = TRUE)
-  
-  project_name <- get_package_name()
-  xfun::gsub_file(here::here("make.R"), "{{project_name}}", 
-                  project_name, fixed = TRUE)
-  
-  
-  ## Change user credentials ----
-  
-  given_name <- getOption("given")
-  if (!is.null(given_name)) {
-    xfun::gsub_file(here::here("make.R"), "{{given}}", given_name, 
-                    fixed = TRUE)
+    ## Copy Template ----
+    
+    invisible(
+      file.copy(system.file(file.path("templates", "__MAKE__"), 
+                            package = "rcompendium"), path))
+    
+    
+    ## Update date and project name ----
+    
+    today <- format(Sys.time(), "%Y/%m/%d")
+    xfun::gsub_file(path, "{{date}}", today, fixed = TRUE)
+    
+    project_name <- get_package_name()
+    xfun::gsub_file(path, "{{project_name}}", project_name, fixed = TRUE)
+    
+    
+    ## Change user credentials ----
+    
+    if (is.null(given)) given <- getOption("given")
+    if (!is.null(given)) 
+      xfun::gsub_file(path, "{{given}}", given, fixed = TRUE)
+    
+    if (is.null(family)) family <- getOption("family")
+    if (!is.null(family)) 
+      xfun::gsub_file(path, "{{family}}", family, fixed = TRUE)
+    
+    if (is.null(email)) email <- getOption("email")
+    if (!is.null(email))
+      xfun::gsub_file(path, "{{email}}", email, fixed = TRUE)
+    
+    
+    if (!quiet) ui_done("Writing {ui_value('make.R')} file")
+    
+    add_to_buildignore("make.R", quiet = quiet)
+    
+    if (open) edit_file(path)
+    
+    invisible(NULL)
   }
-  
-  family_name <- getOption("family")
-  if (!is.null(family_name)) {
-    xfun::gsub_file(here::here("make.R"), "{{family}}", family_name, 
-                    fixed = TRUE)
-  }
-  
-  email <- getOption("email")
-  if (!is.null(email)) {
-    xfun::gsub_file(here::here("make.R"), "{{email}}", email, 
-                    fixed = TRUE)
-  }
-  
-  
-  ## Message ----
-  
-  ui_done("Writing {ui_value('make.R')} file")
-  
-  if (open) utils::file.edit(here::here("make.R"))
-  
-  invisible(NULL)
 }

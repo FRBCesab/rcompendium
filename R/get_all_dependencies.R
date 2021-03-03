@@ -40,10 +40,19 @@ get_all_dependencies <- function(pkg = NULL) {
     direct_deps <- c(get_deps_in_depends(), read_descr()$"Imports", 
                      read_descr()$"LinkingTo")
     
-    direct_deps <- unlist(strsplit(direct_deps, "\n\\s+|,|,\\s+"))
-    direct_deps <- direct_deps[!(direct_deps == "")]
+    if (!is.null(direct_deps)) {
+      
+      direct_deps <- unlist(strsplit(direct_deps, "\n\\s+|,|,\\s+"))
+      direct_deps <- direct_deps[!(direct_deps == "")]
+      
+      pkg <- direct_deps 
     
-    pkg <- direct_deps
+    } else {
+      
+      return(list("base_deps"   = character(0),
+                  "direct_deps" = character(0), 
+                  "all_deps"    = character(0)))
+    }
   
   } else {
     

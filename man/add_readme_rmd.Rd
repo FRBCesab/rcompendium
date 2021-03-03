@@ -2,24 +2,45 @@
 % Please edit documentation in R/add_readme_rmd.R
 \name{add_readme_rmd}
 \alias{add_readme_rmd}
-\title{Create a README File}
+\title{Create a README file}
 \usage{
-add_readme_rmd(type = "package", open = TRUE, overwrite = FALSE)
+add_readme_rmd(
+  type = "package",
+  given = NULL,
+  family = NULL,
+  github = NULL,
+  organisation = NULL,
+  open = TRUE,
+  overwrite = FALSE,
+  quiet = FALSE
+)
 }
 \arguments{
 \item{type}{a character. If \code{package} (default) a GitHub \code{README.Rmd}
 specific to an R package will be created. If \code{compendium} a GitHub
 \code{README.Rmd} specific to a research compendium will be created.}
 
+\item{given}{(optional) user given name (i.e. "Nicolas")}
+
+\item{family}{(optional) user family name (i.e. "Casajus")}
+
+\item{github}{(optional) user GitHub pseudo/organization (i.e. "ahasverus")}
+
+\item{organisation}{a character. The name of the GITHUB organisation to
+host the package. If \code{NULL} it uses the GITHUB account.}
+
 \item{open}{a logical value. If \code{TRUE} (default) the file is opened in the
 editor.}
 
-\item{overwrite}{a logical value. If a \code{README.Rmd} is already present and
+\item{overwrite}{a logical value. If a \emph{README.Rmd} is already present and
 \code{overwrite = TRUE}, this file will be erased and replaced.}
+
+\item{quiet}{a logical value. If \code{TRUE} messages are deleted. Default is
+\code{FALSE}.}
 }
 \description{
-This function creates a \code{README.Rmd} file at the root of the project based on
-a template. Once edited user needs to knit it into a \code{README.md}.
+This function creates a \emph{README.Rmd} file at the root of the project based on
+a template. Once edited user needs to knit it into a \emph{README.md}.
 }
 \examples{
 \dontrun{
@@ -28,7 +49,9 @@ add_readme_rmd(type = "package")
 }
 \seealso{
 Other create files: 
+\code{\link{add_citation}()},
 \code{\link{add_description}()},
+\code{\link{add_license}()},
 \code{\link{add_makefile}()},
 \code{\link{add_package_doc}()}
 }

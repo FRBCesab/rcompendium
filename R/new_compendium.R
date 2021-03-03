@@ -70,7 +70,7 @@
 #' 
 #' @export
 #' 
-#' @family setup projects
+#' @family setup functions
 #' 
 #' @examples 
 #' \dontrun{
@@ -131,6 +131,8 @@ new_compendium <- function(status = "concept", lifecycle = "experimental",
     ui_line()
     add_to_buildignore(".DS_Store")
     add_to_buildignore(paste0(get_package_name(), ".Rproj"))
+    add_to_buildignore(".Rproj.user")
+    
     
     ui_line()
     add_description(open = FALSE, overwrite = overwrite)
@@ -217,7 +219,7 @@ new_compendium <- function(status = "concept", lifecycle = "experimental",
     ui_todo(paste0("Export your figures in the ", 
                    "{ui_value('analysis/figures/')} directory"))
     
-    
+    add_dependencies()
     ## End ----
     
     ui_line()
@@ -228,3 +230,10 @@ new_compendium <- function(status = "concept", lifecycle = "experimental",
   
   invisible(NULL)
 }
+# 
+# refresh()
+# 
+# gert::git_add(".")
+# gert::git_commit(":tada: Initial commit")
+# usethis::use_github(private = private, protocole = protocole, organisation = organisation)
+# add_github_actions_pkgdown()

@@ -1,17 +1,25 @@
-#' Create a README File
+#' Create a README file
 #' 
-#' This function creates a `README.Rmd` file at the root of the project based on 
-#' a template. Once edited user needs to knit it into a `README.md`.
+#' This function creates a _README.Rmd_ file at the root of the project based on 
+#' a template. Once edited user needs to knit it into a _README.md_.
 #' 
 #' @param type a character. If `package` (default) a GitHub `README.Rmd` 
-#' specific to an R package will be created. If `compendium` a GitHub 
-#' `README.Rmd` specific to a research compendium will be created.
+#'   specific to an R package will be created. If `compendium` a GitHub 
+#'   `README.Rmd` specific to a research compendium will be created.
+#' 
+#' @param organisation a character. The name of the GITHUB organisation to
+#'   host the package. If `NULL` it uses the GITHUB account.
 #' 
 #' @param open a logical value. If `TRUE` (default) the file is opened in the 
-#' editor.
+#'   editor.
 #' 
-#' @param overwrite a logical value. If a `README.Rmd` is already present and 
+#' @param overwrite a logical value. If a _README.Rmd_ is already present and 
 #' `overwrite = TRUE`, this file will be erased and replaced.
+#' 
+#' @param quiet a logical value. If `TRUE` messages are deleted. Default is 
+#'   `FALSE`.
+#' 
+#' @inheritParams set_credentials
 #' 
 #' @export
 #' 
@@ -22,74 +30,89 @@
 #' add_readme_rmd(type = "package")
 #' }
 
-add_readme_rmd <- function(type = "package", open = TRUE, overwrite = FALSE) {
+add_readme_rmd <- function(type = "package", given = NULL, family = NULL, 
+                           github = NULL, organisation = NULL, open = TRUE, 
+                           overwrite = FALSE, quiet = FALSE) {
   
   
   if (!(tolower(type) %in% c("package", "compendium"))) {
     stop("Argument `type` must be 'package' or 'compendium'.")
   }
   
-  ## Do not replace current file ----
   
-  if (!overwrite) {
-    if (file.exists("README.Rmd")) {
-      stop("A **README.Rmd** file is already present. If you want to replace ",
-           "it, please use `overwrite = TRUE`.")
+  path <- here::here("README.Rmd")
+  
+  
+  ## Do not replace current file but open it if required ----
+  
+  if (file.exists(path) && !overwrite) {
+    
+    if (!open) {
+      
+      stop("A 'README.Rmd' file is already present. If you want to ",
+           "replace it, please use `overwrite = TRUE`.")
+      
+    } else {
+      
+      edit_file(path)
+      return(invisible(NULL))
     }
   }
   
   
-  ## Copy Template ----
-  
-  if (type == "package") {
+  if ((file.exists(path) && overwrite) || !file.exists(path)) {
     
-    invisible(
-      file.copy(system.file(file.path("templates", "README-pkg"),
-                            package = "rcompendium"),
-                here::here("README.Rmd")))
-  } else {
-    
-    invisible(
-      file.copy(system.file(file.path("templates", "README-rc"),
-                            package = "rcompendium"),
-                here::here("README.Rmd")))
-  }
-    
-  
-  ## Change default values (in file) ----
-  
-  project_name <- get_package_name()
-  xfun::gsub_file(here::here("README.Rmd"), "{{project_name}}", 
-                  project_name, fixed = TRUE)
-  
-  given_name <- getOption("given")
-  if (!is.null(given_name)) {
-    xfun::gsub_file(here::here("README.Rmd"), "{{given}}", given_name, 
-                    fixed = TRUE)
-  }
-  
-  family_name <- getOption("family")
-  if (!is.null(family_name)) {
-    xfun::gsub_file(here::here("README.Rmd"), "{{family}}", family_name, 
-                    fixed = TRUE)
-  }
-  
-  github <- getOption("github")
-  if (!is.null(github)) {
-    xfun::gsub_file(here::here("README.Rmd"), "{{github}}", github, 
-                    fixed = TRUE)
-  }
-  
-  pkg_version <- get_package_version()
-  xfun::gsub_file(here::here("README.Rmd"), "{{pkg_version}}", 
-                  project_name, fixed = TRUE)
 
+    ## Copy Template ----
+    
+    if (type == "package") {
+      
+      invisible(
+        file.copy(system.file(file.path("templates", "__READMEPKG__"),
+                              package = "rcompendium"), path))
+    } else {
+      
+      invisible(
+        file.copy(system.file(file.path("templates", "__READMERC__"),
+                              package = "rcompendium"), path))
+    }
+      
   
-  ## Message ----
+    ## Change default values (in file) ----
   
-  ui_done("Writing {ui_value('README.Rmd')} file")
+    project_name <- get_package_name()
+    xfun::gsub_file(path, "{{project_name}}", project_name, fixed = TRUE)
+    
+    pkg_version <- get_package_version()
+    xfun::gsub_file(path, "{{pkg_version}}", pkg_version, fixed = TRUE)
   
-  if (open) utils::file.edit(here::here("README.Rmd"))
-  
-  invisible(NULL)
+    if (is.null(given)) given <- getOption("given")
+    if (!is.null(given)) 
+      xfun::gsub_file(path, "{{given}}", given, fixed = TRUE)
+    
+    if (is.null(family)) family <- getOption("family")
+    if (!is.null(family)) 
+      xfun::gsub_file(path, "{{family}}", family, fixed = TRUE)
+
+    if (is.null(organisation)) {
+      
+      if (is.null(github)) github <- getOption("github")
+      if (!is.null(github))
+        xfun::gsub_file(path, "{{github}}", github, fixed = TRUE)
+      
+    } else {
+      
+      xfun::gsub_file(path, "{{github}}", organisation, fixed = TRUE)
+    }  
+    
+    
+    if (!quiet) ui_done("Writing {ui_value('README.Rmd')} file")
+    
+    add_to_buildignore("README.Rmd", quiet = quiet)
+    add_to_buildignore("README.html", quiet = TRUE)
+    
+    if (open) edit_file(path)
+    
+    invisible(NULL)
+  }
 }

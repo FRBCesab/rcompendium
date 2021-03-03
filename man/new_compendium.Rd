@@ -97,7 +97,9 @@ rcompendium::new_compendium()
 }
 }
 \seealso{
-Other setup projects: 
+Other setup functions: 
+\code{\link{new_package}()},
+\code{\link{refresh}()},
 \code{\link{set_credentials}()}
 }
-\concept{setup projects}
+\concept{setup functions}

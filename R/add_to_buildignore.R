@@ -1,64 +1,75 @@
-#' Add to .Rbuildignore File
+#' Add to .Rbuildignore file
 #' 
+#' @description 
 #' This function adds files/folders to the `.Rbuildignore` file. If a 
-#' `.Rbuildignore` is already present, files to be ignored are just added to  
-#' this file. Otherwise a new file is created.
+#' _.Rbuildignore_ is already present, files to be ignored while checking 
+#' package are just added to this file. Otherwise a new file is created.
 #' 
 #' @param x a character of one or several files/directories names to add to the 
-#' `.Rbuildignore`. This argument is mandatory.
+#'   _.Rbuildignore_. This argument is mandatory.
 #' 
 #' @param open a logical value. If `TRUE` the file is opened in the editor.
-#' Default is `FALSE`.
+#'   Default is `FALSE`.
 #' 
+#' @param quiet a logical value. If `TRUE` messages are deleted. Default is 
+#'   `FALSE`.
+#'   
 #' @export
 #' 
 #' @family development functions
 #'
 #' @examples
 #' \dontrun{
+#' add_to_buildignore(open = TRUE)
 #' add_to_buildignore(".DS_Store")
 #' }
 
-add_to_buildignore <- function(x, open = FALSE) {
+add_to_buildignore <- function(x, open = FALSE, quiet = FALSE) {
   
-  if (missing(x)) stop("Argument 'x' is missing.")
+  if (missing(x) && !open) stop("Argument 'x' is missing.")
   
-  stopifnot(is.character(x))
-  
-  
-  ## Escape files ----
-  
-  x <- gsub("\\.", "\\\\.", x)
-  x <- gsub("/$", "", x)
-  x <- paste0("^", x, "$")
+  path <- here::here(".Rbuildignore")
   
   
   ## Create new file (if missing) ----
   
-  if (!file.exists(here::here(".Rbuildignore"))) {
+  if (!file.exists(path)) {
     
-    invisible(file.create(here::here(".Rbuildignore")))
-    ui_done("Writing {ui_value('.Rbuildignore')} file")
+    invisible(file.create(path))
+    
+    if (!quiet) ui_done("Writing {ui_value('.Rbuildignore')} file")
   }
   
   
-  ## Add files/folders to .Rbuildignore ----
+  ## Add file/folder ----
   
-  build_ignore <- readLines(here::here(".Rbuildignore"))
+  if (!missing(x)) {
   
-  if (!(x %in% build_ignore)) {
+    stopifnot(is.character(x))
+  
+  
+    ## Escape files ----
     
-    build_ignore <- c(build_ignore, x)
+    x <- gsub("\\.", "\\\\.", x)
+    x <- gsub("/$", "", x)
+    x <- paste0("^", x, "$")
     
-    writeLines(build_ignore, con = here::here(".Rbuildignore"))
-    ui_done("Adding {ui_value(x)} to {ui_value('.Rbuildignore')}")
-    
-  } else {
-    
-    ui_oops("{ui_value(x)} is already present in {ui_value('.Rbuildignore')}")  
+  
+    ## Add files/folders to .Rbuildignore ----
+  
+    build_ignore <- readLines(path)
+  
+    if (!(x %in% build_ignore)) {
+      
+      build_ignore <- c(build_ignore, x)
+      
+      writeLines(build_ignore, con = path)
+      
+      if (!quiet) ui_done("Adding {ui_value(x)} to {ui_value('.Rbuildignore')}")
+    }
   }
   
-  if (open) utils::file.edit(here::here(".Rbuildignore"))
+  if (open) edit_file(path)
   
   invisible(NULL)
 }

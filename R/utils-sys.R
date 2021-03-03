@@ -67,3 +67,59 @@ get_r_version <- function() {
   
   paste0("R (>= ", r_version, ")")
 }
+
+
+
+#' **Git Inception**
+#' 
+#' @noRd
+
+git_in_git <- function() {
+  
+  paths <- unlist(strsplit(here::here(), .Platform$file.sep))
+  
+  for (i in 1:(length(paths) - 1)) {
+    
+    recursive_path <- paste0(c(paths[1:i], ".git"), 
+                             collapse = .Platform$file.sep)
+    
+    if (dir.exists(recursive_path)) 
+      stop("You are going to create a '.git' inside a folder that is ", 
+           "already versioned.\n  < ", recursive_path, " >") 
+  }
+  
+  invisible(NULL)
+}
+
+
+
+#' **Rproj Inception**
+#' 
+#' @noRd
+
+proj_in_proj <- function() {
+  
+  paths <- unlist(strsplit(here::here(), .Platform$file.sep))
+  
+  for (i in 1:(length(paths) - 1)) {
+    
+    recursive_path <- paste0(paths[1:i], collapse = .Platform$file.sep)
+    
+    if (length(list.files(recursive_path, pattern = "\\.Rproj$"))) 
+      stop("You are going to create an 'RStudio Project' inside a folder that ", 
+           "is already an 'RStudio Project'.") 
+  }
+  
+  invisible(NULL)
+}
+
+
+ui_title <- function(text) {
+  
+  ui_line()
+  cat(clisymbols::symbol$radio_on, crayon::bold(crayon::underline(text)))
+  ui_line()
+  ui_line()
+  
+  invisible(NULL)
+}

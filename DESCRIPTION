@@ -1,7 +1,7 @@
 Package: rcompendium
 Type: Package
 Title: Create a Research Compendium
-Version: 1.0.0
+Version: 0.1
 Authors@R: c(
     person(given   = "Nicolas",
            family  = "Casajus",
@@ -14,14 +14,19 @@ Description: This package creates a research compendium, i.e. a predefined
 License: GPL (>= 2)
 Encoding: UTF-8
 LazyData: true
+Depends: R (>= 2.10)
 Imports: 
     clisymbols,
     crayon,
     devtools,
     fs,
     gert,
+    gh,
     gtools,
     here,
+    httr,
+    rmarkdown,
+    rstudioapi,
     stringr,
     usethis,
     utils,

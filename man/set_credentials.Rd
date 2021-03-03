@@ -7,11 +7,10 @@
 set_credentials(
   given = NULL,
   family = NULL,
-  short = NULL,
   email = NULL,
-  orcid = NULL,
   github = NULL,
-  license = NULL
+  orcid = NULL,
+  open = FALSE
 )
 }
 \arguments{
@@ -19,36 +18,39 @@ set_credentials(
 
 \item{family}{(optional) user family name (i.e. "Casajus")}
 
-\item{short}{(optional) user short name (e.g. "Casajus N.")}
-
 \item{email}{(optional) user email address (i.e. "nicolas.casajus@gmail.com")}
-
-\item{orcid}{(optional) user ORCID (i.e. "0000-0002-5537-5294")}
 
 \item{github}{(optional) user GitHub pseudo/organization (i.e. "ahasverus")}
 
-\item{license}{(optional) user preferred license (i.e. "GPL (>= 2)")}
+\item{orcid}{(optional) user ORCID (i.e. "0000-0002-5537-5294")}
+
+\item{open}{a logical value. If \code{TRUE} the file is opened in the editor.
+Default is \code{open = FALSE}}
 }
 \description{
-This function stores user credentials in the \strong{.Rprofile} file. Accepted
+This function stores user credentials in the \emph{.Rprofile} file. Accepted
 credentials are listed below. This function is useful if user creates a lot
 of packages and/or research compendiums.
 
-If the \strong{.Rprofile} file does not exist this function will create it. Note
+If the \emph{.Rprofile} file does not exist this function will create it. Note
 that credentials are added at the end of the file: if you run this function
 two times, credentials will be added twice. User can run the command
-\code{usethis::edit_r_profile()} to open the \strong{.Rprofile} and clean its content.
-\strong{Be careful when modifying this file!}.
+\code{usethis::edit_r_profile()} to open the \emph{.Rprofile} and clean its content.
+\strong{Be careful while modifying this file!}.
 }
 \examples{
 \dontrun{
-set_credentials(given = "Nicolas", family = "Casajus", short = "Casajus N.",
-                email = "nicolas.casajus@gmail.com", github = "ahasverus", 
-                orcid = "0000-0002-5537-5294", license = "GPL (>= 2)")
+library(rcompendium)
+
+## Define **ONCE FOR ALL** your credentials ----
+set_credentials("Given", "Family", "email.address@domain.com", 
+                github = "pseudo", orcid = "0000-0000-0000-0000")
 }
 }
 \seealso{
-Other setup projects: 
-\code{\link{new_compendium}()}
+Other setup functions: 
+\code{\link{new_compendium}()},
+\code{\link{new_package}()},
+\code{\link{refresh}()}
 }
-\concept{setup projects}
+\concept{setup functions}

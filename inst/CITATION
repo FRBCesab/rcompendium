@@ -5,6 +5,6 @@ bibentry(
   title   = "{rcompendium}: {An} {R} package to create a research compendium",
   author  = c(person("Casajus N.")),
   year    = "2021",
-  note    = "R package version 1.0.0",
+  note    = "R package version 0.1",
   url     = "https://github.com/ahasverus/rcompendium"
 )

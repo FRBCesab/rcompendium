@@ -1,13 +1,23 @@
-#' Create a DESCRIPTION File
+#' Create a DESCRIPTION file
 #' 
-#' This function creates a DESCRIPTION file at the root of the project based on 
-#' a template.
+#' @description 
+#' This function creates a _DESCRIPTION_ file at the root of the project based  
+#' on a template. User credentials can be passed as arguments but it is 
+#' recommended to store them in the _.Rprofile_ file with [set_credentials()].
 #' 
+#' @param organisation a character. The name of the GITHUB organisation to
+#'   host the package. If `NULL` it uses the GITHUB account.
+#'   
 #' @param open a logical value. If `TRUE` (default) the file is opened in the 
-#' editor.
+#'   editor.
 #' 
-#' @param overwrite a logical value. If a `DESCRIPTION` is already present and 
-#' `overwrite = TRUE`, this file will be erased and replaced.
+#' @param overwrite a logical value. If a _DESCRIPTION_ is already present and 
+#'   `overwrite = TRUE`, this file will be erased and replaced.
+#'   
+#' @param quiet a logical value. If `TRUE` messages are deleted. Default is 
+#'   `FALSE`.
+#' 
+#' @inheritParams set_credentials
 #' 
 #' @export
 #' 
@@ -15,89 +25,90 @@
 #'
 #' @examples
 #' \dontrun{
-#' add_description()
+#' add_description(organisation = "FRBCesab")
 #' }
 
-add_description <- function(open = TRUE, overwrite = FALSE) {
+add_description <- function(given = NULL, family = NULL, email = NULL, 
+                            orcid = NULL, github = NULL, organisation = NULL, 
+                            open = TRUE, overwrite = FALSE, quiet = FALSE) {
   
   
-  ## Do not replace current file ----
+  path <- here::here("DESCRIPTION")
   
-  if (!overwrite) {
-    if (file.exists("DESCRIPTION")) {
-      stop("A **DESCRIPTION** file is already present. If you want to ",
+  
+  ## Do not replace current file but open it if required ----
+  
+  if (file.exists(path) && !overwrite) {
+      
+    if (!open) {
+      
+      stop("A 'DESCRIPTION' file is already present. If you want to ",
            "replace it, please use `overwrite = TRUE`.")
+      
+    } else {
+      
+      edit_file(path)
+      return(invisible(NULL))
     }
   }
   
+
+  if ((file.exists(path) && overwrite) || !file.exists(path)) {
   
-  ## Copy Template ----
+    
+    ## Copy Template ----
+    
+    invisible(
+      file.copy(system.file(file.path("templates", "__DESCRIPTION__"), 
+                            package = "rcompendium"), path))
+    
+    
+    ## Change default values (in file) ----
+    
+    project_name <- get_package_name()
+    xfun::gsub_file(path, "{{project_name}}", project_name, fixed = TRUE)
+    
+    r_version <- get_r_version()
+    xfun::gsub_file(path, "{{r_version}}", r_version, fixed = TRUE)
+    
+    roxygen2_version <- get_roxygen2_version()
+    xfun::gsub_file(path, "{{roxygen2_version}}", roxygen2_version, fixed = TRUE)
+    
+    
+    ## Change user credentials ----
+    
+    if (is.null(given)) given <- getOption("given")
+    if (!is.null(given)) 
+      xfun::gsub_file(path, "{{given}}", given, fixed = TRUE)
+    
+    if (is.null(family)) family <- getOption("family")
+    if (!is.null(family)) 
+      xfun::gsub_file(path, "{{family}}", family, fixed = TRUE)
+    
+    if (is.null(email)) email <- getOption("email")
+    if (!is.null(email))
+      xfun::gsub_file(path, "{{email}}", email, fixed = TRUE)
+    
+    if (is.null(orcid)) orcid <- getOption("orcid")
+    if (!is.null(orcid))
+      xfun::gsub_file(path, "{{orcid}}", orcid, fixed = TRUE)
+    
+    if (is.null(organisation)) {
+      
+      if (is.null(github)) github <- getOption("github")
+      if (!is.null(github))
+        xfun::gsub_file(path, "{{github}}", github, fixed = TRUE)
+      
+    } else {
+      
+      xfun::gsub_file(path, "{{github}}", organisation, fixed = TRUE)
+    }
+    
+    
+    if (!quiet) ui_done("Writing {ui_value('DESCRIPTION')} file")
   
-  invisible(
-    file.copy(system.file(file.path("templates", "DESCRIPTION"), 
-                          package = "rcompendium"),
-              here::here("DESCRIPTION")))
-  
-  
-  ## Change default values (in file) ----
-  
-  project_name <- get_package_name()
-  xfun::gsub_file(here::here("DESCRIPTION"), "{{project_name}}", 
-                  project_name, fixed = TRUE)
-  
-  r_version <- get_r_version()
-  xfun::gsub_file(here::here("DESCRIPTION"), "{{r_version}}", 
-                  r_version, fixed = TRUE)
-  
-  roxygen2_version <- get_roxygen2_version()
-  xfun::gsub_file(here::here("DESCRIPTION"), "{{roxygen2_version}}", 
-                  roxygen2_version, fixed = TRUE)
-  
-  
-  ## Change user credentials ----
-  
-  given_name <- getOption("given")
-  if (!is.null(given_name)) {
-    xfun::gsub_file(here::here("DESCRIPTION"), "{{given}}", given_name, 
-                    fixed = TRUE)
+    if (open) edit_file(path)
+    
+    invisible(NULL)
   }
-  
-  family_name <- getOption("family")
-  if (!is.null(family_name)) {
-    xfun::gsub_file(here::here("DESCRIPTION"), "{{family}}", family_name, 
-                    fixed = TRUE)
-  }
-  
-  email <- getOption("email")
-  if (!is.null(email)) {
-    xfun::gsub_file(here::here("DESCRIPTION"), "{{email}}", email, 
-                    fixed = TRUE)
-  }
-  
-  orcid <- getOption("orcid")
-  if (!is.null(orcid)) {
-    xfun::gsub_file(here::here("DESCRIPTION"), "{{orcid}}", orcid, 
-                    fixed = TRUE)
-  }
-  
-  github <- getOption("github")
-  if (!is.null(github)) {
-    xfun::gsub_file(here::here("DESCRIPTION"), "{{github}}", github, 
-                    fixed = TRUE)
-  }
-  
-  license_pref <- getOption("license")
-  if (!is.null(license_pref)) {
-    xfun::gsub_file(here::here("DESCRIPTION"), "{{license}}", license_pref, 
-                    fixed = TRUE)
-  }
-  
-  
-  ## Message ----
-  
-  ui_done("Writing {ui_value('DESCRIPTION')} file")
-  
-  if (open) utils::file.edit(here::here("DESCRIPTION"))
-  
-  invisible(NULL)
 }

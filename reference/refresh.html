@@ -41,8 +41,8 @@
 
 <meta property="og:title" content="Refresh a research compendium/package — refresh" />
 <meta property="og:description" content="This function refreshes a research compendium/package. It will:
-Update Rd files and NAMESPACE, using devtools::document();
-Update external packages (DESCRIPTION);
+Update .Rd files and NAMESPACE, using devtools::document();
+Update external packages (in DESCRIPTION file);
 Update badges in README.Rmd (if already present);
 Re-knitr the README.Rmd, using rmarkdown::render();
 Check package integrity with devtools::check().
@@ -117,10 +117,10 @@ Check package integrity with devtools::check().
 
     <div class="ref-description">
     <p>This function refreshes a research compendium/package. It will:</p><ul>
-<li><p>Update Rd files and NAMESPACE, using <code><a href='https://devtools.r-lib.org//reference/document.html'>devtools::document()</a></code>;</p></li>
-<li><p>Update external packages (DESCRIPTION);</p></li>
-<li><p>Update badges in README.Rmd (if already present);</p></li>
-<li><p>Re-knitr the README.Rmd, using <code><a href='https://pkgs.rstudio.com/rmarkdown/reference/render.html'>rmarkdown::render()</a></code>;</p></li>
+<li><p>Update <code>.Rd</code> files and <code>NAMESPACE</code>, using <code><a href='https://devtools.r-lib.org//reference/document.html'>devtools::document()</a></code>;</p></li>
+<li><p>Update external packages (in <code>DESCRIPTION</code> file);</p></li>
+<li><p>Update badges in <code>README.Rmd</code> (if already present);</p></li>
+<li><p>Re-knitr the <code>README.Rmd</code>, using <code><a href='https://pkgs.rstudio.com/rmarkdown/reference/render.html'>rmarkdown::render()</a></code>;</p></li>
 <li><p>Check package integrity with <code><a href='https://devtools.r-lib.org//reference/check.html'>devtools::check()</a></code>.</p></li>
 </ul>
 

@@ -192,7 +192,7 @@ With default settings the package \code{pkg} will contain:\preformatted{.
 │
 ├── man/                      # R functions helps (automatically updated)
 │   ├── figures/              # Figures for the README 
-│       └── hexsticker.png    # Template R package HexSticker
+│   │   └── hexsticker.png    # Template R package HexSticker
 │   └── pkg-package.Rd        # Package-level documentation
 │
 ├── inst/

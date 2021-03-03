@@ -1,3 +1,4 @@
+
 # rcompendium <img src="man/figures/hexsticker.png" height="120" align="right"/>
 
 <!-- badges: start -->
@@ -7,18 +8,26 @@
 status](https://www.r-pkg.org/badges/version/rcompendium)](https://CRAN.R-project.org/package=rcompendium)
 [![License: GPL (&gt;=
 2)](https://img.shields.io/badge/License-GPL%20%28%3E%3D%202%29-blue.svg)](https://choosealicense.com/licenses/gpl-2.0)
-[![LifeCycle](man/figures/lifecycle/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![LifeCycle](man/figures/lifecycle/lifecycle-stable.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![Project Status:
 Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Dependencies](https://img.shields.io/badge/dependencies-15/80-red?style=flat)](#)
 <!-- badges: end -->
 
-The goal of `rcompendium` is to create a research compendium, i.e. a
-predefined folder structure.
+The purpose of the package `rcompendium` is to make easier the creation
+of R package/research compendium (i.e. a predefined files/folders
+structure) so that user can focus on the code/analysis instead of
+wasting time organizing files. A full ready-to-work structure is set up
+with some additional features (versioning, GitHub repository creation,
+GitHub Actions configuration to automatically check package integrity
+and deploy website using [`pkgdown`](https://pkgdown.r-lib.org/)). This
+package relies heavily on the packages
+[`devtools`](https://devtools.r-lib.org/) and
+[`usethis`](https://usethis.r-lib.org/).
 
-## Mea culpa
-
-…
+**Mea culpa:** this project was largely inspired by the package
+[`rrtools`](https://github.com/benmarwick/rrtools) developed by [Ben
+Marwick](https://github.com/benmarwick).
 
 ## Structure of the compendium
 
@@ -51,44 +60,69 @@ Here is the structure of the research compendium created by
 The package `rcompendium` can also be used to create an R package with
 the following content:
 
-    package              # Package Root
+    package
     │
-    ├── .git/            # Automatically created (or not)
-    ├── .github/         # GitHub Actions settings (check and deploy)
-    ├── .Rbuildignore
-    ├── .gitignore       # Specific to R projects
-    ├── compendium.Rproj # Created by user (optional)
-    ├── _pkgdown.yml     # Website settings
+    ├── .git/                     # GIT tracking folder
+    ├── .github/                  # (optional) GitHub Actions settings
+    │   └── workflows/
+    │       ├── pkgdown.yaml      # Configuration file to build & deploy website
+    │       └── R-CMD-check.yaml  # Configuration file to check & test package
+    ├── .Rbuildignore             # Automatically generated
+    ├── .gitignore                # Specific to R packages
+    ├── pkg.Rproj                 # (optional) Created by user 
+    ├── _pkgdown.yaml             # (optional) User website settings
     │
-    ├── R/               # Contains R functions
-    ├── man/             # Contains R functions helps (automatically updated)
-    ├── inst/            # (optional)
-    ├── tests/           # (optional)
-    ├── vignettes/       # (optional)
-    ├── DESCRIPTION      # Project metadata (author, dependencies, etc.)
-    ├── NAMESPACE
-    ├── LICENSE.md       # Content of the chosen license
+    ├── R/                        # R functions
+    │   └── pkg-package.R         # Dummy R file for package-level documentation
     │
-    ├── README.md        # GitHub README (automatically updated)
-    └── README.Rmd       # GitHub README (to rmarkdown::render)
+    ├── man/                      # R functions helps (automatically updated)
+    │   ├── figures/              # Figures for the README 
+    │   │   └── hexsticker.png    # Template R package HexSticker
+    │   └── pkg-package.Rd        # Package-level documentation
+    │
+    ├── inst/
+    │   └── CITATION              # BiBTeX entry to cite the R package       [*]
+    │
+    ├── vignettes/
+    │   └── pkg_vignette.Rmd      # (optional) Package tutorial              [*]
+    │
+    ├── DESCRIPTION               # Project metadata                         [*]
+    ├── NAMESPACE                 # Automatically generated
+    │
+    ├── LICENSE                   # (optional) If License = MIT
+    ├── LICENSE.md                # Content of the chosen license
+    │
+    ├── README.md                 # GitHub README (automatically generated)
+    └── README.Rmd                # GitHub README (to knit)                  [*]
 
-**N.B. 1.** the research compendium can be built as an R package with
-`devtools::install()` but only R functions stored in the **R/** folder
-will be available (do not forget to edit R functions documentation and
-to run `devtools::document()`). The content of the **analysis/** folder
-must be run by sourcing the `make.R` file. All files created by user
-must be saved in the subfolders of **analysis/**.
+    [*] These files are automatically edited but user needs to add manually 
+        some information.
 
-**N.B. 2.** the files `DESCRIPTION` and `make.R` are written from
-templates and are specific to myself.
+<!--
+
+
+**N.B. 1.** the research compendium can be built as an R package with 
+`devtools::install()` but only R functions stored in the **R/** folder will
+be available (do not forget to edit R functions documentation and to run
+`devtools::document()`). 
+The content of the **analysis/** folder must be run by sourcing the `make.R` 
+file. All files created by user must be saved in the subfolders of **analysis/**.
+
+
+**N.B. 2.** the files `DESCRIPTION` and `make.R` are written from templates and
+are specific to myself.
+
+-->
 
 ## Installation
 
 You can install the development version from
 [GitHub](https://github.com/) with:
 
-    # install.packages("remotes")
-    remotes::install_github("FRBCesab/rcompendium")
+``` r
+# install.packages("remotes")
+remotes::install_github("FRBCesab/rcompendium")
+```
 
 ## Usage
 
@@ -97,21 +131,30 @@ without initializing git versioning). If you do not use RStudio IDE, you
 need to create a **New folder** and to open R in this directory (by
 using `setwd()`).
 
-**N.B.** the name of the compendium will be the same as the current
+:warning:   the name of the compendium will be the same as the current
 directory. Don’t worry you will be asked before any file is created.
 
-Then you can create the compendium:
+Then you can create an R package structure:
 
-    rcompendium::new_compendium()
+``` r
+rcompendium::new_package()
+```
 
-You can now start working!
+or a research compendium:
+
+``` r
+rcompendium::new_compendium()
+```
+
+And you can now start working!
 
 ## Citation
 
 Please cite this package as:
 
-> Casajus N. (2021) rcompendium: An R package to create a research
-> compendium. Version 0.1, <https://github.com/FRBCesab/rcompendium>.
+> Casajus N. (2021) rcompendium: An R package to create a package or
+> research compendium structure. Version 0.1,
+> <https://github.com/FRBCesab/rcompendium>.
 
 ## Code of Conduct
 

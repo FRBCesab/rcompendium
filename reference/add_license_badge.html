@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create a README file — add_readme_rmd • rcompendium</title>
+<title>Add a license badge — add_license_badge • rcompendium</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,10 @@
 
 
 
-<meta property="og:title" content="Create a README file — add_readme_rmd" />
-<meta property="og:description" content="This function creates a README.Rmd file at the root of the project based on
-a template. Once edited user needs to knit it into a README.md." />
+<meta property="og:title" content="Add a license badge — add_license_badge" />
+<meta property="og:description" content="This function adds or updates the license badge to the README.Rmd. This
+function reads the License field of the DESCRIPTION file. Be sure to
+previously run add_license() function." />
 
 
 
@@ -104,63 +105,22 @@ a template. Once edited user needs to knit it into a README.md." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Create a README file</h1>
+    <h1>Add a license badge</h1>
     
-    <div class="hidden name"><code>add_readme_rmd.Rd</code></div>
+    <div class="hidden name"><code>add_license_badge.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function creates a <em>README.Rmd</em> file at the root of the project based on
-a template. Once edited user needs to knit it into a <em>README.md</em>.</p>
+    <p>This function adds or updates the license badge to the <strong>README.Rmd</strong>. This
+function reads the <code>License</code> field of the DESCRIPTION file. Be sure to
+previously run <code><a href='add_license.html'>add_license()</a></code> function.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>add_readme_rmd</span><span class='op'>(</span>
-  type <span class='op'>=</span> <span class='st'>"package"</span>,
-  given <span class='op'>=</span> <span class='cn'>NULL</span>,
-  family <span class='op'>=</span> <span class='cn'>NULL</span>,
-  github <span class='op'>=</span> <span class='cn'>NULL</span>,
-  organisation <span class='op'>=</span> <span class='cn'>NULL</span>,
-  open <span class='op'>=</span> <span class='cn'>TRUE</span>,
-  overwrite <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  quiet <span class='op'>=</span> <span class='cn'>FALSE</span>
-<span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>add_license_badge</span><span class='op'>(</span>quiet <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>type</th>
-      <td><p>a character. If <code>package</code> (default) a GitHub <code>README.Rmd</code>
-specific to an R package will be created. If <code>compendium</code> a GitHub
-<code>README.Rmd</code> specific to a research compendium will be created.</p></td>
-    </tr>
-    <tr>
-      <th>given</th>
-      <td><p>(optional) user given name (i.e. "Nicolas")</p></td>
-    </tr>
-    <tr>
-      <th>family</th>
-      <td><p>(optional) user family name (i.e. "Casajus")</p></td>
-    </tr>
-    <tr>
-      <th>github</th>
-      <td><p>(optional) user GitHub pseudo/organization (i.e. "ahasverus")</p></td>
-    </tr>
-    <tr>
-      <th>organisation</th>
-      <td><p>a character. The name of the GITHUB organisation to
-host the package. If <code>NULL</code> it uses the GITHUB account.</p></td>
-    </tr>
-    <tr>
-      <th>open</th>
-      <td><p>a logical value. If <code>TRUE</code> (default) the file is opened in the
-editor.</p></td>
-    </tr>
-    <tr>
-      <th>overwrite</th>
-      <td><p>a logical value. If a <em>README.Rmd</em> is already present and
-<code>overwrite = TRUE</code>, this file will be erased and replaced.</p></td>
-    </tr>
     <tr>
       <th>quiet</th>
       <td><p>a logical value. If <code>TRUE</code> messages are deleted. Default is
@@ -170,16 +130,16 @@ editor.</p></td>
 
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other create files: 
-<code><a href='add_citation.html'>add_citation</a>()</code>,
-<code><a href='add_description.html'>add_description</a>()</code>,
-<code><a href='add_license.html'>add_license</a>()</code>,
-<code><a href='add_makefile.html'>add_makefile</a>()</code>,
-<code><a href='add_package_doc.html'>add_package_doc</a>()</code></p></div>
+    <div class='dont-index'><p>Other adding badges: 
+<code><a href='add_cran_badge.html'>add_cran_badge</a>()</code>,
+<code><a href='add_dependencies_badge.html'>add_dependencies_badge</a>()</code>,
+<code><a href='add_github_actions_badge.html'>add_github_actions_badge</a>()</code>,
+<code><a href='add_lifecycle_badge.html'>add_lifecycle_badge</a>()</code>,
+<code><a href='add_repostatus_badge.html'>add_repostatus_badge</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='fu'>add_readme_rmd</span><span class='op'>(</span>type <span class='op'>=</span> <span class='st'>"package"</span><span class='op'>)</span>
+<span class='fu'>add_license_badge</span><span class='op'>(</span><span class='op'>)</span>
 <span class='op'>}</span>
 </div></pre>
   </div>

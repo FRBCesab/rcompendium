@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create a Make-like R File — add_makefile • rcompendium</title>
+<title>Create a Make-like R file — add_makefile • rcompendium</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Create a Make-like R File — add_makefile" />
-<meta property="og:description" content="This function creates a Make-like R file (make.R) at the root of the
+<meta property="og:title" content="Create a Make-like R file — add_makefile" />
+<meta property="og:description" content="This function creates a Make-like R file ( make.R ) at the root of the
 project based on a template." />
 
 
@@ -73,7 +73,7 @@ project based on a template." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rcompendium</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1</span>
       </span>
     </div>
 
@@ -104,21 +104,40 @@ project based on a template." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Create a Make-like R File</h1>
+    <h1>Create a Make-like R file</h1>
     
     <div class="hidden name"><code>add_makefile.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function creates a Make-like R file (<code>make.R</code>) at the root of the
+    <p>This function creates a Make-like R file ( <em>make.R</em> ) at the root of the
 project based on a template.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>add_makefile</span><span class='op'>(</span>open <span class='op'>=</span> <span class='cn'>TRUE</span>, overwrite <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>add_makefile</span><span class='op'>(</span>
+  given <span class='op'>=</span> <span class='cn'>NULL</span>,
+  family <span class='op'>=</span> <span class='cn'>NULL</span>,
+  email <span class='op'>=</span> <span class='cn'>NULL</span>,
+  open <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  overwrite <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  quiet <span class='op'>=</span> <span class='cn'>FALSE</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>given</th>
+      <td><p>(optional) user given name (i.e. "Nicolas")</p></td>
+    </tr>
+    <tr>
+      <th>family</th>
+      <td><p>(optional) user family name (i.e. "Casajus")</p></td>
+    </tr>
+    <tr>
+      <th>email</th>
+      <td><p>(optional) user email address (i.e. "nicolas.casajus@gmail.com")</p></td>
+    </tr>
     <tr>
       <th>open</th>
       <td><p>a logical value. If <code>TRUE</code> (default) the file is opened in the
@@ -126,15 +145,22 @@ editor.</p></td>
     </tr>
     <tr>
       <th>overwrite</th>
-      <td><p>a logical value. If a <code>make.R</code> is already present and
+      <td><p>a logical value. If a <em>make.R</em> is already present and
 <code>overwrite = TRUE</code>, this file will be erased and replaced.</p></td>
+    </tr>
+    <tr>
+      <th>quiet</th>
+      <td><p>a logical value. If <code>TRUE</code> messages are deleted. Default is
+<code>FALSE</code>.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other create files: 
+<code><a href='add_citation.html'>add_citation</a>()</code>,
 <code><a href='add_description.html'>add_description</a>()</code>,
+<code><a href='add_license.html'>add_license</a>()</code>,
 <code><a href='add_package_doc.html'>add_package_doc</a>()</code>,
 <code><a href='add_readme_rmd.html'>add_readme_rmd</a>()</code></p></div>
 

@@ -52,13 +52,13 @@ add_dependencies <- function(import = NULL, suggest = "vignettes") {
 
   is_package()
   
-  if (!is.null(suggest)) {
-    if (length(suggest) > 1) stop("Argument 'suggest' must be of length 1.")
-  }
+  if (!is.null(suggest)) stop_if_not_string(suggest)
+  if (!is.null(import))  stop_if_not_string(import)
   
-  if (!is.null(import)) {
-    if (length(import) > 1) stop("Argument 'import' must be of length 1.")
-  }
+  
+  ## If no R function ----
+  
+  if (!dir.exists(here::here("R"))) stop("No 'R/' folder found.")
   
   
   ## Update Documentation & NAMESPACE ----

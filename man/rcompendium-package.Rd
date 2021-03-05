@@ -6,13 +6,13 @@
 \alias{rcompendium-package}
 \title{rcompendium: Create a Package or Research Compendium Structure}
 \description{
-The purpose of the package \code{rcompendium} is to make easier 
-    the creation of R package/research compendium (i.e. a predefined 
-    files/folders structure) so that user can focus on the code/analysis 
+The purpose of the package \code{rcompendium} is to make easier
+    the creation of R package/research compendium (i.e. a predefined
+    files/folders structure) so that user can focus on the code/analysis
     instead of wasting time organizing files. A full ready-to-work structure is
-    set up with some additional features (versioning, GitHub repository 
-    creation, GitHub Actions configuration to automatically check package 
-    integrity and deploy website using \code{pkgdown}). This package relies 
+    set up with some additional features (versioning, GitHub repository
+    creation, GitHub Actions configuration to automatically check package
+    integrity and deploy website using \code{pkgdown}). This package relies
     heavily on the packages \code{devtools} and \code{usethis}.
 }
 \seealso{

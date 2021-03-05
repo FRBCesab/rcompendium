@@ -34,6 +34,10 @@ add_citation <- function(given = NULL, family = NULL, github = NULL,
                          organisation = NULL, open = TRUE, overwrite = FALSE,
                          quiet = FALSE) { 
   
+  
+  stop_if_not_logical(open, overwrite, quiet)
+  
+  
   path <- here::here("inst", "CITATION")
   
   
@@ -57,46 +61,46 @@ add_citation <- function(given = NULL, family = NULL, github = NULL,
   if ((file.exists(path) && overwrite) || !file.exists(path)) {
   
   
-  ## Copy Template ----
+    ## Get fields values ----
+    
+    if (is.null(given))  given  <- getOption("given")
+    if (is.null(family)) family <- getOption("family")
+    
+    if (!is.null(organisation)) {
+      github <- organisation
+    } else {
+      if (is.null(github)) github <- getOption("github")  
+    }
+    
+    stop_if_not_string(given, family, github)
+    
+    
+    project_name <- get_package_name()
+    pkg_version  <- get_package_version()
+    year         <- format(Sys.Date(), "%Y")
+    
+    
+    ## Copy Template ----
   
     if (!dir.exists(here::here("inst")))
       dir.create(here::here("inst"), showWarnings = FALSE)
   
     invisible(
       file.copy(system.file(file.path("templates", "__CITATION__"), 
-                            package = "rcompendium"), path))
+                            package = "rcompendium"), path, overwrite = TRUE))
 
   
-  ## Change defaults values ----
+    ## Change defaults values ----
   
-    project_name <- get_package_name()
     xfun::gsub_file(path, "{{project_name}}", project_name, fixed = TRUE)
-    
-    pkg_version <- get_package_version()
     xfun::gsub_file(path, "{{pkg_version}}", pkg_version, fixed = TRUE)
-  
-    year <- format(Sys.Date(), "%Y")
     xfun::gsub_file(path, "{{year}}", year, fixed = TRUE)
-  
-    if (is.null(given)) given <- getOption("given")
-    if (!is.null(given)) 
-      xfun::gsub_file(path, "{{given}}", given, fixed = TRUE)
+    xfun::gsub_file(path, "{{given}}", given, fixed = TRUE)
+    xfun::gsub_file(path, "{{family}}", family, fixed = TRUE)
+    xfun::gsub_file(path, "{{github}}", github, fixed = TRUE)
     
-    if (is.null(family)) family <- getOption("family")
-    if (!is.null(family)) 
-      xfun::gsub_file(path, "{{family}}", family, fixed = TRUE)
     
-    if (is.null(organisation)) {
-      
-      if (is.null(github)) github <- getOption("github")
-      if (!is.null(github))
-        xfun::gsub_file(path, "{{github}}", github, fixed = TRUE)
-      
-    } else {
-      
-      xfun::gsub_file(path, "{{github}}", organisation, fixed = TRUE)
-    }
-    
+    ## Messages ----
     
     if (!quiet) ui_done("Writing {ui_value('inst/CITATION')} file")
     

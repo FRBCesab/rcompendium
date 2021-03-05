@@ -33,6 +33,7 @@ Other create files:
 \code{\link{add_description}()},
 \code{\link{add_license}()},
 \code{\link{add_makefile}()},
-\code{\link{add_readme_rmd}()}
+\code{\link{add_readme_rmd}()},
+\code{\link{add_vignette}()}
 }
 \concept{create files}

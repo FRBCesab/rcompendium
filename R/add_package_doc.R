@@ -26,9 +26,11 @@
 
 add_package_doc <- function(open = TRUE, overwrite = FALSE, quiet = FALSE) { 
   
-  filename <- paste0(get_package_name(), "-package.R")
   
-  path <- here::here("R", filename)
+  stop_if_not_logical(open, overwrite, quiet)
+  
+  filename <- paste0(get_package_name(), "-package.R")
+  path     <- here::here("R", filename)
   
   
   ## Do not replace current file but open it if required ----
@@ -55,7 +57,7 @@ add_package_doc <- function(open = TRUE, overwrite = FALSE, quiet = FALSE) {
     
     invisible(
       file.copy(system.file(file.path("templates", "__INDEX__"), 
-                            package = "rcompendium"), path))
+                            package = "rcompendium"), path, overwrite = TRUE))
     
     
     if (!quiet) ui_done("Writing {ui_value(paste0('R/', filename))} file")

@@ -43,16 +43,19 @@ add_lifecycle_badge <- function(lifecycle = "experimental", quiet = FALSE) {
   
   ## Checks ----
   
-  if (is.null(lifecycle)) {
-    stop("Argument `lifecycle` cannot be NULL.")
-  }
+  stop_if_not_logical(quiet)
   
-  lifecycle <- match.arg(tolower(lifecycle), 
-                      choices = c("experimental", "stable", "deprecated", 
-                                  "superseded"))
+  stop_if_not_string(lifecycle)
+
+  if (!(tolower(lifecycle) %in% c("experimental", "stable", "deprecated", 
+                                  "superseded"))) {
+    stop("Argument 'lifecycle' must be of among 'experimental', 'stable', ",
+         "'deprecated', or 'superseded'.")
+  }
+
   
   if (!file.exists("README.Rmd")) {
-    stop("The file **README.Rmd** cannot be found.")
+    stop("The file 'README.Rmd' cannot be found.")
   }
   
   

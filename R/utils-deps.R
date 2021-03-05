@@ -110,8 +110,6 @@ get_deps_in_examples <- function() {
   
   if (!length(x)) {
     
-    ui_oops("The {ui_value('R/')} folder is empty")
-    
     return(NULL)
     
   } else {

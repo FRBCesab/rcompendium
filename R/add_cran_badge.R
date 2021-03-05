@@ -19,6 +19,8 @@
 add_cran_badge <- function(quiet = FALSE) {
   
   
+  stop_if_not_logical(quiet)
+  
   ## Create Badge Markdown Expression ----
   
   project_name <- get_package_name()

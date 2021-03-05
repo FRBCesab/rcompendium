@@ -22,6 +22,9 @@
 
 add_dependencies_badge <- function(quiet = FALSE) {
   
+  
+  stop_if_not_logical(quiet)
+  
   deps <- get_all_dependencies()
   deps <- unlist(lapply(deps, length))
   

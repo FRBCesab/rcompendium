@@ -31,6 +31,8 @@ add_github_actions_check <- function(open = FALSE, overwrite = FALSE,
                                      quiet = FALSE) {
 
   
+  stop_if_not_logical(open, overwrite, quiet)
+  
   if (!dir.exists(here::here(".git"))) {
     stop("The project is not versioning with git.")
   }

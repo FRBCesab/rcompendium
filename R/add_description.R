@@ -33,6 +33,9 @@ add_description <- function(given = NULL, family = NULL, email = NULL,
                             open = TRUE, overwrite = FALSE, quiet = FALSE) {
   
   
+  stop_if_not_logical(open, overwrite, quiet)
+  
+  
   path <- here::here("DESCRIPTION")
   
   
@@ -56,54 +59,47 @@ add_description <- function(given = NULL, family = NULL, email = NULL,
   if ((file.exists(path) && overwrite) || !file.exists(path)) {
   
     
+    ## Get fields values ----
+    
+    if (is.null(given))  given  <- getOption("given")
+    if (is.null(family)) family <- getOption("family")
+    if (is.null(email))  email  <- getOption("email")
+    if (is.null(orcid))  orcid  <- getOption("orcid")
+    
+    if (!is.null(organisation)) {
+      github <- organisation
+    } else {
+      if (is.null(github)) github <- getOption("github")  
+    }
+    
+    stop_if_not_string(given, family, email, orcid, github)
+    
+    
+    project_name     <- get_package_name()
+    r_version        <- get_r_version()
+    roxygen2_version <- get_roxygen2_version()
+    
+    
     ## Copy Template ----
     
     invisible(
       file.copy(system.file(file.path("templates", "__DESCRIPTION__"), 
-                            package = "rcompendium"), path))
+                            package = "rcompendium"), path, overwrite = TRUE))
     
     
     ## Change default values (in file) ----
     
-    project_name <- get_package_name()
     xfun::gsub_file(path, "{{project_name}}", project_name, fixed = TRUE)
-    
-    r_version <- get_r_version()
     xfun::gsub_file(path, "{{r_version}}", r_version, fixed = TRUE)
-    
-    roxygen2_version <- get_roxygen2_version()
     xfun::gsub_file(path, "{{roxygen2_version}}", roxygen2_version, fixed = TRUE)
+    xfun::gsub_file(path, "{{given}}", given, fixed = TRUE)
+    xfun::gsub_file(path, "{{family}}", family, fixed = TRUE)
+    xfun::gsub_file(path, "{{email}}", email, fixed = TRUE)
+    xfun::gsub_file(path, "{{orcid}}", orcid, fixed = TRUE)
+    xfun::gsub_file(path, "{{github}}", github, fixed = TRUE)
     
     
-    ## Change user credentials ----
-    
-    if (is.null(given)) given <- getOption("given")
-    if (!is.null(given)) 
-      xfun::gsub_file(path, "{{given}}", given, fixed = TRUE)
-    
-    if (is.null(family)) family <- getOption("family")
-    if (!is.null(family)) 
-      xfun::gsub_file(path, "{{family}}", family, fixed = TRUE)
-    
-    if (is.null(email)) email <- getOption("email")
-    if (!is.null(email))
-      xfun::gsub_file(path, "{{email}}", email, fixed = TRUE)
-    
-    if (is.null(orcid)) orcid <- getOption("orcid")
-    if (!is.null(orcid))
-      xfun::gsub_file(path, "{{orcid}}", orcid, fixed = TRUE)
-    
-    if (is.null(organisation)) {
-      
-      if (is.null(github)) github <- getOption("github")
-      if (!is.null(github))
-        xfun::gsub_file(path, "{{github}}", github, fixed = TRUE)
-      
-    } else {
-      
-      xfun::gsub_file(path, "{{github}}", organisation, fixed = TRUE)
-    }
-    
+    ## Message ----
     
     if (!quiet) ui_done("Writing {ui_value('DESCRIPTION')} file")
   

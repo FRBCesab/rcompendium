@@ -36,9 +36,19 @@ add_readme_rmd <- function(type = "package", given = NULL, family = NULL,
                            overwrite = FALSE, quiet = FALSE) {
   
   
-  if (!(tolower(type) %in% c("package", "compendium"))) {
-    stop("Argument `type` must be 'package' or 'compendium'.")
+  if (is.null(type)) {
+    stop("Argument 'type' must be 'package' or 'compendium'.")
   }
+  
+  if (length(type) != 1) {
+    stop("Argument 'type' must be 'package' or 'compendium'.") 
+  }
+  
+  if (!(tolower(type) %in% c("package", "compendium"))) {
+    stop("Argument 'type' must be 'package' or 'compendium'.")
+  }
+  
+  stop_if_not_logical(open, overwrite, quiet)
   
   
   path <- here::here("README.Rmd")
@@ -63,49 +73,49 @@ add_readme_rmd <- function(type = "package", given = NULL, family = NULL,
   
   if ((file.exists(path) && overwrite) || !file.exists(path)) {
     
-
+    
+    if (is.null(given))  given  <- getOption("given")
+    if (is.null(family)) family <- getOption("family")
+    
+    if (!is.null(organisation)) {
+      github <- organisation
+    } else {
+      if (is.null(github)) github <- getOption("github")  
+    }
+    
+    stop_if_not_string(given, family, github)
+    
+    
+    project_name <- get_package_name()
+    pkg_version <- get_package_version()
+    
+    
     ## Copy Template ----
     
     if (type == "package") {
       
       invisible(
         file.copy(system.file(file.path("templates", "__READMEPKG__"),
-                              package = "rcompendium"), path))
+                              package = "rcompendium"), path, overwrite = TRUE))
     } else {
       
       invisible(
         file.copy(system.file(file.path("templates", "__READMERC__"),
-                              package = "rcompendium"), path))
+                              package = "rcompendium"), path, overwrite = TRUE))
     }
       
   
     ## Change default values (in file) ----
   
-    project_name <- get_package_name()
+    
     xfun::gsub_file(path, "{{project_name}}", project_name, fixed = TRUE)
-    
-    pkg_version <- get_package_version()
     xfun::gsub_file(path, "{{pkg_version}}", pkg_version, fixed = TRUE)
-  
-    if (is.null(given)) given <- getOption("given")
-    if (!is.null(given)) 
-      xfun::gsub_file(path, "{{given}}", given, fixed = TRUE)
+    xfun::gsub_file(path, "{{given}}", given, fixed = TRUE)
+    xfun::gsub_file(path, "{{family}}", family, fixed = TRUE)
+    xfun::gsub_file(path, "{{github}}", github, fixed = TRUE)
     
-    if (is.null(family)) family <- getOption("family")
-    if (!is.null(family)) 
-      xfun::gsub_file(path, "{{family}}", family, fixed = TRUE)
-
-    if (is.null(organisation)) {
-      
-      if (is.null(github)) github <- getOption("github")
-      if (!is.null(github))
-        xfun::gsub_file(path, "{{github}}", github, fixed = TRUE)
-      
-    } else {
-      
-      xfun::gsub_file(path, "{{github}}", organisation, fixed = TRUE)
-    }  
     
+    ## Message ----
     
     if (!quiet) ui_done("Writing {ui_value('README.Rmd')} file")
     

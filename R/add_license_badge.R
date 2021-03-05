@@ -19,6 +19,9 @@
 
 add_license_badge <- function(quiet = FALSE) {
   
+  
+  stop_if_not_logical(quiet)
+  
   user_license <- read_descr()$"License"
   user_license <- gsub(" \\+ file LICENSE", "", user_license)
   

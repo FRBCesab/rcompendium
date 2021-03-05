@@ -24,7 +24,7 @@ rcompendium <img src="man/figures/hexsticker.png" height="120" align="right"/>
 [![License: GPL (>= 2)](https://img.shields.io/badge/License-GPL%20%28%3E%3D%202%29-blue.svg)](https://choosealicense.com/licenses/gpl-2.0)
 [![LifeCycle](man/figures/lifecycle/lifecycle-stable.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![Project Status: Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![Dependencies](https://img.shields.io/badge/dependencies-15/80-red?style=flat)](#)
+[![Dependencies](https://img.shields.io/badge/dependencies-16/79-red?style=flat)](#)
 <!-- badges: end -->
 
 The purpose of the package `rcompendium` is to make easier the creation of R 
@@ -153,8 +153,8 @@ Under RStudio, you first need to create a **New project** (with or without
 initializing git versioning). If you do not use RStudio IDE, you need to create
 a **New folder** and to open R in this directory (by using `setwd()`).
 
-:warning: &nbsp; the name of the compendium will be the same as the current 
-directory. Don't worry you will be asked before any file is created.
+:warning: **The name of the compendium will be the same as the current 
+directory. Don't worry you will be asked before any file is created.**
 
 Then you can create an R package structure:
 

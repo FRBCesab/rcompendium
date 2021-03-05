@@ -142,6 +142,9 @@ add_badge <- function(badge, pattern) {
 
 add_sticker <- function(overwrite = FALSE, quiet = FALSE) {
   
+  
+  stop_if_not_logical(overwrite, quiet)
+  
   path <- here::here("man", "figures", "hexsticker.png")
   
   if (file.exists(path) && !overwrite) {
@@ -159,7 +162,7 @@ add_sticker <- function(overwrite = FALSE, quiet = FALSE) {
     
     invisible(
       file.copy(system.file(file.path("templates", "hexsticker.png"), 
-                            package = "rcompendium"), path))
+                            package = "rcompendium"), path, overwrite = TRUE))
     
     
     if (!quiet) {

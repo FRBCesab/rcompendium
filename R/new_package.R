@@ -546,7 +546,8 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   
   add_package_doc(open = FALSE, overwrite = overwrite, quiet = quiet)
   
-  add_citation(open = FALSE, overwrite = overwrite, quiet = quiet)
+  add_citation(given, family, github, organisation, open = FALSE, 
+               overwrite = overwrite, quiet = quiet)
   
   
   
@@ -560,7 +561,8 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   
   
   
-  add_readme_rmd(type = "package", open = FALSE, quiet = quiet)
+  add_readme_rmd(type = "package", given, family, github, organisation, 
+                 open = FALSE, overwrite = overwrite, quiet = quiet)
   
   add_sticker(overwrite = overwrite, quiet = quiet)
   

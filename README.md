@@ -1,4 +1,3 @@
-
 # rcompendium <img src="man/figures/hexsticker.png" height="120" align="right"/>
 
 <!-- badges: start -->
@@ -11,7 +10,7 @@ status](https://www.r-pkg.org/badges/version/rcompendium)](https://CRAN.R-projec
 [![LifeCycle](man/figures/lifecycle/lifecycle-stable.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![Project Status:
 Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![Dependencies](https://img.shields.io/badge/dependencies-15/80-red?style=flat)](#)
+[![Dependencies](https://img.shields.io/badge/dependencies-16/79-red?style=flat)](#)
 <!-- badges: end -->
 
 The purpose of the package `rcompendium` is to make easier the creation
@@ -119,10 +118,8 @@ are specific to myself.
 You can install the development version from
 [GitHub](https://github.com/) with:
 
-``` r
-# install.packages("remotes")
-remotes::install_github("FRBCesab/rcompendium")
-```
+    # install.packages("remotes")
+    remotes::install_github("FRBCesab/rcompendium")
 
 ## Usage
 
@@ -131,20 +128,16 @@ without initializing git versioning). If you do not use RStudio IDE, you
 need to create a **New folder** and to open R in this directory (by
 using `setwd()`).
 
-:warning:   the name of the compendium will be the same as the current
-directory. Don’t worry you will be asked before any file is created.
+:warning: **The name of the compendium will be the same as the current
+directory. Don’t worry you will be asked before any file is created.**
 
 Then you can create an R package structure:
 
-``` r
-rcompendium::new_package()
-```
+    rcompendium::new_package()
 
 or a research compendium:
 
-``` r
-rcompendium::new_compendium()
-```
+    rcompendium::new_compendium()
 
 And you can now start working!
 

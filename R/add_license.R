@@ -40,6 +40,8 @@ add_license <- function(license = NULL, given = NULL, family = NULL,
          "`get_licenses()` to select an appropriate one.")
   }
   
+  stop_if_not_string(license)
+  
   license_id <- which(licenses$tag == license)
   
   if (!length(license_id)) {
@@ -49,23 +51,26 @@ add_license <- function(license = NULL, given = NULL, family = NULL,
   
   if (license == "MIT") {
     
+    if (is.null(given))  given  <- getOption("given")
+    if (is.null(family)) family <- getOption("family")
+    
     if (is.null(given)) {
-      given <- getOption("given")
-      if (is.null(given)) {
-        stop("Given name of the coypright holder is mandatory with the ",
-             "license MIT. Please use the argument `given` or the function ",
-             "`set_credentials()`.")
-      }
+      stop("Given name of the coypright holder is mandatory with the ",
+           "license MIT. Please use the argument `given` or the function ",
+           "`set_credentials()`.")
     }
     
+    stop_if_not_string(given)
+  
+    
     if (is.null(family)) {
-      family <- getOption("family")
-      if (is.null(family)) {
-        stop("Family name of the coypright holder is mandatory with the ",
-             "license MIT. Please use the argument `family` or the function ",
-             "`set_credentials()`.")
-      }
+      stop("Family name of the coypright holder is mandatory with the ",
+           "license MIT. Please use the argument `family` or the function ",
+           "`set_credentials()`.")
     }
+    
+    stop_if_not_string(family)
+    
     
     year <- format(Sys.Date(), "%Y")
   }

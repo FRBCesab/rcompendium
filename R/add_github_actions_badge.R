@@ -29,6 +29,8 @@ add_github_actions_badge <- function(github = NULL, organisation = NULL,
                                      quiet = FALSE) {
   
   
+  stop_if_not_logical(quiet)
+  
   ## Check if GH Actions are set ----
   
   # if (!file.exists(here::here(".github", "workflows", "R-CMD-check.yaml"))) {
@@ -38,18 +40,13 @@ add_github_actions_badge <- function(github = NULL, organisation = NULL,
   
   ## Retrieve GitHub pseudo/organization ----
   
-  if (is.null(organisation)) {
-    
-    if (is.null(github)) github <- getOption("github")
-    
-    if (is.null(github)) {
-      stop("Unable to detect GITHUB pseudo. Please use the argument `github`.") 
-    }
-     
-  } else {
-    
+  if (!is.null(organisation)) {
     github <- organisation
+  } else {
+    if (is.null(github)) github <- getOption("github")  
   }
+  
+  stop_if_not_string(github)
   
   
   ## Check URL ----

@@ -49,16 +49,18 @@ add_repostatus_badge <- function(status = "concept", quiet = FALSE) {
 
   ## Checks ----
   
-  if (is.null(status)) {
-    stop("Argument `status` cannot be NULL.")
-  }
+  stop_if_not_logical(quiet)
   
-  status <- match.arg(tolower(status), 
-                      choices = c("concept", "wip", "suspended", "abandoned", 
-                                  "active", "inactive", "unsupported"))
+  stop_if_not_string(status)
+  
+  if (!(tolower(status) %in% c("concept", "wip", "suspended", "abandoned", 
+                               "active", "inactive", "unsupported"))) {
+    stop("Argument 'status' must be of among 'concept', 'wip', 'suspended', ",
+         "'abandoned', 'active', 'inactive', or 'unsupported'.")
+  }
 
   if (!file.exists("README.Rmd")) {
-    stop("The file **README.Rmd** cannot be found.")
+    stop("The file 'README.Rmd' cannot be found.")
   }
     
   

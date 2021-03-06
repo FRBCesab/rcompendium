@@ -45,7 +45,8 @@ Update .Rd files and NAMESPACE, using devtools::document();
 Update external packages (in DESCRIPTION file);
 Update badges in README.Rmd (if already present);
 Re-knitr the README.Rmd, using rmarkdown::render();
-Check package integrity with devtools::check().
+Check package integrity with devtools::check();
+Run analysis by sourcing make.R (only for compendium).
 
 " />
 
@@ -126,19 +127,28 @@ Check package integrity with devtools::check().
 <li><p>Update external packages (in <code>DESCRIPTION</code> file);</p></li>
 <li><p>Update badges in <code>README.Rmd</code> (if already present);</p></li>
 <li><p>Re-knitr the <code>README.Rmd</code>, using <code><a href='https://pkgs.rstudio.com/rmarkdown/reference/render.html'>rmarkdown::render()</a></code>;</p></li>
-<li><p>Check package integrity with <code><a href='https://devtools.r-lib.org//reference/check.html'>devtools::check()</a></code>.</p></li>
+<li><p>Check package integrity with <code><a href='https://devtools.r-lib.org//reference/check.html'>devtools::check()</a></code>;</p></li>
+<li><p>Run analysis by sourcing <code>make.R</code> (only for compendium).</p></li>
 </ul>
 
     </div>
 
-    <pre class="usage"><span class='fu'>refresh</span><span class='op'>(</span>quiet <span class='op'>=</span> <span class='cn'>FALSE</span>, check <span class='op'>=</span> <span class='cn'>TRUE</span>, import <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>refresh</span><span class='op'>(</span>import <span class='op'>=</span> <span class='cn'>NULL</span>, make <span class='op'>=</span> <span class='cn'>FALSE</span>, check <span class='op'>=</span> <span class='cn'>TRUE</span>, quiet <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>quiet</th>
-      <td><p>a logical value. If <code>TRUE</code> (default) no message are printed.</p></td>
+      <th>import</th>
+      <td><p>(optional) the name of the folder to recursively detect
+dependencies to be added in the <code>Imports</code> field of <strong>DESCRIPTION</strong> file.
+Default is <code>import = NULL</code> (but <strong>R/</strong>, <strong>NAMESPACE</strong>, and <code>@examples</code> are
+still inspected).</p></td>
+    </tr>
+    <tr>
+      <th>make</th>
+      <td><p>a logical value. If <code>TRUE</code> the Make-like R file <code>make.R</code> is
+sourced. Only for research compendium. Default is <code>FALSE</code>.</p></td>
     </tr>
     <tr>
       <th>check</th>
@@ -146,11 +156,8 @@ Check package integrity with devtools::check().
 checked using <code><a href='https://devtools.r-lib.org//reference/check.html'>devtools::check()</a></code>.</p></td>
     </tr>
     <tr>
-      <th>import</th>
-      <td><p>(optional) the name of the folder to recursively detect
-dependencies to be added in the <code>Imports</code> field of <strong>DESCRIPTION</strong> file.
-Default is <code>import = NULL</code> (but <strong>R/</strong>, <strong>NAMESPACE</strong>, and <code>@examples</code> are
-still inspected).</p></td>
+      <th>quiet</th>
+      <td><p>a logical value. If <code>TRUE</code> (default) message are deleted.</p></td>
     </tr>
     </table>
 
@@ -163,7 +170,16 @@ still inspected).</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='fu'>rcompendium</span><span class='fu'>::</span><span class='fu'>refresh</span><span class='op'>(</span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/FRBCesab/rcompendium'>rcompendium</a></span><span class='op'>)</span>
+
+<span class='co'>## Create an R package ----</span>
+<span class='fu'><a href='new_package.html'>new_package</a></span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='co'>## Start developing functions ----</span>
+<span class='co'>## ...</span>
+
+<span class='co'>## Update package (documentation, dependencies, README, check) ----</span>
+<span class='fu'>refresh</span><span class='op'>(</span><span class='op'>)</span>
 <span class='op'>}</span>
 </div></pre>
   </div>

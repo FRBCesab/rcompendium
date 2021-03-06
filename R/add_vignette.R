@@ -31,7 +31,7 @@
 #' ## Default vignette ----
 #' add_vignette()
 #' 
-#' ## Default vignette ----
+#' ## Custom vignette ----
 #' add_vignette(filename = "get_started", title = "Get started")
 #' }
 
@@ -42,6 +42,17 @@ add_vignette <- function(filename = NULL, title = NULL, open = TRUE,
   stop_if_not_logical(open, overwrite, quiet)
   
   package_name <- get_package_name()
+  
+  
+  if (is.null(title) && !is.null(filename)) {
+    title <- gsub("\\.Rmd$", "", filename)
+  }
+  
+  if (!is.null(title) && is.null(filename)) {
+    filename <- gsub("[[:punct:]]|\\s", "_", title)
+    filename <- gsub("_{1,}", "_", filename)
+    filename <- tolower(filename)
+  }
   
   if (is.null(filename)) {
     filename <- package_name

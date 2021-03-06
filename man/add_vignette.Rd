@@ -40,7 +40,7 @@ fields \code{Imports} and \code{Suggests}).
 ## Default vignette ----
 add_vignette()
 
-## Default vignette ----
+## Custom vignette ----
 add_vignette(filename = "get_started", title = "Get started")
 }
 }

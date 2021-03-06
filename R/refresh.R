@@ -6,12 +6,16 @@
 #' * Update external packages (in `DESCRIPTION` file);
 #' * Update badges in `README.Rmd` (if already present);
 #' * Re-knitr the `README.Rmd`, using [rmarkdown::render()];
-#' * Check package integrity with [devtools::check()].
+#' * Check package integrity with [devtools::check()];
+#' * Run analysis by sourcing `make.R` (only for compendium).
 #' 
-#' @param quiet a logical value. If `TRUE` (default) no message are printed.
-#' 
+#' @param make a logical value. If `TRUE` the Make-like R file `make.R` is 
+#'    sourced. Only for research compendium. Default is `FALSE`.
+#'   
 #' @param check a logical value. If `TRUE` (default) package integrity is 
 #'   checked using [devtools::check()].
+#'   
+#' @param quiet a logical value. If `TRUE` (default) message are deleted.
 #'  
 #' @inheritParams add_dependencies
 #' 
@@ -21,12 +25,25 @@
 #' 
 #' @examples 
 #' \dontrun{
-#' rcompendium::refresh()
+#' library(rcompendium)
+#'
+#' ## Create an R package ----
+#' new_package()
+#' 
+#' ## Start developing functions ----
+#' ## ...
+#' 
+#' ## Update package (documentation, dependencies, README, check) ----
+#' refresh()
 #' }
 
-refresh <- function(quiet = FALSE, check = TRUE, import = NULL) { 
+refresh <- function(import = NULL, make = FALSE, check = TRUE, quiet = FALSE) { 
+  
   
   is_package()
+  
+  stop_if_not_logical(make, check, quiet)
+  
   
   ## Update Rd files and NAMESPACE ----
   
@@ -85,7 +102,7 @@ refresh <- function(quiet = FALSE, check = TRUE, import = NULL) {
   
   if (check) {
     
-    ui_title("Checking package")
+    ui_title("Checking Package")
     
     dev_msg <- devtools::check(quiet = TRUE)
     
@@ -93,6 +110,32 @@ refresh <- function(quiet = FALSE, check = TRUE, import = NULL) {
     
     print(dev_msg)
   }
+  
+  
+  ## Run project (research compendium) ----
+  
+  if (!is.null(make)) {
+    
+    stop_if_not_string(make)
+    
+    ui_title("Running Analysis")
+    
+    if (file.exists(here::here("make.R"))) {
+      
+      if (!quiet) 
+        ui_info("Sourcing 'make.R'}")
+      
+      source(here::here("make.R"))
+      
+      if (!quiet) 
+        ui_done("Done!")
+      
+    } else {
+      
+      ui_oops("Unable to find {ui_value('make.R')}")
+    }
+  }
+  
   
   invisible(NULL)
 }

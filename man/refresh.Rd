@@ -4,18 +4,21 @@
 \alias{refresh}
 \title{Refresh a package/research compendium}
 \usage{
-refresh(quiet = FALSE, check = TRUE, import = NULL)
+refresh(import = NULL, make = FALSE, check = TRUE, quiet = FALSE)
 }
 \arguments{
-\item{quiet}{a logical value. If \code{TRUE} (default) no message are printed.}
-
-\item{check}{a logical value. If \code{TRUE} (default) package integrity is
-checked using \code{\link[devtools:check]{devtools::check()}}.}
-
 \item{import}{(optional) the name of the folder to recursively detect
 dependencies to be added in the \code{Imports} field of \strong{DESCRIPTION} file.
 Default is \code{import = NULL} (but \strong{R/}, \strong{NAMESPACE}, and \verb{@examples} are
 still inspected).}
+
+\item{make}{a logical value. If \code{TRUE} the Make-like R file \code{make.R} is
+sourced. Only for research compendium. Default is \code{FALSE}.}
+
+\item{check}{a logical value. If \code{TRUE} (default) package integrity is
+checked using \code{\link[devtools:check]{devtools::check()}}.}
+
+\item{quiet}{a logical value. If \code{TRUE} (default) message are deleted.}
 }
 \description{
 This function refreshes a package/research compendium. It will:
@@ -24,12 +27,22 @@ This function refreshes a package/research compendium. It will:
 \item Update external packages (in \code{DESCRIPTION} file);
 \item Update badges in \code{README.Rmd} (if already present);
 \item Re-knitr the \code{README.Rmd}, using \code{\link[rmarkdown:render]{rmarkdown::render()}};
-\item Check package integrity with \code{\link[devtools:check]{devtools::check()}}.
+\item Check package integrity with \code{\link[devtools:check]{devtools::check()}};
+\item Run analysis by sourcing \code{make.R} (only for compendium).
 }
 }
 \examples{
 \dontrun{
-rcompendium::refresh()
+library(rcompendium)
+
+## Create an R package ----
+new_package()
+
+## Start developing functions ----
+## ...
+
+## Update package (documentation, dependencies, README, check) ----
+refresh()
 }
 }
 \seealso{

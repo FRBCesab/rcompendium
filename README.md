@@ -10,7 +10,7 @@ status](https://www.r-pkg.org/badges/version/rcompendium)](https://CRAN.R-projec
 [![LifeCycle](man/figures/lifecycle/lifecycle-stable.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![Project Status:
 Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![Dependencies](https://img.shields.io/badge/dependencies-16/79-red?style=flat)](#)
+[![Dependencies](https://img.shields.io/badge/dependencies-15/80-red?style=flat)](#)
 <!-- badges: end -->
 
 The purpose of the package `rcompendium` is to make easier the creation

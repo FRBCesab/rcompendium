@@ -31,7 +31,6 @@ Imports:
     gh,
     gtools,
     here,
-    httr,
     knitr,
     pkgdown,
     rmarkdown,

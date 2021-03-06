@@ -45,14 +45,24 @@ refresh <- function(import = NULL, make = FALSE, check = TRUE, quiet = FALSE) {
   stop_if_not_logical(make, check, quiet)
   
   
+  ## Loading Project ----
+  
+  ui_title("Loading Project")
+  
+  suppressMessages(devtools::load_all(quiet = TRUE))
+  
+  if (!quiet) {
+    ui_done("Loading {ui_value(get_package_name())}")
+  }
+  
+  
   ## Update Rd files and NAMESPACE ----
   
   ui_title("Updating Documentation")
   
-  devtools::document(quiet = TRUE)
+  suppressMessages(devtools::document(quiet = TRUE))
   
   if (!quiet) {
-    ui_line()
     ui_done("Updating {ui_value('Rd files')} and {ui_value('NAMESPACE')}")
   }
   
@@ -104,9 +114,7 @@ refresh <- function(import = NULL, make = FALSE, check = TRUE, quiet = FALSE) {
     
     ui_title("Checking Package")
     
-    dev_msg <- devtools::check(quiet = TRUE)
-    
-    ui_line()
+    dev_msg <- suppressMessages(devtools::check(quiet = TRUE))
     
     print(dev_msg)
   }
@@ -114,9 +122,7 @@ refresh <- function(import = NULL, make = FALSE, check = TRUE, quiet = FALSE) {
   
   ## Run project (research compendium) ----
   
-  if (!is.null(make)) {
-    
-    stop_if_not_string(make)
+  if (make) {
     
     ui_title("Running Analysis")
     

@@ -388,17 +388,11 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   
   if (!is.null(organisation)) {
     
-    response <- httr::GET(paste0("https://github.com/", organisation))
-    if (response$status != 200) {
-      stop("Invalid GITHUB Organisation < ", organisation, " >.")
-    }
+    is_gh_organisation(organisation)
     
   } else {
     
-    response <- httr::GET(paste0("https://github.com/", github))
-    if (response$status != 200) {
-      stop("Invalid GITHUB Account < ", github, " >.")
-    }
+    is_gh_user()
   }
   
   
@@ -413,20 +407,20 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
     
     if (!is.null(organisation)) {
       
-      response <- httr::GET(paste0("https://github.com/", organisation, "/",
-                                   project_name))
-      if (response$status != 404) {
-        stop("Repository < ", project_name," > already exists in your ", 
-             "GITHUB organisation")
+      if (!is.null(is_gh_repo(organisation, project_name))) {
+        
+        github_url <- paste0("https://", "github.com/", organisation, "/", 
+                             project_name)
+        stop("Repository < ", github_url, " > already exist.")
       }
       
     } else {
       
-      response <- httr::GET(paste0("https://github.com/", github, "/",
-                                   project_name))
-      if (response$status != 404) {
-        stop("Repository < ", project_name," > already exists in your ", 
-             "GITHUB account.")
+      if (!is.null(is_gh_repo(github, project_name))) {
+        
+        github_url <- paste0("https://", "github.com/", github, "/", 
+                             project_name)
+        stop("Repository < ", github_url, " > already exist.")
       }
     }
     
@@ -660,6 +654,12 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
     ## Create GitHub repo ----
     
     usethis::use_github(organisation = organisation, private = private)
+    
+    
+    ## Update GitHub repo fields ----
+    
+    owner <- ifelse(is.null(organisation), github, organisation)
+    update_gh_repo(owner, repo = project_name, website = website, quiet = quiet)
     
   }
   

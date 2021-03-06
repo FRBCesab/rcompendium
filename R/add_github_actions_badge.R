@@ -51,10 +51,7 @@ add_github_actions_badge <- function(github = NULL, organisation = NULL,
   
   ## Check URL ----
   
-  response <- httr::GET(paste0("https://github.com/", github))
-  if (response$status != 200) {
-    stop("Invalid GITHUB account < ", github, " >.")
-  }
+  is_gh_user()
   
   
   project_name <- get_package_name()

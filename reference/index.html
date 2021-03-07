@@ -122,7 +122,7 @@
       <tr>
         <th colspan="2">
           <h2 id="section-setup-functions" class="hasAnchor"><a href="#section-setup-functions" class="anchor"></a>Setup functions</h2>
-          <p class="section-desc"><p>blabla</p></p>
+          <p class="section-desc"><p>These four functions are usually the only ones user needs to run. The use of <code>set_credentials</code> is strongly recommended to permanently store user information (name, email, orcid, etc.) in the <code>.Rprofile</code>. This function must be run one time. The function <code>new_package</code> must be used to create an R package structure whereas <code>new_compendium</code> creates a new research compendium structure (i.e. R package structure with some additional files/folders). After that user can start to develop his/her project and run <code>refresh</code> to frequently update the package/compendium components (<code>Rd</code> files, <code>NAMESPACE</code>, dependencies, badges, <code>README.md</code>, etc.)</p></p>
         </th>
       </tr>
       
@@ -159,7 +159,7 @@
       <tr>
         <th colspan="2">
           <h2 id="section-create-files" class="hasAnchor"><a href="#section-create-files" class="anchor"></a>Create files</h2>
-          <p class="section-desc"><p>blabla</p></p>
+          <p class="section-desc"><p>These function write files specific to R package and research compendium (<code>add_makefile</code>). They are called by the main functions <code>new_package</code>, <code>new_compendium</code>, and <code>refresh</code> but they also can be used to overwrite files (with <code>overwrite = TRUE</code>) in case of broken code. When <code>open = TRUE</code> and <code>overwrite = FALSE</code> (default) files are open in the editor.</p></p>
         </th>
       </tr>
       
@@ -214,7 +214,7 @@
       <tr>
         <th colspan="2">
           <h2 id="section-readme-badges" class="hasAnchor"><a href="#section-readme-badges" class="anchor"></a>README badges</h2>
-          <p class="section-desc"><p>blabla</p></p>
+          <p class="section-desc"><p>These functions add badges to the <code>README.Rmd</code>. They are called by the main functions <code>new_package</code>, <code>new_compendium</code>, and <code>refresh</code> but they also can be used to update badges if license, lifecycle, repository status change or to update number of dependencies (<code>add_dependencies_badge</code>).</p></p>
         </th>
       </tr>
       
@@ -263,7 +263,7 @@
       <tr>
         <th colspan="2">
           <h2 id="section-advanced-functions" class="hasAnchor"><a href="#section-advanced-functions" class="anchor"></a>Advanced functions</h2>
-          <p class="section-desc"><p>blabla</p></p>
+          <p class="section-desc"><p>These functions update fields in <code>DESCRIPTION</code> (<code>add_dependencies</code> and <code>add_r_depend</code>), edit files (<code>add_to_gitignore</code> and <code>add_to_buildignore</code>), or write configuration files (<code>add_github_actions_check</code> and <code>add_github_actions_pkgdown</code>).</p></p>
         </th>
       </tr>
       
@@ -312,7 +312,7 @@
       <tr>
         <th colspan="2">
           <h2 id="section-utilities-functions" class="hasAnchor"><a href="#section-utilities-functions" class="anchor"></a>Utilities functions</h2>
-          <p class="section-desc"><p>blabla</p></p>
+          <p class="section-desc"><p>These functions return objects but do not edit any file.</p></p>
         </th>
       </tr>
       

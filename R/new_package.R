@@ -62,6 +62,12 @@
 #'   
 #'   This stage can be added/changed later by using [add_lifecycle_badge()].
 #' 
+#' @param vignette a logical value
+#' 
+#'   If `TRUE` creates a vignette in `vignettes/` named `pkg.Rmd`. Packages 
+#'   [knitr::knitr()] and [rmarkdown::rmarkdown()] are also added to `Suggests`
+#'   in the `DESCRIPTION` file.
+#' 
 #' @param create_repo a logical value
 #' 
 #'   If `TRUE` (default) creates a repository (public if `private = FALSE` or 
@@ -301,11 +307,11 @@
 #' }
 
 new_package <- function(license = "GPL (>= 2)", status = "concept", 
-                        lifecycle = "experimental", create_repo = TRUE, 
-                        private = FALSE, gh_check = TRUE, website = TRUE, 
-                        given = NULL, family = NULL, email = NULL, orcid = NULL, 
-                        github = NULL, organisation = NULL, overwrite = FALSE,
-                        quiet = FALSE) {
+                        lifecycle = "experimental", vignette = TRUE, 
+                        create_repo = TRUE, private = FALSE, gh_check = TRUE, 
+                        website = TRUE, given = NULL, family = NULL, 
+                        email = NULL, orcid = NULL, github = NULL, 
+                        organisation = NULL, overwrite = FALSE, quiet = FALSE) {
   
   
   ## If not RStudio ----
@@ -546,6 +552,20 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   
   
   ##
+  ## ADDING VIGNETTE ----
+  ## 
+  
+  
+  if (vignette) {
+    
+    ui_title("Adding Vignette")
+    
+    add_vignette(open = FALSE, overwrite = overwrite, quiet = quiet)
+  }
+  
+  
+  
+  ##
   ## ADDING README ----
   ## 
   
@@ -568,10 +588,10 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   
   
   
-  ui_title("Checking Dependencies")
+  # ui_title("Checking Dependencies")
   
   
-  add_dependencies(suggest = NULL)
+  # add_dependencies(suggest = NULL)
   
   
   

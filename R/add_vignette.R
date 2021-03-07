@@ -80,117 +80,111 @@ add_vignette <- function(filename = NULL, title = NULL, open = TRUE,
     }
   }
   
+    
+  if (!dir.exists(here::here("vignettes")))
+    dir.create(here::here("vignettes"), showWarnings = FALSE)
   
-  if ((file.exists(path) && overwrite) || !file.exists(path)) {
+  invisible(
+    file.copy(system.file(file.path("templates", "__VIGNETTE__"), 
+                          package = "rcompendium"), path, overwrite = TRUE))
+  
+  
+  ## Replace default values ----
+  
+  if (is.null(title)) 
+    title <- "Introduction to {{project_name}}"
+  
+  xfun::gsub_file(path, "{{title}}", title, fixed = TRUE)
+  xfun::gsub_file(path, "{{project_name}}", package_name, fixed = TRUE)
+  
+  
+  ## Message ----
+  
+  if (!quiet) 
+    ui_done("Writing {ui_value(paste0('vignettes/', filename))} file")
+  
+  
+  ## Vignette .gitignore ----
+  
+  x <- c("*.html", "*.R")
+  
+  if (file.exists(here::here("vignettes", ".gitignore"))) {
     
-    if (!dir.exists(here::here("vignettes")))
-      dir.create(here::here("vignettes"), showWarnings = FALSE)
+    git_ignore <- readLines(here::here("vignettes", ".gitignore"))
     
-    invisible(
-      file.copy(system.file(file.path("templates", "__VIGNETTE__"), 
-                            package = "rcompendium"), path, overwrite = TRUE))
+    x <- x[!(x %in% git_ignore)]
     
+    if (length(x)) {
+      
+      git_ignore <- c(git_ignore, x)
+      writeLines(git_ignore, con = here::here("vignettes", ".gitignore"))
+    }
     
-    ## Replace default values ----
+  } else {
     
-    if (is.null(title)) 
-      title <- "Introduction to {{project_name}}"
+    if (!quiet) {
+      ui_done(paste0("Writing {ui_value('vignettes/.gitignore')} file"))
+    }
     
-    xfun::gsub_file(path, "{{title}}", title, fixed = TRUE)
-    xfun::gsub_file(path, "{{project_name}}", package_name, fixed = TRUE)
+    writeLines(x, con = here::here("vignettes", ".gitignore"))
+  }
+  
+  
+  ## Add dependencies ----
+  
+  descr <- read_descr()
+  
+  if (is.null(descr$"VignetteBuilder")) {
     
-    
-    ## Message ----
+    descr$"VignetteBuilder" <- "knitr"
     
     if (!quiet) 
-      ui_done("Writing {ui_value(paste0('vignettes/', filename))} file")
+      ui_done(paste0("Adding the following line in ",
+                     "{ui_value('DESCRIPTION')}: ",
+                     "{ui_code('VignetteBuilder: knitr')}"))
+  }
+  
+  deps <- c(get_deps_in_depends(), read_descr()$"Imports",
+            read_descr()$"Suggests", read_descr()$"LinkingTo")
+
+  deps_to_add <- c("knitr", "rmarkdown")
+  
+  if (!is.null(deps)) {
+
+    deps <- unlist(strsplit(deps, "\n\\s+|,|,\\s+"))
+    deps <- deps[!(deps == "")]
+    deps_to_add <- deps_to_add[!(deps_to_add %in% deps)]
+  }
+  
+  
+  
+  if (length(deps_to_add)) {
     
-    
-    ## Vignette .gitignore ----
-    
-    x <- c("*.html", "*.R")
-    
-    if (file.exists(here::here("vignettes", ".gitignore"))) {
+    if (!is.null(descr$"Suggests")) {
       
-      git_ignore <- readLines(here::here("vignettes", ".gitignore"))
-      
-      x <- x[!(x %in% git_ignore)]
-      
-      if (length(x)) {
-        
-        git_ignore <- c(git_ignore, x)
-        writeLines(x, con = here::here("vignettes", ".gitignore"))
-      }
+      deps_in_suggests <- unlist(strsplit(descr$"Suggests", "\n\\s+|,|,\\s+")) 
+      deps_in_suggests <- deps_in_suggests[!(deps_in_suggests == "")]
       
     } else {
       
-      if (!quiet) {
-        x <- paste0("'", paste0(x, collapse = "', '"), "'")
-        ui_done(paste0("Writing {ui_value('vignettes/.gitignore')} file"))
-      }
-      
-      writeLines(x, con = here::here("vignettes", ".gitignore"))
+      deps_in_suggests <- character(0) 
     }
     
+    deps_in_suggests <- sort(unique(c(deps_in_suggests, deps_to_add)))
+    deps_in_suggests <- paste0(deps_in_suggests, collapse = ",\n    ")
     
-    ## Add dependencies ----
+    descr$"Suggests" <- paste0("\n    ", deps_in_suggests)
     
-    deps <- c(get_deps_in_depends(), read_descr()$"Imports",
-              read_descr()$"Suggests", read_descr()$"LinkingTo")
-
-    deps_to_add <- c("knitr", "rmarkdown")
-    
-    if (!is.null(deps)) {
-
-      deps <- unlist(strsplit(deps, "\n\\s+|,|,\\s+"))
-      deps <- deps[!(deps == "")]
-      deps_to_add <- deps_to_add[!(deps_to_add %in% deps)]
+    if (!quiet) {
+      msg <- paste0("Suggests: ", gsub(",\n    ", ", ", deps_in_suggests))
+      ui_done(paste0("Adding the following line in ",
+                     "{ui_value('DESCRIPTION')}: {ui_code(msg)}"))
     }
-    
-
-    if (length(deps_to_add)) {
-      
-      descr <- read_descr()
-      
-      if (!is.null(descr$"Suggests")) {
-        
-        deps_in_suggests <- unlist(strsplit(descr$"Suggests", "\n\\s+|,|,\\s+")) 
-        deps_in_suggests <- deps_in_suggests[!(deps_in_suggests == "")]
-        
-      } else {
-        
-        deps_in_suggests <- character(0) 
-      }
-      
-      deps_in_suggests <- sort(unique(c(deps_in_suggests, deps_to_add)))
-      deps_in_suggests <- paste0(deps_in_suggests, collapse = ",\n    ")
-      
-      descr$"Suggests" <- paste0("\n    ", deps_in_suggests)
-      
-      if (!quiet) {
-        msg <- paste0("Suggests: ", gsub(",\n    ", ", ", deps_in_suggests))
-        ui_done(paste0("Adding the following line in {ui_value('DESCRIPTION')}: ",
-                       "{ui_code(msg)}"))
-      }
-            
-      write_descr(descr)
-    }
-    
-    if (is.null(read_descr()$"VignetteBuilder")) {
-      
-      descr <- read_descr()
-      descr$"VignetteBuilder" <- "knitr"
-      
-      if (!quiet) 
-        ui_done(paste0("Adding {ui_value('VignetteBuilder: knitr')} field in ", 
-                       "{ui_value('DESCRIPTION')}"))
-      
-      write_descr(descr)
-    }
-    
-    
-    if (open) edit_file(path)
-    
-    invisible(NULL)
   }
+  
+  write_descr(descr)
+  
+  
+  if (open) edit_file(path)
+  invisible(NULL)
 }

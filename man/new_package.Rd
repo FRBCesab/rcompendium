@@ -8,6 +8,7 @@ new_package(
   license = "GPL (>= 2)",
   status = "concept",
   lifecycle = "experimental",
+  vignette = TRUE,
   create_repo = TRUE,
   private = FALSE,
   gh_check = TRUE,
@@ -56,6 +57,12 @@ to better understand your project. If you don't want this badge use
 \code{lifecycle = NULL}.
 
 This stage can be added/changed later by using \code{\link[=add_lifecycle_badge]{add_lifecycle_badge()}}.}
+
+\item{vignette}{a logical value
+
+If \code{TRUE} creates a vignette in \verb{vignettes/} named \code{pkg.Rmd}. Packages
+\code{\link[knitr:knitr-package]{knitr::knitr()}} and \code{\link[rmarkdown:rmarkdown-package]{rmarkdown::rmarkdown()}} are also added to \code{Suggests}
+in the \code{DESCRIPTION} file.}
 
 \item{create_repo}{a logical value
 

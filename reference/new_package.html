@@ -163,6 +163,7 @@ folder. See below the section <strong>Creating a GITHUB Repository</strong>.</p>
   license <span class='op'>=</span> <span class='st'>"GPL (&gt;= 2)"</span>,
   status <span class='op'>=</span> <span class='st'>"concept"</span>,
   lifecycle <span class='op'>=</span> <span class='st'>"experimental"</span>,
+  vignette <span class='op'>=</span> <span class='cn'>TRUE</span>,
   create_repo <span class='op'>=</span> <span class='cn'>TRUE</span>,
   private <span class='op'>=</span> <span class='cn'>FALSE</span>,
   gh_check <span class='op'>=</span> <span class='cn'>TRUE</span>,
@@ -211,6 +212,13 @@ See <code><a href='add_lifecycle_badge.html'>add_lifecycle_badge()</a></code> fo
 to better understand your project. If you don't want this badge use
 <code>lifecycle = NULL</code>.</p>
 <p>This stage can be added/changed later by using <code><a href='add_lifecycle_badge.html'>add_lifecycle_badge()</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>vignette</th>
+      <td><p>a logical value</p>
+<p>If <code>TRUE</code> creates a vignette in <code>vignettes/</code> named <code>pkg.Rmd</code>. Packages
+<code><a href='https://rdrr.io/pkg/knitr/man/knitr-package.html'>knitr::knitr()</a></code> and <code><a href='https://pkgs.rstudio.com/rmarkdown/reference/rmarkdown-package.html'>rmarkdown::rmarkdown()</a></code> are also added to <code>Suggests</code>
+in the <code>DESCRIPTION</code> file.</p></td>
     </tr>
     <tr>
       <th>create_repo</th>

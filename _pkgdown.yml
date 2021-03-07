@@ -3,7 +3,15 @@ url: https://frbcesab.github.io/rcompendium
 reference:
 - title: Setup functions
   desc: |
-    blabla
+    These four functions are usually the only ones user needs to run. The use of
+    `set_credentials` is strongly recommended to permanently store user 
+    information (name, email, orcid, etc.) in the `.Rprofile`. This function 
+    must be run one time. The function `new_package` must be used to create an
+    R package structure whereas `new_compendium` creates a new research 
+    compendium structure (i.e. R package structure with some additional 
+    files/folders). After that user can start to develop his/her project and
+    run `refresh` to frequently update the package/compendium components (`Rd` 
+    files, `NAMESPACE`, dependencies, badges, `README.md`, etc.)
   contents:
   - set_credentials
   - new_package
@@ -12,7 +20,11 @@ reference:
   
 - title: Create files
   desc: |
-    blabla
+    These function write files specific to R package and research compendium 
+    (`add_makefile`). They are called by the main functions `new_package`, 
+    `new_compendium`, and `refresh` but they also can be used to overwrite files
+    (with `overwrite = TRUE`) in case of broken code. When `open = TRUE` and
+    `overwrite = FALSE` (default) files are open in the editor.
   contents:
   - add_description
   - add_license
@@ -24,7 +36,10 @@ reference:
 
 - title: README badges
   desc: |
-    blabla
+    These functions add badges to the `README.Rmd`. They are called by the main
+    functions `new_package`, `new_compendium`, and `refresh` but they also can 
+    be used to update badges if license, lifecycle, repository status change or 
+    to update number of dependencies (`add_dependencies_badge`).
   contents: 
   - add_cran_badge
   - add_dependencies_badge
@@ -35,7 +50,10 @@ reference:
   
 - title: Advanced functions
   desc: |
-    blabla
+    These functions update fields in `DESCRIPTION` (`add_dependencies` and 
+    `add_r_depend`), edit files (`add_to_gitignore` and `add_to_buildignore`),
+    or write configuration files (`add_github_actions_check` and 
+    `add_github_actions_pkgdown`).
   contents: 
   - add_dependencies
   - add_r_depend
@@ -46,7 +64,7 @@ reference:
   
 - title: Utilities functions
   desc: |
-    blabla
+    These functions return objects but do not edit any file.
   contents: 
   - get_all_dependencies
   - get_all_functions

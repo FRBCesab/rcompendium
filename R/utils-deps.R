@@ -36,6 +36,12 @@ get_deps_in_functions_r <- function() {
       if (length(comments)) x[-comments] else x })
     
     
+    ## Remove messages ----
+    
+    x <- lapply(x, function(x) gsub("\".*\"", "", x))
+    x <- lapply(x, function(x) gsub("\'.*\'", "", x))
+    
+    
     ## Functions called as pkg::fun() ----
     
     pattern <- "[A-Z|a-z|0-9|\\.]{1,}::[A-Z|a-z|0-9|\\.|_]{1,}"
@@ -44,7 +50,6 @@ get_deps_in_functions_r <- function() {
       unlist(stringr::str_extract_all(x, pattern))
     }))
     
-    funs <- funs[!(funs %in% c("pkg", "pkg::fun"))]
     
     if (!length(funs)) {
       
@@ -207,6 +212,12 @@ get_deps_extra <- function(import = NULL) {
       if (length(comments)) x[-comments] else x })
     
     
+    ## Remove messages ----
+    
+    x <- lapply(x, function(x) gsub("\".*\"", "", x))
+    x <- lapply(x, function(x) gsub("\'.*\'", "", x))
+    
+    
     ## Functions called as pkg::fun() ----
     
     pattern <- "[A-Z|a-z|0-9|\\.]{1,}::[A-Z|a-z|0-9|\\.|_]{1,}"
@@ -295,6 +306,12 @@ get_deps_in_vignettes <- function(suggest = "vignettes") {
     x <- lapply(x, function(x) {
       comments <- grep("^\\s*#", x)
       if (length(comments)) x[-comments] else x })
+    
+    
+    ## Remove messages ----
+    
+    x <- lapply(x, function(x) gsub("\".*\"", "", x))
+    x <- lapply(x, function(x) gsub("\'.*\'", "", x))
     
     
     ## Functions called as pkg::fun() ----

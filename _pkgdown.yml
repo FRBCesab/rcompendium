@@ -1,0 +1,54 @@
+url: https://frbcesab.github.io/rcompendium
+
+reference:
+- title: Setup functions
+  desc: |
+    blabla
+  contents:
+  - set_credentials
+  - new_package
+  - new_compendium
+  - refresh
+  
+- title: Create files
+  desc: |
+    blabla
+  contents:
+  - add_description
+  - add_license
+  - add_package_doc
+  - add_citation
+  - add_vignette
+  - add_readme_rmd
+  - add_makefile
+
+- title: README badges
+  desc: |
+    blabla
+  contents: 
+  - add_cran_badge
+  - add_dependencies_badge
+  - add_github_actions_badge
+  - add_license_badge
+  - add_lifecycle_badge
+  - add_repostatus_badge
+  
+- title: Advanced functions
+  desc: |
+    blabla
+  contents: 
+  - add_dependencies
+  - add_r_depend
+  - add_to_gitignore
+  - add_to_buildignore
+  - add_github_actions_check
+  - add_github_actions_pkgdown
+  
+- title: Utilities functions
+  desc: |
+    blabla
+  contents: 
+  - get_all_dependencies
+  - get_all_functions
+  - get_licenses
+  - get_minimal_r_version

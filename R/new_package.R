@@ -593,6 +593,8 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   
   # add_dependencies(suggest = NULL)
   
+  suppressMessages(devtools::document(quiet = TRUE))
+  
   
   
   ##

@@ -607,7 +607,7 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   
   
   if (gh_check) {
-    add_github_actions_badge(quiet = quiet)
+    add_github_actions_badge(github, organisation, quiet = quiet)
   }
 
   add_cran_badge(quiet = quiet)

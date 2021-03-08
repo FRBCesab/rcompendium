@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create a CITATION file — add_citation • rcompendium</title>
+<title>Changelog • rcompendium</title>
 
 
 <!-- jquery -->
@@ -39,10 +39,7 @@
 
 
 
-<meta property="og:title" content="Create a CITATION file — add_citation" />
-<meta property="og:description" content="This function creates a CITATION file in the folder inst/. This file
-contains a BiBTeX entry to cite the package as a manual. User will need to
-edit by hand some information (title, version, etc.)." />
+<meta property="og:title" content="Changelog" />
 
 
 
@@ -61,7 +58,7 @@ edit by hand some information (title, version, etc.)." />
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-topic">
+    <div class="container template-news">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -116,87 +113,25 @@ edit by hand some information (title, version, etc.)." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Create a CITATION file</h1>
-    <small class="dont-index">Source: <a href='https://github.com/FRBCesab/rcompendium/blob/master/R/add_citation.R'><code>R/add_citation.R</code></a></small>
-    <div class="hidden name"><code>add_citation.Rd</code></div>
+      <h1 data-toc-skip>Changelog <small></small></h1>
+      <small>Source: <a href='https://github.com/FRBCesab/rcompendium/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div class="ref-description">
-    <p>This function creates a <code>CITATION</code> file in the folder <code>inst/</code>. This file
-contains a BiBTeX entry to cite the package as a manual. User will need to
-edit by hand some information (title, version, etc.).</p>
-    </div>
-
-    <pre class="usage"><span class='fu'>add_citation</span><span class='op'>(</span>
-  given <span class='op'>=</span> <span class='cn'>NULL</span>,
-  family <span class='op'>=</span> <span class='cn'>NULL</span>,
-  github <span class='op'>=</span> <span class='cn'>NULL</span>,
-  organisation <span class='op'>=</span> <span class='cn'>NULL</span>,
-  open <span class='op'>=</span> <span class='cn'>TRUE</span>,
-  overwrite <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  quiet <span class='op'>=</span> <span class='cn'>FALSE</span>
-<span class='op'>)</span></pre>
-
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>given</th>
-      <td><p>(optional) given name of the package maintainer</p></td>
-    </tr>
-    <tr>
-      <th>family</th>
-      <td><p>(optional) family name of the package maintainer</p></td>
-    </tr>
-    <tr>
-      <th>github</th>
-      <td><p>(optional) GitHub pseudo/organization to host the package</p></td>
-    </tr>
-    <tr>
-      <th>organisation</th>
-      <td><p>a character. The name of the GITHUB organisation to
-host the package. If <code>NULL</code> it uses the GITHUB account.</p></td>
-    </tr>
-    <tr>
-      <th>open</th>
-      <td><p>a logical value. If <code>TRUE</code> (default) the file is opened in the
-editor.</p></td>
-    </tr>
-    <tr>
-      <th>overwrite</th>
-      <td><p>a logical value. If a <code>CITATION</code> is already present and
-<code>overwrite = TRUE</code>, this file will be erased and replaced.</p></td>
-    </tr>
-    <tr>
-      <th>quiet</th>
-      <td><p>a logical value. If <code>TRUE</code> messages are deleted. Default is
-<code>FALSE</code>.</p></td>
-    </tr>
-    </table>
-
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p>Other create files: 
-<code><a href='add_description.html'>add_description</a>()</code>,
-<code><a href='add_license.html'>add_license</a>()</code>,
-<code><a href='add_makefile.html'>add_makefile</a>()</code>,
-<code><a href='add_package_doc.html'>add_package_doc</a>()</code>,
-<code><a href='add_readme_rmd.html'>add_readme_rmd</a>()</code>,
-<code><a href='add_vignette.html'>add_vignette</a>()</code></p></div>
-
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='fu'>add_citation</span><span class='op'>(</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/citation.html'>readCitationFile</a></span><span class='op'>(</span><span class='st'>"inst/CITATION"</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/citation.html'>citation</a></span><span class='op'>(</span><span class='st'>"pkg"</span><span class='op'>)</span>    <span class='co'># If you have installed your package &lt;pkg&gt;</span>
-<span class='op'>}</span>
-</div></pre>
+    <div id="rcompendium-01" class="section level1">
+<h1 class="page-header" data-toc-text="0.1">
+<a href="#rcompendium-01" class="anchor"></a>rcompendium 0.1</h1>
+<ul>
+<li>First release of the package.</li>
+</ul>
+</div>
   </div>
+
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
     </nav>
   </div>
+
 </div>
 
 

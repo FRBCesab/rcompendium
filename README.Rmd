@@ -145,6 +145,12 @@ Please read the
 and the documentation of the function 
 [`new_package`](https://frbcesab.github.io/rcompendium/reference/new_package.html).
 
+This [repository](https://github.com/FRBCesab/pkgtest) was created by running:
+
+```{r eval = FALSE}
+rcompendium::new_package(organisation = "FRBCesab")
+```
+
 
 
 ## Citation

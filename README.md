@@ -1,3 +1,4 @@
+
 # rcompendium <img src="man/figures/hexsticker.png" height="120" align="right"/>
 
 <!-- badges: start -->
@@ -28,118 +29,90 @@ package relies heavily on the packages
 [`rrtools`](https://github.com/benmarwick/rrtools) developed by [Ben
 Marwick](https://github.com/benmarwick).
 
-## Structure of the compendium
+## Overview
 
-Here is the structure of the research compendium created by
-`rcompendium`:
+The strength of `rcompendium` is to create the whole structure in one
+command line by using the function `new_package()` (or
+`new_compendium()`). The default settings will produce the following
+structure:
 
-    compendium           # Project Root
+    .
     │
-    ├── .git             # Automatically created (or not)
-    ├── .Rbuildignore    # Contains make.R and analysis/
-    ├── .gitignore       # Specific to R projects
-    ├── compendium.Rproj # Created by user (optional)
-    │
-    ├── R/               # Contains R functions
-    ├── man/             # Contains R functions helps (automatically updated)
-    ├── DESCRIPTION      # Project metadata (author, date, dependencies, etc.)
-    ├── NAMESPACE
-    ├── LICENSE.md       # Content of the chosen license
-    |
-    ├── analysis/
-    │   ├── data/        # Contains user raw data (.csv, .xlsx, .shp, etc.)
-    │   ├── rscripts/    # Contains R scripts to run analyses
-    │   ├── outputs/     # Contains outputs created by user
-    │   └── figures/     # Contains figures created by user
-    ├── make.R           # Master R scripts to run all analyses
-    │
-    ├── README.md        # GitHub README (automatically updated)
-    └── README.Rmd       # GitHub README (to rmarkdown::render)
-
-The package `rcompendium` can also be used to create an R package with
-the following content:
-
-    package
+    ├── pkg.Rproj                 # (optional) Created by user 
     │
     ├── .git/                     # GIT tracking folder
+    ├── .gitignore                # Specific to R packages
+    |
     ├── .github/                  # (optional) GitHub Actions settings
     │   └── workflows/
     │       ├── pkgdown.yaml      # Configuration file to build & deploy website
     │       └── R-CMD-check.yaml  # Configuration file to check & test package
-    ├── .Rbuildignore             # Automatically generated
-    ├── .gitignore                # Specific to R packages
-    ├── pkg.Rproj                 # (optional) Created by user 
+    │
     ├── _pkgdown.yaml             # (optional) User website settings
     │
     ├── R/                        # R functions
     │   └── pkg-package.R         # Dummy R file for package-level documentation
     │
     ├── man/                      # R functions helps (automatically updated)
-    │   ├── figures/              # Figures for the README 
-    │   │   └── hexsticker.png    # Template R package HexSticker
-    │   └── pkg-package.Rd        # Package-level documentation
+    │   ├── pkg-package.Rd        # Package-level documentation
+    │   └── figures/              # Figures for the README 
+    │       └── hexsticker.png    # Template R package HexSticker
     │
     ├── inst/
     │   └── CITATION              # BiBTeX entry to cite the R package       [*]
     │
     ├── vignettes/
-    │   └── pkg_vignette.Rmd      # (optional) Package tutorial              [*]
+    │   └── pkg.Rmd               # (optional) Package tutorial              [*]
     │
     ├── DESCRIPTION               # Project metadata                         [*]
     ├── NAMESPACE                 # Automatically generated
+    ├── .Rbuildignore             # Automatically generated
     │
     ├── LICENSE                   # (optional) If License = MIT
     ├── LICENSE.md                # Content of the chosen license
     │
     ├── README.md                 # GitHub README (automatically generated)
-    └── README.Rmd                # GitHub README (to knit)                  [*]
+    ├── README.Rmd                # GitHub README (to knit)                  [*]
+    /
+    /
+    ├── analysis/                 # Proposed compendium                      [¶]
+    │   ├── data/                 # User raw data (.csv, .gpkg, etc.)
+    │   ├── rscripts/             # R scripts (no functions) to run analyses
+    │   ├── outputs/              # Outputs created by R scripts
+    │   ├── figures/              # Figures created by R scripts
+    │   └── paper/                # Article based on analyses
+    │
+    └── make.R                    # Master R scripts to run all analyses     [¶]
+
 
     [*] These files are automatically edited but user needs to add manually 
         some information.
-
-<!--
-
-
-**N.B. 1.** the research compendium can be built as an R package with 
-`devtools::install()` but only R functions stored in the **R/** folder will
-be available (do not forget to edit R functions documentation and to run
-`devtools::document()`). 
-The content of the **analysis/** folder must be run by sourcing the `make.R` 
-file. All files created by user must be saved in the subfolders of **analysis/**.
-
-
-**N.B. 2.** the files `DESCRIPTION` and `make.R` are written from templates and
-are specific to myself.
-
--->
+    [¶] These folders/files are also created when using new_compendium()
 
 ## Installation
 
 You can install the development version from
 [GitHub](https://github.com/) with:
 
-    # install.packages("remotes")
-    remotes::install_github("FRBCesab/rcompendium")
+``` r
+## Install < remotes > package (if not already installed) ----
 
-## Usage
+if (!requireNamespace("remotes", quietly = TRUE)) {
+  install.packages("remotes")
+}
 
-Under RStudio, you first need to create a **New project** (with or
-without initializing git versioning). If you do not use RStudio IDE, you
-need to create a **New folder** and to open R in this directory (by
-using `setwd()`).
 
-:warning: **The name of the compendium will be the same as the current
-directory. Don’t worry you will be asked before any file is created.**
+## Install dev version of < rcompendium > from GitHub ----
 
-Then you can create an R package structure:
+remotes::install_github("FRBCesab/rcompendium")
+```
 
-    rcompendium::new_package()
+## Getting started
 
-or a research compendium:
-
-    rcompendium::new_compendium()
-
-And you can now start working!
+Please read the
+[Vignette](https://frbcesab.github.io/rcompendium/articles/rcompendium.html)
+and the documentation of the function
+[`new_package`](https://frbcesab.github.io/rcompendium/reference/new_package.html).
 
 ## Citation
 
@@ -149,9 +122,29 @@ Please cite this package as:
 > research compendium structure. Version 0.1,
 > <https://github.com/FRBCesab/rcompendium>.
 
-## Code of Conduct
+You can also run:
+
+``` r
+citation("rcompendium")
+
+## A BibTeX entry for LaTeX users is:
+## 
+## @Manual{,
+##   title = {{rcompendium}: {An} {R} package to create a package or research compendium structure},
+##   author = {{Casajus N.}},
+##   year = {2021},
+##   note = {R package version 0.1},
+##   url = {https://github.com/FRBCesab/rcompendium},
+## }
+```
+
+## Contributing
+
+You are welcome to contribute to the `rcompendium` project. Please read
+our [Contribution
+Guidelines](https://frbcesab.github.io/rcompendium/CONTRIBUTING.html).
 
 Please note that the `rcompendium` project is released with a
 [Contributor Code of
-Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
+Conduct](https://frbcesab.github.io/rcompendium/CODE_OF_CONDUCT.html).
 By contributing to this project, you agree to abide by its terms.

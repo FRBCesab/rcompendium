@@ -362,6 +362,6 @@ course [Data Toolbox for Reproducible Research in Computational Ecology](https:/
 [`rrtools`](https://github.com/benmarwick/rrtools) developed by 
 [Ben Marwick](https://github.com/benmarwick) and tries to respect the standard 
 defined by [RStudio](https://rstudio.com/). It uses several functions from the packages
-[devtools](https://devtools.r-lib.org/) and [usethis](https://usethis.r-lib.org/).
+[`devtools`](https://devtools.r-lib.org/) and [`usethis`](https://usethis.r-lib.org/).
 
 **Thanks to these developer teams!**

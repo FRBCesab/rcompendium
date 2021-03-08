@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 
 
 
-In the area of open science, making analyses reproducible is a strong prerequisite.
+In the area of open science, making reproducible analyses is a strong prerequisite.
 But sometimes it is difficult 1) to find the good structure for organizing files 
 and 2) to setup the whole project.
 

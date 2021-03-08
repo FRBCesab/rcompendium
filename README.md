@@ -14,20 +14,31 @@ Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repost
 [![Dependencies](https://img.shields.io/badge/dependencies-15/80-red?style=flat)](#)
 <!-- badges: end -->
 
+In the area of open science, making reproducible analyses is a strong
+prerequisite. But sometimes it is difficult 1) to find the good
+structure for organizing files and 2) to setup the whole project.
+
 The purpose of the package `rcompendium` is to make easier the creation
 of R package/research compendium (i.e. a predefined files/folders
 structure) so that user can focus on the code/analysis instead of
-wasting time organizing files. A full ready-to-work structure is set up
-with some additional features (versioning, GitHub repository creation,
-GitHub Actions configuration to automatically check package integrity
-and deploy website using [`pkgdown`](https://pkgdown.r-lib.org/)). This
-package relies heavily on the packages
-[`devtools`](https://devtools.r-lib.org/) and
-[`usethis`](https://usethis.r-lib.org/).
+wasting time organizing files.
 
-**Mea culpa:** this project was largely inspired by the package
-[`rrtools`](https://github.com/benmarwick/rrtools) developed by [Ben
-Marwick](https://github.com/benmarwick).
+A full ready-to-work structure will be set up with the following
+features:
+
+-   Initialization of the [GIT](https://git-scm.com/) versioning.
+-   Creation of a minimal R package structure (`DESCRIPTION` and
+    `NAMESPACE` files, and `R/` and `man/` folders).
+-   Creation of additional files (`LICENSE.md`, `inst/CITATION`, etc.).
+-   Creation of a *Get started* vignette in `vignettes/`.
+-   Creation of a GitHub `README.Rmd` with HexSticker (template) and
+    badges.
+-   Autocompletion of maintainer information.
+-   Creation of the GitHub repository.
+-   Configuration of GitHub Actions to automatically:
+    -   check and test package;
+    -   build and deploy website (using
+        [`pkgdown`](https://pkgdown.r-lib.org/)).
 
 ## Overview
 
@@ -130,11 +141,11 @@ citation("rcompendium")
 ## A BibTeX entry for LaTeX users is:
 ## 
 ## @Manual{,
-##   title = {{rcompendium}: {An} {R} package to create a package or research compendium structure},
+##   title  = {{rcompendium}: {An} {R} package to create a package or research compendium structure},
 ##   author = {{Casajus N.}},
-##   year = {2021},
-##   note = {R package version 0.1},
-##   url = {https://github.com/FRBCesab/rcompendium},
+##   year   = {2021},
+##   note   = {R package version 0.1},
+##   url    = {https://github.com/FRBCesab/rcompendium},
 ## }
 ```
 
@@ -148,3 +159,18 @@ Please note that the `rcompendium` project is released with a
 [Contributor Code of
 Conduct](https://frbcesab.github.io/rcompendium/CODE_OF_CONDUCT.html).
 By contributing to this project, you agree to abide by its terms.
+
+## Colophon
+
+This package is the result of intense discussions and feedbacks from the
+training course [Data Toolbox for Reproducible Research in Computational
+Ecology](https://github.com/FRBCesab/datatoolbox) (in French).
+
+`rcompendium` was largely inspired by the package
+[`rrtools`](https://github.com/benmarwick/rrtools) developed by [Ben
+Marwick](https://github.com/benmarwick) and tries to respect the
+standard defined by [RStudio](https://rstudio.com/). It uses several
+functions from the packages [`devtools`](https://devtools.r-lib.org/)
+and [`usethis`](https://usethis.r-lib.org/).
+
+**Thanks to these developer teams!**

@@ -85,8 +85,24 @@
 </h1></div>
 <!-- badges: start -->
 
-<p>The purpose of the package <code>rcompendium</code> is to make easier the creation of R package/research compendium (i.e. a predefined files/folders structure) so that user can focus on the code/analysis instead of wasting time organizing files. A full ready-to-work structure is set up with some additional features (versioning, GitHub repository creation, GitHub Actions configuration to automatically check package integrity and deploy website using <a href="https://pkgdown.r-lib.org/"><code>pkgdown</code></a>). This package relies heavily on the packages <a href="https://devtools.r-lib.org/"><code>devtools</code></a> and <a href="https://usethis.r-lib.org/"><code>usethis</code></a>.</p>
-<p><strong>Mea culpa:</strong> this project was largely inspired by the package <a href="https://github.com/benmarwick/rrtools"><code>rrtools</code></a> developed by <a href="https://github.com/benmarwick">Ben Marwick</a>.</p>
+<p>In the area of open science, making reproducible analyses is a strong prerequisite. But sometimes it is difficult 1) to find the good structure for organizing files and 2) to setup the whole project.</p>
+<p>The purpose of the package <code>rcompendium</code> is to make easier the creation of R package/research compendium (i.e. a predefined files/folders structure) so that user can focus on the code/analysis instead of wasting time organizing files.</p>
+<p>A full ready-to-work structure will be set up with the following features:</p>
+<ul>
+<li>Initialization of the <a href="https://git-scm.com/">GIT</a> versioning.</li>
+<li>Creation of a minimal R package structure (<code>DESCRIPTION</code> and <code>NAMESPACE</code> files, and <code>R/</code> and <code>man/</code> folders).</li>
+<li>Creation of additional files (<code>LICENSE.md</code>, <code>inst/CITATION</code>, etc.).</li>
+<li>Creation of a <em>Get started</em> vignette in <code>vignettes/</code>.</li>
+<li>Creation of a GitHub <code>README.Rmd</code> with HexSticker (template) and badges.</li>
+<li>Autocompletion of maintainer information.</li>
+<li>Creation of the GitHub repository.</li>
+<li>Configuration of GitHub Actions to automatically:
+<ul>
+<li>check and test package;</li>
+<li>build and deploy website (using <a href="https://pkgdown.r-lib.org/"><code>pkgdown</code></a>).</li>
+</ul>
+</li>
+</ul>
 <div id="overview" class="section level2">
 <h2 class="hasAnchor">
 <a href="#overview" class="anchor"></a>Overview</h2>
@@ -179,11 +195,11 @@
 <span class="co">## A BibTeX entry for LaTeX users is:</span>
 <span class="co">## </span>
 <span class="co">## @Manual{,</span>
-<span class="co">##   title = {{rcompendium}: {An} {R} package to create a package or research compendium structure},</span>
+<span class="co">##   title  = {{rcompendium}: {An} {R} package to create a package or research compendium structure},</span>
 <span class="co">##   author = {{Casajus N.}},</span>
-<span class="co">##   year = {2021},</span>
-<span class="co">##   note = {R package version 0.1},</span>
-<span class="co">##   url = {https://github.com/FRBCesab/rcompendium},</span>
+<span class="co">##   year   = {2021},</span>
+<span class="co">##   note   = {R package version 0.1},</span>
+<span class="co">##   url    = {https://github.com/FRBCesab/rcompendium},</span>
 <span class="co">## }</span></code></pre></div>
 </div>
 <div id="contributing" class="section level2">
@@ -191,6 +207,13 @@
 <a href="#contributing" class="anchor"></a>Contributing</h2>
 <p>You are welcome to contribute to the <code>rcompendium</code> project. Please read our <a href="https://frbcesab.github.io/rcompendium/CONTRIBUTING.html">Contribution Guidelines</a>.</p>
 <p>Please note that the <code>rcompendium</code> project is released with a <a href="https://frbcesab.github.io/rcompendium/CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
+</div>
+<div id="colophon" class="section level2">
+<h2 class="hasAnchor">
+<a href="#colophon" class="anchor"></a>Colophon</h2>
+<p>This package is the result of intense discussions and feedbacks from the training course <a href="https://github.com/FRBCesab/datatoolbox">Data Toolbox for Reproducible Research in Computational Ecology</a> (in French).</p>
+<p><code>rcompendium</code> was largely inspired by the package <a href="https://github.com/benmarwick/rrtools"><code>rrtools</code></a> developed by <a href="https://github.com/benmarwick">Ben Marwick</a> and tries to respect the standard defined by <a href="https://rstudio.com/">RStudio</a>. It uses several functions from the packages <a href="https://devtools.r-lib.org/"><code>devtools</code></a> and <a href="https://usethis.r-lib.org/"><code>usethis</code></a>.</p>
+<p><strong>Thanks to these developer teams!</strong></p>
 </div>
 </div>
   </div>

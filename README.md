@@ -4,10 +4,11 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/FRBCesab/rcompendium/workflows/R-CMD-check/badge.svg)](https://github.com/FRBCesab/rcompendium/actions)
-[![Test
-coverage](https://github.com/FRBCesab/rcompendium/workflows/test-coverage/badge.svg)](https://github.com/FRBCesab/rcompendium/actions)
 [![Website
-deployment](https://github.com/FRBCesab/rcompendium/workflows/pkgdown/badge.svg)](https://github.com/FRBCesab/rcompendium/actions)
+deployment](https://github.com/FRBCesab/rcompendium/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/FRBCesab/rcompendium/actions/workflows/pkgdown.yaml)
+[![Test
+coverage](https://github.com/FRBCesab/rcompendium/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/FRBCesab/rcompendium/actions/workflows/test-coverage.yaml)
+[![codecov](https://codecov.io/gh/FRBCesab/rcompendium/branch/main/graph/badge.svg)](https://codecov.io/gh/FRBCesab/rcompendium)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/rcompendium)](https://CRAN.R-project.org/package=rcompendium)
 [![License: GPL (&gt;=

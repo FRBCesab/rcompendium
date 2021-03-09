@@ -3,7 +3,8 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/FRBCesab/rcompendium/workflows/R-CMD-check/badge.svg)](https://github.com/FRBCesab/rcompendium/actions)
+[![R CMD
+check](https://github.com/FRBCesab/rcompendium/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/FRBCesab/rcompendium/actions/workflows/R-CMD-check.yaml)
 [![Website
 deployment](https://github.com/FRBCesab/rcompendium/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/FRBCesab/rcompendium/actions/workflows/pkgdown.yaml)
 [![Test

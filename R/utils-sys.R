@@ -6,11 +6,10 @@
 #' 
 #' @noRd
 
-is_package <- function() {
+is_package <- function(path = getwd()) {
   
-  if (!file.exists(here::here("DESCRIPTION"))) {
-    stop("The directory '", here::here(), "' is not a package ", 
-         "(no **DESCRIPTION** found)")
+  if (!file.exists(file.path(path, "DESCRIPTION"))) {
+    stop("No 'DESCRIPTION' file found.")
   }
   
   invisible(NULL)
@@ -22,9 +21,9 @@ is_package <- function() {
 #' 
 #' @noRd
 
-get_package_name <- function() {
-
-  exploded_path <- unlist(strsplit(here::here(), .Platform$"file.sep"))
+get_package_name <- function(path = getwd()) {
+  
+  exploded_path <- unlist(strsplit(path, .Platform$"file.sep"))
   exploded_path[length(exploded_path)]    
 }
 
@@ -34,7 +33,7 @@ get_package_name <- function() {
 #' 
 #' @noRd
 
-get_package_version <- function() read_descr()$"Version"
+get_package_version <- function(path = getwd()) read_descr(path)$"Version"
 
 
 
@@ -74,9 +73,9 @@ get_r_version <- function() {
 #' 
 #' @noRd
 
-git_in_git <- function() {
+git_in_git <- function(path = getwd()) {
   
-  paths <- unlist(strsplit(here::here(), .Platform$file.sep))
+  paths <- unlist(strsplit(path, .Platform$file.sep))
   
   for (i in 1:(length(paths) - 1)) {
     
@@ -97,9 +96,9 @@ git_in_git <- function() {
 #' 
 #' @noRd
 
-proj_in_proj <- function() {
+proj_in_proj <- function(path = getwd()) {
   
-  paths <- unlist(strsplit(here::here(), .Platform$file.sep))
+  paths <- unlist(strsplit(path, .Platform$file.sep))
   
   for (i in 1:(length(paths) - 1)) {
     
@@ -136,14 +135,14 @@ ui_title <- function(text) {
 #'
 #' @noRd
 
-get_rd_families <- function() {
+get_rd_families <- function(path = getwd()) {
   
-  if (!dir.exists(here::here("R"))) {
+  if (!dir.exists(file.path(path, "R"))) {
     stop("The directory 'R/' cannot be found.")
   }
   
   
-  x <- list.files(path = here::here("R"), pattern = "\\.R$", 
+  x <- list.files(path = file.path(path, "R"), pattern = "\\.R$", 
                   full.names = TRUE, ignore.case = TRUE)
   
   

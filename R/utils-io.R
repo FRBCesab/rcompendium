@@ -25,15 +25,15 @@ edit_file <- function(path) {
 #' 
 #' @noRd
 
-read_descr <- function() { 
+read_descr <- function(path = getwd()) { 
   
   is_package()
   
-  descr <- read.dcf(here::here("DESCRIPTION"), 
+  descr <- read.dcf(file.path(path, "DESCRIPTION"), 
                     keep.white = c("Authors@R", "Depends", "Imports", 
                                    "Suggests"))
   
-  if (nrow(descr) != 1) stop("Malformed **DESCRIPTION** file")
+  if (nrow(descr) != 1) stop("Malformed 'DESCRIPTION' file")
   
   as.data.frame(descr)
 }
@@ -48,7 +48,7 @@ write_descr <- function(descr_file) {
   
   is_package()
   
-  write.dcf(descr_file, file = here::here("DESCRIPTION"), indent = 4, 
+  write.dcf(descr_file, file = file.path(getwd(), "DESCRIPTION"), indent = 4, 
             width = 80, keep.white = c("Authors@R", "Depends", "Imports", 
                                        "Suggests"))
   invisible(NULL)
@@ -77,14 +77,14 @@ add_badge <- function(badge, pattern) {
     stop("Argument `pattern` is missing.")  
   }
   
-  if (!file.exists(here::here("README.Rmd"))) {
+  if (!file.exists(file.path(getwd(), "README.Rmd"))) {
     stop("The file **README.Rmd** cannot be found.")
   }
   
   
   ## Read README.Rmd ----
   
-  read_me <- readLines(con = here::here("README.Rmd"))
+  read_me <- readLines(con = file.path(getwd(), "README.Rmd"))
   
   
   ## Check if Badges Locations are present ----
@@ -124,7 +124,7 @@ add_badge <- function(badge, pattern) {
   
   ## Replace README.Rmd ----
   
-  writeLines(read_me, con = here::here("README.Rmd"))
+  writeLines(read_me, con = file.path(getwd(), "README.Rmd"))
   invisible(NULL)
 }
 
@@ -145,7 +145,7 @@ add_sticker <- function(overwrite = FALSE, quiet = FALSE) {
   
   stop_if_not_logical(overwrite, quiet)
   
-  path <- here::here("man", "figures", "hexsticker.png")
+  path <- file.path(getwd(), "man", "figures", "hexsticker.png")
   
   if (file.exists(path) && !overwrite) {
     
@@ -156,8 +156,8 @@ add_sticker <- function(overwrite = FALSE, quiet = FALSE) {
   
   if ((file.exists(path) && overwrite) || !file.exists(path)) {
     
-    if (!dir.exists(here::here("man", "figures")))
-      dir.create(here::here("man", "figures"), showWarnings = FALSE, 
+    if (!dir.exists(file.path(getwd(), "man", "figures")))
+      dir.create(file.path(getwd(), "man", "figures"), showWarnings = FALSE, 
                  recursive = TRUE)
     
     invisible(

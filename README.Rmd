@@ -20,6 +20,8 @@ rcompendium <img src="man/figures/hexsticker.png" height="120" align="right"/>
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/FRBCesab/rcompendium/workflows/R-CMD-check/badge.svg)](https://github.com/FRBCesab/rcompendium/actions)
+[![Test coverage](https://github.com/FRBCesab/rcompendium/workflows/test-coverage/badge.svg)](https://github.com/FRBCesab/rcompendium/actions)
+[![Website deployment](https://github.com/FRBCesab/rcompendium/workflows/pkgdown/badge.svg)](https://github.com/FRBCesab/rcompendium/actions)
 [![CRAN status](https://www.r-pkg.org/badges/version/rcompendium)](https://CRAN.R-project.org/package=rcompendium)
 [![License: GPL (>= 2)](https://img.shields.io/badge/License-GPL%20%28%3E%3D%202%29-blue.svg)](https://choosealicense.com/licenses/gpl-2.0)
 [![LifeCycle](man/figures/lifecycle/lifecycle-stable.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)

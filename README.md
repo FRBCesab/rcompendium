@@ -4,6 +4,10 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/FRBCesab/rcompendium/workflows/R-CMD-check/badge.svg)](https://github.com/FRBCesab/rcompendium/actions)
+[![Test
+coverage](https://github.com/FRBCesab/rcompendium/workflows/test-coverage/badge.svg)](https://github.com/FRBCesab/rcompendium/actions)
+[![Website
+deployment](https://github.com/FRBCesab/rcompendium/workflows/pkgdown/badge.svg)](https://github.com/FRBCesab/rcompendium/actions)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/rcompendium)](https://CRAN.R-project.org/package=rcompendium)
 [![License: GPL (&gt;=

@@ -1,3 +1,4 @@
+
 # rcompendium <img src="man/figures/hexsticker.png" height="120" align="right"/>
 
 <!-- badges: start -->
@@ -110,16 +111,18 @@ structure:
 You can install the development version from
 [GitHub](https://github.com/) with:
 
-    ## Install < remotes > package (if not already installed) ----
+``` r
+## Install < remotes > package (if not already installed) ----
 
-    if (!requireNamespace("remotes", quietly = TRUE)) {
-      install.packages("remotes")
-    }
+if (!requireNamespace("remotes", quietly = TRUE)) {
+  install.packages("remotes")
+}
 
 
-    ## Install dev version of < rcompendium > from GitHub ----
+## Install dev version of < rcompendium > from GitHub ----
 
-    remotes::install_github("FRBCesab/rcompendium")
+remotes::install_github("FRBCesab/rcompendium")
+```
 
 ## Getting started
 
@@ -131,29 +134,33 @@ and the documentation of the function
 This [repository](https://github.com/FRBCesab/pkgtest) was created by
 running:
 
-    rcompendium::new_package(organisation = "FRBCesab")
+``` r
+rcompendium::new_package(organisation = "FRBCesab")
+```
 
 ## Citation
 
 Please cite this package as:
 
 > Casajus N. (2021) rcompendium: An R package to create a package or
-> research compendium structure. Version 0.1,
+> research compendium structure. Version 0.2,
 > <https://github.com/FRBCesab/rcompendium>.
 
 You can also run:
 
-    citation("rcompendium")
+``` r
+citation("rcompendium")
 
-    ## A BibTeX entry for LaTeX users is:
-    ## 
-    ## @Manual{,
-    ##   title  = {{rcompendium}: {An} {R} package to create a package or research compendium structure},
-    ##   author = {{Casajus N.}},
-    ##   year   = {2021},
-    ##   note   = {R package version 0.1},
-    ##   url    = {https://github.com/FRBCesab/rcompendium},
-    ## }
+## A BibTeX entry for LaTeX users is:
+## 
+## @Manual{,
+##   title  = {{rcompendium}: {An} {R} package to create a package or research compendium structure},
+##   author = {{Casajus N.}},
+##   year   = {2021},
+##   note   = {R package version 0.2},
+##   url    = {https://github.com/FRBCesab/rcompendium},
+## }
+```
 
 ## Contributing
 

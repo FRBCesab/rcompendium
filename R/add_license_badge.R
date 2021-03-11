@@ -67,5 +67,5 @@ add_license_badge <- function(quiet = FALSE) {
     ui_todo("See {ui_code('?add_license()')} for further information")
   }
   
-  invisible(NULL)
+  invisible(badge)
 }

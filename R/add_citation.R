@@ -37,8 +37,7 @@ add_citation <- function(given = NULL, family = NULL, github = NULL,
   
   stop_if_not_logical(open, overwrite, quiet)
   
-  
-  path <- here::here("inst", "CITATION")
+  path <- file.path(path_proj(), "inst", "CITATION")
   
   
   ## Do not replace current file but open it if required ----
@@ -58,54 +57,50 @@ add_citation <- function(given = NULL, family = NULL, github = NULL,
   }
   
   
-  if ((file.exists(path) && overwrite) || !file.exists(path)) {
+  ## Get fields values ----
+    
+  if (is.null(given))  given  <- getOption("given")
+  if (is.null(family)) family <- getOption("family")
   
-  
-    ## Get fields values ----
-    
-    if (is.null(given))  given  <- getOption("given")
-    if (is.null(family)) family <- getOption("family")
-    
-    if (!is.null(organisation)) {
-      github <- organisation
-    } else {
-      if (is.null(github)) github <- getOption("github")  
-    }
-    
-    stop_if_not_string(given, family, github)
-    
-    
-    project_name <- get_package_name()
-    pkg_version  <- get_package_version()
-    year         <- format(Sys.Date(), "%Y")
-    
-    
-    ## Copy Template ----
-  
-    if (!dir.exists(here::here("inst")))
-      dir.create(here::here("inst"), showWarnings = FALSE)
-  
-    invisible(
-      file.copy(system.file(file.path("templates", "__CITATION__"), 
-                            package = "rcompendium"), path, overwrite = TRUE))
-
-  
-    ## Change defaults values ----
-  
-    xfun::gsub_file(path, "{{project_name}}", project_name, fixed = TRUE)
-    xfun::gsub_file(path, "{{pkg_version}}", pkg_version, fixed = TRUE)
-    xfun::gsub_file(path, "{{year}}", year, fixed = TRUE)
-    xfun::gsub_file(path, "{{given}}", given, fixed = TRUE)
-    xfun::gsub_file(path, "{{family}}", family, fixed = TRUE)
-    xfun::gsub_file(path, "{{github}}", github, fixed = TRUE)
-    
-    
-    ## Messages ----
-    
-    if (!quiet) ui_done("Writing {ui_value('inst/CITATION')} file")
-    
-    if (open) edit_file(path)
-    
-    invisible(NULL)
+  if (!is.null(organisation)) {
+    github <- organisation
+  } else {
+    if (is.null(github)) github <- getOption("github")  
   }
+  
+  stop_if_not_string(given, family, github)
+  
+  
+  project_name <- get_package_name()
+  pkg_version  <- get_package_version()
+  year         <- format(Sys.Date(), "%Y")
+  
+  
+  ## Copy Template ----
+
+  if (!dir.exists(file.path(path_proj(), "inst")))
+    dir.create(file.path(path_proj(), "inst"), showWarnings = FALSE)
+
+  invisible(
+    file.copy(system.file(file.path("templates", "__CITATION__"), 
+                          package = "rcompendium"), path, overwrite = TRUE))
+
+
+  ## Change defaults values ----
+
+  xfun::gsub_file(path, "{{project_name}}", project_name, fixed = TRUE)
+  xfun::gsub_file(path, "{{pkg_version}}", pkg_version, fixed = TRUE)
+  xfun::gsub_file(path, "{{year}}", year, fixed = TRUE)
+  xfun::gsub_file(path, "{{given}}", given, fixed = TRUE)
+  xfun::gsub_file(path, "{{family}}", family, fixed = TRUE)
+  xfun::gsub_file(path, "{{github}}", github, fixed = TRUE)
+  
+  
+  ## Messages ----
+  
+  if (!quiet) ui_done("Writing {ui_value('inst/CITATION')} file")
+  
+  if (open) edit_file(path)
+  
+  invisible(NULL)
 }

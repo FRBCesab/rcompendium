@@ -31,11 +31,11 @@ add_github_actions_pkgdown <- function(open = FALSE, overwrite = FALSE,
   
   stop_if_not_logical(open, overwrite, quiet)
   
-  if (!dir.exists(here::here(".git"))) {
+  if (!dir.exists(file.path(path_proj(), ".git"))) {
     stop("The project is not versioning with git.")
   }
   
-  path <- here::here(".github", "workflows", "pkgdown.yaml")
+  path <- file.path(path_proj(), ".github", "workflows", "pkgdown.yaml")
   
   
   ## Do not replace current file but open it if required ----
@@ -55,33 +55,29 @@ add_github_actions_pkgdown <- function(open = FALSE, overwrite = FALSE,
   }
   
   
-  if ((file.exists(path) && overwrite) || !file.exists(path)) {
+  ## Copy Template ----
     
-    
-    ## Copy Template ----
-    
-    dir.create(here::here(".github", "workflows"), showWarnings = FALSE, 
-               recursive = TRUE)
-    
-    invisible(
-      file.copy(system.file(file.path("templates", "__PKGDOWN__"), 
-                            package = "rcompendium"), path))
-    
-    
-    if (!quiet) 
-      ui_done("Writing {ui_value('.github/workflows/pkgdown.yaml')} file")
-    
-    
-    ## Write (Empty) Custom Config file ---
-    
-    if (!file.exists(here::here("_pkgdown.yaml"))) {
-      file.create(here::here("_pkgdown.yaml"))
-      add_to_buildignore("_pkgdown.yaml", quiet = quiet)
-    }
-    
-    
-    if (open) edit_file(path)
-    
-    invisible(NULL)
+  dir.create(file.path(path_proj(), ".github", "workflows"), 
+             showWarnings = FALSE, recursive = TRUE)
+  
+  invisible(
+    file.copy(system.file(file.path("templates", "__PKGDOWN__"), 
+                          package = "rcompendium"), path))
+  
+  
+  if (!quiet) 
+    ui_done("Writing {ui_value('.github/workflows/pkgdown.yaml')} file")
+  
+  
+  ## Write (Empty) Custom Config file ---
+  
+  if (!file.exists(file.path(path_proj(), "_pkgdown.yaml"))) {
+    file.create(file.path(path_proj(), "_pkgdown.yaml"))
+    add_to_buildignore("_pkgdown.yaml", quiet = quiet)
   }
+  
+  
+  if (open) edit_file(path)
+  
+  invisible(NULL)
 }

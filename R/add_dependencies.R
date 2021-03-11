@@ -27,14 +27,10 @@
 #' or in `Suggests` field of **DESCRIPTION** file (for `.Rmd` stored in 
 #' **vignettes/** if these two packages are not present in the `Imports` field).
 #' 
-#' @param import (optional) the name of the folder to recursively detect 
+#' @param compendium (optional) the name of the folder to recursively detect 
 #'   dependencies to be added in the `Imports` field of **DESCRIPTION** file. 
-#'   Default is `import = NULL` (but **R/**, **NAMESPACE**, and `@examples` are 
-#'   still inspected).
-#' 
-#' @param suggest the name of the folder to recursively detect dependencies to
-#'   be added in the `Suggests` field of **DESCRIPTION** file. 
-#'   Default is `suggest = "vignettes"`.
+#'   Default is `compendium = NULL` (but **R/**, **NAMESPACE**, and `@examples` 
+#'   are still inspected).
 #'
 #' @export
 #' 
@@ -45,25 +41,25 @@
 #' add_dependencies()
 #' }
 
-add_dependencies <- function(import = NULL, suggest = "vignettes") {
+add_dependencies <- function(compendium = NULL) {
 
 
   ## Checks ----
 
+  if (!is.null(compendium))  stop_if_not_string(compendium)
+
   is_package()
-  
-  if (!is.null(suggest)) stop_if_not_string(suggest)
-  if (!is.null(import))  stop_if_not_string(import)
-  
+  path <- path_proj()
   
   ## If no R function ----
   
-  if (!dir.exists(here::here("R"))) stop("No 'R/' folder found.")
+  if (!dir.exists(file.path(path, "R"))) stop("No 'R/' folder found.")
   
   
   ## Update Documentation & NAMESPACE ----
   
   suppressMessages(devtools::document(quiet = TRUE))
+  
   
   ## Detect Dependencies in NAMESPACE ----
   
@@ -77,7 +73,7 @@ add_dependencies <- function(import = NULL, suggest = "vignettes") {
   
   ## Detect Dependencies in import/ ----
   
-  deps_extra <- get_deps_extra(import = import)
+  deps_extra <- get_deps_extra(compendium)
   
   
   ## Merge in-functions ----
@@ -122,9 +118,9 @@ add_dependencies <- function(import = NULL, suggest = "vignettes") {
   deps_in_package <- sort(unique(deps_in_package))
   
   
-  ## Detect Dependencies vignettes ----
+  ## Detect Dependencies VIGNETTES ----
   
-  deps_suggest <- get_deps_in_vignettes(suggest = suggest)
+  deps_suggest <- get_deps_in_vignettes()
   
   if (length(deps_suggest)) {
     
@@ -133,6 +129,20 @@ add_dependencies <- function(import = NULL, suggest = "vignettes") {
   }
   
   deps_suggest <- sort(unique(deps_suggest))
+  
+  
+  ## Detect Dependencies TESTS ----
+  
+  deps_test <- get_deps_in_tests()
+  
+  if (length(deps_test)) {
+    
+    deps_test <- unlist(lapply(strsplit(deps_test, "::"), 
+                                  function(x) x[1]))
+    
+  }
+  
+  deps_suggest <- sort(unique(c(deps_suggest, deps_test)))
   
   
   ## Remove Package Name ----
@@ -151,7 +161,7 @@ add_dependencies <- function(import = NULL, suggest = "vignettes") {
   }
   
   deps_in_package <- sort(unique(deps_in_package))
-  deps_in_package <- deps_in_package[!(deps_in_package %in% "rcompendium")]
+
   
   
   ## Read DESCRIPTION File ----
@@ -204,7 +214,6 @@ add_dependencies <- function(import = NULL, suggest = "vignettes") {
     if (length(pos)) descr <- descr[ , -pos]
   }
   
-  # ui_line()
   
   
   ## Dependencies in SUGGESTS ----

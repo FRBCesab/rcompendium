@@ -1,3 +1,7 @@
+## Utilities functions - Inputs Checks ----
+
+
+
 #' **Check if arguments are logical of length 1**
 #' 
 #' @param ... one or several arguments
@@ -94,7 +98,3 @@ stop_if_not_numeric <- function(...) {
   
   invisible(NULL)
 }
-
-stop_if_not_string()
-stop_if_not_logical()
-stop_if_not_numeric()

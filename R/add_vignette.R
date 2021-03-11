@@ -41,6 +41,7 @@ add_vignette <- function(filename = NULL, title = NULL, open = TRUE,
   
   stop_if_not_logical(open, overwrite, quiet)
   
+  path <- path_proj()
   package_name <- get_package_name()
   
   
@@ -61,7 +62,7 @@ add_vignette <- function(filename = NULL, title = NULL, open = TRUE,
   }
   
   filename <- paste0(filename, ".Rmd")
-  path     <- here::here("vignettes", filename)
+  path     <- file.path(path, "vignettes", filename)
   
   
   ## Do not replace current file but open it if required ----
@@ -81,8 +82,8 @@ add_vignette <- function(filename = NULL, title = NULL, open = TRUE,
   }
   
     
-  if (!dir.exists(here::here("vignettes")))
-    dir.create(here::here("vignettes"), showWarnings = FALSE)
+  if (!dir.exists(file.path(path_proj(), "vignettes")))
+    dir.create(file.path(path_proj(), "vignettes"), showWarnings = FALSE)
   
   invisible(
     file.copy(system.file(file.path("templates", "__VIGNETTE__"), 
@@ -108,16 +109,17 @@ add_vignette <- function(filename = NULL, title = NULL, open = TRUE,
   
   x <- c("*.html", "*.R")
   
-  if (file.exists(here::here("vignettes", ".gitignore"))) {
+  if (file.exists(file.path(path_proj(), "vignettes", ".gitignore"))) {
     
-    git_ignore <- readLines(here::here("vignettes", ".gitignore"))
+    git_ignore <- readLines(file.path(path_proj(), "vignettes", ".gitignore"))
     
     x <- x[!(x %in% git_ignore)]
     
     if (length(x)) {
       
       git_ignore <- c(git_ignore, x)
-      writeLines(git_ignore, con = here::here("vignettes", ".gitignore"))
+      writeLines(git_ignore, con = file.path(path_proj(), "vignettes", 
+                                             ".gitignore"))
     }
     
   } else {
@@ -126,7 +128,7 @@ add_vignette <- function(filename = NULL, title = NULL, open = TRUE,
       ui_done(paste0("Writing {ui_value('vignettes/.gitignore')} file"))
     }
     
-    writeLines(x, con = here::here("vignettes", ".gitignore"))
+    writeLines(x, con = file.path(path_proj(), "vignettes", ".gitignore"))
   }
   
   

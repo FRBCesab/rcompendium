@@ -31,7 +31,7 @@
 #' @param license a character vector of length 1
 #' 
 #'   The license to be used for this package. Run [get_licenses()] to choose an 
-#'   appropriate one. Default is `license = 'GPL (>= 2)'` 
+#'   appropriate one. Default is `license = 'MIT'` 
 #'   
 #'   The license can be changed later by using [add_license()] (and 
 #'   [add_license_badge()] or [refresh()] to update the corresponding badge).
@@ -306,7 +306,7 @@
 #' refresh()
 #' }
 
-new_package <- function(license = "GPL (>= 2)", status = "concept", 
+new_package <- function(license = "MIT", status = "concept", 
                         lifecycle = "experimental", vignette = TRUE, 
                         create_repo = TRUE, private = FALSE, gh_check = TRUE, 
                         website = TRUE, given = NULL, family = NULL, 
@@ -331,18 +331,18 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   
   project_name <- get_package_name()
   
-  response <- ui_yeah("Is your project name correct: {ui_value(project_name)}?", 
-                      yes = "Absolutely", no = "Not at all", n_no = 1, 
-                      shuffle = FALSE)
-  
-  if (!response) {
-    
-    ui_oops(paste0("Please open R/RStudio in the adequate (empty) folder ", 
-                   "(create it if necessary).\n  ", 
-                   "** The project will be named after this folder **"))
-    
-    return(invisible(NULL))
-  }
+  # response <- ui_yeah("Is your project name correct: {ui_value(project_name)}?", 
+  #                     yes = "Absolutely", no = "Not at all", n_no = 1, 
+  #                     shuffle = FALSE)
+  # 
+  # if (!response) {
+  #   
+  #   ui_oops(paste0("Please open R/RStudio in the adequate (empty) folder ", 
+  #                  "(create it if necessary).\n  ", 
+  #                  "** The project will be named after this folder **"))
+  #   
+  #   return(invisible(NULL))
+  # }
   
   
   ## Check License ----
@@ -477,18 +477,18 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   
   ## Init GIT (if required) ----
   
-  if (!dir.exists(here::here(".git"))) {
+  if (!dir.exists(file.path(path_proj(), ".git"))) {
     
-    gert::git_init(here::here(".git"))
+    gert::git_init(file.path(path_proj(), ".git"))
     ui_done("Init {ui_value('git')} versioning")
   }
   
   
   ## Add/Replace R-specific gitignore ----
   
-  if (file.exists(".gitignore")) {
+  if (file.exists(file.path(path_proj(), ".gitignore"))) {
   
-      invisible(file.remove(here::here(".gitignore")))
+      invisible(file.remove(file.path(path_proj(), ".gitignore")))
   }
   
   add_to_gitignore()
@@ -530,12 +530,12 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   
   ## Create folders ----
   
-  dir.create(here::here("R"), showWarnings = FALSE)
+  dir.create(file.path(path_proj(), "R"), showWarnings = FALSE)
   
   if (!quiet) ui_done("Creating {ui_value('R/')} directory")
   
   
-  dir.create(here::here("man/"), showWarnings = FALSE)
+  dir.create(file.path(path_proj(), "man"), showWarnings = FALSE)
   
   if (!quiet) ui_done("Creating {ui_value('man/')} directory")
   
@@ -598,34 +598,6 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   
   
   ##
-  ## ADDING BADGES ----
-  ## 
-  
-  
-  
-  ui_title("Adding Badges") 
-  
-  
-  if (gh_check) {
-    add_github_actions_badge(github, organisation, quiet = quiet)
-  }
-
-  add_cran_badge(quiet = quiet)
-  add_license_badge(quiet = quiet)
-  
-  if (!is.null(status)) {
-    add_repostatus_badge(status, quiet = quiet)
-  }
-  
-  if (!is.null(lifecycle)) {
-    add_lifecycle_badge(lifecycle, quiet = quiet)
-  }
-  
-  add_dependencies_badge(quiet = quiet)
-  
-  
-  
-  ##
   ## KNITING README ----
   ## 
   
@@ -634,8 +606,8 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   ui_title("Kniting README")  
   
   
-  rmarkdown::render(here::here("README.Rmd"), output_format = "md_document",
-                    quiet = TRUE)
+  rmarkdown::render(file.path(path_proj(), "README.Rmd"), 
+                    output_format = "md_document", quiet = TRUE)
   
   if (!quiet) ui_done("Kniting {ui_value('README.Rmd')}")
   
@@ -743,6 +715,70 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
     invisible(gert::git_commit(":rocket: Configure GH Actions"))
     invisible(gert::git_push(verbose = FALSE))
   }
+  
+  
+  
+  ##
+  ## ADDING BADGES ----
+  ## 
+  
+  
+  
+  ui_title("Adding Badges") 
+  
+  
+  if (gh_check) {
+    add_github_actions_check_badge(github, organisation, quiet = quiet)
+  }
+  
+  if (website) {
+    add_github_actions_pkgdown_badge(github, organisation, quiet = quiet)
+  }
+  
+  add_cran_badge(quiet = quiet)
+  add_license_badge(quiet = quiet)
+  
+  if (!is.null(lifecycle)) {
+    add_lifecycle_badge(lifecycle, quiet = quiet)
+  }
+  
+  if (!is.null(status)) {
+    add_repostatus_badge(status, quiet = quiet)
+  }
+  
+  add_dependencies_badge(quiet = quiet)
+  
+  
+  
+  ##
+  ## KNITING README ----
+  ## 
+  
+  
+  
+  ui_title("Kniting README")  
+  
+  
+  rmarkdown::render(file.path(path_proj(), "README.Rmd"), 
+                    output_format = "md_document", quiet = TRUE)
+  
+  if (!quiet) ui_done("Kniting {ui_value('README.Rmd')}")
+  
+  
+  
+  ## Commit changes ----
+  
+  if (!quiet) {
+    
+    ui_line()
+    ui_done(paste0("Committing & pushing changes with the following ", 
+                   "message: {ui_value('Adding badges')}"))
+  }
+  
+  invisible(gert::git_add("."))
+  invisible(gert::git_commit(":art: Adding badges"))
+  invisible(gert::git_push(verbose = FALSE))
+  
   
   
   

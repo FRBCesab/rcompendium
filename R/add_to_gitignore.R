@@ -29,7 +29,7 @@ add_to_gitignore <- function(x, open = FALSE, quiet = FALSE) {
   
   stop_if_not_logical(open, quiet)
   
-  path <- here::here(".gitignore")
+  path <- file.path(path_proj(), ".gitignore")
   
   
   ## Copy Template ----

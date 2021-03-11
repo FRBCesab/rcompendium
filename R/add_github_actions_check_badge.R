@@ -25,7 +25,7 @@
 #' add_github_actions_badge()
 #' }
 
-add_github_actions_badge <- function(github = NULL, organisation = NULL, 
+add_github_actions_check_badge <- function(github = NULL, organisation = NULL, 
                                      quiet = FALSE) {
   
   
@@ -33,9 +33,10 @@ add_github_actions_badge <- function(github = NULL, organisation = NULL,
   
   ## Check if GH Actions are set ----
   
-  # if (!file.exists(here::here(".github", "workflows", "R-CMD-check.yaml"))) {
-  #   stop("Please run `add_github_actions_check()` to setup GitHub Actions.")
-  # }
+  if (!file.exists(file.path(path_proj(), ".github", "workflows", 
+                             "R-CMD-check.yaml"))) {
+    stop("Please run `add_github_actions_check()` to setup GitHub Actions.")
+  }
   
   
   ## Retrieve GitHub pseudo/organization ----
@@ -53,24 +54,23 @@ add_github_actions_badge <- function(github = NULL, organisation = NULL,
   
   is_gh_user()
   
-  
   project_name <- get_package_name()
   
   
   ## Create Badge Markdown Expression ----
   
-  alt  <- "R-CMD-check"
+  alt  <- "R CMD Check"
   href <- paste("https://github.com", github, project_name, 
-                "actions", sep = "/")
+                "actions/workflows/R-CMD-check.yaml", sep = "/")
   img  <- paste("https://github.com", github, project_name, 
-                "workflows/R-CMD-check/badge.svg", sep = "/")
+                "actions/workflows/R-CMD-check.yaml/badge.svg", sep = "/")
   
   badge <- paste0("[![", alt, "](", img, ")](", href, ")")
   
   
   ## Add Badge ----
   
-  add_badge(badge, pattern = "R-CMD-check")
+  add_badge(badge, pattern = alt)
   
   if (!quiet) {
     ui_done(paste0("Adding {ui_field('R-CMD-check')} badge to ", 
@@ -78,5 +78,5 @@ add_github_actions_badge <- function(github = NULL, organisation = NULL,
   }
   
   
-  invisible(NULL)
+  invisible(badge)
 }

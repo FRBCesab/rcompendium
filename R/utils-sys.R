@@ -2,11 +2,22 @@
 
 
 
+#' **Get Project Root Path**
+#' 
+#' @noRd
+
+path_proj <- function() usethis::proj_get()
+
+
+
 #' **Check if current folder is a package (DESCRIPTION file)**
 #' 
 #' @noRd
 
-is_package <- function(path = getwd()) {
+is_package <- function() {
+  
+  
+  path <- path_proj()
   
   if (!file.exists(file.path(path, "DESCRIPTION"))) {
     stop("No 'DESCRIPTION' file found.")
@@ -21,10 +32,13 @@ is_package <- function(path = getwd()) {
 #' 
 #' @noRd
 
-get_package_name <- function(path = getwd()) {
+get_package_name <- function() {
+  
+  
+  path <- path_proj()
   
   exploded_path <- unlist(strsplit(path, .Platform$"file.sep"))
-  exploded_path[length(exploded_path)]    
+  exploded_path[length(exploded_path)]
 }
 
 
@@ -33,18 +47,25 @@ get_package_name <- function(path = getwd()) {
 #' 
 #' @noRd
 
-get_package_version <- function(path = getwd()) read_descr(path)$"Version"
+get_package_version <- function() {
+  
+  
+  is_package()
+  
+  read_descr()$"Version"
+}
 
 
 
-#' **Get roxygen2 version**
+#' **Get `roxygen2` version**
 #' 
 #' @noRd
 
 get_roxygen2_version <- function() {
   
+  
   if (!("roxygen2" %in% utils::installed.packages())) {
-    stop("The package `roxygen2` cannot be found.")
+    stop("The package 'roxygen2' cannot be found.")
   }
   
   as.character(utils::packageVersion("roxygen2"))
@@ -52,15 +73,17 @@ get_roxygen2_version <- function() {
 
 
 
-#' **Get R version**
+#' **Get System R version**
 #' 
 #' @noRd
 
 get_r_version <- function() {
   
+  
   r_version <- paste(utils::sessionInfo()["R.version"][[1]]["major"], 
                      utils::sessionInfo()["R.version"][[1]]["minor"], 
                      sep = ".")
+  
   r_version <- unlist(strsplit(r_version, "\\."))
   r_version <- paste(r_version[1], r_version[2], sep = ".")
   
@@ -73,9 +96,10 @@ get_r_version <- function() {
 #' 
 #' @noRd
 
-git_in_git <- function(path = getwd()) {
+git_in_git <- function() {
   
-  paths <- unlist(strsplit(path, .Platform$file.sep))
+  
+  paths <- unlist(strsplit(path_proj(), .Platform$file.sep))
   
   for (i in 1:(length(paths) - 1)) {
     
@@ -96,16 +120,17 @@ git_in_git <- function(path = getwd()) {
 #' 
 #' @noRd
 
-proj_in_proj <- function(path = getwd()) {
+proj_in_proj <- function() {
   
-  paths <- unlist(strsplit(path, .Platform$file.sep))
+  
+  paths <- unlist(strsplit(path_proj(), .Platform$file.sep))
   
   for (i in 1:(length(paths) - 1)) {
     
     recursive_path <- paste0(paths[1:i], collapse = .Platform$file.sep)
     
     if (length(list.files(recursive_path, pattern = "\\.Rproj$"))) 
-      stop("You are going to create an 'RStudio Project' inside a folder that ", 
+      stop("You have created an 'RStudio Project' inside a folder that ", 
            "is already an 'RStudio Project'.") 
   }
   
@@ -113,10 +138,17 @@ proj_in_proj <- function(path = getwd()) {
 }
 
 
-ui_title <- function(text) {
+
+#' **Custom ui_*() message**
+#' 
+#' @noRd
+
+ui_title <- function(texte) {
+  
   
   ui_line()
-  cat(clisymbols::symbol$radio_on, crayon::bold(crayon::underline(text)))
+  cat(clisymbols::symbol$radio_on, 
+      crayon::bold(crayon::underline(texte)))
   ui_line()
   ui_line()
   
@@ -135,11 +167,13 @@ ui_title <- function(text) {
 #'
 #' @noRd
 
-get_rd_families <- function(path = getwd()) {
+get_rd_families <- function() {
   
-  if (!dir.exists(file.path(path, "R"))) {
+  
+  path <- path_proj()
+  
+  if (!dir.exists(file.path(path, "R")))
     stop("The directory 'R/' cannot be found.")
-  }
   
   
   x <- list.files(path = file.path(path, "R"), pattern = "\\.R$", 

@@ -22,12 +22,12 @@
 
 get_all_functions <- function() {
   
-  if (!dir.exists(here::here("R"))) {
+  if (!dir.exists(file.path(path_proj(), "R"))) {
     stop("The directory 'R/' cannot be found.")
   }
   
   
-  x <- list.files(path = here::here("R"), pattern = "\\.R$", 
+  x <- list.files(path = file.path(path_proj(), "R"), pattern = "\\.R$", 
                   full.names = TRUE, ignore.case = TRUE)
   
   
@@ -57,9 +57,10 @@ get_all_functions <- function() {
     
     if (length(x)) {
       
-      if (file.exists(here::here("NAMESPACE"))) {
+      if (file.exists(file.path(path_proj(), "NAMESPACE"))) {
         
-        namespace <- readLines(con = here::here("NAMESPACE"), warn = FALSE)
+        namespace <- readLines(con = file.path(path_proj(), "NAMESPACE"), 
+                               warn = FALSE)
         
         exports <- gsub("export\\(|\\)", "", 
                         namespace[grep("^export", namespace)])

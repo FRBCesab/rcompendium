@@ -37,7 +37,7 @@
 #' refresh()
 #' }
 
-refresh <- function(import = NULL, make = FALSE, check = TRUE, quiet = FALSE) { 
+refresh <- function(compendium = NULL, make = FALSE, check = TRUE, quiet = FALSE) { 
   
   
   is_package()
@@ -71,16 +71,16 @@ refresh <- function(import = NULL, make = FALSE, check = TRUE, quiet = FALSE) {
   
   ui_title("Updating Dependencies")
   
-  add_dependencies(import = import)
+  add_dependencies(compendium)
   
   
   ## Update Badges ----
 
-  if (file.exists(here::here("README.Rmd"))) {
+  if (file.exists(file.path(path_proj(), "README.Rmd"))) {
     
     ui_title("Updating Badges")
     
-    read_me <- readLines(con = here::here("README.Rmd"))
+    read_me <- readLines(con = file.path(path_proj(), "README.Rmd"))
     
     if (length(grep(paste0("^\\s{0,}\\[!\\[Dependencies"), read_me))) {
       
@@ -96,12 +96,12 @@ refresh <- function(import = NULL, make = FALSE, check = TRUE, quiet = FALSE) {
   
   ## Update README.md ----
   
-  if (file.exists(here::here("README.Rmd"))) {
+  if (file.exists(file.path(path_proj(), "README.Rmd"))) {
     
     ui_title("Updating README")
     
-    rmarkdown::render(here::here("README.Rmd"), output_format = "md_document",
-                      quiet = TRUE)
+    rmarkdown::render(file.path(path_proj(), "README.Rmd"), 
+                      output_format = "md_document", quiet = TRUE)
     
     if (!quiet) 
       ui_done("Re-kniting {ui_value('README.Rmd')}")
@@ -126,12 +126,12 @@ refresh <- function(import = NULL, make = FALSE, check = TRUE, quiet = FALSE) {
     
     ui_title("Running Analysis")
     
-    if (file.exists(here::here("make.R"))) {
+    if (file.exists(file.path(path_proj(), "make.R"))) {
       
       if (!quiet) 
         ui_info("Sourcing 'make.R'}")
       
-      source(here::here("make.R"))
+      source(file.path(path_proj(), "make.R"))
       
       if (!quiet) 
         ui_done("Done!")

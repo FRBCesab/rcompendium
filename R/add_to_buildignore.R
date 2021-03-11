@@ -32,7 +32,7 @@ add_to_buildignore <- function(x, open = FALSE, quiet = FALSE) {
   stop_if_not_logical(open, quiet)
   
   
-  path <- here::here(".Rbuildignore")
+  path <- file.path(path_proj(), ".Rbuildignore")
   
   
   ## Create new file (if missing) ----

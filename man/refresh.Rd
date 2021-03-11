@@ -4,13 +4,13 @@
 \alias{refresh}
 \title{Refresh a package/research compendium}
 \usage{
-refresh(import = NULL, make = FALSE, check = TRUE, quiet = FALSE)
+refresh(compendium = NULL, make = FALSE, check = TRUE, quiet = FALSE)
 }
 \arguments{
-\item{import}{(optional) the name of the folder to recursively detect
+\item{compendium}{(optional) the name of the folder to recursively detect
 dependencies to be added in the \code{Imports} field of \strong{DESCRIPTION} file.
-Default is \code{import = NULL} (but \strong{R/}, \strong{NAMESPACE}, and \verb{@examples} are
-still inspected).}
+Default is \code{compendium = NULL} (but \strong{R/}, \strong{NAMESPACE}, and \verb{@examples}
+are still inspected).}
 
 \item{make}{a logical value. If \code{TRUE} the Make-like R file \code{make.R} is
 sourced. Only for research compendium. Default is \code{FALSE}.}

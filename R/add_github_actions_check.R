@@ -33,12 +33,12 @@ add_github_actions_check <- function(open = FALSE, overwrite = FALSE,
   
   stop_if_not_logical(open, overwrite, quiet)
   
-  if (!dir.exists(here::here(".git"))) {
+  if (!dir.exists(file.path(path_proj(), ".git"))) {
     stop("The project is not versioning with git.")
   }
   
   
-  path <- here::here(".github", "workflows", "R-CMD-check.yaml")
+  path <- file.path(path_proj(), ".github", "workflows", "R-CMD-check.yaml")
   
   
   ## Do not replace current file but open it if required ----
@@ -58,24 +58,20 @@ add_github_actions_check <- function(open = FALSE, overwrite = FALSE,
   }
   
   
-  if ((file.exists(path) && overwrite) || !file.exists(path)) {
+  ## Copy Template ----
   
-    
-    ## Copy Template ----
+  dir.create(file.path(path_proj(), ".github", "workflows"), 
+             showWarnings = FALSE, recursive = TRUE)
+
+  invisible(
+    file.copy(system.file(file.path("templates", "__RCMDCHECK__"), 
+                          package = "rcompendium"), path))
+
   
-    dir.create(here::here(".github", "workflows"), showWarnings = FALSE, 
-               recursive = TRUE)
+  if (!quiet) 
+    ui_done("Writing {ui_value('.github/workflows/R-CMD-check.yaml')} file")
   
-    invisible(
-      file.copy(system.file(file.path("templates", "__RCMDCHECK__"), 
-                            package = "rcompendium"), path))
+  if (open) edit_file(path)
   
-    
-    if (!quiet) 
-      ui_done("Writing {ui_value('.github/workflows/R-CMD-check.yaml')} file")
-    
-    if (open) edit_file(path)
-    
-    invisible(NULL)
-  }
+  invisible(NULL)
 }

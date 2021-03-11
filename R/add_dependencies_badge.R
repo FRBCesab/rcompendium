@@ -31,10 +31,16 @@ add_dependencies_badge <- function(quiet = FALSE) {
   
   ## Create Badge Markdown Expression ----
   
-  if (deps["direct_deps"] == 0) color <- "brightgreen"
-  if (deps["direct_deps"] > 0 && deps["direct_deps"] <  5) color <- "green"
-  if (deps["direct_deps"] > 4 && deps["direct_deps"] < 10) color <- "orange"
-  if (deps["direct_deps"] >  9) color <- "red"
+  if (deps["direct_deps"] == 0) 
+    color <- "brightgreen"
+  if (deps["direct_deps"] >  0 && 
+      deps["direct_deps"] <  5) 
+    color <- "green"
+  if (deps["direct_deps"] >  4 && 
+      deps["direct_deps"] < 10) 
+    color <- "orange"
+  if (deps["direct_deps"] >  9) 
+    color <- "red"
   
   url <- "https://img.shields.io/badge/dependencies"
   
@@ -54,5 +60,5 @@ add_dependencies_badge <- function(quiet = FALSE) {
                    "{ui_value('README.Rmd')}"))
   }
   
-  invisible(NULL)
+  invisible(badge)
 }

@@ -4,17 +4,13 @@
 \alias{add_dependencies}
 \title{Add dependencies in DESCRIPTION}
 \usage{
-add_dependencies(import = NULL, suggest = "vignettes")
+add_dependencies(compendium = NULL)
 }
 \arguments{
-\item{import}{(optional) the name of the folder to recursively detect
+\item{compendium}{(optional) the name of the folder to recursively detect
 dependencies to be added in the \code{Imports} field of \strong{DESCRIPTION} file.
-Default is \code{import = NULL} (but \strong{R/}, \strong{NAMESPACE}, and \verb{@examples} are
-still inspected).}
-
-\item{suggest}{the name of the folder to recursively detect dependencies to
-be added in the \code{Suggests} field of \strong{DESCRIPTION} file.
-Default is \code{suggest = "vignettes"}.}
+Default is \code{compendium = NULL} (but \strong{R/}, \strong{NAMESPACE}, and \verb{@examples}
+are still inspected).}
 }
 \description{
 This function detects dependencies used in \strong{R/}, \strong{NAMESPACE}, and

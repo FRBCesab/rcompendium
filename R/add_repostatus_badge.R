@@ -55,11 +55,12 @@ add_repostatus_badge <- function(status = "concept", quiet = FALSE) {
   
   if (!(tolower(status) %in% c("concept", "wip", "suspended", "abandoned", 
                                "active", "inactive", "unsupported"))) {
+    
     stop("Argument 'status' must be of among 'concept', 'wip', 'suspended', ",
          "'abandoned', 'active', 'inactive', or 'unsupported'.")
   }
 
-  if (!file.exists("README.Rmd")) {
+  if (!file.exists(file.path(path_proj(), "README.Rmd"))) {
     stop("The file 'README.Rmd' cannot be found.")
   }
     
@@ -92,5 +93,5 @@ add_repostatus_badge <- function(status = "concept", quiet = FALSE) {
                    "{ui_value('README.Rmd')}"))
   }
   
-  invisible(NULL)
+  invisible(badge)
 }

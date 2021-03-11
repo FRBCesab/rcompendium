@@ -1,3 +1,7 @@
+## Utilities functions - GITHUB ----
+
+
+
 #' **Update GitHub Repository Informations**
 #' 
 #' @description
@@ -24,6 +28,8 @@ update_gh_repo <- function(owner, repo, website = TRUE, quiet = FALSE) {
   
   
   is_package()
+  
+  stop_if_not_logical(website, quiet)
   
   
   ## Checks inputs ----
@@ -92,8 +98,8 @@ update_gh_repo <- function(owner, repo, website = TRUE, quiet = FALSE) {
       
       homepage <- tolower(paste0("https://", owner, ".github.io/", repo))
       
-      invisible(gh::gh("PATCH /repos/{owner}/{repo}", repo = repo, owner = owner, 
-                       homepage = homepage))
+      invisible(gh::gh("PATCH /repos/{owner}/{repo}", repo = repo,
+                       owner = owner, homepage = homepage))
       
       if (!quiet) 
         ui_done("Updating GitHub Repository {ui_value('Homepage')} field")
@@ -105,6 +111,8 @@ update_gh_repo <- function(owner, repo, website = TRUE, quiet = FALSE) {
 
 
 
+#' **Check if GitHub account exist (stored with git_global)**
+#' 
 #' @noRd
 
 is_gh_user <- function() {
@@ -118,9 +126,16 @@ is_gh_user <- function() {
 
 
 
+#' **Check if a GitHub organisation exist**
+#' 
 #' @noRd
 
 is_gh_organisation <- function(organisation) {
+  
+  
+  if (missing(organisation)) stop("Argument 'organisation' is missing.")
+  
+  stop_if_not_string(organisation)
   
   if (is.null(tryCatch(gh::gh("GET /orgs/{org}", org = organisation), 
                        error = function(e) NULL))) {
@@ -132,9 +147,17 @@ is_gh_organisation <- function(organisation) {
 
 
 
+#' **Check if GitHub repository exists**
+#' 
 #' @noRd
 
 is_gh_repo <- function(owner, repo) {
+  
+  
+  if (missing(owner)) stop("Argument 'owner' is missing.")
+  if (missing(repo))  stop("Argument 'repo' is missing.")
+  
+  stop_if_not_string(owner, repo)
   
   tryCatch(gh::gh("GET /repos/{owner}/{repo}", repo = repo, 
                   owner = owner), error = function(e) NULL)

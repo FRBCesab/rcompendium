@@ -35,6 +35,8 @@ add_license <- function(license = NULL, given = NULL, family = NULL,
   
   is_package()
   
+  path <- path_proj()
+  
   ## Check Input ----
   
   if (is.null(license)) {
@@ -111,14 +113,14 @@ add_license <- function(license = NULL, given = NULL, family = NULL,
     invisible(
       file.copy(system.file(file.path("licenses", "copyright-mit"), 
                             package = "rcompendium"),
-                file.path(".", "LICENSE"), overwrite = TRUE))
+                file.path(path, "LICENSE"), overwrite = TRUE))
     
     if (!quiet) ui_done("Writing {ui_value('LICENSE')} file")
     
   } else {
     
-    if (file.exists(file.path(".", "LICENSE"))) {
-      invisible(file.remove(file.path(".", "LICENSE")))
+    if (file.exists(file.path(path, "LICENSE"))) {
+      invisible(file.remove(file.path(path, "LICENSE")))
     }
   }
   
@@ -130,7 +132,7 @@ add_license <- function(license = NULL, given = NULL, family = NULL,
   invisible(
     file.copy(system.file(file.path("licenses", license_file), 
                           package = "rcompendium"),
-              file.path(".", "LICENSE.md"), overwrite = TRUE))
+              file.path(path, "LICENSE.md"), overwrite = TRUE))
   
   if (!quiet) ui_done("Writing {ui_value('LICENSE.md')} file")
   
@@ -141,18 +143,18 @@ add_license <- function(license = NULL, given = NULL, family = NULL,
   
   if (license == "MIT") {
     
-    xfun::gsub_file(file.path(".", "LICENSE.md"), "{{given}}", given, 
+    xfun::gsub_file(file.path(path, "LICENSE.md"), "{{given}}", given, 
                     fixed = TRUE)
-    xfun::gsub_file(file.path(".", "LICENSE.md"), "{{family}}", family, 
+    xfun::gsub_file(file.path(path, "LICENSE.md"), "{{family}}", family, 
                     fixed = TRUE)
-    xfun::gsub_file(file.path(".", "LICENSE.md"), "{{year}}", year, 
+    xfun::gsub_file(file.path(path, "LICENSE.md"), "{{year}}", year, 
                     fixed = TRUE)
     
-    xfun::gsub_file(file.path(".", "LICENSE"), "{{given}}", given, 
+    xfun::gsub_file(file.path(path, "LICENSE"), "{{given}}", given, 
                     fixed = TRUE)
-    xfun::gsub_file(file.path(".", "LICENSE"), "{{family}}", family, 
+    xfun::gsub_file(file.path(path, "LICENSE"), "{{family}}", family, 
                     fixed = TRUE)
-    xfun::gsub_file(file.path(".", "LICENSE"), "{{year}}", year, 
+    xfun::gsub_file(file.path(path, "LICENSE"), "{{year}}", year, 
                     fixed = TRUE)
   }
   

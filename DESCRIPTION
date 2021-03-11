@@ -1,7 +1,7 @@
 Package: rcompendium
 Type: Package
 Title: Create a Package or Research Compendium Structure
-Version: 0.1
+Version: 0.2
 Authors@R: c(
     person(given   = "Nicolas",
            family  = "Casajus",
@@ -30,7 +30,6 @@ Imports:
     gert,
     gh,
     gtools,
-    here,
     knitr,
     pkgdown,
     rmarkdown,
@@ -43,6 +42,7 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 VignetteBuilder: knitr
 Suggests: 
+    remotes,
     testthat (>= 3.0.0),
     withr
 Config/testthat/edition: 3

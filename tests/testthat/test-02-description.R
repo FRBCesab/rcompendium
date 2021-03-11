@@ -58,7 +58,7 @@ test_that("Check Inputs", {
 test_that("Check Creation - Credentials on the fly", {
   
   create_temp_compendium()
-  
+  print(getwd())
   expect_invisible(
     add_description("John", "Doe", "john.doe@gmail.com", "9999-9999-9999-9999", 
                     "jdoe", open = FALSE, overwrite = FALSE, quiet = TRUE)

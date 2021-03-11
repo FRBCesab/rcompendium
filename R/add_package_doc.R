@@ -30,7 +30,7 @@ add_package_doc <- function(open = TRUE, overwrite = FALSE, quiet = FALSE) {
   stop_if_not_logical(open, overwrite, quiet)
   
   filename <- paste0(get_package_name(), "-package.R")
-  path     <- here::here("R", filename)
+  path     <- file.path(path_proj(), "R", filename)
   
   
   ## Do not replace current file but open it if required ----
@@ -50,20 +50,17 @@ add_package_doc <- function(open = TRUE, overwrite = FALSE, quiet = FALSE) {
   }
   
   
-  if ((file.exists(path) && overwrite) || !file.exists(path)) {
+  if (!dir.exists(file.path(path_proj(), "R")))
+    dir.create(file.path(path_proj(), "R"), showWarnings = FALSE)
   
-    if (!dir.exists(here::here("R")))
-      dir.create(here::here("R"), showWarnings = FALSE)
-    
-    invisible(
-      file.copy(system.file(file.path("templates", "__INDEX__"), 
-                            package = "rcompendium"), path, overwrite = TRUE))
-    
-    
-    if (!quiet) ui_done("Writing {ui_value(paste0('R/', filename))} file")
-    
-    if (open) edit_file(path)
-    
-    invisible(NULL)
-  }
+  invisible(
+    file.copy(system.file(file.path("templates", "__INDEX__"), 
+                          package = "rcompendium"), path, overwrite = TRUE))
+  
+  
+  if (!quiet) ui_done("Writing {ui_value(paste0('R/', filename))} file")
+  
+  if (open) edit_file(path)
+  
+  invisible(NULL)
 }

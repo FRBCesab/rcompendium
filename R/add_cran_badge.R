@@ -42,5 +42,5 @@ add_cran_badge <- function(quiet = FALSE) {
                    "{ui_value('README.Rmd')}"))
   }
   
-  invisible(NULL)
+  invisible(badge)
 }

@@ -1,4 +1,3 @@
-
 # rcompendium <img src="man/figures/hexsticker.png" height="120" align="right"/>
 
 <!-- badges: start -->
@@ -17,7 +16,7 @@ status](https://www.r-pkg.org/badges/version/rcompendium)](https://CRAN.R-projec
 [![LifeCycle](man/figures/lifecycle/lifecycle-stable.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![Project Status:
 Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![Dependencies](https://img.shields.io/badge/dependencies-15/80-red?style=flat)](#)
+[![Dependencies](https://img.shields.io/badge/dependencies-14/80-red?style=flat)](#)
 <!-- badges: end -->
 
 In the area of open science, making reproducible analyses is a strong
@@ -111,18 +110,16 @@ structure:
 You can install the development version from
 [GitHub](https://github.com/) with:
 
-``` r
-## Install < remotes > package (if not already installed) ----
+    ## Install < remotes > package (if not already installed) ----
 
-if (!requireNamespace("remotes", quietly = TRUE)) {
-  install.packages("remotes")
-}
+    if (!requireNamespace("remotes", quietly = TRUE)) {
+      install.packages("remotes")
+    }
 
 
-## Install dev version of < rcompendium > from GitHub ----
+    ## Install dev version of < rcompendium > from GitHub ----
 
-remotes::install_github("FRBCesab/rcompendium")
-```
+    remotes::install_github("FRBCesab/rcompendium")
 
 ## Getting started
 
@@ -134,9 +131,7 @@ and the documentation of the function
 This [repository](https://github.com/FRBCesab/pkgtest) was created by
 running:
 
-``` r
-rcompendium::new_package(organisation = "FRBCesab")
-```
+    rcompendium::new_package(organisation = "FRBCesab")
 
 ## Citation
 
@@ -148,19 +143,17 @@ Please cite this package as:
 
 You can also run:
 
-``` r
-citation("rcompendium")
+    citation("rcompendium")
 
-## A BibTeX entry for LaTeX users is:
-## 
-## @Manual{,
-##   title  = {{rcompendium}: {An} {R} package to create a package or research compendium structure},
-##   author = {{Casajus N.}},
-##   year   = {2021},
-##   note   = {R package version 0.1},
-##   url    = {https://github.com/FRBCesab/rcompendium},
-## }
-```
+    ## A BibTeX entry for LaTeX users is:
+    ## 
+    ## @Manual{,
+    ##   title  = {{rcompendium}: {An} {R} package to create a package or research compendium structure},
+    ##   author = {{Casajus N.}},
+    ##   year   = {2021},
+    ##   note   = {R package version 0.1},
+    ##   url    = {https://github.com/FRBCesab/rcompendium},
+    ## }
 
 ## Contributing
 

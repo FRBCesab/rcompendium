@@ -1,4 +1,4 @@
-## Utilities functions - Handle DESCRIPTION/README.Rmd files ----
+## Utilities functions - Handle files ----
 
 
 
@@ -7,6 +7,7 @@
 #' @noRd
 
 edit_file <- function(path) {
+  
   
   if (rstudioapi::isAvailable() && rstudioapi::hasFun("navigateToFile")) {
     
@@ -21,17 +22,21 @@ edit_file <- function(path) {
 }
 
 
+
 #' **Import DESCRIPTION content**
 #' 
 #' @noRd
 
-read_descr <- function(path = getwd()) { 
+read_descr <- function() { 
+  
   
   is_package()
   
-  descr <- read.dcf(file.path(path, "DESCRIPTION"), 
-                    keep.white = c("Authors@R", "Depends", "Imports", 
-                                   "Suggests"))
+  path <- path_proj()
+  
+  col_names <- colnames(read.dcf(file.path(path, "DESCRIPTION")))
+  
+  descr <- read.dcf(file.path(path, "DESCRIPTION"), keep.white = col_names)
   
   if (nrow(descr) != 1) stop("Malformed 'DESCRIPTION' file")
   
@@ -46,11 +51,14 @@ read_descr <- function(path = getwd()) {
 
 write_descr <- function(descr_file) { 
   
+  
   is_package()
   
-  write.dcf(descr_file, file = file.path(getwd(), "DESCRIPTION"), indent = 4, 
-            width = 80, keep.white = c("Authors@R", "Depends", "Imports", 
-                                       "Suggests"))
+  path <- path_proj()
+  
+  write.dcf(descr_file, file = file.path(path, "DESCRIPTION"), indent = 4, 
+            width = 80, keep.white = colnames(descr_file))
+  
   invisible(NULL)
 }
 
@@ -67,24 +75,21 @@ write_descr <- function(descr_file) {
 add_badge <- function(badge, pattern) {
   
   
+  path <- path_proj()
+  
   ## Checks ----
   
-  if (missing(badge)) {
-    stop("No badge to add in the **README.Rmd**.")  
-  }
+  if (missing(badge))   stop("No badge to add in the 'README.Rmd'.")  
+  if (missing(pattern)) stop("Argument 'pattern' is missing.")  
   
-  if (missing(pattern)) {
-    stop("Argument `pattern` is missing.")  
-  }
-  
-  if (!file.exists(file.path(getwd(), "README.Rmd"))) {
-    stop("The file **README.Rmd** cannot be found.")
+  if (!file.exists(file.path(path, "README.Rmd"))) {
+    stop("The file 'README.Rmd' cannot be found.")
   }
   
   
   ## Read README.Rmd ----
   
-  read_me <- readLines(con = file.path(getwd(), "README.Rmd"))
+  read_me <- readLines(con = file.path(path, "README.Rmd"))
   
   
   ## Check if Badges Locations are present ----
@@ -93,7 +98,9 @@ add_badge <- function(badge, pattern) {
   badge_end   <- grep("<!-- badges: end -->", read_me)
   
   if (!length(badge_start) || !length(badge_start)) {
-    stop("Unable to parse **README.Rmd** file.")
+    stop("Unable to parse badges location in 'README.Rmd' file.\n",
+         "Did you remove the tag '<!-- badges: start -->' and/or ",
+         "'<!-- badges: end -->'?")
   }
   
   
@@ -115,6 +122,7 @@ add_badge <- function(badge, pattern) {
   ## Replace/Add badge ----
   
   pos <- grep(paste0("^\\s{0,}\\[!\\[", pattern), badges)
+  
   if (length(pos)) badges[pos] <- badge else badges <- c(badges, badge)
   
   read_me <- c(read_me[1:badge_start], 
@@ -124,7 +132,8 @@ add_badge <- function(badge, pattern) {
   
   ## Replace README.Rmd ----
   
-  writeLines(read_me, con = file.path(getwd(), "README.Rmd"))
+  writeLines(read_me, con = file.path(path, "README.Rmd"))
+  
   invisible(NULL)
 }
 
@@ -145,7 +154,7 @@ add_sticker <- function(overwrite = FALSE, quiet = FALSE) {
   
   stop_if_not_logical(overwrite, quiet)
   
-  path <- file.path(getwd(), "man", "figures", "hexsticker.png")
+  path <- file.path(path_proj(), "man", "figures", "hexsticker.png")
   
   if (file.exists(path) && !overwrite) {
     
@@ -154,21 +163,18 @@ add_sticker <- function(overwrite = FALSE, quiet = FALSE) {
   }
   
   
-  if ((file.exists(path) && overwrite) || !file.exists(path)) {
+  if (!dir.exists(file.path(path_proj(), "man", "figures")))
+    dir.create(file.path(path_proj(), "man", "figures"), showWarnings = FALSE, 
+               recursive = TRUE)
     
-    if (!dir.exists(file.path(getwd(), "man", "figures")))
-      dir.create(file.path(getwd(), "man", "figures"), showWarnings = FALSE, 
-                 recursive = TRUE)
-    
-    invisible(
-      file.copy(system.file(file.path("templates", "hexsticker.png"), 
-                            package = "rcompendium"), path, overwrite = TRUE))
-    
-    
-    if (!quiet) {
-      ui_done("Adding {ui_value('Sticker')} to {ui_value('README.Rmd')}")
-    }
-    
-    invisible(NULL)
+  invisible(
+    file.copy(system.file(file.path("templates", "hexsticker.png"), 
+                          package = "rcompendium"), path, overwrite = TRUE))
+  
+  
+  if (!quiet) {
+    ui_done("Adding {ui_value('hexsticker.png')} to {ui_value('README.Rmd')}")
   }
+  
+  invisible(NULL)
 }

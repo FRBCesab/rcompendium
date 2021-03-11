@@ -54,39 +54,39 @@ add_lifecycle_badge <- function(lifecycle = "experimental", quiet = FALSE) {
   }
 
   
-  if (!file.exists("README.Rmd")) {
+  if (!file.exists(file.path(path_proj(), "README.Rmd"))) {
     stop("The file 'README.Rmd' cannot be found.")
   }
   
   
   ## Copy SVG ----
   
-  dir.create(here::here("man", "figures", "lifecycle"), showWarnings = FALSE,
-             recursive = TRUE)
+  dir.create(file.path(path_proj(), "man", "figures", "lifecycle"), 
+             showWarnings = FALSE, recursive = TRUE)
   
   invisible(
     file.copy(system.file(file.path("lifecycle", "lifecycle-experimental.svg"), 
                           package = "rcompendium"),
-              here::here("man", "figures", "lifecycle", 
-                         "lifecycle-experimental.svg")))
+              file.path(path_proj(), "man", "figures", "lifecycle", 
+                        "lifecycle-experimental.svg")))
   
   invisible(
     file.copy(system.file(file.path("lifecycle", "lifecycle-stable.svg"), 
                           package = "rcompendium"),
-              here::here("man", "figures", "lifecycle", 
-                         "lifecycle-stable.svg")))
+              file.path(path_proj(), "man", "figures", "lifecycle", 
+                        "lifecycle-stable.svg")))
   
   invisible(
     file.copy(system.file(file.path("lifecycle", "lifecycle-deprecated.svg"), 
                           package = "rcompendium"),
-              here::here("man", "figures", "lifecycle", 
-                         "lifecycle-deprecated.svg")))
+              file.path(path_proj(), "man", "figures", "lifecycle", 
+                        "lifecycle-deprecated.svg")))
   
   invisible(
     file.copy(system.file(file.path("lifecycle", "lifecycle-superseded.svg"), 
                           package = "rcompendium"),
-              here::here("man", "figures", "lifecycle", 
-                         "lifecycle-superseded.svg")))
+              file.path(path_proj(), "man", "figures", "lifecycle", 
+                        "lifecycle-superseded.svg")))
   
   
   ## Create Badge Markdown Expression ----
@@ -101,7 +101,7 @@ add_lifecycle_badge <- function(lifecycle = "experimental", quiet = FALSE) {
   
   ## Add Badge ----
   
-  add_badge(badge, pattern = "LifeCycle")
+  add_badge(badge, pattern = alt)
   
   
   if (!quiet) {
@@ -109,5 +109,5 @@ add_lifecycle_badge <- function(lifecycle = "experimental", quiet = FALSE) {
                    "{ui_value('README.Rmd')}"))
   }
   
-  invisible(NULL)
+  invisible(badge)
 }

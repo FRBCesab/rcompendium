@@ -36,7 +36,7 @@ add_description <- function(given = NULL, family = NULL, email = NULL,
   stop_if_not_logical(open, overwrite, quiet)
   
   
-  path <- file.path(".", "DESCRIPTION")
+  path <- file.path(path_proj(), "DESCRIPTION")
   
   
   ## Do not replace current file but open it if required ----
@@ -75,7 +75,6 @@ add_description <- function(given = NULL, family = NULL, email = NULL,
     
   
   project_name     <- get_package_name()
-  r_version        <- get_r_version()
   roxygen2_version <- get_roxygen2_version()
   
   
@@ -89,7 +88,6 @@ add_description <- function(given = NULL, family = NULL, email = NULL,
   ## Change default values (in file) ----
   
   xfun::gsub_file(path, "{{project_name}}", project_name, fixed = TRUE)
-  xfun::gsub_file(path, "{{r_version}}", r_version, fixed = TRUE)
   xfun::gsub_file(path, "{{roxygen2_version}}", roxygen2_version, fixed = TRUE)
   xfun::gsub_file(path, "{{given}}", given, fixed = TRUE)
   xfun::gsub_file(path, "{{family}}", family, fixed = TRUE)

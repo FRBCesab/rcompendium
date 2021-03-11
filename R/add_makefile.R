@@ -30,7 +30,7 @@ add_makefile <- function(given = NULL, family = NULL, email = NULL,
   
   stop_if_not_logical(open, overwrite, quiet)
   
-  path <- here::here("make.R")
+  path <- file.path(path_proj(), "make.R")
   
   
   ## Do not replace current file but open it if required ----
@@ -50,47 +50,43 @@ add_makefile <- function(given = NULL, family = NULL, email = NULL,
   }
   
   
-  if ((file.exists(path) && overwrite) || !file.exists(path)) {
+  ## Get fields values ----
+    
+  if (is.null(given))  given  <- getOption("given")
+  if (is.null(family)) family <- getOption("family")
+  if (is.null(email))  email  <- getOption("email")
+  
+  stop_if_not_string(given, family, email)
   
   
-    ## Get fields values ----
-    
-    if (is.null(given))  given  <- getOption("given")
-    if (is.null(family)) family <- getOption("family")
-    if (is.null(email))  email  <- getOption("email")
-    
-    stop_if_not_string(given, family, email)
-    
-    
-    project_name <- get_package_name()
-    today        <- format(Sys.time(), "%Y/%m/%d")
-    
-    
-    ## Copy Template ----
-    
-    invisible(
-      file.copy(system.file(file.path("templates", "__MAKE__"), 
-                            package = "rcompendium"), path, overwrite = TRUE))
-    
-    
-    ## Update default values ----
-    
-    
-    xfun::gsub_file(path, "{{date}}", today, fixed = TRUE)
-    xfun::gsub_file(path, "{{project_name}}", project_name, fixed = TRUE)
-    xfun::gsub_file(path, "{{given}}", given, fixed = TRUE)
-    xfun::gsub_file(path, "{{family}}", family, fixed = TRUE)
-    xfun::gsub_file(path, "{{email}}", email, fixed = TRUE)
-    
-    
-    ## Message ----
-    
-    if (!quiet) ui_done("Writing {ui_value('make.R')} file")
-    
-    add_to_buildignore("make.R", quiet = quiet)
-    
-    if (open) edit_file(path)
-    
-    invisible(NULL)
-  }
+  project_name <- get_package_name()
+  today        <- format(Sys.time(), "%Y/%m/%d")
+  
+  
+  ## Copy Template ----
+  
+  invisible(
+    file.copy(system.file(file.path("templates", "__MAKE__"), 
+                          package = "rcompendium"), path, overwrite = TRUE))
+  
+  
+  ## Update default values ----
+  
+  
+  xfun::gsub_file(path, "{{date}}", today, fixed = TRUE)
+  xfun::gsub_file(path, "{{project_name}}", project_name, fixed = TRUE)
+  xfun::gsub_file(path, "{{given}}", given, fixed = TRUE)
+  xfun::gsub_file(path, "{{family}}", family, fixed = TRUE)
+  xfun::gsub_file(path, "{{email}}", email, fixed = TRUE)
+  
+  
+  ## Message ----
+  
+  if (!quiet) ui_done("Writing {ui_value('make.R')} file")
+  
+  add_to_buildignore("make.R", quiet = quiet)
+  
+  if (open) edit_file(path)
+  
+  invisible(NULL)
 }

@@ -1,3 +1,7 @@
+## Utilities functions - External Dependencies ----
+
+
+
 #' **Detect dependencies in R functions**
 #' 
 #' Detect dependencies in R functions as `pkg::fun()`.
@@ -6,12 +10,16 @@
 
 get_deps_in_functions_r <- function() {
   
-  if (!dir.exists(here::here("R"))) {
+  
+  is_package()
+  path <- path_proj()
+  
+  if (!dir.exists(file.path(path, "R"))) {
     stop("The directory 'R/' cannot be found.")
   }
   
   
-  x <- list.files(path = here::here("R"), pattern = "\\.R$", 
+  x <- list.files(path = file.path(path, "R"), pattern = "\\.R$", 
                   full.names = TRUE, ignore.case = TRUE)
   
   
@@ -57,6 +65,9 @@ get_deps_in_functions_r <- function() {
       
     } else {
       
+      pos <- grep(get_package_name(), funs)
+      if (length(pos)) funs <- funs[-pos]
+      
       return(sort(unique(funs)))
     }
   }
@@ -72,9 +83,13 @@ get_deps_in_functions_r <- function() {
 
 get_deps_in_namespace <- function() {
   
-  if (file.exists(here::here("NAMESPACE"))) {
+  
+  is_package()
+  path <- path_proj()
+  
+  if (file.exists(file.path(path, "NAMESPACE"))) {
     
-    namespace <- readLines(con = here::here("NAMESPACE"), warn = FALSE)
+    namespace <- readLines(con = file.path(path, "NAMESPACE"), warn = FALSE)
     
     imports <- gsub("importFrom\\(|import\\(|\\)", "", 
                     namespace[grep("^import", namespace)])
@@ -91,6 +106,7 @@ get_deps_in_namespace <- function() {
   } else {
     
     ui_oops("No {ui_value('NAMESPACE')} file found")
+    
     return(NULL)
   }
 }
@@ -102,15 +118,21 @@ get_deps_in_namespace <- function() {
 #' Detect dependencies in **@examples** as `pkg::fun()`, `library(pkg)`, and
 #' `require(pkg)`.
 #' 
+#' @note Not perfect - Need to detect exactly @@examples
+#' 
 #' @noRd
 
 get_deps_in_examples <- function() { 
   
-  if (!dir.exists(here::here("R"))) {
+  
+  is_package()
+  path <- path_proj()
+  
+  if (!dir.exists(file.path(path, "R"))) {
     stop("The directory 'R/' cannot be found.")
   }
   
-  x <- list.files(path = here::here("R"), pattern = "\\.R$", 
+  x <- list.files(path = file.path(path, "R"), pattern = "\\.R$", 
                   full.names = TRUE, ignore.case = TRUE)
   
   if (!length(x)) {
@@ -125,7 +147,7 @@ get_deps_in_examples <- function() {
     x <- lapply(x, function(x) readLines(con = x, warn = FALSE))
     
     
-    ## Select comments ----
+    ## Select roxygen2 headers ----
     
     x <- lapply(x, function(x) x[grep("^\\s*#'", x)] )
     
@@ -163,6 +185,9 @@ get_deps_in_examples <- function() {
       
     } else {
       
+      pos <- grep(get_package_name(), funs)
+      if (length(pos)) funs <- funs[-pos]
+      
       return(sort(unique(funs)))
     }
   }  
@@ -174,26 +199,37 @@ get_deps_in_examples <- function() {
 #' 
 #' Detect dependencies in additional folder as `pkg::fun()`, `library(pkg)`, 
 #' and `require(pkg)`. If `.Rmd` files are detected packages `knitr` and 
-#' `rmarkdown` are added to function return.
+#' `rmarkdown` are added to function return. 
 #' 
 #' @noRd
 
-get_deps_extra <- function(import = NULL) { 
+get_deps_extra <- function(compendium = NULL) { 
   
-  if (is.null(import)) {
-    return(NULL)
-  }
   
-  if (!dir.exists(here::here(import))) {
-    return(NULL)
-  }
+  if (is.null(compendium)) return(NULL)
   
-  x <- list.files(path = here::here(import), pattern = "\\.R$|\\.Rmd$", 
+  stop_if_not_string(compendium)
+  
+  is_package()
+  path <- path_proj()
+  
+  if (compendium == "." || compendium == path) compendium <- ""
+  
+  if (!dir.exists(file.path(path, compendium))) return(NULL)
+  
+  
+  x <- list.files(path = file.path(path, compendium), pattern = "\\.R$|\\.Rmd$", 
                   full.names = TRUE, ignore.case = TRUE, recursive = TRUE)
+  
+  pos <- grep(paste0(.Platform$file.sep, 
+                     "(tests|vignettes|inst)", 
+                     .Platform$file.sep, "|README"), x)
+  
+  if (length(pos)) x <- x[-pos]
   
   if (!length(x)) {
     
-    ui_oops("The {ui_value(paste0(import, '/'))} folder is empty")
+    ui_oops("The {ui_value(paste0(compendium, '/'))} folder is empty")
     
     return(NULL)
     
@@ -247,7 +283,7 @@ get_deps_extra <- function(import = NULL) {
     
     ## Check if .Rmd ----
     
-    x <- list.files(path = here::here(import), pattern = "\\.Rmd$", 
+    x <- list.files(path = file.path(file, compendium), pattern = "\\.Rmd$", 
                     full.names = TRUE, ignore.case = TRUE, recursive = TRUE)
     
     if (length(x)) funs <- sort(unique(c(funs, "knitr", "rmarkdown")))
@@ -258,6 +294,9 @@ get_deps_extra <- function(import = NULL) {
       return(NULL)
       
     } else {
+      
+      pos <- grep(get_package_name(), funs)
+      if (length(pos)) funs <- funs[-pos]
       
       return(sort(unique(funs)))
     }
@@ -274,22 +313,25 @@ get_deps_extra <- function(import = NULL) {
 #' 
 #' @noRd
 
-get_deps_in_vignettes <- function(suggest = "vignettes") { 
+get_deps_in_vignettes <- function() { 
   
-  if (is.null(suggest)) {
+  
+  is_package()
+  path <- path_proj()
+  
+  
+  if (!dir.exists(file.path(path, "vignettes"))) {
+    ui_oops("No {ui_value('vignettes/'))} folder found.")
     return(NULL)
   }
   
-  if (!dir.exists(here::here(suggest))) {
-    return(NULL)
-  }
-  
-  x <- list.files(path = here::here(suggest), pattern = "\\.R$|\\.Rmd$", 
-                  full.names = TRUE, ignore.case = TRUE, recursive = TRUE)
+  x <- list.files(path = file.path(path, "vignettes"), 
+                  pattern = "\\.R$|\\.Rmd$", full.names = TRUE, 
+                  ignore.case = TRUE, recursive = TRUE)
   
   if (!length(x)) {
     
-    ui_oops("The {ui_value(paste0(suggest, '/'))} folder is empty")
+    ui_oops("The {ui_value('vignettes/'))} folder is empty")
     
     return(NULL)
     
@@ -343,7 +385,7 @@ get_deps_in_vignettes <- function(suggest = "vignettes") {
     
     ## Check if .Rmd ----
     
-    x <- list.files(path = here::here(suggest), pattern = "\\.Rmd$", 
+    x <- list.files(path = file.path(path, "vignettes"), pattern = "\\.Rmd$", 
                     full.names = TRUE, ignore.case = TRUE, recursive = TRUE)
     
     if (length(x)) funs <- sort(unique(c(funs, "knitr", "rmarkdown")))
@@ -354,6 +396,102 @@ get_deps_in_vignettes <- function(suggest = "vignettes") {
       return(NULL)
       
     } else {
+      
+      pos <- grep(get_package_name(), funs)
+      if (length(pos)) funs <- funs[-pos]
+      
+      return(sort(unique(funs)))
+    }
+  } 
+}
+
+
+
+#' **Detect dependencies in TESTS**
+#' 
+#' Detect dependencies in Tests as `pkg::fun()`, `library(pkg)`, 
+#' and `require(pkg)`.
+#' 
+#' @noRd
+
+get_deps_in_tests <- function() { 
+  
+  
+  is_package()
+  path <- path_proj()
+  
+  
+  if (!dir.exists(file.path(path, "tests"))) {
+    ui_oops("No {ui_value('tests/'))} folder found.")
+    return(NULL)
+  }
+  
+  x <- list.files(path = file.path(path, "tests"), 
+                  pattern = "\\.R$", full.names = TRUE, 
+                  ignore.case = TRUE, recursive = TRUE)
+  
+  if (!length(x)) {
+    
+    ui_oops("The {ui_value('tests/'))} folder is empty")
+    
+    return(NULL)
+    
+  } else {
+    
+    
+    ## Read R files ----
+    
+    x <- lapply(x, function(x) readLines(con = x, warn = FALSE))
+    
+    
+    ## Remove comments ----
+    
+    x <- lapply(x, function(x) {
+      comments <- grep("^\\s*#", x)
+      if (length(comments)) x[-comments] else x })
+    
+    
+    ## Remove messages ----
+    
+    x <- lapply(x, function(x) gsub("\".*\"", "", x))
+    x <- lapply(x, function(x) gsub("\'.*\'", "", x))
+    
+    
+    ## Functions called as pkg::fun() ----
+    
+    pattern <- "[A-Z|a-z|0-9|\\.]{1,}::[A-Z|a-z|0-9|\\.|_]{1,}"
+    
+    funs <- unlist(lapply(x, function(x) {
+      unlist(stringr::str_extract_all(x, pattern))
+    }))
+    
+    
+    ## Attached Packages ----
+    
+    pattern <- c("library\\(([A-Z|a-z|0-9|\\.]{1,}|\"[A-Z|a-z|0-9|\\.]{1,}\")",
+                 "require\\(([A-Z|a-z|0-9|\\.]{1,}|\"[A-Z|a-z|0-9|\\.]{1,}\")")
+    pattern <- paste0(pattern, collapse = "|")
+    
+    pkgs <- unlist(lapply(x, function(x) {
+      unlist(stringr::str_extract_all(x, pattern))
+    }))
+    
+    pkgs <- gsub("library\\(|require\\(|\"", "", pkgs)
+    
+    
+    ## Merge dependencies ----
+    
+    funs <- sort(unique(c(funs, pkgs)))
+    
+    
+    if (!length(funs)) {
+      
+      return(NULL)
+      
+    } else {
+      
+      pos <- grep(get_package_name(), funs)
+      if (length(pos)) funs <- funs[-pos]
       
       return(sort(unique(funs)))
     }

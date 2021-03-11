@@ -19,13 +19,16 @@
     <loc>https://frbcesab.github.io/rcompendium/reference/add_description.html</loc>
   </url>
   <url>
-    <loc>https://frbcesab.github.io/rcompendium/reference/add_github_actions_badge.html</loc>
-  </url>
-  <url>
     <loc>https://frbcesab.github.io/rcompendium/reference/add_github_actions_check.html</loc>
   </url>
   <url>
+    <loc>https://frbcesab.github.io/rcompendium/reference/add_github_actions_check_badge.html</loc>
+  </url>
+  <url>
     <loc>https://frbcesab.github.io/rcompendium/reference/add_github_actions_pkgdown.html</loc>
+  </url>
+  <url>
+    <loc>https://frbcesab.github.io/rcompendium/reference/add_github_actions_pkgdown_badge.html</loc>
   </url>
   <url>
     <loc>https://frbcesab.github.io/rcompendium/reference/add_license.html</loc>

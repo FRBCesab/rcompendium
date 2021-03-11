@@ -91,7 +91,7 @@ vignettes/ if these two packages are not present in the Imports field)." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rcompendium</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2</span>
       </span>
     </div>
 
@@ -161,23 +161,17 @@ or in <code>Suggests</code> field of <strong>DESCRIPTION</strong> file (for <cod
 <strong>vignettes/</strong> if these two packages are not present in the <code>Imports</code> field).</p>
     </div>
 
-    <pre class="usage"><span class='fu'>add_dependencies</span><span class='op'>(</span>import <span class='op'>=</span> <span class='cn'>NULL</span>, suggest <span class='op'>=</span> <span class='st'>"vignettes"</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>add_dependencies</span><span class='op'>(</span>compendium <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>import</th>
+      <th>compendium</th>
       <td><p>(optional) the name of the folder to recursively detect
 dependencies to be added in the <code>Imports</code> field of <strong>DESCRIPTION</strong> file.
-Default is <code>import = NULL</code> (but <strong>R/</strong>, <strong>NAMESPACE</strong>, and <code>@examples</code> are
-still inspected).</p></td>
-    </tr>
-    <tr>
-      <th>suggest</th>
-      <td><p>the name of the folder to recursively detect dependencies to
-be added in the <code>Suggests</code> field of <strong>DESCRIPTION</strong> file.
-Default is <code>suggest = "vignettes"</code>.</p></td>
+Default is <code>compendium = NULL</code> (but <strong>R/</strong>, <strong>NAMESPACE</strong>, and <code>@examples</code>
+are still inspected).</p></td>
     </tr>
     </table>
 

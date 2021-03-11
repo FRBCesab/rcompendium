@@ -80,7 +80,7 @@ Run analysis by sourcing make.R (only for compendium).
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rcompendium</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2</span>
       </span>
     </div>
 
@@ -139,17 +139,17 @@ Run analysis by sourcing make.R (only for compendium).
 
     </div>
 
-    <pre class="usage"><span class='fu'>refresh</span><span class='op'>(</span>import <span class='op'>=</span> <span class='cn'>NULL</span>, make <span class='op'>=</span> <span class='cn'>FALSE</span>, check <span class='op'>=</span> <span class='cn'>TRUE</span>, quiet <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>refresh</span><span class='op'>(</span>compendium <span class='op'>=</span> <span class='cn'>NULL</span>, make <span class='op'>=</span> <span class='cn'>FALSE</span>, check <span class='op'>=</span> <span class='cn'>TRUE</span>, quiet <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>import</th>
+      <th>compendium</th>
       <td><p>(optional) the name of the folder to recursively detect
 dependencies to be added in the <code>Imports</code> field of <strong>DESCRIPTION</strong> file.
-Default is <code>import = NULL</code> (but <strong>R/</strong>, <strong>NAMESPACE</strong>, and <code>@examples</code> are
-still inspected).</p></td>
+Default is <code>compendium = NULL</code> (but <strong>R/</strong>, <strong>NAMESPACE</strong>, and <code>@examples</code>
+are still inspected).</p></td>
     </tr>
     <tr>
       <th>make</th>

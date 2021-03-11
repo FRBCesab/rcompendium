@@ -29,8 +29,8 @@ jobs:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
-      - name: Install system dependencies
-        if: runner.os == 'Linux'
+      - name: Install with homebrew
+        if: runner.os == 'macOS'
         run: brew install harfbuzz fribidi
         
       - uses: actions/checkout@v2

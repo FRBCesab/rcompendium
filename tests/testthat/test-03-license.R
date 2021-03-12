@@ -69,7 +69,7 @@ test_that("Check Files and Overwrite", {
   expect_false("LICENSE" %in% list.files(getwd()))
   
   content <- readLines("LICENSE.md")
-  expect_length(grep("GNU GENERAL PUBLIC LICENSE", content[1]), n = 1)
+  expect_length(grep("GNU General Public License", content[1]), n = 1)
 })
 
 test_that("Check DESCRIPTION Fields", {

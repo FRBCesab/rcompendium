@@ -5,7 +5,7 @@
 \title{Create an R package structure}
 \usage{
 new_package(
-  license = "MIT",
+  license = "GPL (>= 2)",
   status = "concept",
   lifecycle = "experimental",
   vignette = TRUE,
@@ -27,7 +27,7 @@ new_package(
 \item{license}{a character vector of length 1
 
 The license to be used for this package. Run \code{\link[=get_licenses]{get_licenses()}} to choose an
-appropriate one. Default is \code{license = 'MIT'}
+appropriate one. Default is \code{license = 'GPL (>= 2)'}
 
 The license can be changed later by using \code{\link[=add_license]{add_license()}} (and
 \code{\link[=add_license_badge]{add_license_badge()}} or \code{\link[=refresh]{refresh()}} to update the corresponding badge).}

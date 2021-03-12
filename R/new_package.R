@@ -31,7 +31,7 @@
 #' @param license a character vector of length 1
 #' 
 #'   The license to be used for this package. Run [get_licenses()] to choose an 
-#'   appropriate one. Default is `license = 'MIT'` 
+#'   appropriate one. Default is `license = 'GPL (>= 2)'` 
 #'   
 #'   The license can be changed later by using [add_license()] (and 
 #'   [add_license_badge()] or [refresh()] to update the corresponding badge).
@@ -306,7 +306,7 @@
 #' refresh()
 #' }
 
-new_package <- function(license = "MIT", status = "concept", 
+new_package <- function(license = "GPL (>= 2)", status = "concept", 
                         lifecycle = "experimental", vignette = TRUE, 
                         create_repo = TRUE, private = FALSE, gh_check = TRUE, 
                         website = TRUE, given = NULL, family = NULL, 

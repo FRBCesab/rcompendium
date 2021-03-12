@@ -2,6 +2,14 @@
 
 
 
+#' **Check if project is versioned**
+#' 
+#' @noRd
+
+is_git <- function() dir.exists(file.path(path_proj(), ".git"))
+
+
+
 #' **Update GitHub Repository Informations**
 #' 
 #' @description

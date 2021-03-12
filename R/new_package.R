@@ -477,7 +477,7 @@ new_package <- function(license = "MIT", status = "concept",
   
   ## Init GIT (if required) ----
   
-  if (!dir.exists(file.path(path_proj(), ".git"))) {
+  if (!is_git()) {
     
     gert::git_init(file.path(path_proj(), ".git"))
     ui_done("Init {ui_value('git')} versioning")

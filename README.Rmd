@@ -176,7 +176,7 @@ citation("rcompendium")
 ##   title  = {{rcompendium}: {An} {R} package to create a package or research compendium structure},
 ##   author = {{Casajus N.}},
 ##   year   = {2021},
-##   note   = {R package version 0.2},
+##   note   = {R package version 0.3},
 ##   url    = {https://github.com/FRBCesab/rcompendium},
 ## }
 ```

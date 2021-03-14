@@ -6,7 +6,7 @@
 #' recommended to store them in the `.Rprofile` file with [set_credentials()].
 #' 
 #' @param organisation a character. The name of the GITHUB organisation to
-#'   host the package. If `NULL` it uses the GITHUB account.
+#'   host the package. If `NULL` the GITHUB account will be used.
 #'   
 #' @param open a logical value. If `TRUE` (default) the file is opened in the 
 #'   editor.
@@ -25,12 +25,12 @@
 #'
 #' @examples
 #' \dontrun{
-#' add_description(organisation = "FRBCesab")
+#' add_description(organisation = "MySociety")
 #' }
 
 add_description <- function(given = NULL, family = NULL, email = NULL, 
-                            orcid = NULL, github = NULL, organisation = NULL, 
-                            open = TRUE, overwrite = FALSE, quiet = FALSE) {
+                            orcid = NULL, organisation = NULL, open = TRUE, 
+                            overwrite = FALSE, quiet = FALSE) {
   
   
   stop_if_not_logical(open, overwrite, quiet)
@@ -64,10 +64,19 @@ add_description <- function(given = NULL, family = NULL, email = NULL,
   if (is.null(orcid))  orcid  <- getOption("orcid")
   
   if (!is.null(organisation)) {
+    
     github <- organisation
+    
   } else {
-    if (is.null(github)) github <- getOption("github")  
+    
+    github <- gh::gh_whoami()$"login"
+    
+    if (is.null(github)) {
+      stop("Unable to find GitHub username. Please run ", 
+           "`?gert::git_config_global` for more information.")
+    }
   }
+  
   
   stop_if_not_string(given, family, email, github)
   

@@ -129,20 +129,10 @@
 #'   For further information see [set_credentials()] and below the section 
 #'   **Managing Credentials**.
 #' 
-#' @param github a character vector of length 1
-#' 
-#'   The GitHub pseudo of the maintainer of the package. It will be used to 
-#'   create the repository on GitHub unless `!is.null(organisation)` (the
-#'   repository will be created on the GitHub organisation specified by the
-#'   argument `organisation`).
-#'   
-#'   If `NULL` (default) the function will try to get this value by reading 
-#'   the `.Rprofile` file (unless `!is.null(organisation)`). 
-#' 
 #' @param organisation a character vector of length 1
 #' 
 #'   The GitHub organisation to host the repository. If defined it will 
-#'   overwrite the argument `github`.
+#'   overwrite the GitHub pseudo.
 #' 
 #'   Default is `organisation = NULL` (the GitHub pseudo will be used).
 #' 
@@ -310,8 +300,8 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
                         lifecycle = "experimental", vignette = TRUE, 
                         create_repo = TRUE, private = FALSE, gh_check = TRUE, 
                         website = TRUE, given = NULL, family = NULL, 
-                        email = NULL, orcid = NULL, github = NULL, 
-                        organisation = NULL, overwrite = FALSE, quiet = FALSE) {
+                        email = NULL, orcid = NULL, organisation = NULL, 
+                        overwrite = FALSE, quiet = FALSE) {
   
   
   ## If not RStudio ----
@@ -321,28 +311,26 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   }
   
   
-  ## Check inceptions ----
+  ## Check for inceptions ----
   
   git_in_git()
   proj_in_proj()
   
   
+  ## Check if git is well configured ----
+  
+  github <- gh::gh_whoami()$"login"
+  
+  if (is.null(github)) {
+    stop("Unable to find GitHub username. Please run ", 
+         "`?gert::git_config_global` for more information.")
+  }
+  
+  
   ## Check for package name ----
   
   project_name <- get_package_name()
-  
-  # response <- ui_yeah("Is your project name correct: {ui_value(project_name)}?", 
-  #                     yes = "Absolutely", no = "Not at all", n_no = 1, 
-  #                     shuffle = FALSE)
-  # 
-  # if (!response) {
-  #   
-  #   ui_oops(paste0("Please open R/RStudio in the adequate (empty) folder ", 
-  #                  "(create it if necessary).\n  ", 
-  #                  "** The project will be named after this folder **"))
-  #   
-  #   return(invisible(NULL))
-  # }
+
   
   
   ## Check License ----
@@ -356,6 +344,7 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   ## Check mandatory credentials ----
   
   if (is.null(given)) {
+    
     given <- getOption("given")
     if (is.null(given)) {
       stop("Please provide a given name. Use `set_credentials()` to ", 
@@ -376,16 +365,6 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
     if (is.null(email)) {
       stop("Please provide an email address. Use `set_credentials()` to ", 
            "store it permanently or use the argument `email`.")
-    }
-  }
-  
-  if (is.null(organisation)) {
-    if (is.null(github)) {
-      github <- getOption("github")
-      if (is.null(github)) {
-        stop("Please provide a GITHUB pseudo. Use `set_credentials()` to ", 
-             "store it permanently or use the argument `github`.")
-      }
     }
   }
   
@@ -417,7 +396,7 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
         
         github_url <- paste0("https://", "github.com/", organisation, "/", 
                              project_name)
-        stop("Repository < ", github_url, " > already exist.")
+        stop("Repository < ", github_url, " > already exists.")
       }
       
     } else {
@@ -426,7 +405,7 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
         
         github_url <- paste0("https://", "github.com/", github, "/", 
                              project_name)
-        stop("Repository < ", github_url, " > already exist.")
+        stop("Repository < ", github_url, " > already exists.")
       }
     }
     
@@ -443,7 +422,7 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
     if (!(tolower(status) %in% c("concept", "wip", "suspended", "abandoned", 
                                  "active", "inactive", "unsupported"))) {
       
-      stop("Invalid Repo status. Please use `?add_repostatus_badge()` to ",
+      stop("Invalid Repo status. Please run `?add_repostatus_badge` to ",
            "select an appropriate one.")
     }  
   }
@@ -455,7 +434,7 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
     if (!(tolower(lifecycle) %in% c("experimental", "stable", "deprecated", 
                                     "superseded"))) {
       
-      stop("Invalid Life cycle. Please use `?add_lifecycle_badge()` to ",
+      stop("Invalid Life cycle. Please run `?add_lifecycle_badge` to ",
            "select an appropriate one.")
     }  
   }
@@ -479,7 +458,7 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   
   if (!is_git()) {
     
-    gert::git_init(file.path(path_proj(), ".git"))
+    gert::git_init(file.path(path_proj()))
     ui_done("Init {ui_value('git')} versioning")
   }
   
@@ -515,8 +494,8 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   
   ## Create DESCRIPTION ----
   
-  add_description(given, family, email, orcid, github, organisation, 
-                  open = FALSE, overwrite = overwrite, quiet = quiet)
+  add_description(given, family, email, orcid, organisation, open = FALSE, 
+                  overwrite = overwrite, quiet = quiet)
   
   if (!quiet) ui_line()
   
@@ -546,8 +525,10 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   
   add_package_doc(open = FALSE, overwrite = overwrite, quiet = quiet)
   
-  add_citation(given, family, github, organisation, open = FALSE, 
+  add_citation(given, family, organisation, open = FALSE, 
                overwrite = overwrite, quiet = quiet)
+  
+  suppressMessages(devtools::document(quiet = TRUE))
   
   
   
@@ -575,25 +556,10 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   
   
   
-  add_readme_rmd(type = "package", given, family, github, organisation, 
-                 open = FALSE, overwrite = overwrite, quiet = quiet)
+  add_readme_rmd(type = "package", given, family, organisation, open = FALSE, 
+                 overwrite = overwrite, quiet = quiet)
   
   add_sticker(overwrite = overwrite, quiet = quiet)
-  
-  
-  
-  ##
-  ## CHECKING DEPENDENCIES ----
-  ## 
-  
-  
-  
-  # ui_title("Checking Dependencies")
-  
-  
-  # add_dependencies(suggest = NULL)
-  
-  suppressMessages(devtools::document(quiet = TRUE))
   
   
   
@@ -728,11 +694,11 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   
   
   if (gh_check) {
-    add_github_actions_check_badge(github, organisation, quiet = quiet)
+    add_github_actions_check_badge(organisation, quiet = quiet)
   }
   
   if (website) {
-    add_github_actions_pkgdown_badge(github, organisation, quiet = quiet)
+    add_github_actions_pkgdown_badge(organisation, quiet = quiet)
   }
   
   add_cran_badge(quiet = quiet)

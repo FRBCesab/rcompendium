@@ -17,7 +17,6 @@ new_package(
   family = NULL,
   email = NULL,
   orcid = NULL,
-  github = NULL,
   organisation = NULL,
   overwrite = FALSE,
   quiet = FALSE
@@ -125,20 +124,10 @@ function will try to get this value by reading the \code{.Rprofile} file.
 For further information see \code{\link[=set_credentials]{set_credentials()}} and below the section
 \strong{Managing Credentials}.}
 
-\item{github}{a character vector of length 1
-
-The GitHub pseudo of the maintainer of the package. It will be used to
-create the repository on GitHub unless \code{!is.null(organisation)} (the
-repository will be created on the GitHub organisation specified by the
-argument \code{organisation}).
-
-If \code{NULL} (default) the function will try to get this value by reading
-the \code{.Rprofile} file (unless \code{!is.null(organisation)}).}
-
 \item{organisation}{a character vector of length 1
 
 The GitHub organisation to host the repository. If defined it will
-overwrite the argument \code{github}.
+overwrite the GitHub pseudo.
 
 Default is \code{organisation = NULL} (the GitHub pseudo will be used).}
 

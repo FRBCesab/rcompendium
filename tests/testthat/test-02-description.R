@@ -1,5 +1,7 @@
 ## DESCRIPTION FILE ----
 
+#' @note Need to use GitHub organization to test functions on GH servers.
+
 test_that("Check Inputs", {
   
   
@@ -27,31 +29,26 @@ test_that("Check Inputs", {
   
   # Simulation of no Rprofile (set_credentials() not used)...
   withr::local_options(list("given" = NULL, "family" = NULL, "email" = NULL,
-                            "orcid" = NULL, "github" = NULL)) 
+                            "orcid" = NULL)) 
   
   expect_error(
-    add_description(open = FALSE, overwrite = FALSE, quiet = TRUE)
+    add_description(organisation = "society", open = FALSE, overwrite = FALSE, 
+                    quiet = TRUE)
   )
   
   expect_error(
-    add_description(given = "John", open = FALSE, overwrite = FALSE, 
-                    quiet = TRUE)
+    add_description(given = "John", organisation = "society", open = FALSE, 
+                    overwrite = FALSE, quiet = TRUE)
   )
 
   expect_error(
-    add_description(c("John", "Doe"), open = FALSE, overwrite = FALSE, 
-                    quiet = TRUE)
-  )
-  
-  expect_error(
-    add_description(given = "John", family = "Doe", open = FALSE, 
+    add_description(c("John", "Doe"), organisation = "society", open = FALSE, 
                     overwrite = FALSE, quiet = TRUE)
   )
   
   expect_error(
-    add_description(given = "John", family = "Doe", 
-                    email = "john.doe@gmail.com", open = FALSE, 
-                    overwrite = FALSE, quiet = TRUE)
+    add_description(given = "John", family = "Doe", organisation = "society", 
+                    open = FALSE, overwrite = FALSE, quiet = TRUE)
   )
 })
 
@@ -61,7 +58,8 @@ test_that("Check Creation - Credentials on the fly", {
   
   expect_invisible(
     add_description("John", "Doe", "john.doe@gmail.com", "9999-9999-9999-9999", 
-                    "jdoe", open = FALSE, overwrite = FALSE, quiet = TRUE)
+                    organisation = "society", open = FALSE, overwrite = FALSE, 
+                    quiet = TRUE)
   )
   
   expect_true("DESCRIPTION" %in% list.files(getwd()))
@@ -74,10 +72,11 @@ test_that("Check Creation - Credentials in Rprofile", {
   
   withr::local_options(list("given" = "john", "family" = "doe", 
                             "email" = "john.doe@gmail.com",
-                            "orcid" = "9999-9999-9999-9999", "github" = "jdoe"))
+                            "orcid" = "9999-9999-9999-9999"))
 
   expect_invisible(
-    add_description(open = FALSE, overwrite = FALSE, quiet = TRUE)
+    add_description(organisation = "society", open = FALSE, overwrite = FALSE, 
+                    quiet = TRUE)
   )
   
   expect_true("DESCRIPTION" %in% list.files(getwd()))
@@ -89,16 +88,18 @@ test_that("Check Overwrite", {
   
   withr::local_options(list("given" = "john", "family" = "doe", 
                             "email" = "john.doe@gmail.com",
-                            "orcid" = "9999-9999-9999-9999", "github" = "jdoe"))
+                            "orcid" = "9999-9999-9999-9999"))
   
   expect_invisible(
-    add_description(open = FALSE, overwrite = FALSE, quiet = TRUE)
+    add_description(organisation = "society", open = FALSE, overwrite = FALSE, 
+                    quiet = TRUE)
   )
   
   expect_true("DESCRIPTION" %in% list.files(getwd()))
   
   expect_error(
-    add_description(open = FALSE, overwrite = FALSE, quiet = TRUE)
+    add_description(organisation = "society", open = FALSE, overwrite = FALSE, 
+                    quiet = TRUE)
   )
 })
 
@@ -108,9 +109,10 @@ test_that("Check File Content", {
   
   withr::local_options(list("given" = "john", "family" = "doe", 
                             "email" = "john.doe@gmail.com",
-                            "orcid" = "9999-9999-9999-9999", "github" = "jdoe"))
+                            "orcid" = "9999-9999-9999-9999"))
   
-  add_description(open = FALSE, overwrite = FALSE, quiet = TRUE)
+  add_description(organisation = "society", open = FALSE, overwrite = FALSE, 
+                  quiet = TRUE)
   
   expect_length(grep(options()$given,  read_descr()$`Authors@R`), n = 1)
   expect_length(grep(options()$family, read_descr()$`Authors@R`), n = 1)
@@ -118,8 +120,6 @@ test_that("Check File Content", {
   expect_length(grep(options()$orcid,  read_descr()$`Authors@R`), n = 1)
   
   expect_equal(read_descr()$"Package", "pkgtest")
-  expect_equal(read_descr()$"URL", "https://github.com/jdoe/pkgtest")
-  expect_equal(read_descr()$"BugReports", "https://github.com/jdoe/pkgtest/issues")
 })
 
 test_that("Check Creation - GitHub Organisation", {
@@ -128,7 +128,7 @@ test_that("Check Creation - GitHub Organisation", {
   
   withr::local_options(list("given" = "john", "family" = "doe", 
                             "email" = "john.doe@gmail.com",
-                            "orcid" = "9999-9999-9999-9999", "github" = "jdoe"))
+                            "orcid" = "9999-9999-9999-9999"))
  
   add_description(organisation = "society", open = FALSE, overwrite = FALSE, 
                     quiet = TRUE)

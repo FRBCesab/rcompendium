@@ -6,7 +6,7 @@
 #' edit by hand some information (title, version, etc.).
 #' 
 #' @param organisation a character. The name of the GITHUB organisation to
-#'   host the package. If `NULL` it uses the GITHUB account.
+#'   host the package. If `NULL` the GITHUB account will be used.
 #'   
 #' @param open a logical value. If `TRUE` (default) the file is opened in the 
 #'   editor.
@@ -30,9 +30,8 @@
 #' citation("pkg")    # If you have installed your package <pkg>
 #' }
 
-add_citation <- function(given = NULL, family = NULL, github = NULL, 
-                         organisation = NULL, open = TRUE, overwrite = FALSE,
-                         quiet = FALSE) { 
+add_citation <- function(given = NULL, family = NULL, organisation = NULL, 
+                         open = TRUE, overwrite = FALSE, quiet = FALSE) { 
   
   
   stop_if_not_logical(open, overwrite, quiet)
@@ -63,9 +62,17 @@ add_citation <- function(given = NULL, family = NULL, github = NULL,
   if (is.null(family)) family <- getOption("family")
   
   if (!is.null(organisation)) {
+    
     github <- organisation
+    
   } else {
-    if (is.null(github)) github <- getOption("github")  
+    
+    github <- gh::gh_whoami()$"login"
+    
+    if (is.null(github)) {
+      stop("Unable to find GitHub username. Please run ", 
+           "`?gert::git_config_global` for more information.")
+    }
   }
   
   stop_if_not_string(given, family, github)

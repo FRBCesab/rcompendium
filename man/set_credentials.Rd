@@ -8,8 +8,8 @@ set_credentials(
   given = NULL,
   family = NULL,
   email = NULL,
-  github = NULL,
   orcid = NULL,
+  protocol = NULL,
   open = FALSE
 )
 }
@@ -20,9 +20,11 @@ set_credentials(
 
 \item{email}{(optional) email address of the package maintainer}
 
-\item{github}{(optional) GitHub pseudo/organization to host the package}
-
 \item{orcid}{(optional) ORCID of the package maintainer}
+
+\item{protocol}{(optional) GIT protocol used to communicate with the GitHub
+remote. One of 'https' or 'ssh'. If you don't know, let \code{protocol = NULL}
+and the protocol will be 'https'.}
 
 \item{open}{a logical value. If \code{TRUE} the file is opened in the editor.
 Default is \code{open = FALSE}}
@@ -35,16 +37,18 @@ of packages and/or research compendiums.
 If the \code{.Rprofile} file does not exist this function will create it. Note
 that credentials are added at the end of the file: if you run this function
 two times, credentials will be added twice. User can run the command
-\code{usethis::edit_r_profile()} to open the \code{.Rprofile} and clean its content.
-\strong{Be careful while modifying this file!}.
+\code{set_credentials(open = TRUE)} to open the \code{.Rprofile} and clean its
+content. \strong{Be careful while modifying this file!}.
 }
 \examples{
 \dontrun{
 library(rcompendium)
 
+
 ## Define **ONCE FOR ALL** your credentials ----
-set_credentials("Given", "Family", "email.address@domain.com", 
-                github = "pseudo", orcid = "0000-0000-0000-0000")
+
+set_credentials("John", "Doe", "john.doe@domain.com", 
+                orcid = "9999-9999-9999-9999", protocol = "ssh")
 }
 }
 \seealso{

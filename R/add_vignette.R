@@ -50,6 +50,7 @@ add_vignette <- function(filename = NULL, title = NULL, open = TRUE,
   }
   
   if (!is.null(title) && is.null(filename)) {
+    
     filename <- gsub("[[:punct:]]|\\s", "_", title)
     filename <- gsub("_{1,}", "_", filename)
     filename <- tolower(filename)

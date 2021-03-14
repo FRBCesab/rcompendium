@@ -8,7 +8,6 @@ add_readme_rmd(
   type = "package",
   given = NULL,
   family = NULL,
-  github = NULL,
   organisation = NULL,
   open = TRUE,
   overwrite = FALSE,
@@ -24,10 +23,8 @@ specific to an R package will be created. If \code{compendium} a GitHub
 
 \item{family}{(optional) family name of the package maintainer}
 
-\item{github}{(optional) GitHub pseudo/organization to host the package}
-
 \item{organisation}{a character. The name of the GITHUB organisation to
-host the package. If \code{NULL} it uses the GITHUB account.}
+host the package. If \code{NULL} the GITHUB account will be used.}
 
 \item{open}{a logical value. If \code{TRUE} (default) the file is opened in the
 editor.}

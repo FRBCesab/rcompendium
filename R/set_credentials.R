@@ -8,8 +8,8 @@
 #' If the `.Rprofile` file does not exist this function will create it. Note
 #' that credentials are added at the end of the file: if you run this function
 #' two times, credentials will be added twice. User can run the command 
-#' `usethis::edit_r_profile()` to open the `.Rprofile` and clean its content. 
-#' **Be careful while modifying this file!**.
+#' `set_credentials(open = TRUE)` to open the `.Rprofile` and clean its 
+#' content. **Be careful while modifying this file!**.
 #'
 #' @param given (optional) given name of the package maintainer
 #' 
@@ -17,9 +17,11 @@
 #' 
 #' @param email (optional) email address of the package maintainer
 #' 
-#' @param github (optional) GitHub pseudo/organization to host the package
-#' 
 #' @param orcid (optional) ORCID of the package maintainer
+#' 
+#' @param protocol (optional) GIT protocol used to communicate with the GitHub
+#'   remote. One of 'https' or 'ssh'. If you don't know, let `protocol = NULL`
+#'   and the protocol will be 'https'.
 #' 
 #' @param open a logical value. If `TRUE` the file is opened in the editor.
 #'   Default is `open = FALSE`
@@ -32,15 +34,19 @@
 #' \dontrun{
 #' library(rcompendium)
 #' 
+#' 
 #' ## Define **ONCE FOR ALL** your credentials ----
-#' set_credentials("Given", "Family", "email.address@domain.com", 
-#'                 github = "pseudo", orcid = "0000-0000-0000-0000")
+#' 
+#' set_credentials("John", "Doe", "john.doe@domain.com", 
+#'                 orcid = "9999-9999-9999-9999", protocol = "ssh")
 #' }
 
 set_credentials <- function(given = NULL, family = NULL, email = NULL, 
-                            github = NULL, orcid = NULL, open = FALSE) {
+                            orcid = NULL, protocol = NULL, open = FALSE) {
+  
   
   credentials <- as.list(match.call())[-1]
+  credentials <- credentials[!(names(credentials) %in% "open")]
   
   path <- fs::path_home_r(".Rprofile")
   
@@ -55,12 +61,70 @@ set_credentials <- function(given = NULL, family = NULL, email = NULL,
       r_prof <- readLines(path)
     }
     
-    r_prof <- c(r_prof, "## Credentials ----")
+    r_prof <- c(r_prof, "## RCompendium Credentials ----")
     
-    opts <- paste0(names(credentials), " = \"", unlist(credentials), "\"")
-    opts <- paste0(opts, collapse = ", ")
     
-    r_prof <- c(r_prof, paste0("options(", opts, ")", ""))
+    ## Check remote protocol ----
+    
+    protocol <- credentials["protocol"]$protocol
+    
+    if (!is.null(protocol)) {
+      
+      stop_if_not_string(protocol)
+      
+      if (!(protocol %in% c("https", "ssh"))) {
+        
+        protocol <- NULL
+        ui_oops(paste0("Protocol must one among {ui_value('https')} and ", 
+                       "{ui_value('ssh')}"))
+      }
+      
+      
+      if (!is.null(protocol)) {
+        
+        usethis_protocol <- getOption("usethis.protocol")
+        
+        if (!is.null(usethis_protocol)) {
+          
+          if (usethis_protocol == protocol) {
+            
+            ui_oops("Protocol is already set to {ui_value(protocol)}")
+            protocol <- NULL
+          }
+        }
+      }
+    }
+    
+    
+    ## Check user credentials ----
+    
+    credentials <- credentials[!(names(credentials) %in% "protocol")]
+    
+    if (!is.null(credentials)) {
+
+      invisible(lapply(credentials, stop_if_not_string))
+      
+      if (!is.null(unlist(lapply(names(credentials), getOption)))) {
+        
+        warning("Credentials are already stored in the '.Rprofile'.\n  ", 
+                "New credentials will be added but please run ", 
+                "`set_credentials(open = TRUE)` to clean this file.")
+      }
+      
+      opts <- paste0(names(credentials), " = \"", unlist(credentials), "\"")
+      opts <- paste0(opts, collapse = ", ")
+      
+      r_prof <- c(r_prof, paste0("options(", opts, ")", ""))
+    }
+    
+    if (!is.null(protocol)) {
+      
+      opts <- paste0("usethis.protocol = \"", protocol, "\"")
+      r_prof <- c(r_prof, paste0("options(", opts, ")", "")) 
+    }
+    
+    
+    ## Re-write .Rprofile ----
     
     writeLines(r_prof, con = path)
     

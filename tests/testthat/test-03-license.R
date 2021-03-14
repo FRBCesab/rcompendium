@@ -10,7 +10,8 @@ test_that("Check Inputs", {
   
   create_temp_compendium()
   add_description("John", "Doe", "john.doe@gmail.com", "9999-9999-9999-9999", 
-                  "jdoe", open = FALSE, overwrite = FALSE, quiet = TRUE)
+                  organisation = "society", open = FALSE, overwrite = FALSE, 
+                  quiet = TRUE)
   
   expect_error(add_license(quiet = TRUE))
   expect_error(add_license(license = NA, quiet = TRUE))
@@ -37,10 +38,11 @@ test_that("Check Credentials", {
   
   withr::local_options(list("given" = "john", "family" = "doe", 
                             "email" = "john.doe@gmail.com",
-                            "orcid" = "9999-9999-9999-9999", "github" = "jdoe"))
+                            "orcid" = "9999-9999-9999-9999"))
   
   create_temp_compendium()
-  add_description(open = FALSE, overwrite = FALSE, quiet = TRUE)
+  add_description(organisation = "society", open = FALSE, overwrite = FALSE, 
+                  quiet = TRUE)
   
   expect_invisible(add_license(license = "MIT", quiet = TRUE))
 })
@@ -50,10 +52,11 @@ test_that("Check Files and Overwrite", {
   
   withr::local_options(list("given" = "john", "family" = "doe", 
                             "email" = "john.doe@gmail.com",
-                            "orcid" = "9999-9999-9999-9999", "github" = "jdoe"))
+                            "orcid" = "9999-9999-9999-9999"))
   
   create_temp_compendium()
-  add_description(open = FALSE, overwrite = FALSE, quiet = TRUE)
+  add_description(organisation = "society", open = FALSE, overwrite = FALSE,
+                  quiet = TRUE)
   
   add_license(license = "MIT", quiet = TRUE)
   
@@ -76,10 +79,11 @@ test_that("Check DESCRIPTION Fields", {
   
   withr::local_options(list("given" = "john", "family" = "doe", 
                             "email" = "john.doe@gmail.com",
-                            "orcid" = "9999-9999-9999-9999", "github" = "jdoe"))
+                            "orcid" = "9999-9999-9999-9999"))
   
   create_temp_compendium()
-  add_description(open = FALSE, overwrite = FALSE, quiet = TRUE)
+  add_description(organisation = "society", open = FALSE, overwrite = FALSE, 
+                  quiet = TRUE)
   
   add_license(license = "MIT", quiet = TRUE)
   expect_equal(read_descr()$"License", "MIT + file LICENSE")

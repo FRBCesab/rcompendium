@@ -5,13 +5,8 @@
 #' function must be run after [add_github_actions_pkgdown()] which will setup 
 #' GitHub Actions (website deployment).
 #' 
-#' @param github user GitHub account where the project is hosted. If `NULL` 
-#'   (default) the function will try to get this value by reading the 
-#'   `.Rprofile` file (unless `!is.null(organisation)`). 
-#' 
-#' @param organisation (alternative) name of the GitHub organisation where the 
-#'   project is hosted.  If `NULL` (default) the GitHub account `github` will 
-#'   be used.
+#' @param organisation (optional) name of the GitHub organisation where the 
+#'   project is hosted.  If `NULL` (default) the GitHub account will be used.
 #' 
 #' @param quiet a logical value. If `TRUE` messages are deleted. Default is 
 #'   `FALSE`.
@@ -25,8 +20,8 @@
 #' add_github_actions_pkgdown_badge()
 #' }
 
-add_github_actions_pkgdown_badge <- function(github = NULL, organisation = NULL, 
-                                     quiet = FALSE) {
+add_github_actions_pkgdown_badge <- function(organisation = NULL, 
+                                             quiet = FALSE) {
   
   
   stop_if_not_logical(quiet)
@@ -42,9 +37,17 @@ add_github_actions_pkgdown_badge <- function(github = NULL, organisation = NULL,
   ## Retrieve GitHub pseudo/organization ----
   
   if (!is.null(organisation)) {
+    
     github <- organisation
+    
   } else {
-    if (is.null(github)) github <- getOption("github")  
+    
+    github <- gh::gh_whoami()$"login"
+    
+    if (is.null(github)) {
+      stop("Unable to find GitHub username. Please run ", 
+           "`?gert::git_config_global` for more information.")
+    }
   }
   
   stop_if_not_string(github)

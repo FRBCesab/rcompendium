@@ -9,7 +9,7 @@
 #'   `README.Rmd` specific to a research compendium will be created.
 #' 
 #' @param organisation a character. The name of the GITHUB organisation to
-#'   host the package. If `NULL` it uses the GITHUB account.
+#'   host the package. If `NULL` the GITHUB account will be used.
 #' 
 #' @param open a logical value. If `TRUE` (default) the file is opened in the 
 #'   editor.
@@ -32,7 +32,7 @@
 #' }
 
 add_readme_rmd <- function(type = "package", given = NULL, family = NULL, 
-                           github = NULL, organisation = NULL, open = TRUE, 
+                           organisation = NULL, open = TRUE, 
                            overwrite = FALSE, quiet = FALSE) {
   
   
@@ -76,9 +76,17 @@ add_readme_rmd <- function(type = "package", given = NULL, family = NULL,
   if (is.null(family)) family <- getOption("family")
   
   if (!is.null(organisation)) {
+    
     github <- organisation
+    
   } else {
-    if (is.null(github)) github <- getOption("github")  
+    
+    github <- gh::gh_whoami()$"login"
+    
+    if (is.null(github)) {
+      stop("Unable to find GitHub username. Please run ", 
+           "`?gert::git_config_global` for more information.")
+    }
   }
   
   stop_if_not_string(given, family, github)

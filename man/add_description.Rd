@@ -9,7 +9,6 @@ add_description(
   family = NULL,
   email = NULL,
   orcid = NULL,
-  github = NULL,
   organisation = NULL,
   open = TRUE,
   overwrite = FALSE,
@@ -25,10 +24,8 @@ add_description(
 
 \item{orcid}{(optional) ORCID of the package maintainer}
 
-\item{github}{(optional) GitHub pseudo/organization to host the package}
-
 \item{organisation}{a character. The name of the GITHUB organisation to
-host the package. If \code{NULL} it uses the GITHUB account.}
+host the package. If \code{NULL} the GITHUB account will be used.}
 
 \item{open}{a logical value. If \code{TRUE} (default) the file is opened in the
 editor.}
@@ -46,7 +43,7 @@ recommended to store them in the \code{.Rprofile} file with \code{\link[=set_cre
 }
 \examples{
 \dontrun{
-add_description(organisation = "FRBCesab")
+add_description(organisation = "MySociety")
 }
 }
 \seealso{

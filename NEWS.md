@@ -1,3 +1,10 @@
+# rcompendium 0.3
+
+* Improve dependencies detection in `@examples` sections
+* Keep packages versions in `DESCRIPTION` fields
+* Retrieve GitHub pseudo with `gh::gh_whoami()` (no more `github` argument)
+
+
 # rcompendium 0.2
 
 * Rename `import` argument into `compendium`
@@ -12,6 +19,7 @@
 * Change default license in `new_package()` (MIT)
 * Improve inputs checks
 * Change files templates (GH Actions names)
+
 
 # rcompendium 0.1
 

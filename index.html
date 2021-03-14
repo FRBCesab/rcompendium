@@ -164,23 +164,25 @@
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>You can install the development version from <a href="https://github.com/">GitHub</a> with:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">## Install &lt; remotes &gt; package (if not already installed) ----</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">requireNamespace</span>(<span class="st">"remotes"</span>, <span class="dt">quietly =</span> <span class="ot">TRUE</span>)) {</span>
-<span id="cb2-4"><a href="#cb2-4"></a>  <span class="kw">install.packages</span>(<span class="st">"remotes"</span>)</span>
-<span id="cb2-5"><a href="#cb2-5"></a>}</span>
-<span id="cb2-6"><a href="#cb2-6"></a></span>
-<span id="cb2-7"><a href="#cb2-7"></a></span>
-<span id="cb2-8"><a href="#cb2-8"></a><span class="co">## Install dev version of &lt; rcompendium &gt; from GitHub ----</span></span>
-<span id="cb2-9"><a href="#cb2-9"></a></span>
-<span id="cb2-10"><a href="#cb2-10"></a>remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"FRBCesab/rcompendium"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## Install &lt; remotes &gt; package (if not already installed) ----</span>
+
+<span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html">requireNamespace</a></span><span class="op">(</span><span class="st">"remotes"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
+  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span>
+<span class="op">}</span>
+
+
+<span class="co">## Install dev version of &lt; rcompendium &gt; from GitHub ----</span>
+
+<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"FRBCesab/rcompendium"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="getting-started" class="section level2">
 <h2 class="hasAnchor">
 <a href="#getting-started" class="anchor"></a>Getting started</h2>
 <p>Please read the <a href="https://frbcesab.github.io/rcompendium/articles/rcompendium.html">Vignette</a> and the documentation of the function <a href="https://frbcesab.github.io/rcompendium/reference/new_package.html"><code>new_package</code></a>.</p>
 <p>This <a href="https://github.com/FRBCesab/pkgtest">repository</a> was created by running:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>rcompendium<span class="op">::</span><span class="kw">new_package</span>(<span class="dt">organisation =</span> <span class="st">"FRBCesab"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">rcompendium</span><span class="fu">::</span><span class="fu"><a href="reference/new_package.html">new_package</a></span><span class="op">(</span>organisation <span class="op">=</span> <span class="st">"FRBCesab"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="citation" class="section level2">
 <h2 class="hasAnchor">
@@ -190,17 +192,18 @@
 <p>Casajus N. (2021) rcompendium: An R package to create a package or research compendium structure. Version 0.3, <a href="https://github.com/FRBCesab/rcompendium" class="uri">https://github.com/FRBCesab/rcompendium</a>.</p>
 </blockquote>
 <p>You can also run:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">citation</span>(<span class="st">"rcompendium"</span>)</span>
-<span id="cb4-2"><a href="#cb4-2"></a></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="co">## A BibTeX entry for LaTeX users is:</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="co">## </span></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="co">## @Manual{,</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="co">##   title  = {{rcompendium}: {An} {R} package to create a package or research compendium structure},</span></span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="co">##   author = {{Casajus N.}},</span></span>
-<span id="cb4-8"><a href="#cb4-8"></a><span class="co">##   year   = {2021},</span></span>
-<span id="cb4-9"><a href="#cb4-9"></a><span class="co">##   note   = {R package version 0.2},</span></span>
-<span id="cb4-10"><a href="#cb4-10"></a><span class="co">##   url    = {https://github.com/FRBCesab/rcompendium},</span></span>
-<span id="cb4-11"><a href="#cb4-11"></a><span class="co">## }</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/citation.html">citation</a></span><span class="op">(</span><span class="st">"rcompendium"</span><span class="op">)</span>
+
+<span class="co">## A BibTeX entry for LaTeX users is:</span>
+<span class="co">## </span>
+<span class="co">## @Manual{,</span>
+<span class="co">##   title  = {{rcompendium}: {An} {R} package to create a package or research compendium structure},</span>
+<span class="co">##   author = {{Casajus N.}},</span>
+<span class="co">##   year   = {2021},</span>
+<span class="co">##   note   = {R package version 0.3},</span>
+<span class="co">##   url    = {https://github.com/FRBCesab/rcompendium},</span>
+<span class="co">## }</span></code></pre></div>
 </div>
 <div id="contributing" class="section level2">
 <h2 class="hasAnchor">

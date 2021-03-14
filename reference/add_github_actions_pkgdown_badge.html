@@ -127,26 +127,15 @@ function must be run after <code><a href='add_github_actions_pkgdown.html'>add_g
 GitHub Actions (website deployment).</p>
     </div>
 
-    <pre class="usage"><span class='fu'>add_github_actions_pkgdown_badge</span><span class='op'>(</span>
-  github <span class='op'>=</span> <span class='cn'>NULL</span>,
-  organisation <span class='op'>=</span> <span class='cn'>NULL</span>,
-  quiet <span class='op'>=</span> <span class='cn'>FALSE</span>
-<span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>add_github_actions_pkgdown_badge</span><span class='op'>(</span>organisation <span class='op'>=</span> <span class='cn'>NULL</span>, quiet <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>github</th>
-      <td><p>user GitHub account where the project is hosted. If <code>NULL</code>
-(default) the function will try to get this value by reading the
-<code>.Rprofile</code> file (unless <code>!is.null(organisation)</code>).</p></td>
-    </tr>
-    <tr>
       <th>organisation</th>
-      <td><p>(alternative) name of the GitHub organisation where the
-project is hosted.  If <code>NULL</code> (default) the GitHub account <code>github</code> will
-be used.</p></td>
+      <td><p>(optional) name of the GitHub organisation where the
+project is hosted.  If <code>NULL</code> (default) the GitHub account will be used.</p></td>
     </tr>
     <tr>
       <th>quiet</th>

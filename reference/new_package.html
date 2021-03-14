@@ -178,7 +178,6 @@ folder. See below the section <strong>Creating a GITHUB Repository</strong>.</p>
   family <span class='op'>=</span> <span class='cn'>NULL</span>,
   email <span class='op'>=</span> <span class='cn'>NULL</span>,
   orcid <span class='op'>=</span> <span class='cn'>NULL</span>,
-  github <span class='op'>=</span> <span class='cn'>NULL</span>,
   organisation <span class='op'>=</span> <span class='cn'>NULL</span>,
   overwrite <span class='op'>=</span> <span class='cn'>FALSE</span>,
   quiet <span class='op'>=</span> <span class='cn'>FALSE</span>
@@ -290,20 +289,10 @@ function will try to get this value by reading the <code>.Rprofile</code> file.<
 <strong>Managing Credentials</strong>.</p></td>
     </tr>
     <tr>
-      <th>github</th>
-      <td><p>a character vector of length 1</p>
-<p>The GitHub pseudo of the maintainer of the package. It will be used to
-create the repository on GitHub unless <code>!is.null(organisation)</code> (the
-repository will be created on the GitHub organisation specified by the
-argument <code>organisation</code>).</p>
-<p>If <code>NULL</code> (default) the function will try to get this value by reading
-the <code>.Rprofile</code> file (unless <code>!is.null(organisation)</code>).</p></td>
-    </tr>
-    <tr>
       <th>organisation</th>
       <td><p>a character vector of length 1</p>
 <p>The GitHub organisation to host the repository. If defined it will
-overwrite the argument <code>github</code>.</p>
+overwrite the GitHub pseudo.</p>
 <p>Default is <code>organisation = NULL</code> (the GitHub pseudo will be used).</p></td>
     </tr>
     <tr>

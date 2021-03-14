@@ -125,7 +125,7 @@ add_dependencies <- function(compendium = NULL) {
   if (length(deps_suggest)) {
     
     deps_suggest <- unlist(lapply(strsplit(deps_suggest, "::"), 
-                                     function(x) x[1]))
+                                  function(x) x[1]))
   }
   
   deps_suggest <- sort(unique(deps_suggest))
@@ -137,8 +137,7 @@ add_dependencies <- function(compendium = NULL) {
   
   if (length(deps_test)) {
     
-    deps_test <- unlist(lapply(strsplit(deps_test, "::"), 
-                                  function(x) x[1]))
+    deps_test <- unlist(lapply(strsplit(deps_test, "::"), function(x) x[1]))
     
   }
   
@@ -193,7 +192,21 @@ add_dependencies <- function(compendium = NULL) {
   pkgs_in_imports <- sort(deps_in_package[!(deps_in_package %in% 
                                               pkgs_in_depends)])
   
-  if (length(deps_in_package)) {
+  if (length(pkgs_in_imports)) {
+    
+    # keep packages versions
+    pkgs_with_version <- c(get_deps_in_imports(), get_deps_in_suggests())
+    pkgs_with_version <- pkgs_with_version[grep("\\(.*\\)", pkgs_with_version)]
+    
+    if (length(pkgs_with_version)) {
+      
+      pkgs <- unlist(lapply(strsplit(pkgs_with_version, "\\s\\("), 
+                            function(x) x[1]))
+      for (i in 1:length(pkgs)) {
+        pos <- which(pkgs_in_imports == pkgs[i])
+        if (length(pos)) pkgs_in_imports[pos] <- pkgs_with_version[i]
+      }
+    }
     
     # Message
     ui_line(paste0("  {clisymbols::symbol$radio_on} Found ", 
@@ -222,7 +235,22 @@ add_dependencies <- function(compendium = NULL) {
   
   pkgs_in_suggests <- sort(deps_suggest[!(deps_suggest %in% pkgs_in_depends)])
   
-  if (length(deps_suggest)) {
+  if (length(pkgs_in_suggests)) {
+    
+    # keep packages versions
+    pkgs_with_version <- c(get_deps_in_imports(), get_deps_in_suggests())
+    pkgs_with_version <- pkgs_with_version[grep("\\(.*\\)", pkgs_with_version)]
+    
+    if (length(pkgs_with_version)) {
+      
+      pkgs <- unlist(lapply(strsplit(pkgs_with_version, "\\s\\("), 
+                            function(x) x[1]))
+      for (i in 1:length(pkgs)) {
+        pos <- which(pkgs_in_suggests == pkgs[i])
+        if (length(pos)) pkgs_in_suggests[pos] <- pkgs_with_version[i]
+      }
+    }
+    
     
     # Message
     ui_line(paste0("  {clisymbols::symbol$radio_on} Found ", 

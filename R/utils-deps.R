@@ -149,7 +149,38 @@ get_deps_in_examples <- function() {
     
     ## Select roxygen2 headers ----
     
-    x <- lapply(x, function(x) x[grep("^\\s*#'", x)] )
+    x <- lapply(x, function(x) x[grep("^\\s*#'", x)])
+    
+    
+    ## Select @examples sections (dirty code, but working) ----
+    
+    ex_start <- lapply(x, function(x) grep("#'\\s{0,}@examples", x))
+    ex_end   <- lapply(x, function(x) grep("#'\\s{0,}@", x))
+    
+    examples <- list()
+    
+    for (i in 1:length(ex_start)) {
+      
+      examples[[i]] <- character(0)
+      
+      if (length(ex_start[[i]])) {
+        
+        for (j in 1:length(ex_start[[i]])) {
+          
+          pos <- ex_end[[i]][ex_end[[i]] > ex_start[[i]][j]] 
+          
+          if (length(pos)) {
+            examples[[i]] <- c(examples[[i]], 
+                               x[[i]][(ex_start[[i]][j] + 1):(pos[1] - 1)])
+          } else {
+            examples[[i]] <- c(examples[[i]], 
+                               x[[i]][(ex_start[[i]][j] + 1):length(x[[i]])])
+          }
+        }
+      }
+    }
+    
+    x <- examples
     
     
     ## Functions called as pkg::fun() ----
@@ -422,7 +453,7 @@ get_deps_in_tests <- function() {
   
   
   if (!dir.exists(file.path(path, "tests"))) {
-    ui_oops("No {ui_value('tests/'))} folder found.")
+    ui_oops("No {ui_value('tests/')} folder found.")
     return(NULL)
   }
   
@@ -432,7 +463,7 @@ get_deps_in_tests <- function() {
   
   if (!length(x)) {
     
-    ui_oops("The {ui_value('tests/'))} folder is empty")
+    ui_oops("The {ui_value('tests/')} folder is empty")
     
     return(NULL)
     
@@ -511,12 +542,62 @@ get_deps_in_depends <- function() {
   descr <- read_descr()
   
   if (!is.null(descr$"Depends")) {
-    depends <- unlist(strsplit(descr$"Depends", "\n\\s+|,|,\\s+"))
     
-    r_version <- grep("R \\(", depends)
-    if (length(r_version)) depends <- depends[-r_version]
+    deps <- unlist(strsplit(descr$"Depends", "\n\\s+|,|,\\s+"))
     
-    return(depends[!(depends == "")])
+    r_version <- grep("R \\(", deps)
+    if (length(r_version)) deps <- deps[-r_version]
+    
+    deps <- deps[!(deps == "")]
+    return(gsub("\\s{0,}\\(.*\\)", "", deps))
+    
+  } else {
+    
+    return(NULL)
+  }
+}
+
+
+
+#' **Detect dependencies in Imports field of DESCRIPTION**
+#' 
+#' Detect dependencies in the `Imports` field of **DESCRIPTION**.
+#' 
+#' @noRd
+
+get_deps_in_imports <- function() {
+  
+  descr <- read_descr()
+  
+  if (!is.null(descr$"Imports")) {
+    
+    deps <- unlist(strsplit(descr$"Imports", "\n\\s+|,|,\\s+"))
+    
+    return(deps[!(deps == "")])
+    
+  } else {
+    
+    return(NULL)
+  }
+}
+
+
+
+#' **Detect dependencies in Suggests field of DESCRIPTION**
+#' 
+#' Detect dependencies in the `Suggests` field of **DESCRIPTION**.
+#' 
+#' @noRd
+
+get_deps_in_suggests <- function() {
+  
+  descr <- read_descr()
+  
+  if (!is.null(descr$"Suggests")) {
+    
+    deps <- unlist(strsplit(descr$"Suggests", "\n\\s+|,|,\\s+"))
+    
+    return(deps[!(deps == "")])
     
   } else {
     

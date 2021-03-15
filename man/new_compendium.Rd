@@ -47,28 +47,28 @@ Conduct is also added at the root of the project.}
 
 \item{given}{a character of length 1. User given name to be used for this
 project. Default is \code{NULL} and the value of this parameter will be
-obtained from the \strong{.Rprofile} file (if \code{\link[=set_credentials]{set_credentials()}} was previously
-used). For further information see \code{\link[=set_credentials]{set_credentials()}}.}
+obtained from the \strong{.Rprofile} file (if \code{\link[=set_credentials]{set_credentials()}} was
+previously used). For further information see \code{\link[=set_credentials]{set_credentials()}}.}
 
 \item{family}{a character of length 1. User family name to be used for this
 project. Default is \code{NULL} and the value of this parameter will be
-obtained from the \strong{.Rprofile} file (if \code{\link[=set_credentials]{set_credentials()}} was previously
-used). For further information see \code{\link[=set_credentials]{set_credentials()}}.}
+obtained from the \strong{.Rprofile} file (if \code{\link[=set_credentials]{set_credentials()}} was
+previously used). For further information see \code{\link[=set_credentials]{set_credentials()}}.}
 
 \item{short}{a character of length 1. User short name to be used for this
 project. Default is \code{NULL} and the value of this parameter will be
-obtained from the \strong{.Rprofile} file (if \code{\link[=set_credentials]{set_credentials()}} was previously
-used). For further information see \code{\link[=set_credentials]{set_credentials()}}.}
+obtained from the \strong{.Rprofile} file (if \code{\link[=set_credentials]{set_credentials()}} was
+previously used). For further information see \code{\link[=set_credentials]{set_credentials()}}.}
 
 \item{email}{a character of length 1. User email address to be used for this
 project. Default is \code{NULL} and the value of this parameter will be
-obtained from the \strong{.Rprofile} file (if \code{\link[=set_credentials]{set_credentials()}} was previously
-used). For further information see \code{\link[=set_credentials]{set_credentials()}}.}
+obtained from the \strong{.Rprofile} file (if \code{\link[=set_credentials]{set_credentials()}} was
+previously used). For further information see \code{\link[=set_credentials]{set_credentials()}}.}
 
 \item{orcid}{a character of length 1. User ORCID to be used for this
 project. Default is \code{NULL} and the value of this parameter will be
-obtained from the \strong{.Rprofile} file (if \code{\link[=set_credentials]{set_credentials()}} was previously
-used). For further information see \code{\link[=set_credentials]{set_credentials()}}.}
+obtained from the \strong{.Rprofile} file (if \code{\link[=set_credentials]{set_credentials()}} was
+previously used). For further information see \code{\link[=set_credentials]{set_credentials()}}.}
 
 \item{github}{a character of length 1. User GitHub pseudo/organization to be
 used for this project. Default is \code{NULL} and the value of this parameter

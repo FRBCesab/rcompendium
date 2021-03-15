@@ -159,13 +159,13 @@ get_deps_in_examples <- function() {
     
     examples <- list()
     
-    for (i in 1:length(ex_start)) {
+    for (i in seq_len(length(ex_start))) {
       
       examples[[i]] <- character(0)
       
       if (length(ex_start[[i]])) {
         
-        for (j in 1:length(ex_start[[i]])) {
+        for (j in seq_len(length(ex_start[[i]]))) {
           
           pos <- ex_end[[i]][ex_end[[i]] > ex_start[[i]][j]] 
           
@@ -249,8 +249,9 @@ get_deps_extra <- function(compendium = NULL) {
   if (!dir.exists(file.path(path, compendium))) return(NULL)
   
   
-  x <- list.files(path = file.path(path, compendium), pattern = "\\.R$|\\.Rmd$", 
-                  full.names = TRUE, ignore.case = TRUE, recursive = TRUE)
+  x <- list.files(path = file.path(path, compendium), 
+                  pattern = "\\.R$|\\.Rmd$", full.names = TRUE, 
+                  ignore.case = TRUE, recursive = TRUE)
   
   pos <- grep(paste0(.Platform$file.sep, 
                      "(tests|vignettes|inst)", 

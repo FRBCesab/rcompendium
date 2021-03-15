@@ -1,8 +1,8 @@
 #' Create a README file
 #' 
-#' This function creates a `README.Rmd` file at the root of the project based on 
-#' a template. Once edited user needs to knit it into a `README.Rmd` (or use the
-#' function [refresh()].
+#' This function creates a `README.Rmd` file at the root of the project based 
+#' on a template. Once edited user needs to knit it into a `README.Rmd` (or use 
+#' the function [refresh()].
 #' 
 #' @param type a character. If `package` (default) a GitHub `README.Rmd` 
 #'   specific to an R package will be created. If `compendium` a GitHub 

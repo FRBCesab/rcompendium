@@ -2,7 +2,8 @@
 #'
 #' @description 
 #' This function adds a CRAN status badge to the `README.Rmd`. If the package
-#' is not hosted on the CRAN the badge will indicate _not published on the CRAN_.
+#' is not hosted on the CRAN the badge will indicate 
+#' _not published on the CRAN_.
 #' 
 #' @param quiet a logical value. If `TRUE` messages are deleted. Default is 
 #'   `FALSE`.

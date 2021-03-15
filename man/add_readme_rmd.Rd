@@ -36,9 +36,9 @@ editor.}
 \code{FALSE}.}
 }
 \description{
-This function creates a \code{README.Rmd} file at the root of the project based on
-a template. Once edited user needs to knit it into a \code{README.Rmd} (or use the
-function \code{\link[=refresh]{refresh()}}.
+This function creates a \code{README.Rmd} file at the root of the project based
+on a template. Once edited user needs to knit it into a \code{README.Rmd} (or use
+the function \code{\link[=refresh]{refresh()}}.
 }
 \examples{
 \dontrun{

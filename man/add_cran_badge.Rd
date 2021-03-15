@@ -12,7 +12,8 @@ add_cran_badge(quiet = FALSE)
 }
 \description{
 This function adds a CRAN status badge to the \code{README.Rmd}. If the package
-is not hosted on the CRAN the badge will indicate \emph{not published on the CRAN}.
+is not hosted on the CRAN the badge will indicate
+\emph{not published on the CRAN}.
 }
 \examples{
 \dontrun{

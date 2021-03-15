@@ -37,7 +37,8 @@
 #' refresh()
 #' }
 
-refresh <- function(compendium = NULL, make = FALSE, check = TRUE, quiet = FALSE) { 
+refresh <- function(compendium = NULL, make = FALSE, check = TRUE, 
+                    quiet = FALSE) { 
   
   
   is_package()

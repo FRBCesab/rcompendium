@@ -85,8 +85,8 @@ get_all_dependencies <- function(pkg = NULL) {
   
   ## List of all dependencies (on which pkg depends) ----
   
-  all_deps <- gtools::getDependencies(pkg, installed = FALSE, available = FALSE, 
-                                      base = FALSE)
+  all_deps <- gtools::getDependencies(pkg, installed = FALSE, 
+                                      available = FALSE, base = FALSE)
   all_deps <- gsub("\\s\\(.+\\)", "", all_deps)
   names(all_deps) <- NULL
   

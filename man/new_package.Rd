@@ -36,9 +36,10 @@ The license can be changed later by using \code{\link[=add_license]{add_license(
 \item{status}{a character vector of length 1
 
 The status of the project according to the standard defined by the
-\url{https://www.repostatus.org/} project. One among \code{'concept'} (default),
-\code{'wip'}, \code{'suspended'}, \code{'abandoned'}, \code{'active'}, \code{'inactive'}, or
-\code{'unsupported'}. See \code{\link[=add_repostatus_badge]{add_repostatus_badge()}} for further information.
+\url{https://www.repostatus.org/} project. One among \code{'concept'}
+(default), \code{'wip'}, \code{'suspended'}, \code{'abandoned'}, \code{'active'},
+\code{'inactive'}, or \code{'unsupported'}. See \code{\link[=add_repostatus_badge]{add_repostatus_badge()}} for further
+information.
 
 This argument is used to add a badge to the \code{README.Rmd} to help visitors
 to better understand your project. If you don't want this badge use
@@ -126,8 +127,8 @@ For further information see \code{\link[=set_credentials]{set_credentials()}} an
 
 \item{email}{a character vector of length 1
 
-The email address of the maintainer of the package. If \code{NULL} (default) the
-function will try to get this value by reading the \code{.Rprofile} file.
+The email address of the maintainer of the package. If \code{NULL} (default)
+the function will try to get this value by reading the \code{.Rprofile} file.
 
 For further information see \code{\link[=set_credentials]{set_credentials()}} and below the section
 \strong{Managing Credentials}.}
@@ -180,55 +181,12 @@ to see the full structure of the R package.
 A GitHub repository can also be created (default) following the
 "GitHub last" workflow
 (\url{https://happygitwithr.com/existing-github-last.html}).
-Configuration files for GitHub Actions to automatically check the package and
-deploy the website \code{\link[pkgdown:pkgdown-package]{pkgdown::pkgdown()}} will be added in the \verb{.github/}
+Configuration files for GitHub Actions to automatically check the package
+and deploy the website \code{\link[pkgdown:pkgdown-package]{pkgdown::pkgdown()}} will be added in the \verb{.github/}
 folder. See below the section \strong{Creating a GITHUB Repository}.
 }
-\details{
-\subsection{Package Content}{
+\section{Recommended Workflow}{
 
-With default settings the package \code{pkg} will contain:\preformatted{.
-│
-├── .git/                     # GIT tracking folder
-├── .github/                  # (optional) GitHub Actions settings
-│   └── workflows/
-│       ├── pkgdown.yaml      # Configuration file to build & deploy website
-│       └── R-CMD-check.yaml  # Configuration file to check & test package
-├── .Rbuildignore             # Automatically generated
-├── .gitignore                # Specific to R packages
-├── pkg.Rproj                 # (optional) Created by user 
-├── _pkgdown.yaml             # (optional) User website settings
-│
-├── R/                        # R functions
-│   └── pkg-package.R         # Dummy R file for package-level documentation
-│
-├── man/                      # R functions helps (automatically updated)
-│   ├── figures/              # Figures for the README 
-│   │   └── hexsticker.png    # Template R package HexSticker
-│   └── pkg-package.Rd        # Package-level documentation
-│
-├── inst/
-│   └── CITATION              # BiBTeX entry to cite the R package       [*]
-│
-├── vignettes/
-│   └── pkg_vignette.Rmd      # (optional) Package tutorial              [*]
-│
-├── DESCRIPTION               # Project metadata                         [*]
-├── NAMESPACE                 # Automatically generated
-│
-├── LICENSE                   # (optional) If License = MIT
-├── LICENSE.md                # Content of the chosen license
-│
-├── README.md                 # GitHub README (automatically generated)
-└── README.Rmd                # GitHub README (to knit)                  [*]
-
-[*] These files are automatically edited but user needs to add manually 
-    some information.
-
-}
-}
-
-\subsection{Recommended Workflow}{
 
 The purpose of the package \code{rcompendium} is to make easier the creation of R
 package/research compendium so that user can focus on the code/analysis
@@ -248,7 +206,8 @@ in \code{DESCRIPTION}, re-knit \code{README.Rmd}, and check package integrity) w
 }
 }
 
-\subsection{Managing Credentials}{
+\section{Managing Credentials}{
+
 
 You can use the arguments \code{given}, \code{family}, \code{email}, \code{orcid}, and \code{github}
 directly with the function \code{\link[=new_package]{new_package()}} (and others). But if you create
@@ -266,7 +225,8 @@ always be able to modify them on-the-fly (i.e. by using arguments of the
 \code{\link[=new_package]{new_package()}}) or permanently by re-running \code{\link[=set_credentials]{set_credentials()}}.
 }
 
-\subsection{Creating a GITHUB Repository}{
+\section{Creating a GITHUB Repository}{
+
 
 First run \code{\link[gh:gh_whoami]{gh::gh_whoami()}} to see if your git and associated credentials are
 correctly configured. If so you should see something like:\preformatted{\{
@@ -306,7 +266,7 @@ If everything is well configured you should see something like:\preformatted{\{
 
 And you will be able to create a GitHub repository directly from R!
 }
-}
+
 \examples{
 \dontrun{
 library(rcompendium)

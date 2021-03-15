@@ -21,9 +21,10 @@
 #'   \item **Stable** - A project is considered stable when the author is happy 
 #'   with its interface, does not see major issues, and is happy to share it 
 #'   with the world.
-#'   \item **Superseded** - A superseded project has a known better alternative, 
-#'   and it is not going away. Superseded project will not receive new features, 
-#'   but will receive any critical bug fixes needed to keep it working.
+#'   \item **Superseded** - A superseded project has a known better 
+#'   alternative, and it is not going away. Superseded project will not receive 
+#'   new features, but will receive any critical bug fixes needed to keep it 
+#'   working.
 #'   \item **Deprecated** - A deprecated project has a better alternative 
 #'   available and is scheduled for removal.
 #' }

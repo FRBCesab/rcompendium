@@ -202,7 +202,7 @@ add_dependencies <- function(compendium = NULL) {
       
       pkgs <- unlist(lapply(strsplit(pkgs_with_version, "\\s\\("), 
                             function(x) x[1]))
-      for (i in 1:length(pkgs)) {
+      for (i in seq_len(length(pkgs))) {
         pos <- which(pkgs_in_imports == pkgs[i])
         if (length(pos)) pkgs_in_imports[pos] <- pkgs_with_version[i]
       }
@@ -245,7 +245,7 @@ add_dependencies <- function(compendium = NULL) {
       
       pkgs <- unlist(lapply(strsplit(pkgs_with_version, "\\s\\("), 
                             function(x) x[1]))
-      for (i in 1:length(pkgs)) {
+      for (i in seq_len(length(pkgs))) {
         pos <- which(pkgs_in_suggests == pkgs[i])
         if (length(pos)) pkgs_in_suggests[pos] <- pkgs_with_version[i]
       }

@@ -29,28 +29,28 @@
 #' 
 #' @param given a character of length 1. User given name to be used for this 
 #'   project. Default is `NULL` and the value of this parameter will be 
-#'   obtained from the **.Rprofile** file (if [set_credentials()] was previously 
-#'   used). For further information see [set_credentials()].
+#'   obtained from the **.Rprofile** file (if [set_credentials()] was 
+#'   previously used). For further information see [set_credentials()].
 #'   
 #' @param family a character of length 1. User family name to be used for this 
 #'   project. Default is `NULL` and the value of this parameter will be 
-#'   obtained from the **.Rprofile** file (if [set_credentials()] was previously 
-#'   used). For further information see [set_credentials()].
+#'   obtained from the **.Rprofile** file (if [set_credentials()] was 
+#'   previously used). For further information see [set_credentials()].
 #'   
 #' @param short a character of length 1. User short name to be used for this 
 #'   project. Default is `NULL` and the value of this parameter will be 
-#'   obtained from the **.Rprofile** file (if [set_credentials()] was previously 
-#'   used). For further information see [set_credentials()].
+#'   obtained from the **.Rprofile** file (if [set_credentials()] was 
+#'   previously used). For further information see [set_credentials()].
 #'   
 #' @param email a character of length 1. User email address to be used for this 
 #'   project. Default is `NULL` and the value of this parameter will be 
-#'   obtained from the **.Rprofile** file (if [set_credentials()] was previously 
-#'   used). For further information see [set_credentials()].
+#'   obtained from the **.Rprofile** file (if [set_credentials()] was 
+#'   previously used). For further information see [set_credentials()].
 #'   
 #' @param orcid a character of length 1. User ORCID to be used for this 
 #'   project. Default is `NULL` and the value of this parameter will be 
-#'   obtained from the **.Rprofile** file (if [set_credentials()] was previously 
-#'   used). For further information see [set_credentials()].
+#'   obtained from the **.Rprofile** file (if [set_credentials()] was 
+#'   previously used). For further information see [set_credentials()].
 #'   
 #' @param github a character of length 1. User GitHub pseudo/organization to be 
 #'   used for this project. Default is `NULL` and the value of this parameter 

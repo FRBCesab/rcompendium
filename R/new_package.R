@@ -24,8 +24,8 @@
 #' A GitHub repository can also be created (default) following the 
 #' "GitHub last" workflow
 #' (\url{https://happygitwithr.com/existing-github-last.html}).
-#' Configuration files for GitHub Actions to automatically check the package and 
-#' deploy the website [pkgdown::pkgdown()] will be added in the `.github/`
+#' Configuration files for GitHub Actions to automatically check the package 
+#' and deploy the website [pkgdown::pkgdown()] will be added in the `.github/`
 #' folder. See below the section **Creating a GITHUB Repository**.
 #' 
 #' @param license a character vector of length 1
@@ -39,9 +39,10 @@
 #' @param status a character vector of length 1
 #' 
 #'   The status of the project according to the standard defined by the 
-#'   \url{https://www.repostatus.org/} project. One among `'concept'` (default), 
-#'   `'wip'`, `'suspended'`, `'abandoned'`, `'active'`, `'inactive'`, or 
-#'   `'unsupported'`. See [add_repostatus_badge()] for further information. 
+#'   \url{https://www.repostatus.org/} project. One among `'concept'` 
+#'   (default), `'wip'`, `'suspended'`, `'abandoned'`, `'active'`, 
+#'   `'inactive'`, or `'unsupported'`. See [add_repostatus_badge()] for further 
+#'   information. 
 #'   
 #'   This argument is used to add a badge to the `README.Rmd` to help visitors 
 #'   to better understand your project. If you don't want this badge use 
@@ -129,8 +130,8 @@
 #' 
 #' @param email a character vector of length 1
 #' 
-#'   The email address of the maintainer of the package. If `NULL` (default) the 
-#'   function will try to get this value by reading the `.Rprofile` file. 
+#'   The email address of the maintainer of the package. If `NULL` (default) 
+#'   the function will try to get this value by reading the `.Rprofile` file. 
 #'   
 #'   For further information see [set_credentials()] and below the section 
 #'   **Managing Credentials**.
@@ -159,55 +160,7 @@
 #' 
 #'   If `TRUE` messages are deleted. Default is `FALSE`.
 #'   
-#' @details
-#' 
-#' ## Package Content
-#' 
-#' With default settings the package `pkg` will contain: 
-#' 
-#' ```
-#' .
-#' │
-#' ├── .git/                     # GIT tracking folder
-#' ├── .github/                  # (optional) GitHub Actions settings
-#' │   └── workflows/
-#' │       ├── pkgdown.yaml      # Configuration file to build & deploy website
-#' │       └── R-CMD-check.yaml  # Configuration file to check & test package
-#' ├── .Rbuildignore             # Automatically generated
-#' ├── .gitignore                # Specific to R packages
-#' ├── pkg.Rproj                 # (optional) Created by user 
-#' ├── _pkgdown.yaml             # (optional) User website settings
-#' │
-#' ├── R/                        # R functions
-#' │   └── pkg-package.R         # Dummy R file for package-level documentation
-#' │
-#' ├── man/                      # R functions helps (automatically updated)
-#' │   ├── figures/              # Figures for the README 
-#' │   │   └── hexsticker.png    # Template R package HexSticker
-#' │   └── pkg-package.Rd        # Package-level documentation
-#' │
-#' ├── inst/
-#' │   └── CITATION              # BiBTeX entry to cite the R package       [*]
-#' │
-#' ├── vignettes/
-#' │   └── pkg_vignette.Rmd      # (optional) Package tutorial              [*]
-#' │
-#' ├── DESCRIPTION               # Project metadata                         [*]
-#' ├── NAMESPACE                 # Automatically generated
-#' │
-#' ├── LICENSE                   # (optional) If License = MIT
-#' ├── LICENSE.md                # Content of the chosen license
-#' │
-#' ├── README.md                 # GitHub README (automatically generated)
-#' └── README.Rmd                # GitHub README (to knit)                  [*]
-#' 
-#' [*] These files are automatically edited but user needs to add manually 
-#'     some information.
-#' 
-#' ```
-#' 
-#' 
-#' ## Recommended Workflow
+#' @section Recommended Workflow:
 #' 
 #' The purpose of the package `rcompendium` is to make easier the creation of R
 #' package/research compendium so that user can focus on the code/analysis 
@@ -224,8 +177,7 @@
 #'   in `DESCRIPTION`, re-knit `README.Rmd`, and check package integrity) with
 #'   [refresh()].
 #' 
-#' 
-#' ## Managing Credentials
+#' @section Managing Credentials:
 #' 
 #' You can use the arguments `given`, `family`, `email`, `orcid`, and `github`
 #' directly with the function [new_package()] (and others). But if you create 
@@ -242,8 +194,7 @@
 #' always be able to modify them on-the-fly (i.e. by using arguments of the
 #' [new_package()]) or permanently by re-running [set_credentials()].
 #' 
-#' 
-#' ## Creating a GITHUB Repository
+#' @section Creating a GITHUB Repository:
 #' 
 #' First run [gh::gh_whoami()] to see if your git and associated credentials are
 #' correctly configured. If so you should see something like:

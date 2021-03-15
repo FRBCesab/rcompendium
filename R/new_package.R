@@ -657,7 +657,7 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   
   if (create_repo) {
     
-    ui_title("Creating GITHUB repository")
+    ui_title("Creating GITHUB Repository")
     
     
     ## Create GitHub repo ----
@@ -682,7 +682,7 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   
   if (gh_check) {
     
-    ui_title("Configuring GITHUB Actions")
+    ui_title("Configuring GH Actions - R CMD CHECK")
     
     
     ## R-CMD-Check ----
@@ -702,7 +702,7 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   
   if (codecov) {
     
-    ui_title("Configuring Code Coverage")
+    ui_title("Configuring GH Actions - Code Coverage")
     
     
     ## R-CMD-Check ----
@@ -723,7 +723,7 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   
   if (website) {
     
-    ui_title("Deploying Website")
+    ui_title("Configuring GH Actions - Website deployment")
     
     
     ## Add pkgdown with GH Actions config file ----
@@ -759,7 +759,7 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   
   
   
-  ui_title("Adding Badges") 
+  ui_title("Adding Badges to README") 
   
   
   if (gh_check) {
@@ -836,6 +836,11 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   ui_todo("Edit project citation in {ui_value('inst/CITATION')}")
   ui_todo("Edit project description in {ui_value('README.Rmd')}")
   ui_todo("Write your R functions in the {ui_value('R/')} directory")
+  
+  if (test) 
+    ui_todo(paste0("Write your units tests in the ", 
+                   "{ui_value('tests/testthat/')} directory"))
+  
   ui_todo("Refresh your package with {ui_code('refresh()')}")
   ui_todo("...and commit your changes!")
   

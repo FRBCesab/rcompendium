@@ -30,6 +30,7 @@ reference:
   - add_license
   - add_package_doc
   - add_citation
+  - add_testthat
   - add_vignette
   - add_readme_rmd
   - add_makefile
@@ -43,10 +44,13 @@ reference:
   contents: 
   - add_cran_badge
   - add_dependencies_badge
-  - add_github_actions_badge
   - add_license_badge
   - add_lifecycle_badge
   - add_repostatus_badge
+  - add_github_actions_check_badge
+  - add_github_actions_pkgdown_badge
+  - add_github_actions_codecov_badge
+  - add_codecov_badge
   
 - title: Advanced functions
   desc: |
@@ -61,12 +65,13 @@ reference:
   - add_to_buildignore
   - add_github_actions_check
   - add_github_actions_pkgdown
+  - add_github_actions_codecov
   
 - title: Utilities functions
   desc: |
     These functions return objects but do not edit any file.
   contents: 
+  - get_licenses
   - get_all_dependencies
   - get_all_functions
-  - get_licenses
   - get_minimal_r_version

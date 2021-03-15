@@ -9,9 +9,11 @@ new_package(
   status = "concept",
   lifecycle = "experimental",
   vignette = TRUE,
+  test = TRUE,
   create_repo = TRUE,
   private = FALSE,
   gh_check = TRUE,
+  codecov = TRUE,
   website = TRUE,
   given = NULL,
   family = NULL,
@@ -63,6 +65,12 @@ If \code{TRUE} creates a vignette in \verb{vignettes/} named \code{pkg.Rmd}. Pac
 \code{\link[knitr:knitr-package]{knitr::knitr()}} and \code{\link[rmarkdown:rmarkdown-package]{rmarkdown::rmarkdown()}} are also added to \code{Suggests}
 in the \code{DESCRIPTION} file.}
 
+\item{test}{a logical value
+
+If \code{TRUE} initializes units tests by running \code{\link[usethis:use_testthat]{usethis::use_testthat()}}.
+Package \code{\link[testthat:testthat-package]{testthat::testthat()}} is also added to \code{Suggests} in the
+\code{DESCRIPTION} file.}
+
 \item{create_repo}{a logical value
 
 If \code{TRUE} (default) creates a repository (public if \code{private = FALSE} or
@@ -80,6 +88,14 @@ If \code{TRUE} (default) configures GitHub Actions to automatically check and
 test the package after each push. This will run \verb{R CMD check} on the three
 major operating systems (Ubuntu, macOS, and Windows) on the latest release
 of R. See \code{\link[=add_github_actions_check]{add_github_actions_check()}} for further information.
+
+If \code{create_repo = FALSE} this argument is ignored.}
+
+\item{codecov}{a logical value
+
+If \code{TRUE} (default) configures GitHub Actions to automatically report
+the code coverage of units test after each push.
+See \code{\link[=add_github_actions_codecov]{add_github_actions_codecov()}} for further information.
 
 If \code{create_repo = FALSE} this argument is ignored.}
 

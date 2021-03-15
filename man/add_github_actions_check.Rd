@@ -2,7 +2,7 @@
 % Please edit documentation in R/add_github_actions_check.R
 \name{add_github_actions_check}
 \alias{add_github_actions_check}
-\title{Setup GitHub Actions to check and test package}
+\title{Setup GitHub Actions to check package}
 \usage{
 add_github_actions_check(open = FALSE, overwrite = FALSE, quiet = FALSE)
 }
@@ -18,8 +18,8 @@ Default is \code{FALSE}.}
 }
 \description{
 This function creates a configuration file (\code{.yaml}) to setup GitHub Actions
-to check and test the package. This file will be added (from a template)
-in the folder \code{.github/workflows/R-CMD-check.yaml}.
+to check the package. This file will be added (from a template) in the
+folder \code{.github/workflows/R-CMD-check.yaml}.
 }
 \details{
 This workflow runs \verb{R CMD check} on the three major operating systems
@@ -33,6 +33,7 @@ add_github_actions_check()
 \seealso{
 Other development functions: 
 \code{\link{add_dependencies}()},
+\code{\link{add_github_actions_codecov}()},
 \code{\link{add_github_actions_pkgdown}()},
 \code{\link{add_r_depend}()},
 \code{\link{add_to_buildignore}()},

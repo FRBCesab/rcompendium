@@ -21,6 +21,7 @@ add_github_actions()
 Other development functions: 
 \code{\link{add_dependencies}()},
 \code{\link{add_github_actions_check}()},
+\code{\link{add_github_actions_codecov}()},
 \code{\link{add_github_actions_pkgdown}()},
 \code{\link{add_to_buildignore}()},
 \code{\link{add_to_gitignore}()}

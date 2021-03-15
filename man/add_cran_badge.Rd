@@ -21,8 +21,10 @@ add_cran_badge()
 }
 \seealso{
 Other adding badges: 
+\code{\link{add_codecov_badge}()},
 \code{\link{add_dependencies_badge}()},
 \code{\link{add_github_actions_check_badge}()},
+\code{\link{add_github_actions_codecov_badge}()},
 \code{\link{add_github_actions_pkgdown_badge}()},
 \code{\link{add_license_badge}()},
 \code{\link{add_lifecycle_badge}()},

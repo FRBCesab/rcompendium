@@ -1,3 +1,12 @@
+# rcompendium 0.4
+
+* New features: `add_testthat()`, `add_github_actions_codecov()`, 
+`add_github_actions_codecov_badge()`, and `add_codecov_badge()`
+* New arguments in `new_package()`: `test` and `codecov`
+* Add a demo R function to pass test and show good practices in writing 
+functions
+
+
 # rcompendium 0.3
 
 * Improve dependencies detection in `@examples` sections

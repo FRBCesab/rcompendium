@@ -68,6 +68,12 @@
 #'   [knitr::knitr()] and [rmarkdown::rmarkdown()] are also added to `Suggests`
 #'   in the `DESCRIPTION` file.
 #' 
+#' @param test a logical value
+#' 
+#'   If `TRUE` initializes units tests by running [usethis::use_testthat()]. 
+#'   Package [testthat::testthat()] is also added to `Suggests` in the 
+#'   `DESCRIPTION` file.
+#' 
 #' @param create_repo a logical value
 #' 
 #'   If `TRUE` (default) creates a repository (public if `private = FALSE` or 
@@ -88,6 +94,14 @@
 #'   
 #'   If `create_repo = FALSE` this argument is ignored.
 #' 
+#' @param codecov a logical value
+#' 
+#'   If `TRUE` (default) configures GitHub Actions to automatically report 
+#'   the code coverage of units test after each push. 
+#'   See [add_github_actions_codecov()] for further information. 
+#'   
+#'   If `create_repo = FALSE` this argument is ignored.
+#'   
 #' @param website a logical value
 #' 
 #'   If `TRUE` (default) configures GitHub Actions to automatically build and 
@@ -298,10 +312,11 @@
 
 new_package <- function(license = "GPL (>= 2)", status = "concept", 
                         lifecycle = "experimental", vignette = TRUE, 
-                        create_repo = TRUE, private = FALSE, gh_check = TRUE, 
-                        website = TRUE, given = NULL, family = NULL, 
-                        email = NULL, orcid = NULL, organisation = NULL, 
-                        overwrite = FALSE, quiet = FALSE) {
+                        test = TRUE, create_repo = TRUE, private = FALSE, 
+                        gh_check = TRUE, codecov = TRUE, website = TRUE, 
+                        given = NULL, family = NULL, email = NULL, 
+                        orcid = NULL, organisation = NULL, overwrite = FALSE, 
+                        quiet = FALSE) {
   
   
   ## If not RStudio ----
@@ -412,8 +427,13 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   } else {
     
     gh_check <- FALSE
+    codecov  <- FALSE
     website  <- FALSE
   }
+  
+  
+  if (!test) codecov  <- FALSE
+  
   
   
   ## Check Repo Status ----
@@ -528,7 +548,36 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   add_citation(given, family, organisation, open = FALSE, 
                overwrite = overwrite, quiet = quiet)
   
+  
+  ## Demo R function ----
+  
+  if (!file.exists(file.path(path_proj(), "R", "fun-demo.R"))) {
+    
+    invisible(
+      file.copy(system.file(file.path("templates", "__RDEMO__"), 
+                            package = "rcompendium"), 
+                file.path(path_proj(), "R", "fun-demo.R"), 
+                overwrite = overwrite)) 
+  }
+  
+  if (!quiet) ui_line()
+  if (!quiet) ui_done("Writing {ui_value('R/fun-demo.R')} file")
+  
   suppressMessages(devtools::document(quiet = TRUE))
+  
+  
+  
+  ##
+  ## ADDING TESTTHAT ----
+  ## 
+  
+  
+  if (test) {
+    
+    ui_title("Adding Testthat")
+    
+    add_testthat()
+  }
   
   
   
@@ -643,6 +692,25 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
     
   }
   
+  
+  
+  ##
+  ## CONFIGURING CODE COVERAGE ----
+  ## 
+  
+  
+  
+  if (codecov) {
+    
+    ui_title("Configuring Code Coverage")
+    
+    
+    ## R-CMD-Check ----
+    
+    add_github_actions_codecov(quiet = quiet)
+    add_to_buildignore(".github", quiet = quiet)
+  }
+  
 
   
   ##
@@ -661,6 +729,7 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
     ## Add pkgdown with GH Actions config file ----
     
     add_github_actions_pkgdown()
+    add_to_buildignore(".github", quiet = quiet)
     
     ui_line()
     
@@ -699,6 +768,11 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   
   if (website) {
     add_github_actions_pkgdown_badge(organisation, quiet = quiet)
+  }
+  
+  if (codecov) {
+    add_github_actions_codecov_badge(organisation, quiet = quiet)
+    add_codecov_badge(organisation, quiet = quiet)
   }
   
   add_cran_badge(quiet = quiet)
@@ -743,7 +817,8 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   
   invisible(gert::git_add("."))
   invisible(gert::git_commit(":art: Adding badges"))
-  invisible(gert::git_push(verbose = FALSE))
+  
+  if (create_repo) invisible(gert::git_push(verbose = FALSE))
   
   
   

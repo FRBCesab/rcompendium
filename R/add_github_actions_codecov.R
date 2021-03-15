@@ -1,9 +1,9 @@
-#' Setup GitHub Actions to check package
+#' Setup GitHub Actions to report code coverage
 #' 
 #' @description 
 #' This function creates a configuration file (`.yaml`) to setup GitHub Actions 
-#' to check the package. This file will be added (from a template) in the 
-#' folder `.github/workflows/R-CMD-check.yaml`.
+#' to report code coverage when testing the package. This file will be added 
+#' (from a template) in the folder `.github/workflows/test-coverage.yaml`.
 #' 
 #' @param open a logical value. If `TRUE` the file is opened in the editor.
 #'   Default is `FALSE`.
@@ -13,10 +13,6 @@
 #' 
 #' @param quiet a logical value. If `TRUE` messages are deleted. Default is 
 #'   `FALSE`.
-#'   
-#' @details 
-#' This workflow runs `R CMD check` on the three major operating systems
-#' (Ubuntu, macOS, and Windows) on the latest release of R.
 #' 
 #' @export
 #' 
@@ -24,12 +20,12 @@
 #'
 #' @examples
 #' \dontrun{
-#' add_github_actions_check()
+#' add_github_actions_codecov()
 #' }
 
-add_github_actions_check <- function(open = FALSE, overwrite = FALSE,
-                                     quiet = FALSE) {
-
+add_github_actions_codecov <- function(open = FALSE, overwrite = FALSE,
+                                       quiet = FALSE) {
+  
   
   stop_if_not_logical(open, overwrite, quiet)
   
@@ -38,7 +34,7 @@ add_github_actions_check <- function(open = FALSE, overwrite = FALSE,
   }
   
   
-  path <- file.path(path_proj(), ".github", "workflows", "R-CMD-check.yaml")
+  path <- file.path(path_proj(), ".github", "workflows", "test-coverage.yaml")
   
   
   ## Do not replace current file but open it if required ----
@@ -47,8 +43,8 @@ add_github_actions_check <- function(open = FALSE, overwrite = FALSE,
     
     if (!open) {
       
-      stop("An '.github/workflows/R-CMD-check.yaml' file is already present. ",
-           "If you want to replace it, please use `overwrite = TRUE`.")
+      stop("An '.github/workflows/test-coverage.yaml' file is already ",
+           "present. If you want to replace it, please use `overwrite = TRUE`")
       
     } else {
       
@@ -62,14 +58,14 @@ add_github_actions_check <- function(open = FALSE, overwrite = FALSE,
   
   dir.create(file.path(path_proj(), ".github", "workflows"), 
              showWarnings = FALSE, recursive = TRUE)
-
+  
   invisible(
-    file.copy(system.file(file.path("templates", "__RCMDCHECK__"), 
+    file.copy(system.file(file.path("templates", "__CODECOV__"), 
                           package = "rcompendium"), path))
-
+  
   
   if (!quiet) 
-    ui_done("Writing {ui_value('.github/workflows/R-CMD-check.yaml')} file")
+    ui_done("Writing {ui_value('.github/workflows/test-coverage.yaml')} file")
   
   if (open) edit_file(path)
   

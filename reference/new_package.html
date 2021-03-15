@@ -93,7 +93,7 @@ folder. See below the section Creating a GITHUB Repository." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rcompendium</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4</span>
       </span>
     </div>
 
@@ -170,9 +170,11 @@ folder. See below the section <strong>Creating a GITHUB Repository</strong>.</p>
   status <span class='op'>=</span> <span class='st'>"concept"</span>,
   lifecycle <span class='op'>=</span> <span class='st'>"experimental"</span>,
   vignette <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  test <span class='op'>=</span> <span class='cn'>TRUE</span>,
   create_repo <span class='op'>=</span> <span class='cn'>TRUE</span>,
   private <span class='op'>=</span> <span class='cn'>FALSE</span>,
   gh_check <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  codecov <span class='op'>=</span> <span class='cn'>TRUE</span>,
   website <span class='op'>=</span> <span class='cn'>TRUE</span>,
   given <span class='op'>=</span> <span class='cn'>NULL</span>,
   family <span class='op'>=</span> <span class='cn'>NULL</span>,
@@ -226,6 +228,13 @@ to better understand your project. If you don't want this badge use
 in the <code>DESCRIPTION</code> file.</p></td>
     </tr>
     <tr>
+      <th>test</th>
+      <td><p>a logical value</p>
+<p>If <code>TRUE</code> initializes units tests by running <code><a href='https://usethis.r-lib.org/reference/use_testthat.html'>usethis::use_testthat()</a></code>.
+Package <code><a href='https://testthat.r-lib.org/reference/testthat-package.html'>testthat::testthat()</a></code> is also added to <code>Suggests</code> in the
+<code>DESCRIPTION</code> file.</p></td>
+    </tr>
+    <tr>
       <th>create_repo</th>
       <td><p>a logical value</p>
 <p>If <code>TRUE</code> (default) creates a repository (public if <code>private = FALSE</code> or
@@ -245,6 +254,14 @@ organisation). Default is <code>private = FALSE</code>.</p></td>
 test the package after each push. This will run <code>R CMD check</code> on the three
 major operating systems (Ubuntu, macOS, and Windows) on the latest release
 of R. See <code><a href='add_github_actions_check.html'>add_github_actions_check()</a></code> for further information.</p>
+<p>If <code>create_repo = FALSE</code> this argument is ignored.</p></td>
+    </tr>
+    <tr>
+      <th>codecov</th>
+      <td><p>a logical value</p>
+<p>If <code>TRUE</code> (default) configures GitHub Actions to automatically report
+the code coverage of units test after each push.
+See <code><a href='add_github_actions_codecov.html'>add_github_actions_codecov()</a></code> for further information.</p>
 <p>If <code>create_repo = FALSE</code> this argument is ignored.</p></td>
     </tr>
     <tr>

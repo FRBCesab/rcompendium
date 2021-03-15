@@ -7,6 +7,9 @@
     <loc>https://frbcesab.github.io/rcompendium/reference/add_citation.html</loc>
   </url>
   <url>
+    <loc>https://frbcesab.github.io/rcompendium/reference/add_codecov_badge.html</loc>
+  </url>
+  <url>
     <loc>https://frbcesab.github.io/rcompendium/reference/add_cran_badge.html</loc>
   </url>
   <url>
@@ -23,6 +26,12 @@
   </url>
   <url>
     <loc>https://frbcesab.github.io/rcompendium/reference/add_github_actions_check_badge.html</loc>
+  </url>
+  <url>
+    <loc>https://frbcesab.github.io/rcompendium/reference/add_github_actions_codecov.html</loc>
+  </url>
+  <url>
+    <loc>https://frbcesab.github.io/rcompendium/reference/add_github_actions_codecov_badge.html</loc>
   </url>
   <url>
     <loc>https://frbcesab.github.io/rcompendium/reference/add_github_actions_pkgdown.html</loc>
@@ -53,6 +62,9 @@
   </url>
   <url>
     <loc>https://frbcesab.github.io/rcompendium/reference/add_repostatus_badge.html</loc>
+  </url>
+  <url>
+    <loc>https://frbcesab.github.io/rcompendium/reference/add_testthat.html</loc>
   </url>
   <url>
     <loc>https://frbcesab.github.io/rcompendium/reference/add_to_buildignore.html</loc>

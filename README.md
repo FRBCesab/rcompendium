@@ -32,19 +32,22 @@ wasting time organizing files.
 A full ready-to-work structure will be set up with the following
 features:
 
--   Initialization of the [GIT](https://git-scm.com/) versioning.
+-   Initialization of the [GIT](https://git-scm.com/) versioning (see
+    below \[GIT configuration\]).
 -   Creation of a minimal R package structure (`DESCRIPTION` and
     `NAMESPACE` files, and `R/` and `man/` folders).
 -   Creation of additional files (`LICENSE.md`, `inst/CITATION`, etc.).
 -   Creation of a *Get started* vignette in `vignettes/`.
--   Creation of a GitHub `README.Rmd` with HexSticker (template) and
-    badges.
--   Autocompletion of maintainer information.
--   Creation of the GitHub repository.
+-   Setting the units tests process.
+-   Creation of a `README.Rmd` with HexSticker (template) and badges.
+-   Autocompletion of maintainer information (see below \[Managing
+    credentials\]).
+-   Creation of a GitHub repository (see below \[Creating a GitHub
+    repo\]).
 -   Configuration of GitHub Actions to automatically:
-    -   check and test package;
-    -   build and deploy website (using
-        [`pkgdown`](https://pkgdown.r-lib.org/)).
+    -   check and test package (`R CMD Check`);
+    -   report the code coverage (`covr`);
+    -   build and deploy website (`pkgdown`).
 
 ## Overview
 
@@ -55,51 +58,59 @@ structure:
 
     .
     │
-    ├── pkg.Rproj                 # (optional) Created by user 
+    ├── pkg.Rproj                   # (optional) Created by user 
     │
-    ├── .git/                     # GIT tracking folder
-    ├── .gitignore                # Specific to R packages
+    ├── .git/                       # GIT tracking folder
+    ├── .gitignore                  # Specific to R packages
     |
-    ├── .github/                  # (optional) GitHub Actions settings
+    ├── .github/                    # (optional) GitHub Actions settings
     │   └── workflows/
-    │       ├── pkgdown.yaml      # Configuration file to build & deploy website
-    │       └── R-CMD-check.yaml  # Configuration file to check & test package
+    │       ├── pkgdown.yaml        # Configuration file to build & deploy website
+    │       ├── R-CMD-check.yaml    # Configuration file to check & test package
+    │       └── test-coverage.yaml  # Configuration file to build & deploy website
     │
-    ├── _pkgdown.yaml             # (optional) User website settings
+    ├── _pkgdown.yaml               # (optional) User website settings
     │
-    ├── R/                        # R functions
-    │   └── pkg-package.R         # Dummy R file for package-level documentation
+    ├── R/                          # R functions
+    │   ├── fun-demo.R              # Example of an R function
+    │   └── pkg-package.R           # Dummy R file for package-level documentation
     │
-    ├── man/                      # R functions helps (automatically updated)
-    │   ├── pkg-package.Rd        # Package-level documentation
-    │   └── figures/              # Figures for the README 
-    │       └── hexsticker.png    # Template R package HexSticker
+    ├── man/                        # R functions helps (automatically updated)
+    │   ├── print_msg.Rd            # Documentation of the demo R function
+    │   ├── pkg-package.Rd          # Package-level documentation
+    │   └── figures/                # Figures for the README 
+    │       └── hexsticker.png      # Template R package HexSticker
     │
-    ├── inst/
-    │   └── CITATION              # BiBTeX entry to cite the R package       [*]
-    │
+    ├── tests/
+    │   ├── testthat.R              # Units tests settings
+    │   └── testthat/               # Units tests folder
+    │       └── test-demo.R         # Units tests for the function print_msg()
+    |
     ├── vignettes/
-    │   └── pkg.Rmd               # (optional) Package tutorial              [*]
+    │   └── pkg.Rmd                 # (optional) Package tutorial              [*]
     │
-    ├── DESCRIPTION               # Project metadata                         [*]
-    ├── NAMESPACE                 # Automatically generated
-    ├── .Rbuildignore             # Automatically generated
+    ├── DESCRIPTION                 # Project metadata                         [*]
+    ├── NAMESPACE                   # Automatically generated
+    ├── .Rbuildignore               # List of files/folders to be ignored while 
+    │                               # checking the package
+    ├── inst/
+    │   └── CITATION                # BiBTeX entry to cite the R package       [*]
     │
-    ├── LICENSE                   # (optional) If License = MIT
-    ├── LICENSE.md                # Content of the chosen license
+    ├── LICENSE                     # (optional) If License = MIT
+    ├── LICENSE.md                  # Content of the chosen license
     │
-    ├── README.md                 # GitHub README (automatically generated)
-    ├── README.Rmd                # GitHub README (to knit)                  [*]
+    ├── README.md                   # GitHub README (automatically generated)
+    ├── README.Rmd                  # GitHub README (to knit)                  [*]
     /
     /
-    ├── analysis/                 # Proposed compendium                      [¶]
-    │   ├── data/                 # User raw data (.csv, .gpkg, etc.)
-    │   ├── rscripts/             # R scripts (no functions) to run analyses
-    │   ├── outputs/              # Outputs created by R scripts
-    │   ├── figures/              # Figures created by R scripts
-    │   └── paper/                # Article based on analyses
+    ├── analysis/                   # Proposed compendium                      [¶]
+    │   ├── data/                   # User raw data (.csv, .gpkg, etc.)
+    │   ├── rscripts/               # R scripts (no functions) to run analyses
+    │   ├── outputs/                # Outputs created by R scripts
+    │   ├── figures/                # Figures created by R scripts
+    │   └── paper/                  # Article based on analyses
     │
-    └── make.R                    # Master R scripts to run all analyses     [¶]
+    └── make.R                      # Master R scripts to run all analyses     [¶]
 
 
     [*] These files are automatically edited but user needs to add manually 
@@ -124,19 +135,24 @@ if (!requireNamespace("remotes", quietly = TRUE)) {
 remotes::install_github("FRBCesab/rcompendium")
 ```
 
-## Getting started
+## Get started
 
 Please read the
 [Vignette](https://frbcesab.github.io/rcompendium/articles/rcompendium.html)
-and the documentation of the function
-[`new_package`](https://frbcesab.github.io/rcompendium/reference/new_package.html).
+and pay attention to the sections
+[Prerequisites](https://frbcesab.github.io/rcompendium/articles/rcompendium.html#prerequisites)
+and
+[Usage](https://frbcesab.github.io/rcompendium/articles/rcompendium.html#usage)
 
-This [repository](https://github.com/FRBCesab/pkgtest) was created by
-running:
+:boom: The repository [pkgtest](https://github.com/ahasverus/pkgtest)
+was created by running:
 
 ``` r
-rcompendium::new_package(organisation = "FRBCesab")
+rcompendium::new_package()
 ```
+
+**N.B.** Before running this command, a new RStudio project (called
+`pkgtest`) was manually created.
 
 ## Citation
 
@@ -175,15 +191,14 @@ By contributing to this project, you agree to abide by its terms.
 
 ## Colophon
 
-This package is the result of intense discussions and feedbacks from the
+This package is the result of intense discussions and feedback from the
 training course [Data Toolbox for Reproducible Research in Computational
 Ecology](https://github.com/FRBCesab/datatoolbox) (in French).
 
 `rcompendium` was largely inspired by the package
 [`rrtools`](https://github.com/benmarwick/rrtools) developed by [Ben
 Marwick](https://github.com/benmarwick) and tries to respect the
-standard defined by [RStudio](https://rstudio.com/). It uses several
-functions from the packages [`devtools`](https://devtools.r-lib.org/)
-and [`usethis`](https://usethis.r-lib.org/).
-
-**Thanks to these developer teams!**
+standard defined by the community. It re-implements several functions
+from the packages [`devtools`](https://devtools.r-lib.org/) and
+[`usethis`](https://usethis.r-lib.org/). **Special thanks to these
+developers!**

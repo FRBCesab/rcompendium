@@ -41,8 +41,9 @@
 
 <meta property="og:title" content="Create a README file — add_readme_rmd" />
 <meta property="og:description" content="This function creates a README.Rmd file at the root of the project based
-on a template. Once edited user needs to knit it into a README.Rmd (or use
-the function refresh()." />
+on a template (adapted from usethis). Once
+edited user needs to knit it into a README.Rmd (or use the function
+refresh())." />
 
 
 
@@ -123,8 +124,9 @@ the function refresh()." />
 
     <div class="ref-description">
     <p>This function creates a <code>README.Rmd</code> file at the root of the project based
-on a template. Once edited user needs to knit it into a <code>README.Rmd</code> (or use
-the function <code><a href='refresh.html'>refresh()</a></code>.</p>
+on a template (adapted from <a href='https://usethis.r-lib.org/'><code>usethis</code></a>). Once
+edited user needs to knit it into a <code>README.Rmd</code> (or use the function
+<code><a href='refresh.html'>refresh()</a></code>).</p>
     </div>
 
     <pre class="usage"><span class='fu'>add_readme_rmd</span><span class='op'>(</span>
@@ -142,37 +144,43 @@ the function <code><a href='refresh.html'>refresh()</a></code>.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>type</th>
-      <td><p>a character. If <code>package</code> (default) a GitHub <code>README.Rmd</code>
-specific to an R package will be created. If <code>compendium</code> a GitHub
-<code>README.Rmd</code> specific to a research compendium will be created.</p></td>
+      <td><p>a character of length 1</p>
+<p>If <code>package</code> (default) a GitHub <code>README.Rmd</code> specific to an R package will
+be created. If <code>compendium</code> a GitHub <code>README.Rmd</code> specific to a research
+compendium will be created.</p></td>
     </tr>
     <tr>
       <th>given</th>
-      <td><p>(optional) given name of the package maintainer</p></td>
+      <td><p>a character of length 1</p>
+<p>The given name of the package maintainer.</p></td>
     </tr>
     <tr>
       <th>family</th>
-      <td><p>(optional) family name of the package maintainer</p></td>
+      <td><p>a character of length 1</p>
+<p>The family name of the package maintainer.</p></td>
     </tr>
     <tr>
       <th>organisation</th>
-      <td><p>a character. The name of the GITHUB organisation to
-host the package. If <code>NULL</code> the GITHUB account will be used.</p></td>
+      <td><p>a character of length 1</p>
+<p>The name of the GitHub organisation to host the package. If <code>NULL</code>
+(default) the GitHub account will be used. This argument is used to set
+the URL of the package (hosted on GitHub).</p></td>
     </tr>
     <tr>
       <th>open</th>
-      <td><p>a logical value. If <code>TRUE</code> (default) the file is opened in the
-editor.</p></td>
+      <td><p>a logical value</p>
+<p>If <code>TRUE</code> (default) the file is opened in the editor.</p></td>
     </tr>
     <tr>
       <th>overwrite</th>
-      <td><p>a logical value. If a <code>README.Rmd</code> is already present and
-<code>overwrite = TRUE</code>, this file will be erased and replaced.</p></td>
+      <td><p>a logical value</p>
+<p>If this file is already present and <code>overwrite = TRUE</code>, it will be erased
+and replaced. Default is <code>FALSE</code>.</p></td>
     </tr>
     <tr>
       <th>quiet</th>
-      <td><p>a logical value. If <code>TRUE</code> messages are deleted. Default is
-<code>FALSE</code>.</p></td>
+      <td><p>a logical value</p>
+<p>If <code>TRUE</code> messages are deleted. Default is <code>FALSE</code>.</p></td>
     </tr>
     </table>
 

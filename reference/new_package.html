@@ -40,28 +40,32 @@
 
 
 <meta property="og:title" content="Create an R package structure — new_package" />
-<meta property="og:description" content="This function creates a new R package structure according to the CRAN
-policies. Essential features of an R package are created (DESCRIPTION and
+<meta property="og:description" content="This function creates a new R package structure according to the current
+best practices.
+Essential features of an R package are created (DESCRIPTION and
 NAMESPACE files, and R/ and man/ folders). The project is also
-versioning with git and a generic R .gitignore is added.
+versioned with git and a generic R .gitignore is added.
 IMPORTANT - Before using this function user needs to create a new folder
 (or a new project if using RStudio) and run this function inside this folder
-(by using setwd() or by opening the Rproj in a new Rstudio session).
-The name of the package will be the same as the name of this folder and
-some rules must be respected:
+(by using setwd() or by opening the Rproj in a new RStudio session).
+The name of the package will be the same as the name of this folder.
+Some rules must be respected:
 https://r-pkgs.org/workflows101.html#naming.
 Some fields of the DESCRIPTION file (maintainer information, package name,
 license, URLs, and  roxygen2 version)  are automatically filled but
-others (title and description) need to be edited manually.
+others (like title and description) need to be edited manually.
 Additional features are also created: a CITATION file, a README.Rmd, and
-a vignettes/ folder (optional). See below the section Package Content
-to see the full structure of the R package.
+tests/ and vignettes/ folders (optional). See the vignette
+Get started
+for a complete overview of the full structure.
 A GitHub repository can also be created (default) following the
 &quot;GitHub last&quot; workflow
 (https://happygitwithr.com/existing-github-last.html).
-Configuration files for GitHub Actions to automatically check the package
-and deploy the website pkgdown::pkgdown() will be added in the .github/
-folder. See below the section Creating a GITHUB Repository." />
+Configuration files for GitHub Actions to automatically 1) check the
+package, 2) test and report code coverage, and 3) deploy the website
+pkgdown
+will be added in the .github/ folder. See below the section
+Creating a GitHub repo." />
 
 
 
@@ -141,28 +145,32 @@ folder. See below the section Creating a GITHUB Repository." />
     </div>
 
     <div class="ref-description">
-    <p>This function creates a new R package structure according to the CRAN
-policies. Essential features of an R package are created (<code>DESCRIPTION</code> and
+    <p>This function creates a new R package structure according to the current
+best practices.
+Essential features of an R package are created (<code>DESCRIPTION</code> and
 <code>NAMESPACE</code> files, and <code>R/</code> and <code>man/</code> folders). The project is also
-<strong>versioning with git</strong> and a generic R <code>.gitignore</code> is added.</p>
+<strong>versioned with git</strong> and a generic R <code>.gitignore</code> is added.</p>
 <p><strong>IMPORTANT -</strong> Before using this function user needs to create a new folder
 (or a new project if using RStudio) and run this function inside this folder
-(by using <code><a href='https://rdrr.io/r/base/getwd.html'>setwd()</a></code> or by opening the Rproj in a new Rstudio session).
-<strong>The name of the package will be the same as the name of this folder and
-some rules must be respected</strong>:
+(by using <code><a href='https://rdrr.io/r/base/getwd.html'>setwd()</a></code> or by opening the <code>Rproj</code> in a new RStudio session).
+<strong>The name of the package will be the same as the name of this folder</strong>.
+Some rules must be respected:
 <a href='https://r-pkgs.org/workflows101.html#naming'>https://r-pkgs.org/workflows101.html#naming</a>.</p>
 <p>Some fields of the <code>DESCRIPTION</code> file (maintainer information, package name,
 license, URLs, and  <code>roxygen2</code> version)  are automatically filled but
-others (title and description) need to be edited manually.</p>
+others (like title and description) need to be edited manually.</p>
 <p>Additional features are also created: a <code>CITATION</code> file, a <code>README.Rmd</code>, and
-a <code>vignettes/</code> folder (optional). See below the section <strong>Package Content</strong>
-to see the full structure of the R package.</p>
+<code>tests/</code> and <code>vignettes/</code> folders (optional). See the vignette
+<a href='https://frbcesab.github.io/rcompendium/articles/rcompendium.html'>Get started</a>
+for a complete overview of the full structure.</p>
 <p>A GitHub repository can also be created (default) following the
 "GitHub last" workflow
 (<a href='https://happygitwithr.com/existing-github-last.html'>https://happygitwithr.com/existing-github-last.html</a>).
-Configuration files for GitHub Actions to automatically check the package
-and deploy the website <code><a href='https://pkgdown.r-lib.org/reference/pkgdown-package.html'>pkgdown::pkgdown()</a></code> will be added in the <code>.github/</code>
-folder. See below the section <strong>Creating a GITHUB Repository</strong>.</p>
+Configuration files for GitHub Actions to automatically 1) check the
+package, 2) test and report code coverage, and 3) deploy the website
+<a href='https://pkgdown.r-lib.org/index.html'><code>pkgdown</code></a>
+will be added in the <code>.github/</code> folder. See below the section
+<strong>Creating a GitHub repo</strong>.</p>
     </div>
 
     <pre class="usage"><span class='fu'>new_package</span><span class='op'>(</span>
@@ -193,8 +201,9 @@ folder. See below the section <strong>Creating a GITHUB Repository</strong>.</p>
       <td><p>a character vector of length 1</p>
 <p>The license to be used for this package. Run <code><a href='get_licenses.html'>get_licenses()</a></code> to choose an
 appropriate one. Default is <code>license = 'GPL (&gt;= 2)'</code></p>
-<p>The license can be changed later by using <code><a href='add_license.html'>add_license()</a></code> (and
-<code><a href='add_license_badge.html'>add_license_badge()</a></code> or <code><a href='refresh.html'>refresh()</a></code> to update the corresponding badge).</p></td>
+<p>The license can be changed later by calling <code><a href='add_license.html'>add_license()</a></code> (and
+<code><a href='add_license_badge.html'>add_license_badge()</a></code> or <code><a href='refresh.html'>refresh()</a></code> to update the corresponding badge in
+the README).</p></td>
     </tr>
     <tr>
       <th>status</th>
@@ -212,7 +221,7 @@ to better understand your project. If you don't want this badge use
     <tr>
       <th>lifecycle</th>
       <td><p>a character vector of length 1</p>
-<p>The lifecycle stage of the project according to the standard defined at
+<p>The life cycle stage of the project according to the standard defined at
 <a href='https://lifecycle.r-lib.org/articles/stages.html'>https://lifecycle.r-lib.org/articles/stages.html</a>. One among
 <code>'experimental'</code> (default), <code>'stable'</code>, <code>'deprecated'</code>, or <code>'superseded'</code>.
 See <code><a href='add_lifecycle_badge.html'>add_lifecycle_badge()</a></code> for further information.</p>
@@ -224,23 +233,25 @@ to better understand your project. If you don't want this badge use
     <tr>
       <th>vignette</th>
       <td><p>a logical value</p>
-<p>If <code>TRUE</code> creates a vignette in <code>vignettes/</code> named <code>pkg.Rmd</code>. Packages
-<code><a href='https://rdrr.io/pkg/knitr/man/knitr-package.html'>knitr::knitr()</a></code> and <code><a href='https://pkgs.rstudio.com/rmarkdown/reference/rmarkdown-package.html'>rmarkdown::rmarkdown()</a></code> are also added to <code>Suggests</code>
-in the <code>DESCRIPTION</code> file.</p></td>
+<p>If <code>TRUE</code> (default) creates a vignette in <code>vignettes/</code>. Packages
+<a href='https://yihui.org/knitr/'><code>knitr</code></a> and
+<a href='https://rmarkdown.rstudio.com/'><code>rmarkdown</code></a> are also added to the
+<code>Suggests</code> field in the <code>DESCRIPTION</code> file.</p></td>
     </tr>
     <tr>
       <th>test</th>
       <td><p>a logical value</p>
-<p>If <code>TRUE</code> initializes units tests by running <code><a href='https://usethis.r-lib.org/reference/use_testthat.html'>usethis::use_testthat()</a></code>.
-Package <code><a href='https://testthat.r-lib.org/reference/testthat-package.html'>testthat::testthat()</a></code> is also added to <code>Suggests</code> in the
-<code>DESCRIPTION</code> file.</p></td>
+<p>If <code>TRUE</code> (default) initializes units tests by running
+<code><a href='https://usethis.r-lib.org/reference/use_testthat.html'>usethis::use_testthat()</a></code>. Package
+<a href='https://testthat.r-lib.org/'><code>testthat</code></a> is also added to the <code>Suggests</code>
+field in the <code>DESCRIPTION</code> file.</p></td>
     </tr>
     <tr>
       <th>create_repo</th>
       <td><p>a logical value</p>
 <p>If <code>TRUE</code> (default) creates a repository (public if <code>private = FALSE</code> or
 private if <code>private = TRUE</code>) on GitHub. See below the section
-<strong>Creating a GITHUB Repository</strong>.</p></td>
+<strong>Creating a GitHub repo</strong>.</p></td>
     </tr>
     <tr>
       <th>private</th>
@@ -261,7 +272,7 @@ of R. See <code><a href='add_github_actions_check.html'>add_github_actions_check
       <th>codecov</th>
       <td><p>a logical value</p>
 <p>If <code>TRUE</code> (default) configures GitHub Actions to automatically report
-the code coverage of units test after each push.
+the code coverage of units tests after each push.
 See <code><a href='add_github_actions_codecov.html'>add_github_actions_codecov()</a></code> for further information.</p>
 <p>If <code>create_repo = FALSE</code> this argument is ignored.</p></td>
     </tr>
@@ -269,9 +280,11 @@ See <code><a href='add_github_actions_codecov.html'>add_github_actions_codecov()
       <th>website</th>
       <td><p>a logical value</p>
 <p>If <code>TRUE</code> (default) configures GitHub Actions to automatically build and
-deploy the package website (using <code><a href='https://pkgdown.r-lib.org/reference/pkgdown-package.html'>pkgdown::pkgdown()</a></code>) after each push. A
-<strong>gh-pages</strong> branch will be created using <code><a href='https://usethis.r-lib.org/reference/use_github_pages.html'>usethis::use_github_pages()</a></code>
-and the GitHub repository will be automatically configured.</p>
+deploy the package website
+(using <a href='https://pkgdown.r-lib.org/index.html'><code>pkgdown</code></a>)
+after each push. A <strong>gh-pages</strong> branch will be created using
+<code><a href='https://usethis.r-lib.org/reference/use_github_pages.html'>usethis::use_github_pages()</a></code> and the GitHub repository will be
+automatically configured to deploy website.</p>
 <p>If <code>create_repo = FALSE</code> this argument is ignored.</p></td>
     </tr>
     <tr>
@@ -280,7 +293,7 @@ and the GitHub repository will be automatically configured.</p>
 <p>The given name of the maintainer of the package. If <code>NULL</code> (default) the
 function will try to get this value by reading the <code>.Rprofile</code> file.</p>
 <p>For further information see <code><a href='set_credentials.html'>set_credentials()</a></code> and below the section
-<strong>Managing Credentials</strong>.</p></td>
+<strong>Managing credentials</strong>.</p></td>
     </tr>
     <tr>
       <th>family</th>
@@ -288,7 +301,7 @@ function will try to get this value by reading the <code>.Rprofile</code> file.<
 <p>The family name of the maintainer of the package. If <code>NULL</code> (default) the
 function will try to get this value by reading the <code>.Rprofile</code> file.</p>
 <p>For further information see <code><a href='set_credentials.html'>set_credentials()</a></code> and below the section
-<strong>Managing Credentials</strong>.</p></td>
+<strong>Managing credentials</strong>.</p></td>
     </tr>
     <tr>
       <th>email</th>
@@ -296,7 +309,7 @@ function will try to get this value by reading the <code>.Rprofile</code> file.<
 <p>The email address of the maintainer of the package. If <code>NULL</code> (default)
 the function will try to get this value by reading the <code>.Rprofile</code> file.</p>
 <p>For further information see <code><a href='set_credentials.html'>set_credentials()</a></code> and below the section
-<strong>Managing Credentials</strong>.</p></td>
+<strong>Managing credentials</strong>.</p></td>
     </tr>
     <tr>
       <th>orcid</th>
@@ -304,7 +317,7 @@ the function will try to get this value by reading the <code>.Rprofile</code> fi
 <p>The ORCID of the maintainer of the package. If <code>NULL</code> (default) the
 function will try to get this value by reading the <code>.Rprofile</code> file.</p>
 <p>For further information see <code><a href='set_credentials.html'>set_credentials()</a></code> and below the section
-<strong>Managing Credentials</strong>.</p></td>
+<strong>Managing credentials</strong>.</p></td>
     </tr>
     <tr>
       <th>organisation</th>
@@ -326,7 +339,7 @@ Default is <code>overwrite = FALSE</code>. <strong>Be careful while using this a
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="recommended-workflow"><a class="anchor" href="#recommended-workflow"></a>Recommended Workflow</h2>
+    <h2 class="hasAnchor" id="recommended-workflow"><a class="anchor" href="#recommended-workflow"></a>Recommended workflow</h2>
 
     
 
@@ -334,24 +347,25 @@ Default is <code>overwrite = FALSE</code>. <strong>Be careful while using this a
 <p>The purpose of the package <code>rcompendium</code> is to make easier the creation of R
 package/research compendium so that user can focus on the code/analysis
 instead of wasting time organizing files.</p>
-<p>The recommended workflow is as follow:</p><ul>
+<p>The recommended workflow is:</p><ol>
 <li><p>Create an empty RStudio project;</p></li>
 <li><p>Store your credentials with <code><a href='set_credentials.html'>set_credentials()</a></code> (if not already done);</p></li>
-<li><p>Run <code>new_package()</code> to create the package structure (and the GitHub
+<li><p>Run <code>new_package()</code> to create a new package structure (and the GitHub
 repository);</p></li>
 <li><p>Edit some metadata in <code>DESCRIPTION</code>, <code>CITATION</code>, and <code>README.Rmd</code>;</p></li>
 <li><p>Implement, document &amp; test functions (the fun part);</p></li>
 <li><p>Update the project (update <code>.Rd</code> files, <code>NAMESPACE</code>, external dependencies
 in <code>DESCRIPTION</code>, re-knit <code>README.Rmd</code>, and check package integrity) with
-<code><a href='refresh.html'>refresh()</a></code>.</p></li>
-</ul>
+<code><a href='refresh.html'>refresh()</a></code>;</p></li>
+<li><p>Repeat steps 5 and 6 while developing the package.</p></li>
+</ol>
 
-    <h2 class="hasAnchor" id="managing-credentials"><a class="anchor" href="#managing-credentials"></a>Managing Credentials</h2>
+    <h2 class="hasAnchor" id="managing-credentials"><a class="anchor" href="#managing-credentials"></a>Managing credentials</h2>
 
     
 
 
-<p>You can use the arguments <code>given</code>, <code>family</code>, <code>email</code>, <code>orcid</code>, and <code>github</code>
+<p>You can use the arguments <code>given</code>, <code>family</code>, <code>email</code>, and <code>orcid</code>
 directly with the function <code>new_package()</code> (and others). But if you create
 a lot a projects (packages and/or compendiums) it can be frustrating in the
 long run.</p>
@@ -363,25 +377,35 @@ It will save your time (it's the purpose of this package).</p>
 <p>Even if you have stored your information in the <code>.Rprofile</code> file you will
 always be able to modify them on-the-fly (i.e. by using arguments of the
 <code>new_package()</code>) or permanently by re-running <code><a href='set_credentials.html'>set_credentials()</a></code>.</p>
-    <h2 class="hasAnchor" id="creating-a-github-repository"><a class="anchor" href="#creating-a-github-repository"></a>Creating a GITHUB Repository</h2>
+    <h2 class="hasAnchor" id="configuring-git"><a class="anchor" href="#configuring-git"></a>Configuring git</h2>
 
     
 
 
-<p>First run <code><a href='https://gh.r-lib.org/reference/gh_whoami.html'>gh::gh_whoami()</a></code> to see if your git and associated credentials are
-correctly configured. If so you should see something like:</p><pre>{
-"name": "Given Family",
-"login": "pseudo",
-"html_url": "https://github.com/pseudo",
+<p>First run <code><a href='https://gh.r-lib.org/reference/gh_whoami.html'>gh::gh_whoami()</a></code> to see if your git is correctly configured. If
+so you should see something like:</p><pre>{
+"name": "John Doe",
+"login": "jdoe",
+"html_url": "https://github.com/jdoe",
 ...
 }
 </pre>
 
-<p>Otherwise see <code><a href='https://docs.ropensci.org/gert/reference/git_config.html'>gert::git_config()</a></code> to debug.</p>
+<p>Otherwise you might need to run:</p><pre><span class='fu'>gert</span><span class='fu'>::</span><span class='fu'><a href='https://docs.ropensci.org/gert/reference/git_config.html'>git_config_global</a></span><span class='op'>(</span>name <span class='op'>=</span> <span class='st'>"user.name"</span>, value <span class='op'>=</span> <span class='st'>"John Doe"</span><span class='op'>)</span>
+<span class='fu'>gert</span><span class='fu'>::</span><span class='fu'><a href='https://docs.ropensci.org/gert/reference/git_config.html'>git_config_global</a></span><span class='op'>(</span>name <span class='op'>=</span> <span class='st'>"user.email"</span>, value <span class='op'>=</span> <span class='st'>"john.doe@domain.com"</span><span class='op'>)</span>
+<span class='fu'>gert</span><span class='fu'>::</span><span class='fu'><a href='https://docs.ropensci.org/gert/reference/git_config.html'>git_config_global</a></span><span class='op'>(</span>name <span class='op'>=</span> <span class='st'>"github.user"</span>, value <span class='op'>=</span> <span class='st'>"jdoe"</span><span class='op'>)</span>
+</pre>
+
+<p>See <code><a href='https://docs.ropensci.org/gert/reference/git_config.html'>gert::git_config()</a></code> for further information.</p>
+    <h2 class="hasAnchor" id="creating-a-github-repo"><a class="anchor" href="#creating-a-github-repo"></a>Creating a GitHub repo</h2>
+
+    
+
+
 <p>To create the GitHub repository directly from R, the package <code>rcompendium</code>
-uses the function <code><a href='https://usethis.r-lib.org/reference/use_github.html'>usethis::use_github()</a></code>, an interface to the GitHub
-REST API. The interaction with this API required an authentication method:
-a <strong>GITHUB PAT</strong> (Personal Access Token).</p>
+uses the function <code><a href='https://usethis.r-lib.org/reference/use_github.html'>usethis::use_github()</a></code>, an client to the GitHub REST API.
+The interaction with this API required an authentication method: a
+<strong>GITHUB PAT</strong> (Personal Access Token).</p>
 <p>If you don't have a <strong>GITHUB PAT</strong> locally stored, you must:</p><ol>
 <li><p>Obtain a new one from your GitHub account. <strong>Make sure to select
 at least the first two scopes (private repository and workflow)</strong></p></li>
@@ -389,12 +413,13 @@ at least the first two scopes (private repository and workflow)</strong></p></li
 and adding the following line: <code>GITHUB_PAT='99z9...z9'</code></p></li>
 </ol>
 
-<p>See <code><a href='https://usethis.r-lib.org/reference/github-token.html'>usethis::gh_token_help()</a></code> for more information about getting and
+<p>Run <code><a href='https://usethis.r-lib.org/reference/github-token.html'>usethis::gh_token_help()</a></code> for more information about getting and
 configuring a <strong>GITHUB PAT</strong>.</p>
-<p>If everything is well configured you should see something like:</p><pre>{
-"name": "Given Family",
-"login": "pseudo",
-"html_url": "https://github.com/pseudo",
+<p>If everything is well configured you should see something like after calling
+<code><a href='https://gh.r-lib.org/reference/gh_whoami.html'>gh::gh_whoami()</a></code>:</p><pre>{
+"name": "John Doe",
+"login": "jdoe",
+"html_url": "https://github.com/jdoe",
 "scopes": "delete_repo, repo, workflow",
 "token": "99z9...z9"
 }
@@ -413,8 +438,9 @@ configuring a <strong>GITHUB PAT</strong>.</p>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/FRBCesab/rcompendium'>rcompendium</a></span><span class='op'>)</span>
 
 <span class='co'>## Define **ONCE FOR ALL** your credentials ----</span>
-<span class='fu'><a href='set_credentials.html'>set_credentials</a></span><span class='op'>(</span><span class='st'>"Given"</span>, <span class='st'>"Family"</span>, <span class='st'>"email.address@domain.com"</span>, 
-                github <span class='op'>=</span> <span class='st'>"pseudo"</span>, orcid <span class='op'>=</span> <span class='st'>"0000-0000-0000-0000"</span><span class='op'>)</span>
+<span class='fu'><a href='set_credentials.html'>set_credentials</a></span><span class='op'>(</span>given <span class='op'>=</span> <span class='st'>"John"</span>, family <span class='op'>=</span> <span class='st'>"Doe"</span>, 
+                email <span class='op'>=</span> <span class='st'>"john.doe@domain.com"</span>, 
+                orcid <span class='op'>=</span> <span class='st'>"0000-0000-0000-0000"</span><span class='op'>)</span>
 
 <span class='co'>## Create an R package ----</span>
 <span class='fu'>new_package</span><span class='op'>(</span><span class='op'>)</span>

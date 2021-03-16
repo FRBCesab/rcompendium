@@ -42,7 +42,7 @@
 <meta property="og:title" content="Add a Test coverage badge — add_github_actions_codecov_badge" />
 <meta property="og:description" content="This function adds a Test coverage badge to the README.Rmd. This function
 must be run after add_github_actions_codecov() which will setup GitHub
-Actions (test coverage)." />
+Actions to report the percentage of code cover by units tests." />
 
 
 
@@ -124,7 +124,7 @@ Actions (test coverage)." />
     <div class="ref-description">
     <p>This function adds a Test coverage badge to the <code>README.Rmd</code>. This function
 must be run after <code><a href='add_github_actions_codecov.html'>add_github_actions_codecov()</a></code> which will setup GitHub
-Actions (test coverage).</p>
+Actions to report the percentage of code cover by units tests.</p>
     </div>
 
     <pre class="usage"><span class='fu'>add_github_actions_codecov_badge</span><span class='op'>(</span>organisation <span class='op'>=</span> <span class='cn'>NULL</span>, quiet <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
@@ -134,13 +134,14 @@ Actions (test coverage).</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>organisation</th>
-      <td><p>(optional) name of the GitHub organisation where the
-project is hosted.  If <code>NULL</code> (default) the GitHub account will be used.</p></td>
+      <td><p>a character of length 1</p>
+<p>The name of the GitHub organisation to host the package. If <code>NULL</code>
+(default) the GitHub account will be used.</p></td>
     </tr>
     <tr>
       <th>quiet</th>
-      <td><p>a logical value. If <code>TRUE</code> messages are deleted. Default is
-<code>FALSE</code>.</p></td>
+      <td><p>a logical value</p>
+<p>If <code>TRUE</code> messages are deleted. Default is <code>FALSE</code>.</p></td>
     </tr>
     </table>
 

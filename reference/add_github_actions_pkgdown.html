@@ -41,10 +41,12 @@
 
 <meta property="og:title" content="Setup GitHub Actions to build and deploy package website — add_github_actions_pkgdown" />
 <meta property="og:description" content="This function creates a configuration file (.yaml) to setup GitHub Actions
-to automatically build and deploy the website using pkgdown::pkgdown().
-This file will be added (from a template) in the folder
-.github/workflows/pkgdown.yaml. An additional (empty) file _pkgdown.yaml
-will also be written: it can be use to customize the package website." />
+to automatically build and deploy the website using
+pkgdown.
+This file will be written (from a template adapted from
+usethis::use_github_action()) in the folder
+.github/workflows/pkgdown.yaml. An additional empty file (_pkgdown.yaml)
+will also be written: it can be used to customize the website." />
 
 
 
@@ -125,10 +127,12 @@ will also be written: it can be use to customize the package website." />
 
     <div class="ref-description">
     <p>This function creates a configuration file (<code>.yaml</code>) to setup GitHub Actions
-to automatically build and deploy the website using <code><a href='https://pkgdown.r-lib.org/reference/pkgdown-package.html'>pkgdown::pkgdown()</a></code>.
-This file will be added (from a template) in the folder
-<code>.github/workflows/pkgdown.yaml</code>. An additional (empty) file <code>_pkgdown.yaml</code>
-will also be written: it can be use to customize the package website.</p>
+to automatically build and deploy the website using
+<a href='https://pkgdown.r-lib.org/index.html'><code>pkgdown</code></a>.
+This file will be written (from a template adapted from
+<code><a href='https://usethis.r-lib.org/reference/use_github_action.html'>usethis::use_github_action()</a></code>) in the folder
+<code>.github/workflows/pkgdown.yaml</code>. An additional empty file (<code>_pkgdown.yaml</code>)
+will also be written: it can be used to customize the website.</p>
     </div>
 
     <pre class="usage"><span class='fu'>add_github_actions_pkgdown</span><span class='op'>(</span>open <span class='op'>=</span> <span class='cn'>FALSE</span>, overwrite <span class='op'>=</span> <span class='cn'>FALSE</span>, quiet <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
@@ -138,18 +142,19 @@ will also be written: it can be use to customize the package website.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>open</th>
-      <td><p>a logical value. If <code>TRUE</code> the file is opened in the editor.
-Default is <code>FALSE</code>.</p></td>
+      <td><p>a logical value</p>
+<p>If <code>TRUE</code> (default) the file is opened in the editor.</p></td>
     </tr>
     <tr>
       <th>overwrite</th>
-      <td><p>a logical value. If this file already exists and
-<code>overwrite = TRUE</code>, its content will be erased.</p></td>
+      <td><p>a logical value</p>
+<p>If this file is already present and <code>overwrite = TRUE</code>, it will be erased
+and replaced. Default is <code>FALSE</code>.</p></td>
     </tr>
     <tr>
       <th>quiet</th>
-      <td><p>a logical value. If <code>TRUE</code> messages are deleted. Default is
-<code>FALSE</code>.</p></td>
+      <td><p>a logical value</p>
+<p>If <code>TRUE</code> messages are deleted. Default is <code>FALSE</code>.</p></td>
     </tr>
     </table>
 

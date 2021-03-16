@@ -141,31 +141,36 @@ edit by hand some information (title, version, etc.).</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>given</th>
-      <td><p>(optional) given name of the package maintainer</p></td>
+      <td><p>a character of length 1</p>
+<p>The given name of the package maintainer.</p></td>
     </tr>
     <tr>
       <th>family</th>
-      <td><p>(optional) family name of the package maintainer</p></td>
+      <td><p>a character of length 1</p>
+<p>The family name of the package maintainer.</p></td>
     </tr>
     <tr>
       <th>organisation</th>
-      <td><p>a character. The name of the GITHUB organisation to
-host the package. If <code>NULL</code> the GITHUB account will be used.</p></td>
+      <td><p>a character of length 1</p>
+<p>The name of the GitHub organisation to host the package. If <code>NULL</code>
+(default) the GitHub account will be used. This argument is used to set
+the URL of the package (hosted on GitHub).</p></td>
     </tr>
     <tr>
       <th>open</th>
-      <td><p>a logical value. If <code>TRUE</code> (default) the file is opened in the
-editor.</p></td>
+      <td><p>a logical value</p>
+<p>If <code>TRUE</code> (default) the file is opened in the editor.</p></td>
     </tr>
     <tr>
       <th>overwrite</th>
-      <td><p>a logical value. If a <code>CITATION</code> is already present and
-<code>overwrite = TRUE</code>, this file will be erased and replaced.</p></td>
+      <td><p>a logical value</p>
+<p>If this file is already present and <code>overwrite = TRUE</code>, it will be erased
+and replaced. Default is <code>FALSE</code>.</p></td>
     </tr>
     <tr>
       <th>quiet</th>
-      <td><p>a logical value. If <code>TRUE</code> messages are deleted. Default is
-<code>FALSE</code>.</p></td>
+      <td><p>a logical value</p>
+<p>If <code>TRUE</code> messages are deleted. Default is <code>FALSE</code>.</p></td>
     </tr>
     </table>
 

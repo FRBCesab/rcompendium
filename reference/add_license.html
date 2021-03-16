@@ -40,7 +40,9 @@
 
 
 <meta property="og:title" content="Add a LICENSE — add_license" />
-<meta property="og:description" content="This function adds a license to the project." />
+<meta property="og:description" content="This function adds a license to the project. It will add the license name
+in the License field of the DESCRIPTION file and write the content of
+the license in the License.md file." />
 
 
 
@@ -120,7 +122,9 @@
     </div>
 
     <div class="ref-description">
-    <p>This function adds a license to the project.</p>
+    <p>This function adds a license to the project. It will add the license name
+in the <code>License</code> field of the <code>DESCRIPTION</code> file and write the content of
+the license in the <code>License.md</code> file.</p>
     </div>
 
     <pre class="usage"><span class='fu'>add_license</span><span class='op'>(</span>license <span class='op'>=</span> <span class='cn'>NULL</span>, given <span class='op'>=</span> <span class='cn'>NULL</span>, family <span class='op'>=</span> <span class='cn'>NULL</span>, quiet <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
@@ -130,27 +134,29 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>license</th>
-      <td><p>a character of length 1. The chosen license. Use
-<code><a href='get_licenses.html'>get_licenses()</a></code>) to select an appropriate one.</p></td>
+      <td><p>a character of length 1</p>
+<p>The chosen license. Run <code><a href='get_licenses.html'>get_licenses()</a></code>) to select an appropriate one.</p></td>
     </tr>
     <tr>
       <th>given</th>
-      <td><p>a character of length 1. User given name of the copyright
-holder. Only required if <code>license = 'MIT'</code>. If is <code>NULL</code> (default) and
-<code>license = 'MIT'</code>, this function will try to retrieve the value of this
-parameter from the <code>.Rprofile</code> file (edited with <code><a href='set_credentials.html'>set_credentials()</a></code>).</p></td>
+      <td><p>a character of length 1</p>
+<p>The given name of the copyright holder. Only required if
+<code>license = 'MIT'</code>. If is <code>NULL</code> (default) and <code>license = 'MIT'</code>, this
+function will try to retrieve the value of this parameter from the
+<code>.Rprofile</code> file (edited with <code><a href='set_credentials.html'>set_credentials()</a></code>).</p></td>
     </tr>
     <tr>
       <th>family</th>
-      <td><p>a character of length 1. User family name of the copyright
-holder. Only required if <code>license = 'MIT'</code>. If is <code>NULL</code> (default) and
-<code>license = 'MIT'</code>, this function will try to retrieve the value of this
-parameter from the <code>.Rprofile</code> file (edited with <code><a href='set_credentials.html'>set_credentials()</a></code>).</p></td>
+      <td><p>a character of length 1</p>
+<p>The family name of the copyright holder. Only required if
+<code>license = 'MIT'</code>. If is <code>NULL</code> (default) and <code>license = 'MIT'</code>, this
+function will try to retrieve the value of this parameter from the
+<code>.Rprofile</code> file (edited with <code><a href='set_credentials.html'>set_credentials()</a></code>).</p></td>
     </tr>
     <tr>
       <th>quiet</th>
-      <td><p>a logical value. If <code>TRUE</code> messages are deleted. Default is
-<code>FALSE</code>.</p></td>
+      <td><p>a logical value</p>
+<p>If <code>TRUE</code> messages are deleted. Default is <code>FALSE</code>.</p></td>
     </tr>
     </table>
 

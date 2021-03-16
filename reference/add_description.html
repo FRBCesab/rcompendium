@@ -41,8 +41,9 @@
 
 <meta property="og:title" content="Create a DESCRIPTION file — add_description" />
 <meta property="og:description" content="This function creates a DESCRIPTION file at the root of the project based
-on a template. User credentials can be passed as arguments but it is
-recommended to store them in the .Rprofile file with set_credentials()." />
+on a template (adapted from usethis). User
+credentials can be passed as arguments but it is recommended to store them
+in the .Rprofile file with set_credentials()." />
 
 
 
@@ -123,8 +124,9 @@ recommended to store them in the .Rprofile file with set_credentials()." />
 
     <div class="ref-description">
     <p>This function creates a <code>DESCRIPTION</code> file at the root of the project based
-on a template. User credentials can be passed as arguments but it is
-recommended to store them in the <code>.Rprofile</code> file with <code><a href='set_credentials.html'>set_credentials()</a></code>.</p>
+on a template (adapted from <a href='https://usethis.r-lib.org/'><code>usethis</code></a>). User
+credentials can be passed as arguments but it is recommended to store them
+in the <code>.Rprofile</code> file with <code><a href='set_credentials.html'>set_credentials()</a></code>.</p>
     </div>
 
     <pre class="usage"><span class='fu'>add_description</span><span class='op'>(</span>
@@ -143,39 +145,45 @@ recommended to store them in the <code>.Rprofile</code> file with <code><a href=
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>given</th>
-      <td><p>(optional) given name of the package maintainer</p></td>
+      <td><p>a character of length 1</p>
+<p>The given name of the package maintainer.</p></td>
     </tr>
     <tr>
       <th>family</th>
-      <td><p>(optional) family name of the package maintainer</p></td>
+      <td><p>a character of length 1</p>
+<p>The family name of the package maintainer.</p></td>
     </tr>
     <tr>
       <th>email</th>
-      <td><p>(optional) email address of the package maintainer</p></td>
+      <td><p>a character of length 1</p>
+<p>The email address of the package maintainer.</p></td>
     </tr>
     <tr>
       <th>orcid</th>
-      <td><p>(optional) ORCID of the package maintainer</p></td>
+      <td><p>a character of length 1</p>
+<p>The ORCID of the package maintainer.</p></td>
     </tr>
     <tr>
       <th>organisation</th>
-      <td><p>a character. The name of the GITHUB organisation to
-host the package. If <code>NULL</code> the GITHUB account will be used.</p></td>
+      <td><p>a character of length 1</p>
+<p>The name of the GitHub organisation to host the package. If <code>NULL</code>
+(default) the GitHub account will be used.</p></td>
     </tr>
     <tr>
       <th>open</th>
-      <td><p>a logical value. If <code>TRUE</code> (default) the file is opened in the
-editor.</p></td>
+      <td><p>a logical value</p>
+<p>If <code>TRUE</code> (default) the file is opened in the editor.</p></td>
     </tr>
     <tr>
       <th>overwrite</th>
-      <td><p>a logical value. If a <code>DESCRIPTION</code> is already present and
-<code>overwrite = TRUE</code>, this file will be erased and replaced.</p></td>
+      <td><p>a logical value</p>
+<p>If a <code>DESCRIPTION</code> is already present and <code>overwrite = TRUE</code>, this file
+will be erased and replaced. Default is <code>FALSE</code>.</p></td>
     </tr>
     <tr>
       <th>quiet</th>
-      <td><p>a logical value. If <code>TRUE</code> messages are deleted. Default is
-<code>FALSE</code>.</p></td>
+      <td><p>a logical value</p>
+<p>If <code>TRUE</code> messages are deleted. Default is <code>FALSE</code>.</p></td>
     </tr>
     </table>
 

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Add a dependencies badge — add_dependencies_badge • rcompendium</title>
+<title>Add a Dependencies badge — add_dependencies_badge • rcompendium</title>
 
 
 <!-- jquery -->
@@ -39,12 +39,13 @@
 
 
 
-<meta property="og:title" content="Add a dependencies badge — add_dependencies_badge" />
+<meta property="og:title" content="Add a Dependencies badge — add_dependencies_badge" />
 <meta property="og:description" content="This function adds a dependencies badge to the README.Rmd. The first
-number corresponds to the direct dependencies and the second to the recursive
-dependencies.
-Note that this function can work with package not published on the CRAN
-and is based on the function gtools::getDependencies()." />
+number corresponds to the direct dependencies and the second to the
+recursive dependencies.
+Note/ this function can work with packages not published on the CRAN
+and is based on the function gtools::getDependencies(). See also the
+function get_all_dependencies()." />
 
 
 
@@ -118,17 +119,18 @@ and is based on the function gtools::getDependencies()." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Add a dependencies badge</h1>
+    <h1>Add a Dependencies badge</h1>
     <small class="dont-index">Source: <a href='https://github.com/FRBCesab/rcompendium/blob/master/R/add_dependencies_badge.R'><code>R/add_dependencies_badge.R</code></a></small>
     <div class="hidden name"><code>add_dependencies_badge.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p>This function adds a dependencies badge to the <code>README.Rmd</code>. The first
-number corresponds to the direct dependencies and the second to the recursive
-dependencies.</p>
-<p><strong>Note</strong> that this function can work with package not published on the CRAN
-and is based on the function <code><a href='https://rdrr.io/pkg/gtools/man/getDependencies.html'>gtools::getDependencies()</a></code>.</p>
+number corresponds to the direct dependencies and the second to the
+recursive dependencies.</p>
+<p><strong>Note/</strong> this function can work with packages not published on the CRAN
+and is based on the function <code><a href='https://rdrr.io/pkg/gtools/man/getDependencies.html'>gtools::getDependencies()</a></code>. See also the
+function <code><a href='get_all_dependencies.html'>get_all_dependencies()</a></code>.</p>
     </div>
 
     <pre class="usage"><span class='fu'>add_dependencies_badge</span><span class='op'>(</span>quiet <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
@@ -138,8 +140,8 @@ and is based on the function <code><a href='https://rdrr.io/pkg/gtools/man/getDe
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>quiet</th>
-      <td><p>a logical value. If <code>TRUE</code> messages are deleted. Default is
-<code>FALSE</code>.</p></td>
+      <td><p>a logical value</p>
+<p>If <code>TRUE</code> messages are deleted. Default is <code>FALSE</code>.</p></td>
     </tr>
     </table>
 

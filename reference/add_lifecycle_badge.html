@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Add a life cycle badge — add_lifecycle_badge • rcompendium</title>
+<title>Add a Life cycle badge — add_lifecycle_badge • rcompendium</title>
 
 
 <!-- jquery -->
@@ -39,11 +39,10 @@
 
 
 
-<meta property="og:title" content="Add a life cycle badge — add_lifecycle_badge" />
+<meta property="og:title" content="Add a Life cycle badge — add_lifecycle_badge" />
 <meta property="og:description" content="This function adds or updates the Life cycle badge to the README.Rmd. It
 is based on the standard defined at
-https://lifecycle.r-lib.org/articles/stages.html. Accepted stages are
-listed below." />
+https://lifecycle.r-lib.org/articles/stages.html." />
 
 
 
@@ -117,7 +116,7 @@ listed below." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Add a life cycle badge</h1>
+    <h1>Add a Life cycle badge</h1>
     <small class="dont-index">Source: <a href='https://github.com/FRBCesab/rcompendium/blob/master/R/add_lifecycle_badge.R'><code>R/add_lifecycle_badge.R</code></a></small>
     <div class="hidden name"><code>add_lifecycle_badge.Rd</code></div>
     </div>
@@ -125,8 +124,7 @@ listed below." />
     <div class="ref-description">
     <p>This function adds or updates the Life cycle badge to the <code>README.Rmd</code>. It
 is based on the standard defined at
-<a href='https://lifecycle.r-lib.org/articles/stages.html'>https://lifecycle.r-lib.org/articles/stages.html</a>. Accepted stages are
-listed below.</p>
+<a href='https://lifecycle.r-lib.org/articles/stages.html'>https://lifecycle.r-lib.org/articles/stages.html</a>.</p>
     </div>
 
     <pre class="usage"><span class='fu'>add_lifecycle_badge</span><span class='op'>(</span>lifecycle <span class='op'>=</span> <span class='st'>"experimental"</span>, quiet <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
@@ -136,13 +134,14 @@ listed below.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>lifecycle</th>
-      <td><p>a character. One among <code>'experimental'</code> (default),
-<code>'stable'</code>, <code>'deprecated'</code>, or <code>'superseded'</code>.</p></td>
+      <td><p>a character of length 1</p>
+<p>Accepted stages are: <code>'experimental'</code> (default), <code>'stable'</code>,
+<code>'deprecated'</code>, or <code>'superseded'</code>.</p></td>
     </tr>
     <tr>
       <th>quiet</th>
-      <td><p>a logical value. If <code>TRUE</code> messages are deleted. Default is
-<code>FALSE</code>.</p></td>
+      <td><p>a logical value</p>
+<p>If <code>TRUE</code> messages are deleted. Default is <code>FALSE</code>.</p></td>
     </tr>
     </table>
 

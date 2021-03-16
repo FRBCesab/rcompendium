@@ -41,9 +41,10 @@
 
 <meta property="og:title" content="Create a vignette document — add_vignette" />
 <meta property="og:description" content="This function adds a vignette in the folder vignettes/. It also adds
-dependencies knitr::knitr() and rmarkdown::rmarkdown() in the
+dependencies knitr and
+rmarkdown in the
 field Suggests of the DESCRIPTION file (if not already present in
-fields Imports and Suggests)." />
+fields Imports)." />
 
 
 
@@ -124,9 +125,10 @@ fields Imports and Suggests)." />
 
     <div class="ref-description">
     <p>This function adds a vignette in the folder <code>vignettes/</code>. It also adds
-dependencies <code><a href='https://rdrr.io/pkg/knitr/man/knitr-package.html'>knitr::knitr()</a></code> and <code><a href='https://pkgs.rstudio.com/rmarkdown/reference/rmarkdown-package.html'>rmarkdown::rmarkdown()</a></code> in the
+dependencies <a href='https://yihui.org/knitr/'><code>knitr</code></a> and
+<a href='https://rmarkdown.rstudio.com/'><code>rmarkdown</code></a> in the
 field <code>Suggests</code> of the <code>DESCRIPTION</code> file (if not already present in
-fields <code>Imports</code> and <code>Suggests</code>).</p>
+fields <code>Imports</code>).</p>
     </div>
 
     <pre class="usage"><span class='fu'>add_vignette</span><span class='op'>(</span>
@@ -142,29 +144,31 @@ fields <code>Imports</code> and <code>Suggests</code>).</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>filename</th>
-      <td><p>the name of the <code>.Rmd</code> file to be created. If <code>NULL</code> the
-<code>.Rmd</code> file will be named <code>pkg.Rmd</code> where <code>pkg</code> is your package name (if
-does not exist).</p></td>
+      <td><p>a character of length 1</p>
+<p>The name of the <code>.Rmd</code> file to be created. If <code>NULL</code> (default )the <code>.Rmd</code>
+file will be named <code>pkg.Rmd</code> where <code>pkg</code> is your package name.</p></td>
     </tr>
     <tr>
       <th>title</th>
-      <td><p>the title of the vignette. If <code>NULL</code> the title will be
+      <td><p>a character of length 1</p>
+<p>The title of the vignette. If <code>NULL</code> (default) the title will be
 <code>Introduction to pkg</code> (where <code>pkg</code> is your package name).</p></td>
     </tr>
     <tr>
       <th>open</th>
-      <td><p>a logical value. If <code>TRUE</code> (default) the file is opened in the
-editor.</p></td>
+      <td><p>a logical value</p>
+<p>If <code>TRUE</code> (default) the file is opened in the editor.</p></td>
     </tr>
     <tr>
       <th>overwrite</th>
-      <td><p>a logical value. If a file is already present and
-<code>overwrite = TRUE</code>, it will be erased and replaced.</p></td>
+      <td><p>a logical value</p>
+<p>If this file is already present and <code>overwrite = TRUE</code>, it will be erased
+and replaced. Default is <code>FALSE</code>.</p></td>
     </tr>
     <tr>
       <th>quiet</th>
-      <td><p>a logical value. If <code>TRUE</code> messages are deleted. Default is
-<code>FALSE</code>.</p></td>
+      <td><p>a logical value</p>
+<p>If <code>TRUE</code> messages are deleted. Default is <code>FALSE</code>.</p></td>
     </tr>
     </table>
 

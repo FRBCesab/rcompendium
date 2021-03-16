@@ -42,7 +42,8 @@
 <meta property="og:title" content="Setup GitHub Actions to report code coverage — add_github_actions_codecov" />
 <meta property="og:description" content="This function creates a configuration file (.yaml) to setup GitHub Actions
 to report code coverage when testing the package. This file will be added
-(from a template) in the folder .github/workflows/test-coverage.yaml." />
+(from a template adapted from usethis::use_github_action()) in the folder
+.github/workflows/test-coverage.yaml." />
 
 
 
@@ -124,7 +125,8 @@ to report code coverage when testing the package. This file will be added
     <div class="ref-description">
     <p>This function creates a configuration file (<code>.yaml</code>) to setup GitHub Actions
 to report code coverage when testing the package. This file will be added
-(from a template) in the folder <code>.github/workflows/test-coverage.yaml</code>.</p>
+(from a template adapted from <code><a href='https://usethis.r-lib.org/reference/use_github_action.html'>usethis::use_github_action()</a></code>) in the folder
+<code>.github/workflows/test-coverage.yaml</code>.</p>
     </div>
 
     <pre class="usage"><span class='fu'>add_github_actions_codecov</span><span class='op'>(</span>open <span class='op'>=</span> <span class='cn'>FALSE</span>, overwrite <span class='op'>=</span> <span class='cn'>FALSE</span>, quiet <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
@@ -134,18 +136,19 @@ to report code coverage when testing the package. This file will be added
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>open</th>
-      <td><p>a logical value. If <code>TRUE</code> the file is opened in the editor.
-Default is <code>FALSE</code>.</p></td>
+      <td><p>a logical value</p>
+<p>If <code>TRUE</code> (default) the file is opened in the editor.</p></td>
     </tr>
     <tr>
       <th>overwrite</th>
-      <td><p>a logical value. If this file already exists and
-<code>overwrite = TRUE</code>, its content will be erased.</p></td>
+      <td><p>a logical value</p>
+<p>If this file is already present and <code>overwrite = TRUE</code>, it will be erased
+and replaced. Default is <code>FALSE</code>.</p></td>
     </tr>
     <tr>
       <th>quiet</th>
-      <td><p>a logical value. If <code>TRUE</code> messages are deleted. Default is
-<code>FALSE</code>.</p></td>
+      <td><p>a logical value</p>
+<p>If <code>TRUE</code> messages are deleted. Default is <code>FALSE</code>.</p></td>
     </tr>
     </table>
 

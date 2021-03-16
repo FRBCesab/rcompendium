@@ -41,7 +41,9 @@
 
 <meta property="og:title" content="Create a Make-like R file — add_makefile" />
 <meta property="og:description" content="This function creates a Make-like R file (make.R) at the root of the
-project based on a template." />
+project based on a template. To be used only if the project is a research
+compendium. The content of this file provides some guidelines. See also
+new_compendium() for further information." />
 
 
 
@@ -122,7 +124,9 @@ project based on a template." />
 
     <div class="ref-description">
     <p>This function creates a Make-like R file (<code>make.R</code>) at the root of the
-project based on a template.</p>
+project based on a template. To be used only if the project is a research
+compendium. The content of this file provides some guidelines. See also
+<code><a href='new_compendium.html'>new_compendium()</a></code> for further information.</p>
     </div>
 
     <pre class="usage"><span class='fu'>add_makefile</span><span class='op'>(</span>
@@ -139,30 +143,34 @@ project based on a template.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>given</th>
-      <td><p>(optional) given name of the package maintainer</p></td>
+      <td><p>a character of length 1</p>
+<p>The given name of the package maintainer.</p></td>
     </tr>
     <tr>
       <th>family</th>
-      <td><p>(optional) family name of the package maintainer</p></td>
+      <td><p>a character of length 1</p>
+<p>The family name of the package maintainer.</p></td>
     </tr>
     <tr>
       <th>email</th>
-      <td><p>(optional) email address of the package maintainer</p></td>
+      <td><p>a character of length 1</p>
+<p>The email address of the package maintainer.</p></td>
     </tr>
     <tr>
       <th>open</th>
-      <td><p>a logical value. If <code>TRUE</code> (default) the file is opened in the
-editor.</p></td>
+      <td><p>a logical value</p>
+<p>If <code>TRUE</code> (default) the file is opened in the editor.</p></td>
     </tr>
     <tr>
       <th>overwrite</th>
-      <td><p>a logical value. If a <code>make.R</code> is already present and
-<code>overwrite = TRUE</code>, this file will be erased and replaced.</p></td>
+      <td><p>a logical value</p>
+<p>If this file is already present and <code>overwrite = TRUE</code>, it will be erased
+and replaced. Default is <code>FALSE</code>.</p></td>
     </tr>
     <tr>
       <th>quiet</th>
-      <td><p>a logical value. If <code>TRUE</code> messages are deleted. Default is
-<code>FALSE</code>.</p></td>
+      <td><p>a logical value</p>
+<p>If <code>TRUE</code> messages are deleted. Default is <code>FALSE</code>.</p></td>
     </tr>
     </table>
 

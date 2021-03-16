@@ -1,16 +1,18 @@
-#' Add a life cycle badge
+#' Add a Life cycle badge
 #'
 #' @description 
 #' This function adds or updates the Life cycle badge to the `README.Rmd`. It 
 #' is based on the standard defined at 
-#' \url{https://lifecycle.r-lib.org/articles/stages.html}. Accepted stages are 
-#' listed below.
+#' \url{https://lifecycle.r-lib.org/articles/stages.html}.
 #'
-#' @param lifecycle a character. One among `'experimental'` (default), 
-#'   `'stable'`, `'deprecated'`, or `'superseded'`.
+#' @param lifecycle a character of length 1
 #' 
-#' @param quiet a logical value. If `TRUE` messages are deleted. Default is 
-#'   `FALSE`.
+#'   Accepted stages are: `'experimental'` (default), `'stable'`, 
+#'   `'deprecated'`, or `'superseded'`.
+#' 
+#' @param quiet a logical value
+#' 
+#'   If `TRUE` messages are deleted. Default is `FALSE`.
 #'   
 #' @details 
 #' The project can have the following life cycle stage:

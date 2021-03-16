@@ -7,8 +7,8 @@
 #' 
 #' @return 
 #' A list of two vectors: 
-#' * `external`, a vector of exported functions name (`pkg::fun()`);
-#' * `internal`, a vector of internal functions name (`pkg:::fun()`).
+#' * `external`, a vector of exported functions name;
+#' * `internal`, a vector of internal functions name.
 #' 
 #' @export
 #' 
@@ -16,7 +16,10 @@
 #'
 #' @examples
 #' \dontrun{
+#' ## Update NAMESPACE ----
 #' devtools::document()
+#' 
+#' ## List all implemented functions ----
 #' get_all_functions()
 #' }
 

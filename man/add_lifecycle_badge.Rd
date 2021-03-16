@@ -2,22 +2,24 @@
 % Please edit documentation in R/add_lifecycle_badge.R
 \name{add_lifecycle_badge}
 \alias{add_lifecycle_badge}
-\title{Add a life cycle badge}
+\title{Add a Life cycle badge}
 \usage{
 add_lifecycle_badge(lifecycle = "experimental", quiet = FALSE)
 }
 \arguments{
-\item{lifecycle}{a character. One among \code{'experimental'} (default),
-\code{'stable'}, \code{'deprecated'}, or \code{'superseded'}.}
+\item{lifecycle}{a character of length 1
 
-\item{quiet}{a logical value. If \code{TRUE} messages are deleted. Default is
-\code{FALSE}.}
+Accepted stages are: \code{'experimental'} (default), \code{'stable'},
+\code{'deprecated'}, or \code{'superseded'}.}
+
+\item{quiet}{a logical value
+
+If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
 }
 \description{
 This function adds or updates the Life cycle badge to the \code{README.Rmd}. It
 is based on the standard defined at
-\url{https://lifecycle.r-lib.org/articles/stages.html}. Accepted stages are
-listed below.
+\url{https://lifecycle.r-lib.org/articles/stages.html}.
 }
 \details{
 The project can have the following life cycle stage:

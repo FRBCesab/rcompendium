@@ -13,27 +13,35 @@ add_vignette(
 )
 }
 \arguments{
-\item{filename}{the name of the \code{.Rmd} file to be created. If \code{NULL} the
-\code{.Rmd} file will be named \code{pkg.Rmd} where \code{pkg} is your package name (if
-does not exist).}
+\item{filename}{a character of length 1
 
-\item{title}{the title of the vignette. If \code{NULL} the title will be
+The name of the \code{.Rmd} file to be created. If \code{NULL} (default )the \code{.Rmd}
+file will be named \code{pkg.Rmd} where \code{pkg} is your package name.}
+
+\item{title}{a character of length 1
+
+The title of the vignette. If \code{NULL} (default) the title will be
 \verb{Introduction to pkg} (where \code{pkg} is your package name).}
 
-\item{open}{a logical value. If \code{TRUE} (default) the file is opened in the
-editor.}
+\item{open}{a logical value
 
-\item{overwrite}{a logical value. If a file is already present and
-\code{overwrite = TRUE}, it will be erased and replaced.}
+If \code{TRUE} (default) the file is opened in the editor.}
 
-\item{quiet}{a logical value. If \code{TRUE} messages are deleted. Default is
-\code{FALSE}.}
+\item{overwrite}{a logical value
+
+If this file is already present and \code{overwrite = TRUE}, it will be erased
+and replaced. Default is \code{FALSE}.}
+
+\item{quiet}{a logical value
+
+If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
 }
 \description{
 This function adds a vignette in the folder \verb{vignettes/}. It also adds
-dependencies \code{\link[knitr:knitr-package]{knitr::knitr()}} and \code{\link[rmarkdown:rmarkdown-package]{rmarkdown::rmarkdown()}} in the
+dependencies \href{https://yihui.org/knitr/}{\code{knitr}} and
+\href{https://rmarkdown.rstudio.com/}{\code{rmarkdown}} in the
 field \code{Suggests} of the \code{DESCRIPTION} file (if not already present in
-fields \code{Imports} and \code{Suggests}).
+fields \code{Imports}).
 }
 \examples{
 \dontrun{

@@ -2,21 +2,23 @@
 % Please edit documentation in R/add_dependencies_badge.R
 \name{add_dependencies_badge}
 \alias{add_dependencies_badge}
-\title{Add a dependencies badge}
+\title{Add a Dependencies badge}
 \usage{
 add_dependencies_badge(quiet = FALSE)
 }
 \arguments{
-\item{quiet}{a logical value. If \code{TRUE} messages are deleted. Default is
-\code{FALSE}.}
+\item{quiet}{a logical value
+
+If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
 }
 \description{
 This function adds a dependencies badge to the \code{README.Rmd}. The first
-number corresponds to the direct dependencies and the second to the recursive
-dependencies.
+number corresponds to the direct dependencies and the second to the
+recursive dependencies.
 
-\strong{Note} that this function can work with package not published on the CRAN
-and is based on the function \code{\link[gtools:getDependencies]{gtools::getDependencies()}}.
+\strong{Note/} this function can work with packages not published on the CRAN
+and is based on the function \code{\link[gtools:getDependencies]{gtools::getDependencies()}}. See also the
+function \code{\link[=get_all_dependencies]{get_all_dependencies()}}.
 }
 \examples{
 \dontrun{

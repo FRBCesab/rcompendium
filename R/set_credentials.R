@@ -11,20 +11,31 @@
 #' `set_credentials(open = TRUE)` to open the `.Rprofile` and clean its 
 #' content. **Be careful while modifying this file!**.
 #'
-#' @param given (optional) given name of the package maintainer
+#' @param given a character of length 1
 #' 
-#' @param family (optional) family name of the package maintainer
+#'   The given name of the package maintainer.
 #' 
-#' @param email (optional) email address of the package maintainer
+#' @param family a character of length 1
 #' 
-#' @param orcid (optional) ORCID of the package maintainer
+#'   The family name of the package maintainer.
 #' 
-#' @param protocol (optional) GIT protocol used to communicate with the GitHub
-#'   remote. One of 'https' or 'ssh'. If you don't know, let `protocol = NULL`
-#'   and the protocol will be 'https'.
+#' @param email a character of length 1
 #' 
-#' @param open a logical value. If `TRUE` the file is opened in the editor.
-#'   Default is `open = FALSE`
+#'   The email address of the package maintainer.
+#' 
+#' @param orcid a character of length 1
+#' 
+#'   The ORCID of the package maintainer.
+#' 
+#' @param protocol a character of length 1
+#' 
+#'   The GIT protocol used to communicate with the GitHub remote. One of 
+#'   `'https'` or `'ssh'`. If you don't know, keep the default value 
+#'   (i.e. `NULL`) and the protocol will be `'https'`.
+#' 
+#' @param open a logical value
+#' 
+#'   If `TRUE` the file is opened in the editor. Default is `open = FALSE`
 #'
 #' @export
 #' 

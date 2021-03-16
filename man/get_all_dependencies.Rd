@@ -7,7 +7,9 @@
 get_all_dependencies(pkg = NULL)
 }
 \arguments{
-\item{pkg}{name of a CRAN package or \code{NULL}. If \code{NULL} get dependencies
+\item{pkg}{a character of length 1
+
+The name of a CRAN package or \code{NULL} (default). If \code{NULL} get dependencies
 of the local (uninstalled) project (package or compendium).}
 }
 \value{
@@ -20,7 +22,7 @@ A list of three vectors:
 }
 \description{
 This function gets all the external packages that the project needs. It is
-used the generate the \emph{dependencies} badge.
+used the generate the \emph{Dependencies} badge (\code{\link[=add_dependencies_badge]{add_dependencies_badge()}}).
 }
 \examples{
 \dontrun{
@@ -31,7 +33,7 @@ add_dependencies()
 deps <- get_all_dependencies()
 unlist(lapply(deps, length))
 
-## Can be used for a specific package ----
+## Can be used for a CRAN package ----
 deps <- get_all_dependencies("usethis")
 unlist(lapply(deps, length))
 }

@@ -14,21 +14,32 @@ add_citation(
 )
 }
 \arguments{
-\item{given}{(optional) given name of the package maintainer}
+\item{given}{a character of length 1
 
-\item{family}{(optional) family name of the package maintainer}
+The given name of the package maintainer.}
 
-\item{organisation}{a character. The name of the GITHUB organisation to
-host the package. If \code{NULL} the GITHUB account will be used.}
+\item{family}{a character of length 1
 
-\item{open}{a logical value. If \code{TRUE} (default) the file is opened in the
-editor.}
+The family name of the package maintainer.}
 
-\item{overwrite}{a logical value. If a \code{CITATION} is already present and
-\code{overwrite = TRUE}, this file will be erased and replaced.}
+\item{organisation}{a character of length 1
 
-\item{quiet}{a logical value. If \code{TRUE} messages are deleted. Default is
-\code{FALSE}.}
+The name of the GitHub organisation to host the package. If \code{NULL}
+(default) the GitHub account will be used. This argument is used to set
+the URL of the package (hosted on GitHub).}
+
+\item{open}{a logical value
+
+If \code{TRUE} (default) the file is opened in the editor.}
+
+\item{overwrite}{a logical value
+
+If this file is already present and \code{overwrite = TRUE}, it will be erased
+and replaced. Default is \code{FALSE}.}
+
+\item{quiet}{a logical value
+
+If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
 }
 \description{
 This function creates a \code{CITATION} file in the folder \verb{inst/}. This file

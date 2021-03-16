@@ -7,8 +7,11 @@
 get_minimal_r_version(pkg = NULL)
 }
 \arguments{
-\item{pkg}{name of a CRAN package or \code{NULL}. If \code{NULL} get minimal required
-R version of the local (uninstalled) project (package or compendium).}
+\item{pkg}{a character of length 1
+
+The name of a CRAN package or \code{NULL} (default). If \code{NULL} get minimal
+required R version of the local (uninstalled) project (package or
+compendium).}
 }
 \value{
 A character with the minimal required R version.

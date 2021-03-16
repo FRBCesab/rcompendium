@@ -7,8 +7,9 @@
 add_license_badge(quiet = FALSE)
 }
 \arguments{
-\item{quiet}{a logical value. If \code{TRUE} messages are deleted. Default is
-\code{FALSE}.}
+\item{quiet}{a logical value
+
+If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
 }
 \description{
 This function adds or updates the license badge to the \code{README.Rmd}. This

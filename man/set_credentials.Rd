@@ -14,20 +14,31 @@ set_credentials(
 )
 }
 \arguments{
-\item{given}{(optional) given name of the package maintainer}
+\item{given}{a character of length 1
 
-\item{family}{(optional) family name of the package maintainer}
+The given name of the package maintainer.}
 
-\item{email}{(optional) email address of the package maintainer}
+\item{family}{a character of length 1
 
-\item{orcid}{(optional) ORCID of the package maintainer}
+The family name of the package maintainer.}
 
-\item{protocol}{(optional) GIT protocol used to communicate with the GitHub
-remote. One of 'https' or 'ssh'. If you don't know, let \code{protocol = NULL}
-and the protocol will be 'https'.}
+\item{email}{a character of length 1
 
-\item{open}{a logical value. If \code{TRUE} the file is opened in the editor.
-Default is \code{open = FALSE}}
+The email address of the package maintainer.}
+
+\item{orcid}{a character of length 1
+
+The ORCID of the package maintainer.}
+
+\item{protocol}{a character of length 1
+
+The GIT protocol used to communicate with the GitHub remote. One of
+\code{'https'} or \code{'ssh'}. If you don't know, keep the default value
+(i.e. \code{NULL}) and the protocol will be \code{'https'}.}
+
+\item{open}{a logical value
+
+If \code{TRUE} the file is opened in the editor. Default is \code{open = FALSE}}
 }
 \description{
 This function stores user credentials in the \code{.Rprofile} file. Accepted

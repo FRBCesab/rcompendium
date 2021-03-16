@@ -2,21 +2,24 @@
 % Please edit documentation in R/add_github_actions_pkgdown_badge.R
 \name{add_github_actions_pkgdown_badge}
 \alias{add_github_actions_pkgdown_badge}
-\title{Add a Website Deployment badge}
+\title{Add a Website deployment badge}
 \usage{
 add_github_actions_pkgdown_badge(organisation = NULL, quiet = FALSE)
 }
 \arguments{
-\item{organisation}{(optional) name of the GitHub organisation where the
-project is hosted.  If \code{NULL} (default) the GitHub account will be used.}
+\item{organisation}{a character of length 1
 
-\item{quiet}{a logical value. If \code{TRUE} messages are deleted. Default is
-\code{FALSE}.}
+The name of the GitHub organisation to host the package. If \code{NULL}
+(default) the GitHub account will be used.}
+
+\item{quiet}{a logical value
+
+If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
 }
 \description{
-This function adds a Website Deployment badge to the \code{README.Rmd}. This
+This function adds a Website deployment badge to the \code{README.Rmd}. This
 function must be run after \code{\link[=add_github_actions_pkgdown]{add_github_actions_pkgdown()}} which will setup
-GitHub Actions (website deployment).
+GitHub Actions to build and deploy package website.
 }
 \examples{
 \dontrun{

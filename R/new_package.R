@@ -1,40 +1,46 @@
 #' Create an R package structure
 #' 
 #' @description 
-#' This function creates a new R package structure according to the CRAN 
-#' policies. Essential features of an R package are created (`DESCRIPTION` and
+#' This function creates a new R package structure according to the current 
+#' best practices.
+#' Essential features of an R package are created (`DESCRIPTION` and
 #' `NAMESPACE` files, and `R/` and `man/` folders). The project is also 
-#' **versioning with git** and a generic R `.gitignore` is added.
+#' **versioned with git** and a generic R `.gitignore` is added.
 #' 
 #' **IMPORTANT -** Before using this function user needs to create a new folder 
 #' (or a new project if using RStudio) and run this function inside this folder 
-#' (by using [setwd()] or by opening the Rproj in a new Rstudio session).
-#' **The name of the package will be the same as the name of this folder and 
-#' some rules must be respected**: 
+#' (by using [setwd()] or by opening the `Rproj` in a new RStudio session).
+#' **The name of the package will be the same as the name of this folder**. 
+#' Some rules must be respected: 
 #' \url{https://r-pkgs.org/workflows101.html#naming}.
 #' 
 #' Some fields of the `DESCRIPTION` file (maintainer information, package name, 
 #' license, URLs, and  `roxygen2` version)  are automatically filled but
-#' others (title and description) need to be edited manually.
+#' others (like title and description) need to be edited manually.
 #' 
 #' Additional features are also created: a `CITATION` file, a `README.Rmd`, and
-#' a `vignettes/` folder (optional). See below the section **Package Content** 
-#' to see the full structure of the R package.
+#' `tests/` and `vignettes/` folders (optional). See the vignette 
+#' [Get started](
+#' https://frbcesab.github.io/rcompendium/articles/rcompendium.html) 
+#' for a complete overview of the full structure.
 #' 
 #' A GitHub repository can also be created (default) following the 
 #' "GitHub last" workflow
 #' (\url{https://happygitwithr.com/existing-github-last.html}).
-#' Configuration files for GitHub Actions to automatically check the package 
-#' and deploy the website [pkgdown::pkgdown()] will be added in the `.github/`
-#' folder. See below the section **Creating a GITHUB Repository**.
+#' Configuration files for GitHub Actions to automatically 1) check the 
+#' package, 2) test and report code coverage, and 3) deploy the website 
+#' [`pkgdown`](https://pkgdown.r-lib.org/index.html) 
+#' will be added in the `.github/` folder. See below the section 
+#' **Creating a GitHub repo**.
 #' 
 #' @param license a character vector of length 1
 #' 
 #'   The license to be used for this package. Run [get_licenses()] to choose an 
 #'   appropriate one. Default is `license = 'GPL (>= 2)'` 
 #'   
-#'   The license can be changed later by using [add_license()] (and 
-#'   [add_license_badge()] or [refresh()] to update the corresponding badge).
+#'   The license can be changed later by calling [add_license()] (and 
+#'   [add_license_badge()] or [refresh()] to update the corresponding badge in
+#'   the README).
 #' 
 #' @param status a character vector of length 1
 #' 
@@ -52,7 +58,7 @@
 #' 
 #' @param lifecycle a character vector of length 1
 #'   
-#'   The lifecycle stage of the project according to the standard defined at 
+#'   The life cycle stage of the project according to the standard defined at 
 #'   \url{https://lifecycle.r-lib.org/articles/stages.html}. One among 
 #'   `'experimental'` (default), `'stable'`, `'deprecated'`, or `'superseded'`.
 #'   See [add_lifecycle_badge()] for further information. 
@@ -65,21 +71,23 @@
 #' 
 #' @param vignette a logical value
 #' 
-#'   If `TRUE` creates a vignette in `vignettes/` named `pkg.Rmd`. Packages 
-#'   [knitr::knitr()] and [rmarkdown::rmarkdown()] are also added to `Suggests`
-#'   in the `DESCRIPTION` file.
+#'   If `TRUE` (default) creates a vignette in `vignettes/`. Packages 
+#'   [`knitr`](https://yihui.org/knitr/) and 
+#'   [`rmarkdown`](https://rmarkdown.rstudio.com/) are also added to the 
+#'   `Suggests` field in the `DESCRIPTION` file.
 #' 
 #' @param test a logical value
 #' 
-#'   If `TRUE` initializes units tests by running [usethis::use_testthat()]. 
-#'   Package [testthat::testthat()] is also added to `Suggests` in the 
-#'   `DESCRIPTION` file.
+#'   If `TRUE` (default) initializes units tests by running 
+#'   [usethis::use_testthat()]. Package 
+#'   [`testthat`](https://testthat.r-lib.org/) is also added to the `Suggests` 
+#'   field in the `DESCRIPTION` file.
 #' 
 #' @param create_repo a logical value
 #' 
 #'   If `TRUE` (default) creates a repository (public if `private = FALSE` or 
 #'   private if `private = TRUE`) on GitHub. See below the section
-#'   **Creating a GITHUB Repository**.
+#'   **Creating a GitHub repo**.
 #' 
 #' @param private a logical value
 #' 
@@ -98,7 +106,7 @@
 #' @param codecov a logical value
 #' 
 #'   If `TRUE` (default) configures GitHub Actions to automatically report 
-#'   the code coverage of units test after each push. 
+#'   the code coverage of units tests after each push. 
 #'   See [add_github_actions_codecov()] for further information. 
 #'   
 #'   If `create_repo = FALSE` this argument is ignored.
@@ -106,9 +114,11 @@
 #' @param website a logical value
 #' 
 #'   If `TRUE` (default) configures GitHub Actions to automatically build and 
-#'   deploy the package website (using [pkgdown::pkgdown()]) after each push. A 
-#'   **gh-pages** branch will be created using [usethis::use_github_pages()] 
-#'   and the GitHub repository will be automatically configured. 
+#'   deploy the package website 
+#'   (using [`pkgdown`](https://pkgdown.r-lib.org/index.html)) 
+#'   after each push. A **gh-pages** branch will be created using 
+#'   [usethis::use_github_pages()] and the GitHub repository will be 
+#'   automatically configured to deploy website.
 #'   
 #'   If `create_repo = FALSE` this argument is ignored.
 #' 
@@ -118,7 +128,7 @@
 #'   function will try to get this value by reading the `.Rprofile` file. 
 #'   
 #'   For further information see [set_credentials()] and below the section 
-#'   **Managing Credentials**.
+#'   **Managing credentials**.
 #' 
 #' @param family a character vector of length 1
 #' 
@@ -126,7 +136,7 @@
 #'   function will try to get this value by reading the `.Rprofile` file. 
 #'   
 #'   For further information see [set_credentials()] and below the section 
-#'   **Managing Credentials**.
+#'   **Managing credentials**.
 #' 
 #' @param email a character vector of length 1
 #' 
@@ -134,7 +144,7 @@
 #'   the function will try to get this value by reading the `.Rprofile` file. 
 #'   
 #'   For further information see [set_credentials()] and below the section 
-#'   **Managing Credentials**.
+#'   **Managing credentials**.
 #' 
 #' @param orcid a character vector of length 1
 #' 
@@ -142,7 +152,7 @@
 #'   function will try to get this value by reading the `.Rprofile` file. 
 #'   
 #'   For further information see [set_credentials()] and below the section 
-#'   **Managing Credentials**.
+#'   **Managing credentials**.
 #' 
 #' @param organisation a character vector of length 1
 #' 
@@ -160,26 +170,31 @@
 #' 
 #'   If `TRUE` messages are deleted. Default is `FALSE`.
 #'   
-#' @section Recommended Workflow:
+#'   
+#' @section Recommended workflow:
+#' 
 #' 
 #' The purpose of the package `rcompendium` is to make easier the creation of R
 #' package/research compendium so that user can focus on the code/analysis 
 #' instead of wasting time organizing files.
 #' 
-#' The recommended workflow is as follow:
-#' * Create an empty RStudio project;
-#' * Store your credentials with [set_credentials()] (if not already done);
-#' * Run [new_package()] to create the package structure (and the GitHub 
+#' The recommended workflow is:
+#' 1. Create an empty RStudio project;
+#' 2. Store your credentials with [set_credentials()] (if not already done);
+#' 3. Run [new_package()] to create a new package structure (and the GitHub 
 #'   repository);
-#' * Edit some metadata in `DESCRIPTION`, `CITATION`, and `README.Rmd`;
-#' * Implement, document & test functions (the fun part);
-#' * Update the project (update `.Rd` files, `NAMESPACE`, external dependencies 
+#' 4. Edit some metadata in `DESCRIPTION`, `CITATION`, and `README.Rmd`;
+#' 5. Implement, document & test functions (the fun part);
+#' 6. Update the project (update `.Rd` files, `NAMESPACE`, external dependencies 
 #'   in `DESCRIPTION`, re-knit `README.Rmd`, and check package integrity) with
-#'   [refresh()].
+#'   [refresh()];
+#' 7. Repeat steps 5 and 6 while developing the package.
 #' 
-#' @section Managing Credentials:
 #' 
-#' You can use the arguments `given`, `family`, `email`, `orcid`, and `github`
+#' @section Managing credentials:
+#' 
+#' 
+#' You can use the arguments `given`, `family`, `email`, and `orcid`
 #' directly with the function [new_package()] (and others). But if you create 
 #' a lot a projects (packages and/or compendiums) it can be frustrating in the 
 #' long run.
@@ -194,26 +209,40 @@
 #' always be able to modify them on-the-fly (i.e. by using arguments of the
 #' [new_package()]) or permanently by re-running [set_credentials()].
 #' 
-#' @section Creating a GITHUB Repository:
 #' 
-#' First run [gh::gh_whoami()] to see if your git and associated credentials are
-#' correctly configured. If so you should see something like:
+#' @section Configuring git:
+#' 
+#' 
+#' First run [gh::gh_whoami()] to see if your git is correctly configured. If 
+#' so you should see something like:
 #' 
 #' ```
 #' {
-#' "name": "Given Family",
-#' "login": "pseudo",
-#' "html_url": "https://github.com/pseudo",
+#' "name": "John Doe",
+#' "login": "jdoe",
+#' "html_url": "https://github.com/jdoe",
 #' ...
 #' }
 #' ```
 #' 
-#' Otherwise see [gert::git_config()] to debug.
+#' Otherwise you might need to run:
+#' 
+#' ```
+#' gert::git_config_global(name = "user.name", value = "John Doe")
+#' gert::git_config_global(name = "user.email", value = "john.doe@@domain.com")
+#' gert::git_config_global(name = "github.user", value = "jdoe")
+#' ```
+#' 
+#' See [gert::git_config()] for further information.
+#' 
+#' 
+#' @section Creating a GitHub repo:
+#' 
 #' 
 #' To create the GitHub repository directly from R, the package `rcompendium` 
-#' uses the function [usethis::use_github()], an interface to the GitHub 
-#' REST API. The interaction with this API required an authentication method:
-#' a **GITHUB PAT** (Personal Access Token).
+#' uses the function [usethis::use_github()], an client to the GitHub REST API. 
+#' The interaction with this API required an authentication method: a 
+#' **GITHUB PAT** (Personal Access Token).
 #' 
 #' If you don't have a **GITHUB PAT** locally stored, you must:
 #' 1. Obtain a new one from your GitHub account. **Make sure to select 
@@ -221,16 +250,17 @@
 #' 2. Store it in the `.Renviron` file by using [usethis::edit_r_environ()] 
 #' and adding the following line: `GITHUB_PAT='99z9...z9'`
 #' 
-#' See [usethis::gh_token_help()] for more information about getting and 
+#' Run [usethis::gh_token_help()] for more information about getting and 
 #' configuring a **GITHUB PAT**.
 #' 
-#' If everything is well configured you should see something like:
+#' If everything is well configured you should see something like after calling
+#' [gh::gh_whoami()]:
 #' 
 #' ```
 #' {
-#' "name": "Given Family",
-#' "login": "pseudo",
-#' "html_url": "https://github.com/pseudo",
+#' "name": "John Doe",
+#' "login": "jdoe",
+#' "html_url": "https://github.com/jdoe",
 #' "scopes": "delete_repo, repo, workflow",
 #' "token": "99z9...z9"
 #' }
@@ -248,8 +278,9 @@
 #' library(rcompendium)
 #' 
 #' ## Define **ONCE FOR ALL** your credentials ----
-#' set_credentials("Given", "Family", "email.address@domain.com", 
-#'                 github = "pseudo", orcid = "0000-0000-0000-0000")
+#' set_credentials(given = "John", family = "Doe", 
+#'                 email = "john.doe@@domain.com", 
+#'                 orcid = "0000-0000-0000-0000")
 #'
 #' ## Create an R package ----
 #' new_package()
@@ -382,6 +413,8 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
     website  <- FALSE
   }
   
+  
+  stop_if_not_logical(test)
   
   if (!test) codecov  <- FALSE
   

@@ -1,15 +1,18 @@
-#' Add a Website Deployment badge
+#' Add a Website deployment badge
 #'
 #' @description 
-#' This function adds a Website Deployment badge to the `README.Rmd`. This 
+#' This function adds a Website deployment badge to the `README.Rmd`. This 
 #' function must be run after [add_github_actions_pkgdown()] which will setup 
-#' GitHub Actions (website deployment).
+#' GitHub Actions to build and deploy package website.
 #' 
-#' @param organisation (optional) name of the GitHub organisation where the 
-#'   project is hosted.  If `NULL` (default) the GitHub account will be used.
+#' @param organisation a character of length 1
 #' 
-#' @param quiet a logical value. If `TRUE` messages are deleted. Default is 
-#'   `FALSE`.
+#'   The name of the GitHub organisation to host the package. If `NULL` 
+#'   (default) the GitHub account will be used.
+#' 
+#' @param quiet a logical value
+#' 
+#'   If `TRUE` messages are deleted. Default is `FALSE`.
 #'   
 #' @export
 #' 

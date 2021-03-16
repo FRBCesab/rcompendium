@@ -2,9 +2,11 @@
 #' 
 #' @description 
 #' This function gets all the external packages that the project needs. It is 
-#' used the generate the _dependencies_ badge.
+#' used the generate the _Dependencies_ badge ([add_dependencies_badge()]).
 #'
-#' @param pkg name of a CRAN package or `NULL`. If `NULL` get dependencies 
+#' @param pkg a character of length 1
+#' 
+#'   The name of a CRAN package or `NULL` (default). If `NULL` get dependencies 
 #'   of the local (uninstalled) project (package or compendium).
 #'
 #' @return 
@@ -26,7 +28,7 @@
 #' deps <- get_all_dependencies()
 #' unlist(lapply(deps, length))
 #' 
-#' ## Can be used for a specific package ----
+#' ## Can be used for a CRAN package ----
 #' deps <- get_all_dependencies("usethis")
 #' unlist(lapply(deps, length))
 #' }

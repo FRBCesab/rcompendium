@@ -7,24 +7,32 @@
 add_license(license = NULL, given = NULL, family = NULL, quiet = FALSE)
 }
 \arguments{
-\item{license}{a character of length 1. The chosen license. Use
-\code{\link[=get_licenses]{get_licenses()}}) to select an appropriate one.}
+\item{license}{a character of length 1
 
-\item{given}{a character of length 1. User given name of the copyright
-holder. Only required if \code{license = 'MIT'}. If is \code{NULL} (default) and
-\code{license = 'MIT'}, this function will try to retrieve the value of this
-parameter from the \code{.Rprofile} file (edited with \code{\link[=set_credentials]{set_credentials()}}).}
+The chosen license. Run \code{\link[=get_licenses]{get_licenses()}}) to select an appropriate one.}
 
-\item{family}{a character of length 1. User family name of the copyright
-holder. Only required if \code{license = 'MIT'}. If is \code{NULL} (default) and
-\code{license = 'MIT'}, this function will try to retrieve the value of this
-parameter from the \code{.Rprofile} file (edited with \code{\link[=set_credentials]{set_credentials()}}).}
+\item{given}{a character of length 1
 
-\item{quiet}{a logical value. If \code{TRUE} messages are deleted. Default is
-\code{FALSE}.}
+The given name of the copyright holder. Only required if
+\code{license = 'MIT'}. If is \code{NULL} (default) and \code{license = 'MIT'}, this
+function will try to retrieve the value of this parameter from the
+\code{.Rprofile} file (edited with \code{\link[=set_credentials]{set_credentials()}}).}
+
+\item{family}{a character of length 1
+
+The family name of the copyright holder. Only required if
+\code{license = 'MIT'}. If is \code{NULL} (default) and \code{license = 'MIT'}, this
+function will try to retrieve the value of this parameter from the
+\code{.Rprofile} file (edited with \code{\link[=set_credentials]{set_credentials()}}).}
+
+\item{quiet}{a logical value
+
+If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
 }
 \description{
-This function adds a license to the project.
+This function adds a license to the project. It will add the license name
+in the \code{License} field of the \code{DESCRIPTION} file and write the content of
+the license in the \code{License.md} file.
 }
 \examples{
 \dontrun{

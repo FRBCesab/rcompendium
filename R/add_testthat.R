@@ -1,8 +1,10 @@
 #' Initialize units tests
 #' 
 #' @description 
-#' This function initializes units tests by running [usethis::use_testthat()]
-#' and adding an example units tests file `test-demo.R`.
+#' This function initializes units tests settings by running 
+#' [usethis::use_testthat()] and by adding an example units tests file 
+#' `tests/testthat/test-demo.R`. The sample file will test a demo function
+#' created in `R/fun-demo.R`.
 #' 
 #' @export
 #' 

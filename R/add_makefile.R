@@ -2,16 +2,22 @@
 #' 
 #' @description
 #' This function creates a Make-like R file (`make.R`) at the root of the 
-#' project based on a template.
+#' project based on a template. To be used only if the project is a research
+#' compendium. The content of this file provides some guidelines. See also
+#' [new_compendium()] for further information.
+#'   
+#' @param open a logical value
 #' 
-#' @param open a logical value. If `TRUE` (default) the file is opened in the 
-#'   editor.
+#'   If `TRUE` (default) the file is opened in the editor.
 #' 
-#' @param overwrite a logical value. If a `make.R` is already present and 
-#'   `overwrite = TRUE`, this file will be erased and replaced.
+#' @param overwrite a logical value
 #' 
-#' @param quiet a logical value. If `TRUE` messages are deleted. Default is 
-#'   `FALSE`.
+#'   If this file is already present and `overwrite = TRUE`, it will be erased 
+#'   and replaced. Default is `FALSE`.
+#'   
+#' @param quiet a logical value
+#' 
+#'   If `TRUE` messages are deleted. Default is `FALSE`.
 #'   
 #' @inheritParams set_credentials
 #'   

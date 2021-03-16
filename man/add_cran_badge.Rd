@@ -7,8 +7,9 @@
 add_cran_badge(quiet = FALSE)
 }
 \arguments{
-\item{quiet}{a logical value. If \code{TRUE} messages are deleted. Default is
-\code{FALSE}.}
+\item{quiet}{a logical value
+
+If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
 }
 \description{
 This function adds a CRAN status badge to the \code{README.Rmd}. If the package

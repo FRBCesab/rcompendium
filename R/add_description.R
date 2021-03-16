@@ -2,20 +2,27 @@
 #' 
 #' @description 
 #' This function creates a `DESCRIPTION` file at the root of the project based  
-#' on a template. User credentials can be passed as arguments but it is 
-#' recommended to store them in the `.Rprofile` file with [set_credentials()].
+#' on a template (adapted from [`usethis`](https://usethis.r-lib.org/)). User 
+#' credentials can be passed as arguments but it is recommended to store them 
+#' in the `.Rprofile` file with [set_credentials()].
 #' 
-#' @param organisation a character. The name of the GITHUB organisation to
-#'   host the package. If `NULL` the GITHUB account will be used.
-#'   
-#' @param open a logical value. If `TRUE` (default) the file is opened in the 
-#'   editor.
+#' @param organisation a character of length 1
 #' 
-#' @param overwrite a logical value. If a `DESCRIPTION` is already present and 
-#'   `overwrite = TRUE`, this file will be erased and replaced.
+#'   The name of the GitHub organisation to host the package. If `NULL` 
+#'   (default) the GitHub account will be used.
 #'   
-#' @param quiet a logical value. If `TRUE` messages are deleted. Default is 
-#'   `FALSE`.
+#' @param open a logical value
+#' 
+#'   If `TRUE` (default) the file is opened in the editor.
+#' 
+#' @param overwrite a logical value
+#' 
+#'   If a `DESCRIPTION` is already present and `overwrite = TRUE`, this file 
+#'   will be erased and replaced. Default is `FALSE`.
+#'   
+#' @param quiet a logical value
+#' 
+#'   If `TRUE` messages are deleted. Default is `FALSE`.
 #' 
 #' @inheritParams set_credentials
 #' 

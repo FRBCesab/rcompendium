@@ -5,15 +5,19 @@
 #' the `R/` folder. This file will make help available to the user via `?pkg` 
 #' (where `pkg` is the name of the package). It a good place to put general 
 #' directives like `@import` and `@importFrom`.
-#' 
-#' @param open a logical value. If `TRUE` (default) the file is opened in the 
-#'   editor.
-#' 
-#' @param overwrite a logical value. If a file is already present and 
-#'   `overwrite = TRUE`, it will be erased and replaced.
 #'   
-#' @param quiet a logical value. If `TRUE` messages are deleted. Default is 
-#'   `FALSE`.
+#' @param open a logical value
+#' 
+#'   If `TRUE` (default) the file is opened in the editor.
+#' 
+#' @param overwrite a logical value
+#' 
+#'   If this file is already present and `overwrite = TRUE`, it will be erased 
+#'   and replaced. Default is `FALSE`.
+#'   
+#' @param quiet a logical value
+#' 
+#'   If `TRUE` messages are deleted. Default is `FALSE`.
 #'   
 #' @export
 #' 

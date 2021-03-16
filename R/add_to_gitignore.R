@@ -1,18 +1,22 @@
-#' Create a .gitignore file
+#' Create a gitignore file
 #' 
 #' @description 
 #' This function creates a `.gitignore` file at the root of the project based on
 #' a template (specific to R). If a `.gitignore` is already present, files to
 #' be untracked by **git** are just added to this file.
 #' 
-#' @param x a character vector of one or several files/directories names to add 
-#'   to the `.gitignore`.
+#' @param x a character vector
 #' 
-#' @param open a logical value. If `TRUE` the `.gitignore` file is opened in 
-#'   the editor. Default is `FALSE`.
+#'   One or several files/directories names to be added to the `.gitignore`.
 #' 
-#' @param quiet a logical value. If `TRUE` messages are deleted. Default is 
-#'   `FALSE`.
+#' @param open a logical value
+#' 
+#'   If `TRUE` the `.gitignore` file is opened in the editor.
+#'   Default is `FALSE`.
+#' 
+#' @param quiet a logical value
+#' 
+#'   If `TRUE` messages are deleted. Default is `FALSE`.
 #'   
 #' @export
 #' 

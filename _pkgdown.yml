@@ -56,8 +56,8 @@ reference:
   desc: |
     These functions update fields in `DESCRIPTION` (`add_dependencies` and 
     `add_r_depend`), edit files (`add_to_gitignore` and `add_to_buildignore`),
-    or write configuration files (`add_github_actions_check` and 
-    `add_github_actions_pkgdown`).
+    or write configuration files (`add_github_actions_check`, 
+    `add_github_actions_pkgdown`, and `add_github_actions_codecov`).
   contents: 
   - add_dependencies
   - add_r_depend

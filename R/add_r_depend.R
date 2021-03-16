@@ -2,8 +2,8 @@
 #' 
 #' @description 
 #' This function adds the minimal R version to the `Depends` field of the 
-#' `DESCRIPTION` file. This version corresponds to the higher version of R among
-#' all dependencies. If no dependencies mentioned minimal R version, the
+#' `DESCRIPTION` file. This version corresponds to the higher version of R 
+#' among all dependencies. If no dependencies mentions minimal R version, the
 #' `DESCRIPTION` is not modified.
 #' 
 #' @export
@@ -12,7 +12,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' add_github_actions()
+#' add_r_depend()
 #' }
 
 add_r_depend <- function() {

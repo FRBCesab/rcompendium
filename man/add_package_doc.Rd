@@ -7,14 +7,18 @@
 add_package_doc(open = TRUE, overwrite = FALSE, quiet = FALSE)
 }
 \arguments{
-\item{open}{a logical value. If \code{TRUE} (default) the file is opened in the
-editor.}
+\item{open}{a logical value
 
-\item{overwrite}{a logical value. If a file is already present and
-\code{overwrite = TRUE}, it will be erased and replaced.}
+If \code{TRUE} (default) the file is opened in the editor.}
 
-\item{quiet}{a logical value. If \code{TRUE} messages are deleted. Default is
-\code{FALSE}.}
+\item{overwrite}{a logical value
+
+If this file is already present and \code{overwrite = TRUE}, it will be erased
+and replaced. Default is \code{FALSE}.}
+
+\item{quiet}{a logical value
+
+If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
 }
 \description{
 This function adds a package-level documentation file (\code{pkg-package.R}) in

@@ -5,11 +5,14 @@
 #' of code cover by units tests. This percentage is computed by codecov.io
 #' service.
 #' 
-#' @param organisation (optional) name of the GitHub organisation where the 
-#'   project is hosted.  If `NULL` (default) the GitHub account will be used.
-#'   
-#' @param quiet a logical value. If `TRUE` messages are deleted. Default is 
-#'   `FALSE`.
+#' @param organisation a character of length 1
+#' 
+#'   The name of the GitHub organisation to host the package. If `NULL` 
+#'   (default) the GitHub account will be used.
+#' 
+#' @param quiet a logical value
+#' 
+#'   If `TRUE` messages are deleted. Default is `FALSE`.
 #'   
 #' @export
 #' 

@@ -14,24 +14,36 @@ add_makefile(
 )
 }
 \arguments{
-\item{given}{(optional) given name of the package maintainer}
+\item{given}{a character of length 1
 
-\item{family}{(optional) family name of the package maintainer}
+The given name of the package maintainer.}
 
-\item{email}{(optional) email address of the package maintainer}
+\item{family}{a character of length 1
 
-\item{open}{a logical value. If \code{TRUE} (default) the file is opened in the
-editor.}
+The family name of the package maintainer.}
 
-\item{overwrite}{a logical value. If a \code{make.R} is already present and
-\code{overwrite = TRUE}, this file will be erased and replaced.}
+\item{email}{a character of length 1
 
-\item{quiet}{a logical value. If \code{TRUE} messages are deleted. Default is
-\code{FALSE}.}
+The email address of the package maintainer.}
+
+\item{open}{a logical value
+
+If \code{TRUE} (default) the file is opened in the editor.}
+
+\item{overwrite}{a logical value
+
+If this file is already present and \code{overwrite = TRUE}, it will be erased
+and replaced. Default is \code{FALSE}.}
+
+\item{quiet}{a logical value
+
+If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
 }
 \description{
 This function creates a Make-like R file (\code{make.R}) at the root of the
-project based on a template.
+project based on a template. To be used only if the project is a research
+compendium. The content of this file provides some guidelines. See also
+\code{\link[=new_compendium]{new_compendium()}} for further information.
 }
 \examples{
 \dontrun{

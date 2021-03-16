@@ -9,8 +9,8 @@ get_all_functions()
 \value{
 A list of two vectors:
 \itemize{
-\item \code{external}, a vector of exported functions name (\code{pkg::fun()});
-\item \code{internal}, a vector of internal functions name (\code{pkg:::fun()}).
+\item \code{external}, a vector of exported functions name;
+\item \code{internal}, a vector of internal functions name.
 }
 }
 \description{
@@ -20,7 +20,10 @@ available with the package. As this function scans the \code{NAMESPACE} and the
 }
 \examples{
 \dontrun{
+## Update NAMESPACE ----
 devtools::document()
+
+## List all implemented functions ----
 get_all_functions()
 }
 }

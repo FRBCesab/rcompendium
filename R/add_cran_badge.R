@@ -5,8 +5,9 @@
 #' is not hosted on the CRAN the badge will indicate 
 #' _not published on the CRAN_.
 #' 
-#' @param quiet a logical value. If `TRUE` messages are deleted. Default is 
-#'   `FALSE`.
+#' @param quiet a logical value
+#' 
+#'   If `TRUE` messages are deleted. Default is `FALSE`.
 #'   
 #' @export
 #' 

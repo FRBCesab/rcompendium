@@ -1,15 +1,18 @@
-#' Add a repository status badge
+#' Add a Repository status badge
 #'
 #' @description 
 #' This function adds or updates the Repo Status badge of the project to the
 #' `README.Rmd`. It is based on the standard defined by the 
-#' \url{https://www.repostatus.org/} project. Accepted status are listed below.
+#' \url{https://www.repostatus.org/} project.
 #'
-#' @param status a character. One among `'concept'` (default), `'wip'`, 
-#'   `'suspended'`, `'abandoned'`, `'active'`, `'inactive'`, or `'unsupported'`.
+#' @param status a character of length 1
 #' 
-#' @param quiet a logical value. If `TRUE` messages are deleted. Default is 
-#'   `FALSE`.
+#'   Accepted status are: `'concept'` (default), `'wip'`, `'suspended'`, 
+#'   `'abandoned'`, `'active'`, `'inactive'`, or `'unsupported'`.
+#' 
+#' @param quiet a logical value
+#' 
+#'   If `TRUE` messages are deleted. Default is `FALSE`.
 #'   
 #' @details 
 #' The project can have the following status:

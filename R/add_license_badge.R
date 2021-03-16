@@ -5,8 +5,9 @@
 #' function reads the `License` field of the `DESCRIPTION` file. Be sure to 
 #' previously run [add_license()] function.
 #' 
-#' @param quiet a logical value. If `TRUE` messages are deleted. Default is 
-#'   `FALSE`.
+#' @param quiet a logical value
+#' 
+#'   If `TRUE` messages are deleted. Default is `FALSE`.
 #'   
 #' @export
 #' 

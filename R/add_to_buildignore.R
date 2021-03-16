@@ -1,18 +1,23 @@
-#' Add to .Rbuildignore file
+#' Add to Rbuildignore file
 #' 
 #' @description 
 #' This function adds files/folders to the `.Rbuildignore` file. If a 
 #' `.Rbuildignore` is already present, files to be ignored while checking 
 #' package are just added to this file. Otherwise a new file is created.
 #' 
-#' @param x a character vector of one or several files/directories names to add 
-#'   to the `.Rbuildignore`. This argument is mandatory.
+#' @param x a character vector
 #' 
-#' @param open a logical value. If `TRUE` the file is opened in the editor.
+#'   One or several files/directories names to be added to the `.Rbuildignore`. 
+#'   This argument is mandatory.
+#' 
+#' @param open a logical value
+#' 
+#'   If `TRUE` the `.Rbuildignore` file is opened in the editor.
 #'   Default is `FALSE`.
 #' 
-#' @param quiet a logical value. If `TRUE` messages are deleted. Default is 
-#'   `FALSE`.
+#' @param quiet a logical value
+#' 
+#'   If `TRUE` messages are deleted. Default is `FALSE`.
 #'   
 #' @export
 #' 

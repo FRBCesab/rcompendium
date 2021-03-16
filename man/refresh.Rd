@@ -7,27 +7,40 @@
 refresh(compendium = NULL, make = FALSE, check = TRUE, quiet = FALSE)
 }
 \arguments{
-\item{compendium}{(optional) the name of the folder to recursively detect
-dependencies to be added in the \code{Imports} field of \strong{DESCRIPTION} file.
-Default is \code{compendium = NULL} (but \strong{R/}, \strong{NAMESPACE}, and \verb{@examples}
-are still inspected).}
+\item{compendium}{a character of length 1
 
-\item{make}{a logical value. If \code{TRUE} the Make-like R file \code{make.R} is
-sourced. Only for research compendium. Default is \code{FALSE}.}
+The name of the folder to recursively detect dependencies to be added to
+the \code{Imports} field of \code{DESCRIPTION} file. It can be \code{'analysis/'} (if
+additional folders, i.e. \verb{data/}, \verb{outputs/}, \verb{figures/}, etc. have been
+created in this folder), \code{'.'} (if folders \verb{data/}, \verb{outputs/},
+\verb{figures/}, etc. have been created at the root of the project), etc.
+See \code{\link[=new_compendium]{new_compendium()}} for further information.
 
-\item{check}{a logical value. If \code{TRUE} (default) package integrity is
-checked using \code{\link[devtools:check]{devtools::check()}}.}
+Default is \code{compendium = NULL} (i.e. no additional folder are inspected
+but \verb{R/}, \code{NAMESPACE}, \verb{vignettes/}, and \verb{tests/} are still inspected).}
 
-\item{quiet}{a logical value. If \code{TRUE} (default) message are deleted.}
+\item{make}{a logical value
+
+If \code{TRUE} the Make-like R file \code{make.R} is sourced. Only for research
+compendium created with \code{\link[=new_compendium]{new_compendium()}}. Default is \code{FALSE}.}
+
+\item{check}{a logical value
+
+If \code{TRUE} (default) package integrity is checked using \code{\link[devtools:check]{devtools::check()}}.}
+
+\item{quiet}{a logical value
+
+If \code{TRUE} (default) message are deleted.}
 }
 \description{
 This function refreshes a package/research compendium. It will:
 \itemize{
-\item Update \code{.Rd} files and \code{NAMESPACE}, using \code{\link[devtools:document]{devtools::document()}};
-\item Update external packages (in \code{DESCRIPTION} file);
+\item Update \code{.Rd} files and \code{NAMESPACE} by using \code{\link[devtools:document]{devtools::document()}};
+\item Update external packages (in \code{DESCRIPTION} file) by using
+\code{\link[=add_dependencies]{add_dependencies()}};
 \item Update badges in \code{README.Rmd} (if already present);
-\item Re-knitr the \code{README.Rmd}, using \code{\link[rmarkdown:render]{rmarkdown::render()}};
-\item Check package integrity with \code{\link[devtools:check]{devtools::check()}};
+\item Re-knitr the \code{README.Rmd} by using \code{\link[rmarkdown:render]{rmarkdown::render()}};
+\item Check package integrity by using \code{\link[devtools:check]{devtools::check()}};
 \item Run analysis by sourcing \code{make.R} (only for compendium).
 }
 }

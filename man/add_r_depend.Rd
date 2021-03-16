@@ -8,13 +8,13 @@ add_r_depend()
 }
 \description{
 This function adds the minimal R version to the \code{Depends} field of the
-\code{DESCRIPTION} file. This version corresponds to the higher version of R among
-all dependencies. If no dependencies mentioned minimal R version, the
+\code{DESCRIPTION} file. This version corresponds to the higher version of R
+among all dependencies. If no dependencies mentions minimal R version, the
 \code{DESCRIPTION} is not modified.
 }
 \examples{
 \dontrun{
-add_github_actions()
+add_r_depend()
 }
 }
 \seealso{

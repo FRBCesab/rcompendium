@@ -15,30 +15,44 @@ add_readme_rmd(
 )
 }
 \arguments{
-\item{type}{a character. If \code{package} (default) a GitHub \code{README.Rmd}
-specific to an R package will be created. If \code{compendium} a GitHub
-\code{README.Rmd} specific to a research compendium will be created.}
+\item{type}{a character of length 1
 
-\item{given}{(optional) given name of the package maintainer}
+If \code{package} (default) a GitHub \code{README.Rmd} specific to an R package will
+be created. If \code{compendium} a GitHub \code{README.Rmd} specific to a research
+compendium will be created.}
 
-\item{family}{(optional) family name of the package maintainer}
+\item{given}{a character of length 1
 
-\item{organisation}{a character. The name of the GITHUB organisation to
-host the package. If \code{NULL} the GITHUB account will be used.}
+The given name of the package maintainer.}
 
-\item{open}{a logical value. If \code{TRUE} (default) the file is opened in the
-editor.}
+\item{family}{a character of length 1
 
-\item{overwrite}{a logical value. If a \code{README.Rmd} is already present and
-\code{overwrite = TRUE}, this file will be erased and replaced.}
+The family name of the package maintainer.}
 
-\item{quiet}{a logical value. If \code{TRUE} messages are deleted. Default is
-\code{FALSE}.}
+\item{organisation}{a character of length 1
+
+The name of the GitHub organisation to host the package. If \code{NULL}
+(default) the GitHub account will be used. This argument is used to set
+the URL of the package (hosted on GitHub).}
+
+\item{open}{a logical value
+
+If \code{TRUE} (default) the file is opened in the editor.}
+
+\item{overwrite}{a logical value
+
+If this file is already present and \code{overwrite = TRUE}, it will be erased
+and replaced. Default is \code{FALSE}.}
+
+\item{quiet}{a logical value
+
+If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
 }
 \description{
 This function creates a \code{README.Rmd} file at the root of the project based
-on a template. Once edited user needs to knit it into a \code{README.Rmd} (or use
-the function \code{\link[=refresh]{refresh()}}.
+on a template (adapted from \href{https://usethis.r-lib.org/}{\code{usethis}}). Once
+edited user needs to knit it into a \code{README.Rmd} (or use the function
+\code{\link[=refresh]{refresh()}}).
 }
 \examples{
 \dontrun{

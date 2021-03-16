@@ -2,20 +2,26 @@
 #' 
 #' @description 
 #' This function refreshes a package/research compendium. It will:
-#' * Update `.Rd` files and `NAMESPACE`, using [devtools::document()];
-#' * Update external packages (in `DESCRIPTION` file);
+#' * Update `.Rd` files and `NAMESPACE` by using [devtools::document()];
+#' * Update external packages (in `DESCRIPTION` file) by using 
+#' [add_dependencies()];
 #' * Update badges in `README.Rmd` (if already present);
-#' * Re-knitr the `README.Rmd`, using [rmarkdown::render()];
-#' * Check package integrity with [devtools::check()];
+#' * Re-knitr the `README.Rmd` by using [rmarkdown::render()];
+#' * Check package integrity by using [devtools::check()];
 #' * Run analysis by sourcing `make.R` (only for compendium).
 #' 
-#' @param make a logical value. If `TRUE` the Make-like R file `make.R` is 
-#'    sourced. Only for research compendium. Default is `FALSE`.
+#' @param make a logical value
+#' 
+#'   If `TRUE` the Make-like R file `make.R` is sourced. Only for research 
+#'   compendium created with [new_compendium()]. Default is `FALSE`.
 #'   
-#' @param check a logical value. If `TRUE` (default) package integrity is 
-#'   checked using [devtools::check()].
+#' @param check a logical value
+#' 
+#'   If `TRUE` (default) package integrity is checked using [devtools::check()].
 #'   
-#' @param quiet a logical value. If `TRUE` (default) message are deleted.
+#' @param quiet a logical value
+#' 
+#'   If `TRUE` (default) message are deleted.
 #'  
 #' @inheritParams add_dependencies
 #' 

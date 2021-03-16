@@ -7,37 +7,45 @@
 add_dependencies(compendium = NULL)
 }
 \arguments{
-\item{compendium}{(optional) the name of the folder to recursively detect
-dependencies to be added in the \code{Imports} field of \strong{DESCRIPTION} file.
-Default is \code{compendium = NULL} (but \strong{R/}, \strong{NAMESPACE}, and \verb{@examples}
-are still inspected).}
+\item{compendium}{a character of length 1
+
+The name of the folder to recursively detect dependencies to be added to
+the \code{Imports} field of \code{DESCRIPTION} file. It can be \code{'analysis/'} (if
+additional folders, i.e. \verb{data/}, \verb{outputs/}, \verb{figures/}, etc. have been
+created in this folder), \code{'.'} (if folders \verb{data/}, \verb{outputs/},
+\verb{figures/}, etc. have been created at the root of the project), etc.
+See \code{\link[=new_compendium]{new_compendium()}} for further information.
+
+Default is \code{compendium = NULL} (i.e. no additional folder are inspected
+but \verb{R/}, \code{NAMESPACE}, \verb{vignettes/}, and \verb{tests/} are still inspected).}
 }
 \description{
-This function detects dependencies used in \strong{R/}, \strong{NAMESPACE}, and
-\verb{@examples} sections and automatically adds these dependencies in the
-\code{Imports} section of the \strong{DESCRIPTION} file.
+This function detects external dependencies used in \verb{R/}, \code{NAMESPACE}, and
+\verb{@examples} sections of \code{roxygen2} headers and automatically adds these
+dependencies in the \code{Imports} section of the \code{DESCRIPTION} file.
 
-In the \strong{NAMESPACE} this function detects dependencies mentioned as
+In the \code{NAMESPACE} this function detects dependencies mentioned as
 \code{import(pkg)} and \code{importFrom(pkg,fun)}.
 
-In the \strong{R/} folder it detects functions called as \code{pkg::fun()} in the code
+In the \verb{R/} folder it detects functions called as \code{pkg::fun()} in the code
 of each R files. In \verb{@examples} sections it also detects packages attached
-using \code{library()} or \code{require()}.
+by \code{library()} or \code{require()}.
 
-The \strong{vignettes/} folder is also inspected and detected dependencies
-(\code{pkg::fun()}, \code{library()} or \code{require()}) are added in the \code{Suggests}
-section of the \strong{DESCRIPTION} file.
+The \verb{vignettes/} folder is also inspected and detected dependencies
+(\code{pkg::fun()}, \code{library()} or \code{require()}) are added to the \code{Suggests}
+field of the \code{DESCRIPTION} file (in addition to the packages
+\href{https://yihui.org/knitr/}{\code{knitr}} and
+\href{https://rmarkdown.rstudio.com/}{\code{rmarkdown}}).
 
-If the project is a research compendium user can also inspect one
-additional folder (i.e. \strong{analysis/}) with the argument \code{import} to add
-dependencies used in this folder in the section \code{Imports} of the
-\strong{DESCRIPTION} file. The detection process is the same as the one used
-for \strong{vignettes/}.
+If the project is a research compendium user can also inspect additional
+folder(s) with the argument \code{compendium} to add dependencies to the
+\code{Imports} section of the \code{DESCRIPTION} file. The detection process is the
+same as the one used for \verb{vignettes/}.
 
-If a \code{.Rmd} file is detected packages \code{knitr} and \code{rmarkdown} are added in
-\code{Imports} field of \strong{DESCRIPTION} file (for \code{.Rmd} stored in \strong{analysis/})
-or in \code{Suggests} field of \strong{DESCRIPTION} file (for \code{.Rmd} stored in
-\strong{vignettes/} if these two packages are not present in the \code{Imports} field).
+The \verb{tests/} folder is also inspected and detected dependencies
+(\code{pkg::fun()}, \code{library()} or \code{require()}) are added to the \code{Suggests}
+field of the \code{DESCRIPTION} file (in addition to the package
+\href{https://testthat.r-lib.org/}{\code{testthat}}).
 }
 \examples{
 \dontrun{

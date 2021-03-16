@@ -7,8 +7,10 @@
 add_testthat()
 }
 \description{
-This function initializes units tests by running \code{\link[usethis:use_testthat]{usethis::use_testthat()}}
-and adding an example units tests file \code{test-demo.R}.
+This function initializes units tests settings by running
+\code{\link[usethis:use_testthat]{usethis::use_testthat()}} and by adding an example units tests file
+\code{tests/testthat/test-demo.R}. The sample file will test a demo function
+created in \code{R/fun-demo.R}.
 }
 \examples{
 \dontrun{

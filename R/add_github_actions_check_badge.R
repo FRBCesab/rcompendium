@@ -1,15 +1,18 @@
-#' Add a R-CMD-CHECK badge
+#' Add a R CMD Check badge
 #'
 #' @description 
-#' This function adds a R-CMD-CHECK badge to the `README.Rmd`. This function
+#' This function adds a R CMD Check badge to the `README.Rmd`. This function
 #' must be run after [add_github_actions_check()] which will setup GitHub 
-#' Actions (checks and tests).
+#' Actions to check and test the package.
 #' 
-#' @param organisation (optional) name of the GitHub organisation where the 
-#'   project is hosted.  If `NULL` (default) the GitHub account will be used.
+#' @param organisation a character of length 1
 #' 
-#' @param quiet a logical value. If `TRUE` messages are deleted. Default is 
-#'   `FALSE`.
+#'   The name of the GitHub organisation to host the package. If `NULL` 
+#'   (default) the GitHub account will be used.
+#' 
+#' @param quiet a logical value
+#' 
+#'   If `TRUE` messages are deleted. Default is `FALSE`.
 #'   
 #' @export
 #' 

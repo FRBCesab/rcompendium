@@ -2,25 +2,33 @@
 #'
 #' @description 
 #' This function adds a vignette in the folder `vignettes/`. It also adds
-#' dependencies [knitr::knitr()] and [rmarkdown::rmarkdown()] in the
+#' dependencies [`knitr`](https://yihui.org/knitr/) and 
+#' [`rmarkdown`](https://rmarkdown.rstudio.com/) in the
 #' field `Suggests` of the `DESCRIPTION` file (if not already present in
-#' fields `Imports` and `Suggests`).
+#' fields `Imports`).
 #' 
-#' @param filename the name of the `.Rmd` file to be created. If `NULL` the 
-#'   `.Rmd` file will be named `pkg.Rmd` where `pkg` is your package name (if 
-#'   does not exist).
+#' @param filename a character of length 1
+#' 
+#'   The name of the `.Rmd` file to be created. If `NULL` (default )the `.Rmd` 
+#'   file will be named `pkg.Rmd` where `pkg` is your package name.
 #'   
-#' @param title the title of the vignette. If `NULL` the title will be 
+#' @param title a character of length 1
+#' 
+#'   The title of the vignette. If `NULL` (default) the title will be 
 #'   `Introduction to pkg` (where `pkg` is your package name).
-#' 
-#' @param open a logical value. If `TRUE` (default) the file is opened in the 
-#'   editor.
-#' 
-#' @param overwrite a logical value. If a file is already present and 
-#'   `overwrite = TRUE`, it will be erased and replaced.
 #'   
-#' @param quiet a logical value. If `TRUE` messages are deleted. Default is 
-#'   `FALSE`.
+#' @param open a logical value
+#' 
+#'   If `TRUE` (default) the file is opened in the editor.
+#' 
+#' @param overwrite a logical value
+#' 
+#'   If this file is already present and `overwrite = TRUE`, it will be erased 
+#'   and replaced. Default is `FALSE`.
+#'   
+#' @param quiet a logical value
+#' 
+#'   If `TRUE` messages are deleted. Default is `FALSE`.
 #'   
 #' @export
 #' 

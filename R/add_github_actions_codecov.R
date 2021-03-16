@@ -3,16 +3,21 @@
 #' @description 
 #' This function creates a configuration file (`.yaml`) to setup GitHub Actions 
 #' to report code coverage when testing the package. This file will be added 
-#' (from a template) in the folder `.github/workflows/test-coverage.yaml`.
+#' (from a template adapted from [usethis::use_github_action()]) in the folder 
+#' `.github/workflows/test-coverage.yaml`.
 #' 
-#' @param open a logical value. If `TRUE` the file is opened in the editor.
-#'   Default is `FALSE`.
+#' @param open a logical value
 #' 
-#' @param overwrite a logical value. If this file already exists and 
-#'   `overwrite = TRUE`, its content will be erased.
+#'   If `TRUE` (default) the file is opened in the editor.
 #' 
-#' @param quiet a logical value. If `TRUE` messages are deleted. Default is 
-#'   `FALSE`.
+#' @param overwrite a logical value
+#' 
+#'   If this file is already present and `overwrite = TRUE`, it will be erased 
+#'   and replaced. Default is `FALSE`.
+#'   
+#' @param quiet a logical value
+#' 
+#'   If `TRUE` messages are deleted. Default is `FALSE`.
 #' 
 #' @export
 #' 

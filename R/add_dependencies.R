@@ -1,36 +1,44 @@
 #' Add dependencies in DESCRIPTION
 #' 
 #' @description 
-#' This function detects dependencies used in **R/**, **NAMESPACE**, and 
-#' `@examples` sections and automatically adds these dependencies in the 
-#' `Imports` section of the **DESCRIPTION** file.
+#' This function detects external dependencies used in `R/`, `NAMESPACE`, and 
+#' `@examples` sections of `roxygen2` headers and automatically adds these 
+#' dependencies in the `Imports` section of the `DESCRIPTION` file.
 #' 
-#' In the **NAMESPACE** this function detects dependencies mentioned as 
+#' In the `NAMESPACE` this function detects dependencies mentioned as 
 #' `import(pkg)` and `importFrom(pkg,fun)`.
 #' 
-#' In the **R/** folder it detects functions called as `pkg::fun()` in the code
+#' In the `R/` folder it detects functions called as `pkg::fun()` in the code
 #' of each R files. In `@examples` sections it also detects packages attached
-#' using `library()` or `require()`.
+#' by `library()` or `require()`.
 #' 
-#' The **vignettes/** folder is also inspected and detected dependencies 
-#' (`pkg::fun()`, `library()` or `require()`) are added in the `Suggests` 
-#' section of the **DESCRIPTION** file.
+#' The `vignettes/` folder is also inspected and detected dependencies 
+#' (`pkg::fun()`, `library()` or `require()`) are added to the `Suggests` 
+#' field of the `DESCRIPTION` file (in addition to the packages 
+#' [`knitr`](https://yihui.org/knitr/) and 
+#' [`rmarkdown`](https://rmarkdown.rstudio.com/)).
 #' 
-#' If the project is a research compendium user can also inspect one
-#' additional folder (i.e. **analysis/**) with the argument `import` to add 
-#' dependencies used in this folder in the section `Imports` of the 
-#' **DESCRIPTION** file. The detection process is the same as the one used 
-#' for **vignettes/**. 
+#' If the project is a research compendium user can also inspect additional 
+#' folder(s) with the argument `compendium` to add dependencies to the 
+#' `Imports` section of the `DESCRIPTION` file. The detection process is the 
+#' same as the one used for `vignettes/`. 
 #' 
-#' If a `.Rmd` file is detected packages `knitr` and `rmarkdown` are added in
-#' `Imports` field of **DESCRIPTION** file (for `.Rmd` stored in **analysis/**)
-#' or in `Suggests` field of **DESCRIPTION** file (for `.Rmd` stored in 
-#' **vignettes/** if these two packages are not present in the `Imports` field).
+#' The `tests/` folder is also inspected and detected dependencies 
+#' (`pkg::fun()`, `library()` or `require()`) are added to the `Suggests` 
+#' field of the `DESCRIPTION` file (in addition to the package 
+#' [`testthat`](https://testthat.r-lib.org/)).
 #' 
-#' @param compendium (optional) the name of the folder to recursively detect 
-#'   dependencies to be added in the `Imports` field of **DESCRIPTION** file. 
-#'   Default is `compendium = NULL` (but **R/**, **NAMESPACE**, and `@examples` 
-#'   are still inspected).
+#' @param compendium a character of length 1
+#' 
+#'   The name of the folder to recursively detect dependencies to be added to 
+#'   the `Imports` field of `DESCRIPTION` file. It can be `'analysis/'` (if 
+#'   additional folders, i.e. `data/`, `outputs/`, `figures/`, etc. have been
+#'   created in this folder), `'.'` (if folders `data/`, `outputs/`, 
+#'   `figures/`, etc. have been created at the root of the project), etc. 
+#'   See [new_compendium()] for further information.
+#'   
+#'   Default is `compendium = NULL` (i.e. no additional folder are inspected 
+#'   but `R/`, `NAMESPACE`, `vignettes/`, and `tests/` are still inspected).
 #'
 #' @export
 #' 

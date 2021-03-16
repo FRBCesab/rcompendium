@@ -30,8 +30,9 @@ new_package(
 The license to be used for this package. Run \code{\link[=get_licenses]{get_licenses()}} to choose an
 appropriate one. Default is \code{license = 'GPL (>= 2)'}
 
-The license can be changed later by using \code{\link[=add_license]{add_license()}} (and
-\code{\link[=add_license_badge]{add_license_badge()}} or \code{\link[=refresh]{refresh()}} to update the corresponding badge).}
+The license can be changed later by calling \code{\link[=add_license]{add_license()}} (and
+\code{\link[=add_license_badge]{add_license_badge()}} or \code{\link[=refresh]{refresh()}} to update the corresponding badge in
+the README).}
 
 \item{status}{a character vector of length 1
 
@@ -49,7 +50,7 @@ This status can be added/changed later by using \code{\link[=add_repostatus_badg
 
 \item{lifecycle}{a character vector of length 1
 
-The lifecycle stage of the project according to the standard defined at
+The life cycle stage of the project according to the standard defined at
 \url{https://lifecycle.r-lib.org/articles/stages.html}. One among
 \code{'experimental'} (default), \code{'stable'}, \code{'deprecated'}, or \code{'superseded'}.
 See \code{\link[=add_lifecycle_badge]{add_lifecycle_badge()}} for further information.
@@ -62,21 +63,23 @@ This stage can be added/changed later by using \code{\link[=add_lifecycle_badge]
 
 \item{vignette}{a logical value
 
-If \code{TRUE} creates a vignette in \verb{vignettes/} named \code{pkg.Rmd}. Packages
-\code{\link[knitr:knitr-package]{knitr::knitr()}} and \code{\link[rmarkdown:rmarkdown-package]{rmarkdown::rmarkdown()}} are also added to \code{Suggests}
-in the \code{DESCRIPTION} file.}
+If \code{TRUE} (default) creates a vignette in \verb{vignettes/}. Packages
+\href{https://yihui.org/knitr/}{\code{knitr}} and
+\href{https://rmarkdown.rstudio.com/}{\code{rmarkdown}} are also added to the
+\code{Suggests} field in the \code{DESCRIPTION} file.}
 
 \item{test}{a logical value
 
-If \code{TRUE} initializes units tests by running \code{\link[usethis:use_testthat]{usethis::use_testthat()}}.
-Package \code{\link[testthat:testthat-package]{testthat::testthat()}} is also added to \code{Suggests} in the
-\code{DESCRIPTION} file.}
+If \code{TRUE} (default) initializes units tests by running
+\code{\link[usethis:use_testthat]{usethis::use_testthat()}}. Package
+\href{https://testthat.r-lib.org/}{\code{testthat}} is also added to the \code{Suggests}
+field in the \code{DESCRIPTION} file.}
 
 \item{create_repo}{a logical value
 
 If \code{TRUE} (default) creates a repository (public if \code{private = FALSE} or
 private if \code{private = TRUE}) on GitHub. See below the section
-\strong{Creating a GITHUB Repository}.}
+\strong{Creating a GitHub repo}.}
 
 \item{private}{a logical value
 
@@ -95,7 +98,7 @@ If \code{create_repo = FALSE} this argument is ignored.}
 \item{codecov}{a logical value
 
 If \code{TRUE} (default) configures GitHub Actions to automatically report
-the code coverage of units test after each push.
+the code coverage of units tests after each push.
 See \code{\link[=add_github_actions_codecov]{add_github_actions_codecov()}} for further information.
 
 If \code{create_repo = FALSE} this argument is ignored.}
@@ -103,9 +106,11 @@ If \code{create_repo = FALSE} this argument is ignored.}
 \item{website}{a logical value
 
 If \code{TRUE} (default) configures GitHub Actions to automatically build and
-deploy the package website (using \code{\link[pkgdown:pkgdown-package]{pkgdown::pkgdown()}}) after each push. A
-\strong{gh-pages} branch will be created using \code{\link[usethis:use_github_pages]{usethis::use_github_pages()}}
-and the GitHub repository will be automatically configured.
+deploy the package website
+(using \href{https://pkgdown.r-lib.org/index.html}{\code{pkgdown}})
+after each push. A \strong{gh-pages} branch will be created using
+\code{\link[usethis:use_github_pages]{usethis::use_github_pages()}} and the GitHub repository will be
+automatically configured to deploy website.
 
 If \code{create_repo = FALSE} this argument is ignored.}
 
@@ -115,7 +120,7 @@ The given name of the maintainer of the package. If \code{NULL} (default) the
 function will try to get this value by reading the \code{.Rprofile} file.
 
 For further information see \code{\link[=set_credentials]{set_credentials()}} and below the section
-\strong{Managing Credentials}.}
+\strong{Managing credentials}.}
 
 \item{family}{a character vector of length 1
 
@@ -123,7 +128,7 @@ The family name of the maintainer of the package. If \code{NULL} (default) the
 function will try to get this value by reading the \code{.Rprofile} file.
 
 For further information see \code{\link[=set_credentials]{set_credentials()}} and below the section
-\strong{Managing Credentials}.}
+\strong{Managing credentials}.}
 
 \item{email}{a character vector of length 1
 
@@ -131,7 +136,7 @@ The email address of the maintainer of the package. If \code{NULL} (default)
 the function will try to get this value by reading the \code{.Rprofile} file.
 
 For further information see \code{\link[=set_credentials]{set_credentials()}} and below the section
-\strong{Managing Credentials}.}
+\strong{Managing credentials}.}
 
 \item{orcid}{a character vector of length 1
 
@@ -139,7 +144,7 @@ The ORCID of the maintainer of the package. If \code{NULL} (default) the
 function will try to get this value by reading the \code{.Rprofile} file.
 
 For further information see \code{\link[=set_credentials]{set_credentials()}} and below the section
-\strong{Managing Credentials}.}
+\strong{Managing credentials}.}
 
 \item{organisation}{a character vector of length 1
 
@@ -158,58 +163,63 @@ Default is \code{overwrite = FALSE}. \strong{Be careful while using this argumen
 If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
 }
 \description{
-This function creates a new R package structure according to the CRAN
-policies. Essential features of an R package are created (\code{DESCRIPTION} and
+This function creates a new R package structure according to the current
+best practices.
+Essential features of an R package are created (\code{DESCRIPTION} and
 \code{NAMESPACE} files, and \verb{R/} and \verb{man/} folders). The project is also
-\strong{versioning with git} and a generic R \code{.gitignore} is added.
+\strong{versioned with git} and a generic R \code{.gitignore} is added.
 
 \strong{IMPORTANT -} Before using this function user needs to create a new folder
 (or a new project if using RStudio) and run this function inside this folder
-(by using \code{\link[=setwd]{setwd()}} or by opening the Rproj in a new Rstudio session).
-\strong{The name of the package will be the same as the name of this folder and
-some rules must be respected}:
+(by using \code{\link[=setwd]{setwd()}} or by opening the \code{Rproj} in a new RStudio session).
+\strong{The name of the package will be the same as the name of this folder}.
+Some rules must be respected:
 \url{https://r-pkgs.org/workflows101.html#naming}.
 
 Some fields of the \code{DESCRIPTION} file (maintainer information, package name,
 license, URLs, and  \code{roxygen2} version)  are automatically filled but
-others (title and description) need to be edited manually.
+others (like title and description) need to be edited manually.
 
 Additional features are also created: a \code{CITATION} file, a \code{README.Rmd}, and
-a \verb{vignettes/} folder (optional). See below the section \strong{Package Content}
-to see the full structure of the R package.
+\verb{tests/} and \verb{vignettes/} folders (optional). See the vignette
+\href{https://frbcesab.github.io/rcompendium/articles/rcompendium.html}{Get started}
+for a complete overview of the full structure.
 
 A GitHub repository can also be created (default) following the
 "GitHub last" workflow
 (\url{https://happygitwithr.com/existing-github-last.html}).
-Configuration files for GitHub Actions to automatically check the package
-and deploy the website \code{\link[pkgdown:pkgdown-package]{pkgdown::pkgdown()}} will be added in the \verb{.github/}
-folder. See below the section \strong{Creating a GITHUB Repository}.
+Configuration files for GitHub Actions to automatically 1) check the
+package, 2) test and report code coverage, and 3) deploy the website
+\href{https://pkgdown.r-lib.org/index.html}{\code{pkgdown}}
+will be added in the \verb{.github/} folder. See below the section
+\strong{Creating a GitHub repo}.
 }
-\section{Recommended Workflow}{
+\section{Recommended workflow}{
 
 
 The purpose of the package \code{rcompendium} is to make easier the creation of R
 package/research compendium so that user can focus on the code/analysis
 instead of wasting time organizing files.
 
-The recommended workflow is as follow:
-\itemize{
+The recommended workflow is:
+\enumerate{
 \item Create an empty RStudio project;
 \item Store your credentials with \code{\link[=set_credentials]{set_credentials()}} (if not already done);
-\item Run \code{\link[=new_package]{new_package()}} to create the package structure (and the GitHub
+\item Run \code{\link[=new_package]{new_package()}} to create a new package structure (and the GitHub
 repository);
 \item Edit some metadata in \code{DESCRIPTION}, \code{CITATION}, and \code{README.Rmd};
 \item Implement, document & test functions (the fun part);
 \item Update the project (update \code{.Rd} files, \code{NAMESPACE}, external dependencies
 in \code{DESCRIPTION}, re-knit \code{README.Rmd}, and check package integrity) with
-\code{\link[=refresh]{refresh()}}.
+\code{\link[=refresh]{refresh()}};
+\item Repeat steps 5 and 6 while developing the package.
 }
 }
 
-\section{Managing Credentials}{
+\section{Managing credentials}{
 
 
-You can use the arguments \code{given}, \code{family}, \code{email}, \code{orcid}, and \code{github}
+You can use the arguments \code{given}, \code{family}, \code{email}, and \code{orcid}
 directly with the function \code{\link[=new_package]{new_package()}} (and others). But if you create
 a lot a projects (packages and/or compendiums) it can be frustrating in the
 long run.
@@ -225,24 +235,33 @@ always be able to modify them on-the-fly (i.e. by using arguments of the
 \code{\link[=new_package]{new_package()}}) or permanently by re-running \code{\link[=set_credentials]{set_credentials()}}.
 }
 
-\section{Creating a GITHUB Repository}{
+\section{Configuring git}{
 
 
-First run \code{\link[gh:gh_whoami]{gh::gh_whoami()}} to see if your git and associated credentials are
-correctly configured. If so you should see something like:\preformatted{\{
-"name": "Given Family",
-"login": "pseudo",
-"html_url": "https://github.com/pseudo",
+First run \code{\link[gh:gh_whoami]{gh::gh_whoami()}} to see if your git is correctly configured. If
+so you should see something like:\preformatted{\{
+"name": "John Doe",
+"login": "jdoe",
+"html_url": "https://github.com/jdoe",
 ...
 \}
 }
 
-Otherwise see \code{\link[gert:git_config]{gert::git_config()}} to debug.
+Otherwise you might need to run:\preformatted{gert::git_config_global(name = "user.name", value = "John Doe")
+gert::git_config_global(name = "user.email", value = "john.doe@domain.com")
+gert::git_config_global(name = "github.user", value = "jdoe")
+}
+
+See \code{\link[gert:git_config]{gert::git_config()}} for further information.
+}
+
+\section{Creating a GitHub repo}{
+
 
 To create the GitHub repository directly from R, the package \code{rcompendium}
-uses the function \code{\link[usethis:use_github]{usethis::use_github()}}, an interface to the GitHub
-REST API. The interaction with this API required an authentication method:
-a \strong{GITHUB PAT} (Personal Access Token).
+uses the function \code{\link[usethis:use_github]{usethis::use_github()}}, an client to the GitHub REST API.
+The interaction with this API required an authentication method: a
+\strong{GITHUB PAT} (Personal Access Token).
 
 If you don't have a \strong{GITHUB PAT} locally stored, you must:
 \enumerate{
@@ -252,13 +271,14 @@ at least the first two scopes (private repository and workflow)}
 and adding the following line: \code{GITHUB_PAT='99z9...z9'}
 }
 
-See \code{\link[usethis:github-token]{usethis::gh_token_help()}} for more information about getting and
+Run \code{\link[usethis:github-token]{usethis::gh_token_help()}} for more information about getting and
 configuring a \strong{GITHUB PAT}.
 
-If everything is well configured you should see something like:\preformatted{\{
-"name": "Given Family",
-"login": "pseudo",
-"html_url": "https://github.com/pseudo",
+If everything is well configured you should see something like after calling
+\code{\link[gh:gh_whoami]{gh::gh_whoami()}}:\preformatted{\{
+"name": "John Doe",
+"login": "jdoe",
+"html_url": "https://github.com/jdoe",
 "scopes": "delete_repo, repo, workflow",
 "token": "99z9...z9"
 \}
@@ -272,8 +292,9 @@ And you will be able to create a GitHub repository directly from R!
 library(rcompendium)
 
 ## Define **ONCE FOR ALL** your credentials ----
-set_credentials("Given", "Family", "email.address@domain.com", 
-                github = "pseudo", orcid = "0000-0000-0000-0000")
+set_credentials(given = "John", family = "Doe", 
+                email = "john.doe@domain.com", 
+                orcid = "0000-0000-0000-0000")
 
 ## Create an R package ----
 new_package()

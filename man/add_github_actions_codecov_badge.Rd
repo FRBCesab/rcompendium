@@ -7,16 +7,19 @@
 add_github_actions_codecov_badge(organisation = NULL, quiet = FALSE)
 }
 \arguments{
-\item{organisation}{(optional) name of the GitHub organisation where the
-project is hosted.  If \code{NULL} (default) the GitHub account will be used.}
+\item{organisation}{a character of length 1
 
-\item{quiet}{a logical value. If \code{TRUE} messages are deleted. Default is
-\code{FALSE}.}
+The name of the GitHub organisation to host the package. If \code{NULL}
+(default) the GitHub account will be used.}
+
+\item{quiet}{a logical value
+
+If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
 }
 \description{
 This function adds a Test coverage badge to the \code{README.Rmd}. This function
 must be run after \code{\link[=add_github_actions_codecov]{add_github_actions_codecov()}} which will setup GitHub
-Actions (test coverage).
+Actions to report the percentage of code cover by units tests.
 }
 \examples{
 \dontrun{

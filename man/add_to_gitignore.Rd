@@ -2,19 +2,23 @@
 % Please edit documentation in R/add_to_gitignore.R
 \name{add_to_gitignore}
 \alias{add_to_gitignore}
-\title{Create a .gitignore file}
+\title{Create a gitignore file}
 \usage{
 add_to_gitignore(x, open = FALSE, quiet = FALSE)
 }
 \arguments{
-\item{x}{a character vector of one or several files/directories names to add
-to the \code{.gitignore}.}
+\item{x}{a character vector
 
-\item{open}{a logical value. If \code{TRUE} the \code{.gitignore} file is opened in
-the editor. Default is \code{FALSE}.}
+One or several files/directories names to be added to the \code{.gitignore}.}
 
-\item{quiet}{a logical value. If \code{TRUE} messages are deleted. Default is
-\code{FALSE}.}
+\item{open}{a logical value
+
+If \code{TRUE} the \code{.gitignore} file is opened in the editor.
+Default is \code{FALSE}.}
+
+\item{quiet}{a logical value
+
+If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
 }
 \description{
 This function creates a \code{.gitignore} file at the root of the project based on

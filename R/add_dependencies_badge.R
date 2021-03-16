@@ -1,15 +1,17 @@
-#' Add a dependencies badge
+#' Add a Dependencies badge
 #'
 #' @description 
 #' This function adds a dependencies badge to the `README.Rmd`. The first
-#' number corresponds to the direct dependencies and the second to the recursive
-#' dependencies.
+#' number corresponds to the direct dependencies and the second to the 
+#' recursive dependencies.
 #' 
-#' **Note** that this function can work with package not published on the CRAN
-#' and is based on the function [gtools::getDependencies()].
+#' **Note/** this function can work with packages not published on the CRAN
+#' and is based on the function [gtools::getDependencies()]. See also the 
+#' function [get_all_dependencies()].
 #' 
-#' @param quiet a logical value. If `TRUE` messages are deleted. Default is 
-#'   `FALSE`.
+#' @param quiet a logical value
+#' 
+#'   If `TRUE` messages are deleted. Default is `FALSE`.
 #'   
 #' @export
 #' 

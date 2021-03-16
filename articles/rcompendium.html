@@ -171,21 +171,6 @@
 └── make.R                    # Master R scripts to run all analyses</code></pre>
 <p>The folder <code>analysis/</code> and the file <code>make.R</code> will be added to the <code>.Rbuildignore</code> so that some parts of the compendium (essentially the R functions) can be installed as an R package (with <code><a href="https://devtools.r-lib.org//reference/install.html">devtools::install()</a></code>). Installing the package is optional.</p>
 <p><br></p>
-<p><strong>WHAT’S INTERESTING ABOUT <code>rcompendium</code>?</strong></p>
-<ol style="list-style-type: decimal">
-<li>
-<strong>Autocompletion of user credentials</strong>. The package will automatically add some metadata (user information, package name, package version, etc.) to <code>DESCRIPTION</code>, <code>CITATION</code> and <code>README.Rmd</code> as the package. <a href="https://usethis.r-lib.org/"><code>usethis</code></a> does.</li>
-<li>
-<strong>Detection of dependencies</strong>. The function <code><a href="../reference/add_dependencies.html">add_dependencies()</a></code> will check for all external dependencies (i.e. functions in external packages used in the project) and automatically add these packages to the <code>DESCRIPTION</code> file (fields <code>Imports</code> and <code>Suggests</code>). See <code><a href="../reference/add_dependencies.html">?add_dependencies</a></code> for further information.</li>
-<li>
-<strong>Minimal R version</strong>. The function <code><a href="../reference/add_r_depend.html">add_r_depend()</a></code> can find the minimal R version required to run the project. This information can be added to the <code>DESCRIPTION</code> file as: <code>Depends: R (&gt;= 9.9)</code>
-</li>
-<li>
-<strong>Automatic update</strong>. The function <code><a href="../reference/refresh.html">refresh()</a></code> will automatically update the project (re-build <code>.Rd</code> files, re-knit the <code>README.Rmd</code>, etc.). See <a href="#usage">Usage</a> section below.</li>
-<li>
-<strong>GitHub Actions</strong>. The package will setup CI/CD in background (optional).</li>
-</ol>
-<p><br></p>
 </div>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
@@ -244,7 +229,7 @@
 </div>
 <div id="managing-credentials" class="section level3">
 <h3 class="hasAnchor">
-<a href="#managing-credentials" class="anchor"></a>Managing Credentials</h3>
+<a href="#managing-credentials" class="anchor"></a>Managing credentials</h3>
 <p>You can use the arguments <code>given</code>, <code>family</code>, <code>email</code>, and <code>orcid</code> directly with the function <code><a href="../reference/new_package.html">new_package()</a></code> (and others). But if you create a lot a projects (packages and/or compendiums) it can be frustrating in the long run.</p>
 <p>An alternative is to use <strong>ONCE AND FOR ALL</strong> the function <code><a href="../reference/set_credentials.html">set_credentials()</a></code> to permanently store this information in the <code>.Rprofile</code> file. If these arguments are set to <code>NULL</code> (default) each function of the package <code>rcompendium</code> will search in this <code>.Rprofile</code> file. It will save your time (it’s the purpose of this package).</p>
 <p>Even if you have stored your information in the <code>.Rprofile</code> file you will always be able to modify them on-the-fly (i.e. by using arguments of the <code><a href="../reference/new_package.html">new_package()</a></code>) or permanently by re-running <code><a href="../reference/set_credentials.html">set_credentials()</a></code>.</p>
@@ -340,11 +325,7 @@
 <span class="fu"><a href="../reference/refresh.html">refresh</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>And do not forget to commit changes and to push to GitHub to enjoy GitHub Actions!</p>
 <p><br></p>
-</div>
-<div id="working-with-a-compendium" class="section level2">
-<h2 class="hasAnchor">
-<a href="#working-with-a-compendium" class="anchor"></a>Working with a compendium</h2>
-<p>Coming soon…</p>
+<p><strong>N.B.</strong> User can also use functions of the package <a href="https://usethis.r-lib.org/"><code>usethis</code></a> in addition to add some missing features (e.g. <code>data/</code> and package release tools).</p>
 <p><br></p>
 </div>
 <div id="contributing" class="section level2">

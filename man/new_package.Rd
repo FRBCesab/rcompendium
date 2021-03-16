@@ -294,7 +294,7 @@ library(rcompendium)
 ## Define **ONCE FOR ALL** your credentials ----
 set_credentials(given = "John", family = "Doe", 
                 email = "john.doe@domain.com", 
-                orcid = "0000-0000-0000-0000")
+                orcid = "9999-9999-9999-9999", protocol = "ssh")
 
 ## Create an R package ----
 new_package()

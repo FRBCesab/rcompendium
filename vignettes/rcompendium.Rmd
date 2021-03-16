@@ -133,30 +133,15 @@ The folder `analysis/` and the file `make.R` will be added to the `.Rbuildignore
 so that some parts of the compendium (essentially the R functions) can be installed
 as an R package (with `devtools::install()`). Installing the package is optional.
 
-<br/>
-
-**WHAT'S INTERESTING ABOUT `rcompendium`?**
-
-1. **Autocompletion of user credentials**. The package will automatically add 
-some metadata (user information, package name, package version, etc.) to 
-`DESCRIPTION`, `CITATION` and `README.Rmd` as the package.
-[`usethis`](https://usethis.r-lib.org/) does.
-2. **Detection of dependencies**. The function `add_dependencies()` will
-check for all external dependencies (i.e. functions in external packages used in
-the project) and automatically add these packages to the `DESCRIPTION` file (fields
-`Imports` and `Suggests`). See `?add_dependencies` for further information.
-3. **Minimal R version**. The function `add_r_depend()` can find the minimal 
-R version required to run the project. This information can be added to the 
-`DESCRIPTION` file as: `Depends: R (>= 9.9)`
-4. **Automatic update**. The function `refresh()` will automatically update the 
-project (re-build `.Rd` files, re-knit the `README.Rmd`, etc.). See [Usage] section below.
-5. **GitHub Actions**. The package will setup CI/CD in background (optional).
 
 
 <br/>
+
 
 
 ## Installation
+
+
 
 You can install the development version from [GitHub](https://github.com/FRBCesab/rcompendium) 
 with:
@@ -175,16 +160,22 @@ remotes::install_github("FRBCesab/rcompendium")
 ```
 
 
+
 <br/>
 
 
+
 ## Prerequisites
+
+
 
 Before using the package `rcompendium` user must follow these three steps.
 
 
 
 ### GIT configuration
+
+
 
 First ensure that **GIT** is correctly installed on your machine and linked to
 RStudio. Read the Chapter 6 of 
@@ -216,6 +207,8 @@ See `gert::git_config()` for further information.
 
 
 ### Creating a GitHub repo
+
+
 
 To create the GitHub repository directly from R, the package `rcompendium` 
 uses the function `usethis::use_github()`, an client to the GitHub REST API. 
@@ -249,7 +242,9 @@ And you will be able to create a GitHub repository directly from R!
 
 
 
-### Managing Credentials
+### Managing credentials
+
+
 
 You can use the arguments `given`, `family`, `email`, and `orcid`
 directly with the function `new_package()` (and others). But if you create 
@@ -269,6 +264,8 @@ always be able to modify them on-the-fly (i.e. by using arguments of the
 
 
 <br/>
+
+
 
 ## Usage
 
@@ -372,9 +369,8 @@ And do not forget to commit changes and to push to GitHub to enjoy GitHub Action
 <br/>
 
 
-## Working with a compendium
-
-Coming soon...
+**N.B.** User can also use functions of the package [`usethis`](https://usethis.r-lib.org/)
+in addition to add some missing features (e.g. `data/` and package release tools).
 
 
 <br/>

@@ -89,17 +89,19 @@
 <p>The purpose of the package <code>rcompendium</code> is to make easier the creation of R package/research compendium (i.e. a predefined files/folders structure) so that user can focus on the code/analysis instead of wasting time organizing files.</p>
 <p>A full ready-to-work structure will be set up with the following features:</p>
 <ul>
-<li>Initialization of the <a href="https://git-scm.com/">GIT</a> versioning.</li>
+<li>Initialization of the <a href="https://git-scm.com/">GIT</a> versioning (see below <br><span class="math display"><em>G</em><em>I</em><em>T</em><em>c</em><em>o</em><em>n</em><em>f</em><em>i</em><em>g</em><em>u</em><em>r</em><em>a</em><em>t</em><em>i</em><em>o</em><em>n</em></span><br>).</li>
 <li>Creation of a minimal R package structure (<code>DESCRIPTION</code> and <code>NAMESPACE</code> files, and <code>R/</code> and <code>man/</code> folders).</li>
 <li>Creation of additional files (<code>LICENSE.md</code>, <code>inst/CITATION</code>, etc.).</li>
 <li>Creation of a <em>Get started</em> vignette in <code>vignettes/</code>.</li>
-<li>Creation of a GitHub <code>README.Rmd</code> with HexSticker (template) and badges.</li>
-<li>Autocompletion of maintainer information.</li>
-<li>Creation of the GitHub repository.</li>
+<li>Setting the units tests process.</li>
+<li>Creation of a <code>README.Rmd</code> with HexSticker (template) and badges.</li>
+<li>Autocompletion of maintainer information (see below <br><span class="math display"><em>M</em><em>a</em><em>n</em><em>a</em><em>g</em><em>i</em><em>n</em><em>g</em><em>c</em><em>r</em><em>e</em><em>d</em><em>e</em><em>n</em><em>t</em><em>i</em><em>a</em><em>l</em><em>s</em></span><br>).</li>
+<li>Creation of a GitHub repository (see below <br><span class="math display"><em>C</em><em>r</em><em>e</em><em>a</em><em>t</em><em>i</em><em>n</em><em>g</em><em>a</em><em>G</em><em>i</em><em>t</em><em>H</em><em>u</em><em>b</em><em>r</em><em>e</em><em>p</em><em>o</em></span><br>).</li>
 <li>Configuration of GitHub Actions to automatically:
 <ul>
-<li>check and test package;</li>
-<li>build and deploy website (using <a href="https://pkgdown.r-lib.org/"><code>pkgdown</code></a>).</li>
+<li>check and test package (<code>R CMD Check</code>);</li>
+<li>report the code coverage (<code>covr</code>);</li>
+<li>build and deploy website (<code>pkgdown</code>).</li>
 </ul>
 </li>
 </ul>
@@ -109,56 +111,64 @@
 <p>The strength of <code>rcompendium</code> is to create the whole structure in one command line by using the function <code><a href="reference/new_package.html">new_package()</a></code> (or <code><a href="reference/new_compendium.html">new_compendium()</a></code>). The default settings will produce the following structure:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>.</span>
 <span id="cb1-2"><a href="#cb1-2"></a>│</span>
-<span id="cb1-3"><a href="#cb1-3"></a>├── pkg.Rproj                 <span class="co"># (optional) Created by user </span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>├── pkg.Rproj                   <span class="co"># (optional) Created by user </span></span>
 <span id="cb1-4"><a href="#cb1-4"></a>│</span>
-<span id="cb1-5"><a href="#cb1-5"></a>├── .git<span class="op">/</span><span class="st">                     </span><span class="co"># GIT tracking folder</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a>├── .gitignore                <span class="co"># Specific to R packages</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>├── .git<span class="op">/</span><span class="st">                       </span><span class="co"># GIT tracking folder</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>├── .gitignore                  <span class="co"># Specific to R packages</span></span>
 <span id="cb1-7"><a href="#cb1-7"></a><span class="op">|</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a>├── .github<span class="op">/</span><span class="st">                  </span><span class="co"># (optional) GitHub Actions settings</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a>├── .github<span class="op">/</span><span class="st">                    </span><span class="co"># (optional) GitHub Actions settings</span></span>
 <span id="cb1-9"><a href="#cb1-9"></a>│   └── workflows<span class="op">/</span></span>
-<span id="cb1-10"><a href="#cb1-10"></a>│       ├── pkgdown.yaml      <span class="co"># Configuration file to build &amp; deploy website</span></span>
-<span id="cb1-11"><a href="#cb1-11"></a>│       └── R<span class="op">-</span>CMD<span class="op">-</span>check.yaml  <span class="co"># Configuration file to check &amp; test package</span></span>
-<span id="cb1-12"><a href="#cb1-12"></a>│</span>
-<span id="cb1-13"><a href="#cb1-13"></a>├── _pkgdown.yaml             <span class="co"># (optional) User website settings</span></span>
-<span id="cb1-14"><a href="#cb1-14"></a>│</span>
-<span id="cb1-15"><a href="#cb1-15"></a>├── R<span class="op">/</span><span class="st">                        </span><span class="co"># R functions</span></span>
-<span id="cb1-16"><a href="#cb1-16"></a>│   └── pkg<span class="op">-</span>package.R         <span class="co"># Dummy R file for package-level documentation</span></span>
-<span id="cb1-17"><a href="#cb1-17"></a>│</span>
-<span id="cb1-18"><a href="#cb1-18"></a>├── man<span class="op">/</span><span class="st">                      </span><span class="co"># R functions helps (automatically updated)</span></span>
-<span id="cb1-19"><a href="#cb1-19"></a>│   ├── pkg<span class="op">-</span>package.Rd        <span class="co"># Package-level documentation</span></span>
-<span id="cb1-20"><a href="#cb1-20"></a>│   └── figures<span class="op">/</span><span class="st">              </span><span class="co"># Figures for the README </span></span>
-<span id="cb1-21"><a href="#cb1-21"></a>│       └── hexsticker.png    <span class="co"># Template R package HexSticker</span></span>
-<span id="cb1-22"><a href="#cb1-22"></a>│</span>
-<span id="cb1-23"><a href="#cb1-23"></a>├── inst<span class="op">/</span></span>
-<span id="cb1-24"><a href="#cb1-24"></a>│   └── CITATION              <span class="co"># BiBTeX entry to cite the R package       [*]</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a>│       ├── pkgdown.yaml        <span class="co"># Configuration file to build &amp; deploy website</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a>│       ├── R<span class="op">-</span>CMD<span class="op">-</span>check.yaml    <span class="co"># Configuration file to check &amp; test package</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a>│       └── test<span class="op">-</span>coverage.yaml  <span class="co"># Configuration file to build &amp; deploy website</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a>│</span>
+<span id="cb1-14"><a href="#cb1-14"></a>├── _pkgdown.yaml               <span class="co"># (optional) User website settings</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a>│</span>
+<span id="cb1-16"><a href="#cb1-16"></a>├── R<span class="op">/</span><span class="st">                          </span><span class="co"># R functions</span></span>
+<span id="cb1-17"><a href="#cb1-17"></a>│   ├── fun<span class="op">-</span>demo.R              <span class="co"># Example of an R function</span></span>
+<span id="cb1-18"><a href="#cb1-18"></a>│   └── pkg<span class="op">-</span>package.R           <span class="co"># Dummy R file for package-level documentation</span></span>
+<span id="cb1-19"><a href="#cb1-19"></a>│</span>
+<span id="cb1-20"><a href="#cb1-20"></a>├── man<span class="op">/</span><span class="st">                        </span><span class="co"># R functions helps (automatically updated)</span></span>
+<span id="cb1-21"><a href="#cb1-21"></a>│   ├── print_msg.Rd            <span class="co"># Documentation of the demo R function</span></span>
+<span id="cb1-22"><a href="#cb1-22"></a>│   ├── pkg<span class="op">-</span>package.Rd          <span class="co"># Package-level documentation</span></span>
+<span id="cb1-23"><a href="#cb1-23"></a>│   └── figures<span class="op">/</span><span class="st">                </span><span class="co"># Figures for the README </span></span>
+<span id="cb1-24"><a href="#cb1-24"></a>│       └── hexsticker.png      <span class="co"># Template R package HexSticker</span></span>
 <span id="cb1-25"><a href="#cb1-25"></a>│</span>
-<span id="cb1-26"><a href="#cb1-26"></a>├── vignettes<span class="op">/</span></span>
-<span id="cb1-27"><a href="#cb1-27"></a>│   └── pkg.Rmd               <span class="co"># (optional) Package tutorial              [*]</span></span>
-<span id="cb1-28"><a href="#cb1-28"></a>│</span>
-<span id="cb1-29"><a href="#cb1-29"></a>├── DESCRIPTION               <span class="co"># Project metadata                         [*]</span></span>
-<span id="cb1-30"><a href="#cb1-30"></a>├── NAMESPACE                 <span class="co"># Automatically generated</span></span>
-<span id="cb1-31"><a href="#cb1-31"></a>├── .Rbuildignore             <span class="co"># Automatically generated</span></span>
-<span id="cb1-32"><a href="#cb1-32"></a>│</span>
-<span id="cb1-33"><a href="#cb1-33"></a>├── LICENSE                   <span class="co"># (optional) If License = MIT</span></span>
-<span id="cb1-34"><a href="#cb1-34"></a>├── LICENSE.md                <span class="co"># Content of the chosen license</span></span>
-<span id="cb1-35"><a href="#cb1-35"></a>│</span>
-<span id="cb1-36"><a href="#cb1-36"></a>├── README.md                 <span class="co"># GitHub README (automatically generated)</span></span>
-<span id="cb1-37"><a href="#cb1-37"></a>├── README.Rmd                <span class="co"># GitHub README (to knit)                  [*]</span></span>
-<span id="cb1-38"><a href="#cb1-38"></a><span class="op">/</span></span>
-<span id="cb1-39"><a href="#cb1-39"></a><span class="er">/</span></span>
-<span id="cb1-40"><a href="#cb1-40"></a>├── analysis<span class="op">/</span><span class="st">                 </span><span class="co"># Proposed compendium                      [¶]</span></span>
-<span id="cb1-41"><a href="#cb1-41"></a>│   ├── data<span class="op">/</span><span class="st">                 </span><span class="co"># User raw data (.csv, .gpkg, etc.)</span></span>
-<span id="cb1-42"><a href="#cb1-42"></a>│   ├── rscripts<span class="op">/</span><span class="st">             </span><span class="co"># R scripts (no functions) to run analyses</span></span>
-<span id="cb1-43"><a href="#cb1-43"></a>│   ├── outputs<span class="op">/</span><span class="st">              </span><span class="co"># Outputs created by R scripts</span></span>
-<span id="cb1-44"><a href="#cb1-44"></a>│   ├── figures<span class="op">/</span><span class="st">              </span><span class="co"># Figures created by R scripts</span></span>
-<span id="cb1-45"><a href="#cb1-45"></a>│   └── paper<span class="op">/</span><span class="st">                </span><span class="co"># Article based on analyses</span></span>
-<span id="cb1-46"><a href="#cb1-46"></a>│</span>
-<span id="cb1-47"><a href="#cb1-47"></a>└── make.R                    <span class="co"># Master R scripts to run all analyses     [¶]</span></span>
-<span id="cb1-48"><a href="#cb1-48"></a></span>
-<span id="cb1-49"><a href="#cb1-49"></a></span>
-<span id="cb1-50"><a href="#cb1-50"></a>[<span class="op">*</span>] These files are automatically edited but user needs to add manually </span>
-<span id="cb1-51"><a href="#cb1-51"></a>    some information.</span>
-<span id="cb1-52"><a href="#cb1-52"></a>[¶] These folders<span class="op">/</span>files are also created when using <span class="kw">new_compendium</span>()</span></code></pre></div>
+<span id="cb1-26"><a href="#cb1-26"></a>├── tests<span class="op">/</span></span>
+<span id="cb1-27"><a href="#cb1-27"></a>│   ├── testthat.R              <span class="co"># Units tests settings</span></span>
+<span id="cb1-28"><a href="#cb1-28"></a>│   └── testthat<span class="op">/</span><span class="st">               </span><span class="co"># Units tests folder</span></span>
+<span id="cb1-29"><a href="#cb1-29"></a>│       └── test<span class="op">-</span>demo.R         <span class="co"># Units tests for the function print_msg()</span></span>
+<span id="cb1-30"><a href="#cb1-30"></a><span class="op">|</span></span>
+<span id="cb1-31"><a href="#cb1-31"></a>├── vignettes<span class="op">/</span></span>
+<span id="cb1-32"><a href="#cb1-32"></a>│   └── pkg.Rmd                 <span class="co"># (optional) Package tutorial              [*]</span></span>
+<span id="cb1-33"><a href="#cb1-33"></a>│</span>
+<span id="cb1-34"><a href="#cb1-34"></a>├── DESCRIPTION                 <span class="co"># Project metadata                         [*]</span></span>
+<span id="cb1-35"><a href="#cb1-35"></a>├── NAMESPACE                   <span class="co"># Automatically generated</span></span>
+<span id="cb1-36"><a href="#cb1-36"></a>├── .Rbuildignore               <span class="co"># List of files/folders to be ignored while </span></span>
+<span id="cb1-37"><a href="#cb1-37"></a>│                               <span class="co"># checking the package</span></span>
+<span id="cb1-38"><a href="#cb1-38"></a>├── inst<span class="op">/</span></span>
+<span id="cb1-39"><a href="#cb1-39"></a>│   └── CITATION                <span class="co"># BiBTeX entry to cite the R package       [*]</span></span>
+<span id="cb1-40"><a href="#cb1-40"></a>│</span>
+<span id="cb1-41"><a href="#cb1-41"></a>├── LICENSE                     <span class="co"># (optional) If License = MIT</span></span>
+<span id="cb1-42"><a href="#cb1-42"></a>├── LICENSE.md                  <span class="co"># Content of the chosen license</span></span>
+<span id="cb1-43"><a href="#cb1-43"></a>│</span>
+<span id="cb1-44"><a href="#cb1-44"></a>├── README.md                   <span class="co"># GitHub README (automatically generated)</span></span>
+<span id="cb1-45"><a href="#cb1-45"></a>├── README.Rmd                  <span class="co"># GitHub README (to knit)                  [*]</span></span>
+<span id="cb1-46"><a href="#cb1-46"></a><span class="op">/</span></span>
+<span id="cb1-47"><a href="#cb1-47"></a><span class="er">/</span></span>
+<span id="cb1-48"><a href="#cb1-48"></a>├── analysis<span class="op">/</span><span class="st">                   </span><span class="co"># Proposed compendium                      [¶]</span></span>
+<span id="cb1-49"><a href="#cb1-49"></a>│   ├── data<span class="op">/</span><span class="st">                   </span><span class="co"># User raw data (.csv, .gpkg, etc.)</span></span>
+<span id="cb1-50"><a href="#cb1-50"></a>│   ├── rscripts<span class="op">/</span><span class="st">               </span><span class="co"># R scripts (no functions) to run analyses</span></span>
+<span id="cb1-51"><a href="#cb1-51"></a>│   ├── outputs<span class="op">/</span><span class="st">                </span><span class="co"># Outputs created by R scripts</span></span>
+<span id="cb1-52"><a href="#cb1-52"></a>│   ├── figures<span class="op">/</span><span class="st">                </span><span class="co"># Figures created by R scripts</span></span>
+<span id="cb1-53"><a href="#cb1-53"></a>│   └── paper<span class="op">/</span><span class="st">                  </span><span class="co"># Article based on analyses</span></span>
+<span id="cb1-54"><a href="#cb1-54"></a>│</span>
+<span id="cb1-55"><a href="#cb1-55"></a>└── make.R                      <span class="co"># Master R scripts to run all analyses     [¶]</span></span>
+<span id="cb1-56"><a href="#cb1-56"></a></span>
+<span id="cb1-57"><a href="#cb1-57"></a></span>
+<span id="cb1-58"><a href="#cb1-58"></a>[<span class="op">*</span>] These files are automatically edited but user needs to add manually </span>
+<span id="cb1-59"><a href="#cb1-59"></a>    some information.</span>
+<span id="cb1-60"><a href="#cb1-60"></a>[¶] These folders<span class="op">/</span>files are also created when using <span class="kw">new_compendium</span>()</span></code></pre></div>
 </div>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
@@ -176,13 +186,14 @@
 
 <span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"FRBCesab/rcompendium"</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="getting-started" class="section level2">
+<div id="get-started" class="section level2">
 <h2 class="hasAnchor">
-<a href="#getting-started" class="anchor"></a>Getting started</h2>
-<p>Please read the <a href="https://frbcesab.github.io/rcompendium/articles/rcompendium.html">Vignette</a> and the documentation of the function <a href="https://frbcesab.github.io/rcompendium/reference/new_package.html"><code>new_package</code></a>.</p>
-<p>This <a href="https://github.com/FRBCesab/pkgtest">repository</a> was created by running:</p>
+<a href="#get-started" class="anchor"></a>Get started</h2>
+<p>Please read the <a href="https://frbcesab.github.io/rcompendium/articles/rcompendium.html">Vignette</a> and pay attention to the sections <a href="https://frbcesab.github.io/rcompendium/articles/rcompendium.html#prerequisites">Prerequisites</a> and <a href="https://frbcesab.github.io/rcompendium/articles/rcompendium.html#usage">Usage</a></p>
+<p><span class="emoji" data-emoji="boom">💥</span> The repository <a href="https://github.com/ahasverus/pkgtest">pkgtest</a> was created by running:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">rcompendium</span><span class="fu">::</span><span class="fu"><a href="reference/new_package.html">new_package</a></span><span class="op">(</span>organisation <span class="op">=</span> <span class="st">"FRBCesab"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu">rcompendium</span><span class="fu">::</span><span class="fu"><a href="reference/new_package.html">new_package</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<p><strong>N.B.</strong> Before running this command, a new RStudio project (called <code>pkgtest</code>) was manually created.</p>
 </div>
 <div id="citation" class="section level2">
 <h2 class="hasAnchor">
@@ -214,9 +225,8 @@
 <div id="colophon" class="section level2">
 <h2 class="hasAnchor">
 <a href="#colophon" class="anchor"></a>Colophon</h2>
-<p>This package is the result of intense discussions and feedbacks from the training course <a href="https://github.com/FRBCesab/datatoolbox">Data Toolbox for Reproducible Research in Computational Ecology</a> (in French).</p>
-<p><code>rcompendium</code> was largely inspired by the package <a href="https://github.com/benmarwick/rrtools"><code>rrtools</code></a> developed by <a href="https://github.com/benmarwick">Ben Marwick</a> and tries to respect the standard defined by <a href="https://rstudio.com/">RStudio</a>. It uses several functions from the packages <a href="https://devtools.r-lib.org/"><code>devtools</code></a> and <a href="https://usethis.r-lib.org/"><code>usethis</code></a>.</p>
-<p><strong>Thanks to these developer teams!</strong></p>
+<p>This package is the result of intense discussions and feedback from the training course <a href="https://github.com/FRBCesab/datatoolbox">Data Toolbox for Reproducible Research in Computational Ecology</a> (in French).</p>
+<p><code>rcompendium</code> was largely inspired by the package <a href="https://github.com/benmarwick/rrtools"><code>rrtools</code></a> developed by <a href="https://github.com/benmarwick">Ben Marwick</a> and tries to respect the standard defined by the community. It re-implements several functions from the packages <a href="https://devtools.r-lib.org/"><code>devtools</code></a> and <a href="https://usethis.r-lib.org/"><code>usethis</code></a>. <strong>Special thanks to these developers!</strong></p>
 </div>
 </div>
   </div>

@@ -140,8 +140,8 @@ and pay attention to the sections
 and
 [Usage](https://frbcesab.github.io/rcompendium/articles/rcompendium.html#usage)
 
-:boom: This package [pkgtest](https://github.com/ahasverus/pkgtest) was
-created by running:
+:boom: This [package](https://github.com/ahasverus/pkgtest) was created
+by running:
 
 ``` r
 rcompendium::new_package()

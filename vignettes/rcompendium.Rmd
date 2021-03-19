@@ -248,7 +248,7 @@ to use **ONCE AND FOR ALL** the function
 `set_credentials()` to permanently store this information in the 
 `.Rprofile` file. If these arguments are set to `NULL` (default) each 
 function of the package `rcompendium` will search in this `.Rprofile` file.
-It will save your time (that is the purpose of this package).
+It will save you a lot of time (that is the purpose of this package).
 
 Even if you have stored your information in the `.Rprofile` file you will 
 always be able to modify them on-the-fly (i.e. by using arguments of the

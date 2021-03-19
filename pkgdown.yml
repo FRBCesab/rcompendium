@@ -3,7 +3,7 @@ pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   rcompendium: rcompendium.html
-last_built: 2021-03-19T09:16Z
+last_built: 2021-03-19T13:11Z
 urls:
   reference: https://frbcesab.github.io/rcompendium/reference
   article: https://frbcesab.github.io/rcompendium/articles

@@ -1,10 +1,9 @@
 ## Test environments
 
-* local macOS 11.2 install, R 4.0.4
-
-* GitHub Actions Mac OS X 10.15, release (R 4.0.4)
-* GitHub Actions Windows Server 2019, release (R 4.0.4)
-* GitHub Actions Ubuntu 18.04, release (R 4.0.4)
+* local macOS 11.2.3 install, R 4.0.4
+* Mac OS X 10.15 (on GitHub Actions), r-release (R 4.0.4)
+* Windows Server 2019 (on GitHub Actions), r-release (R 4.0.4)
+* Ubuntu 18.04 (on GitHub Actions), r-devel, r-release (R 4.0.4), r-oldrel
 
 
 ## R CMD check results

@@ -13,13 +13,11 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
 #' print_msg()
 #' print_msg("Bonjour le monde")
 #' 
 #' x <- print_msg("Bonjour le monde")
 #' x
-#' }
 
 print_msg <- function(x = "Hello world") {
   

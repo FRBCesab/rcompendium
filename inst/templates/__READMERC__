@@ -19,14 +19,11 @@ knitr::opts_chunk$set(
 # {{project_name}}
 
 
-
-Research Compendium of the project ___________
-
 <!-- badges: start -->
 <!-- badges: end -->
 
 
-The goal of the R package `{{project_name}}` is to ___________
+Research Compendium of the project **{{ PLEASE ADD A FEW WORDS }}**
 
 
 
@@ -34,43 +31,46 @@ The goal of the R package `{{project_name}}` is to ___________
 
 Please cite this compendium as: 
 
-> ___________
+> **{{ PLEASE ADD A CITATION }}**
 
 
 
-## Content
+### Content
 
 This repository is structured as follow:
 
-- :file_folder: &nbsp;[R/](https://github.com/{{github}}/{{project_name}}/tree/master/R):
-contains R functions developed especially for this project
-
-- :file_folder: &nbsp;[man/](https://github.com/{{github}}/{{project_name}}/tree/master/man):
-contains help files of R functions
-
-- :page_facing_up: &nbsp;[DESCRIPTION](https://github.com/{{github}}/{{project_name}}/tree/master/DESCRIPTION):
-contains project metadata (author, date, dependencies, etc.)
-
-- :page_facing_up: &nbsp;[make.R](https://github.com/{{github}}/{{project_name}}/tree/master/make.R):
-master R script to run the entire project by calling each R script stored in the **analyses/rscripts/** folder
-
-- :file_folder: &nbsp;[analyses/data/](https://github.com/{{github}}/{{project_name}}/tree/master/analyses/data):
+- [`data/`](https://github.com/{{github}}/{{project_name}}/tree/master/data):
 contains all raw data required to perform analyses
 
-- :file_folder: &nbsp;[analyses/rscripts/](https://github.com/{{github}}/{{project_name}}/tree/master/analyses/rscripts/):
+- [`rscripts/`](https://github.com/{{github}}/{{project_name}}/tree/master/rscripts/):
 contains R scripts to run each step of the workflow
 
-- :file_folder: &nbsp;[analyses/outputs/](https://github.com/{{github}}/{{project_name}}/tree/master/analyses/outputs):
+- [`outputs/`](https://github.com/{{github}}/{{project_name}}/tree/master/outputs):
 contains all the results created during the workflow
 
-- :file_folder: &nbsp;[analyses/figures/](https://github.com/{{github}}/{{project_name}}/tree/master/analyses/figures):
+- [`figures/`](https://github.com/{{github}}/{{project_name}}/tree/master/figures):
 contains all the figures created during the workflow
 
+- [`paper/`](https://github.com/{{github}}/{{project_name}}/tree/master/paper):
+contains all the manuscript and related content (biblio, templates, etc.)
+
+- [`R/`](https://github.com/{{github}}/{{project_name}}/tree/master/R):
+contains R functions developed especially for this project
+
+- [`man/`](https://github.com/{{github}}/{{project_name}}/tree/master/man):
+contains help files of R functions
+
+- [`DESCRIPTION`](https://github.com/{{github}}/{{project_name}}/tree/master/DESCRIPTION):
+contains project metadata (author, date, dependencies, etc.)
+
+- [`make.R`](https://github.com/{{github}}/{{project_name}}/tree/master/make.R):
+master R script to run the entire project by calling each R script stored in the `rscripts/` folder
 
 
-## Usage
 
-Clone the repository and run this command in R/RStudio:
+### Usage
+
+Clone the repository, open the `.Rproj` file in RStudio and run:
 
 ```{r eval = FALSE}
 source("make.R")
@@ -78,7 +78,8 @@ source("make.R")
 
 
 
-## Notes
+### Notes
 
 - All required packages, listed in the `DESCRIPTION` file, will be installed (if necessary)
 - All required packages and R functions will be loaded
+- Some analyses listed in the `make.R` might take time

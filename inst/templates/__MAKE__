@@ -10,14 +10,9 @@
 
 
 
-## Update List of Dependencies (in DESCRIPTION) ----
-
-rcompendium::add_dependencies(import = getwd())
-
-
 ## Install Dependencies (listed in DESCRIPTION) ----
 
-remotes::install_deps(upgrade = "never")
+devtools::install_deps(upgrade = "never")
 
 
 ## Load Project Addins (R Functions and Packages) ----
@@ -33,4 +28,4 @@ devtools::load_all()
 ## Run Project ----
 
 # List all R scripts in a sequential order and using the following form:
-# source(here::here("analysis", "Rscripts", "r_script.R"))
+# source(here::here("rscripts", "script_X.R"))

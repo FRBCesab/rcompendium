@@ -8,7 +8,12 @@
 
 ## R CMD check results
 
-0 errors | 0 warnings | 0 notes
+0 error | 0 warning | 1 note
+
+* checking CRAN incoming feasibility ... NOTE
+
+  Maintainer: ‘Nicolas Casajus <nicolas.casajus@fondationbiodiversite.fr>’
+  New submission
 
 
 ## Downstream dependencies

@@ -207,14 +207,14 @@ See `gert::git_config()` for further information.
 
 To create the GitHub repository directly from R, the package `rcompendium` 
 uses the function `usethis::use_github()`, a client to the GitHub REST API. 
-The interaction with this API required an authentication method: a 
+The interaction with this API requires an authentication method: a 
 **GITHUB PAT** (Personal Access Token).
 
 If you don't have a **GITHUB PAT** locally stored, you must:
 
 1. Obtain a new one from your GitHub account. **Make sure to select 
 at least the first two scopes (private repository and workflow)**
-2. Store it in the `.Renviron` file by using `usethis::edit_r_environ()`
+2. Store this token in the `.Renviron` file by using `usethis::edit_r_environ()`
 and adding the following line: `GITHUB_PAT='99z9...z9'`
 
 Run `usethis::gh_token_help()` for more information about getting and 
@@ -233,7 +233,7 @@ something like:
 }
 ```
 
-And you will be able to create a GitHub repository directly from R!
+Then you will be able to create a GitHub repository directly from R!
 
 
 
@@ -243,15 +243,12 @@ And you will be able to create a GitHub repository directly from R!
 
 
 You can use the arguments `given`, `family`, `email`, and `orcid`
-directly with the function `new_package()` (and others). But if you create 
-a lot a projects (package and/or compendium) it can be frustrating in the 
-long run.
-
-An alternative is to use **ONCE AND FOR ALL** the function 
+directly with the function `new_package()` (and others). But an alternative is 
+to use **ONCE AND FOR ALL** the function 
 `set_credentials()` to permanently store this information in the 
 `.Rprofile` file. If these arguments are set to `NULL` (default) each 
 function of the package `rcompendium` will search in this `.Rprofile` file.
-It will save your time (it's the purpose of this package).
+It will save your time (that is the purpose of this package).
 
 Even if you have stored your information in the `.Rprofile` file you will 
 always be able to modify them on-the-fly (i.e. by using arguments of the
@@ -286,10 +283,10 @@ The recommended workflow is:
 
 In addition to these four setup functions (`set_credentials()`, `new_package()`, 
 `new_compendium()`, and `refresh()`), the package `rcompendium` offers 29 other functions.
-The functions can be grouped as:
+These can be grouped as:
 
 - `add_*()`: functions to add/update/overwrite files, configuration settings, dependencies, badges, etc.;
-- `get_*()`: functions to retrieve some information (available licenses, created functions, R version, etc.).
+- `get_*()`: functions to retrieve some information (available licenses, R version, etc.).
 
 Visit the [Reference page](https://frbcesab.github.io/rcompendium/reference/index.html)
 for further details.
@@ -300,7 +297,7 @@ for further details.
 
 
 
-To sum up:
+**To sum up:**
 
 ```{r eval = FALSE}
 library(rcompendium)
@@ -345,12 +342,8 @@ refresh()
 
 And do not forget to commit changes and to push to GitHub to enjoy GitHub Actions!
 
-
-<br/>
-
-
-**N.B.** User can also use functions from the package [`usethis`](https://usethis.r-lib.org/)
-in addition to add some missing features (e.g. `data/` and package release tools).
+**N.B.** Users can also use functions from the package [`usethis`](https://usethis.r-lib.org/)
+to add some missing features (e.g. `data/` and package release tools).
 
 
 <br/>

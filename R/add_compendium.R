@@ -14,6 +14,8 @@
 #'   `compendium = 'analysis'`, compendium folders will be created inside the 
 #'   directory `analysis/`.
 #' 
+#' @return None
+#'
 #' @export
 #' 
 #' @family create files

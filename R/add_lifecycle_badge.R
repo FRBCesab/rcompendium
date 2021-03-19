@@ -30,6 +30,8 @@
 #'   \item **Deprecated** - A deprecated project has a better alternative 
 #'   available and is scheduled for removal.
 #' }
+#' 
+#' @return A Markdown badge expression
 #'
 #' @export
 #' 

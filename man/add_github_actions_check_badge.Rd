@@ -16,6 +16,9 @@ The name of the GitHub organisation to host the package. If \code{NULL}
 
 If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
 }
+\value{
+A Markdown badge expression
+}
 \description{
 This function adds a R CMD Check badge to the \code{README.Rmd}. This function
 must be run after \code{\link[=add_github_actions_check]{add_github_actions_check()}} which will setup GitHub

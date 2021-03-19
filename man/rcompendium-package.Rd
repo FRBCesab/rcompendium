@@ -6,14 +6,14 @@
 \alias{rcompendium-package}
 \title{rcompendium: Create a Package or Research Compendium Structure}
 \description{
-The purpose of the package \code{rcompendium} is to make easier
-    the creation of R package/research compendium (i.e. a predefined
-    files/folders structure) so that user can focus on the code/analysis
-    instead of wasting time organizing files. A full ready-to-work structure is
-    set up with some additional features (versioning, GitHub repository
-    creation, GitHub Actions configuration to automatically check package
-    integrity and deploy website using \code{pkgdown}). This package relies
-    heavily on the packages \code{devtools} and \code{usethis}.
+The aim of the package 'rcompendium' is to make easier the 
+    creation of R package or research compendium (i.e. a predefined 
+    files/folders structure) so that users can focus on the code/analysis
+    instead of wasting time organizing files. A full ready-to-work structure 
+    is set up with some additional features: version control, remote repository
+    creation, CI/CD configuration (check package integrity under several OS, 
+    test code with 'testthat', and build and deploy website using 'pkgdown'). 
+    This package heavily relies on the R packages 'devtools' and 'usethis'.
 }
 \seealso{
 Useful links:
@@ -24,7 +24,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Nicolas Casajus \email{nicolas.casajus@fondationbiodiversite.fr} (\href{https://orcid.org/0000-0002-5537-5294}{ORCID})
+\strong{Maintainer}: Nicolas Casajus \email{nicolas.casajus@fondationbiodiversite.fr} (\href{https://orcid.org/0000-0002-5537-5294}{ORCID}) [copyright holder]
 
 }
 \keyword{internal}

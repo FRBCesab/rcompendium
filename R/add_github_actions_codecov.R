@@ -19,6 +19,8 @@
 #' 
 #'   If `TRUE` messages are deleted. Default is `FALSE`.
 #' 
+#' @return None
+#'
 #' @export
 #' 
 #' @family development functions

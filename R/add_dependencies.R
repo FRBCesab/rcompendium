@@ -26,7 +26,7 @@
 #' The `tests/` folder is also inspected and detected dependencies 
 #' (`pkg::fun()`, `library()` or `require()`) are added to the `Suggests` 
 #' field of the `DESCRIPTION` file (in addition to the package 
-#' [`testthat`](https://testthat.r-lib.org/)).
+#' [`testthat`](https://testthat.r-lib.org)).
 #' 
 #' @param compendium a character of length 1
 #' 
@@ -39,7 +39,9 @@
 #'   
 #'   Default is `compendium = NULL` (i.e. no additional folder are inspected 
 #'   but `R/`, `NAMESPACE`, `vignettes/`, and `tests/` are still inspected).
-#'
+#' 
+#' @return None
+#'   
 #' @export
 #' 
 #' @family development functions

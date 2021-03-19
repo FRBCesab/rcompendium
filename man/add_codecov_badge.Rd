@@ -16,6 +16,9 @@ The name of the GitHub organisation to host the package. If \code{NULL}
 
 If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
 }
+\value{
+A Markdown badge expression
+}
 \description{
 This function adds a Codecov badge to the \code{README.Rmd}, i.e. the percentage
 of code cover by units tests. This percentage is computed by codecov.io

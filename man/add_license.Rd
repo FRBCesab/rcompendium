@@ -29,6 +29,9 @@ function will try to retrieve the value of this parameter from the
 
 If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
 }
+\value{
+None
+}
 \description{
 This function adds a license to the project. It will add the license name
 in the \code{License} field of the \code{DESCRIPTION} file and write the content of

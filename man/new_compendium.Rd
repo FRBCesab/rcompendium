@@ -45,7 +45,7 @@ the README).}
 \item{status}{a character vector of length 1
 
 The status of the project according to the standard defined by the
-\url{https://www.repostatus.org/} project. One among \code{'concept'}
+\url{https://www.repostatus.org} project. One among \code{'concept'}
 \code{'wip'}, \code{'suspended'}, \code{'abandoned'}, \code{'active'}, \code{'inactive'}, or
 \code{'unsupported'}. See \code{\link[=add_repostatus_badge]{add_repostatus_badge()}} for further information.
 
@@ -76,7 +76,7 @@ If \code{TRUE} creates a vignette in \verb{vignettes/}. Packages
 \item{test}{a logical value
 
 If \code{TRUE} initializes units tests by running \code{\link[usethis:use_testthat]{usethis::use_testthat()}}.
-Package \href{https://testthat.r-lib.org/}{\code{testthat}} is also added to the
+Package \href{https://testthat.r-lib.org}{\code{testthat}} is also added to the
 \code{Suggests} field in the \code{DESCRIPTION} file. Default is \code{FALSE}.}
 
 \item{create_repo}{a logical value
@@ -161,6 +161,9 @@ Default is \code{overwrite = FALSE}. \strong{Be careful while using this argumen
 \item{quiet}{a logical value
 
 If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
+}
+\value{
+None
 }
 \description{
 This function creates a research compendium (i.e. a predefined files/folders

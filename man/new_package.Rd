@@ -37,7 +37,7 @@ the README).}
 \item{status}{a character vector of length 1
 
 The status of the project according to the standard defined by the
-\url{https://www.repostatus.org/} project. One among \code{'concept'}
+\url{https://www.repostatus.org} project. One among \code{'concept'}
 (default), \code{'wip'}, \code{'suspended'}, \code{'abandoned'}, \code{'active'},
 \code{'inactive'}, or \code{'unsupported'}. See \code{\link[=add_repostatus_badge]{add_repostatus_badge()}} for further
 information.
@@ -72,7 +72,7 @@ If \code{TRUE} (default) creates a vignette in \verb{vignettes/}. Packages
 
 If \code{TRUE} (default) initializes units tests by running
 \code{\link[usethis:use_testthat]{usethis::use_testthat()}}. Package
-\href{https://testthat.r-lib.org/}{\code{testthat}} is also added to the \code{Suggests}
+\href{https://testthat.r-lib.org}{\code{testthat}} is also added to the \code{Suggests}
 field in the \code{DESCRIPTION} file.}
 
 \item{create_repo}{a logical value
@@ -162,6 +162,9 @@ Default is \code{overwrite = FALSE}. \strong{Be careful while using this argumen
 
 If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
 }
+\value{
+None
+}
 \description{
 This function creates a new R package structure according to the current
 best practices.
@@ -209,9 +212,9 @@ The recommended workflow is:
 repository);
 \item Edit some metadata in \code{DESCRIPTION}, \code{CITATION}, and \code{README.Rmd};
 \item Implement, document & test functions (the fun part);
-\item Update the project (update \code{.Rd} files, \code{NAMESPACE}, external dependencies
-in \code{DESCRIPTION}, re-knit \code{README.Rmd}, and check package integrity) with
-\code{\link[=refresh]{refresh()}};
+\item Update the project (update \code{.Rd} files, \code{NAMESPACE}, external
+dependencies in \code{DESCRIPTION}, re-knit \code{README.Rmd}, and check package
+integrity) with \code{\link[=refresh]{refresh()}};
 \item Repeat steps 5 and 6 while developing the package.
 }
 }

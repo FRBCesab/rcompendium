@@ -45,7 +45,7 @@
 #' @param status a character vector of length 1
 #' 
 #'   The status of the project according to the standard defined by the 
-#'   \url{https://www.repostatus.org/} project. One among `'concept'` 
+#'   \url{https://www.repostatus.org} project. One among `'concept'` 
 #'   (default), `'wip'`, `'suspended'`, `'abandoned'`, `'active'`, 
 #'   `'inactive'`, or `'unsupported'`. See [add_repostatus_badge()] for further 
 #'   information. 
@@ -80,7 +80,7 @@
 #' 
 #'   If `TRUE` (default) initializes units tests by running 
 #'   [usethis::use_testthat()]. Package 
-#'   [`testthat`](https://testthat.r-lib.org/) is also added to the `Suggests` 
+#'   [`testthat`](https://testthat.r-lib.org) is also added to the `Suggests` 
 #'   field in the `DESCRIPTION` file.
 #' 
 #' @param create_repo a logical value
@@ -170,7 +170,9 @@
 #' 
 #'   If `TRUE` messages are deleted. Default is `FALSE`.
 #'   
-#'   
+#' @return None
+#'
+#'
 #' @section Recommended workflow:
 #' 
 #' 
@@ -185,9 +187,9 @@
 #'   repository);
 #' 4. Edit some metadata in `DESCRIPTION`, `CITATION`, and `README.Rmd`;
 #' 5. Implement, document & test functions (the fun part);
-#' 6. Update the project (update `.Rd` files, `NAMESPACE`, external dependencies 
-#'   in `DESCRIPTION`, re-knit `README.Rmd`, and check package integrity) with
-#'   [refresh()];
+#' 6. Update the project (update `.Rd` files, `NAMESPACE`, external 
+#'   dependencies in `DESCRIPTION`, re-knit `README.Rmd`, and check package 
+#'   integrity) with [refresh()];
 #' 7. Repeat steps 5 and 6 while developing the package.
 #' 
 #' 

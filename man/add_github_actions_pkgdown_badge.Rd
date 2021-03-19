@@ -16,6 +16,9 @@ The name of the GitHub organisation to host the package. If \code{NULL}
 
 If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
 }
+\value{
+A Markdown badge expression
+}
 \description{
 This function adds a Website deployment badge to the \code{README.Rmd}. This
 function must be run after \code{\link[=add_github_actions_pkgdown]{add_github_actions_pkgdown()}} which will setup

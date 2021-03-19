@@ -2,7 +2,7 @@
 #' 
 #' @description 
 #' This function creates a `DESCRIPTION` file at the root of the project based  
-#' on a template (adapted from [`usethis`](https://usethis.r-lib.org/)). User 
+#' on a template (adapted from [`usethis`](https://usethis.r-lib.org)). User 
 #' credentials can be passed as arguments but it is recommended to store them 
 #' in the `.Rprofile` file with [set_credentials()].
 #' 
@@ -26,6 +26,8 @@
 #' 
 #' @inheritParams set_credentials
 #' 
+#' @return None
+#'
 #' @export
 #' 
 #' @family create files

@@ -14,6 +14,9 @@ User can change their location with this argument. For instance, if
 \code{compendium = 'analysis'}, compendium folders will be created inside the
 directory \verb{analysis/}.}
 }
+\value{
+None
+}
 \description{
 This function creates the following additional folders \verb{data/}, \verb{rscripts/},
 \verb{outputs/}, \verb{figures/}, and \verb{paper/}. Each folder has a README to provide

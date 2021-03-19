@@ -50,9 +50,12 @@ will be erased and replaced. Default is \code{FALSE}.}
 
 If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
 }
+\value{
+None
+}
 \description{
 This function creates a \code{DESCRIPTION} file at the root of the project based
-on a template (adapted from \href{https://usethis.r-lib.org/}{\code{usethis}}). User
+on a template (adapted from \href{https://usethis.r-lib.org}{\code{usethis}}). User
 credentials can be passed as arguments but it is recommended to store them
 in the \code{.Rprofile} file with \code{\link[=set_credentials]{set_credentials()}}.
 }

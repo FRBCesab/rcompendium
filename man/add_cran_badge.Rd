@@ -11,6 +11,9 @@ add_cran_badge(quiet = FALSE)
 
 If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
 }
+\value{
+A Markdown badge expression
+}
 \description{
 This function adds a CRAN status badge to the \code{README.Rmd}. If the package
 is not hosted on the CRAN the badge will indicate

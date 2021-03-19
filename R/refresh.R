@@ -25,6 +25,8 @@
 #'  
 #' @inheritParams add_dependencies
 #' 
+#' @return None
+#'
 #' @export
 #' 
 #' @family setup functions

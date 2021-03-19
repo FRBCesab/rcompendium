@@ -36,6 +36,9 @@ and replaced. Default is \code{FALSE}.}
 
 If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
 }
+\value{
+None
+}
 \description{
 This function adds a vignette in the folder \verb{vignettes/}. It also adds
 dependencies \href{https://yihui.org/knitr/}{\code{knitr}} and

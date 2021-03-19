@@ -11,6 +11,9 @@ add_dependencies_badge(quiet = FALSE)
 
 If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
 }
+\value{
+A Markdown badge expression
+}
 \description{
 This function adds a dependencies badge to the \code{README.Rmd}. The first
 number corresponds to the direct dependencies and the second to the

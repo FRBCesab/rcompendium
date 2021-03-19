@@ -16,6 +16,9 @@ Accepted stages are: \code{'experimental'} (default), \code{'stable'},
 
 If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
 }
+\value{
+A Markdown badge expression
+}
 \description{
 This function adds or updates the Life cycle badge to the \code{README.Rmd}. It
 is based on the standard defined at

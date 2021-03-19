@@ -32,6 +32,9 @@ If \code{TRUE} (default) package integrity is checked using \code{\link[devtools
 
 If \code{TRUE} (default) message are deleted.}
 }
+\value{
+None
+}
 \description{
 This function refreshes a package/research compendium. It will:
 \itemize{

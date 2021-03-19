@@ -48,9 +48,12 @@ and replaced. Default is \code{FALSE}.}
 
 If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
 }
+\value{
+None
+}
 \description{
 This function creates a \code{README.Rmd} file at the root of the project based
-on a template (adapted from \href{https://usethis.r-lib.org/}{\code{usethis}}). Once
+on a template (adapted from \href{https://usethis.r-lib.org}{\code{usethis}}). Once
 edited user needs to knit it into a \code{README.Rmd} (or use the function
 \code{\link[=refresh]{refresh()}}).
 }

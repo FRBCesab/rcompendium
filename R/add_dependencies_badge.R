@@ -12,7 +12,9 @@
 #' @param quiet a logical value
 #' 
 #'   If `TRUE` messages are deleted. Default is `FALSE`.
-#'   
+#' 
+#' @return A Markdown badge expression
+#'
 #' @export
 #' 
 #' @family adding badges

@@ -40,6 +40,9 @@ The GIT protocol used to communicate with the GitHub remote. One of
 
 If \code{TRUE} the file is opened in the editor. Default is \code{open = FALSE}}
 }
+\value{
+None
+}
 \description{
 This function stores user credentials in the \code{.Rprofile} file. Accepted
 credentials are listed below. This function is useful if user creates a lot

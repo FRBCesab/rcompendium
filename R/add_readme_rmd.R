@@ -1,7 +1,7 @@
 #' Create a README file
 #' 
 #' This function creates a `README.Rmd` file at the root of the project based 
-#' on a template (adapted from [`usethis`](https://usethis.r-lib.org/)). Once 
+#' on a template (adapted from [`usethis`](https://usethis.r-lib.org)). Once 
 #' edited user needs to knit it into a `README.Rmd` (or use the function 
 #' [refresh()]).
 #' 
@@ -32,6 +32,8 @@
 #' 
 #' @inheritParams set_credentials
 #' 
+#' @return None
+#'
 #' @export
 #' 
 #' @family create files

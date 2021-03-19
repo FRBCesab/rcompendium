@@ -39,6 +39,9 @@ and replaced. Default is \code{FALSE}.}
 
 If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
 }
+\value{
+None
+}
 \description{
 This function creates a Make-like R file (\code{make.R}) at the root of the
 project based on a template. To be used only if the project is a research

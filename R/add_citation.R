@@ -26,6 +26,8 @@
 #' 
 #' @inheritParams set_credentials
 #' 
+#' @return None
+#' 
 #' @export
 #' 
 #' @family create files

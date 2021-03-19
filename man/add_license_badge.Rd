@@ -11,6 +11,9 @@ add_license_badge(quiet = FALSE)
 
 If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
 }
+\value{
+A Markdown badge expression
+}
 \description{
 This function adds or updates the license badge to the \code{README.Rmd}. This
 function reads the \code{License} field of the \code{DESCRIPTION} file. Be sure to

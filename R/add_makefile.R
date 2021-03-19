@@ -20,7 +20,9 @@
 #'   If `TRUE` messages are deleted. Default is `FALSE`.
 #'   
 #' @inheritParams set_credentials
-#'   
+#' 
+#' @return None
+#'
 #' @export
 #' 
 #' @family create files

@@ -20,6 +20,9 @@ Default is \code{FALSE}.}
 
 If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
 }
+\value{
+None
+}
 \description{
 This function creates a \code{.gitignore} file at the root of the project based on
 a template (specific to R). If a \code{.gitignore} is already present, files to

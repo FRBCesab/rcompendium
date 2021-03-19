@@ -3,7 +3,7 @@
 #' @description 
 #' This function adds or updates the Repo Status badge of the project to the
 #' `README.Rmd`. It is based on the standard defined by the 
-#' \url{https://www.repostatus.org/} project.
+#' \url{https://www.repostatus.org} project.
 #'
 #' @param status a character of length 1
 #' 
@@ -36,6 +36,8 @@
 #'   \item **Unsupported** - The project has reached a stable, usable state but 
 #'   the author(s) have ceased all work on it. A new maintainer may be desired.
 #' }
+#' 
+#' @return A Markdown badge expression
 #'
 #' @export
 #' 

@@ -6,6 +6,8 @@
 #' among all dependencies. If no dependencies mentions minimal R version, the
 #' `DESCRIPTION` is not modified.
 #' 
+#' @return None
+#'
 #' @export
 #' 
 #' @family development functions

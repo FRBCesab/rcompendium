@@ -7,3 +7,4 @@
 ^CODE_OF_CONDUCT\.md$
 ^rcompendium\.Rproj$
 ^_pkgdown\.yml$
+^cran-comments\.md$

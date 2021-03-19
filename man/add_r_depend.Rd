@@ -6,6 +6,9 @@
 \usage{
 add_r_depend()
 }
+\value{
+None
+}
 \description{
 This function adds the minimal R version to the \code{Depends} field of the
 \code{DESCRIPTION} file. This version corresponds to the higher version of R

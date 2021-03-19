@@ -20,6 +20,9 @@ and replaced. Default is \code{FALSE}.}
 
 If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
 }
+\value{
+None
+}
 \description{
 This function adds a package-level documentation file (\code{pkg-package.R}) in
 the \verb{R/} folder. This file will make help available to the user via \code{?pkg}

@@ -36,6 +36,8 @@
 #' @param open a logical value
 #' 
 #'   If `TRUE` the file is opened in the editor. Default is `open = FALSE`
+#' 
+#' @return None
 #'
 #' @export
 #' 
@@ -144,4 +146,6 @@ set_credentials <- function(given = NULL, family = NULL, email = NULL,
   }
   
   if (open) edit_file(path)
+  
+  invisible(NULL)
 }

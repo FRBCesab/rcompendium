@@ -61,7 +61,7 @@
 #' @param status a character vector of length 1
 #' 
 #'   The status of the project according to the standard defined by the 
-#'   \url{https://www.repostatus.org/} project. One among `'concept'` 
+#'   \url{https://www.repostatus.org} project. One among `'concept'` 
 #'   `'wip'`, `'suspended'`, `'abandoned'`, `'active'`, `'inactive'`, or 
 #'   `'unsupported'`. See [add_repostatus_badge()] for further information. 
 #'   
@@ -92,7 +92,7 @@
 #' @param test a logical value
 #' 
 #'   If `TRUE` initializes units tests by running [usethis::use_testthat()]. 
-#'   Package [`testthat`](https://testthat.r-lib.org/) is also added to the 
+#'   Package [`testthat`](https://testthat.r-lib.org) is also added to the 
 #'   `Suggests` field in the `DESCRIPTION` file. Default is `FALSE`.
 #' 
 #' @param create_repo a logical value
@@ -177,7 +177,9 @@
 #' @param quiet a logical value
 #' 
 #'   If `TRUE` messages are deleted. Default is `FALSE`.
-#'   
+#' 
+#' @return None
+#'
 #' @export
 #' 
 #' @family setup functions
@@ -206,8 +208,8 @@ new_compendium <- function(compendium = ".", license = "GPL (>= 2)",
                            test = FALSE, create_repo = TRUE, private = FALSE, 
                            gh_check = TRUE, codecov = FALSE, website = TRUE, 
                            given = NULL, family = NULL, email = NULL, 
-                           orcid = NULL, organisation = NULL, overwrite = FALSE, 
-                           quiet = FALSE) { 
+                           orcid = NULL, organisation = NULL, 
+                           overwrite = FALSE, quiet = FALSE) { 
   
   ## If not RStudio ----
   

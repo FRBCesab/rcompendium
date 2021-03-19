@@ -6,6 +6,8 @@
 #' `tests/testthat/test-demo.R`. The sample file will test a demo function
 #' created in `R/fun-demo.R`.
 #' 
+#' @return None
+#'
 #' @export
 #' 
 #' @family create files

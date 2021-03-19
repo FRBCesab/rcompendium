@@ -5,17 +5,17 @@ Version: 0.5
 Authors@R: c(
     person(given   = "Nicolas",
            family  = "Casajus",
-           role    = c("aut", "cre"),
+           role    = c("aut", "cre", "cph"),
            email   = "nicolas.casajus@fondationbiodiversite.fr",
            comment = c(ORCID = "0000-0002-5537-5294")))
-Description: The purpose of the package \code{rcompendium} is to make easier
-    the creation of R package/research compendium (i.e. a predefined
-    files/folders structure) so that user can focus on the code/analysis
-    instead of wasting time organizing files. A full ready-to-work structure is
-    set up with some additional features (versioning, GitHub repository
-    creation, GitHub Actions configuration to automatically check package
-    integrity and deploy website using \code{pkgdown}). This package relies
-    heavily on the packages \code{devtools} and \code{usethis}.
+Description: The aim of the package 'rcompendium' is to make easier the 
+    creation of R package or research compendium (i.e. a predefined 
+    files/folders structure) so that users can focus on the code/analysis
+    instead of wasting time organizing files. A full ready-to-work structure 
+    is set up with some additional features: version control, remote repository
+    creation, CI/CD configuration (check package integrity under several OS, 
+    test code with 'testthat', and build and deploy website using 'pkgdown'). 
+    This package heavily relies on the R packages 'devtools' and 'usethis'.
 URL: https://github.com/FRBCesab/rcompendium
 BugReports: https://github.com/FRBCesab/rcompendium/issues
 License: GPL (>= 2)

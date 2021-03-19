@@ -16,10 +16,13 @@ Accepted status are: \code{'concept'} (default), \code{'wip'}, \code{'suspended'
 
 If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
 }
+\value{
+A Markdown badge expression
+}
 \description{
 This function adds or updates the Repo Status badge of the project to the
 \code{README.Rmd}. It is based on the standard defined by the
-\url{https://www.repostatus.org/} project.
+\url{https://www.repostatus.org} project.
 }
 \details{
 The project can have the following status:

@@ -21,6 +21,9 @@ Default is \code{FALSE}.}
 
 If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
 }
+\value{
+None
+}
 \description{
 This function adds files/folders to the \code{.Rbuildignore} file. If a
 \code{.Rbuildignore} is already present, files to be ignored while checking

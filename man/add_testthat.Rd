@@ -6,6 +6,9 @@
 \usage{
 add_testthat()
 }
+\value{
+None
+}
 \description{
 This function initializes units tests settings by running
 \code{\link[usethis:use_testthat]{usethis::use_testthat()}} and by adding an example units tests file

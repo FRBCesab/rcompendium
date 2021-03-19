@@ -19,6 +19,9 @@ See \code{\link[=new_compendium]{new_compendium()}} for further information.
 Default is \code{compendium = NULL} (i.e. no additional folder are inspected
 but \verb{R/}, \code{NAMESPACE}, \verb{vignettes/}, and \verb{tests/} are still inspected).}
 }
+\value{
+None
+}
 \description{
 This function detects external dependencies used in \verb{R/}, \code{NAMESPACE}, and
 \verb{@examples} sections of \code{roxygen2} headers and automatically adds these
@@ -45,7 +48,7 @@ same as the one used for \verb{vignettes/}.
 The \verb{tests/} folder is also inspected and detected dependencies
 (\code{pkg::fun()}, \code{library()} or \code{require()}) are added to the \code{Suggests}
 field of the \code{DESCRIPTION} file (in addition to the package
-\href{https://testthat.r-lib.org/}{\code{testthat}}).
+\href{https://testthat.r-lib.org}{\code{testthat}}).
 }
 \examples{
 \dontrun{

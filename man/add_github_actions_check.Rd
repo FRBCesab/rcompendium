@@ -20,6 +20,9 @@ and replaced. Default is \code{FALSE}.}
 
 If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
 }
+\value{
+None
+}
 \description{
 This function creates a configuration file (\code{.yaml}) to setup GitHub Actions
 to check the package. This file will be written (from a template adapted

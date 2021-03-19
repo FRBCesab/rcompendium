@@ -20,10 +20,10 @@ Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repost
 
 In the area of open science, making reproducible analyses is a strong
 prerequisite. But sometimes it is difficult 1) to find the good
-structure for organizing files and 2) to setup the whole project. The
-aim of the package `rcompendium` is to make easier the creation of R
+structure to organize files and 2) to set up the whole project. The aim
+of the package `rcompendium` is to make easier the creation of R
 package/research compendium (i.e. a predefined files/folders structure)
-so that user can focus on the code/analysis instead of wasting time
+so that users can focus on the code/analysis instead of wasting time
 organizing files.
 
 A full ready-to-work structure will be set up with the following
@@ -42,8 +42,6 @@ features:
     -   check and test package (`R CMD Check`);
     -   report the code coverage (`covr`);
     -   build and deploy website (`pkgdown`).
-
-<br />
 
 This package heavily relies on the R packages
 [`devtools`](https://devtools.r-lib.org) and

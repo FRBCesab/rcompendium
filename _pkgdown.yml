@@ -33,6 +33,7 @@ reference:
   - add_testthat
   - add_vignette
   - add_readme_rmd
+  - add_compendium
   - add_makefile
 
 - title: README badges

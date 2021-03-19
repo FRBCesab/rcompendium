@@ -244,12 +244,13 @@ get_deps_extra <- function(compendium = NULL) {
   is_package()
   path <- path_proj()
   
-  if (compendium == "." || compendium == path) compendium <- ""
+  if (compendium != "." && compendium != getwd() && compendium != path) {
+    path <- file.path(path, compendium)
+  }
   
-  if (!dir.exists(file.path(path, compendium))) return(NULL)
+  if (!dir.exists(path)) return(NULL)
   
-  
-  x <- list.files(path = file.path(path, compendium), 
+  x <- list.files(path, 
                   pattern = "\\.R$|\\.Rmd$", full.names = TRUE, 
                   ignore.case = TRUE, recursive = TRUE)
   
@@ -315,8 +316,14 @@ get_deps_extra <- function(compendium = NULL) {
     
     ## Check if .Rmd ----
     
-    x <- list.files(path = file.path(file, compendium), pattern = "\\.Rmd$", 
+    x <- list.files(path, pattern = "\\.Rmd$", 
                     full.names = TRUE, ignore.case = TRUE, recursive = TRUE)
+    
+    pos <- grep(paste0(.Platform$file.sep, 
+                       "(tests|vignettes|inst)", 
+                       .Platform$file.sep, "|README"), x)
+    
+    if (length(pos)) x <- x[-pos]
     
     if (length(x)) funs <- sort(unique(c(funs, "knitr", "rmarkdown")))
     
@@ -353,7 +360,7 @@ get_deps_in_vignettes <- function() {
   
   
   if (!dir.exists(file.path(path, "vignettes"))) {
-    ui_oops("No {ui_value('vignettes/'))} folder found.")
+    # ui_oops("No {ui_value('vignettes/')} folder found.")
     return(NULL)
   }
   
@@ -363,7 +370,7 @@ get_deps_in_vignettes <- function() {
   
   if (!length(x)) {
     
-    ui_oops("The {ui_value('vignettes/'))} folder is empty")
+    ui_oops("The {ui_value('vignettes/')} folder is empty")
     
     return(NULL)
     
@@ -454,7 +461,7 @@ get_deps_in_tests <- function() {
   
   
   if (!dir.exists(file.path(path, "tests"))) {
-    ui_oops("No {ui_value('tests/')} folder found.")
+    # ui_oops("No {ui_value('tests/')} folder found.")
     return(NULL)
   }
   

@@ -19,7 +19,9 @@
     is set up with some additional features: version control, remote repository
     creation, CI/CD configuration (check package integrity under several OS, 
     test code with testthat, and build and deploy website using pkgdown). 
-    This package heavily relies on the R packages devtools and usethis.">
+    This package heavily relies on the R packages devtools and usethis and
+    follows recommendations made by Wickham H. (2015) &lt;ISBN:9781491910597&gt; and 
+    Marwick B. et al. (2018) &lt;doi:10.7287/peerj.preprints.3192v2&gt;.">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -85,11 +87,10 @@
 </h1></div>
 <!-- badges: start -->
 
-<p>In the area of open science, making reproducible analyses is a strong prerequisite. But sometimes it is difficult 1) to find the good structure for organizing files and 2) to setup the whole project.</p>
-<p>The purpose of the package <code>rcompendium</code> is to make easier the creation of R package/research compendium (i.e. a predefined files/folders structure) so that user can focus on the code/analysis instead of wasting time organizing files.</p>
+<p>In the area of open science, making reproducible analyses is a strong prerequisite. But sometimes it is difficult 1) to find the good structure for organizing files and 2) to setup the whole project. The aim of the package <code>rcompendium</code> is to make easier the creation of R package/research compendium (i.e. a predefined files/folders structure) so that user can focus on the code/analysis instead of wasting time organizing files.</p>
 <p>A full ready-to-work structure will be set up with the following features:</p>
 <ul>
-<li>Initialization of the <a href="https://git-scm.com/">GIT</a> versioning.</li>
+<li>Initialization of the <a href="https://git-scm.com/">GIT</a> version control.</li>
 <li>Creation of a minimal R package structure (<code>DESCRIPTION</code> and <code>NAMESPACE</code> files, and <code>R/</code> and <code>man/</code> folders).</li>
 <li>Creation of additional files (<code>LICENSE.md</code>, <code>inst/CITATION</code>, etc.).</li>
 <li>Creation of a <em>Get started</em> vignette in <code>vignettes/</code>.</li>
@@ -105,6 +106,8 @@
 </ul>
 </li>
 </ul>
+<p><br></p>
+<p>This package heavily relies on the R packages <a href="https://devtools.r-lib.org"><code>devtools</code></a> and <a href="https://usethis.r-lib.org"><code>usethis</code></a> and follows recommendations made by <a href="https://r-pkgs.org">Hadley Wickham &amp; Jenny Bryan</a> and <a href="https://peerj.com/preprints/3192/">Ben Marwick</a>.</p>
 <div id="overview" class="section level2">
 <h2 class="hasAnchor">
 <a href="#overview" class="anchor"></a>Overview</h2>
@@ -156,19 +159,18 @@
 <span id="cb1-45"><a href="#cb1-45"></a>├── README.Rmd                  <span class="co"># GitHub README (to knit)                  [*]</span></span>
 <span id="cb1-46"><a href="#cb1-46"></a><span class="op">/</span></span>
 <span id="cb1-47"><a href="#cb1-47"></a><span class="er">/</span></span>
-<span id="cb1-48"><a href="#cb1-48"></a>├── analysis<span class="op">/</span><span class="st">                   </span><span class="co"># Proposed compendium                      [¶]</span></span>
-<span id="cb1-49"><a href="#cb1-49"></a>│   ├── data<span class="op">/</span><span class="st">                   </span><span class="co"># User raw data (.csv, .gpkg, etc.)</span></span>
-<span id="cb1-50"><a href="#cb1-50"></a>│   ├── rscripts<span class="op">/</span><span class="st">               </span><span class="co"># R scripts (no functions) to run analyses</span></span>
-<span id="cb1-51"><a href="#cb1-51"></a>│   ├── outputs<span class="op">/</span><span class="st">                </span><span class="co"># Outputs created by R scripts</span></span>
-<span id="cb1-52"><a href="#cb1-52"></a>│   ├── figures<span class="op">/</span><span class="st">                </span><span class="co"># Figures created by R scripts</span></span>
-<span id="cb1-53"><a href="#cb1-53"></a>│   └── paper<span class="op">/</span><span class="st">                  </span><span class="co"># Article based on analyses</span></span>
-<span id="cb1-54"><a href="#cb1-54"></a>│</span>
-<span id="cb1-55"><a href="#cb1-55"></a>└── make.R                      <span class="co"># Master R scripts to run all analyses     [¶]</span></span>
+<span id="cb1-48"><a href="#cb1-48"></a>├── data<span class="op">/</span><span class="st">                       </span><span class="co"># User raw data (.csv, .gpkg, etc.)        [¶]</span></span>
+<span id="cb1-49"><a href="#cb1-49"></a>├── rscripts<span class="op">/</span><span class="st">                   </span><span class="co"># R scripts (no functions) to run analyses [¶]</span></span>
+<span id="cb1-50"><a href="#cb1-50"></a>├── outputs<span class="op">/</span><span class="st">                    </span><span class="co"># Outputs created by R scripts             [¶]</span></span>
+<span id="cb1-51"><a href="#cb1-51"></a>├── figures<span class="op">/</span><span class="st">                    </span><span class="co"># Figures created by R scripts             [¶]</span></span>
+<span id="cb1-52"><a href="#cb1-52"></a>└── paper<span class="op">/</span><span class="st">                      </span><span class="co"># Article based on analyses                [¶]</span></span>
+<span id="cb1-53"><a href="#cb1-53"></a>│</span>
+<span id="cb1-54"><a href="#cb1-54"></a>└── make.R                      <span class="co"># Master R scripts to run all analyses     [¶]</span></span>
+<span id="cb1-55"><a href="#cb1-55"></a></span>
 <span id="cb1-56"><a href="#cb1-56"></a></span>
-<span id="cb1-57"><a href="#cb1-57"></a></span>
-<span id="cb1-58"><a href="#cb1-58"></a>[<span class="op">*</span>] These files are automatically edited but user needs to add manually </span>
-<span id="cb1-59"><a href="#cb1-59"></a>    some information.</span>
-<span id="cb1-60"><a href="#cb1-60"></a>[¶] These folders<span class="op">/</span>files are also created when using <span class="kw">new_compendium</span>()</span></code></pre></div>
+<span id="cb1-57"><a href="#cb1-57"></a>[<span class="op">*</span>] These files are automatically edited but user needs to add manually </span>
+<span id="cb1-58"><a href="#cb1-58"></a>    some information.</span>
+<span id="cb1-59"><a href="#cb1-59"></a>[¶] These folders<span class="op">/</span>files are also created when using <span class="kw">new_compendium</span>().</span></code></pre></div>
 </div>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
@@ -176,24 +178,24 @@
 <p>You can install the development version from <a href="https://github.com/">GitHub</a> with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Install &lt; remotes &gt; package (if not already installed) ----</span>
-
 <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html">requireNamespace</a></span><span class="op">(</span><span class="st">"remotes"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
   <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span>
 <span class="op">}</span>
 
-
 <span class="co">## Install dev version of &lt; rcompendium &gt; from GitHub ----</span>
-
 <span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"FRBCesab/rcompendium"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="get-started" class="section level2">
 <h2 class="hasAnchor">
 <a href="#get-started" class="anchor"></a>Get started</h2>
 <p>Please read the <a href="https://frbcesab.github.io/rcompendium/articles/rcompendium.html">Vignette</a> and pay attention to the sections <a href="https://frbcesab.github.io/rcompendium/articles/rcompendium.html#prerequisites">Prerequisites</a> and <a href="https://frbcesab.github.io/rcompendium/articles/rcompendium.html#usage">Usage</a></p>
-<p><span class="emoji" data-emoji="boom">💥</span> The repository <a href="https://github.com/ahasverus/pkgtest">pkgtest</a> was created by running:</p>
+<p><span class="emoji" data-emoji="boom">💥</span> This package <a href="https://github.com/ahasverus/pkgtest">pkgtest</a> was created by running:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">rcompendium</span><span class="fu">::</span><span class="fu"><a href="reference/new_package.html">new_package</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<p><strong>N.B.</strong> Before running this command, a new RStudio project (called <code>pkgtest</code>) was manually created.</p>
+<p><span class="emoji" data-emoji="boom">💥</span> This <a href="https://github.com/ahasverus/comptest">research compendium</a> was created by running:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">rcompendium</span><span class="fu">::</span><span class="fu"><a href="reference/new_compendium.html">new_compendium</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<p><strong>N.B.</strong> Before running these commands, a new RStudio project needs to be created.</p>
 </div>
 <div id="citation" class="section level2">
 <h2 class="hasAnchor">
@@ -203,7 +205,7 @@
 <p>Casajus N. (2021) rcompendium: An R package to create a package or research compendium structure. Version 0.5, <a href="https://github.com/FRBCesab/rcompendium" class="uri">https://github.com/FRBCesab/rcompendium</a>.</p>
 </blockquote>
 <p>You can also run:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/citation.html">citation</a></span><span class="op">(</span><span class="st">"rcompendium"</span><span class="op">)</span>
 
 <span class="co">## A BibTeX entry for LaTeX users is:</span>
@@ -226,7 +228,7 @@
 <h2 class="hasAnchor">
 <a href="#colophon" class="anchor"></a>Colophon</h2>
 <p>This package is the result of intense discussions and feedback from the training course <a href="https://github.com/FRBCesab/datatoolbox">Data Toolbox for Reproducible Research in Computational Ecology</a> (in French).</p>
-<p><code>rcompendium</code> was largely inspired by the package <a href="https://github.com/benmarwick/rrtools"><code>rrtools</code></a> developed by <a href="https://github.com/benmarwick">Ben Marwick</a> and tries to respect the standard defined by the community. It re-implements several functions from the packages <a href="https://devtools.r-lib.org/"><code>devtools</code></a> and <a href="https://usethis.r-lib.org/"><code>usethis</code></a>. <strong>Special thanks to these developers!</strong></p>
+<p><code>rcompendium</code> is largely inspired by the package <a href="https://github.com/benmarwick/rrtools"><code>rrtools</code></a> developed by <a href="https://github.com/benmarwick">Ben Marwick <em>et al.</em></a> and tries to respect the standard defined by the community. <strong>Special thanks to these developers!</strong></p>
 </div>
 </div>
   </div>

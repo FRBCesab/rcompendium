@@ -68,13 +68,17 @@ add_to_buildignore <- function(x, open = FALSE, quiet = FALSE) {
   
     build_ignore <- readLines(path)
   
-    if (!(x %in% build_ignore)) {
+    x <- x[!(x %in% build_ignore)]
+    
+    if (length(x)) {
       
       build_ignore <- c(build_ignore, x)
       
       writeLines(build_ignore, con = path)
       
-      if (!quiet) ui_done("Adding {ui_value(x)} to {ui_value('.Rbuildignore')}")
+      if (!quiet) 
+        ui_done(paste0("Adding {ui_value(paste0(x, collapse = ", "))} to ", 
+                       "{ui_value('.Rbuildignore')}"))
     }
   }
   

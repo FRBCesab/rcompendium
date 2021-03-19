@@ -56,13 +56,17 @@ add_to_gitignore <- function(x, open = FALSE, quiet = FALSE) {
     
     git_ignore <- readLines(path)
     
-    if (!(x %in% git_ignore)) {
+    x <- x[!(x %in% git_ignore)]
+    
+    if (length(x)) {
       
       git_ignore <- c(git_ignore, x)
       
       writeLines(git_ignore, con = path)
       
-      if (!quiet) ui_done("Adding {ui_value(x)} to {ui_value('.gitignore')}")
+      if (!quiet) 
+        ui_done(paste0("Adding {ui_value(paste0(x, collapse = ", "))} to ", 
+                       "{ui_value('.gitignore')}"))
     }
   }
   

@@ -169,7 +169,7 @@ rcompendium::new_package()
 :boom: This [research compendium](https://github.com/ahasverus/comptest) was created by running:
 
 ```{r eval = FALSE}
-rcompendium::new_package()
+rcompendium::new_compendium()
 ```
 
 **N.B.** Before running these commands, a new RStudio project needs to be created.
@@ -221,5 +221,5 @@ course [Data Toolbox for Reproducible Research in Computational Ecology](https:/
 
 `rcompendium` is largely inspired by the package 
 [`rrtools`](https://github.com/benmarwick/rrtools) developed by 
-[Ben Marwick](https://github.com/benmarwick) and tries to respect the standard 
+[Ben Marwick _et al._](https://github.com/benmarwick) and tries to respect the standard 
 defined by the community. **Special thanks to these developers!**

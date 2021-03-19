@@ -153,7 +153,7 @@ rcompendium::new_package()
 was created by running:
 
 ``` r
-rcompendium::new_package()
+rcompendium::new_compendium()
 ```
 
 **N.B.** Before running these commands, a new RStudio project needs to
@@ -202,6 +202,6 @@ Ecology](https://github.com/FRBCesab/datatoolbox) (in French).
 
 `rcompendium` is largely inspired by the package
 [`rrtools`](https://github.com/benmarwick/rrtools) developed by [Ben
-Marwick](https://github.com/benmarwick) and tries to respect the
-standard defined by the community. **Special thanks to these
+Marwick *et al.*](https://github.com/benmarwick) and tries to respect
+the standard defined by the community. **Special thanks to these
 developers!**

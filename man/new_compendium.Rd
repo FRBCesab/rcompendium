@@ -2,98 +2,227 @@
 % Please edit documentation in R/new_compendium.R
 \name{new_compendium}
 \alias{new_compendium}
-\title{Create a research compendium}
+\title{Create an R compendium structure}
 \usage{
 new_compendium(
-  status = "concept",
-  lifecycle = "experimental",
-  cran = TRUE,
-  codeofconduct = TRUE,
-  check = FALSE,
-  deploy = FALSE,
+  compendium = ".",
+  license = "GPL (>= 2)",
+  status = NULL,
+  lifecycle = NULL,
+  vignette = FALSE,
+  test = FALSE,
   create_repo = TRUE,
+  private = FALSE,
+  gh_check = TRUE,
+  codecov = FALSE,
+  website = TRUE,
   given = NULL,
   family = NULL,
-  short = NULL,
   email = NULL,
   orcid = NULL,
-  github = NULL,
-  license = NULL,
-  overwrite = FALSE
+  organisation = NULL,
+  overwrite = FALSE,
+  quiet = FALSE
 )
 }
 \arguments{
-\item{status}{a character. One among \code{'concept'} (default), \code{'wip'},
-'\verb{suspended'}, \code{'abandoned'}, \code{'active'}, \code{'inactive'}, or \code{'unsupported'}.
-This will add a Repo Status badge to the \strong{README.Rmd}. If you don't want
-to add this badge, set \code{status} to \code{NULL}. For further information see
-\code{\link[=add_repostatus_badge]{add_repostatus_badge()}}.}
+\item{compendium}{a character vector of length 1
 
-\item{lifecycle}{\strong{!!! \strong{ADD} !!!}}
+By default, compendium folders are created at the root of the project.
+User can change their location with this argument. For instance, if
+\code{compendium = 'analysis'}, compendium folders will be created inside the
+directory \verb{analysis/}.}
 
-\item{cran}{a boolean. If \code{TRUE} adds a CRAN version badge to the
-\strong{README.Rmd}. Default is \code{FALSE} (this badge is more appropriate for an
-R package).}
+\item{license}{a character vector of length 1
 
-\item{codeofconduct}{a boolean. If \code{TRUE} (default) adds a Code of Conduct
-badge and a paragraph to the \strong{README.Rmd}. The content of the Code of
-Conduct is also added at the root of the project.}
+The license to be used for this project. Run \code{\link[=get_licenses]{get_licenses()}} to choose an
+appropriate one. Default is \code{license = 'GPL (>= 2)'}
 
-\item{check}{\strong{!!! \strong{ADD} !!!}}
+The license can be changed later by calling \code{\link[=add_license]{add_license()}} (and
+\code{\link[=add_license_badge]{add_license_badge()}} or \code{\link[=refresh]{refresh()}} to update the corresponding badge in
+the README).}
 
-\item{deploy}{\strong{!!! \strong{ADD} !!!}}
+\item{status}{a character vector of length 1
 
-\item{create_repo}{\strong{!!! \strong{ADD} !!!}}
+The status of the project according to the standard defined by the
+\url{https://www.repostatus.org/} project. One among \code{'concept'}
+\code{'wip'}, \code{'suspended'}, \code{'abandoned'}, \code{'active'}, \code{'inactive'}, or
+\code{'unsupported'}. See \code{\link[=add_repostatus_badge]{add_repostatus_badge()}} for further information.
 
-\item{given}{a character of length 1. User given name to be used for this
-project. Default is \code{NULL} and the value of this parameter will be
-obtained from the \strong{.Rprofile} file (if \code{\link[=set_credentials]{set_credentials()}} was
-previously used). For further information see \code{\link[=set_credentials]{set_credentials()}}.}
+This argument is used to add a badge to the \code{README.Rmd} to help visitors
+to better understand your project. Default is \code{status = NULL}.
 
-\item{family}{a character of length 1. User family name to be used for this
-project. Default is \code{NULL} and the value of this parameter will be
-obtained from the \strong{.Rprofile} file (if \code{\link[=set_credentials]{set_credentials()}} was
-previously used). For further information see \code{\link[=set_credentials]{set_credentials()}}.}
+This status can be added/changed later by using \code{\link[=add_repostatus_badge]{add_repostatus_badge()}}.}
 
-\item{short}{a character of length 1. User short name to be used for this
-project. Default is \code{NULL} and the value of this parameter will be
-obtained from the \strong{.Rprofile} file (if \code{\link[=set_credentials]{set_credentials()}} was
-previously used). For further information see \code{\link[=set_credentials]{set_credentials()}}.}
+\item{lifecycle}{a character vector of length 1
 
-\item{email}{a character of length 1. User email address to be used for this
-project. Default is \code{NULL} and the value of this parameter will be
-obtained from the \strong{.Rprofile} file (if \code{\link[=set_credentials]{set_credentials()}} was
-previously used). For further information see \code{\link[=set_credentials]{set_credentials()}}.}
+The life cycle stage of the project according to the standard defined at
+\url{https://lifecycle.r-lib.org/articles/stages.html}. One among
+\code{'experimental'}, \code{'stable'}, \code{'deprecated'}, or \code{'superseded'}.
+See \code{\link[=add_lifecycle_badge]{add_lifecycle_badge()}} for further information.
 
-\item{orcid}{a character of length 1. User ORCID to be used for this
-project. Default is \code{NULL} and the value of this parameter will be
-obtained from the \strong{.Rprofile} file (if \code{\link[=set_credentials]{set_credentials()}} was
-previously used). For further information see \code{\link[=set_credentials]{set_credentials()}}.}
+This argument is used to add a badge to the \code{README.Rmd} to help visitors
+to better understand your project. Default is \code{lifecycle = NULL}.
 
-\item{github}{a character of length 1. User GitHub pseudo/organization to be
-used for this project. Default is \code{NULL} and the value of this parameter
-will be obtained from the \strong{.Rprofile} file (if \code{\link[=set_credentials]{set_credentials()}} was
-previously used). For further information see \code{\link[=set_credentials]{set_credentials()}}.}
+This stage can be added/changed later by using \code{\link[=add_lifecycle_badge]{add_lifecycle_badge()}}.}
 
-\item{license}{a character of length 1. User preferred license to be
-used for this project. Default is \code{NULL} and the value of this parameter
-will be obtained from the \strong{.Rprofile} file (if \code{\link[=set_credentials]{set_credentials()}} was
-previously used). For further information see \code{\link[=set_credentials]{set_credentials()}}.}
+\item{vignette}{a logical value
 
-\item{overwrite}{a logical value. If a \strong{make.R} is already present and
-\code{overwrite = TRUE}, this file will be erased and replaced.}
+If \code{TRUE} creates a vignette in \verb{vignettes/}. Packages
+\href{https://yihui.org/knitr/}{\code{knitr}} and
+\href{https://rmarkdown.rstudio.com/}{\code{rmarkdown}} are also added to the
+\code{Suggests} field in the \code{DESCRIPTION} file. Default is \code{FALSE}.}
+
+\item{test}{a logical value
+
+If \code{TRUE} initializes units tests by running \code{\link[usethis:use_testthat]{usethis::use_testthat()}}.
+Package \href{https://testthat.r-lib.org/}{\code{testthat}} is also added to the
+\code{Suggests} field in the \code{DESCRIPTION} file. Default is \code{FALSE}.}
+
+\item{create_repo}{a logical value
+
+If \code{TRUE} (default) creates a repository (public if \code{private = FALSE} or
+private if \code{private = TRUE}) on GitHub. See below the section
+\strong{Creating a GitHub repo}.}
+
+\item{private}{a logical value
+
+If \code{TRUE} creates a private repository on user GitHub account (or
+organisation). Default is \code{private = FALSE}.}
+
+\item{gh_check}{a logical value
+
+If \code{TRUE} (default) configures GitHub Actions to automatically check and
+test the package after each push. This will run \verb{R CMD check} on the three
+major operating systems (Ubuntu, macOS, and Windows) on the latest release
+of R. See \code{\link[=add_github_actions_check]{add_github_actions_check()}} for further information.
+
+If \code{create_repo = FALSE} this argument is ignored.}
+
+\item{codecov}{a logical value
+
+If \code{TRUE} configures GitHub Actions to automatically report
+the code coverage of units tests after each push.
+See \code{\link[=add_github_actions_codecov]{add_github_actions_codecov()}} for further information.
+
+If \code{create_repo = FALSE} this argument is ignored. Default is \code{FALSE}.}
+
+\item{website}{a logical value
+
+If \code{TRUE} (default) configures GitHub Actions to automatically build and
+deploy the package website
+(using \href{https://pkgdown.r-lib.org/index.html}{\code{pkgdown}})
+after each push. A \strong{gh-pages} branch will be created using
+\code{\link[usethis:use_github_pages]{usethis::use_github_pages()}} and the GitHub repository will be
+automatically configured to deploy website.
+
+If \code{create_repo = FALSE} this argument is ignored.}
+
+\item{given}{a character vector of length 1
+
+The given name of the maintainer of the package. If \code{NULL} (default) the
+function will try to get this value by reading the \code{.Rprofile} file.
+
+For further information see \code{\link[=set_credentials]{set_credentials()}}.}
+
+\item{family}{a character vector of length 1
+
+The family name of the maintainer of the package. If \code{NULL} (default) the
+function will try to get this value by reading the \code{.Rprofile} file.
+
+For further information see \code{\link[=set_credentials]{set_credentials()}}.}
+
+\item{email}{a character vector of length 1
+
+The email address of the maintainer of the package. If \code{NULL} (default)
+the function will try to get this value by reading the \code{.Rprofile} file.
+
+For further information see \code{\link[=set_credentials]{set_credentials()}}.}
+
+\item{orcid}{a character vector of length 1
+
+The ORCID of the maintainer of the package. If \code{NULL} (default) the
+function will try to get this value by reading the \code{.Rprofile} file.
+
+For further information see \code{\link[=set_credentials]{set_credentials()}}.}
+
+\item{organisation}{a character vector of length 1
+
+The GitHub organisation to host the repository. If defined it will
+overwrite the GitHub pseudo.
+
+Default is \code{organisation = NULL} (the GitHub pseudo will be used).}
+
+\item{overwrite}{a logical value
+
+If \code{TRUE} files written from templates and modified by user are erased.
+Default is \code{overwrite = FALSE}. \strong{Be careful while using this argument}.}
+
+\item{quiet}{a logical value
+
+If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
 }
 \description{
-This function creates a new files/folders structure according to the
-research compendium paradigm. The project can be (if required) installed
-as an R package.
+This function creates a research compendium (i.e. a predefined files/folders
+structure) to help user organizing files/folders to run analysis.
+
+In addition to common R packages files/folders (see \code{\link[=new_package]{new_package()}} for
+further information) this function will created these following folders:
+\itemize{
+\item \verb{data/}: a folder to store raw data. Note that these data must never be
+modified. If user want to modify them it is recommended to export new data
+in \verb{outputs/}.
+\item \verb{rscripts/}: a folder to write analyses instructions, i.e. R scripts. If
+user need to create R functions it is recommended to write them in the \verb{R/}
+folder.
+\item \verb{outputs/}: a folder to store intermediate and final outputs generated by
+the R scripts.
+\item \verb{figures/}: a folder to store figures generated by the R scripts.
+\item \verb{paper/}: a folder to store all the material to write a paper/report (i.e.
+bibliographic references, templates, Rmarkdown document, etc.). It is
+also recommended that the user writes relative paths using the package \code{here}
+so he/she can easily access to materials stored in \verb{outputs/} and
+\verb{figures/}.
 }
-\details{
-...
+
+This function also creates a Make-like R file (\code{make.R}). This file contains
+two main lines:
+\itemize{
+\item \code{devtools::install_deps()}: downloads the external dependencies required
+by the project (an alternative to \code{install.packages()}). Ideal for sharing;
+\item \code{devtools::load_all()}: loads external dependencies and R functions (an
+alternative to \code{library()} and \code{source()} respectively).
+}
+
+As the user writes R scripts he/she can add the following line in this file:
+\code{source(here::here("rscripts", "script_X.R"))}. Then he/she can source the
+entire \code{make.R} to run analysis. The function \code{\link[=add_dependencies]{add_dependencies()}} can be
+used to automatically add external dependencies in the \code{DESCRIPTION} file.
+
+It is recommended, for a better reproducibility, to call external
+dependencies as \code{pkg::fun()} or with \verb{@import} or \verb{@importFrom} in R
+functions instead of using \code{library()}.
+
+All these files/folders are added to the \code{.Rbuildignore} so the rest of the
+project (e.g. R functions) can be used (or installed) as a R package.
 }
 \examples{
 \dontrun{
-rcompendium::new_compendium()
+library(rcompendium)
+
+## Define **ONCE FOR ALL** your credentials ----
+set_credentials(given = "John", family = "Doe", 
+                email = "john.doe@domain.com", 
+                orcid = "9999-9999-9999-9999", protocol = "ssh")
+
+## Create an R package ----
+new_compendium()
+
+## Start adding data and developing functions and scripts ----
+## ...
+
+## Update package (documentation, dependencies, README, check) ----
+refresh()
 }
 }
 \seealso{

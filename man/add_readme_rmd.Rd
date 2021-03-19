@@ -62,6 +62,7 @@ add_readme_rmd(type = "package")
 \seealso{
 Other create files: 
 \code{\link{add_citation}()},
+\code{\link{add_compendium}()},
 \code{\link{add_description}()},
 \code{\link{add_license}()},
 \code{\link{add_makefile}()},

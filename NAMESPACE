@@ -2,6 +2,7 @@
 
 export(add_citation)
 export(add_codecov_badge)
+export(add_compendium)
 export(add_cran_badge)
 export(add_dependencies)
 export(add_dependencies_badge)
@@ -40,4 +41,3 @@ importFrom(usethis,ui_line)
 importFrom(usethis,ui_oops)
 importFrom(usethis,ui_todo)
 importFrom(usethis,ui_value)
-importFrom(usethis,ui_yeah)

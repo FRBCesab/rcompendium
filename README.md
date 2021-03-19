@@ -32,18 +32,15 @@ wasting time organizing files.
 A full ready-to-work structure will be set up with the following
 features:
 
--   Initialization of the [GIT](https://git-scm.com/) versioning (see
-    below \[GIT configuration\]).
+-   Initialization of the [GIT](https://git-scm.com/) versioning.
 -   Creation of a minimal R package structure (`DESCRIPTION` and
     `NAMESPACE` files, and `R/` and `man/` folders).
 -   Creation of additional files (`LICENSE.md`, `inst/CITATION`, etc.).
 -   Creation of a *Get started* vignette in `vignettes/`.
 -   Setting the units tests process.
 -   Creation of a `README.Rmd` with HexSticker (template) and badges.
--   Autocompletion of maintainer information (see below \[Managing
-    credentials\]).
--   Creation of a GitHub repository (see below \[Creating a GitHub
-    repo\]).
+-   Autocompletion of maintainer information.
+-   Creation of a GitHub repository.
 -   Configuration of GitHub Actions to automatically:
     -   check and test package (`R CMD Check`);
     -   report the code coverage (`covr`);
@@ -159,7 +156,7 @@ rcompendium::new_package()
 Please cite this package as:
 
 > Casajus N. (2021) rcompendium: An R package to create a package or
-> research compendium structure. Version 0.4.1,
+> research compendium structure. Version 0.5,
 > <https://github.com/FRBCesab/rcompendium>.
 
 You can also run:
@@ -173,7 +170,7 @@ citation("rcompendium")
 ##   title  = {{rcompendium}: {An} {R} package to create a package or research compendium structure},
 ##   author = {{Casajus N.}},
 ##   year   = {2021},
-##   note   = {R package version 0.4.1},
+##   note   = {R package version 0.5},
 ##   url    = {https://github.com/FRBCesab/rcompendium},
 ## }
 ```

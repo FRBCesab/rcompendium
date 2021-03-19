@@ -1,3 +1,12 @@
+# rcompendium 0.5
+
+* Check for valid package name
+* Add new features: `new_compendium()` and `add_compendium()`
+* Allow adding to `.gitignore` and `.Rbuildignore` several names
+* Improve console messages
+* Modify templates
+
+
 # rcompendium 0.4.1
 
 * Improve documentation

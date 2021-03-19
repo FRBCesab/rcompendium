@@ -40,7 +40,7 @@ read_descr <- function() {
   
   if (nrow(descr) != 1) stop("Malformed 'DESCRIPTION' file")
   
-  as.data.frame(descr)
+  as.data.frame(descr, stringsAsFactors = FALSE)
 }
 
 

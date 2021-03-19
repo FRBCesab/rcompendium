@@ -20,17 +20,16 @@ Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repost
 
 In the area of open science, making reproducible analyses is a strong
 prerequisite. But sometimes it is difficult 1) to find the good
-structure for organizing files and 2) to setup the whole project.
-
-The purpose of the package `rcompendium` is to make easier the creation
-of R package/research compendium (i.e. a predefined files/folders
-structure) so that user can focus on the code/analysis instead of
-wasting time organizing files.
+structure for organizing files and 2) to setup the whole project. The
+aim of the package `rcompendium` is to make easier the creation of R
+package/research compendium (i.e. a predefined files/folders structure)
+so that user can focus on the code/analysis instead of wasting time
+organizing files.
 
 A full ready-to-work structure will be set up with the following
 features:
 
--   Initialization of the [GIT](https://git-scm.com/) versioning.
+-   Initialization of the [GIT](https://git-scm.com/) version control.
 -   Creation of a minimal R package structure (`DESCRIPTION` and
     `NAMESPACE` files, and `R/` and `man/` folders).
 -   Creation of additional files (`LICENSE.md`, `inst/CITATION`, etc.).
@@ -43,6 +42,14 @@ features:
     -   check and test package (`R CMD Check`);
     -   report the code coverage (`covr`);
     -   build and deploy website (`pkgdown`).
+
+<br />
+
+This package heavily relies on the R packages
+[`devtools`](https://devtools.r-lib.org) and
+[`usethis`](https://usethis.r-lib.org) and follows recommendations made
+by [Hadley Wickham & Jenny Bryan](https://r-pkgs.org) and [Ben
+Marwick](https://peerj.com/preprints/3192/).
 
 ## Overview
 
@@ -98,19 +105,18 @@ structure:
     ├── README.Rmd                  # GitHub README (to knit)                  [*]
     /
     /
-    ├── analysis/                   # Proposed compendium                      [¶]
-    │   ├── data/                   # User raw data (.csv, .gpkg, etc.)
-    │   ├── rscripts/               # R scripts (no functions) to run analyses
-    │   ├── outputs/                # Outputs created by R scripts
-    │   ├── figures/                # Figures created by R scripts
-    │   └── paper/                  # Article based on analyses
+    ├── data/                       # User raw data (.csv, .gpkg, etc.)        [¶]
+    ├── rscripts/                   # R scripts (no functions) to run analyses [¶]
+    ├── outputs/                    # Outputs created by R scripts             [¶]
+    ├── figures/                    # Figures created by R scripts             [¶]
+    └── paper/                      # Article based on analyses                [¶]
     │
     └── make.R                      # Master R scripts to run all analyses     [¶]
 
 
     [*] These files are automatically edited but user needs to add manually 
         some information.
-    [¶] These folders/files are also created when using new_compendium()
+    [¶] These folders/files are also created when using new_compendium().
 
 ## Installation
 
@@ -119,14 +125,11 @@ You can install the development version from
 
 ``` r
 ## Install < remotes > package (if not already installed) ----
-
 if (!requireNamespace("remotes", quietly = TRUE)) {
   install.packages("remotes")
 }
 
-
 ## Install dev version of < rcompendium > from GitHub ----
-
 remotes::install_github("FRBCesab/rcompendium")
 ```
 
@@ -139,15 +142,22 @@ and pay attention to the sections
 and
 [Usage](https://frbcesab.github.io/rcompendium/articles/rcompendium.html#usage)
 
-:boom: The repository [pkgtest](https://github.com/ahasverus/pkgtest)
+:boom: This package [pkgtest](https://github.com/ahasverus/pkgtest) was
+created by running:
+
+``` r
+rcompendium::new_package()
+```
+
+:boom: This [research compendium](https://github.com/ahasverus/comptest)
 was created by running:
 
 ``` r
 rcompendium::new_package()
 ```
 
-**N.B.** Before running this command, a new RStudio project (called
-`pkgtest`) was manually created.
+**N.B.** Before running these commands, a new RStudio project needs to
+be created.
 
 ## Citation
 
@@ -190,10 +200,8 @@ This package is the result of intense discussions and feedback from the
 training course [Data Toolbox for Reproducible Research in Computational
 Ecology](https://github.com/FRBCesab/datatoolbox) (in French).
 
-`rcompendium` was largely inspired by the package
+`rcompendium` is largely inspired by the package
 [`rrtools`](https://github.com/benmarwick/rrtools) developed by [Ben
 Marwick](https://github.com/benmarwick) and tries to respect the
-standard defined by the community. It re-implements several functions
-from the packages [`devtools`](https://devtools.r-lib.org/) and
-[`usethis`](https://usethis.r-lib.org/). **Special thanks to these
+standard defined by the community. **Special thanks to these
 developers!**

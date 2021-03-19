@@ -202,3 +202,22 @@ get_rd_families <- function() {
     return(sort(unique(unlist(x))))
   }
 }
+
+
+
+
+#' **Check if package name is valid**
+#' 
+#' @description 
+#' This function checks if the package name is valid.
+#' Inspired from `usethis:::valid_package_name()` - Thanks guys!.
+#' 
+#' @return `TRUE` or `FALSE`.
+#'
+#' @noRd
+
+is_valid_name <- function() {
+
+  pkg <- get_package_name()
+  grepl("^[a-zA-Z][a-zA-Z0-9.]+$", pkg) && !grepl("\\.$", pkg)
+}

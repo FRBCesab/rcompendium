@@ -313,6 +313,8 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   git_in_git()
   proj_in_proj()
   
+  if (!is_valid_name()) stop("Invalid package name.")
+  
   
   ## Check if git is well configured ----
   
@@ -652,8 +654,8 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
     ## Update GitHub repo fields ----
     
     owner <- ifelse(is.null(organisation), github, organisation)
-    update_gh_repo(owner, repo = project_name, website = website, quiet = quiet)
-    
+    update_gh_repo(owner, repo = project_name, website = website, 
+                   quiet = quiet)
   }
   
   
@@ -673,7 +675,6 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
     
     add_github_actions_check(quiet = quiet)
     add_to_buildignore(".github", quiet = quiet)
-    
   }
   
   
@@ -718,21 +719,28 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
     ui_line()
     
     usethis::use_github_pages(branch = "gh-pages")
-    
-    
-    
-    ## Commit changes ----
-    
-    if (!quiet) {
-      
-      ui_line()
-      ui_done(paste0("Committing & pushing changes with the following ", 
-                     "message: {ui_value('Configure GH Actions')}"))
-    }
+  }
+
+  
+  
+  ##
+  ## SECOND COMMIT ----
+  ## 
+  
+  
+  
+  ui_title("Committing changes")
+  
+  if (gh_check || codecov || website) {
     
     invisible(gert::git_add("."))
     invisible(gert::git_commit(":rocket: Configure GH Actions"))
-    invisible(gert::git_push(verbose = FALSE))
+    
+    if (!quiet) {
+      
+      ui_done(paste0("Committing changes with the following message: ", 
+                     "{ui_value('Configure GH Actions')}"))
+    }
   }
   
   
@@ -787,23 +795,28 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
                     output_format = "md_document", quiet = TRUE)
   
   if (!quiet) ui_done("Kniting {ui_value('README.Rmd')}")
+
+  
+  
+  ##
+  ## THIRD COMMIT ----
+  ## 
   
   
   
-  ## Commit changes ----
-  
-  if (!quiet) {
-    
-    ui_line()
-    ui_done(paste0("Committing & pushing changes with the following ", 
-                   "message: {ui_value('Adding badges')}"))
-  }
+  ui_title("Committing changes")
   
   invisible(gert::git_add("."))
   invisible(gert::git_commit(":art: Adding badges"))
-  
+    
+  if (!quiet) {
+    
+    ui_done(paste0("Committing changes with the following message: ", 
+                   "{ui_value('Adding badges')}"))
+  }
+
+
   if (create_repo) invisible(gert::git_push(verbose = FALSE))
-  
   
   
   
@@ -824,6 +837,8 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   if (test) 
     ui_todo(paste0("Write your units tests in the ", 
                    "{ui_value('tests/testthat/')} directory"))
+  
+  ui_line()
   
   ui_todo("Refresh your package with {ui_code('refresh()')}")
   ui_todo("...and commit your changes!")

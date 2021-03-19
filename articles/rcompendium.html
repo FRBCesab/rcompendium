@@ -209,12 +209,12 @@
 <div id="creating-a-github-repo" class="section level3">
 <h3 class="hasAnchor">
 <a href="#creating-a-github-repo" class="anchor"></a>Creating a GitHub repo</h3>
-<p>To create the GitHub repository directly from R, the package <code>rcompendium</code> uses the function <code><a href="https://usethis.r-lib.org/reference/use_github.html">usethis::use_github()</a></code>, a client to the GitHub REST API. The interaction with this API required an authentication method: a <strong>GITHUB PAT</strong> (Personal Access Token).</p>
+<p>To create the GitHub repository directly from R, the package <code>rcompendium</code> uses the function <code><a href="https://usethis.r-lib.org/reference/use_github.html">usethis::use_github()</a></code>, a client to the GitHub REST API. The interaction with this API requires an authentication method: a <strong>GITHUB PAT</strong> (Personal Access Token).</p>
 <p>If you don’t have a <strong>GITHUB PAT</strong> locally stored, you must:</p>
 <ol style="list-style-type: decimal">
 <li>Obtain a new one from your GitHub account. <strong>Make sure to select at least the first two scopes (private repository and workflow)</strong>
 </li>
-<li>Store it in the <code>.Renviron</code> file by using <code><a href="https://usethis.r-lib.org/reference/edit.html">usethis::edit_r_environ()</a></code> and adding the following line: <code>GITHUB_PAT='99z9...z9'</code>
+<li>Store this token in the <code>.Renviron</code> file by using <code><a href="https://usethis.r-lib.org/reference/edit.html">usethis::edit_r_environ()</a></code> and adding the following line: <code>GITHUB_PAT='99z9...z9'</code>
 </li>
 </ol>
 <p>Run <code><a href="https://usethis.r-lib.org/reference/github-token.html">usethis::gh_token_help()</a></code> for more information about getting and configuring a <strong>GITHUB PAT</strong>.</p>
@@ -226,13 +226,12 @@
 "scopes": "delete_repo, repo, workflow",
 "token": "99z9...z9"
 }</code></pre>
-<p>And you will be able to create a GitHub repository directly from R!</p>
+<p>Then you will be able to create a GitHub repository directly from R!</p>
 </div>
 <div id="managing-credentials" class="section level3">
 <h3 class="hasAnchor">
 <a href="#managing-credentials" class="anchor"></a>Managing credentials</h3>
-<p>You can use the arguments <code>given</code>, <code>family</code>, <code>email</code>, and <code>orcid</code> directly with the function <code><a href="../reference/new_package.html">new_package()</a></code> (and others). But if you create a lot a projects (package and/or compendium) it can be frustrating in the long run.</p>
-<p>An alternative is to use <strong>ONCE AND FOR ALL</strong> the function <code><a href="../reference/set_credentials.html">set_credentials()</a></code> to permanently store this information in the <code>.Rprofile</code> file. If these arguments are set to <code>NULL</code> (default) each function of the package <code>rcompendium</code> will search in this <code>.Rprofile</code> file. It will save your time (it’s the purpose of this package).</p>
+<p>You can use the arguments <code>given</code>, <code>family</code>, <code>email</code>, and <code>orcid</code> directly with the function <code><a href="../reference/new_package.html">new_package()</a></code> (and others). But an alternative is to use <strong>ONCE AND FOR ALL</strong> the function <code><a href="../reference/set_credentials.html">set_credentials()</a></code> to permanently store this information in the <code>.Rprofile</code> file. If these arguments are set to <code>NULL</code> (default) each function of the package <code>rcompendium</code> will search in this <code>.Rprofile</code> file. It will save your time (that is the purpose of this package).</p>
 <p>Even if you have stored your information in the <code>.Rprofile</code> file you will always be able to modify them on-the-fly (i.e. by using arguments of the <code><a href="../reference/new_package.html">new_package()</a></code> and others) or permanently by re-running <code><a href="../reference/set_credentials.html">set_credentials()</a></code>.</p>
 <p><br></p>
 </div>
@@ -261,16 +260,16 @@
 <li>Repeat steps 5 and 6 while working on the project.</li>
 </ol>
 <p><br></p>
-<p>In addition to these four setup functions (<code><a href="../reference/set_credentials.html">set_credentials()</a></code>, <code><a href="../reference/new_package.html">new_package()</a></code>, <code><a href="../reference/new_compendium.html">new_compendium()</a></code>, and <code><a href="../reference/refresh.html">refresh()</a></code>), the package <code>rcompendium</code> offers 29 other functions. The functions can be grouped as:</p>
+<p>In addition to these four setup functions (<code><a href="../reference/set_credentials.html">set_credentials()</a></code>, <code><a href="../reference/new_package.html">new_package()</a></code>, <code><a href="../reference/new_compendium.html">new_compendium()</a></code>, and <code><a href="../reference/refresh.html">refresh()</a></code>), the package <code>rcompendium</code> offers 29 other functions. These can be grouped as:</p>
 <ul>
 <li>
 <code>add_*()</code>: functions to add/update/overwrite files, configuration settings, dependencies, badges, etc.;</li>
 <li>
-<code>get_*()</code>: functions to retrieve some information (available licenses, created functions, R version, etc.).</li>
+<code>get_*()</code>: functions to retrieve some information (available licenses, R version, etc.).</li>
 </ul>
 <p>Visit the <a href="https://frbcesab.github.io/rcompendium/reference/index.html">Reference page</a> for further details.</p>
 <p><br></p>
-<p>To sum up:</p>
+<p><strong>To sum up:</strong></p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/FRBCesab/rcompendium">rcompendium</a></span><span class="op">)</span>
 
@@ -310,8 +309,7 @@
 
 <span class="fu"><a href="../reference/refresh.html">refresh</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>And do not forget to commit changes and to push to GitHub to enjoy GitHub Actions!</p>
-<p><br></p>
-<p><strong>N.B.</strong> User can also use functions from the package <a href="https://usethis.r-lib.org/"><code>usethis</code></a> in addition to add some missing features (e.g. <code>data/</code> and package release tools).</p>
+<p><strong>N.B.</strong> Users can also use functions from the package <a href="https://usethis.r-lib.org/"><code>usethis</code></a> to add some missing features (e.g. <code>data/</code> and package release tools).</p>
 <p><br></p>
 </div>
 <div id="contributing" class="section level2">

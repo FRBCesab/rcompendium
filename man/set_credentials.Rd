@@ -9,8 +9,7 @@ set_credentials(
   family = NULL,
   email = NULL,
   orcid = NULL,
-  protocol = NULL,
-  open = FALSE
+  protocol = NULL
 )
 }
 \arguments{
@@ -35,10 +34,6 @@ The ORCID of the package maintainer.}
 The GIT protocol used to communicate with the GitHub remote. One of
 \code{'https'} or \code{'ssh'}. If you don't know, keep the default value
 (i.e. \code{NULL}) and the protocol will be \code{'https'}.}
-
-\item{open}{a logical value
-
-If \code{TRUE} the file is opened in the editor. Default is \code{open = FALSE}}
 }
 \value{
 None
@@ -48,11 +43,8 @@ This function stores user credentials in the \code{.Rprofile} file. Accepted
 credentials are listed below. This function is useful if user creates a lot
 of packages and/or research compendiums.
 
-If the \code{.Rprofile} file does not exist this function will create it. Note
-that credentials are added at the end of the file: if you run this function
-two times, credentials will be added twice. User can run the command
-\code{set_credentials(open = TRUE)} to open the \code{.Rprofile} and clean its
-content. \strong{Be careful while modifying this file!}.
+If the \code{.Rprofile} file does not exist this function will create it. Users
+need to paste the content of the clipboard to this file.
 }
 \examples{
 \dontrun{
@@ -62,7 +54,7 @@ library(rcompendium)
 ## Define **ONCE FOR ALL** your credentials ----
 
 set_credentials("John", "Doe", "john.doe@domain.com", 
-                orcid = "9999-9999-9999-9999", protocol = "ssh")
+                orcid = "9999-9999-9999-9999", protocol = "https")
 }
 }
 \seealso{

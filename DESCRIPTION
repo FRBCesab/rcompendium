@@ -1,23 +1,23 @@
 Package: rcompendium
 Type: Package
 Title: Create a Package or Research Compendium Structure
-Version: 0.5
+Version: 0.5.1
 Authors@R: c(
     person(given   = "Nicolas",
            family  = "Casajus",
            role    = c("aut", "cre", "cph"),
            email   = "nicolas.casajus@fondationbiodiversite.fr",
            comment = c(ORCID = "0000-0002-5537-5294")))
-Description: The aim of the package 'rcompendium' is to make easier the 
-    creation of R package or research compendium (i.e. a predefined 
-    files/folders structure) so that users can focus on the code/analysis
-    instead of wasting time organizing files. A full ready-to-work structure 
-    is set up with some additional features: version control, remote repository
-    creation, CI/CD configuration (check package integrity under several OS, 
-    test code with 'testthat', and build and deploy website using 'pkgdown'). 
-    This package heavily relies on the R packages 'devtools' and 'usethis' and
-    follows recommendations made by Wickham H. (2015) <ISBN:9781491910597> and 
-    Marwick B. et al. (2018) <doi:10.7287/peerj.preprints.3192v2>.
+Description: Makes easier the creation of R package or research compendium 
+    (i.e. a predefined files/folders structure) so that users can focus on the 
+    code/analysis instead of wasting time organizing files. A full 
+    ready-to-work structure is set up with some additional features: version 
+    control, remote repository creation, CI/CD configuration (check package 
+    integrity under several OS, test code with 'testthat', and build and deploy 
+    website using 'pkgdown'). This package heavily relies on the R packages 
+    'devtools' and 'usethis' and follows recommendations made by Wickham H. 
+    (2015) <ISBN:9781491910597> and Marwick B. et al. (2018) 
+    <doi:10.7287/peerj.preprints.3192v2>.
 URL: https://github.com/FRBCesab/rcompendium
 BugReports: https://github.com/FRBCesab/rcompendium/issues
 License: GPL (>= 2)
@@ -28,7 +28,6 @@ Imports:
     clisymbols,
     crayon,
     devtools,
-    fs,
     gert,
     gh,
     gtools,
@@ -42,6 +41,7 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 VignetteBuilder: knitr
 Suggests: 
+    fs,
     knitr,
     remotes,
     testthat (>= 3.0.0),

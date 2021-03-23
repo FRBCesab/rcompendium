@@ -64,7 +64,7 @@ get_package_version <- function() {
 get_roxygen2_version <- function() {
   
   
-  if (!("roxygen2" %in% utils::installed.packages())) {
+  if (!length(find.package("roxygen2", quiet = TRUE))) {
     stop("The package 'roxygen2' cannot be found.")
   }
   

@@ -5,11 +5,8 @@
 #' credentials are listed below. This function is useful if user creates a lot
 #' of packages and/or research compendiums.
 #' 
-#' If the `.Rprofile` file does not exist this function will create it. Note
-#' that credentials are added at the end of the file: if you run this function
-#' two times, credentials will be added twice. User can run the command 
-#' `set_credentials(open = TRUE)` to open the `.Rprofile` and clean its 
-#' content. **Be careful while modifying this file!**.
+#' If the `.Rprofile` file does not exist this function will create it. Users
+#' need to paste the content of the clipboard to this file.
 #'
 #' @param given a character of length 1
 #' 
@@ -33,10 +30,6 @@
 #'   `'https'` or `'ssh'`. If you don't know, keep the default value 
 #'   (i.e. `NULL`) and the protocol will be `'https'`.
 #' 
-#' @param open a logical value
-#' 
-#'   If `TRUE` the file is opened in the editor. Default is `open = FALSE`
-#' 
 #' @return None
 #'
 #' @export
@@ -51,30 +44,18 @@
 #' ## Define **ONCE FOR ALL** your credentials ----
 #' 
 #' set_credentials("John", "Doe", "john.doe@domain.com", 
-#'                 orcid = "9999-9999-9999-9999", protocol = "ssh")
+#'                 orcid = "9999-9999-9999-9999", protocol = "https")
 #' }
 
 set_credentials <- function(given = NULL, family = NULL, email = NULL, 
-                            orcid = NULL, protocol = NULL, open = FALSE) {
+                            orcid = NULL, protocol = NULL) {
   
   
   credentials <- as.list(match.call())[-1]
-  credentials <- credentials[!(names(credentials) %in% "open")]
-  
-  path <- fs::path_home_r(".Rprofile")
   
   if (length(credentials)) {
-    
-    if (!file.exists(path)) {
       
-      r_prof <- NULL
-      
-    } else {
-      
-      r_prof <- readLines(path)
-    }
-    
-    r_prof <- c(r_prof, "## RCompendium Credentials ----")
+    r_prof <- "## RCompendium Credentials ----"
     
     
     ## Check remote protocol ----
@@ -88,8 +69,7 @@ set_credentials <- function(given = NULL, family = NULL, email = NULL,
       if (!(protocol %in% c("https", "ssh"))) {
         
         protocol <- NULL
-        ui_oops(paste0("Protocol must one among {ui_value('https')} and ", 
-                       "{ui_value('ssh')}"))
+        stop("Argument 'protocol' must one among 'https' and 'ssh'.")
       }
       
       
@@ -117,13 +97,6 @@ set_credentials <- function(given = NULL, family = NULL, email = NULL,
 
       invisible(lapply(credentials, stop_if_not_string))
       
-      if (!is.null(unlist(lapply(names(credentials), getOption)))) {
-        
-        warning("Credentials are already stored in the '.Rprofile'.\n  ", 
-                "New credentials will be added but please run ", 
-                "`set_credentials(open = TRUE)` to clean this file.")
-      }
-      
       opts <- paste0(names(credentials), " = \"", unlist(credentials), "\"")
       opts <- paste0(opts, collapse = ", ")
       
@@ -139,13 +112,11 @@ set_credentials <- function(given = NULL, family = NULL, email = NULL,
     
     ## Re-write .Rprofile ----
     
-    writeLines(r_prof, con = path)
-    
-    ui_done("The file {ui_value('.Rprofile')} has been successfully updated")
-    ui_todo("Restart R for changes to take effect")
+    ui_todo("Please paste the following lines to the {ui_value('.Rprofile')}:")
+    usethis::ui_code_block(r_prof)
   }
   
-  if (open) edit_file(path)
+  usethis::edit_r_profile()
   
   invisible(NULL)
 }

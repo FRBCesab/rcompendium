@@ -162,7 +162,7 @@ be created.
 Please cite this package as:
 
 > Casajus N. (2021) rcompendium: An R package to create a package or
-> research compendium structure. Version 0.5,
+> research compendium structure. Version 0.5.1,
 > <https://github.com/FRBCesab/rcompendium>.
 
 You can also run:
@@ -176,7 +176,7 @@ citation("rcompendium")
 ##   title  = {{rcompendium}: {An} {R} package to create a package or research compendium structure},
 ##   author = {{Casajus N.}},
 ##   year   = {2021},
-##   note   = {R package version 0.5},
+##   note   = {R package version 0.5.1},
 ##   url    = {https://github.com/FRBCesab/rcompendium},
 ## }
 ```

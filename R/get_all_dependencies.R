@@ -82,7 +82,9 @@ get_all_dependencies <- function(pkg = NULL) {
   
   ## List of base packages ----
   
-  base_deps <- rownames(utils::installed.packages(priority = "base"))
+  base_deps <- c("base", "compiler", "datasets", "graphics", "grDevices", 
+                 "grid", "methods", "parallel", "splines", "stats", "stats4", 
+                 "tcltk", "tools", "utils")
   
   
   ## List of all dependencies (on which pkg depends) ----

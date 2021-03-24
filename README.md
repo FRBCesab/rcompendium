@@ -3,6 +3,8 @@
 
 <!-- badges: start -->
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version/rcompendium/)](https://CRAN.R-project.org/package=rcompendium/)
 [![R CMD
 check](https://github.com/FRBCesab/rcompendium/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/FRBCesab/rcompendium/actions/workflows/R-CMD-check.yaml)
 [![Website
@@ -15,7 +17,7 @@ coverage](https://github.com/FRBCesab/rcompendium/actions/workflows/test-coverag
 [![LifeCycle](man/figures/lifecycle/lifecycle-stable.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![Project Status:
 Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![Dependencies](https://img.shields.io/badge/dependencies-12/76-red?style=flat)](#)
+[![Dependencies](https://img.shields.io/badge/dependencies-11/77-red?style=flat)](#)
 <!-- badges: end -->
 
 In the area of open science, making reproducible analyses is a strong

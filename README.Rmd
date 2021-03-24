@@ -19,7 +19,7 @@ rcompendium <img src="man/figures/hexsticker.png" height="120" align="right"/>
 
 
 <!-- badges: start -->
-[![CRAN status](https://www.r-pkg.org/badges/version/rcompendium/)](https://CRAN.R-project.org/package=rcompendium/)
+[![CRAN status](https://www.r-pkg.org/badges/version/rcompendium)](https://CRAN.R-project.org/package=rcompendium/)
 [![R CMD check](https://github.com/FRBCesab/rcompendium/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/FRBCesab/rcompendium/actions/workflows/R-CMD-check.yaml)
 [![Website deployment](https://github.com/FRBCesab/rcompendium/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/FRBCesab/rcompendium/actions/workflows/pkgdown.yaml)
 [![Test coverage](https://github.com/FRBCesab/rcompendium/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/FRBCesab/rcompendium/actions/workflows/test-coverage.yaml)

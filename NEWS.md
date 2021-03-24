@@ -1,3 +1,5 @@
+# rcompendium (development version)
+
 # rcompendium 0.5.1
 
 After first submission to CRAN:

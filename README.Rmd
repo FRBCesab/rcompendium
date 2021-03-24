@@ -137,8 +137,15 @@ The default settings will produce the following structure:
 ## Installation
 
 
+You can install the stable version from [CRAN](https://cran.r-project.org/) with:
 
-You can install the development version from [GitHub](https://github.com/) with:
+```{r eval=FALSE}
+## Install stable version of < rcompendium > from CRAN ----
+install.packages("rcompendium")
+```
+
+
+Or you can install the development version from [GitHub](https://github.com/) with:
 
 ```{r eval=FALSE}
 ## Install < remotes > package (if not already installed) ----

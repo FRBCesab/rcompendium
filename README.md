@@ -120,7 +120,15 @@ structure:
 
 ## Installation
 
-You can install the development version from
+You can install the stable version from
+[CRAN](https://cran.r-project.org/) with:
+
+``` r
+## Install stable version of < rcompendium > from CRAN ----
+install.packages("rcompendium")
+```
+
+Or you can install the development version from
 [GitHub](https://github.com/) with:
 
 ``` r

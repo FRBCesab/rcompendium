@@ -472,7 +472,7 @@ new_compendium <- function(compendium = ".", license = "GPL (>= 2)",
   add_compendium(compendium)
   ui_line()
   
-  add_makefile(open = FALSE, overwrite = overwrite, quiet = quiet)
+  add_makefile(given, family, email, open = FALSE, overwrite = overwrite, quiet = quiet)
   
   
   

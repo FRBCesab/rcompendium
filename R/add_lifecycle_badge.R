@@ -64,42 +64,21 @@ add_lifecycle_badge <- function(lifecycle = "experimental", quiet = FALSE) {
   }
   
   
-  ## Copy SVG ----
-  
-  dir.create(file.path(path_proj(), "man", "figures", "lifecycle"), 
-             showWarnings = FALSE, recursive = TRUE)
-  
-  invisible(
-    file.copy(system.file(file.path("lifecycle", "lifecycle-experimental.svg"), 
-                          package = "rcompendium"),
-              file.path(path_proj(), "man", "figures", "lifecycle", 
-                        "lifecycle-experimental.svg")))
-  
-  invisible(
-    file.copy(system.file(file.path("lifecycle", "lifecycle-stable.svg"), 
-                          package = "rcompendium"),
-              file.path(path_proj(), "man", "figures", "lifecycle", 
-                        "lifecycle-stable.svg")))
-  
-  invisible(
-    file.copy(system.file(file.path("lifecycle", "lifecycle-deprecated.svg"), 
-                          package = "rcompendium"),
-              file.path(path_proj(), "man", "figures", "lifecycle", 
-                        "lifecycle-deprecated.svg")))
-  
-  invisible(
-    file.copy(system.file(file.path("lifecycle", "lifecycle-superseded.svg"), 
-                          package = "rcompendium"),
-              file.path(path_proj(), "man", "figures", "lifecycle", 
-                        "lifecycle-superseded.svg")))
-  
-  
   ## Create Badge Markdown Expression ----
   
+  color <- switch(lifecycle,
+                  `stable`      = "green",
+                  `exprimental` = "orange",
+                  `deprecated`  = "orange",
+                  `superseded`  = "blue")
+  
   alt  <- "LifeCycle"
+  
   href <- paste0("https://lifecycle.r-lib.org/articles/stages.html#", 
                  lifecycle)
-  img  <- paste0("man/figures/lifecycle/lifecycle-", lifecycle, ".svg")
+  
+  img  <- paste0("https://img.shields.io/badge/lifecycle-", lifecycle, "-", 
+                 color)
   
   badge <- paste0("[![", alt, "](", img, ")](", href, ")")
   

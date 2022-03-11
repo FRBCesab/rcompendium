@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://frbcesab.github.io/rcompendium/404.html</loc>
+  </url>
+  <url>
+    <loc>https://frbcesab.github.io/rcompendium/CODE_OF_CONDUCT.html</loc>
+  </url>
+  <url>
+    <loc>https://frbcesab.github.io/rcompendium/CONTRIBUTING.html</loc>
+  </url>
+  <url>
+    <loc>https://frbcesab.github.io/rcompendium/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>https://frbcesab.github.io/rcompendium/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://frbcesab.github.io/rcompendium/articles/rcompendium.html</loc>
+  </url>
+  <url>
+    <loc>https://frbcesab.github.io/rcompendium/authors.html</loc>
+  </url>
+  <url>
     <loc>https://frbcesab.github.io/rcompendium/index.html</loc>
+  </url>
+  <url>
+    <loc>https://frbcesab.github.io/rcompendium/news/index.html</loc>
   </url>
   <url>
     <loc>https://frbcesab.github.io/rcompendium/reference/add_citation.html</loc>
@@ -91,6 +115,9 @@
     <loc>https://frbcesab.github.io/rcompendium/reference/get_minimal_r_version.html</loc>
   </url>
   <url>
+    <loc>https://frbcesab.github.io/rcompendium/reference/index.html</loc>
+  </url>
+  <url>
     <loc>https://frbcesab.github.io/rcompendium/reference/new_compendium.html</loc>
   </url>
   <url>
@@ -104,8 +131,5 @@
   </url>
   <url>
     <loc>https://frbcesab.github.io/rcompendium/reference/set_credentials.html</loc>
-  </url>
-  <url>
-    <loc>https://frbcesab.github.io/rcompendium/articles/rcompendium.html</loc>
   </url>
 </urlset>

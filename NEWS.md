@@ -1,5 +1,8 @@
 # rcompendium (development version)
 
+* Function `add_lifecycle_badge()` does not copy SVG in project. The image badge
+is created using https://shields.io/ now.
+
 # rcompendium 0.5.1
 
 After first submission to CRAN:

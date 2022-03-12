@@ -1,5 +1,5 @@
 
-# rcompendium <img src="man/figures/hexsticker.png" height="120" align="right"/>
+# rcompendium \<img src=“man/figures/hexsticker.png” height=“120px” align=“right” style=“float:right;/\>
 
 <!-- badges: start -->
 

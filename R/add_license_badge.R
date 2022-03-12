@@ -31,14 +31,20 @@
 add_license_badge <- function(quiet = FALSE) {
   
   
+  ## Checks ----
+  
   stop_if_not_logical(quiet)
   
   user_license <- read_descr()$"License"
   user_license <- gsub(" \\+ file LICENSE", "", user_license)
   
+  
   if (!is.null(user_license)) {
     
     if (user_license %in% licenses$"tag") {
+      
+      
+      ## Create Badge Markdown Expression ----
       
       color <- licenses[which(licenses$tag == user_license), "color"]
       

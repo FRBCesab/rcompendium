@@ -2,27 +2,30 @@
 % Please edit documentation in R/add_lifecycle_badge.R
 \name{add_lifecycle_badge}
 \alias{add_lifecycle_badge}
-\title{Add a Life cycle badge}
+\title{Add a Life Cycle badge}
 \usage{
 add_lifecycle_badge(lifecycle = "experimental", quiet = FALSE)
 }
 \arguments{
-\item{lifecycle}{a character of length 1
+\item{lifecycle}{A character of length 1. Accepted stages are:
+\code{'experimental'} (default), \code{'stable'}, \code{'deprecated'}, or \code{'superseded'}.}
 
-Accepted stages are: \code{'experimental'} (default), \code{'stable'},
-\code{'deprecated'}, or \code{'superseded'}.}
-
-\item{quiet}{a logical value
-
-If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
+\item{quiet}{A logical value. If \code{TRUE} messages are deleted. Default is
+\code{FALSE}.}
 }
 \value{
-A Markdown badge expression
+A badge as a markdown expression.
 }
 \description{
-This function adds or updates the Life cycle badge to the \code{README.Rmd}. It
-is based on the standard defined at
+This function adds or updates the \strong{Life Cycle} badge to the \code{README.Rmd}.
+It is based on the standard defined at
 \url{https://lifecycle.r-lib.org/articles/stages.html}.
+
+Make sure that 1) a \code{README.Rmd} file exists at the project root and 2) it
+contains a block starting with the line \verb{<!-- badges: start -->} and ending
+with the line \verb{<!-- badges: end -->}.
+
+Don't forget to re-render the \code{README.md}.
 }
 \details{
 The project can have the following life cycle stage:

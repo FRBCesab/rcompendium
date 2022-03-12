@@ -1,15 +1,23 @@
-#' Add a license badge
+#' Add a License badge
 #'
 #' @description 
-#' This function adds or updates the license badge to the `README.Rmd`. This
-#' function reads the `License` field of the `DESCRIPTION` file. Be sure to 
-#' previously run [add_license()] function.
+#' This function adds or updates the **License** badge to the `README.Rmd`.
+#' This function reads the `License` field of the `DESCRIPTION` file. Ensure 
+#' that this field is correctly defined. See [add_license()] for further detail.
 #' 
-#' @param quiet a logical value
+#' This function requires the presence of a `DESCRIPTION` file at the project 
+#' root. See [add_description()] for further detail.
 #' 
-#'   If `TRUE` messages are deleted. Default is `FALSE`.
+#' Make sure that 1) a `README.Rmd` file exists at the project root and 2) it
+#' contains a block starting with the line `<!-- badges: start -->` and ending 
+#' with the line `<!-- badges: end -->`.
 #' 
-#' @return A Markdown badge expression
+#' Don't forget to re-render the `README.md`.
+#' 
+#' @param quiet A logical value. If `TRUE` messages are deleted. Default is 
+#'   `FALSE`.
+#' 
+#' @return A badge as a markdown expression.
 #'
 #' @export
 #' 

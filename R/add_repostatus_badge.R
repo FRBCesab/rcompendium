@@ -1,18 +1,22 @@
-#' Add a Repository status badge
+#' Add a Repository Status badge
 #'
 #' @description 
-#' This function adds or updates the Repo Status badge of the project to the
-#' `README.Rmd`. It is based on the standard defined by the 
+#' This function adds or updates the **Repository Status** badge of the project 
+#' to the `README.Rmd`. It is based on the standard defined by the 
 #' \url{https://www.repostatus.org} project.
+#' 
+#' Make sure that 1) a `README.Rmd` file exists at the project root and 2) it
+#' contains a block starting with the line `<!-- badges: start -->` and ending 
+#' with the line `<!-- badges: end -->`.
+#' 
+#' Don't forget to re-render the `README.md`.
 #'
-#' @param status a character of length 1
+#' @param status A character of length 1. Accepted status are: `'concept'` 
+#'   (default), `'wip'`, `'suspended'`, `'abandoned'`, `'active'`, 
+#'   `'inactive'`, or `'unsupported'`.
 #' 
-#'   Accepted status are: `'concept'` (default), `'wip'`, `'suspended'`, 
-#'   `'abandoned'`, `'active'`, `'inactive'`, or `'unsupported'`.
-#' 
-#' @param quiet a logical value
-#' 
-#'   If `TRUE` messages are deleted. Default is `FALSE`.
+#' @param quiet A logical value. If `TRUE` messages are deleted. Default is 
+#'   `FALSE`.
 #'   
 #' @details 
 #' The project can have the following status:
@@ -37,7 +41,7 @@
 #'   the author(s) have ceased all work on it. A new maintainer may be desired.
 #' }
 #' 
-#' @return A Markdown badge expression
+#' @return A badge as a markdown expression.
 #'
 #' @export
 #' 

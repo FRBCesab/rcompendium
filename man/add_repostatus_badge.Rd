@@ -2,27 +2,31 @@
 % Please edit documentation in R/add_repostatus_badge.R
 \name{add_repostatus_badge}
 \alias{add_repostatus_badge}
-\title{Add a Repository status badge}
+\title{Add a Repository Status badge}
 \usage{
 add_repostatus_badge(status = "concept", quiet = FALSE)
 }
 \arguments{
-\item{status}{a character of length 1
+\item{status}{A character of length 1. Accepted status are: \code{'concept'}
+(default), \code{'wip'}, \code{'suspended'}, \code{'abandoned'}, \code{'active'},
+\code{'inactive'}, or \code{'unsupported'}.}
 
-Accepted status are: \code{'concept'} (default), \code{'wip'}, \code{'suspended'},
-\code{'abandoned'}, \code{'active'}, \code{'inactive'}, or \code{'unsupported'}.}
-
-\item{quiet}{a logical value
-
-If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
+\item{quiet}{A logical value. If \code{TRUE} messages are deleted. Default is
+\code{FALSE}.}
 }
 \value{
-A Markdown badge expression
+A badge as a markdown expression.
 }
 \description{
-This function adds or updates the Repo Status badge of the project to the
-\code{README.Rmd}. It is based on the standard defined by the
+This function adds or updates the \strong{Repository Status} badge of the project
+to the \code{README.Rmd}. It is based on the standard defined by the
 \url{https://www.repostatus.org} project.
+
+Make sure that 1) a \code{README.Rmd} file exists at the project root and 2) it
+contains a block starting with the line \verb{<!-- badges: start -->} and ending
+with the line \verb{<!-- badges: end -->}.
+
+Don't forget to re-render the \code{README.md}.
 }
 \details{
 The project can have the following status:

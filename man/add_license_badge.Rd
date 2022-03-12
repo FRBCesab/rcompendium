@@ -2,22 +2,30 @@
 % Please edit documentation in R/add_license_badge.R
 \name{add_license_badge}
 \alias{add_license_badge}
-\title{Add a license badge}
+\title{Add a License badge}
 \usage{
 add_license_badge(quiet = FALSE)
 }
 \arguments{
-\item{quiet}{a logical value
-
-If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
+\item{quiet}{A logical value. If \code{TRUE} messages are deleted. Default is
+\code{FALSE}.}
 }
 \value{
-A Markdown badge expression
+A badge as a markdown expression.
 }
 \description{
-This function adds or updates the license badge to the \code{README.Rmd}. This
-function reads the \code{License} field of the \code{DESCRIPTION} file. Be sure to
-previously run \code{\link[=add_license]{add_license()}} function.
+This function adds or updates the \strong{License} badge to the \code{README.Rmd}.
+This function reads the \code{License} field of the \code{DESCRIPTION} file. Ensure
+that this field is correctly defined. See \code{\link[=add_license]{add_license()}} for further detail.
+
+This function requires the presence of a \code{DESCRIPTION} file at the project
+root. See \code{\link[=add_description]{add_description()}} for further detail.
+
+Make sure that 1) a \code{README.Rmd} file exists at the project root and 2) it
+contains a block starting with the line \verb{<!-- badges: start -->} and ending
+with the line \verb{<!-- badges: end -->}.
+
+Don't forget to re-render the \code{README.md}.
 }
 \examples{
 \dontrun{

@@ -6,16 +6,7 @@
 \alias{rcompendium-package}
 \title{rcompendium: Create a Package or Research Compendium Structure}
 \description{
-Makes easier the creation of R package or research compendium 
-    (i.e. a predefined files/folders structure) so that users can focus on the 
-    code/analysis instead of wasting time organizing files. A full 
-    ready-to-work structure is set up with some additional features: version 
-    control, remote repository creation, CI/CD configuration (check package 
-    integrity under several OS, test code with 'testthat', and build and deploy 
-    website using 'pkgdown'). This package heavily relies on the R packages 
-    'devtools' and 'usethis' and follows recommendations made by Wickham H. 
-    (2015) <ISBN:9781491910597> and Marwick B. et al. (2018) 
-    <doi:10.7287/peerj.preprints.3192v2>.
+Makes easier the creation of R package or research compendium (i.e. a predefined files/folders structure) so that users can focus on the code/analysis instead of wasting time organizing files. A full ready-to-work structure is set up with some additional features: version control, remote repository creation, CI/CD configuration (check package integrity under several OS, test code with 'testthat', and build and deploy website using 'pkgdown'). This package heavily relies on the R packages 'devtools' and 'usethis' and follows recommendations made by Wickham H. (2015) <ISBN:9781491910597> and Marwick B. et al. (2018) <doi:10.7287/peerj.preprints.3192v2>.
 }
 \seealso{
 Useful links:

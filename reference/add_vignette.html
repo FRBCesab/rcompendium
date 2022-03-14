@@ -76,27 +76,25 @@ fields <code>Imports</code>).</p>
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>filename</dt>
-<dd><p>a character of length 1</p>
-<p>The name of the <code>.Rmd</code> file to be created. If <code>NULL</code> (default )the <code>.Rmd</code>
-file will be named <code>pkg.Rmd</code> where <code>pkg</code> is your package name.</p></dd>
+<dd><p>A character of length 1. The name of the <code>.Rmd</code> file to be
+created. If <code>NULL</code> (default ) the <code>.Rmd</code> file will be named <code>pkg.Rmd</code>
+where <code>pkg</code> is your package name.</p></dd>
 <dt>title</dt>
-<dd><p>a character of length 1</p>
-<p>The title of the vignette. If <code>NULL</code> (default) the title will be
-<code>Introduction to pkg</code> (where <code>pkg</code> is your package name).</p></dd>
+<dd><p>A character of length 1. The title of the vignette. If <code>NULL</code>
+(default) the title will be <code>Get started</code>.</p></dd>
 <dt>open</dt>
-<dd><p>a logical value</p>
-<p>If <code>TRUE</code> (default) the file is opened in the editor.</p></dd>
+<dd><p>A logical value. If <code>TRUE</code> (default) the file is opened in the
+editor.</p></dd>
 <dt>overwrite</dt>
-<dd><p>a logical value</p>
-<p>If this file is already present and <code>overwrite = TRUE</code>, it will be erased
-and replaced. Default is <code>FALSE</code>.</p></dd>
+<dd><p>A logical value. If this file is already present and
+<code>overwrite = TRUE</code>, it will be erased and replaced. Default is <code>FALSE</code>.</p></dd>
 <dt>quiet</dt>
-<dd><p>a logical value</p>
-<p>If <code>TRUE</code> messages are deleted. Default is <code>FALSE</code>.</p></dd>
+<dd><p>A logical value. If <code>TRUE</code> messages are deleted. Default is
+<code>FALSE</code>.</p></dd>
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>None</p>
+    <p>No return value.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
@@ -117,8 +115,8 @@ and replaced. Default is <code>FALSE</code>.</p></dd>
 <span class="r-in"><span class="co">## Default vignette ----</span></span>
 <span class="r-in"><span class="fu">add_vignette</span><span class="op">(</span><span class="op">)</span></span>
 <span class="r-in"></span>
-<span class="r-in"><span class="co">## Custom vignette ----</span></span>
-<span class="r-in"><span class="fu">add_vignette</span><span class="op">(</span>filename <span class="op">=</span> <span class="st">"get_started"</span>, title <span class="op">=</span> <span class="st">"Get started"</span><span class="op">)</span></span>
+<span class="r-in"><span class="co">## Default vignette ----</span></span>
+<span class="r-in"><span class="fu">add_vignette</span><span class="op">(</span>filename <span class="op">=</span> <span class="st">"pkg"</span>, title <span class="op">=</span> <span class="st">"Get started"</span><span class="op">)</span></span>
 <span class="r-in"><span class="op">}</span></span>
 </code></pre></div>
     </div>

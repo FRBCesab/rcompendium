@@ -1,20 +1,18 @@
 #' Create compendium folders
 #' 
 #' @description
-#' This function creates the following additional folders `data/`, `rscripts/`, 
-#' `outputs/`, `figures/`, and `paper/`. Each folder has a README to provide
+#' This function creates the following additional folders `data/`, `analyses/`, 
+#' `outputs/`, and `figures/`. Each folder has a `README.md` to provide
 #' instructions. The argument compendium allows user to choose if these folders
 #' are created at the root of the project (default) or nested inside a parent
 #' directory. All theses folders area added to `.Rbuildignore`.
 #' 
-#' @param compendium a character of length 1
+#' @param compendium A character of length 1. By default, compendium folders 
+#'   are created at the root of the project. User can change their location 
+#'   with this argument. For instance, if `compendium = 'analysis'`, compendium
+#'   folders will be created inside the directory `analysis/`.
 #' 
-#'   By default, compendium folders are created at the root of the project. 
-#'   User can change their location with this argument. For instance, if
-#'   `compendium = 'analysis'`, compendium folders will be created inside the 
-#'   directory `analysis/`.
-#' 
-#' @return None
+#' @return No return value.
 #'
 #' @export
 #' 
@@ -72,7 +70,7 @@ add_compendium <- function(compendium = ".") {
                 paste0("**NEVER** modify these data: modified data must be ", 
                        "exported in the outputs/ folder."))
     
-    writeLines(readme, con = file.path(path, "data", "README"))
+    writeLines(readme, con = file.path(path, "data", "README.md"))
     
     
     if (!is.null(compendium)) {
@@ -109,7 +107,7 @@ add_compendium <- function(compendium = ".") {
                 paste0("This folder contains all results created by user ", 
                        "(including modified raw data)."))
     
-    writeLines(readme, con = file.path(path, "outputs", "README"))
+    writeLines(readme, con = file.path(path, "outputs", "README.md"))
     
     
     if (!is.null(compendium)) {
@@ -139,7 +137,7 @@ add_compendium <- function(compendium = ".") {
                 "", 
                 paste0("This folder contains all figures created by user."))
     
-    writeLines(readme, con = file.path(path, "figures", "README"))
+    writeLines(readme, con = file.path(path, "figures", "README.md"))
     
     
     if (!is.null(compendium)) {
@@ -159,11 +157,11 @@ add_compendium <- function(compendium = ".") {
   }
   
   
-  ## Create rscripts/ folder ----
+  ## Create analyses/ folder ----
   
-  if (!dir.exists(file.path(path, "rscripts"))) {
+  if (!dir.exists(file.path(path, "analyses"))) {
     
-    dir.create(file.path(path, "rscripts"), recursive = TRUE)
+    dir.create(file.path(path, "analyses"), recursive = TRUE)
     
     readme <- c("# README",
                 "", 
@@ -171,52 +169,21 @@ add_compendium <- function(compendium = ".") {
                 paste0("It contains only R scripts (R functions must be ", 
                        "stored in the R/ folder)."))
     
-    writeLines(readme, con = file.path(path, "rscripts", "README"))
+    writeLines(readme, con = file.path(path, "analyses", "README.md"))
     
     
     if (!is.null(compendium)) {
       
-      msg <- paste0(compendium, "/rscripts/")
+      msg <- paste0(compendium, "/analyses/")
       
     } else {
       
-      msg <- "rscripts/"
+      msg <- "analyses/"
     }
     
     ui_done("Creating {ui_value(msg)} directory")
     
-    if (is.null(compendium)) add_to_buildignore("rscripts")
-    
-    ui_line()
-  }
-  
-  
-  ## Create paper/ folder ----
-  
-  if (!dir.exists(file.path(path, "paper"))) {
-    
-    dir.create(file.path(path, "paper"), recursive = TRUE)
-    
-    readme <- c("# README",
-                "", 
-                paste0("This folder contains manuscript materials ",
-                       "(biblio, templates, Rmd, etc.)."))
-    
-    writeLines(readme, con = file.path(path, "paper", "README"))
-    
-    
-    if (!is.null(compendium)) {
-      
-      msg <- paste0(compendium, "/paper/")
-      
-    } else {
-      
-      msg <- "paper/"
-    }
-    
-    ui_done("Creating {ui_value(msg)} directory")
-    
-    if (is.null(compendium)) add_to_buildignore("paper")
+    if (is.null(compendium)) add_to_buildignore("analyses")
     
     ui_line()
   }

@@ -7,19 +7,17 @@
 add_compendium(compendium = ".")
 }
 \arguments{
-\item{compendium}{a character of length 1
-
-By default, compendium folders are created at the root of the project.
-User can change their location with this argument. For instance, if
-\code{compendium = 'analysis'}, compendium folders will be created inside the
-directory \verb{analysis/}.}
+\item{compendium}{A character of length 1. By default, compendium folders
+are created at the root of the project. User can change their location
+with this argument. For instance, if \code{compendium = 'analysis'}, compendium
+folders will be created inside the directory \verb{analysis/}.}
 }
 \value{
-None
+No return value.
 }
 \description{
-This function creates the following additional folders \verb{data/}, \verb{rscripts/},
-\verb{outputs/}, \verb{figures/}, and \verb{paper/}. Each folder has a README to provide
+This function creates the following additional folders \verb{data/}, \verb{analyses/},
+\verb{outputs/}, and \verb{figures/}. Each folder has a \code{README.md} to provide
 instructions. The argument compendium allows user to choose if these folders
 are created at the root of the project (default) or nested inside a parent
 directory. All theses folders area added to \code{.Rbuildignore}.

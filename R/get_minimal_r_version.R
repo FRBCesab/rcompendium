@@ -5,11 +5,9 @@
 #' on minimal required R version of its dependencies. It can be used to update
 #' the `Depends` field of the `DESCRIPTION` file.
 #' 
-#' @param pkg a character of length 1
-#' 
-#'   The name of a CRAN package or `NULL` (default). If `NULL` get minimal 
-#'   required R version of the local (uninstalled) project (package or 
-#'   compendium).
+#' @param pkg A character of length 1. The name of a CRAN package or `NULL` 
+#'   (default). If `NULL` get minimal required R version of the local 
+#'   (uninstalled) project (package or compendium).
 #'
 #' @return A character with the minimal required R version.
 #' 

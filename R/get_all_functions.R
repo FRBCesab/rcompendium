@@ -5,8 +5,7 @@
 #' available with the package. As this function scans the `NAMESPACE` and the
 #' `R/` folder, it is recommended to run [devtools::document()] before.
 #' 
-#' @return 
-#' A list of two vectors: 
+#' @return A list of two vectors: 
 #' * `external`, a vector of exported functions name;
 #' * `internal`, a vector of internal functions name.
 #' 

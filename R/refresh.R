@@ -10,22 +10,18 @@
 #' * Check package integrity by using [devtools::check()];
 #' * Run analysis by sourcing `make.R` (only for compendium).
 #' 
-#' @param make a logical value
-#' 
-#'   If `TRUE` the Make-like R file `make.R` is sourced. Only for research 
-#'   compendium created with [new_compendium()]. Default is `FALSE`.
+#' @param make A logical value. If `TRUE` the Make-like R file `make.R` is 
+#'   sourced. Only for research compendium created with [new_compendium()]. 
+#'   Default is `FALSE`.
 #'   
-#' @param check a logical value
-#' 
-#'   If `TRUE` (default) package integrity is checked using [devtools::check()].
+#' @param check A logical value. If `TRUE` (default) package integrity is 
+#'   checked using [devtools::check()].
 #'   
-#' @param quiet a logical value
-#' 
-#'   If `TRUE` (default) message are deleted.
+#' @param quiet A logical value. If `TRUE` (default) message are deleted.
 #'  
 #' @inheritParams add_dependencies
 #' 
-#' @return None
+#' @return No return value.
 #'
 #' @export
 #' 

@@ -5,8 +5,7 @@
 #' useful to get the right spelling of the license to be passed to 
 #' [new_package()], [new_compendium()], or [add_license()].
 #' 
-#' @return 
-#' A data frame with the following two variables: 
+#' @return A `data.frame` with the following two variables: 
 #' * `tag`, the license name to be used with [add_license()];
 #' * `url`, the URL of the license description.
 #' 

@@ -1,36 +1,30 @@
-#' Store credentials to the .RProfile
+#' Store credentials to the .Rprofile
 #' 
 #' @description 
-#' This function stores user credentials in the `.Rprofile` file. Accepted 
-#' credentials are listed below. This function is useful if user creates a lot
-#' of packages and/or research compendiums.
+#' This function is used to store user credentials in the `.Rprofile` file. 
+#' Accepted credentials are listed below. This function is useful if user 
+#' creates a lot of packages and/or research compendiums.
 #' 
 #' If the `.Rprofile` file does not exist this function will create it. Users
 #' need to paste the content of the clipboard to this file.
 #'
-#' @param given a character of length 1
+#' @param given A character of length 1. The given name of the project 
+#'   maintainer.
 #' 
-#'   The given name of the package maintainer.
+#' @param family A character of length 1. The family name of the project 
+#'   maintainer.
 #' 
-#' @param family a character of length 1
+#' @param email A character of length 1. The email address of the project 
+#'   maintainer.
 #' 
-#'   The family name of the package maintainer.
+#' @param orcid A character of length 1. The ORCID of the project maintainer.
 #' 
-#' @param email a character of length 1
+#' @param protocol A character of length 1. The GIT protocol used to 
+#'   communicate with the GitHub remote. One of `'https'` or `'ssh'`. If you 
+#'   don't know, keep the default value (i.e. `NULL`) and the protocol will be 
+#'   `'https'`.
 #' 
-#'   The email address of the package maintainer.
-#' 
-#' @param orcid a character of length 1
-#' 
-#'   The ORCID of the package maintainer.
-#' 
-#' @param protocol a character of length 1
-#' 
-#'   The GIT protocol used to communicate with the GitHub remote. One of 
-#'   `'https'` or `'ssh'`. If you don't know, keep the default value 
-#'   (i.e. `NULL`) and the protocol will be `'https'`.
-#' 
-#' @return None
+#' @return No return value.
 #'
 #' @export
 #' 

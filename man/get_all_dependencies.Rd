@@ -7,10 +7,9 @@
 get_all_dependencies(pkg = NULL)
 }
 \arguments{
-\item{pkg}{a character of length 1
-
-The name of a CRAN package or \code{NULL} (default). If \code{NULL} get dependencies
-of the local (uninstalled) project (package or compendium).}
+\item{pkg}{A character of length 1. The name of a CRAN package or \code{NULL}
+(default). If \code{NULL} get dependencies of the local (uninstalled) project
+(package or compendium).}
 }
 \value{
 A list of three vectors:

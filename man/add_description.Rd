@@ -16,21 +16,16 @@ add_description(
 )
 }
 \arguments{
-\item{given}{a character of length 1
+\item{given}{A character of length 1. The given name of the project
+maintainer.}
 
-The given name of the package maintainer.}
+\item{family}{A character of length 1. The family name of the project
+maintainer.}
 
-\item{family}{a character of length 1
+\item{email}{A character of length 1. The email address of the project
+maintainer.}
 
-The family name of the package maintainer.}
-
-\item{email}{a character of length 1
-
-The email address of the package maintainer.}
-
-\item{orcid}{a character of length 1
-
-The ORCID of the package maintainer.}
+\item{orcid}{A character of length 1. The ORCID of the project maintainer.}
 
 \item{organisation}{A character of length 1. The name of the GitHub
 organisation to host the package. If \code{NULL} (default) the GitHub account

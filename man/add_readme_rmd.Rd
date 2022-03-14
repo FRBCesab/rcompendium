@@ -19,13 +19,11 @@ add_readme_rmd(
 \code{README.Rmd} specific to an R package will be created. If \code{compendium} a
 GitHub \code{README.Rmd} specific to a research compendium will be created.}
 
-\item{given}{a character of length 1
+\item{given}{A character of length 1. The given name of the project
+maintainer.}
 
-The given name of the package maintainer.}
-
-\item{family}{a character of length 1
-
-The family name of the package maintainer.}
+\item{family}{A character of length 1. The family name of the project
+maintainer.}
 
 \item{organisation}{A character of length 1. The name of the GitHub
 organisation to host the package. If \code{NULL} (default) the GitHub account

@@ -14,17 +14,14 @@ add_makefile(
 )
 }
 \arguments{
-\item{given}{a character of length 1
+\item{given}{A character of length 1. The given name of the project
+maintainer.}
 
-The given name of the package maintainer.}
+\item{family}{A character of length 1. The family name of the project
+maintainer.}
 
-\item{family}{a character of length 1
-
-The family name of the package maintainer.}
-
-\item{email}{a character of length 1
-
-The email address of the package maintainer.}
+\item{email}{A character of length 1. The email address of the project
+maintainer.}
 
 \item{open}{A logical value. If \code{TRUE} (default) the file is opened in the
 editor.}

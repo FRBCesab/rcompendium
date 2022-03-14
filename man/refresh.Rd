@@ -18,21 +18,17 @@ See \code{\link[=new_compendium]{new_compendium()}} for further information.
 Default is \code{compendium = NULL} (i.e. no additional folder are inspected
 but \verb{R/}, \code{NAMESPACE}, \verb{vignettes/}, and \verb{tests/} are still inspected).}
 
-\item{make}{a logical value
+\item{make}{A logical value. If \code{TRUE} the Make-like R file \code{make.R} is
+sourced. Only for research compendium created with \code{\link[=new_compendium]{new_compendium()}}.
+Default is \code{FALSE}.}
 
-If \code{TRUE} the Make-like R file \code{make.R} is sourced. Only for research
-compendium created with \code{\link[=new_compendium]{new_compendium()}}. Default is \code{FALSE}.}
+\item{check}{A logical value. If \code{TRUE} (default) package integrity is
+checked using \code{\link[devtools:check]{devtools::check()}}.}
 
-\item{check}{a logical value
-
-If \code{TRUE} (default) package integrity is checked using \code{\link[devtools:check]{devtools::check()}}.}
-
-\item{quiet}{a logical value
-
-If \code{TRUE} (default) message are deleted.}
+\item{quiet}{A logical value. If \code{TRUE} (default) message are deleted.}
 }
 \value{
-None
+No return value.
 }
 \description{
 This function refreshes a package/research compendium. It will:

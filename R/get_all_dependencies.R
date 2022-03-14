@@ -4,16 +4,14 @@
 #' This function gets all the external packages that the project needs. It is 
 #' used the generate the _Dependencies_ badge ([add_dependencies_badge()]).
 #'
-#' @param pkg a character of length 1
-#' 
-#'   The name of a CRAN package or `NULL` (default). If `NULL` get dependencies 
-#'   of the local (uninstalled) project (package or compendium).
+#' @param pkg A character of length 1. The name of a CRAN package or `NULL` 
+#'   (default). If `NULL` get dependencies of the local (uninstalled) project 
+#'   (package or compendium).
 #'
-#' @return 
-#' A list of three vectors: 
-#' * `base_deps`, a vector of base packages;
-#' * `direct_deps`, a vector of direct packages;
-#' * `all_deps`, a vector of all dependencies (recursively obtained).
+#' @return A list of three vectors: 
+#'   * `base_deps`, a vector of base packages;
+#'   * `direct_deps`, a vector of direct packages;
+#'   * `all_deps`, a vector of all dependencies (recursively obtained).
 #' 
 #' @export
 #' 

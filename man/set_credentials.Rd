@@ -2,7 +2,7 @@
 % Please edit documentation in R/set_credentials.R
 \name{set_credentials}
 \alias{set_credentials}
-\title{Store credentials to the .RProfile}
+\title{Store credentials to the .Rprofile}
 \usage{
 set_credentials(
   given = NULL,
@@ -13,35 +13,29 @@ set_credentials(
 )
 }
 \arguments{
-\item{given}{a character of length 1
+\item{given}{A character of length 1. The given name of the project
+maintainer.}
 
-The given name of the package maintainer.}
+\item{family}{A character of length 1. The family name of the project
+maintainer.}
 
-\item{family}{a character of length 1
+\item{email}{A character of length 1. The email address of the project
+maintainer.}
 
-The family name of the package maintainer.}
+\item{orcid}{A character of length 1. The ORCID of the project maintainer.}
 
-\item{email}{a character of length 1
-
-The email address of the package maintainer.}
-
-\item{orcid}{a character of length 1
-
-The ORCID of the package maintainer.}
-
-\item{protocol}{a character of length 1
-
-The GIT protocol used to communicate with the GitHub remote. One of
-\code{'https'} or \code{'ssh'}. If you don't know, keep the default value
-(i.e. \code{NULL}) and the protocol will be \code{'https'}.}
+\item{protocol}{A character of length 1. The GIT protocol used to
+communicate with the GitHub remote. One of \code{'https'} or \code{'ssh'}. If you
+don't know, keep the default value (i.e. \code{NULL}) and the protocol will be
+\code{'https'}.}
 }
 \value{
-None
+No return value.
 }
 \description{
-This function stores user credentials in the \code{.Rprofile} file. Accepted
-credentials are listed below. This function is useful if user creates a lot
-of packages and/or research compendiums.
+This function is used to store user credentials in the \code{.Rprofile} file.
+Accepted credentials are listed below. This function is useful if user
+creates a lot of packages and/or research compendiums.
 
 If the \code{.Rprofile} file does not exist this function will create it. Users
 need to paste the content of the clipboard to this file.

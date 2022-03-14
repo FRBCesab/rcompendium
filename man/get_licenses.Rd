@@ -7,7 +7,7 @@
 get_licenses()
 }
 \value{
-A data frame with the following two variables:
+A \code{data.frame} with the following two variables:
 \itemize{
 \item \code{tag}, the license name to be used with \code{\link[=add_license]{add_license()}};
 \item \code{url}, the URL of the license description.

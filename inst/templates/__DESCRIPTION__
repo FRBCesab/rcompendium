@@ -5,11 +5,11 @@ Version: 0.0.0.9000
 Authors@R: c(
     person(given   = "{{given}}",
            family  = "{{family}}",
-           role    = c("aut", "cre"),
+           role    = c("aut", "cre", "cph"),
            email   = "{{email}}",
            comment = c(ORCID = "{{orcid}}")))
-Description: A paragraph providing a full description of the project (on several 
-    lines...)
+Description: A paragraph providing a full description of the project (on 
+    several lines...)
 URL: https://github.com/{{github}}/{{project_name}}
 BugReports: https://github.com/{{github}}/{{project_name}}/issues
 License: {{license}}

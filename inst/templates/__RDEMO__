@@ -21,8 +21,8 @@
 
 print_msg <- function(x = "Hello world") {
   
-  if (length(x) != 1)   stop("Argument 'x' must be a character of length 1.")
-  if (!is.character(x)) stop("Argument 'x' must be a character of length 1.")
+  if (!is.character(x) || length(x) != 1)
+    stop("Argument 'x' must be a character of length 1.")
   
   cat(x, "\n")
   

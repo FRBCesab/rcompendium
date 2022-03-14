@@ -6,12 +6,10 @@ output: github_document
 
 
 ```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse  = TRUE,
-  comment   = "#>",
-  fig.path  = "man/figures/",
-  out.width = "100%"
-)
+knitr::opts_chunk$set(collapse  = TRUE,
+                      comment   = "#>",
+                      fig.path  = "man/figures/",
+                      out.width = "100%")
 ```
 
 
@@ -42,7 +40,7 @@ This repository is structured as follow:
 - [`data/`](https://github.com/{{github}}/{{project_name}}/tree/master/data):
 contains all raw data required to perform analyses
 
-- [`rscripts/`](https://github.com/{{github}}/{{project_name}}/tree/master/rscripts/):
+- [`analyses/`](https://github.com/{{github}}/{{project_name}}/tree/master/analyses/):
 contains R scripts to run each step of the workflow
 
 - [`outputs/`](https://github.com/{{github}}/{{project_name}}/tree/master/outputs):
@@ -50,9 +48,6 @@ contains all the results created during the workflow
 
 - [`figures/`](https://github.com/{{github}}/{{project_name}}/tree/master/figures):
 contains all the figures created during the workflow
-
-- [`paper/`](https://github.com/{{github}}/{{project_name}}/tree/master/paper):
-contains all the manuscript and related content (biblio, templates, etc.)
 
 - [`R/`](https://github.com/{{github}}/{{project_name}}/tree/master/R):
 contains R functions developed especially for this project
@@ -64,13 +59,13 @@ contains help files of R functions
 contains project metadata (author, date, dependencies, etc.)
 
 - [`make.R`](https://github.com/{{github}}/{{project_name}}/tree/master/make.R):
-master R script to run the entire project by calling each R script stored in the `rscripts/` folder
+main R script to run the entire project by calling each R script stored in the `analyses/` folder
 
 
 
 ### Usage
 
-Clone the repository, open the `.Rproj` file in RStudio and run:
+Clone the repository, open R/RStudio and run:
 
 ```{r eval = FALSE}
 source("make.R")

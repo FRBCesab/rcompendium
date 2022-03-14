@@ -6,17 +6,15 @@ output: github_document
 
 
 ```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse  = TRUE,
-  comment   = "#>",
-  fig.path  = "man/figures/",
-  out.width = "100%"
-)
+knitr::opts_chunk$set(collapse  = TRUE,
+                      comment   = "#>",
+                      fig.path  = "man/figures/",
+                      out.width = "100%")
 ```
 
 
 
-{{project_name}} <img src="man/figures/hexsticker.png" height="120" align="right"/>
+{{project_name}} <img src="man/figures/hexsticker.png" align="right" style="float:right; height:120px;"/>
 =========================================================
 
 <!-- badges: start -->

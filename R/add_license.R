@@ -5,29 +5,23 @@
 #' in the `License` field of the `DESCRIPTION` file and write the content of 
 #' the license in the `License.md` file.
 #'
-#' @param license a character of length 1
+#' @param license A character of length 1. The chosen license. 
+#'   Run [get_licenses()]) to select an appropriate one.
 #' 
-#'   The chosen license. Run [get_licenses()]) to select an appropriate one.
-#' 
-#' @param given a character of length 1
-#' 
-#'   The given name of the copyright holder. Only required if 
-#'   `license = 'MIT'`. If is `NULL` (default) and `license = 'MIT'`, this 
-#'   function will try to retrieve the value of this parameter from the 
-#'   `.Rprofile` file (edited with [set_credentials()]).
+#' @param given A character of length 1. The given name of the copyright holder.
+#'   Only required if `license = 'MIT'`. If is `NULL` (default) and 
+#'   `license = 'MIT'`, this function will try to retrieve the value of this 
+#'   parameter from the `.Rprofile` file (edited with [set_credentials()]).
 #'   
-#' @param family a character of length 1
-#' 
-#'   The family name of the copyright holder. Only required if 
-#'   `license = 'MIT'`. If is `NULL` (default) and `license = 'MIT'`, this 
-#'   function will try to retrieve the value of this parameter from the 
-#'   `.Rprofile` file (edited with [set_credentials()]).
+#' @param family A character of length 1. The family name of the copyright 
+#'   holder. Only required if `license = 'MIT'`. If is `NULL` (default) and 
+#'   `license = 'MIT'`, this function will try to retrieve the value of this 
+#'   parameter from the `.Rprofile` file (edited with [set_credentials()]).
 #'   
-#' @param quiet a logical value
+#' @param quiet A logical value. If `TRUE` messages are deleted. Default is 
+#'   `FALSE`.
 #' 
-#'   If `TRUE` messages are deleted. Default is `FALSE`.
-#' 
-#' @return None
+#' @return No return value.
 #'
 #' @export
 #' 

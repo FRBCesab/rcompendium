@@ -2,27 +2,22 @@
 % Please edit documentation in R/add_to_buildignore.R
 \name{add_to_buildignore}
 \alias{add_to_buildignore}
-\title{Add to Rbuildignore file}
+\title{Add to the .Rbuildignore file}
 \usage{
 add_to_buildignore(x, open = FALSE, quiet = FALSE)
 }
 \arguments{
-\item{x}{a character vector
+\item{x}{A character vector. One or several files/folders names to be added
+to the \code{.Rbuildignore}. This argument is mandatory.}
 
-One or several files/directories names to be added to the \code{.Rbuildignore}.
-This argument is mandatory.}
+\item{open}{A logical value. If \code{TRUE} the \code{.Rbuildignore} file is opened in
+the editor. Default is \code{FALSE}.}
 
-\item{open}{a logical value
-
-If \code{TRUE} the \code{.Rbuildignore} file is opened in the editor.
-Default is \code{FALSE}.}
-
-\item{quiet}{a logical value
-
-If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
+\item{quiet}{A logical value. If \code{TRUE} messages are deleted. Default is
+\code{FALSE}.}
 }
 \value{
-None
+No return value.
 }
 \description{
 This function adds files/folders to the \code{.Rbuildignore} file. If a

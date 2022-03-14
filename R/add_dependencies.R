@@ -28,19 +28,18 @@
 #' field of the `DESCRIPTION` file (in addition to the package 
 #' [`testthat`](https://testthat.r-lib.org)).
 #' 
-#' @param compendium a character of length 1
-#' 
-#'   The name of the folder to recursively detect dependencies to be added to 
-#'   the `Imports` field of `DESCRIPTION` file. It can be `'analysis/'` (if 
-#'   additional folders, i.e. `data/`, `outputs/`, `figures/`, etc. have been
-#'   created in this folder), `'.'` (if folders `data/`, `outputs/`, 
-#'   `figures/`, etc. have been created at the root of the project), etc. 
+#' @param compendium A character of length 1. The name of the folder to 
+#'   recursively detect dependencies to be added to the `Imports` field of 
+#'   `DESCRIPTION` file. It can be `'analysis/'` (if additional folders, i.e. 
+#'   `data/`, `outputs/`, `figures/`, etc. have been created in this folder), 
+#'   `'.'` (if folders `data/`, `outputs/`, `figures/`, etc. have been created 
+#'   at the root of the project), etc. 
 #'   See [new_compendium()] for further information.
 #'   
 #'   Default is `compendium = NULL` (i.e. no additional folder are inspected 
 #'   but `R/`, `NAMESPACE`, `vignettes/`, and `tests/` are still inspected).
 #' 
-#' @return None
+#' @return No return value.
 #'   
 #' @export
 #' 

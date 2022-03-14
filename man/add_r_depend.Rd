@@ -7,7 +7,7 @@
 add_r_depend()
 }
 \value{
-None
+No return value.
 }
 \description{
 This function adds the minimal R version to the \code{Depends} field of the

@@ -7,13 +7,12 @@
 refresh(compendium = NULL, make = FALSE, check = TRUE, quiet = FALSE)
 }
 \arguments{
-\item{compendium}{a character of length 1
-
-The name of the folder to recursively detect dependencies to be added to
-the \code{Imports} field of \code{DESCRIPTION} file. It can be \code{'analysis/'} (if
-additional folders, i.e. \verb{data/}, \verb{outputs/}, \verb{figures/}, etc. have been
-created in this folder), \code{'.'} (if folders \verb{data/}, \verb{outputs/},
-\verb{figures/}, etc. have been created at the root of the project), etc.
+\item{compendium}{A character of length 1. The name of the folder to
+recursively detect dependencies to be added to the \code{Imports} field of
+\code{DESCRIPTION} file. It can be \code{'analysis/'} (if additional folders, i.e.
+\verb{data/}, \verb{outputs/}, \verb{figures/}, etc. have been created in this folder),
+\code{'.'} (if folders \verb{data/}, \verb{outputs/}, \verb{figures/}, etc. have been created
+at the root of the project), etc.
 See \code{\link[=new_compendium]{new_compendium()}} for further information.
 
 Default is \code{compendium = NULL} (i.e. no additional folder are inspected

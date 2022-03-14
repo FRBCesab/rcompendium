@@ -18,9 +18,9 @@ No return value.
 \description{
 This function creates the following additional folders \verb{data/}, \verb{analyses/},
 \verb{outputs/}, and \verb{figures/}. Each folder has a \code{README.md} to provide
-instructions. The argument compendium allows user to choose if these folders
-are created at the root of the project (default) or nested inside a parent
-directory. All theses folders area added to \code{.Rbuildignore}.
+instructions. The argument \code{compendium} allows user to choose if these
+folders are created at the root of the project (default) or nested inside a
+parent directory. All theses folders are added to the \code{.Rbuildignore} file.
 }
 \examples{
 \dontrun{

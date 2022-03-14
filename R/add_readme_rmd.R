@@ -1,38 +1,30 @@
 #' Create a README file
 #' 
 #' This function creates a `README.Rmd` file at the root of the project based 
-#' on a template (adapted from [`usethis`](https://usethis.r-lib.org)). Once 
-#' edited user needs to knit it into a `README.Rmd` (or use the function 
-#' [refresh()]).
+#' on a template. Once edited user needs to knit it into a `README.md` 
+#' (or use the function [refresh()]).
 #' 
-#' @param type a character of length 1
-#' 
-#'   If `package` (default) a GitHub `README.Rmd` specific to an R package will 
-#'   be created. If `compendium` a GitHub `README.Rmd` specific to a research 
-#'   compendium will be created.
+#' @param type A character of length 1. If `package` (default) a GitHub 
+#'   `README.Rmd` specific to an R package will be created. If `compendium` a 
+#'   GitHub `README.Rmd` specific to a research compendium will be created.
 #'   
-#' @param organisation a character of length 1
-#' 
-#'   The name of the GitHub organisation to host the package. If `NULL` 
-#'   (default) the GitHub account will be used. This argument is used to set
-#'   the URL of the package (hosted on GitHub).
+#' @param organisation A character of length 1. The name of the GitHub 
+#'   organisation to host the package. If `NULL` (default) the GitHub account 
+#'   will be used. This argument is used to set the URL of the package 
+#'   (hosted on GitHub).
 #'   
-#' @param open a logical value
+#' @param open A logical value. If `TRUE` (default) the file is opened in the 
+#'   editor.
 #' 
-#'   If `TRUE` (default) the file is opened in the editor.
-#' 
-#' @param overwrite a logical value
-#' 
-#'   If this file is already present and `overwrite = TRUE`, it will be erased 
-#'   and replaced. Default is `FALSE`.
+#' @param overwrite A logical value. If this file is already present and 
+#'   `overwrite = TRUE`, it will be erased and replaced. Default is `FALSE`.
 #'   
-#' @param quiet a logical value
-#' 
-#'   If `TRUE` messages are deleted. Default is `FALSE`.
+#' @param quiet A logical value. If `TRUE` messages are deleted. Default is 
+#'   `FALSE`.
 #' 
 #' @inheritParams set_credentials
 #' 
-#' @return None
+#' @return No return value.
 #'
 #' @export
 #' 

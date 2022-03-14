@@ -13,31 +13,24 @@ add_vignette(
 )
 }
 \arguments{
-\item{filename}{a character of length 1
+\item{filename}{A character of length 1. The name of the \code{.Rmd} file to be
+created. If \code{NULL} (default ) the \code{.Rmd} file will be named \code{pkg.Rmd}
+where \code{pkg} is your package name.}
 
-The name of the \code{.Rmd} file to be created. If \code{NULL} (default )the \code{.Rmd}
-file will be named \code{pkg.Rmd} where \code{pkg} is your package name.}
+\item{title}{A character of length 1. The title of the vignette. If \code{NULL}
+(default) the title will be \verb{Get started}.}
 
-\item{title}{a character of length 1
+\item{open}{A logical value. If \code{TRUE} (default) the file is opened in the
+editor.}
 
-The title of the vignette. If \code{NULL} (default) the title will be
-\verb{Introduction to pkg} (where \code{pkg} is your package name).}
+\item{overwrite}{A logical value. If this file is already present and
+\code{overwrite = TRUE}, it will be erased and replaced. Default is \code{FALSE}.}
 
-\item{open}{a logical value
-
-If \code{TRUE} (default) the file is opened in the editor.}
-
-\item{overwrite}{a logical value
-
-If this file is already present and \code{overwrite = TRUE}, it will be erased
-and replaced. Default is \code{FALSE}.}
-
-\item{quiet}{a logical value
-
-If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
+\item{quiet}{A logical value. If \code{TRUE} messages are deleted. Default is
+\code{FALSE}.}
 }
 \value{
-None
+No return value.
 }
 \description{
 This function adds a vignette in the folder \verb{vignettes/}. It also adds
@@ -51,8 +44,8 @@ fields \code{Imports}).
 ## Default vignette ----
 add_vignette()
 
-## Custom vignette ----
-add_vignette(filename = "get_started", title = "Get started")
+## Default vignette ----
+add_vignette(filename = "pkg", title = "Get started")
 }
 }
 \seealso{

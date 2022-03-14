@@ -7,7 +7,7 @@
 add_testthat()
 }
 \value{
-None
+No return value.
 }
 \description{
 This function initializes units tests settings by running

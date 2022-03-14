@@ -1,32 +1,30 @@
 #' Create a DESCRIPTION file
 #' 
 #' @description 
-#' This function creates a `DESCRIPTION` file at the root of the project based  
-#' on a template (adapted from [`usethis`](https://usethis.r-lib.org)). User 
-#' credentials can be passed as arguments but it is recommended to store them 
-#' in the `.Rprofile` file with [set_credentials()].
+#' This function creates a `DESCRIPTION` file at the root of the project. This
+#' file contains metadata of the project. Some information (title, description,
+#' version, etc.) must be edited by hand. For more information: 
+#' \url{https://r-pkgs.org/description.html}.
+#' User credentials can be passed as arguments but it is recommended to store 
+#' them in the `.Rprofile` file with [set_credentials()].
 #' 
-#' @param organisation a character of length 1
-#' 
-#'   The name of the GitHub organisation to host the package. If `NULL` 
-#'   (default) the GitHub account will be used.
+#' @param organisation A character of length 1. The name of the GitHub 
+#'   organisation to host the package. If `NULL` (default) the GitHub account 
+#'   will be used.
 #'   
-#' @param open a logical value
+#' @param open A logical value. If `TRUE` (default) the file is opened in the 
+#'   editor.
 #' 
-#'   If `TRUE` (default) the file is opened in the editor.
-#' 
-#' @param overwrite a logical value
-#' 
-#'   If a `DESCRIPTION` is already present and `overwrite = TRUE`, this file 
-#'   will be erased and replaced. Default is `FALSE`.
+#' @param overwrite A logical value. If a `DESCRIPTION` is already present and 
+#'   `overwrite = TRUE`, this file will be erased and replaced. Default is 
+#'   `FALSE`.
 #'   
-#' @param quiet a logical value
-#' 
-#'   If `TRUE` messages are deleted. Default is `FALSE`.
+#' @param quiet A logical value. If `TRUE` messages are deleted. Default is 
+#'   `FALSE`.
 #' 
 #' @inheritParams set_credentials
 #' 
-#' @return None
+#' @return No return value.
 #'
 #' @export
 #' 

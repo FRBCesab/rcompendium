@@ -7,30 +7,23 @@
 #' field `Suggests` of the `DESCRIPTION` file (if not already present in
 #' fields `Imports`).
 #' 
-#' @param filename a character of length 1
-#' 
-#'   The name of the `.Rmd` file to be created. If `NULL` (default )the `.Rmd` 
-#'   file will be named `pkg.Rmd` where `pkg` is your package name.
+#' @param filename A character of length 1. The name of the `.Rmd` file to be 
+#'   created. If `NULL` (default ) the `.Rmd` file will be named `pkg.Rmd` 
+#'   where `pkg` is your package name.
 #'   
-#' @param title a character of length 1
-#' 
-#'   The title of the vignette. If `NULL` (default) the title will be 
-#'   `Introduction to pkg` (where `pkg` is your package name).
+#' @param title A character of length 1. The title of the vignette. If `NULL` 
+#'   (default) the title will be `Get started`.
 #'   
-#' @param open a logical value
+#' @param open A logical value. If `TRUE` (default) the file is opened in the 
+#'   editor.
 #' 
-#'   If `TRUE` (default) the file is opened in the editor.
-#' 
-#' @param overwrite a logical value
-#' 
-#'   If this file is already present and `overwrite = TRUE`, it will be erased 
-#'   and replaced. Default is `FALSE`.
+#' @param overwrite A logical value. If this file is already present and 
+#'   `overwrite = TRUE`, it will be erased and replaced. Default is `FALSE`.
 #'   
-#' @param quiet a logical value
+#' @param quiet A logical value. If `TRUE` messages are deleted. Default is 
+#'   `FALSE`.
 #' 
-#'   If `TRUE` messages are deleted. Default is `FALSE`.
-#' 
-#' @return None
+#' @return No return value.
 #'
 #' @export
 #' 
@@ -41,8 +34,8 @@
 #' ## Default vignette ----
 #' add_vignette()
 #' 
-#' ## Custom vignette ----
-#' add_vignette(filename = "get_started", title = "Get started")
+#' ## Default vignette ----
+#' add_vignette(filename = "pkg", title = "Get started")
 #' }
 
 add_vignette <- function(filename = NULL, title = NULL, open = TRUE, 
@@ -104,7 +97,7 @@ add_vignette <- function(filename = NULL, title = NULL, open = TRUE,
   ## Replace default values ----
   
   if (is.null(title)) 
-    title <- "Introduction to {{project_name}}"
+    title <- "Get started"
   
   xfun::gsub_file(path, "{{title}}", title, fixed = TRUE)
   xfun::gsub_file(path, "{{project_name}}", package_name, fixed = TRUE)

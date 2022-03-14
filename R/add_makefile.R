@@ -6,22 +6,18 @@
 #' compendium. The content of this file provides some guidelines. See also
 #' [new_compendium()] for further information.
 #'   
-#' @param open a logical value
+#' @param open A logical value. If `TRUE` (default) the file is opened in the 
+#'   editor.
 #' 
-#'   If `TRUE` (default) the file is opened in the editor.
-#' 
-#' @param overwrite a logical value
-#' 
-#'   If this file is already present and `overwrite = TRUE`, it will be erased 
-#'   and replaced. Default is `FALSE`.
+#' @param overwrite A logical value. If this file is already present and 
+#'   `overwrite = TRUE`, it will be erased and replaced. Default is `FALSE`.
 #'   
-#' @param quiet a logical value
-#' 
-#'   If `TRUE` messages are deleted. Default is `FALSE`.
+#' @param quiet A logical value. If `TRUE` messages are deleted. Default is 
+#'   `FALSE`.
 #'   
 #' @inheritParams set_credentials
 #' 
-#' @return None
+#' @return No return value.
 #'
 #' @export
 #' 

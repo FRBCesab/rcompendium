@@ -6,20 +6,16 @@
 #' (where `pkg` is the name of the package). It a good place to put general 
 #' directives like `@import` and `@importFrom`.
 #'   
-#' @param open a logical value
+#' @param open A logical value. If `TRUE` (default) the file is opened in the 
+#'   editor.
 #' 
-#'   If `TRUE` (default) the file is opened in the editor.
-#' 
-#' @param overwrite a logical value
-#' 
-#'   If this file is already present and `overwrite = TRUE`, it will be erased 
-#'   and replaced. Default is `FALSE`.
+#' @param overwrite A logical value. If this file is already present and 
+#'   `overwrite = TRUE`, it will be erased and replaced. Default is `FALSE`.
 #'   
-#' @param quiet a logical value
+#' @param quiet A logical value. If `TRUE` messages are deleted. Default is 
+#'   `FALSE`.
 #' 
-#'   If `TRUE` messages are deleted. Default is `FALSE`.
-#' 
-#' @return None
+#' @return No return value.
 #'
 #' @export
 #' 

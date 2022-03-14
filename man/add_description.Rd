@@ -32,32 +32,30 @@ The email address of the package maintainer.}
 
 The ORCID of the package maintainer.}
 
-\item{organisation}{a character of length 1
+\item{organisation}{A character of length 1. The name of the GitHub
+organisation to host the package. If \code{NULL} (default) the GitHub account
+will be used.}
 
-The name of the GitHub organisation to host the package. If \code{NULL}
-(default) the GitHub account will be used.}
+\item{open}{A logical value. If \code{TRUE} (default) the file is opened in the
+editor.}
 
-\item{open}{a logical value
+\item{overwrite}{A logical value. If a \code{DESCRIPTION} is already present and
+\code{overwrite = TRUE}, this file will be erased and replaced. Default is
+\code{FALSE}.}
 
-If \code{TRUE} (default) the file is opened in the editor.}
-
-\item{overwrite}{a logical value
-
-If a \code{DESCRIPTION} is already present and \code{overwrite = TRUE}, this file
-will be erased and replaced. Default is \code{FALSE}.}
-
-\item{quiet}{a logical value
-
-If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
+\item{quiet}{A logical value. If \code{TRUE} messages are deleted. Default is
+\code{FALSE}.}
 }
 \value{
-None
+No return value.
 }
 \description{
-This function creates a \code{DESCRIPTION} file at the root of the project based
-on a template (adapted from \href{https://usethis.r-lib.org}{\code{usethis}}). User
-credentials can be passed as arguments but it is recommended to store them
-in the \code{.Rprofile} file with \code{\link[=set_credentials]{set_credentials()}}.
+This function creates a \code{DESCRIPTION} file at the root of the project. This
+file contains metadata of the project. Some information (title, description,
+version, etc.) must be edited by hand. For more information:
+\url{https://r-pkgs.org/description.html}.
+User credentials can be passed as arguments but it is recommended to store
+them in the \code{.Rprofile} file with \code{\link[=set_credentials]{set_credentials()}}.
 }
 \examples{
 \dontrun{

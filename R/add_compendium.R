@@ -3,9 +3,9 @@
 #' @description
 #' This function creates the following additional folders `data/`, `analyses/`, 
 #' `outputs/`, and `figures/`. Each folder has a `README.md` to provide
-#' instructions. The argument compendium allows user to choose if these folders
-#' are created at the root of the project (default) or nested inside a parent
-#' directory. All theses folders area added to `.Rbuildignore`.
+#' instructions. The argument `compendium` allows user to choose if these 
+#' folders are created at the root of the project (default) or nested inside a 
+#' parent directory. All theses folders are added to the `.Rbuildignore` file.
 #' 
 #' @param compendium A character of length 1. By default, compendium folders 
 #'   are created at the root of the project. User can change their location 

@@ -21,7 +21,7 @@ A GitHub repository can also be created (default) following the
 "GitHub last" workflow
 (https://happygitwithr.com/existing-github-last.html).
 Configuration files for GitHub Actions to automatically 1) check the
-package, 2) test and report code coverage, and 3) deploy the website
+package, 2) test and report code coverage, and 3) deploy the website using
 pkgdown
 will be added in the .github/ folder. See below the section
 Creating a GitHub repo.'><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -99,7 +99,7 @@ for a complete overview of the full structure.</p>
 "GitHub last" workflow
 (<a href="https://happygitwithr.com/existing-github-last.html" class="external-link">https://happygitwithr.com/existing-github-last.html</a>).
 Configuration files for GitHub Actions to automatically 1) check the
-package, 2) test and report code coverage, and 3) deploy the website
+package, 2) test and report code coverage, and 3) deploy the website using
 <a href="https://pkgdown.r-lib.org/index.html" class="external-link"><code>pkgdown</code></a>
 will be added in the <code>.github/</code> folder. See below the section
 <strong>Creating a GitHub repo</strong>.</p>
@@ -130,26 +130,25 @@ will be added in the <code>.github/</code> folder. See below the section
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>license</dt>
-<dd><p>a character vector of length 1</p>
-<p>The license to be used for this package. Run <code><a href="get_licenses.html">get_licenses()</a></code> to choose an
-appropriate one. Default is <code>license = 'GPL (&gt;= 2)'</code></p>
+<dd><p>A character vector of length 1. The license to be used for
+this package. Run <code><a href="get_licenses.html">get_licenses()</a></code> to choose an appropriate one.
+Default is <code>license = 'GPL (&gt;= 2)'</code></p>
 <p>The license can be changed later by calling <code><a href="add_license.html">add_license()</a></code> (and
 <code><a href="add_license_badge.html">add_license_badge()</a></code> or <code><a href="refresh.html">refresh()</a></code> to update the corresponding badge in
 the README).</p></dd>
 <dt>status</dt>
-<dd><p>a character vector of length 1</p>
-<p>The status of the project according to the standard defined by the
-<a href="https://www.repostatus.org" class="external-link">https://www.repostatus.org</a> project. One among <code>'concept'</code>
-(default), <code>'wip'</code>, <code>'suspended'</code>, <code>'abandoned'</code>, <code>'active'</code>,
-<code>'inactive'</code>, or <code>'unsupported'</code>. See <code><a href="add_repostatus_badge.html">add_repostatus_badge()</a></code> for further
-information.</p>
+<dd><p>A character vector of length 1. The status of the project
+according to the standard defined by the  <a href="https://www.repostatus.org" class="external-link">https://www.repostatus.org</a>
+project. One among <code>'concept'</code> (default), <code>'wip'</code>, <code>'suspended'</code>,
+<code>'abandoned'</code>, <code>'active'</code>, <code>'inactive'</code>, or <code>'unsupported'</code>.
+See <code><a href="add_repostatus_badge.html">add_repostatus_badge()</a></code> for further information.</p>
 <p>This argument is used to add a badge to the <code>README.Rmd</code> to help visitors
 to better understand your project. If you don't want this badge use
 <code>status = NULL</code>.</p>
 <p>This status can be added/changed later by using <code><a href="add_repostatus_badge.html">add_repostatus_badge()</a></code>.</p></dd>
 <dt>lifecycle</dt>
-<dd><p>a character vector of length 1</p>
-<p>The life cycle stage of the project according to the standard defined at
+<dd><p>A character vector of length 1. The life cycle stage of the
+project according to the standard defined at
 <a href="https://lifecycle.r-lib.org/articles/stages.html" class="external-link">https://lifecycle.r-lib.org/articles/stages.html</a>. One among
 <code>'experimental'</code> (default), <code>'stable'</code>, <code>'deprecated'</code>, or <code>'superseded'</code>.
 See <code><a href="add_lifecycle_badge.html">add_lifecycle_badge()</a></code> for further information.</p>
@@ -158,88 +157,81 @@ to better understand your project. If you don't want this badge use
 <code>lifecycle = NULL</code>.</p>
 <p>This stage can be added/changed later by using <code><a href="add_lifecycle_badge.html">add_lifecycle_badge()</a></code>.</p></dd>
 <dt>vignette</dt>
-<dd><p>a logical value</p>
-<p>If <code>TRUE</code> (default) creates a vignette in <code>vignettes/</code>. Packages
-<a href="https://yihui.org/knitr/" class="external-link"><code>knitr</code></a> and
+<dd><p>A logical value. If <code>TRUE</code> (default) creates a vignette in
+<code>vignettes/</code>. Packages <a href="https://yihui.org/knitr/" class="external-link"><code>knitr</code></a> and
 <a href="https://rmarkdown.rstudio.com/" class="external-link"><code>rmarkdown</code></a> are also added to the
 <code>Suggests</code> field in the <code>DESCRIPTION</code> file.</p></dd>
 <dt>test</dt>
-<dd><p>a logical value</p>
-<p>If <code>TRUE</code> (default) initializes units tests by running
-<code><a href="https://usethis.r-lib.org/reference/use_testthat.html" class="external-link">usethis::use_testthat()</a></code>. Package
+<dd><p>A logical value. If <code>TRUE</code> (default) initializes units tests by
+running <code><a href="https://usethis.r-lib.org/reference/use_testthat.html" class="external-link">usethis::use_testthat()</a></code>. Package
 <a href="https://testthat.r-lib.org" class="external-link"><code>testthat</code></a> is also added to the <code>Suggests</code>
 field in the <code>DESCRIPTION</code> file.</p></dd>
 <dt>create_repo</dt>
-<dd><p>a logical value</p>
-<p>If <code>TRUE</code> (default) creates a repository (public if <code>private = FALSE</code> or
-private if <code>private = TRUE</code>) on GitHub. See below the section
-<strong>Creating a GitHub repo</strong>.</p></dd>
+<dd><p>A logical value. If <code>TRUE</code> (default) creates a repository
+(public if <code>private = FALSE</code> or private if <code>private = TRUE</code>) on GitHub.
+See below the section <strong>Creating a GitHub repo</strong>.</p></dd>
 <dt>private</dt>
-<dd><p>a logical value</p>
-<p>If <code>TRUE</code> creates a private repository on user GitHub account (or
-organisation). Default is <code>private = FALSE</code>.</p></dd>
+<dd><p>A logical value. If <code>TRUE</code> creates a private repository on
+user GitHub account (or organisation). Default is <code>private = FALSE</code>.</p></dd>
 <dt>gh_check</dt>
-<dd><p>a logical value</p>
-<p>If <code>TRUE</code> (default) configures GitHub Actions to automatically check and
-test the package after each push. This will run <code>R CMD check</code> on the three
-major operating systems (Ubuntu, macOS, and Windows) on the latest release
-of R. See <code><a href="add_github_actions_check.html">add_github_actions_check()</a></code> for further information.</p>
+<dd><p>A logical value. If <code>TRUE</code> (default) configures GitHub
+Actions to automatically check and test the package after each push. This
+will run <code>R CMD check</code> on the three major operating systems (Ubuntu, macOS,
+and Windows) on the latest release of R. See <code><a href="add_github_actions_check.html">add_github_actions_check()</a></code>
+for further information.</p>
 <p>If <code>create_repo = FALSE</code> this argument is ignored.</p></dd>
 <dt>codecov</dt>
-<dd><p>a logical value</p>
-<p>If <code>TRUE</code> (default) configures GitHub Actions to automatically report
-the code coverage of units tests after each push.
-See <code><a href="add_github_actions_codecov.html">add_github_actions_codecov()</a></code> for further information.</p>
+<dd><p>A logical value. If <code>TRUE</code> (default) configures GitHub
+Actions to automatically report the code coverage of units tests after
+each push. See <code><a href="add_github_actions_codecov.html">add_github_actions_codecov()</a></code> for further information.</p>
 <p>If <code>create_repo = FALSE</code> this argument is ignored.</p></dd>
 <dt>website</dt>
-<dd><p>a logical value</p>
-<p>If <code>TRUE</code> (default) configures GitHub Actions to automatically build and
-deploy the package website
+<dd><p>A logical value. If <code>TRUE</code> (default) configures GitHub
+Actions to automatically build and deploy the package website
 (using <a href="https://pkgdown.r-lib.org/index.html" class="external-link"><code>pkgdown</code></a>)
 after each push. A <strong>gh-pages</strong> branch will be created using
 <code><a href="https://usethis.r-lib.org/reference/use_github_pages.html" class="external-link">usethis::use_github_pages()</a></code> and the GitHub repository will be
 automatically configured to deploy website.</p>
 <p>If <code>create_repo = FALSE</code> this argument is ignored.</p></dd>
 <dt>given</dt>
-<dd><p>a character vector of length 1</p>
-<p>The given name of the maintainer of the package. If <code>NULL</code> (default) the
-function will try to get this value by reading the <code>.Rprofile</code> file.</p>
+<dd><p>A character vector of length 1. The given name of the
+maintainer of the package. If <code>NULL</code> (default) the function will try to
+get this value by reading the <code>.Rprofile</code> file.</p>
 <p>For further information see <code><a href="set_credentials.html">set_credentials()</a></code> and below the section
 <strong>Managing credentials</strong>.</p></dd>
 <dt>family</dt>
-<dd><p>a character vector of length 1</p>
-<p>The family name of the maintainer of the package. If <code>NULL</code> (default) the
-function will try to get this value by reading the <code>.Rprofile</code> file.</p>
+<dd><p>A character vector of length 1. The family name of the
+maintainer of the package. If <code>NULL</code> (default) the function will try to
+get this value by reading the <code>.Rprofile</code> file.</p>
 <p>For further information see <code><a href="set_credentials.html">set_credentials()</a></code> and below the section
 <strong>Managing credentials</strong>.</p></dd>
 <dt>email</dt>
-<dd><p>a character vector of length 1</p>
-<p>The email address of the maintainer of the package. If <code>NULL</code> (default)
-the function will try to get this value by reading the <code>.Rprofile</code> file.</p>
+<dd><p>A character vector of length 1. The email address of the
+maintainer of the package. If <code>NULL</code> (default) the function will try to
+get this value by reading the <code>.Rprofile</code> file.</p>
 <p>For further information see <code><a href="set_credentials.html">set_credentials()</a></code> and below the section
 <strong>Managing credentials</strong>.</p></dd>
 <dt>orcid</dt>
-<dd><p>a character vector of length 1</p>
-<p>The ORCID of the maintainer of the package. If <code>NULL</code> (default) the
-function will try to get this value by reading the <code>.Rprofile</code> file.</p>
+<dd><p>A character vector of length 1. The ORCID of the maintainer of
+the package. If <code>NULL</code> (default) the function will try to get this value
+by reading the <code>.Rprofile</code> file.</p>
 <p>For further information see <code><a href="set_credentials.html">set_credentials()</a></code> and below the section
 <strong>Managing credentials</strong>.</p></dd>
 <dt>organisation</dt>
-<dd><p>a character vector of length 1</p>
-<p>The GitHub organisation to host the repository. If defined it will
-overwrite the GitHub pseudo.</p>
+<dd><p>A character vector of length 1. The GitHub organisation
+to host the repository. If defined it will overwrite the GitHub pseudo.</p>
 <p>Default is <code>organisation = NULL</code> (the GitHub pseudo will be used).</p></dd>
 <dt>overwrite</dt>
-<dd><p>a logical value</p>
-<p>If <code>TRUE</code> files written from templates and modified by user are erased.
-Default is <code>overwrite = FALSE</code>. <strong>Be careful while using this argument</strong>.</p></dd>
+<dd><p>A logical value. If <code>TRUE</code> files written from templates and
+modified by user are erased. Default is <code>overwrite = FALSE</code>.
+<strong>Be careful while using this argument</strong>.</p></dd>
 <dt>quiet</dt>
-<dd><p>a logical value</p>
-<p>If <code>TRUE</code> messages are deleted. Default is <code>FALSE</code>.</p></dd>
+<dd><p>A logical value. If <code>TRUE</code> messages are deleted. Default is
+<code>FALSE</code>.</p></dd>
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>None</p>
+    <p>No return value.</p>
     </div>
     <div id="recommended-workflow">
     <h2>Recommended workflow</h2>
@@ -285,18 +277,23 @@ always be able to modify them on-the-fly (i.e. by using arguments of the
 
 <p>First run <code><a href="https://gh.r-lib.org/reference/gh_whoami.html" class="external-link">gh::gh_whoami()</a></code> to see if your git is correctly configured. If
 so you should see something like:</p><div class="sourceCode"><pre><code>{
-"name": "John Doe",
-"login": "jdoe",
-"html_url": "https://github.com/jdoe",
-...
+  "name": "John Doe",
+  "login": "jdoe",
+  "html_url": "https://github.com/jdoe",
+  ...
 }
 </code></pre></div>
 
-<p>Otherwise you might need to run:</p><div class="sourceCode"><pre><code><span class="fu">gert</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/gert/reference/git_config.html" class="external-link">git_config_global</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"user.name"</span>, value <span class="op">=</span> <span class="st">"John Doe"</span><span class="op">)</span>
-<span class="fu">gert</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/gert/reference/git_config.html" class="external-link">git_config_global</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"user.email"</span>, value <span class="op">=</span> <span class="st">"john.doe@domain.com"</span><span class="op">)</span>
-<span class="fu">gert</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/gert/reference/git_config.html" class="external-link">git_config_global</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"github.user"</span>, value <span class="op">=</span> <span class="st">"jdoe"</span><span class="op">)</span></code></pre></div>
+<p>Otherwise you might need to run:</p><div class="sourceCode"><pre><code><span class="fu">gert</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/gert/reference/git_config.html" class="external-link">git_config_global_set</a></span><span class="op">(</span>name  <span class="op">=</span> <span class="st">"user.name"</span>, 
+                            value <span class="op">=</span> <span class="st">"John Doe"</span><span class="op">)</span>
+                            
+<span class="fu">gert</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/gert/reference/git_config.html" class="external-link">git_config_global_set</a></span><span class="op">(</span>name  <span class="op">=</span> <span class="st">"user.email"</span>, 
+                            value <span class="op">=</span> <span class="st">"john.doe@domain.com"</span><span class="op">)</span>
+                            
+<span class="fu">gert</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/gert/reference/git_config.html" class="external-link">git_config_global_set</a></span><span class="op">(</span>name  <span class="op">=</span> <span class="st">"github.user"</span>, 
+                            value <span class="op">=</span> <span class="st">"jdoe"</span><span class="op">)</span></code></pre></div>
 
-<p>See <code><a href="https://docs.ropensci.org/gert/reference/git_config.html" class="external-link">gert::git_config()</a></code> for further information.</p>
+<p>See <code><a href="https://docs.ropensci.org/gert/reference/git_config.html" class="external-link">gert::git_config_global_set()</a></code> for further information.</p>
     </div>
     <div id="creating-a-github-repo">
     <h2>Creating a GitHub repo</h2>
@@ -309,17 +306,17 @@ The interaction with this API required an authentication method: a
 <strong>GITHUB PAT</strong> (Personal Access Token).</p>
 <p>If you don't have a <strong>GITHUB PAT</strong> locally stored, you must:</p><ol><li><p>Obtain a new one from your GitHub account. <strong>Make sure to select
 at least the first two scopes (private repository and workflow)</strong></p></li>
-<li><p>Store it in the <code>.Renviron</code> file by using <code><a href="https://usethis.r-lib.org/reference/edit.html" class="external-link">usethis::edit_r_environ()</a></code>
-and adding the following line: <code>GITHUB_PAT='99z9...z9'</code></p></li>
+<li><p>Store it in the <code>~/.Renviron</code> file by using <code><a href="https://usethis.r-lib.org/reference/edit.html" class="external-link">usethis::edit_r_environ()</a></code>
+and adding the following line: <code>GITHUB_PAT='ghp_99z9...z9'</code></p></li>
 </ol><p>Run <code><a href="https://usethis.r-lib.org/reference/github-token.html" class="external-link">usethis::gh_token_help()</a></code> for more information about getting and
 configuring a <strong>GITHUB PAT</strong>.</p>
-<p>If everything is well configured you should see something like after calling
-<code><a href="https://gh.r-lib.org/reference/gh_whoami.html" class="external-link">gh::gh_whoami()</a></code>:</p><div class="sourceCode"><pre><code>{
-"name": "John Doe",
-"login": "jdoe",
-"html_url": "https://github.com/jdoe",
-"scopes": "delete_repo, repo, workflow",
-"token": "99z9...z9"
+<p>If everything is well configured you should see something like this after
+calling <code><a href="https://gh.r-lib.org/reference/gh_whoami.html" class="external-link">gh::gh_whoami()</a></code>:</p><div class="sourceCode"><pre><code>{
+  "name": "John Doe",
+  "login": "jdoe",
+  "html_url": "https://github.com/jdoe",
+  "scopes": "delete_repo, repo, workflow",
+  "token": "ghp_99z9...z9"
 }
 </code></pre></div>
 

@@ -13,9 +13,9 @@ new_compendium(
   test = FALSE,
   create_repo = TRUE,
   private = FALSE,
-  gh_check = TRUE,
+  gh_check = FALSE,
   codecov = FALSE,
-  website = TRUE,
+  website = FALSE,
   given = NULL,
   family = NULL,
   email = NULL,
@@ -26,37 +26,32 @@ new_compendium(
 )
 }
 \arguments{
-\item{compendium}{a character vector of length 1
+\item{compendium}{A character vector of length 1. By default, compendium
+folders are created at the root of the project. User can change their
+location with this argument. For instance, if \code{compendium = 'analysis'},
+compendium folders will be created inside the directory \verb{analysis/}.}
 
-By default, compendium folders are created at the root of the project.
-User can change their location with this argument. For instance, if
-\code{compendium = 'analysis'}, compendium folders will be created inside the
-directory \verb{analysis/}.}
-
-\item{license}{a character vector of length 1
-
-The license to be used for this project. Run \code{\link[=get_licenses]{get_licenses()}} to choose an
-appropriate one. Default is \code{license = 'GPL (>= 2)'}
+\item{license}{A character vector of length 1. The license to be used for
+this project. Run \code{\link[=get_licenses]{get_licenses()}} to choose an appropriate one. Default
+is \code{license = 'GPL (>= 2)'}
 
 The license can be changed later by calling \code{\link[=add_license]{add_license()}} (and
 \code{\link[=add_license_badge]{add_license_badge()}} or \code{\link[=refresh]{refresh()}} to update the corresponding badge in
 the README).}
 
-\item{status}{a character vector of length 1
-
-The status of the project according to the standard defined by the
-\url{https://www.repostatus.org} project. One among \code{'concept'}
-\code{'wip'}, \code{'suspended'}, \code{'abandoned'}, \code{'active'}, \code{'inactive'}, or
-\code{'unsupported'}. See \code{\link[=add_repostatus_badge]{add_repostatus_badge()}} for further information.
+\item{status}{A character vector of length 1. The status of the project
+according to the standard defined by the \url{https://www.repostatus.org}
+project. One among \code{'concept'}, \code{'wip'}, \code{'suspended'}, \code{'abandoned'},
+\code{'active'}, \code{'inactive'}, or \code{'unsupported'}. See \code{\link[=add_repostatus_badge]{add_repostatus_badge()}}
+for further information.
 
 This argument is used to add a badge to the \code{README.Rmd} to help visitors
 to better understand your project. Default is \code{status = NULL}.
 
 This status can be added/changed later by using \code{\link[=add_repostatus_badge]{add_repostatus_badge()}}.}
 
-\item{lifecycle}{a character vector of length 1
-
-The life cycle stage of the project according to the standard defined at
+\item{lifecycle}{A character vector of length 1. The life cycle stage of
+the project according to the standard defined at
 \url{https://lifecycle.r-lib.org/articles/stages.html}. One among
 \code{'experimental'}, \code{'stable'}, \code{'deprecated'}, or \code{'superseded'}.
 See \code{\link[=add_lifecycle_badge]{add_lifecycle_badge()}} for further information.
@@ -66,104 +61,85 @@ to better understand your project. Default is \code{lifecycle = NULL}.
 
 This stage can be added/changed later by using \code{\link[=add_lifecycle_badge]{add_lifecycle_badge()}}.}
 
-\item{vignette}{a logical value
-
-If \code{TRUE} creates a vignette in \verb{vignettes/}. Packages
-\href{https://yihui.org/knitr/}{\code{knitr}} and
+\item{vignette}{A logical value. If \code{TRUE} creates a vignette in
+\verb{vignettes/}. Packages \href{https://yihui.org/knitr/}{\code{knitr}} and
 \href{https://rmarkdown.rstudio.com/}{\code{rmarkdown}} are also added to the
 \code{Suggests} field in the \code{DESCRIPTION} file. Default is \code{FALSE}.}
 
-\item{test}{a logical value
-
-If \code{TRUE} initializes units tests by running \code{\link[usethis:use_testthat]{usethis::use_testthat()}}.
+\item{test}{A logical value. If \code{TRUE} initializes units tests by running
+\code{\link[usethis:use_testthat]{usethis::use_testthat()}}.
 Package \href{https://testthat.r-lib.org}{\code{testthat}} is also added to the
 \code{Suggests} field in the \code{DESCRIPTION} file. Default is \code{FALSE}.}
 
-\item{create_repo}{a logical value
+\item{create_repo}{A logical value. If \code{TRUE} (default) creates a repository
+(public if \code{private = FALSE} or private if \code{private = TRUE}) on GitHub.
+See the section \strong{Creating a GitHub repo} of the help page of
+\code{\link[=new_package]{new_package()}}.}
 
-If \code{TRUE} (default) creates a repository (public if \code{private = FALSE} or
-private if \code{private = TRUE}) on GitHub. See below the section
-\strong{Creating a GitHub repo}.}
+\item{private}{A logical value. If \code{TRUE} creates a private repository on
+user GitHub account (or organisation). Default is \code{private = FALSE}.}
 
-\item{private}{a logical value
+\item{gh_check}{A logical value. If \code{TRUE} configures GitHub
+Actions to automatically check and test the package after each push. This
+will run \verb{R CMD check} on the three major operating systems (Ubuntu, macOS,
+and Windows) on the latest release of R. See \code{\link[=add_github_actions_check]{add_github_actions_check()}}
+for further information.
 
-If \code{TRUE} creates a private repository on user GitHub account (or
-organisation). Default is \code{private = FALSE}.}
+If \code{create_repo = FALSE} this argument is ignored. Default is \code{FALSE}.}
 
-\item{gh_check}{a logical value
-
-If \code{TRUE} (default) configures GitHub Actions to automatically check and
-test the package after each push. This will run \verb{R CMD check} on the three
-major operating systems (Ubuntu, macOS, and Windows) on the latest release
-of R. See \code{\link[=add_github_actions_check]{add_github_actions_check()}} for further information.
-
-If \code{create_repo = FALSE} this argument is ignored.}
-
-\item{codecov}{a logical value
-
-If \code{TRUE} configures GitHub Actions to automatically report
-the code coverage of units tests after each push.
+\item{codecov}{A logical value. If \code{TRUE} configures GitHub Actions to
+automatically report the code coverage of units tests after each push.
 See \code{\link[=add_github_actions_codecov]{add_github_actions_codecov()}} for further information.
 
 If \code{create_repo = FALSE} this argument is ignored. Default is \code{FALSE}.}
 
-\item{website}{a logical value
-
-If \code{TRUE} (default) configures GitHub Actions to automatically build and
-deploy the package website
+\item{website}{A logical value. If \code{TRUE} configures GitHub
+Actions to automatically build and deploy the package website
 (using \href{https://pkgdown.r-lib.org/index.html}{\code{pkgdown}})
 after each push. A \strong{gh-pages} branch will be created using
 \code{\link[usethis:use_github_pages]{usethis::use_github_pages()}} and the GitHub repository will be
 automatically configured to deploy website.
 
-If \code{create_repo = FALSE} this argument is ignored.}
+If \code{create_repo = FALSE} this argument is ignored. Default is \code{FALSE}.}
 
-\item{given}{a character vector of length 1
-
-The given name of the maintainer of the package. If \code{NULL} (default) the
-function will try to get this value by reading the \code{.Rprofile} file.
-
-For further information see \code{\link[=set_credentials]{set_credentials()}}.}
-
-\item{family}{a character vector of length 1
-
-The family name of the maintainer of the package. If \code{NULL} (default) the
-function will try to get this value by reading the \code{.Rprofile} file.
+\item{given}{A character vector of length 1. The given name of the
+maintainer of the package. If \code{NULL} (default) the function will try to
+get this value by reading the \code{.Rprofile} file.
 
 For further information see \code{\link[=set_credentials]{set_credentials()}}.}
 
-\item{email}{a character vector of length 1
-
-The email address of the maintainer of the package. If \code{NULL} (default)
-the function will try to get this value by reading the \code{.Rprofile} file.
-
-For further information see \code{\link[=set_credentials]{set_credentials()}}.}
-
-\item{orcid}{a character vector of length 1
-
-The ORCID of the maintainer of the package. If \code{NULL} (default) the
-function will try to get this value by reading the \code{.Rprofile} file.
+\item{family}{A character vector of length 1. The family name of the
+maintainer of the package. If \code{NULL} (default) the function will try to
+get this value by reading the \code{.Rprofile} file.
 
 For further information see \code{\link[=set_credentials]{set_credentials()}}.}
 
-\item{organisation}{a character vector of length 1
+\item{email}{A character vector of length 1. The email address of the
+maintainer of the package. If \code{NULL} (default) the function will try to
+get this value by reading the \code{.Rprofile} file.
 
-The GitHub organisation to host the repository. If defined it will
-overwrite the GitHub pseudo.
+For further information see \code{\link[=set_credentials]{set_credentials()}}.}
+
+\item{orcid}{A character vector of length 1. The ORCID of the maintainer of
+the package. If \code{NULL} (default) the function will try to get this value
+by reading the \code{.Rprofile} file.
+
+For further information see \code{\link[=set_credentials]{set_credentials()}}.}
+
+\item{organisation}{A character vector of length 1. The GitHub organisation
+to host the repository. If defined it will overwrite the GitHub pseudo.
 
 Default is \code{organisation = NULL} (the GitHub pseudo will be used).}
 
-\item{overwrite}{a logical value
+\item{overwrite}{A logical value. If \code{TRUE} files written from templates and
+modified by user are erased. Default is \code{overwrite = FALSE}.
+\strong{Be careful while using this argument}.}
 
-If \code{TRUE} files written from templates and modified by user are erased.
-Default is \code{overwrite = FALSE}. \strong{Be careful while using this argument}.}
-
-\item{quiet}{a logical value
-
-If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
+\item{quiet}{A logical value. If \code{TRUE} messages are deleted. Default is
+\code{FALSE}.}
 }
 \value{
-None
+No return value.
 }
 \description{
 This function creates a research compendium (i.e. a predefined files/folders
@@ -175,17 +151,12 @@ further information) this function will created these following folders:
 \item \verb{data/}: a folder to store raw data. Note that these data must never be
 modified. If user want to modify them it is recommended to export new data
 in \verb{outputs/}.
-\item \verb{rscripts/}: a folder to write analyses instructions, i.e. R scripts. If
+\item \verb{analyses/}: a folder to write analyses instructions, i.e. R scripts. If
 user need to create R functions it is recommended to write them in the \verb{R/}
 folder.
 \item \verb{outputs/}: a folder to store intermediate and final outputs generated by
 the R scripts.
 \item \verb{figures/}: a folder to store figures generated by the R scripts.
-\item \verb{paper/}: a folder to store all the material to write a paper/report (i.e.
-bibliographic references, templates, Rmarkdown document, etc.). It is
-also recommended that the user writes relative paths using the package \code{here}
-so he/she can easily access to materials stored in \verb{outputs/} and
-\verb{figures/}.
 }
 
 This function also creates a Make-like R file (\code{make.R}). This file contains

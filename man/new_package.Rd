@@ -25,22 +25,19 @@ new_package(
 )
 }
 \arguments{
-\item{license}{a character vector of length 1
-
-The license to be used for this package. Run \code{\link[=get_licenses]{get_licenses()}} to choose an
-appropriate one. Default is \code{license = 'GPL (>= 2)'}
+\item{license}{A character vector of length 1. The license to be used for
+this package. Run \code{\link[=get_licenses]{get_licenses()}} to choose an appropriate one.
+Default is \code{license = 'GPL (>= 2)'}
 
 The license can be changed later by calling \code{\link[=add_license]{add_license()}} (and
 \code{\link[=add_license_badge]{add_license_badge()}} or \code{\link[=refresh]{refresh()}} to update the corresponding badge in
 the README).}
 
-\item{status}{a character vector of length 1
-
-The status of the project according to the standard defined by the
-\url{https://www.repostatus.org} project. One among \code{'concept'}
-(default), \code{'wip'}, \code{'suspended'}, \code{'abandoned'}, \code{'active'},
-\code{'inactive'}, or \code{'unsupported'}. See \code{\link[=add_repostatus_badge]{add_repostatus_badge()}} for further
-information.
+\item{status}{A character vector of length 1. The status of the project
+according to the standard defined by the  \url{https://www.repostatus.org}
+project. One among \code{'concept'} (default), \code{'wip'}, \code{'suspended'},
+\code{'abandoned'}, \code{'active'}, \code{'inactive'}, or \code{'unsupported'}.
+See \code{\link[=add_repostatus_badge]{add_repostatus_badge()}} for further information.
 
 This argument is used to add a badge to the \code{README.Rmd} to help visitors
 to better understand your project. If you don't want this badge use
@@ -48,9 +45,8 @@ to better understand your project. If you don't want this badge use
 
 This status can be added/changed later by using \code{\link[=add_repostatus_badge]{add_repostatus_badge()}}.}
 
-\item{lifecycle}{a character vector of length 1
-
-The life cycle stage of the project according to the standard defined at
+\item{lifecycle}{A character vector of length 1. The life cycle stage of the
+project according to the standard defined at
 \url{https://lifecycle.r-lib.org/articles/stages.html}. One among
 \code{'experimental'} (default), \code{'stable'}, \code{'deprecated'}, or \code{'superseded'}.
 See \code{\link[=add_lifecycle_badge]{add_lifecycle_badge()}} for further information.
@@ -61,52 +57,39 @@ to better understand your project. If you don't want this badge use
 
 This stage can be added/changed later by using \code{\link[=add_lifecycle_badge]{add_lifecycle_badge()}}.}
 
-\item{vignette}{a logical value
-
-If \code{TRUE} (default) creates a vignette in \verb{vignettes/}. Packages
-\href{https://yihui.org/knitr/}{\code{knitr}} and
+\item{vignette}{A logical value. If \code{TRUE} (default) creates a vignette in
+\verb{vignettes/}. Packages \href{https://yihui.org/knitr/}{\code{knitr}} and
 \href{https://rmarkdown.rstudio.com/}{\code{rmarkdown}} are also added to the
 \code{Suggests} field in the \code{DESCRIPTION} file.}
 
-\item{test}{a logical value
-
-If \code{TRUE} (default) initializes units tests by running
-\code{\link[usethis:use_testthat]{usethis::use_testthat()}}. Package
+\item{test}{A logical value. If \code{TRUE} (default) initializes units tests by
+running \code{\link[usethis:use_testthat]{usethis::use_testthat()}}. Package
 \href{https://testthat.r-lib.org}{\code{testthat}} is also added to the \code{Suggests}
 field in the \code{DESCRIPTION} file.}
 
-\item{create_repo}{a logical value
+\item{create_repo}{A logical value. If \code{TRUE} (default) creates a repository
+(public if \code{private = FALSE} or private if \code{private = TRUE}) on GitHub.
+See below the section \strong{Creating a GitHub repo}.}
 
-If \code{TRUE} (default) creates a repository (public if \code{private = FALSE} or
-private if \code{private = TRUE}) on GitHub. See below the section
-\strong{Creating a GitHub repo}.}
+\item{private}{A logical value. If \code{TRUE} creates a private repository on
+user GitHub account (or organisation). Default is \code{private = FALSE}.}
 
-\item{private}{a logical value
-
-If \code{TRUE} creates a private repository on user GitHub account (or
-organisation). Default is \code{private = FALSE}.}
-
-\item{gh_check}{a logical value
-
-If \code{TRUE} (default) configures GitHub Actions to automatically check and
-test the package after each push. This will run \verb{R CMD check} on the three
-major operating systems (Ubuntu, macOS, and Windows) on the latest release
-of R. See \code{\link[=add_github_actions_check]{add_github_actions_check()}} for further information.
+\item{gh_check}{A logical value. If \code{TRUE} (default) configures GitHub
+Actions to automatically check and test the package after each push. This
+will run \verb{R CMD check} on the three major operating systems (Ubuntu, macOS,
+and Windows) on the latest release of R. See \code{\link[=add_github_actions_check]{add_github_actions_check()}}
+for further information.
 
 If \code{create_repo = FALSE} this argument is ignored.}
 
-\item{codecov}{a logical value
-
-If \code{TRUE} (default) configures GitHub Actions to automatically report
-the code coverage of units tests after each push.
-See \code{\link[=add_github_actions_codecov]{add_github_actions_codecov()}} for further information.
+\item{codecov}{A logical value. If \code{TRUE} (default) configures GitHub
+Actions to automatically report the code coverage of units tests after
+each push. See \code{\link[=add_github_actions_codecov]{add_github_actions_codecov()}} for further information.
 
 If \code{create_repo = FALSE} this argument is ignored.}
 
-\item{website}{a logical value
-
-If \code{TRUE} (default) configures GitHub Actions to automatically build and
-deploy the package website
+\item{website}{A logical value. If \code{TRUE} (default) configures GitHub
+Actions to automatically build and deploy the package website
 (using \href{https://pkgdown.r-lib.org/index.html}{\code{pkgdown}})
 after each push. A \strong{gh-pages} branch will be created using
 \code{\link[usethis:use_github_pages]{usethis::use_github_pages()}} and the GitHub repository will be
@@ -114,56 +97,48 @@ automatically configured to deploy website.
 
 If \code{create_repo = FALSE} this argument is ignored.}
 
-\item{given}{a character vector of length 1
-
-The given name of the maintainer of the package. If \code{NULL} (default) the
-function will try to get this value by reading the \code{.Rprofile} file.
-
-For further information see \code{\link[=set_credentials]{set_credentials()}} and below the section
-\strong{Managing credentials}.}
-
-\item{family}{a character vector of length 1
-
-The family name of the maintainer of the package. If \code{NULL} (default) the
-function will try to get this value by reading the \code{.Rprofile} file.
+\item{given}{A character vector of length 1. The given name of the
+maintainer of the package. If \code{NULL} (default) the function will try to
+get this value by reading the \code{.Rprofile} file.
 
 For further information see \code{\link[=set_credentials]{set_credentials()}} and below the section
 \strong{Managing credentials}.}
 
-\item{email}{a character vector of length 1
-
-The email address of the maintainer of the package. If \code{NULL} (default)
-the function will try to get this value by reading the \code{.Rprofile} file.
-
-For further information see \code{\link[=set_credentials]{set_credentials()}} and below the section
-\strong{Managing credentials}.}
-
-\item{orcid}{a character vector of length 1
-
-The ORCID of the maintainer of the package. If \code{NULL} (default) the
-function will try to get this value by reading the \code{.Rprofile} file.
+\item{family}{A character vector of length 1. The family name of the
+maintainer of the package. If \code{NULL} (default) the function will try to
+get this value by reading the \code{.Rprofile} file.
 
 For further information see \code{\link[=set_credentials]{set_credentials()}} and below the section
 \strong{Managing credentials}.}
 
-\item{organisation}{a character vector of length 1
+\item{email}{A character vector of length 1. The email address of the
+maintainer of the package. If \code{NULL} (default) the function will try to
+get this value by reading the \code{.Rprofile} file.
 
-The GitHub organisation to host the repository. If defined it will
-overwrite the GitHub pseudo.
+For further information see \code{\link[=set_credentials]{set_credentials()}} and below the section
+\strong{Managing credentials}.}
+
+\item{orcid}{A character vector of length 1. The ORCID of the maintainer of
+the package. If \code{NULL} (default) the function will try to get this value
+by reading the \code{.Rprofile} file.
+
+For further information see \code{\link[=set_credentials]{set_credentials()}} and below the section
+\strong{Managing credentials}.}
+
+\item{organisation}{A character vector of length 1. The GitHub organisation
+to host the repository. If defined it will overwrite the GitHub pseudo.
 
 Default is \code{organisation = NULL} (the GitHub pseudo will be used).}
 
-\item{overwrite}{a logical value
+\item{overwrite}{A logical value. If \code{TRUE} files written from templates and
+modified by user are erased. Default is \code{overwrite = FALSE}.
+\strong{Be careful while using this argument}.}
 
-If \code{TRUE} files written from templates and modified by user are erased.
-Default is \code{overwrite = FALSE}. \strong{Be careful while using this argument}.}
-
-\item{quiet}{a logical value
-
-If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
+\item{quiet}{A logical value. If \code{TRUE} messages are deleted. Default is
+\code{FALSE}.}
 }
 \value{
-None
+No return value.
 }
 \description{
 This function creates a new R package structure according to the current
@@ -192,7 +167,7 @@ A GitHub repository can also be created (default) following the
 "GitHub last" workflow
 (\url{https://happygitwithr.com/existing-github-last.html}).
 Configuration files for GitHub Actions to automatically 1) check the
-package, 2) test and report code coverage, and 3) deploy the website
+package, 2) test and report code coverage, and 3) deploy the website using
 \href{https://pkgdown.r-lib.org/index.html}{\code{pkgdown}}
 will be added in the \verb{.github/} folder. See below the section
 \strong{Creating a GitHub repo}.
@@ -243,19 +218,24 @@ always be able to modify them on-the-fly (i.e. by using arguments of the
 
 First run \code{\link[gh:gh_whoami]{gh::gh_whoami()}} to see if your git is correctly configured. If
 so you should see something like:\preformatted{\{
-"name": "John Doe",
-"login": "jdoe",
-"html_url": "https://github.com/jdoe",
-...
+  "name": "John Doe",
+  "login": "jdoe",
+  "html_url": "https://github.com/jdoe",
+  ...
 \}
 }
 
-Otherwise you might need to run:\preformatted{gert::git_config_global(name = "user.name", value = "John Doe")
-gert::git_config_global(name = "user.email", value = "john.doe@domain.com")
-gert::git_config_global(name = "github.user", value = "jdoe")
+Otherwise you might need to run:\preformatted{gert::git_config_global_set(name  = "user.name", 
+                            value = "John Doe")
+                            
+gert::git_config_global_set(name  = "user.email", 
+                            value = "john.doe@domain.com")
+                            
+gert::git_config_global_set(name  = "github.user", 
+                            value = "jdoe")
 }
 
-See \code{\link[gert:git_config]{gert::git_config()}} for further information.
+See \code{\link[gert:git_config]{gert::git_config_global_set()}} for further information.
 }
 
 \section{Creating a GitHub repo}{
@@ -270,20 +250,20 @@ If you don't have a \strong{GITHUB PAT} locally stored, you must:
 \enumerate{
 \item Obtain a new one from your GitHub account. \strong{Make sure to select
 at least the first two scopes (private repository and workflow)}
-\item Store it in the \code{.Renviron} file by using \code{\link[usethis:edit]{usethis::edit_r_environ()}}
-and adding the following line: \code{GITHUB_PAT='99z9...z9'}
+\item Store it in the \verb{~/.Renviron} file by using \code{\link[usethis:edit]{usethis::edit_r_environ()}}
+and adding the following line: \code{GITHUB_PAT='ghp_99z9...z9'}
 }
 
 Run \code{\link[usethis:github-token]{usethis::gh_token_help()}} for more information about getting and
 configuring a \strong{GITHUB PAT}.
 
-If everything is well configured you should see something like after calling
-\code{\link[gh:gh_whoami]{gh::gh_whoami()}}:\preformatted{\{
-"name": "John Doe",
-"login": "jdoe",
-"html_url": "https://github.com/jdoe",
-"scopes": "delete_repo, repo, workflow",
-"token": "99z9...z9"
+If everything is well configured you should see something like this after
+calling \code{\link[gh:gh_whoami]{gh::gh_whoami()}}:\preformatted{\{
+  "name": "John Doe",
+  "login": "jdoe",
+  "html_url": "https://github.com/jdoe",
+  "scopes": "delete_repo, repo, workflow",
+  "token": "ghp_99z9...z9"
 \}
 }
 

@@ -1,20 +1,27 @@
 #' Add a Codecov badge
 #'
 #' @description 
-#' This function adds a Codecov badge to the `README.Rmd`, i.e. the percentage
-#' of code cover by units tests. This percentage is computed by codecov.io
-#' service.
+#' This function adds a **Code coverage** badge to the `README.Rmd`, i.e. the 
+#' percentage of code cover by units tests. This percentage is computed by 
+#' the codecov.io service.
 #' 
-#' @param organisation a character of length 1
+#' **Note:** this service must be manually activated for the package by visiting
+#' \url{https://about.codecov.io/}.
 #' 
-#'   The name of the GitHub organisation to host the package. If `NULL` 
-#'   (default) the GitHub account will be used.
+#' Make sure that 1) a `README.Rmd` file exists at the project root and 2) it
+#' contains a block starting with the line `<!-- badges: start -->` and ending 
+#' with the line `<!-- badges: end -->`.
 #' 
-#' @param quiet a logical value
+#' Don't forget to re-render the `README.md`.
 #' 
-#'   If `TRUE` messages are deleted. Default is `FALSE`.
+#' @param organisation A character of length 1. The name of the GitHub 
+#'   organisation to host the package. If `NULL` (default) the GitHub account 
+#'   will be used.
 #' 
-#' @return A Markdown badge expression
+#' @param quiet A logical value. If `TRUE` messages are deleted. Default is 
+#'   `FALSE`.
+#' 
+#' @return A badge as a markdown expression.
 #'
 #' @export
 #' 

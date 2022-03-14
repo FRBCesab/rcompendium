@@ -1,15 +1,20 @@
-#' Add a CRAN status badge
+#' Add a CRAN Status badge
 #'
 #' @description 
-#' This function adds a CRAN status badge to the `README.Rmd`. If the package
-#' is not hosted on the CRAN the badge will indicate 
+#' This function adds a **CRAN Status** badge to the `README.Rmd`. If the 
+#' package is not hosted on the CRAN the badge will indicate 
 #' _not published on the CRAN_.
 #' 
-#' @param quiet a logical value
+#' Make sure that 1) a `README.Rmd` file exists at the project root and 2) it
+#' contains a block starting with the line `<!-- badges: start -->` and ending 
+#' with the line `<!-- badges: end -->`.
 #' 
-#'   If `TRUE` messages are deleted. Default is `FALSE`.
+#' Don't forget to re-render the `README.md`.
 #' 
-#' @return A Markdown badge expression
+#' @param quiet A logical value. If `TRUE` messages are deleted. Default is 
+#'   `FALSE`.
+#' 
+#' @return A badge as a markdown expression.
 #'
 #' @export
 #' 

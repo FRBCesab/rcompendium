@@ -2,22 +2,27 @@
 % Please edit documentation in R/add_cran_badge.R
 \name{add_cran_badge}
 \alias{add_cran_badge}
-\title{Add a CRAN status badge}
+\title{Add a CRAN Status badge}
 \usage{
 add_cran_badge(quiet = FALSE)
 }
 \arguments{
-\item{quiet}{a logical value
-
-If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
+\item{quiet}{A logical value. If \code{TRUE} messages are deleted. Default is
+\code{FALSE}.}
 }
 \value{
-A Markdown badge expression
+A badge as a markdown expression.
 }
 \description{
-This function adds a CRAN status badge to the \code{README.Rmd}. If the package
-is not hosted on the CRAN the badge will indicate
+This function adds a \strong{CRAN Status} badge to the \code{README.Rmd}. If the
+package is not hosted on the CRAN the badge will indicate
 \emph{not published on the CRAN}.
+
+Make sure that 1) a \code{README.Rmd} file exists at the project root and 2) it
+contains a block starting with the line \verb{<!-- badges: start -->} and ending
+with the line \verb{<!-- badges: end -->}.
+
+Don't forget to re-render the \code{README.md}.
 }
 \examples{
 \dontrun{

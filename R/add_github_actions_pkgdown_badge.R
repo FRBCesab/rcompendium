@@ -1,20 +1,24 @@
-#' Add a Website deployment badge
+#' Add a Website badge
 #'
 #' @description 
-#' This function adds a Website deployment badge to the `README.Rmd`. This 
-#' function must be run after [add_github_actions_pkgdown()] which will setup 
-#' GitHub Actions to build and deploy package website.
+#' This function adds a **Website** badge to the `README.Rmd`. This function 
+#' must be run after [add_github_actions_pkgdown()] which will setup 
+#' GitHub Actions to build and deploy the package website.
 #' 
-#' @param organisation a character of length 1
+#' Make sure that 1) a `README.Rmd` file exists at the project root and 2) it
+#' contains a block starting with the line `<!-- badges: start -->` and ending 
+#' with the line `<!-- badges: end -->`.
 #' 
-#'   The name of the GitHub organisation to host the package. If `NULL` 
-#'   (default) the GitHub account will be used.
+#' Don't forget to re-render the `README.md`.
 #' 
-#' @param quiet a logical value
+#' @param organisation A character of length 1. The name of the GitHub 
+#'   organisation to host the package. If `NULL` (default) the GitHub account 
+#'   will be used.
 #' 
-#'   If `TRUE` messages are deleted. Default is `FALSE`.
+#' @param quiet A logical value. If `TRUE` messages are deleted. Default is 
+#'   `FALSE`.
 #' 
-#' @return A Markdown badge expression
+#' @return A badge as a markdown expression.
 #'
 #' @export
 #' 
@@ -67,7 +71,7 @@ add_github_actions_pkgdown_badge <- function(organisation = NULL,
   
   ## Create Badge Markdown Expression ----
   
-  alt  <- "Website deployment"
+  alt  <- "Website"
   href <- paste("https://github.com", github, project_name, 
                 "actions/workflows/pkgdown.yaml", sep = "/")
   img  <- paste("https://github.com", github, project_name, 

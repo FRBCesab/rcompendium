@@ -1,20 +1,24 @@
 #' Add a Test coverage badge
 #'
 #' @description 
-#' This function adds a Test coverage badge to the `README.Rmd`. This function
-#' must be run after [add_github_actions_codecov()] which will setup GitHub 
-#' Actions to report the percentage of code cover by units tests.
+#' This function adds a **Test coverage** badge to the `README.Rmd`. This 
+#' function must be run after [add_github_actions_codecov()] which will setup 
+#' GitHub Actions to report the percentage of code cover by units tests.
 #' 
-#' @param organisation a character of length 1
+#' Make sure that 1) a `README.Rmd` file exists at the project root and 2) it
+#' contains a block starting with the line `<!-- badges: start -->` and ending 
+#' with the line `<!-- badges: end -->`.
 #' 
-#'   The name of the GitHub organisation to host the package. If `NULL` 
-#'   (default) the GitHub account will be used.
+#' Don't forget to re-render the `README.md`.
 #' 
-#' @param quiet a logical value
+#' @param organisation A character of length 1. The name of the GitHub 
+#'   organisation to host the package. If `NULL` (default) the GitHub account 
+#'   will be used.
 #' 
-#'   If `TRUE` messages are deleted. Default is `FALSE`.
+#' @param quiet A logical value. If `TRUE` messages are deleted. Default is 
+#'   `FALSE`.
 #' 
-#' @return A Markdown badge expression
+#' @return A badge as a markdown expression.
 #'
 #' @export
 #' 

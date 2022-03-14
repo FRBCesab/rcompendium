@@ -1,19 +1,24 @@
 #' Add a Dependencies badge
 #'
 #' @description 
-#' This function adds a dependencies badge to the `README.Rmd`. The first
-#' number corresponds to the direct dependencies and the second to the 
+#' This function adds or updates the **Dependencies** badge to the `README.Rmd`.
+#' The first number corresponds to the direct dependencies and the second to the
 #' recursive dependencies.
 #' 
-#' **Note/** this function can work with packages not published on the CRAN
+#' **Note:** this function can work with packages not published on the CRAN
 #' and is based on the function [gtools::getDependencies()]. See also the 
 #' function [get_all_dependencies()].
 #' 
-#' @param quiet a logical value
+#' Make sure that 1) a `README.Rmd` file exists at the project root and 2) it
+#' contains a block starting with the line `<!-- badges: start -->` and ending 
+#' with the line `<!-- badges: end -->`.
 #' 
-#'   If `TRUE` messages are deleted. Default is `FALSE`.
+#' Don't forget to re-render the `README.md`.
 #' 
-#' @return A Markdown badge expression
+#' @param quiet A logical value. If `TRUE` messages are deleted. Default is 
+#'   `FALSE`.
+#' 
+#' @return A badge as a markdown expression.
 #'
 #' @export
 #' 

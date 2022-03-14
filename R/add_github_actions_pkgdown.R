@@ -3,26 +3,22 @@
 #' @description 
 #' This function creates a configuration file (`.yaml`) to setup GitHub Actions 
 #' to automatically build and deploy the website using 
-#' [`pkgdown`](https://pkgdown.r-lib.org/index.html).
-#' This file will be written (from a template adapted from 
-#' [usethis::use_github_action()]) in the folder 
-#' `.github/workflows/pkgdown.yaml`. An additional empty file (`_pkgdown.yaml`)
-#' will also be written: it can be used to customize the website.
+#' [`pkgdown`](https://pkgdown.r-lib.org/index.html). This workflow is derived 
+#' from \url{https://github.com/r-lib/actions/tree/v2-branch/examples}.
+#' This file will be written as `.github/workflows/pkgdown.yaml`. 
+#' An additional empty file (`_pkgdown.yaml`) will also be written: it can be 
+#' used to customize the website.
 #' 
-#' @param open a logical value
+#' @param open A logical value. If `TRUE` (default) the file is opened in the 
+#'   editor.
 #' 
-#'   If `TRUE` (default) the file is opened in the editor.
-#' 
-#' @param overwrite a logical value
-#' 
-#'   If this file is already present and `overwrite = TRUE`, it will be erased 
-#'   and replaced. Default is `FALSE`.
+#' @param overwrite A logical value. If this file is already present and 
+#'   `overwrite = TRUE`, it will be erased and replaced. Default is `FALSE`.
 #'   
-#' @param quiet a logical value
+#' @param quiet A logical value. If `TRUE` messages are deleted. Default is 
+#'   `FALSE`.
 #' 
-#'   If `TRUE` messages are deleted. Default is `FALSE`.
-#' 
-#' @return None
+#' @return No return value.
 #'
 #' @export
 #' 

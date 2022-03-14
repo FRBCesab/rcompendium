@@ -7,27 +7,24 @@
 add_github_actions_codecov(open = FALSE, overwrite = FALSE, quiet = FALSE)
 }
 \arguments{
-\item{open}{a logical value
+\item{open}{A logical value. If \code{TRUE} (default) the file is opened in the
+editor.}
 
-If \code{TRUE} (default) the file is opened in the editor.}
+\item{overwrite}{A logical value. If this file is already present and
+\code{overwrite = TRUE}, it will be erased and replaced. Default is \code{FALSE}.}
 
-\item{overwrite}{a logical value
-
-If this file is already present and \code{overwrite = TRUE}, it will be erased
-and replaced. Default is \code{FALSE}.}
-
-\item{quiet}{a logical value
-
-If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
+\item{quiet}{A logical value. If \code{TRUE} messages are deleted. Default is
+\code{FALSE}.}
 }
 \value{
-None
+No return value.
 }
 \description{
 This function creates a configuration file (\code{.yaml}) to setup GitHub Actions
-to report code coverage when testing the package. This file will be added
-(from a template adapted from \code{\link[usethis:use_github_action]{usethis::use_github_action()}}) in the folder
-\code{.github/workflows/test-coverage.yaml}.
+to report code coverage when testing the package.
+This workflow is derived
+from \url{https://github.com/r-lib/actions/tree/v2-branch/examples}.
+This file will be written as \code{.github/workflows/test-coverage.yaml}.
 }
 \examples{
 \dontrun{

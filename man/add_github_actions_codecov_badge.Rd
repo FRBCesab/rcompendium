@@ -7,22 +7,26 @@
 add_github_actions_codecov_badge(organisation = NULL, quiet = FALSE)
 }
 \arguments{
-\item{organisation}{a character of length 1
+\item{organisation}{A character of length 1. The name of the GitHub
+organisation to host the package. If \code{NULL} (default) the GitHub account
+will be used.}
 
-The name of the GitHub organisation to host the package. If \code{NULL}
-(default) the GitHub account will be used.}
-
-\item{quiet}{a logical value
-
-If \code{TRUE} messages are deleted. Default is \code{FALSE}.}
+\item{quiet}{A logical value. If \code{TRUE} messages are deleted. Default is
+\code{FALSE}.}
 }
 \value{
-A Markdown badge expression
+A badge as a markdown expression.
 }
 \description{
-This function adds a Test coverage badge to the \code{README.Rmd}. This function
-must be run after \code{\link[=add_github_actions_codecov]{add_github_actions_codecov()}} which will setup GitHub
-Actions to report the percentage of code cover by units tests.
+This function adds a \strong{Test coverage} badge to the \code{README.Rmd}. This
+function must be run after \code{\link[=add_github_actions_codecov]{add_github_actions_codecov()}} which will setup
+GitHub Actions to report the percentage of code cover by units tests.
+
+Make sure that 1) a \code{README.Rmd} file exists at the project root and 2) it
+contains a block starting with the line \verb{<!-- badges: start -->} and ending
+with the line \verb{<!-- badges: end -->}.
+
+Don't forget to re-render the \code{README.md}.
 }
 \examples{
 \dontrun{

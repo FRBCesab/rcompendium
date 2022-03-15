@@ -154,12 +154,12 @@ add_sticker <- function(overwrite = FALSE, quiet = FALSE) {
   
   stop_if_not_logical(overwrite, quiet)
   
-  path <- file.path(path_proj(), "man", "figures", "hexsticker.png")
+  path <- file.path(path_proj(), "man", "figures", "package-sticker.png")
   
   if (file.exists(path) && !overwrite) {
     
-    stop("A 'man/figures/hexsticker.png' is already present. If you want to ",
-         "replace it, please use `overwrite = TRUE`.")
+    stop("A 'man/figures/package-sticker.png' is already present. If you want ",
+         "to replace it, please use `overwrite = TRUE`.")
   }
   
   
@@ -168,8 +168,31 @@ add_sticker <- function(overwrite = FALSE, quiet = FALSE) {
                recursive = TRUE)
     
   invisible(
-    file.copy(system.file(file.path("templates", "hexsticker.png"), 
+    file.copy(system.file(file.path("templates", "package-sticker.png"), 
                           package = "rcompendium"), path, overwrite = TRUE))
+  
+
+  if (!dir.exists(file.path(path_proj(), "inst", "package-sticker")))
+    dir.create(file.path(path_proj(), "inst", "package-sticker"), 
+               showWarnings = FALSE, recursive = TRUE)
+  
+  
+  path <- file.path(path_proj(), "inst", "package-sticker", "r_logo.png")
+  
+  if (!file.exists(path)) {
+    invisible(
+      file.copy(system.file(file.path("templates", "r_logo.png"), 
+                            package = "rcompendium"), path, overwrite = FALSE))
+  }
+  
+  
+  path <- file.path(path_proj(), "inst", "package-sticker", "package-sticker.R")
+  
+  if (!file.exists(path)) {
+    invisible(
+      file.copy(system.file(file.path("templates", "package-sticker.R"), 
+                            package = "rcompendium"), path, overwrite = FALSE))
+  }
   
   
   if (!quiet) {

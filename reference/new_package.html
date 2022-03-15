@@ -117,6 +117,7 @@ will be added in the <code>.github/</code> folder. See below the section
   gh_check <span class="op">=</span> <span class="cn">TRUE</span>,
   codecov <span class="op">=</span> <span class="cn">TRUE</span>,
   website <span class="op">=</span> <span class="cn">TRUE</span>,
+  gh_render <span class="op">=</span> <span class="cn">TRUE</span>,
   given <span class="op">=</span> <span class="cn">NULL</span>,
   family <span class="op">=</span> <span class="cn">NULL</span>,
   email <span class="op">=</span> <span class="cn">NULL</span>,
@@ -192,6 +193,11 @@ Actions to automatically build and deploy the package website
 after each push. A <strong>gh-pages</strong> branch will be created using
 <code><a href="https://usethis.r-lib.org/reference/use_github_pages.html" class="external-link">usethis::use_github_pages()</a></code> and the GitHub repository will be
 automatically configured to deploy website.</p>
+<p>If <code>create_repo = FALSE</code> this argument is ignored.</p></dd>
+<dt>gh_render</dt>
+<dd><p>A logical value. If <code>TRUE</code> (default) configures GitHub
+Actions to automatically knit the <code>README.Rmd</code> after each push.
+See <code><a href="add_github_actions_render.html">add_github_actions_render()</a></code> for further information.</p>
 <p>If <code>create_repo = FALSE</code> this argument is ignored.</p></dd>
 <dt>given</dt>
 <dd><p>A character vector of length 1. The given name of the

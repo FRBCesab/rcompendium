@@ -30,6 +30,8 @@ rcompendium <img src="man/figures/hexsticker.png" align="right" style="float:rig
 [![Dependencies](https://img.shields.io/badge/dependencies-11/77-red?style=flat)](#)
 <!-- badges: end -->
 
+
+
 In the area of open science, making reproducible analyses is a strong prerequisite.
 But sometimes it is difficult 1) to find the good structure to organize files 
 and 2) to set up the whole project. The aim of the package `rcompendium` is to 

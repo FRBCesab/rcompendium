@@ -157,13 +157,12 @@
 <p>The second main function of <code>rcompendium</code> is <code><a href="../reference/new_compendium.html">new_compendium()</a></code>. It will add the following files/folders to the previous content:</p>
 <pre><code>...
 ├── data/                       # User raw data (.csv, .gpkg, etc.)        
-├── rscripts/                   # R scripts (no functions) to run analyses 
+├── analyses/                   # R scripts (no functions) to run analyses 
 ├── outputs/                    # Outputs created by R scripts             
-├── figures/                    # Figures created by R scripts             
-└── paper/                      # Article based on analyses                
+└── figures/                    # Figures created by R scripts             
 │
 └── make.R                      # Master R scripts to run all analyses     </code></pre>
-<p>The folder <code>analysis/</code> and the file <code>make.R</code> will be added to the <code>.Rbuildignore</code> so that some parts of the compendium (essentially the R functions) can be installed as an R package (with <code><a href="https://devtools.r-lib.org/reference/install.html" class="external-link">devtools::install()</a></code>). Installing the package is optional.</p>
+<p>These folders and the file <code>make.R</code> will be added to the <code>.Rbuildignore</code> so that some parts of the compendium (essentially the R functions) can be used as an R package (with <code><a href="https://devtools.r-lib.org/reference/load_all.html" class="external-link">devtools::load_all()</a></code>).</p>
 <p><br></p>
 </div>
 <div class="section level2">
@@ -190,17 +189,17 @@
 <p>First ensure that <strong>GIT</strong> is correctly installed on your machine and linked to RStudio. Read the Chapter 6 of <a href="https://happygitwithr.com/install-git.html" class="external-link">Happy Git and GitHub for the useR</a>.</p>
 <p>You also need to store your GIT credentials locally (i.e. for the project) or globally (recommended). Run <code><a href="https://gh.r-lib.org/reference/gh_whoami.html" class="external-link">gh::gh_whoami()</a></code> to see if your git and associated credentials are correctly configured. If so you should see something like:</p>
 <pre><code>{
-"name": "John Doe",
-"login": "jdoe",
-"html_url": "https://github.com/jdoe",
-(...)
+  "name": "John Doe",
+  "login": "jdoe",
+  "html_url": "https://github.com/jdoe",
+  ...
 }</code></pre>
 <p>Otherwise you might need to run:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">gert</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/gert/reference/git_config.html" class="external-link">git_config_global</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"user.name"</span>,   value <span class="op">=</span> <span class="st">"John Doe"</span><span class="op">)</span>
-<span class="fu">gert</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/gert/reference/git_config.html" class="external-link">git_config_global</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"user.email"</span>,  value <span class="op">=</span> <span class="st">"john.doe@@domain.com"</span><span class="op">)</span>
-<span class="fu">gert</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/gert/reference/git_config.html" class="external-link">git_config_global</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"github.user"</span>, value <span class="op">=</span> <span class="st">"jdoe"</span><span class="op">)</span></code></pre></div>
-<p>See <code><a href="https://docs.ropensci.org/gert/reference/git_config.html" class="external-link">gert::git_config()</a></code> for further information.</p>
+<code class="sourceCode R"><span class="fu">gert</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/gert/reference/git_config.html" class="external-link">git_config_global_set</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"user.name"</span>,   value <span class="op">=</span> <span class="st">"John Doe"</span><span class="op">)</span>
+<span class="fu">gert</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/gert/reference/git_config.html" class="external-link">git_config_global_set</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"user.email"</span>,  value <span class="op">=</span> <span class="st">"john.doe@@domain.com"</span><span class="op">)</span>
+<span class="fu">gert</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/gert/reference/git_config.html" class="external-link">git_config_global_set</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"github.user"</span>, value <span class="op">=</span> <span class="st">"jdoe"</span><span class="op">)</span></code></pre></div>
+<p>See <code><a href="https://docs.ropensci.org/gert/reference/git_config.html" class="external-link">gert::git_config_global_set()</a></code> for further information.</p>
 </div>
 <div class="section level3">
 <h3 id="creating-a-github-repo">Creating a GitHub repo<a class="anchor" aria-label="anchor" href="#creating-a-github-repo"></a>
@@ -210,17 +209,17 @@
 <ol style="list-style-type: decimal">
 <li>Obtain a new one from your GitHub account. <strong>Make sure to select at least the first two scopes (private repository and workflow)</strong>
 </li>
-<li>Store this token in the <code>.Renviron</code> file by using <code><a href="https://usethis.r-lib.org/reference/edit.html" class="external-link">usethis::edit_r_environ()</a></code> and adding the following line: <code>GITHUB_PAT='99z9...z9'</code>
+<li>Store this token in the <code>.Renviron</code> file by using <code><a href="https://usethis.r-lib.org/reference/edit.html" class="external-link">usethis::edit_r_environ()</a></code> and adding the following line: <code>GITHUB_PAT='ghp_99z9...z9'</code>
 </li>
 </ol>
 <p>Run <code><a href="https://usethis.r-lib.org/reference/github-token.html" class="external-link">usethis::gh_token_help()</a></code> for more information about getting and configuring a <strong>GITHUB PAT</strong>.</p>
 <p>If everything is well configured, after calling <code><a href="https://gh.r-lib.org/reference/gh_whoami.html" class="external-link">gh::gh_whoami()</a></code> you should see something like:</p>
 <pre><code>{
-"name": "John Doe",
-"login": "jdoe",
-"html_url": "https://github.com/jdoe",
-"scopes": "delete_repo, repo, workflow",
-"token": "99z9...z9"
+  "name": "John Doe",
+  "login": "jdoe",
+  "html_url": "https://github.com/jdoe",
+  "scopes": "delete_repo, repo, workflow",
+  "token": "ghp_99z9...z9"
 }</code></pre>
 <p>Then you will be able to create a GitHub repository directly from R!</p>
 </div>

@@ -614,7 +614,7 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   ## Commit changes ----
   
   invisible(gert::git_add("."))
-  invisible(gert::git_commit(":tada: Initial commit"))
+  invisible(gert::git_commit("Init repo"))
 
   if (!quiet) {
     ui_done(paste0("Committing changes with the following message: ", 
@@ -741,7 +741,7 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   if (gh_check || codecov || gh_render || website) {
     
     invisible(gert::git_add("."))
-    invisible(gert::git_commit(":rocket: Configure GH Actions"))
+    invisible(gert::git_commit("Setup GHA"))
     
     if (!quiet) {
       
@@ -814,7 +814,7 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   ui_title("Committing changes")
   
   invisible(gert::git_add("."))
-  invisible(gert::git_commit(":art: Adding badges"))
+  invisible(gert::git_commit("Edit README"))
     
   if (!quiet) {
     

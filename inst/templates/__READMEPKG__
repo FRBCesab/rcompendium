@@ -14,7 +14,7 @@ knitr::opts_chunk$set(collapse  = TRUE,
 
 
 
-{{project_name}} <img src="man/figures/hexsticker.png" align="right" style="float:right; height:120px;"/>
+{{project_name}} <img src="man/figures/package-sticker.png" align="right" style="float:right; height:120px;"/>
 =========================================================
 
 <!-- badges: start -->

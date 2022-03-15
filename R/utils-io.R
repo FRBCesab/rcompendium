@@ -196,7 +196,8 @@ add_sticker <- function(overwrite = FALSE, quiet = FALSE) {
   
   
   if (!quiet) {
-    ui_done("Adding {ui_value('hexsticker.png')} to {ui_value('README.Rmd')}")
+    ui_done(paste0("Adding {ui_value('package-sticker.png')} to ", 
+                   "{ui_value('README.Rmd')}"))
   }
   
   invisible(NULL)

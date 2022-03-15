@@ -36,6 +36,7 @@ Other development functions:
 \code{\link{add_github_actions_check}()},
 \code{\link{add_github_actions_codecov}()},
 \code{\link{add_github_actions_pkgdown}()},
+\code{\link{add_github_actions_render}()},
 \code{\link{add_r_depend}()},
 \code{\link{add_to_gitignore}()}
 }

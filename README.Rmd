@@ -119,10 +119,9 @@ The default settings will produce the following structure:
 /
 /
 ├── data/                       # User raw data (.csv, .gpkg, etc.)        [¶]
-├── rscripts/                   # R scripts (no functions) to run analyses [¶]
+├── analyses/                   # R scripts (no functions) to run analyses [¶]
 ├── outputs/                    # Outputs created by R scripts             [¶]
-├── figures/                    # Figures created by R scripts             [¶]
-└── paper/                      # Article based on analyses                [¶]
+└── figures/                    # Figures created by R scripts             [¶]
 │
 └── make.R                      # Master R scripts to run all analyses     [¶]
 

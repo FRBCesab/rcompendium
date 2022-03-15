@@ -70,10 +70,10 @@ add_lifecycle_badge <- function(lifecycle = "experimental", quiet = FALSE) {
   ## Create Badge Markdown Expression ----
   
   color <- switch(lifecycle,
-                  `stable`      = "green",
-                  `exprimental` = "orange",
-                  `deprecated`  = "orange",
-                  `superseded`  = "blue")
+                  `stable`       = "green",
+                  `experimental` = "orange",
+                  `deprecated`   = "orange",
+                  `superseded`   = "blue")
   
   alt  <- "LifeCycle"
   

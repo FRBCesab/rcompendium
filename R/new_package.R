@@ -89,6 +89,12 @@
 #'   for further information. 
 #'   
 #'   If `create_repo = FALSE` this argument is ignored.
+#'   
+#' @param gh_render A logical value. If `TRUE` (default) configures GitHub 
+#'   Actions to automatically knit the `README.Rmd` after each push. 
+#'   See [add_github_actions_render()] for further information. 
+#'   
+#'   If `create_repo = FALSE` this argument is ignored.
 #' 
 #' @param codecov A logical value. If `TRUE` (default) configures GitHub 
 #'   Actions to automatically report the code coverage of units tests after 
@@ -278,9 +284,9 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
                         lifecycle = "experimental", vignette = TRUE, 
                         test = TRUE, create_repo = TRUE, private = FALSE, 
                         gh_check = TRUE, codecov = TRUE, website = TRUE, 
-                        given = NULL, family = NULL, email = NULL, 
-                        orcid = NULL, organisation = NULL, overwrite = FALSE, 
-                        quiet = FALSE) {
+                        gh_render = TRUE, given = NULL, family = NULL, 
+                        email = NULL, orcid = NULL, organisation = NULL, 
+                        overwrite = FALSE, quiet = FALSE) {
   
   
   ## If not RStudio ----
@@ -678,6 +684,25 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
     add_to_buildignore(".github", quiet = quiet)
   }
   
+  
+  
+  ##
+  ## CONFIGURING GITHUB ACTIONS ----
+  ## 
+  
+  
+  
+  if (gh_render) {
+    
+    ui_title("Configuring GH Actions - Render README")
+    
+    
+    ## R-CMD-Check ----
+    
+    add_github_actions_render(quiet = quiet)
+    add_to_buildignore(".github", quiet = quiet)
+  }
+  
 
   
   ##
@@ -713,7 +738,7 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   
   ui_title("Committing changes")
   
-  if (gh_check || codecov || website) {
+  if (gh_check || codecov || gh_render || website) {
     
     invisible(gert::git_add("."))
     invisible(gert::git_commit(":rocket: Configure GH Actions"))

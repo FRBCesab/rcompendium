@@ -149,15 +149,16 @@ and pay attention to the sections
 and
 [Usage](https://frbcesab.github.io/rcompendium/articles/rcompendium.html#usage)
 
-:boom: This [package](https://github.com/ahasverus/pkgtest) was created
+:boom: This [package](https://github.com/ahasverus/rpackage) was created
 by running:
 
 ``` r
 rcompendium::new_package()
 ```
 
-:boom: This [research compendium](https://github.com/ahasverus/comptest)
-was created by running:
+:boom: This [research
+compendium](https://github.com/ahasverus/rcompendium) was created by
+running:
 
 ``` r
 rcompendium::new_compendium()

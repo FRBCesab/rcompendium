@@ -70,7 +70,7 @@ add_makefile <- function(given = NULL, family = NULL, email = NULL,
   ## Copy Template ----
   
   invisible(
-    file.copy(system.file(file.path("templates", "__MAKE__"), 
+    file.copy(system.file(file.path("templates", "make.R"), 
                           package = "rcompendium"), path, overwrite = TRUE))
   
   

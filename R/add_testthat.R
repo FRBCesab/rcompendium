@@ -28,7 +28,7 @@ add_testthat <- function() {
     if (!file.exists(path)) {
       
       invisible(
-        file.copy(system.file(file.path("templates", "__TESTDEMO__"), 
+        file.copy(system.file(file.path("templates", "test-demo.R"), 
                               package = "rcompendium"), path, 
                   overwrite = TRUE)) 
     }

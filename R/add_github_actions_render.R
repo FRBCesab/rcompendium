@@ -65,7 +65,7 @@ add_github_actions_render <- function(open = FALSE, overwrite = FALSE,
              showWarnings = FALSE, recursive = TRUE)
   
   invisible(
-    file.copy(system.file(file.path("templates", "__RENDERRMD__"), 
+    file.copy(system.file(file.path("templates", "render-README.yaml"), 
                           package = "rcompendium"), path))
   
   

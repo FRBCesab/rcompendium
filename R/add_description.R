@@ -97,7 +97,7 @@ add_description <- function(given = NULL, family = NULL, email = NULL,
   ## Copy Template ----
   
   invisible(
-    file.copy(system.file(file.path("templates", "__DESCRIPTION__"), 
+    file.copy(system.file(file.path("templates", "DESCRIPTION"), 
                           package = "rcompendium"), path, overwrite = TRUE))
   
   

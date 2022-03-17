@@ -90,7 +90,7 @@ add_vignette <- function(filename = NULL, title = NULL, open = TRUE,
     dir.create(file.path(path_proj(), "vignettes"), showWarnings = FALSE)
   
   invisible(
-    file.copy(system.file(file.path("templates", "__VIGNETTE__"), 
+    file.copy(system.file(file.path("templates", "package-vignette.Rmd"), 
                           package = "rcompendium"), path, overwrite = TRUE))
   
   

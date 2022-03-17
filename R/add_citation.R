@@ -93,7 +93,7 @@ add_citation <- function(given = NULL, family = NULL, organisation = NULL,
     dir.create(file.path(path_proj(), "inst"), showWarnings = FALSE)
 
   invisible(
-    file.copy(system.file(file.path("templates", "__CITATION__"), 
+    file.copy(system.file(file.path("templates", "citation"), 
                           package = "rcompendium"), path, overwrite = TRUE))
 
 

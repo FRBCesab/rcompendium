@@ -105,12 +105,12 @@ add_readme_rmd <- function(type = "package", given = NULL, family = NULL,
   if (type == "package") {
     
     invisible(
-      file.copy(system.file(file.path("templates", "__READMEPKG__"),
+      file.copy(system.file(file.path("templates", "README-pkg.Rmd"),
                             package = "rcompendium"), path, overwrite = TRUE))
   } else {
     
     invisible(
-      file.copy(system.file(file.path("templates", "__READMERC__"),
+      file.copy(system.file(file.path("templates", "README-comp.Rmd"),
                             package = "rcompendium"), path, overwrite = TRUE))
   }
     

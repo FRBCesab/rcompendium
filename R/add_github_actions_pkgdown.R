@@ -65,7 +65,7 @@ add_github_actions_pkgdown <- function(open = FALSE, overwrite = FALSE,
              showWarnings = FALSE, recursive = TRUE)
   
   invisible(
-    file.copy(system.file(file.path("templates", "__PKGDOWN__"), 
+    file.copy(system.file(file.path("templates", "pkgdown.yaml"), 
                           package = "rcompendium"), path))
   
   

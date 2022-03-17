@@ -528,7 +528,7 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   if (!file.exists(file.path(path_proj(), "R", "fun-demo.R"))) {
     
     invisible(
-      file.copy(system.file(file.path("templates", "__RDEMO__"), 
+      file.copy(system.file(file.path("templates", "fun-demo.R"), 
                             package = "rcompendium"), 
                 file.path(path_proj(), "R", "fun-demo.R"), 
                 overwrite = overwrite)) 

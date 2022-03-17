@@ -70,7 +70,7 @@ add_github_actions_check <- function(open = FALSE, overwrite = FALSE,
              showWarnings = FALSE, recursive = TRUE)
 
   invisible(
-    file.copy(system.file(file.path("templates", "__RCMDCHECK__"), 
+    file.copy(system.file(file.path("templates", "R-CMD-check.yaml"), 
                           package = "rcompendium"), path))
 
   

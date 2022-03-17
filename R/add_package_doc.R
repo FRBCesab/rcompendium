@@ -56,7 +56,7 @@ add_package_doc <- function(open = TRUE, overwrite = FALSE, quiet = FALSE) {
     dir.create(file.path(path_proj(), "R"), showWarnings = FALSE)
   
   invisible(
-    file.copy(system.file(file.path("templates", "__INDEX__"), 
+    file.copy(system.file(file.path("templates", "package-package.R"), 
                           package = "rcompendium"), path, overwrite = TRUE))
   
   

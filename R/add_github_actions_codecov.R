@@ -64,7 +64,7 @@ add_github_actions_codecov <- function(open = FALSE, overwrite = FALSE,
              showWarnings = FALSE, recursive = TRUE)
   
   invisible(
-    file.copy(system.file(file.path("templates", "__CODECOV__"), 
+    file.copy(system.file(file.path("templates", "test-coverage.yaml"), 
                           package = "rcompendium"), path))
   
   

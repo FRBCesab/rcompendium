@@ -16,6 +16,7 @@ to easily change the hexSticker
 * For compendium: rename `rscripts/` folder to `analyses/`
 * For compendium: delete `paper/` folder
 * Review and improve documentation and vignette
+* Rename templates file names
 
 
 # rcompendium 0.5.1

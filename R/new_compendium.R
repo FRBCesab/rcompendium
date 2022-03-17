@@ -82,6 +82,11 @@
 #'   Package [`testthat`](https://testthat.r-lib.org) is also added to the 
 #'   `Suggests` field in the `DESCRIPTION` file. Default is `FALSE`.
 #' 
+#' @param renv A logical value. If `TRUE` initializes an `renv` environment for 
+#'   the project by running [renv::init()]. 
+#'   Package [`renv`](https://rstudio.github.io/renv/) is also added to the 
+#'   `Imports` field in the `DESCRIPTION` file. Default is `FALSE`.
+#'   
 #' @param create_repo A logical value. If `TRUE` (default) creates a repository 
 #'   (public if `private = FALSE` or private if `private = TRUE`) on GitHub. 
 #'   See the section **Creating a GitHub repo** of the help page of 
@@ -179,7 +184,7 @@ new_compendium <- function(compendium = ".", license = "GPL (>= 2)",
                            test = FALSE, create_repo = TRUE, private = FALSE, 
                            gh_check = FALSE, codecov = FALSE, website = FALSE, 
                            given = NULL, family = NULL, email = NULL, 
-                           orcid = NULL, organisation = NULL, 
+                           orcid = NULL, organisation = NULL, renv = FALSE,
                            overwrite = FALSE, quiet = FALSE) { 
   
   ## If not RStudio ----
@@ -325,6 +330,10 @@ new_compendium <- function(compendium = ".", license = "GPL (>= 2)",
   }
   
   
+  ## Check renv ----
+  
+  stop_if_not_logical(renv)
+  
   
   ## ... End of Checks ----
   
@@ -443,7 +452,8 @@ new_compendium <- function(compendium = ".", license = "GPL (>= 2)",
   add_compendium(compendium)
   ui_line()
   
-  add_makefile(given, family, email, open = FALSE, overwrite = overwrite, quiet = quiet)
+  add_makefile(given, family, email, open = FALSE, overwrite = overwrite, 
+               quiet = quiet)
   
   
   
@@ -471,6 +481,20 @@ new_compendium <- function(compendium = ".", license = "GPL (>= 2)",
     ui_title("Adding Vignette")
     
     add_vignette(open = FALSE, overwrite = overwrite, quiet = quiet)
+  }
+  
+  
+  
+  ##
+  ## INITALIZE RENV ----
+  ## 
+  
+  
+  if (renv) {
+    
+    ui_title("Initializing renv")
+    
+    add_renv(quiet)
   }
   
   

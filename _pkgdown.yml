@@ -35,6 +35,7 @@ reference:
   - add_readme_rmd
   - add_compendium
   - add_makefile
+  - add_renv
 
 - title: README badges
   desc: |

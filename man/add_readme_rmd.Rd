@@ -60,6 +60,7 @@ Other create files:
 \code{\link{add_license}()},
 \code{\link{add_makefile}()},
 \code{\link{add_package_doc}()},
+\code{\link{add_renv}()},
 \code{\link{add_testthat}()},
 \code{\link{add_vignette}()}
 }

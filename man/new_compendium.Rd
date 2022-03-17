@@ -21,6 +21,7 @@ new_compendium(
   email = NULL,
   orcid = NULL,
   organisation = NULL,
+  renv = FALSE,
   overwrite = FALSE,
   quiet = FALSE
 )
@@ -130,6 +131,11 @@ For further information see \code{\link[=set_credentials]{set_credentials()}}.}
 to host the repository. If defined it will overwrite the GitHub pseudo.
 
 Default is \code{organisation = NULL} (the GitHub pseudo will be used).}
+
+\item{renv}{A logical value. If \code{TRUE} initializes an \code{renv} environment for
+the project by running \code{\link[renv:init]{renv::init()}}.
+Package \href{https://rstudio.github.io/renv/}{\code{renv}} is also added to the
+\code{Imports} field in the \code{DESCRIPTION} file. Default is \code{FALSE}.}
 
 \item{overwrite}{A logical value. If \code{TRUE} files written from templates and
 modified by user are erased. Default is \code{overwrite = FALSE}.

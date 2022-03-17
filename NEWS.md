@@ -1,7 +1,22 @@
 # rcompendium (development version)
 
-* Function `add_lifecycle_badge()` does not copy SVG in project. The image badge
-is created using https://shields.io/ now.
+* New feature: `add_github_actions_render()` will automatically render
+the `README.md` on GitHub server after each push. This action is triggered
+only if the `README.Rmd` has been modified since the last commit.
+* Function `add_lifecycle_badge()` does not copy badge SVG in the project 
+anymore. The image badge is now created using https://shields.io/.
+* Update GHA templates. They are now derived from:
+https://github.com/r-lib/actions/tree/v2-branch/examples
+* Rename default vignette title (title is now _Get Started_)
+* Add `cph` (copyright holder) tag in `DESCRIPTION` file
+* Change default package hexSticker and add R script in `inst/package-sticker/` 
+to easily change the hexSticker
+* Rename commits messages (and remove emoji)
+* For compendium: arguments `gh_check` and `website` are now `FALSE` by default
+* For compendium: rename `rscripts/` folder to `analyses/`
+* For compendium: delete `paper/` folder
+* Review and improve documentation and vignette
+
 
 # rcompendium 0.5.1
 

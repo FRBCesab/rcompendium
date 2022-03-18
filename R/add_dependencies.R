@@ -180,6 +180,7 @@ add_dependencies <- function(compendium = NULL) {
   ## Dependencies in DEPENDS ----
   
   pkgs_in_depends <- get_deps_in_depends()
+  pkgs_in_depends <- pkgs_in_depends[!(pkgs_in_depends %in% c("base", "tools"))]
   
   ui_done("Scanning {ui_value('Depends')} dependencies")
   
@@ -218,6 +219,9 @@ add_dependencies <- function(compendium = NULL) {
     }
     
     # Message
+    pkgs_in_imports <- pkgs_in_imports[!(pkgs_in_imports %in% c("base", 
+                                                                "tools"))]
+    
     ui_line(paste0("  {clisymbols::symbol$radio_on} Found ", 
                    "{ui_value(length(pkgs_in_imports))} package(s)")) 
     
@@ -262,6 +266,10 @@ add_dependencies <- function(compendium = NULL) {
     
     
     # Message
+    
+    pkgs_in_suggests <- pkgs_in_suggests[!(pkgs_in_suggests %in% c("base", 
+                                                                   "tools"))]
+    
     ui_line(paste0("  {clisymbols::symbol$radio_on} Found ", 
                    "{ui_value(length(pkgs_in_suggests))} package(s)"))
     

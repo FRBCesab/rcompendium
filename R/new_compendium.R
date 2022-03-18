@@ -102,7 +102,13 @@
 #'   for further information. 
 #'   
 #'   If `create_repo = FALSE` this argument is ignored. Default is `FALSE`.
-#' 
+#'   
+#' @param gh_render A logical value. If `TRUE` configures GitHub 
+#'   Actions to automatically knit the `README.Rmd` after each push. 
+#'   See [add_github_actions_render()] for further information. 
+#'   
+#'   If `create_repo = FALSE` this argument is ignored. Default is `FALSE`.
+#'   
 #' @param codecov A logical value. If `TRUE` configures GitHub Actions to 
 #'   automatically report the code coverage of units tests after each push. 
 #'   See [add_github_actions_codecov()] for further information. 
@@ -183,9 +189,9 @@ new_compendium <- function(compendium = ".", license = "GPL (>= 2)",
                            status = NULL, lifecycle = NULL, vignette = FALSE, 
                            test = FALSE, create_repo = TRUE, private = FALSE, 
                            gh_check = FALSE, codecov = FALSE, website = FALSE, 
-                           given = NULL, family = NULL, email = NULL, 
-                           orcid = NULL, organisation = NULL, renv = FALSE,
-                           overwrite = FALSE, quiet = FALSE) { 
+                           gh_render = FALSE, given = NULL, family = NULL, 
+                           email = NULL, orcid = NULL, organisation = NULL, 
+                           renv = FALSE, overwrite = FALSE, quiet = FALSE) { 
   
   ## If not RStudio ----
   
@@ -294,9 +300,10 @@ new_compendium <- function(compendium = ".", license = "GPL (>= 2)",
     
   } else {
     
-    gh_check <- FALSE
-    codecov  <- FALSE
-    website  <- FALSE
+    gh_check  <- FALSE
+    codecov   <- FALSE
+    website   <- FALSE
+    gh_render <- FALSE
   }
   
   
@@ -559,7 +566,7 @@ new_compendium <- function(compendium = ".", license = "GPL (>= 2)",
   
   if (!quiet) {
     ui_done(paste0("Committing changes with the following message: ", 
-                   "{ui_value('Initial commit')}"))
+                   "{ui_value('Init repo')}"))
   }
   
   
@@ -590,7 +597,7 @@ new_compendium <- function(compendium = ".", license = "GPL (>= 2)",
   
   
   ##
-  ## CONFIGURING GITHUB ACTIONS ----
+  ## GHA R-CMD-Check ----
   ## 
   
   
@@ -599,18 +606,14 @@ new_compendium <- function(compendium = ".", license = "GPL (>= 2)",
     
     ui_title("Configuring GH Actions - R CMD CHECK")
     
-    
-    ## R-CMD-Check ----
-    
     add_github_actions_check(quiet = quiet)
     add_to_buildignore(".github", quiet = quiet)
-    
   }
   
   
   
   ##
-  ## CONFIGURING CODE COVERAGE ----
+  ## GHA Code coverage ----
   ## 
   
   
@@ -619,9 +622,6 @@ new_compendium <- function(compendium = ".", license = "GPL (>= 2)",
     
     ui_title("Configuring GH Actions - Code Coverage")
     
-    
-    ## R-CMD-Check ----
-    
     add_github_actions_codecov(quiet = quiet)
     add_to_buildignore(".github", quiet = quiet)
   }
@@ -629,19 +629,30 @@ new_compendium <- function(compendium = ".", license = "GPL (>= 2)",
   
   
   ##
-  ## DEPLOYING WEBSITE ----
+  ## GHA Render README ----
   ## 
   
   
   
-  ## Deploy website ----
+  if (gh_render) {
+    
+    ui_title("Configuring GH Actions - Render README")
+    
+    add_github_actions_render(quiet = quiet)
+    add_to_buildignore(".github", quiet = quiet)
+  }
+  
+  
+  
+  ##
+  ## GHA Website deployment ----
+  ## 
+  
+  
   
   if (website) {
     
     ui_title("Configuring GH Actions - Website deployment")
-    
-    
-    ## Add pkgdown with GH Actions config file ----
     
     add_github_actions_pkgdown()
     add_to_buildignore(".github", quiet = quiet)
@@ -659,7 +670,7 @@ new_compendium <- function(compendium = ".", license = "GPL (>= 2)",
   
   
   
-  if (gh_check || codecov || website) {
+  if (gh_check || codecov || website || gh_render) {
     
     ui_title("Committing changes")
     
@@ -669,7 +680,7 @@ new_compendium <- function(compendium = ".", license = "GPL (>= 2)",
     if (!quiet) {
       
       ui_done(paste0("Committing changes with the following message: ", 
-                     "{ui_value('Configure GH Actions')}"))
+                     "{ui_value('Setup GHA')}"))
     }
   }
   
@@ -741,7 +752,7 @@ new_compendium <- function(compendium = ".", license = "GPL (>= 2)",
   if (!quiet) {
     
     ui_done(paste0("Committing changes with the following message: ", 
-                   "{ui_value('Adding badges')}"))
+                   "{ui_value('Edit README')}"))
   }
   
   

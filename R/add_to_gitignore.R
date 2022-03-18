@@ -39,7 +39,7 @@ add_to_gitignore <- function(x, open = FALSE, quiet = FALSE) {
   if (!file.exists(path)) {
     
     invisible(
-      file.copy(system.file(file.path("templates", ".gitignore"), 
+      file.copy(system.file(file.path("templates", "gitignore"), 
                             package = "rcompendium"), path))
     
     if (!quiet) ui_done("Writing {ui_value('.gitignore')} file")

@@ -16,6 +16,7 @@ new_compendium(
   gh_check = FALSE,
   codecov = FALSE,
   website = FALSE,
+  gh_render = FALSE,
   given = NULL,
   family = NULL,
   email = NULL,
@@ -100,6 +101,12 @@ Actions to automatically build and deploy the package website
 after each push. A \strong{gh-pages} branch will be created using
 \code{\link[usethis:use_github_pages]{usethis::use_github_pages()}} and the GitHub repository will be
 automatically configured to deploy website.
+
+If \code{create_repo = FALSE} this argument is ignored. Default is \code{FALSE}.}
+
+\item{gh_render}{A logical value. If \code{TRUE} configures GitHub
+Actions to automatically knit the \code{README.Rmd} after each push.
+See \code{\link[=add_github_actions_render]{add_github_actions_render()}} for further information.
 
 If \code{create_repo = FALSE} this argument is ignored. Default is \code{FALSE}.}
 

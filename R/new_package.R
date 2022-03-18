@@ -398,9 +398,10 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
     
   } else {
     
-    gh_check <- FALSE
-    codecov  <- FALSE
-    website  <- FALSE
+    gh_check  <- FALSE
+    codecov   <- FALSE
+    website   <- FALSE
+    gh_render <- FALSE
   }
   
   
@@ -618,7 +619,7 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
 
   if (!quiet) {
     ui_done(paste0("Committing changes with the following message: ", 
-                   "{ui_value('Initial commit')}"))
+                   "{ui_value('Init repo')}"))
   }
   
   
@@ -649,7 +650,7 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   
   
   ##
-  ## CONFIGURING GITHUB ACTIONS ----
+  ## GHA R-CMD-Check ----
   ## 
   
   
@@ -658,9 +659,6 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
     
     ui_title("Configuring GH Actions - R CMD CHECK")
     
-    
-    ## R-CMD-Check ----
-    
     add_github_actions_check(quiet = quiet)
     add_to_buildignore(".github", quiet = quiet)
   }
@@ -668,7 +666,7 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   
   
   ##
-  ## CONFIGURING CODE COVERAGE ----
+  ## GHA Code coverage ----
   ## 
   
   
@@ -677,9 +675,6 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
     
     ui_title("Configuring GH Actions - Code Coverage")
     
-    
-    ## R-CMD-Check ----
-    
     add_github_actions_codecov(quiet = quiet)
     add_to_buildignore(".github", quiet = quiet)
   }
@@ -687,7 +682,7 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   
   
   ##
-  ## CONFIGURING GITHUB ACTIONS ----
+  ## GHA Render README ----
   ## 
   
   
@@ -696,9 +691,6 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
     
     ui_title("Configuring GH Actions - Render README")
     
-    
-    ## R-CMD-Check ----
-    
     add_github_actions_render(quiet = quiet)
     add_to_buildignore(".github", quiet = quiet)
   }
@@ -706,19 +698,14 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
 
   
   ##
-  ## DEPLOYING WEBSITE ----
+  ## GHA Website deployment ----
   ## 
   
-  
 
-  ## Deploy website ----
   
   if (website) {
     
     ui_title("Configuring GH Actions - Website deployment")
-    
-    
-    ## Add pkgdown with GH Actions config file ----
     
     add_github_actions_pkgdown()
     add_to_buildignore(".github", quiet = quiet)
@@ -746,7 +733,7 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
     if (!quiet) {
       
       ui_done(paste0("Committing changes with the following message: ", 
-                     "{ui_value('Configure GH Actions')}"))
+                     "{ui_value('Setup GHA')}"))
     }
   }
   
@@ -819,7 +806,7 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   if (!quiet) {
     
     ui_done(paste0("Committing changes with the following message: ", 
-                   "{ui_value('Adding badges')}"))
+                   "{ui_value('Edit README')}"))
   }
 
 
@@ -847,7 +834,6 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   
   ui_line()
   
-  ui_todo("Refresh your package with {ui_code('refresh()')}")
   ui_todo("...and commit your changes!")
   
   invisible(NULL)

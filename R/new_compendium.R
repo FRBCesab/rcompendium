@@ -418,9 +418,9 @@ new_compendium <- function(compendium = ".", license = "GPL (>= 2)",
   ## Package doc bonus ----
   
   add_package_doc(open = FALSE, overwrite = overwrite, quiet = quiet)
-  
-  add_citation(given, family, organisation, open = FALSE, 
-               overwrite = overwrite, quiet = quiet)
+
+  # add_citation(given, family, organisation, open = FALSE, 
+  #              overwrite = overwrite, quiet = quiet)
   
   
   ## Demo R function ----
@@ -760,7 +760,6 @@ new_compendium <- function(compendium = ".", license = "GPL (>= 2)",
   ui_title("What's next?")
   
   ui_todo("Edit project metadata in {ui_value('DESCRIPTION')}")
-  ui_todo("Edit project citation in {ui_value('inst/CITATION')}")
   ui_todo("Edit project description in {ui_value('README.Rmd')}")
   ui_todo("Write your R functions in the {ui_value('R/')} directory")
   
@@ -769,7 +768,7 @@ new_compendium <- function(compendium = ".", license = "GPL (>= 2)",
                    "{ui_value('tests/testthat/')} directory"))
   ui_line()
   ui_todo("Put your data in {ui_value('data/')} directory")
-  ui_todo("Write your R scripts in the {ui_value('rscripts/')} directory")
+  ui_todo("Write your R scripts in the {ui_value('analyses/')} directory")
   ui_todo("Export your outputs in the {ui_value('outputs/')} directory")
   ui_todo("Export your figures in the {ui_value('figures/')} directory")
   ui_line()

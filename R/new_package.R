@@ -736,9 +736,9 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   
   
   
-  ui_title("Committing changes")
-  
   if (gh_check || codecov || gh_render || website) {
+    
+    ui_title("Committing changes")
     
     invisible(gert::git_add("."))
     invisible(gert::git_commit("Setup GHA"))

@@ -38,7 +38,6 @@ add_renv <- function(quiet = FALSE) {
 
     if (!quiet) {
       
-      ui_line()
       ui_done("Creating {ui_value('renv/')}")
       ui_done("Writing {ui_value('.Rprofile')}")
       ui_done("Writing {ui_value('renv.lock')}")

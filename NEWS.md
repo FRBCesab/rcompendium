@@ -1,8 +1,11 @@
 # rcompendium (development version)
 
+* New feature: `add_renv()` initialize `renv` environment in compendium (new 
+argument `renv` in `new_compendium()`)
 * New feature: `add_github_actions_render()` will automatically render
 the `README.md` on GitHub server after each push. This action is triggered
-only if the `README.Rmd` has been modified since the last commit.
+only if the `README.Rmd` has been modified since the last commit. Also
+add new argument `gh_render` in `new_*()` functions.
 * Function `add_lifecycle_badge()` does not copy badge SVG in the project 
 anymore. The image badge is now created using https://shields.io/.
 * Update GHA templates. They are now derived from:

@@ -63,14 +63,22 @@ add_compendium <- function(compendium = ".") {
   if (!dir.exists(file.path(path, "data"))) {
     
     dir.create(file.path(path, "data"), recursive = TRUE)
+    dir.create(file.path(path, "data", "raw-data"), recursive = TRUE)
+    dir.create(file.path(path, "data", "derived-data"), recursive = TRUE)
     
     readme <- c("# README",
                 "", 
                 "This folder contains all raw data.", 
-                paste0("**NEVER** modify these data: modified data must be ", 
-                       "exported in the outputs/ folder."))
+                "**Do not** modify these data")
     
-    writeLines(readme, con = file.path(path, "data", "README.md"))
+    writeLines(readme, con = file.path(path, "data", "raw-data", "README.md"))
+    
+    readme <- c("# README",
+                "", 
+                "This folder contains all derived data.")
+    
+    writeLines(readme, con = file.path(path, "data", "derived-data", 
+                                       "README.md"))
     
     
     if (!is.null(compendium)) {
@@ -104,8 +112,7 @@ add_compendium <- function(compendium = ".") {
     
     readme <- c("# README",
                 "", 
-                paste0("This folder contains all results created by user ", 
-                       "(including modified raw data)."))
+                "This folder contains all your results")
     
     writeLines(readme, con = file.path(path, "outputs", "README.md"))
     
@@ -135,7 +142,7 @@ add_compendium <- function(compendium = ".") {
     
     readme <- c("# README",
                 "", 
-                paste0("This folder contains all figures created by user."))
+                "This folder contains all your figures")
     
     writeLines(readme, con = file.path(path, "figures", "README.md"))
     
@@ -165,7 +172,7 @@ add_compendium <- function(compendium = ".") {
     
     readme <- c("# README",
                 "", 
-                paste0("This folder contains all analyses of the project."),
+                "This folder contains all your analyses of the project.",
                 paste0("It contains only R scripts (R functions must be ", 
                        "stored in the R/ folder)."))
     

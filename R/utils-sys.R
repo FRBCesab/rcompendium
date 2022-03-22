@@ -128,6 +128,7 @@ proj_in_proj <- function() {
   for (i in 1:(length(paths) - 1)) {
     
     recursive_path <- paste0(paths[1:i], collapse = .Platform$file.sep)
+    recursive_path <- paste0(recursive_path, .Platform$file.sep)
     
     if (length(list.files(recursive_path, pattern = "\\.Rproj$"))) 
       stop("You have created an 'RStudio Project' inside a folder that ", 

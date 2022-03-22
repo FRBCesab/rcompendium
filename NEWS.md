@@ -20,6 +20,7 @@ to easily change the hexSticker
 * For compendium: delete `paper/` folder
 * Review and improve documentation and vignette
 * Rename templates file names
+* Fix bug: detection of nested RStudio projects
 
 
 # rcompendium 0.5.1

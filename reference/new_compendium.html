@@ -131,6 +131,7 @@ project (e.g. R functions) can be used (or installed) as a R package.</p>
   orcid <span class="op">=</span> <span class="cn">NULL</span>,
   organisation <span class="op">=</span> <span class="cn">NULL</span>,
   renv <span class="op">=</span> <span class="cn">FALSE</span>,
+  dockerfile <span class="op">=</span> <span class="cn">FALSE</span>,
   overwrite <span class="op">=</span> <span class="cn">FALSE</span>,
   quiet <span class="op">=</span> <span class="cn">FALSE</span>
 <span class="op">)</span></code></pre></div>
@@ -240,6 +241,9 @@ to host the repository. If defined it will overwrite the GitHub pseudo.</p>
 the project by running <code><a href="https://rstudio.github.io/renv/reference/init.html" class="external-link">renv::init()</a></code>.
 Package <a href="https://rstudio.github.io/renv/" class="external-link"><code>renv</code></a> is also added to the
 <code>Imports</code> field in the <code>DESCRIPTION</code> file. Default is <code>FALSE</code>.</p></dd>
+<dt>dockerfile</dt>
+<dd><p>A logical value. If <code>TRUE</code> creates an <code>Dockerfile</code> for
+the project. See <code><a href="add_dockerfile.html">add_dockerfile()</a></code> for further detail. Default is <code>FALSE</code>.</p></dd>
 <dt>overwrite</dt>
 <dd><p>A logical value. If <code>TRUE</code> files written from templates and
 modified by user are erased. Default is <code>overwrite = FALSE</code>.

@@ -1,0 +1,19 @@
+# macOS files ----
+.DS_Store
+
+# Large files ----
+.git
+renv/library
+renv/local
+
+# History files ----
+.Rhistory
+.Rapp.history
+
+# Session Data files ----
+.RData
+.Ruserdata
+
+# RStudio files ----
+*.Rproj
+.Rproj.user/

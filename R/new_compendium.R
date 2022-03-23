@@ -87,6 +87,9 @@
 #'   Package [`renv`](https://rstudio.github.io/renv/) is also added to the 
 #'   `Imports` field in the `DESCRIPTION` file. Default is `FALSE`.
 #'   
+#' @param dockerfile A logical value. If `TRUE` creates an `Dockerfile` for 
+#'   the project. See [add_dockerfile()] for further detail. Default is `FALSE`.
+#'   
 #' @param create_repo A logical value. If `TRUE` (default) creates a repository 
 #'   (public if `private = FALSE` or private if `private = TRUE`) on GitHub. 
 #'   See the section **Creating a GitHub repo** of the help page of 
@@ -191,7 +194,8 @@ new_compendium <- function(compendium = ".", license = "GPL (>= 2)",
                            gh_check = FALSE, codecov = FALSE, website = FALSE, 
                            gh_render = FALSE, given = NULL, family = NULL, 
                            email = NULL, orcid = NULL, organisation = NULL, 
-                           renv = FALSE, overwrite = FALSE, quiet = FALSE) { 
+                           renv = FALSE, dockerfile = FALSE,overwrite = FALSE, 
+                           quiet = FALSE) { 
   
   ## If not RStudio ----
   
@@ -502,6 +506,20 @@ new_compendium <- function(compendium = ".", license = "GPL (>= 2)",
     ui_title("Initializing renv")
     
     add_renv(quiet)
+  }
+  
+  
+  
+  ##
+  ## DOCKERFILE ----
+  ## 
+  
+  
+  if (dockerfile) {
+    
+    ui_title("Adding Dockerfile")
+    
+    add_dockerfile(quiet)
   }
   
   

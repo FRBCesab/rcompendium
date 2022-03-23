@@ -23,6 +23,7 @@ new_compendium(
   orcid = NULL,
   organisation = NULL,
   renv = FALSE,
+  dockerfile = FALSE,
   overwrite = FALSE,
   quiet = FALSE
 )
@@ -143,6 +144,9 @@ Default is \code{organisation = NULL} (the GitHub pseudo will be used).}
 the project by running \code{\link[renv:init]{renv::init()}}.
 Package \href{https://rstudio.github.io/renv/}{\code{renv}} is also added to the
 \code{Imports} field in the \code{DESCRIPTION} file. Default is \code{FALSE}.}
+
+\item{dockerfile}{A logical value. If \code{TRUE} creates an \code{Dockerfile} for
+the project. See \code{\link[=add_dockerfile]{add_dockerfile()}} for further detail. Default is \code{FALSE}.}
 
 \item{overwrite}{A logical value. If \code{TRUE} files written from templates and
 modified by user are erased. Default is \code{overwrite = FALSE}.

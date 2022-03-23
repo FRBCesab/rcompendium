@@ -1,5 +1,7 @@
 # rcompendium (development version)
 
+* New feature: `add_dokerfile()` creates a basic `Dockerfile` in compendium (new 
+argument `dokerfile` in `new_compendium()`) based on `rocker/rstudio`.
 * New feature: `add_renv()` initialize `renv` environment in compendium (new 
 argument `renv` in `new_compendium()`)
 * New feature: `add_github_actions_render()` will automatically render

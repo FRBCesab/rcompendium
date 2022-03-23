@@ -36,6 +36,7 @@ reference:
   - add_compendium
   - add_makefile
   - add_renv
+  - add_dockerfile
 
 - title: README badges
   desc: |

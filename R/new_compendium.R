@@ -194,7 +194,7 @@ new_compendium <- function(compendium = ".", license = "GPL (>= 2)",
                            gh_check = FALSE, codecov = FALSE, website = FALSE, 
                            gh_render = FALSE, given = NULL, family = NULL, 
                            email = NULL, orcid = NULL, organisation = NULL, 
-                           renv = FALSE, dockerfile = FALSE,overwrite = FALSE, 
+                           renv = FALSE, dockerfile = FALSE, overwrite = FALSE, 
                            quiet = FALSE) { 
   
   ## If not RStudio ----
@@ -519,7 +519,8 @@ new_compendium <- function(compendium = ".", license = "GPL (>= 2)",
     
     ui_title("Adding Dockerfile")
     
-    add_dockerfile(quiet)
+    add_dockerfile(given, family, email, open = FALSE, overwrite = overwrite, 
+                   quiet = quiet)
   }
   
   

@@ -1,0 +1,20 @@
+---
+title: "Working with a Compendium"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Working with a Compendium}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment  = "#>"
+)
+```
+
+
+Coming soon...

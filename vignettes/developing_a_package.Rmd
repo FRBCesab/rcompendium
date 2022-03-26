@@ -1,0 +1,20 @@
+---
+title: "Developing a Package"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Developing a Package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment  = "#>"
+)
+```
+
+
+Coming soon...

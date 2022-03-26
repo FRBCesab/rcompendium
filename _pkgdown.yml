@@ -1,6 +1,12 @@
 url: https://frbcesab.github.io/rcompendium
 
 reference:
+- title: Prerequisites
+  desc: |
+    High level overview of the package
+  contents:
+  - rcompendium
+
 - title: Setup functions
   desc: |
     These four functions are usually the only ones user needs to run. The use of

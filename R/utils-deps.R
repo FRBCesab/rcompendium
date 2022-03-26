@@ -255,7 +255,7 @@ get_deps_extra <- function(compendium = NULL) {
                   ignore.case = TRUE, recursive = TRUE)
   
   pos <- grep(paste0(.Platform$file.sep, 
-                     "(tests|vignettes|inst)", 
+                     "(tests|vignettes|inst|renv)", 
                      .Platform$file.sep, "|README"), x)
   
   if (length(pos)) x <- x[-pos]
@@ -320,7 +320,7 @@ get_deps_extra <- function(compendium = NULL) {
                     full.names = TRUE, ignore.case = TRUE, recursive = TRUE)
     
     pos <- grep(paste0(.Platform$file.sep, 
-                       "(tests|vignettes|inst)", 
+                       "(tests|vignettes|inst|renv)", 
                        .Platform$file.sep, "|README"), x)
     
     if (length(pos)) x <- x[-pos]

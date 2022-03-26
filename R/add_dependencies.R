@@ -80,7 +80,7 @@ add_dependencies <- function(compendium = NULL) {
   deps_in_functions <- get_deps_in_functions_r()
   
   
-  ## Detect Dependencies in import/ ----
+  ## Detect Dependencies in compendium ----
   
   deps_extra <- get_deps_extra(compendium)
   
@@ -163,8 +163,8 @@ add_dependencies <- function(compendium = NULL) {
   
   ## Remove Base packages ----
   
-  deps_in_package <- deps_in_package[!(deps_in_package %in% c("base", "tools"))]
-  deps_suggest    <- deps_suggest[!(deps_suggest %in% c("base", "tools"))]
+  deps_in_package <- deps_in_package[!(deps_in_package %in% "base")]
+  deps_suggest    <- deps_suggest[!(deps_suggest %in% "base")]
   
   
   ## Remove duplicates ----

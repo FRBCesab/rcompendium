@@ -7,7 +7,7 @@
 \alias{rcompendium}
 \title{Create a package or research compendium structure}
 \description{
-This package makes easier the creation of R packages or research compendia
+\code{rcompendium} makes easier the creation of R packages or research compendia
 (i.e. a predefined files/folders structure) so that users can focus on the
 code/analysis instead of wasting time organizing files. A full ready-to-work
 structure is set up with some additional features: version control, remote
@@ -18,13 +18,13 @@ several OS, test code with 'testthat', and build and deploy website using
 \section{Recommended workflow}{
 
 \enumerate{
-\item Create an new empty RStudio project;
 \item Store your credentials (given and family names, email, ORCID, etc.) with
 \code{\link[=set_credentials]{set_credentials()}} (if not already done);
+\item Create an new empty RStudio project;
 \item Run \code{\link[=new_package]{new_package()}} to create a new package structure or
 \code{\link[=new_compendium]{new_compendium()}} to create a new research compendium structure;
 \item Edit some metadata in \code{DESCRIPTION}, \code{CITATION}, and \code{README.Rmd};
-\item Start working (add data, write, document and test R functions, etc.);
+\item Start working (add data, write and document R functions, etc.);
 \item And do not forget to commit your changes.
 }
 }
@@ -84,7 +84,8 @@ The interaction with this API required an authentication method: a
 
 If you don't have a \strong{GITHUB PAT} locally stored, you must:
 \enumerate{
-\item Visit the page https://github.com/settings/tokens and create a new token;
+\item Visit the page \url{https://github.com/settings/tokens} and create a new
+token;
 \item Store it in the \verb{~/.Renviron} file by using \code{\link[usethis:edit]{usethis::edit_r_environ()}}
 and adding the following line: \code{GITHUB_PAT='ghp_99z9...z9'}.
 }

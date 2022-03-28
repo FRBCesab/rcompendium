@@ -1,7 +1,7 @@
 #' Create a package or research compendium structure
 #' 
 #' @description
-#' This package makes easier the creation of R packages or research compendia 
+#' `rcompendium` makes easier the creation of R packages or research compendia 
 #' (i.e. a predefined files/folders structure) so that users can focus on the 
 #' code/analysis instead of wasting time organizing files. A full ready-to-work
 #' structure is set up with some additional features: version control, remote 
@@ -12,13 +12,13 @@
 #' 
 #' @section Recommended workflow:
 #' 
-#' 1. Create an new empty RStudio project;
-#' 2. Store your credentials (given and family names, email, ORCID, etc.) with
+#' 1. Store your credentials (given and family names, email, ORCID, etc.) with
 #'   [set_credentials()] (if not already done);
+#' 2. Create an new empty RStudio project;
 #' 3. Run [new_package()] to create a new package structure or 
 #'   [new_compendium()] to create a new research compendium structure;
 #' 4. Edit some metadata in `DESCRIPTION`, `CITATION`, and `README.Rmd`;
-#' 5. Start working (add data, write, document and test R functions, etc.);
+#' 5. Start working (add data, write and document R functions, etc.);
 #' 6. And do not forget to commit your changes.
 #' 
 #' 
@@ -79,7 +79,8 @@
 #' **GITHUB PAT** (Personal Access Token).
 #' 
 #' If you don't have a **GITHUB PAT** locally stored, you must:
-#' 1. Visit the page https://github.com/settings/tokens and create a new token;
+#' 1. Visit the page \url{https://github.com/settings/tokens} and create a new 
+#'   token;
 #' 2. Store it in the `~/.Renviron` file by using [usethis::edit_r_environ()] 
 #'   and adding the following line: `GITHUB_PAT='ghp_99z9...z9'`.
 #' 

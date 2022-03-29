@@ -75,7 +75,7 @@ if (!requireNamespace("remotes", quietly = TRUE)) {
 remotes::install_github("FRBCesab/rcompendium")
 ```
 
-## Get started
+## Usage
 
 Please read the [Get
 started](https://frbcesab.github.io/rcompendium/articles/rcompendium.html)
@@ -84,25 +84,21 @@ vignette and pay attention to the sections
 and
 [Usage](https://frbcesab.github.io/rcompendium/articles/rcompendium.html#usage)
 
-Others available vignettes: - [Developing a
-Package](https://frbcesab.github.io/rcompendium/articles/developing_a_package.html)
-- [Working with a
-Compendium](https://frbcesab.github.io/rcompendium/articles/working_with_a_compendium.html)
+Others available vignettes:
+
+-   [Developing a
+    Package](https://frbcesab.github.io/rcompendium/articles/developing_a_package.html)
+-   [Working with a
+    Compendium](https://frbcesab.github.io/rcompendium/articles/working_with_a_compendium.html)
+
+## Examples
 
 :boom: This [package](https://github.com/ahasverus/demo.package) was set
-up by running:
-
-``` r
-rcompendium::new_package()
-```
+up by running `rcompendium::new_package()`
 
 :boom: This [research
 compendium](https://github.com/ahasverus/demo.compendium) was set up by
-running:
-
-``` r
-rcompendium::new_compendium()
-```
+running `rcompendium::new_compendium()`
 
 ## Citation
 

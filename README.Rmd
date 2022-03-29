@@ -47,14 +47,15 @@ A full ready-to-work structure will be set up with the following features:
 and `R/` and `man/` folders).
 - Creation of additional files (`LICENSE.md`, `inst/CITATION`, etc.).
 - Creation of a _Get started_ vignette in `vignettes/`.
-- Setting the units tests process.
+- Setting the units tests process in `tests/`.
 - Creation of a `README.Rmd` with HexSticker (template) and badges.
 - Autocompletion of maintainer information.
 - Creation of a GitHub repository.
 - Configuration of GitHub Actions to automatically:
   - check and test package (`R CMD Check`);
   - report the code coverage (`covr`);
-  - build and deploy website (`pkgdown`).
+  - build and deploy website (`pkgdown`);
+  - render `README.md`.
 
 
 This package heavily relies on the R packages 
@@ -63,79 +64,6 @@ This package heavily relies on the R packages
 [Hadley Wickham & Jenny Bryan](https://r-pkgs.org) and 
 [Ben Marwick](https://peerj.com/preprints/3192/).
 
-
-
-## Overview
-
-
-
-The strength of `rcompendium` is to create the whole structure in one command 
-line by using the function `new_package()` (or `new_compendium()`). 
-The default settings will produce the following structure:
-
-
-
-```
-.
-│
-├── pkg.Rproj                   # (optional) Created by user 
-│
-├── .git/                       # GIT tracking folder
-├── .gitignore                  # Specific to R packages
-|
-├── .github/                    # (optional) GitHub Actions settings
-│   └── workflows/
-│       ├── pkgdown.yaml        # Configuration file to build & deploy website
-│       ├── R-CMD-check.yaml    # Configuration file to check & test package
-│       └── test-coverage.yaml  # Configuration file to build & deploy website
-│
-├── _pkgdown.yaml               # (optional) User website settings
-│
-├── R/                          # R functions
-│   ├── fun-demo.R              # Example of an R function
-│   └── pkg-package.R           # Dummy R file for package-level documentation
-│
-├── man/                        # R functions helps (automatically updated)
-│   ├── print_msg.Rd            # Documentation of the demo R function
-│   ├── pkg-package.Rd          # Package-level documentation
-│   └── figures/                # Figures for the README 
-│       └── hexsticker.png      # Template R package HexSticker
-│
-├── tests/
-│   ├── testthat.R              # Units tests settings
-│   └── testthat/               # Units tests folder
-│       └── test-demo.R         # Units tests for the function print_msg()
-|
-├── vignettes/
-│   └── pkg.Rmd                 # (optional) Package tutorial              [*]
-│
-├── DESCRIPTION                 # Project metadata                         [*]
-├── NAMESPACE                   # Automatically generated
-├── .Rbuildignore               # List of files/folders to be ignored while 
-│                               # checking the package
-├── inst/
-│   └── CITATION                # BiBTeX entry to cite the R package       [*]
-│
-├── LICENSE                     # (optional) If License = MIT
-├── LICENSE.md                  # Content of the chosen license
-│
-├── README.md                   # GitHub README (automatically generated)
-├── README.Rmd                  # GitHub README (to knit)                  [*]
-/
-/
-├── data/                       # User raw data (.csv, .gpkg, etc.)        [¶]
-├── analyses/                   # R scripts (no functions) to run analyses [¶]
-├── outputs/                    # Outputs created by R scripts             [¶]
-└── figures/                    # Figures created by R scripts             [¶]
-│
-└── make.R                      # Master R scripts to run all analyses     [¶]
-
-
-[*] These files are automatically edited but user needs to add manually 
-    some information.
-[¶] These folders/files are also created when using new_compendium().
-
-```
 
 
 
@@ -170,24 +98,26 @@ remotes::install_github("FRBCesab/rcompendium")
 
 
 Please read the 
-[Vignette](https://frbcesab.github.io/rcompendium/articles/rcompendium.html) 
+[Get started](https://frbcesab.github.io/rcompendium/articles/rcompendium.html) vignette
 and pay attention to the sections 
 [Prerequisites](https://frbcesab.github.io/rcompendium/articles/rcompendium.html#prerequisites) and
 [Usage](https://frbcesab.github.io/rcompendium/articles/rcompendium.html#usage)
 
-:boom: This [package](https://github.com/ahasverus/rpackage) was created by running:
+Others available vignettes:
+- [Developing a Package](https://frbcesab.github.io/rcompendium/articles/developing_a_package.html)
+- [Working with a Compendium](https://frbcesab.github.io/rcompendium/articles/working_with_a_compendium.html)
+
+:boom: This [package](https://github.com/ahasverus/demo.package) was set up by running:
 
 ```{r eval = FALSE}
 rcompendium::new_package()
 ```
 
-:boom: This [research compendium](https://github.com/ahasverus/rcompendium) was created by running:
+:boom: This [research compendium](https://github.com/ahasverus/demo.compendium) was set up by running:
 
 ```{r eval = FALSE}
 rcompendium::new_compendium()
 ```
-
-**N.B.** Before running these commands, a new RStudio project needs to be created.
 
 
 

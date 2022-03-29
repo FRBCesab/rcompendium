@@ -93,7 +93,7 @@ remotes::install_github("FRBCesab/rcompendium")
 
 
 
-## Get started
+## Usage
 
 
 
@@ -104,20 +104,19 @@ and pay attention to the sections
 [Usage](https://frbcesab.github.io/rcompendium/articles/rcompendium.html#usage)
 
 Others available vignettes:
+
 - [Developing a Package](https://frbcesab.github.io/rcompendium/articles/developing_a_package.html)
 - [Working with a Compendium](https://frbcesab.github.io/rcompendium/articles/working_with_a_compendium.html)
 
-:boom: This [package](https://github.com/ahasverus/demo.package) was set up by running:
 
-```{r eval = FALSE}
-rcompendium::new_package()
-```
 
-:boom: This [research compendium](https://github.com/ahasverus/demo.compendium) was set up by running:
+## Examples
 
-```{r eval = FALSE}
-rcompendium::new_compendium()
-```
+
+
+:boom: This [package](https://github.com/ahasverus/demo.package) was set up by running ` rcompendium::new_package()`
+
+:boom: This [research compendium](https://github.com/ahasverus/demo.compendium) was set up by running `rcompendium::new_compendium()`
 
 
 

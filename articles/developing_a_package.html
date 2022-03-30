@@ -94,7 +94,8 @@
 
     
     
-<p><strong>Please read the <a href="https://frbcesab.github.io/rcompendium/articles/rcompendium.html">Get started</a> vignette first</strong></p>
+<p><br></p>
+<p><strong>PLEASE READ THE <a href="https://frbcesab.github.io/rcompendium/articles/rcompendium.html">GET STARTED</a> VIGNETTE FIRST</strong></p>
 <p><br></p>
 <div class="section level2">
 <h2 id="package-content">Package content<a class="anchor" aria-label="anchor" href="#package-content"></a>
@@ -158,6 +159,52 @@
 <p><br></p>
 <p>In addition, a new GitHub repository has been created directly from R. It’s available at: <code>https://github.com/{{account}}/pkg/</code> (where <code>{{account}}</code> is either your GitHub account or a GitHub organization). A few minutes later the website will be deployed at: <code>https://{{account}}.github.io/pkg/</code>.</p>
 <p><br></p>
+</div>
+<div class="section level2">
+<h2 id="package-metadata">Package metadata<a class="anchor" aria-label="anchor" href="#package-metadata"></a>
+</h2>
+<div class="section level3">
+<h3 id="description">DESCRIPTION<a class="anchor" aria-label="anchor" href="#description"></a>
+</h3>
+<p>The <code>DESCRIPTION</code> file contains important package metadata. By default <code>rcompendium</code> creates the following file:</p>
+<pre><code>Package: pkg
+Type: Package
+Title: The Title of the Project                                              [*]
+Version: 0.0.0.9000
+Authors@R: c(
+    person(given   = "John",
+           family  = "Doe",
+           role    = c("aut", "cre", "cph"),
+           email   = "john.doe@domain.com",
+           comment = c(ORCID = "9999-9999-9999-9999")))
+Description: A paragraph providing a full description of the project (on     [*] 
+    several lines...)
+URL: https://github.com/jdoe/pkg
+BugReports: https://github.com/jdoe/pkg/issues
+License: GPL (&gt;= 2)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
+VignetteBuilder: knitr
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat (&gt;= 3.0.0)
+Config/testthat/edition: 3
+
+
+[*] Title and Description must be adapted by user.</code></pre>
+<p>For further information, please read <a href="https://r-pkgs.org/description.html" class="external-link">https://r-pkgs.org/description.html</a>.</p>
+<p>If you change <code>Title</code>, <code>Description</code>, <code>Version</code>, and <code>Authors</code> values, do not forget to also change the <code>inst/CITATION</code> file and the <code>README.Rmd</code>.</p>
+<p><br></p>
+</div>
+<div class="section level3">
+<h3 id="readme">README<a class="anchor" aria-label="anchor" href="#readme"></a>
+</h3>
+<p>The <code>README.md</code> is the homepage of your repository on GitHub. Its purpose is to help visitor to understand your project. Always edit the <code>README.Rmd</code> (not the <code>.md</code> version).</p>
+<p>For further information, please read <a href="https://r-pkgs.org/release.html?q=README#readme" class="external-link">https://r-pkgs.org/release.html?q=README#readme</a>.</p>
+<p><br></p>
+</div>
 </div>
 <div class="section level2">
 <h2 id="package-development">Package development<a class="anchor" aria-label="anchor" href="#package-development"></a>

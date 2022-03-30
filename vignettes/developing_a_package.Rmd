@@ -1,8 +1,8 @@
 ---
-title: "Developing a Package"
+title: "Developing an R package"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Developing a Package}
+  %\VignetteIndexEntry{Developing an R package}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -10,11 +10,106 @@ vignette: >
 
 
 ```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment  = "#>"
-)
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
 ```
 
 
-Coming soon...
+**Please read the 
+[Get started](https://frbcesab.github.io/rcompendium/articles/rcompendium.html) vignette first**
+
+
+
+<br />
+
+
+
+## Package content
+
+First, create a **new empty RStudio project**. Let's called it `pkg`. 
+To create a new package structure, run `rcompendium::new_package()`.
+
+By default, the following content is created:
+
+```
+pkg/                              # Root of the package
+│
+├── pkg.Rproj                     # RStudio project (created by user, optional)
+│
+├── .git/                         # GIT tracking folder
+├── .gitignore                    # List of files/folders to be ignored by GIT
+|                                 # (specific to R language)
+|
+├── .github/                      # (optional) GitHub Actions settings
+│   └── workflows/
+│       ├── pkgdown.yaml          # Configuration file to build & deploy website
+│       ├── R-CMD-check.yaml      # Configuration file to check & test package
+│       ├── render-README.yaml    # Configuration file to render the README.md
+│       └── test-coverage.yaml    # Configuration file to report code coverage
+│
+├── _pkgdown.yaml                 # (optional) User website settings
+│
+├── R/                            # R functions location
+│   ├── fun-demo.R                # Example of an R function (to remove)
+│   └── pkg-package.R             # Dummy R file for package-level documentation
+│
+├── man/                          # R functions helps (automatically updated)
+│   ├── print_msg.Rd              # Documentation of the demo R function
+│   ├── pkg-package.Rd            # Package-level documentation
+│   └── figures/                  # Figures for the README 
+│       └── package-sticker.png   # Package sticker template
+│
+├── tests/                        # (optional) Units tests location
+│   ├── testthat.R                # Units tests settings
+│   └── testthat/                 # Units tests location
+│       └── test-demo.R           # Units tests for the function print_msg()
+|
+├── vignettes/                    # (optional) Vignettes location
+│   └── pkg.Rmd                   # Package tutorial                         [*]
+│
+├── DESCRIPTION                   # Project metadata                         [*]
+├── NAMESPACE                     # Automatically generated
+├── .Rbuildignore                 # List of files/folders to be ignored while 
+│                                 # checking/installing the package
+├── inst/
+│   ├── CITATION                  # BiBTeX entry to cite the package         [*]
+│   └── package-sticker/          # Content to generate package sticker
+│       ├── package-sticker.R     # Code to generate package sticker
+│       └── r_logo.png            # R logo
+│
+├── LICENSE                       # (optional) If License = MIT
+├── LICENSE.md                    # Content of the chosen license
+│
+├── README.md                     # GitHub README (automatically generated)
+└── README.Rmd                    # GitHub README                            [*]
+
+
+[*] These files are automatically created but user needs to manually add 
+    some information.
+```
+
+<br />
+
+In addition, a new GitHub repository has been created directly from R. It's available
+at: `https://github.com/{{account}}/pkg/` (where `{{account}}` is either your GitHub
+account or a GitHub organization). A few minutes later the website will be deployed
+at: `https://{{account}}.github.io/pkg/`.
+
+
+
+<br />
+
+
+
+## Package development
+
+...
+
+
+## Resources
+
+- [R packages](https://r-pkgs.org/) by Hadley Wickham and Jenny Bryan
+- [Writing R extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html) by
+the R Development Core Team
+- [Extending R](https://www.taylorfrancis.com/books/mono/10.1201/9781315381305/extending-john-chambers) by
+John M. Chambers
+

@@ -195,7 +195,7 @@ Config/testthat/edition: 3
 
 [*] Title and Description must be adapted by user.</code></pre>
 <p>For further information, please read <a href="https://r-pkgs.org/description.html" class="external-link">https://r-pkgs.org/description.html</a>.</p>
-<p>If you change <code>Title</code>, <code>Description</code>, <code>Version</code>, and <code>Authors</code> values, do not forget to also change the <code>inst/CITATION</code> file and the <code>README.Rmd</code>.</p>
+<p><strong>N.B.</strong> If you change <code>Title</code>, <code>Description</code>, <code>Version</code>, and <code>Authors</code> values, do not forget to also change the <code>inst/CITATION</code> file and the <code>README.Rmd</code>.</p>
 <p><br></p>
 </div>
 <div class="section level3">
@@ -209,7 +209,24 @@ Config/testthat/edition: 3
 <div class="section level2">
 <h2 id="package-development">Package development<a class="anchor" aria-label="anchor" href="#package-development"></a>
 </h2>
-<p>…</p>
+<p>The recommended workflow is:</p>
+<ol style="list-style-type: decimal">
+<li>Implement new function in <code>R/</code>
+</li>
+<li>Document function using the <a href="https://roxygen2.r-lib.org/articles/roxygen2.html" class="external-link">roxygen syntax</a>
+</li>
+<li>Update functions doc (<code>man/</code>) and <code>NAMESPACE</code> with <code><a href="https://devtools.r-lib.org/reference/document.html" class="external-link">devtools::document()</a></code>
+</li>
+<li>Update required packages in <code>DESCRIPTION</code> with <code><a href="../reference/add_dependencies.html">rcompendium::add_dependencies()</a></code>
+</li>
+<li>Implement units tests using <a href="https://testthat.r-lib.org/" class="external-link"><code>testthat</code></a>
+</li>
+<li>Edit vignette to illustrate the new feature</li>
+<li>Check and test the package with <code><a href="https://devtools.r-lib.org/reference/check.html" class="external-link">devtools::check()</a></code>
+</li>
+</ol>
+<p>You can also provide data with your package. See <code><a href="https://usethis.r-lib.org/reference/use_data.html" class="external-link">?usethis::use_data</a></code>. We strongly recommend that you read the book <a href="https://r-pkgs.org/" class="external-link">R packages</a> by Hadley Wickham and Jenny Bryan.</p>
+<p><br></p>
 </div>
 <div class="section level2">
 <h2 id="resources">Resources<a class="anchor" aria-label="anchor" href="#resources"></a>

@@ -94,115 +94,18 @@
 
     
     
-<div class="section level2">
-<h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
-</h2>
-<p>In the area of open science, making reproducible analyses is a strong prerequisite. But sometimes it is difficult 1) to find the good structure to organize files and 2) to set up the whole project. The aim of the package <code>rcompendium</code> is to make easier the creation of R package/research compendium (i.e. a predefined files/folders structure) so that users can focus on the code/analysis instead of wasting time organizing files.</p>
+<p><code>rcompendium</code> makes easier the creation of R packages or research compendia (i.e. a predefined files/folders structure) so that users can focus on the code/analysis instead of wasting time organizing files. A full ready-to-work structure is set up with some additional features: version control, remote repository creation, CI/CD configuration (check package integrity under several OS, test code with <code>testthat</code>, and build and deploy website using <code>pkgdown</code>).</p>
 <p><br></p>
-<p>A full ready-to-work structure will be set up with the following features:</p>
-<ul>
-<li>Initialization of the <a href="https://git-scm.com/" class="external-link">GIT</a> version control.</li>
-<li>Creation of a minimal R package structure (<code>DESCRIPTION</code> and <code>NAMESPACE</code> files, and <code>R/</code> and <code>man/</code> folders).</li>
-<li>Creation of additional files (<code>LICENSE.md</code>, <code>inst/CITATION</code>, etc.).</li>
-<li>Creation of a <em>Get started</em> vignette in <code>vignettes/</code>.</li>
-<li>Setting the units tests process.</li>
-<li>Creation of a <code>README.Rmd</code> with HexSticker (template) and badges.</li>
-<li>Autocompletion of maintainer information.</li>
-<li>Creation of a GitHub repository.</li>
-<li>Configuration of GitHub Actions to automatically:
-<ul>
-<li>check and test package (<code>R CMD Check</code>);</li>
-<li>report the code coverage (<code>covr</code>);</li>
-<li>build and deploy website (<code>pkgdown</code>).</li>
-</ul>
-</li>
-</ul>
-<p><br></p>
-<p>The strength of <code>rcompendium</code> is to create the whole structure in one command line by using the function <code><a href="../reference/new_package.html">new_package()</a></code>. The default settings will produce the following structure (where <code>pkg</code> is the name of the package):</p>
-<pre><code>pkg
-│
-├── pkg.Rproj                   # (optional) Created by user 
-│
-├── .git/                       # GIT tracking folder
-├── .gitignore                  # Specific to R packages
-|
-├── .github/                    # (optional) GitHub Actions settings
-│   └── workflows/
-│       ├── pkgdown.yaml        # Configuration file to build &amp; deploy website
-│       ├── R-CMD-check.yaml    # Configuration file to check &amp; test package
-│       └── test-coverage.yaml  # Configuration file to build &amp; deploy website
-│
-├── _pkgdown.yaml               # (optional) User website settings
-│
-├── R/                          # R functions
-│   ├── fun-demo.R              # Example of an R function
-│   └── pkg-package.R           # Dummy R file for package-level documentation
-│
-├── man/                        # R functions helps (automatically updated)
-│   ├── print_msg.Rd            # Documentation of the demo R function
-│   ├── pkg-package.Rd          # Package-level documentation
-│   └── figures/                # Figures for the README 
-│       └── hexsticker.png      # Template R package HexSticker
-│
-├── tests/
-│   ├── testthat.R              # Units tests settings
-│   └── testthat/               # Units tests folder
-│       └── test-demo.R         # Units tests for the function print_msg()
-|
-├── vignettes/
-│   └── pkg.Rmd                 # (optional) Package tutorial              [*]
-│
-├── DESCRIPTION                 # Project metadata                         [*]
-├── NAMESPACE                   # Automatically generated
-├── .Rbuildignore               # List of files/folders to be ignored while 
-│                               # checking the package
-├── inst/
-│   └── CITATION                # BiBTeX entry to cite the R package       [*]
-│
-├── LICENSE                     # (optional) If License = MIT
-├── LICENSE.md                  # Content of the chosen license
-│
-├── README.md                   # GitHub README (automatically generated)
-└── README.Rmd                  # GitHub README (to knit)                  [*]
-
-
-[*] These files are automatically edited but user needs to add manually 
-    some information (title, description, version, etc.).</code></pre>
-<p><br></p>
-<p>The second main function of <code>rcompendium</code> is <code><a href="../reference/new_compendium.html">new_compendium()</a></code>. It will add the following files/folders to the previous content:</p>
-<pre><code>...
-├── data/                       # User raw data (.csv, .gpkg, etc.)        
-├── analyses/                   # R scripts (no functions) to run analyses 
-├── outputs/                    # Outputs created by R scripts             
-└── figures/                    # Figures created by R scripts             
-│
-└── make.R                      # Master R scripts to run all analyses     </code></pre>
-<p>These folders and the file <code>make.R</code> will be added to the <code>.Rbuildignore</code> so that some parts of the compendium (essentially the R functions) can be used as an R package (with <code><a href="https://devtools.r-lib.org/reference/load_all.html" class="external-link">devtools::load_all()</a></code>).</p>
-<p><br></p>
-</div>
-<div class="section level2">
-<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
-</h2>
-<p>You can install the development version from <a href="https://github.com/FRBCesab/rcompendium" class="external-link">GitHub</a> with:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">## Install &lt; remotes &gt; package (if not already installed) ----</span>
-<span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"remotes"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
-  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span>
-<span class="op">}</span>
-
-<span class="co">## Install dev version of &lt; rcompendium &gt; from GitHub ----</span>
-<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"FRBCesab/rcompendium"</span><span class="op">)</span></code></pre></div>
-<p><br></p>
-</div>
 <div class="section level2">
 <h2 id="prerequisites">Prerequisites<a class="anchor" aria-label="anchor" href="#prerequisites"></a>
 </h2>
 <p>Before using the package <code>rcompendium</code> you must follow these three steps.</p>
+<p><br></p>
 <div class="section level3">
 <h3 id="git-configuration">GIT configuration<a class="anchor" aria-label="anchor" href="#git-configuration"></a>
 </h3>
 <p>First ensure that <strong>GIT</strong> is correctly installed on your machine and linked to RStudio. Read the Chapter 6 of <a href="https://happygitwithr.com/install-git.html" class="external-link">Happy Git and GitHub for the useR</a>.</p>
-<p>You also need to store your GIT credentials locally (i.e. for the project) or globally (recommended). Run <code><a href="https://gh.r-lib.org/reference/gh_whoami.html" class="external-link">gh::gh_whoami()</a></code> to see if your git and associated credentials are correctly configured. If so you should see something like:</p>
+<p>You also need to store your GIT credentials locally (i.e. for the project) or globally (recommended). Run <code><a href="https://gh.r-lib.org/reference/gh_whoami.html" class="external-link">gh::gh_whoami()</a></code> to see if your git and associated credentials are correctly configured. You should see something like:</p>
 <pre><code>{
   "name": "John Doe",
   "login": "jdoe",
@@ -210,25 +113,24 @@
   ...
 }</code></pre>
 <p>Otherwise you might need to run:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">gert</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/gert/reference/git_config.html" class="external-link">git_config_global_set</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"user.name"</span>,   value <span class="op">=</span> <span class="st">"John Doe"</span><span class="op">)</span>
-<span class="fu">gert</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/gert/reference/git_config.html" class="external-link">git_config_global_set</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"user.email"</span>,  value <span class="op">=</span> <span class="st">"john.doe@@domain.com"</span><span class="op">)</span>
+<span class="fu">gert</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/gert/reference/git_config.html" class="external-link">git_config_global_set</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"user.email"</span>,  value <span class="op">=</span> <span class="st">"john.doe@domain.com"</span><span class="op">)</span>
 <span class="fu">gert</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/gert/reference/git_config.html" class="external-link">git_config_global_set</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"github.user"</span>, value <span class="op">=</span> <span class="st">"jdoe"</span><span class="op">)</span></code></pre></div>
-<p>See <code><a href="https://docs.ropensci.org/gert/reference/git_config.html" class="external-link">gert::git_config_global_set()</a></code> for further information.</p>
+<p>See <code><a href="https://docs.ropensci.org/gert/reference/git_config.html" class="external-link">?gert::git_config_global_set</a></code> for further information.</p>
+<p><br></p>
 </div>
 <div class="section level3">
 <h3 id="creating-a-github-repo">Creating a GitHub repo<a class="anchor" aria-label="anchor" href="#creating-a-github-repo"></a>
 </h3>
-<p>To create the GitHub repository directly from R, the package <code>rcompendium</code> uses the function <code><a href="https://usethis.r-lib.org/reference/use_github.html" class="external-link">usethis::use_github()</a></code>, a client to the GitHub REST API. The interaction with this API requires an authentication method: a <strong>GITHUB PAT</strong> (Personal Access Token).</p>
+<p>To create the GitHub repository directly from R, the package <code>rcompendium</code> uses the function <code><a href="https://usethis.r-lib.org/reference/use_github.html" class="external-link">usethis::use_github()</a></code>, a client to the GitHub REST API. The interaction with this API required an authentication method: a <strong>GITHUB PAT</strong> (Personal Access Token).</p>
 <p>If you don’t have a <strong>GITHUB PAT</strong> locally stored, you must:</p>
 <ol style="list-style-type: decimal">
-<li>Obtain a new one from your GitHub account. <strong>Make sure to select at least the first two scopes (private repository and workflow)</strong>
-</li>
-<li>Store this token in the <code>.Renviron</code> file by using <code><a href="https://usethis.r-lib.org/reference/edit.html" class="external-link">usethis::edit_r_environ()</a></code> and adding the following line: <code>GITHUB_PAT='ghp_99z9...z9'</code>
-</li>
+<li>visit the page <a href="https://github.com/settings/tokens" class="external-link">https://github.com/settings/tokens</a> and create a new token;</li>
+<li>store it in the <code>~/.Renviron</code> file by using <code><a href="https://usethis.r-lib.org/reference/edit.html" class="external-link">usethis::edit_r_environ()</a></code> and adding the following line: <code>GITHUB_PAT='ghp_99z9...z9'</code>.</li>
 </ol>
 <p>Run <code><a href="https://usethis.r-lib.org/reference/github-token.html" class="external-link">usethis::gh_token_help()</a></code> for more information about getting and configuring a <strong>GITHUB PAT</strong>.</p>
-<p>If everything is well configured, after calling <code><a href="https://gh.r-lib.org/reference/gh_whoami.html" class="external-link">gh::gh_whoami()</a></code> you should see something like:</p>
+<p>If everything is well configured, you should see something like this after calling <code><a href="https://gh.r-lib.org/reference/gh_whoami.html" class="external-link">gh::gh_whoami()</a></code>:</p>
 <pre><code>{
   "name": "John Doe",
   "login": "jdoe",
@@ -237,12 +139,14 @@
   "token": "ghp_99z9...z9"
 }</code></pre>
 <p>Then you will be able to create a GitHub repository directly from R!</p>
+<p><br></p>
 </div>
 <div class="section level3">
 <h3 id="managing-credentials">Managing credentials<a class="anchor" aria-label="anchor" href="#managing-credentials"></a>
 </h3>
-<p>You can use the arguments <code>given</code>, <code>family</code>, <code>email</code>, and <code>orcid</code> directly with the function <code><a href="../reference/new_package.html">new_package()</a></code> (and others). But an alternative is to use <strong>ONCE AND FOR ALL</strong> the function <code><a href="../reference/set_credentials.html">set_credentials()</a></code> to permanently store this information in the <code>.Rprofile</code> file. If these arguments are set to <code>NULL</code> (default) each function of the package <code>rcompendium</code> will search in this <code>.Rprofile</code> file. It will save you a lot of time (that is the purpose of this package).</p>
-<p>Even if you have stored your information in the <code>.Rprofile</code> file you will always be able to modify them on-the-fly (i.e. by using arguments of the <code><a href="../reference/new_package.html">new_package()</a></code> and others) or permanently by re-running <code><a href="../reference/set_credentials.html">set_credentials()</a></code>.</p>
+<p>You can use the arguments <code>given</code>, <code>family</code>, <code>email</code>, and <code>orcid</code> directly with the functions <code>new_*()</code> and <code>add_*()</code>. But if you create a lot a projects (packages and/or compendia) it can be frustrating in the long run.</p>
+<p>An alternative way is to use <strong>ONCE AND FOR ALL</strong> the function <code><a href="../reference/set_credentials.html">set_credentials()</a></code> to permanently store this information in the <code>~/.Rprofile</code> file. If these arguments are set to <code>NULL</code> while calling any function of the package, <code>rcompendium</code> will search their values in this file. It will save your time (it’s the purpose of this package).</p>
+<p>Even if you have stored your credentials in the <code>~/.Rprofile</code> file you will always be able to modify them on-the-fly (i.e. by using credentials arguments in the functions <code>new_*()</code> and <code>add_*()</code>) or permanently by re-running <code><a href="../reference/set_credentials.html">set_credentials()</a></code>.</p>
 <p><br></p>
 </div>
 </div>
@@ -251,26 +155,16 @@
 </h2>
 <p>The recommended workflow is:</p>
 <ol style="list-style-type: decimal">
+<li>Store your credentials with <code><a href="../reference/set_credentials.html">set_credentials()</a></code> (if not already done);</li>
 <li>
-<strong>IMPORTANT -</strong> Create an empty RStudio project.</li>
-<li>Store your credentials with <code><a href="../reference/set_credentials.html">set_credentials()</a></code> (if not already done).</li>
-<li>Run <code><a href="../reference/new_package.html">new_package()</a></code> or <code><a href="../reference/new_compendium.html">new_compendium()</a></code> to create a new package/research compendium structure (and the GitHub repository if required).</li>
-<li>Edit metadata in <code>DESCRIPTION</code>, <code>CITATION</code>, and <code>README.Rmd</code>.</li>
-<li>Implement, document &amp; test functions.</li>
-<li>Update the project with <code><a href="../reference/refresh.html">refresh()</a></code>. This will:</li>
-</ol>
-<ul>
-<li>update <code>.Rd</code> files and <code>NAMESPACE</code>;</li>
-<li>update external dependencies in <code>DESCRIPTION</code>;</li>
-<li>update badges and re-knit <code>README.Rmd</code>;</li>
-<li>check and test package (<code><a href="https://devtools.r-lib.org/reference/check.html" class="external-link">devtools::check()</a></code>);</li>
-<li>run <code>make.R</code> if the project is a research compendium (optional because some analyses might be time consuming).</li>
-</ul>
-<ol start="7" style="list-style-type: decimal">
-<li>Repeat steps 5 and 6 while working on the project.</li>
+<strong>IMPORTANT -</strong> Create an new empty RStudio project;</li>
+<li>Run <code><a href="../reference/new_package.html">new_package()</a></code> to create a new package structure or <code><a href="../reference/new_compendium.html">new_compendium()</a></code> to create a new research compendium structure;</li>
+<li>Edit some metadata in <code>DESCRIPTION</code>, <code>CITATION</code>, and <code>README.Rmd</code>;</li>
+<li>Start working (add data, write and document R functions, etc.);</li>
+<li>And do not forget to commit your changes.</li>
 </ol>
 <p><br></p>
-<p>In addition to these four setup functions (<code><a href="../reference/set_credentials.html">set_credentials()</a></code>, <code><a href="../reference/new_package.html">new_package()</a></code>, <code><a href="../reference/new_compendium.html">new_compendium()</a></code>, and <code><a href="../reference/refresh.html">refresh()</a></code>), the package <code>rcompendium</code> offers 29 other functions. These can be grouped as:</p>
+<p>In addition to these three setup functions (<code><a href="../reference/set_credentials.html">set_credentials()</a></code>, <code><a href="../reference/new_package.html">new_package()</a></code>, <code><a href="../reference/new_compendium.html">new_compendium()</a></code>), the package <code>rcompendium</code> offers 29 other functions. These can be grouped as:</p>
 <ul>
 <li>
 <code>add_*()</code>: functions to add/update/overwrite files, configuration settings, dependencies, badges, etc.;</li>
@@ -279,47 +173,57 @@
 </ul>
 <p>Visit the <a href="https://frbcesab.github.io/rcompendium/reference/index.html">Reference page</a> for further details.</p>
 <p><br></p>
-<p><strong>To sum up:</strong></p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/FRBCesab/rcompendium" class="external-link">rcompendium</a></span><span class="op">)</span>
+<p><strong>To sum up</strong></p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">## Define ONCE FOR ALL your credentials ----</span>
 
-<span class="co">## Define **ONCE FOR ALL** your credentials ----</span>
+<span class="fu">rcompendium</span><span class="fu">::</span><span class="fu"><a href="../reference/set_credentials.html">set_credentials</a></span><span class="op">(</span>given <span class="op">=</span> <span class="st">"John"</span>, family <span class="op">=</span> <span class="st">"Doe"</span>, 
+                             email <span class="op">=</span> <span class="st">"john.doe@domain.com"</span>, 
+                             orcid <span class="op">=</span> <span class="st">"9999-9999-9999-9999"</span>, protocol <span class="op">=</span> <span class="st">"ssh"</span><span class="op">)</span>
 
-<span class="fu"><a href="../reference/set_credentials.html">set_credentials</a></span><span class="op">(</span>given <span class="op">=</span> <span class="st">"John"</span>, family <span class="op">=</span> <span class="st">"Doe"</span>, 
-                email <span class="op">=</span> <span class="st">"john.doe@@domain.com"</span>, 
-                orcid <span class="op">=</span> <span class="st">"9999-9999-9999-9999"</span>, protocol <span class="op">=</span> <span class="st">"ssh"</span><span class="op">)</span>
+
+<span class="co">## CREATE A NEW EMPTY RSTUDIO PROJECT ----</span>
+
 
 <span class="co">## Create an R package structure ----</span>
 
-<span class="fu"><a href="../reference/new_package.html">new_package</a></span><span class="op">(</span><span class="op">)</span>
+<span class="fu">rcompendium</span><span class="fu">::</span><span class="fu"><a href="../reference/new_package.html">new_package</a></span><span class="op">(</span><span class="op">)</span>
 
 
 <span class="co">## Then... </span>
+<span class="co">## ... edit metadata in DESCRIPTION, CITATION, README.Rmd, etc.</span>
 <span class="co">## ... implement and document R functions in R/</span>
-<span class="co">## ... write units tests in tests/testthat/</span>
 
 
-<span class="co">## Update package (documentation, dependencies, README, check) ----</span>
+<span class="co">## Update functions documentation and NAMESPACE ----</span>
 
-<span class="fu"><a href="../reference/refresh.html">refresh</a></span><span class="op">(</span><span class="op">)</span>
-
-
-<span class="co">## Update Repository Status (example) ----</span>
-
-<span class="fu"><a href="../reference/add_repostatus_badge.html">add_repostatus_badge</a></span><span class="op">(</span>status <span class="op">=</span> <span class="st">"active"</span><span class="op">)</span>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/document.html" class="external-link">document</a></span><span class="op">(</span><span class="op">)</span>
 
 
-<span class="co">## Change LICENSE (example) ----</span>
+<span class="co">## Update list of dependencies in DESCRIPTION ----</span>
 
-<span class="fu"><a href="../reference/get_licenses.html">get_licenses</a></span><span class="op">(</span><span class="op">)</span>
-<span class="fu"><a href="../reference/add_license.html">add_license</a></span><span class="op">(</span>license <span class="op">=</span> <span class="st">"MIT"</span><span class="op">)</span>
+<span class="fu">rcompendium</span><span class="fu">::</span><span class="fu"><a href="../reference/add_dependencies.html">add_dependencies</a></span><span class="op">(</span><span class="op">)</span>
 
 
-<span class="co">## Update package (documentation, dependencies, README, check) ----</span>
+<span class="co">## Check package ----</span>
 
-<span class="fu"><a href="../reference/refresh.html">refresh</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<p>And do not forget to commit changes and to push to GitHub to enjoy GitHub Actions!</p>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/check.html" class="external-link">check</a></span><span class="op">(</span><span class="op">)</span>
+
+
+<span class="co">## Example: use of an add_*() function ...</span>
+<span class="co">## ... update 'Number of Dependencies Badge' in README.Rmd ----</span>
+
+<span class="fu">rcompendium</span><span class="fu">::</span><span class="fu"><a href="../reference/add_dependencies_badge.html">add_dependencies_badge</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><strong>N.B.</strong> Users can also use functions from the package <a href="https://usethis.r-lib.org/" class="external-link"><code>usethis</code></a> to add some missing features (e.g. <code>data/</code> and package release tools).</p>
+<p><br></p>
+</div>
+<div class="section level2">
+<h2 id="resources">Resources<a class="anchor" aria-label="anchor" href="#resources"></a>
+</h2>
+<ul>
+<li><a href="https://frbcesab.github.io/rcompendium/articles/developing_a_package.html">Developing an R package</a></li>
+<li><a href="https://frbcesab.github.io/rcompendium/articles/working_with_a_compendium.html">Working with a compendium</a></li>
+</ul>
 <p><br></p>
 </div>
 <div class="section level2">
@@ -332,7 +236,7 @@
 <div class="section level2">
 <h2 id="colophon">Colophon<a class="anchor" aria-label="anchor" href="#colophon"></a>
 </h2>
-<p>This package is the result of intense discussions and feedback from the training course <a href="https://github.com/FRBCesab/datatoolbox" class="external-link">Data Toolbox for Reproducible Research in Computational Ecology</a> (in French).</p>
+<p>This package is the result of intense discussions and feedback from the training course <a href="https://rdatatoolbox.github.io/" class="external-link">Data Toolbox for Reproducible Research in Computational Ecology</a>.</p>
 <p><code>rcompendium</code> is largely inspired by the package <a href="https://github.com/benmarwick/rrtools" class="external-link"><code>rrtools</code></a> developed by <a href="https://github.com/benmarwick" class="external-link">Ben Marwick <em>et al.</em></a> and tries to respect the standard defined by the community. <strong>Special thanks to these developers!</strong></p>
 </div>
   </div>

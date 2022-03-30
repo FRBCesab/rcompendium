@@ -1,6 +1,6 @@
 # rcompendium (development version)
 
-* New feature: `add_dokerfile()` creates a basic `Dockerfile` in compendium (new 
+* New feature: `add_dockerfile()` creates a basic `Dockerfile` in compendium (new 
 argument `dokerfile` in `new_compendium()`) based on `rocker/rstudio`.
 * New feature: `add_renv()` initialize `renv` environment in compendium (new 
 argument `renv` in `new_compendium()`)
@@ -8,6 +8,8 @@ argument `renv` in `new_compendium()`)
 the `README.md` on GitHub server after each push. This action is triggered
 only if the `README.Rmd` has been modified since the last commit. Also
 add new argument `gh_render` in `new_*()` functions.
+* New vignette: developing an R package
+* New vignette: working with a compendium
 * Function `add_lifecycle_badge()` does not copy badge SVG in the project 
 anymore. The image badge is now created using https://shields.io/.
 * Update GHA templates. They are now derived from:
@@ -20,7 +22,7 @@ to easily change the hexSticker
 * For compendium: arguments `gh_check` and `website` are now `FALSE` by default
 * For compendium: rename `rscripts/` folder to `analyses/`
 * For compendium: delete `paper/` folder
-* Review and improve documentation and vignette
+* Review and improve documentation
 * Rename templates file names
 * Fix bug: detection of nested RStudio projects
 

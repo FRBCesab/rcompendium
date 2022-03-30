@@ -145,7 +145,7 @@ Config/testthat/edition: 3
 
 For further information, please read [https://r-pkgs.org/description.html](https://r-pkgs.org/description.html).
 
-If you change `Title`, `Description`, `Version`, and `Authors` values, do not forget to
+**N.B.** If you change `Title`, `Description`, `Version`, and `Authors` values, do not forget to
 also change the `inst/CITATION` file and the `README.Rmd`.
 
 
@@ -171,7 +171,24 @@ For further information, please read
 
 ## Package development
 
-...
+The recommended workflow is:
+
+1. Implement new function in `R/`
+2. Document function using the [roxygen syntax](https://roxygen2.r-lib.org/articles/roxygen2.html)
+3. Update functions doc (`man/`) and `NAMESPACE` with `devtools::document()`
+4. Update required packages in `DESCRIPTION` with `rcompendium::add_dependencies()`
+5. Implement units tests using [`testthat`](https://testthat.r-lib.org/)
+6. Edit vignette to illustrate the new feature
+7. Check and test the package with `devtools::check()`
+
+You can also provide data with your package. See `?usethis::use_data`. We 
+strongly recommend that you read the book [R packages](https://r-pkgs.org/) by 
+Hadley Wickham and Jenny Bryan.
+
+
+
+<br />
+
 
 
 ## Resources

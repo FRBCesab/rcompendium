@@ -14,8 +14,13 @@ knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
 ```
 
 
-**Please read the 
-[Get started](https://frbcesab.github.io/rcompendium/articles/rcompendium.html) vignette first**
+
+<br />
+
+
+
+**PLEASE READ THE
+[GET STARTED](https://frbcesab.github.io/rcompendium/articles/rcompendium.html) VIGNETTE FIRST**
 
 
 
@@ -93,6 +98,70 @@ In addition, a new GitHub repository has been created directly from R. It's avai
 at: `https://github.com/{{account}}/pkg/` (where `{{account}}` is either your GitHub
 account or a GitHub organization). A few minutes later the website will be deployed
 at: `https://{{account}}.github.io/pkg/`.
+
+
+
+<br />
+
+
+
+## Package metadata
+
+### DESCRIPTION
+
+The `DESCRIPTION` file contains important package metadata. By default `rcompendium`
+creates the following file:
+
+
+```
+Package: pkg
+Type: Package
+Title: The Title of the Project                                              [*]
+Version: 0.0.0.9000
+Authors@R: c(
+    person(given   = "John",
+           family  = "Doe",
+           role    = c("aut", "cre", "cph"),
+           email   = "john.doe@domain.com",
+           comment = c(ORCID = "9999-9999-9999-9999")))
+Description: A paragraph providing a full description of the project (on     [*] 
+    several lines...)
+URL: https://github.com/jdoe/pkg
+BugReports: https://github.com/jdoe/pkg/issues
+License: GPL (>= 2)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
+VignetteBuilder: knitr
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+
+
+[*] Title and Description must be adapted by user.
+```
+
+For further information, please read [https://r-pkgs.org/description.html](https://r-pkgs.org/description.html).
+
+If you change `Title`, `Description`, `Version`, and `Authors` values, do not forget to
+also change the `inst/CITATION` file and the `README.Rmd`.
+
+
+
+<br />
+
+
+
+### README
+
+The `README.md` is the homepage of your repository on GitHub. Its purpose is to 
+help visitor to understand your project. Always edit the `README.Rmd` (not the 
+`.md` version).
+
+For further information, please read 
+[https://r-pkgs.org/release.html?q=README#readme](https://r-pkgs.org/release.html?q=README#readme).
 
 
 

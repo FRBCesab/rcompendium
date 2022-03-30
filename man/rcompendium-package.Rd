@@ -43,7 +43,7 @@ An alternative way is to use \strong{ONCE AND FOR ALL} the function
 function of the package, \code{rcompendium} will search their values in this file.
 It will save your time (it's the purpose of this package).
 
-Even if you have stored yours credentials in the \verb{~/.Rprofile} file you will
+Even if you have stored your credentials in the \verb{~/.Rprofile} file you will
 always be able to modify them on-the-fly (i.e. by using credentials arguments
 in the functions \verb{new_*()} and \verb{add_*()}) or permanently by re-running
 \code{\link[=set_credentials]{set_credentials()}}.

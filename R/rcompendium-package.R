@@ -35,7 +35,7 @@
 #' function of the package, `rcompendium` will search their values in this file.
 #' It will save your time (it's the purpose of this package).
 #' 
-#' Even if you have stored yours credentials in the `~/.Rprofile` file you will 
+#' Even if you have stored your credentials in the `~/.Rprofile` file you will 
 #' always be able to modify them on-the-fly (i.e. by using credentials arguments
 #' in the functions `new_*()` and `add_*()`) or permanently by re-running 
 #' [set_credentials()].

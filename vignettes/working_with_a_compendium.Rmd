@@ -10,11 +10,145 @@ vignette: >
 
 
 ```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment  = "#>"
-)
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
 ```
 
 
-Coming soon...
+
+<br />
+
+
+
+**PLEASE READ THE
+[GET STARTED](https://frbcesab.github.io/rcompendium/articles/rcompendium.html) VIGNETTE FIRST**
+
+
+
+<br />
+
+
+
+## Compendium content
+
+First, create a **new empty RStudio project**. Let's called it `comp`. 
+To create a new compendium structure, run `rcompendium::new_compendium()`.
+
+By default, the following content is created:
+
+```
+comp/                             # Root of the package
+│
+├── comp.Rproj                    # RStudio project (created by user, optional)
+│
+├── .git/                         # GIT tracking folder
+├── .gitignore                    # List of files/folders to be ignored by GIT
+|                                 # (specific to R language)
+│
+├── R/                            # R functions location
+│   ├── fun-demo.R                # Example of an R function (to remove)
+│   └── comp-package.R            # Dummy R file for high-level documentation
+│
+├── man/                          # R functions helps (automatically updated)
+│   ├── print_msg.Rd              # Documentation of the demo R function
+│   └── pkg-package.Rd            # High-level documentation
+│
+├── DESCRIPTION                   # Project metadata                         [*]
+├── LICENSE.md                    # Content of the chosen license (GPL (>= 2))
+├── NAMESPACE                     # Automatically generated
+├── .Rbuildignore                 # List of files/folders to be ignored while 
+│                                 # checking/installing the package
+│
+├── README.md                     # GitHub README (automatically generated)
+├── README.Rmd                    # GitHub README                            [*]
+│
+├── data/                         # User raw data (.csv, .gpkg, etc.)
+│   ├── raw-data/                 # Read-only files
+│   └── derived-data/             # Modified data derived from raw data
+│
+├── analyses/                     # R scripts (no functions) to run analyses
+│
+├── outputs/                      # Outputs (R objects, .csv, etc.)
+├── figures/                      # Figures (.png, .pdf, etc.)
+│
+└── make.R                        # Main R script to run sourcing R scripts 
+                                  # stored in analyses/
+
+[*] These files are automatically created but user needs to manually add 
+    some information.
+```
+
+<br />
+
+If `create_repo = TRUE` (default), a new GitHub repository will be created 
+directly from R. It will be available at: `https://github.com/{{account}}/comp/` 
+(where `{{account}}` is either your GitHub account or a GitHub organization).
+This repository can be private if `private = TRUE`.
+
+
+
+<br />
+
+
+
+## Compendium metadata
+
+### DESCRIPTION
+
+The `DESCRIPTION` file contains important compendium metadata. 
+By default `rcompendium` creates the following file:
+
+
+```
+Package: comp
+Type: Package
+Title: The Title of the Project                                              [*]
+Version: 0.0.0.9000
+Authors@R: c(
+    person(given   = "John",
+           family  = "Doe",
+           role    = c("aut", "cre", "cph"),
+           email   = "john.doe@domain.com",
+           comment = c(ORCID = "9999-9999-9999-9999")))
+Description: A paragraph providing a full description of the project (on     [*] 
+    several lines...)
+URL: https://github.com/jdoe/comp
+BugReports: https://github.com/jdoe/comp/issues
+License: GPL (>= 2)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
+Imports: 
+    devtools,
+    here
+
+[*] Title and Description must be adapted by user.
+```
+
+This `DESCRIPTION` file is specific to R package but it can be used to work with
+research compendia (see below). 
+For further information on how to edit this file, please read 
+[https://r-pkgs.org/description.html](https://r-pkgs.org/description.html).
+
+
+
+
+<br />
+
+
+
+### README
+
+The `README.md` is the homepage of your repository on GitHub. Its purpose is to 
+help visitor to understand your project. Always edit the `README.Rmd` (not the 
+`.md` version).
+
+For further information, please read 
+[https://r-pkgs.org/release.html?q=README#readme](https://r-pkgs.org/release.html?q=README#readme).
+
+
+
+<br />
+
+
+
+## 

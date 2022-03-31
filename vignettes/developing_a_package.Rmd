@@ -72,6 +72,7 @@ pkg/                              # Root of the package
 │   └── pkg.Rmd                   # Package tutorial                         [*]
 │
 ├── DESCRIPTION                   # Project metadata                         [*]
+├── LICENSE.md                    # Content of the chosen license (GPL (>= 2))
 ├── NAMESPACE                     # Automatically generated
 ├── .Rbuildignore                 # List of files/folders to be ignored while 
 │                                 # checking/installing the package
@@ -80,9 +81,6 @@ pkg/                              # Root of the package
 │   └── package-sticker/          # Content to generate package sticker
 │       ├── package-sticker.R     # Code to generate package sticker
 │       └── r_logo.png            # R logo
-│
-├── LICENSE                       # (optional) If License = MIT
-├── LICENSE.md                    # Content of the chosen license
 │
 ├── README.md                     # GitHub README (automatically generated)
 └── README.Rmd                    # GitHub README                            [*]
@@ -146,7 +144,7 @@ Config/testthat/edition: 3
 For further information, please read [https://r-pkgs.org/description.html](https://r-pkgs.org/description.html).
 
 **N.B.** If you change `Title`, `Description`, `Version`, and `Authors` values, do not forget to
-also change the `inst/CITATION` file and the `README.Rmd`.
+also change citation information in `inst/CITATION` and `README.Rmd`.
 
 
 
@@ -181,8 +179,11 @@ The recommended workflow is:
 6. Edit vignette to illustrate the new feature
 7. Check and test the package with `devtools::check()`
 
-You can also provide data with your package. See `?usethis::use_data`. We 
-strongly recommend that you read the book [R packages](https://r-pkgs.org/) by 
+You can also provide data with your package. See `?usethis::use_data`. 
+
+<br />
+
+We strongly recommend that you read the book [R packages](https://r-pkgs.org/) by 
 Hadley Wickham and Jenny Bryan.
 
 

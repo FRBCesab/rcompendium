@@ -94,12 +94,108 @@
 
     
     
-<p>Coming soon…</p>
+<p><br></p>
+<p><strong>PLEASE READ THE <a href="https://frbcesab.github.io/rcompendium/articles/rcompendium.html">GET STARTED</a> VIGNETTE FIRST</strong></p>
+<p><br></p>
+<div class="section level2">
+<h2 id="compendium-content">Compendium content<a class="anchor" aria-label="anchor" href="#compendium-content"></a>
+</h2>
+<p>First, create a <strong>new empty RStudio project</strong>. Let’s called it <code>comp</code>. To create a new compendium structure, run <code><a href="../reference/new_compendium.html">rcompendium::new_compendium()</a></code>.</p>
+<p>By default, the following content is created:</p>
+<pre><code>comp/                             # Root of the package
+│
+├── comp.Rproj                    # RStudio project (created by user, optional)
+│
+├── .git/                         # GIT tracking folder
+├── .gitignore                    # List of files/folders to be ignored by GIT
+|                                 # (specific to R language)
+│
+├── R/                            # R functions location
+│   ├── fun-demo.R                # Example of an R function (to remove)
+│   └── comp-package.R            # Dummy R file for high-level documentation
+│
+├── man/                          # R functions helps (automatically updated)
+│   ├── print_msg.Rd              # Documentation of the demo R function
+│   └── pkg-package.Rd            # High-level documentation
+│
+├── DESCRIPTION                   # Project metadata                         [*]
+├── LICENSE.md                    # Content of the chosen license (GPL (&gt;= 2))
+├── NAMESPACE                     # Automatically generated
+├── .Rbuildignore                 # List of files/folders to be ignored while 
+│                                 # checking/installing the package
+│
+├── README.md                     # GitHub README (automatically generated)
+├── README.Rmd                    # GitHub README                            [*]
+│
+├── data/                         # User raw data (.csv, .gpkg, etc.)
+│   ├── raw-data/                 # Read-only files
+│   └── derived-data/             # Modified data derived from raw data
+│
+├── analyses/                     # R scripts (no functions) to run analyses
+│
+├── outputs/                      # Outputs (R objects, .csv, etc.)
+├── figures/                      # Figures (.png, .pdf, etc.)
+│
+└── make.R                        # Main R script to run sourcing R scripts 
+                                  # stored in analyses/
+
+[*] These files are automatically created but user needs to manually add 
+    some information.</code></pre>
+<p><br></p>
+<p>If <code>create_repo = TRUE</code> (default), a new GitHub repository will be created directly from R. It will be available at: <code>https://github.com/{{account}}/comp/</code> (where <code>{{account}}</code> is either your GitHub account or a GitHub organization). This repository can be private if <code>private = TRUE</code>.</p>
+<p><br></p>
+</div>
+<div class="section level2">
+<h2 id="compendium-metadata">Compendium metadata<a class="anchor" aria-label="anchor" href="#compendium-metadata"></a>
+</h2>
+<div class="section level3">
+<h3 id="description">DESCRIPTION<a class="anchor" aria-label="anchor" href="#description"></a>
+</h3>
+<p>The <code>DESCRIPTION</code> file contains important compendium metadata. By default <code>rcompendium</code> creates the following file:</p>
+<pre><code>Package: comp
+Type: Package
+Title: The Title of the Project                                              [*]
+Version: 0.0.0.9000
+Authors@R: c(
+    person(given   = "John",
+           family  = "Doe",
+           role    = c("aut", "cre", "cph"),
+           email   = "john.doe@domain.com",
+           comment = c(ORCID = "9999-9999-9999-9999")))
+Description: A paragraph providing a full description of the project (on     [*] 
+    several lines...)
+URL: https://github.com/jdoe/comp
+BugReports: https://github.com/jdoe/comp/issues
+License: GPL (&gt;= 2)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
+Imports: 
+    devtools,
+    here
+
+[*] Title and Description must be adapted by user.</code></pre>
+<p>This <code>DESCRIPTION</code> file is specific to R package but it can be used to work with research compendia (see below). For further information on how to edit this file, please read <a href="https://r-pkgs.org/description.html" class="external-link">https://r-pkgs.org/description.html</a>.</p>
+<p><br></p>
+</div>
+<div class="section level3">
+<h3 id="readme">README<a class="anchor" aria-label="anchor" href="#readme"></a>
+</h3>
+<p>The <code>README.md</code> is the homepage of your repository on GitHub. Its purpose is to help visitor to understand your project. Always edit the <code>README.Rmd</code> (not the <code>.md</code> version).</p>
+<p>For further information, please read <a href="https://r-pkgs.org/release.html?q=README#readme" class="external-link">https://r-pkgs.org/release.html?q=README#readme</a>.</p>
+<p><br></p>
+</div>
+</div>
+<div class="section level2">
+<h2 id="section"></h2>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
-      </div>
+        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
+    </nav>
+</div>
 
 </div>
 

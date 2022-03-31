@@ -138,6 +138,7 @@
 │   └── pkg.Rmd                   # Package tutorial                         [*]
 │
 ├── DESCRIPTION                   # Project metadata                         [*]
+├── LICENSE.md                    # Content of the chosen license (GPL (&gt;= 2))
 ├── NAMESPACE                     # Automatically generated
 ├── .Rbuildignore                 # List of files/folders to be ignored while 
 │                                 # checking/installing the package
@@ -146,9 +147,6 @@
 │   └── package-sticker/          # Content to generate package sticker
 │       ├── package-sticker.R     # Code to generate package sticker
 │       └── r_logo.png            # R logo
-│
-├── LICENSE                       # (optional) If License = MIT
-├── LICENSE.md                    # Content of the chosen license
 │
 ├── README.md                     # GitHub README (automatically generated)
 └── README.Rmd                    # GitHub README                            [*]
@@ -195,7 +193,7 @@ Config/testthat/edition: 3
 
 [*] Title and Description must be adapted by user.</code></pre>
 <p>For further information, please read <a href="https://r-pkgs.org/description.html" class="external-link">https://r-pkgs.org/description.html</a>.</p>
-<p><strong>N.B.</strong> If you change <code>Title</code>, <code>Description</code>, <code>Version</code>, and <code>Authors</code> values, do not forget to also change the <code>inst/CITATION</code> file and the <code>README.Rmd</code>.</p>
+<p><strong>N.B.</strong> If you change <code>Title</code>, <code>Description</code>, <code>Version</code>, and <code>Authors</code> values, do not forget to also change citation information in <code>inst/CITATION</code> and <code>README.Rmd</code>.</p>
 <p><br></p>
 </div>
 <div class="section level3">
@@ -225,7 +223,9 @@ Config/testthat/edition: 3
 <li>Check and test the package with <code><a href="https://devtools.r-lib.org/reference/check.html" class="external-link">devtools::check()</a></code>
 </li>
 </ol>
-<p>You can also provide data with your package. See <code><a href="https://usethis.r-lib.org/reference/use_data.html" class="external-link">?usethis::use_data</a></code>. We strongly recommend that you read the book <a href="https://r-pkgs.org/" class="external-link">R packages</a> by Hadley Wickham and Jenny Bryan.</p>
+<p>You can also provide data with your package. See <code><a href="https://usethis.r-lib.org/reference/use_data.html" class="external-link">?usethis::use_data</a></code>.</p>
+<p><br></p>
+<p>We strongly recommend that you read the book <a href="https://r-pkgs.org/" class="external-link">R packages</a> by Hadley Wickham and Jenny Bryan.</p>
 <p><br></p>
 </div>
 <div class="section level2">

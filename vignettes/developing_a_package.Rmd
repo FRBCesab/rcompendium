@@ -144,7 +144,7 @@ Config/testthat/edition: 3
 
 For further information, please read [https://r-pkgs.org/description.html](https://r-pkgs.org/description.html).
 
-**N.B.** If you change `Title`, `Description`, `Version`, and `Authors` values, do not forget to
+**N.B.** If you change `Title`, `Description`, `Version`, and `Authors@R` values, do not forget to
 also change citation information in `inst/CITATION` and `README.Rmd`.
 
 
@@ -168,7 +168,7 @@ For further information, please read
 
 
 
-## Package development
+## Recommended workflow
 
 The recommended workflow is:
 

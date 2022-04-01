@@ -66,24 +66,24 @@ pkg/                              # Root of the package
 ├── tests/                        # (optional) Units tests location
 │   ├── testthat.R                # Units tests settings
 │   └── testthat/                 # Units tests location
-│       └── test-demo.R           # Units tests for the function print_msg()
+│       └── test-demo.R           # Units tests for the demo function (to remove)
 |
 ├── vignettes/                    # (optional) Vignettes location
-│   └── pkg.Rmd                   # Package tutorial                         [*]
+│   └── pkg.Rmd                   # Get started tutorial                          [*]
 │
-├── DESCRIPTION                   # Project metadata                         [*]
-├── LICENSE.md                    # Content of the chosen license (GPL (>= 2))
+├── DESCRIPTION                   # Project metadata                              [*]
+├── LICENSE.md                    # Content of the GPL (>= 2) license (default)
 ├── NAMESPACE                     # Automatically generated
 ├── .Rbuildignore                 # List of files/folders to be ignored while 
 │                                 # checking/installing the package
 ├── inst/
-│   ├── CITATION                  # BiBTeX entry to cite the package         [*]
-│   └── package-sticker/          # Content to generate package sticker
+│   ├── CITATION                  # BiBTeX entry to cite the package              [*]
+│   └── package-sticker/
 │       ├── package-sticker.R     # Code to generate package sticker
 │       └── r_logo.png            # R logo
 │
 ├── README.md                     # GitHub README (automatically generated)
-└── README.Rmd                    # GitHub README                            [*]
+└── README.Rmd                    # GitHub README                                 [*]
 
 
 [*] These files are automatically created but user needs to manually add 
@@ -92,10 +92,11 @@ pkg/                              # Root of the package
 
 <br />
 
-In addition, a new GitHub repository has been created directly from R. It's available
-at: `https://github.com/{{account}}/pkg/` (where `{{account}}` is either your GitHub
-account or a GitHub organization). A few minutes later the website will be deployed
-at: `https://{{account}}.github.io/pkg/`.
+In addition, a new GitHub repository will be created directly from R. It will be 
+available at: `https://github.com/{{account}}/pkg/` (where `{{account}}` is either 
+your GitHub account or a GitHub organization). A few minutes later, the website 
+([`pkgdown`](https://pkgdown.r-lib.org/)) will be deployed at: 
+`https://{{account}}.github.io/pkg/`.
 
 
 
@@ -107,7 +108,7 @@ at: `https://{{account}}.github.io/pkg/`.
 
 ### DESCRIPTION
 
-The `DESCRIPTION` file contains important package metadata. By default `rcompendium`
+The `DESCRIPTION` file contains important package metadata. By default, `rcompendium`
 creates the following file:
 
 
@@ -159,7 +160,7 @@ help visitor to understand your project. Always edit the `README.Rmd` (not the
 `.md` version).
 
 For further information, please read 
-[https://r-pkgs.org/release.html?q=README#readme](https://r-pkgs.org/release.html?q=README#readme).
+[https://r-pkgs.org/release.html#readme](https://r-pkgs.org/release.html#readme).
 
 
 
@@ -174,7 +175,7 @@ The recommended workflow is:
 1. Implement new function in `R/`
 2. Document function using the [roxygen syntax](https://roxygen2.r-lib.org/articles/roxygen2.html)
 3. Update functions doc (`man/`) and `NAMESPACE` with `devtools::document()`
-4. Update required packages in `DESCRIPTION` with `rcompendium::add_dependencies()`
+4. Update list of required packages in `DESCRIPTION` with `rcompendium::add_dependencies()`
 5. Implement units tests using [`testthat`](https://testthat.r-lib.org/)
 6. Edit vignette to illustrate the new feature
 7. Check and test the package with `devtools::check()`

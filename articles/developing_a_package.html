@@ -132,30 +132,30 @@
 ├── tests/                        # (optional) Units tests location
 │   ├── testthat.R                # Units tests settings
 │   └── testthat/                 # Units tests location
-│       └── test-demo.R           # Units tests for the function print_msg()
+│       └── test-demo.R           # Units tests for the demo function (to remove)
 |
 ├── vignettes/                    # (optional) Vignettes location
-│   └── pkg.Rmd                   # Package tutorial                         [*]
+│   └── pkg.Rmd                   # Get started tutorial                          [*]
 │
-├── DESCRIPTION                   # Project metadata                         [*]
-├── LICENSE.md                    # Content of the chosen license (GPL (&gt;= 2))
+├── DESCRIPTION                   # Project metadata                              [*]
+├── LICENSE.md                    # Content of the GPL (&gt;= 2) license (default)
 ├── NAMESPACE                     # Automatically generated
 ├── .Rbuildignore                 # List of files/folders to be ignored while 
 │                                 # checking/installing the package
 ├── inst/
-│   ├── CITATION                  # BiBTeX entry to cite the package         [*]
-│   └── package-sticker/          # Content to generate package sticker
+│   ├── CITATION                  # BiBTeX entry to cite the package              [*]
+│   └── package-sticker/
 │       ├── package-sticker.R     # Code to generate package sticker
 │       └── r_logo.png            # R logo
 │
 ├── README.md                     # GitHub README (automatically generated)
-└── README.Rmd                    # GitHub README                            [*]
+└── README.Rmd                    # GitHub README                                 [*]
 
 
 [*] These files are automatically created but user needs to manually add 
     some information.</code></pre>
 <p><br></p>
-<p>In addition, a new GitHub repository has been created directly from R. It’s available at: <code>https://github.com/{{account}}/pkg/</code> (where <code>{{account}}</code> is either your GitHub account or a GitHub organization). A few minutes later the website will be deployed at: <code>https://{{account}}.github.io/pkg/</code>.</p>
+<p>In addition, a new GitHub repository will be created directly from R. It will be available at: <code>https://github.com/{{account}}/pkg/</code> (where <code>{{account}}</code> is either your GitHub account or a GitHub organization). A few minutes later, the website (<a href="https://pkgdown.r-lib.org/" class="external-link"><code>pkgdown</code></a>) will be deployed at: <code>https://{{account}}.github.io/pkg/</code>.</p>
 <p><br></p>
 </div>
 <div class="section level2">
@@ -164,7 +164,7 @@
 <div class="section level3">
 <h3 id="description">DESCRIPTION<a class="anchor" aria-label="anchor" href="#description"></a>
 </h3>
-<p>The <code>DESCRIPTION</code> file contains important package metadata. By default <code>rcompendium</code> creates the following file:</p>
+<p>The <code>DESCRIPTION</code> file contains important package metadata. By default, <code>rcompendium</code> creates the following file:</p>
 <pre><code>Package: pkg
 Type: Package
 Title: The Title of the Project                                              [*]
@@ -200,7 +200,7 @@ Config/testthat/edition: 3
 <h3 id="readme">README<a class="anchor" aria-label="anchor" href="#readme"></a>
 </h3>
 <p>The <code>README.md</code> is the homepage of your repository on GitHub. Its purpose is to help visitor to understand your project. Always edit the <code>README.Rmd</code> (not the <code>.md</code> version).</p>
-<p>For further information, please read <a href="https://r-pkgs.org/release.html?q=README#readme" class="external-link">https://r-pkgs.org/release.html?q=README#readme</a>.</p>
+<p>For further information, please read <a href="https://r-pkgs.org/release.html#readme" class="external-link">https://r-pkgs.org/release.html#readme</a>.</p>
 <p><br></p>
 </div>
 </div>
@@ -215,7 +215,7 @@ Config/testthat/edition: 3
 </li>
 <li>Update functions doc (<code>man/</code>) and <code>NAMESPACE</code> with <code><a href="https://devtools.r-lib.org/reference/document.html" class="external-link">devtools::document()</a></code>
 </li>
-<li>Update required packages in <code>DESCRIPTION</code> with <code><a href="../reference/add_dependencies.html">rcompendium::add_dependencies()</a></code>
+<li>Update list of required packages in <code>DESCRIPTION</code> with <code><a href="../reference/add_dependencies.html">rcompendium::add_dependencies()</a></code>
 </li>
 <li>Implement units tests using <a href="https://testthat.r-lib.org/" class="external-link"><code>testthat</code></a>
 </li>

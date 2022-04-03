@@ -190,7 +190,7 @@ by using the package [`renv`](https://rstudio.github.io/renv/).
 
 `renv` will freeze the exact package versions you depend on (in `renv.lock`). 
 This ensures that each collaborator (or you in the future) will use the exact 
-same versions.
+same versions of these packages.
 Moreover `renv` provides to each project its own private package library making 
 each project isolated from others.
 

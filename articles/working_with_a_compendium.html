@@ -224,7 +224,23 @@ Imports:
 <div class="section level3">
 <h3 id="using-renv">Using renv<a class="anchor" aria-label="anchor" href="#using-renv"></a>
 </h3>
-<p>…</p>
+<p>The default structure created by <code><a href="../reference/new_compendium.html">rcompendium::new_compendium()</a></code> is a good starting point for making analyses reproducible. You can increase reproducibility by using the package <a href="https://rstudio.github.io/renv/" class="external-link"><code>renv</code></a>.</p>
+<p><code>renv</code> will freeze the exact package versions you depend on (in <code>renv.lock</code>). This ensures that each collaborator (or you in the future) will use the exact same versions.</p>
+<p>Moreover <code>renv</code> provides to each project its own private package library making each project isolated from others.</p>
+<p>To initialize <code>renv</code> for your compendium, use <code>renv = TRUE</code> in <code><a href="../reference/new_compendium.html">rcompendium::new_compendium()</a></code> or call the function <code><a href="../reference/add_renv.html">rcompendium::add_renv()</a></code> after <code><a href="../reference/new_compendium.html">rcompendium::new_compendium()</a></code>.</p>
+<p>The <code>make.R</code> will also be updated (replacement of <code><a href="https://remotes.r-lib.org/reference/install_deps.html" class="external-link">remotes::install_deps()</a></code> by <code><a href="https://rstudio.github.io/renv/reference/restore.html" class="external-link">renv::restore()</a></code>)</p>
+<p><strong>Workflow</strong></p>
+<ol style="list-style-type: decimal">
+<li>Work as usual</li>
+<li>Update <code>NAMESPACE</code> with <code><a href="https://devtools.r-lib.org/reference/document.html" class="external-link">devtools::document()</a></code>
+</li>
+<li>Update required dependencies in <code>DESCRIPTION</code> with <code>rcompendium::add_dependencies(".")</code>
+</li>
+<li>Install required dependencies locally with <code><a href="https://rstudio.github.io/renv/reference/install.html" class="external-link">renv::install()</a></code>
+</li>
+<li>Save the local environment with <code><a href="https://rstudio.github.io/renv/reference/snapshot.html" class="external-link">renv::snapshot()</a></code>
+</li>
+</ol>
 <p><br></p>
 </div>
 <div class="section level3">

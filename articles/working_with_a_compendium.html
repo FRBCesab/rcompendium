@@ -225,11 +225,11 @@ Imports:
 <h3 id="using-renv">Using renv<a class="anchor" aria-label="anchor" href="#using-renv"></a>
 </h3>
 <p>The default structure created by <code><a href="../reference/new_compendium.html">rcompendium::new_compendium()</a></code> is a good starting point for making analyses reproducible. You can increase reproducibility by using the package <a href="https://rstudio.github.io/renv/" class="external-link"><code>renv</code></a>.</p>
-<p><code>renv</code> will freeze the exact package versions you depend on (in <code>renv.lock</code>). This ensures that each collaborator (or you in the future) will use the exact same versions.</p>
-<p>Moreover <code>renv</code> provides to each project its own private package library making each project isolated from others.</p>
+<p><code>renv</code> will freeze the exact package versions you depend on (in <code>renv.lock</code>). This ensures that each collaborator (or you in the future) will use the exact same versions. Moreover <code>renv</code> provides to each project its own private package library making each project isolated from others.</p>
 <p>To initialize <code>renv</code> for your compendium, use <code>renv = TRUE</code> in <code><a href="../reference/new_compendium.html">rcompendium::new_compendium()</a></code> or call the function <code><a href="../reference/add_renv.html">rcompendium::add_renv()</a></code> after <code><a href="../reference/new_compendium.html">rcompendium::new_compendium()</a></code>.</p>
 <p>The <code>make.R</code> will also be updated (replacement of <code><a href="https://remotes.r-lib.org/reference/install_deps.html" class="external-link">remotes::install_deps()</a></code> by <code><a href="https://rstudio.github.io/renv/reference/restore.html" class="external-link">renv::restore()</a></code>)</p>
-<p><strong>Workflow</strong></p>
+<p><br></p>
+<p><strong>Working with renv</strong></p>
 <ol style="list-style-type: decimal">
 <li>Work as usual</li>
 <li>Update <code>NAMESPACE</code> with <code><a href="https://devtools.r-lib.org/reference/document.html" class="external-link">devtools::document()</a></code>
@@ -246,7 +246,56 @@ Imports:
 <div class="section level3">
 <h3 id="using-docker">Using docker<a class="anchor" aria-label="anchor" href="#using-docker"></a>
 </h3>
-<p>…</p>
+<p><a href="https://www.docker.com/" class="external-link">Docker</a> is a tool that creates a self-contained environment (<strong>containers</strong>) within which the operating system, system libraries and software (i.e. R, RStudio server) are frozen and ready-to-use. The use of a container requires a recipe (<code>Dockerfile</code>) that describes the steps needed to create the environment. From this recipe, a Docker image is built: this is a template from which a container will be created.</p>
+<p>More information on Docker for R users: <a href="https://environments.rstudio.com/docker" class="external-link">https://environments.rstudio.com/docker</a></p>
+<p>To add a <code>Dockerfile</code> for your compendium, use <code>dockerfile = TRUE</code> in <code><a href="../reference/new_compendium.html">rcompendium::new_compendium()</a></code> or call the function <code><a href="../reference/add_dockerfile.html">rcompendium::add_dockerfile()</a></code> after <code><a href="../reference/new_compendium.html">rcompendium::new_compendium()</a></code>.</p>
+<p>By default <code>rcompendium</code> creates the following <code>Dockerfile</code>:</p>
+<pre><code>FROM rocker/rstudio:4.1.3
+
+MAINTAINER John Doe &lt;john.doe@domain.com&gt;
+
+
+## Install system dependencies ----
+
+RUN sudo apt update -yq \
+ &amp;&amp; sudo apt install --no-install-recommends libxml2-dev -yq \
+ &amp;&amp; sudo apt clean all \
+ &amp;&amp; sudo apt purge \
+ &amp;&amp; sudo rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+
+## Copy local project ----
+
+ENV folder="/home/rstudio/"
+
+COPY . $folder
+RUN chown -R rstudio:rstudio $folder
+
+
+## Set working directory ----
+
+WORKDIR $folder
+
+
+## Install R packages ----
+
+RUN R -e "install.packages('remotes', repos = c(CRAN = 'https://cloud.r-project.org'))" \
+ &amp;&amp; R -e "remotes::install_deps(upgrade = 'never')"</code></pre>
+<p><br></p>
+<p>If you use <code>renv</code> with Docker (recommended) the last step will look like:</p>
+<pre><code>## Install R packages ----
+
+ENV RENV_VERSION 0.15.4
+
+RUN R -e "install.packages('remotes', repos = c(CRAN = 'https://cloud.r-project.org'))" \
+ &amp;&amp; R -e "remotes::install_github('rstudio/renv@${RENV_VERSION}')" \
+ &amp;&amp; sudo -u rstudio R -e "renv::restore()"</code></pre>
+<p><br></p>
+<p>By default the Docker image is based on <a href="https://hub.docker.com/r/rocker/rstudio" class="external-link">rocker/rstudio</a>. You can customize this <code>Dockerfile</code> (e.g. system dependencies) and use a different default Docker image (i.e. <code>tidyverse</code>, <code>verse</code>, <code>geospatial</code>, etc.). For more information: <a href="https://github.com/rocker-org/rocker-versioned2" class="external-link">https://github.com/rocker-org/rocker-versioned2</a></p>
+<p>By default the versions of R and <code>renv</code> (if applicable) specified in the <code>Dockerfile</code> are the same as the local system.</p>
+<p>Once the project is ready to be shared, user must build the Docker image by running: <code>docker build -t "image_name" .</code></p>
+<p>Then to run a container, user must run: <code>docker run --rm -p 127.0.0.1:8787:8787 -e DISABLE_AUTH=true image_name</code></p>
+<p>A new instance of RStudio Server is available on the Web browser at the URL: <code>127.0.0.1:8787</code>.</p>
 </div>
 </div>
   </div>

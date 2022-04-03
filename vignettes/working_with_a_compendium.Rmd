@@ -230,7 +230,7 @@ More information on Docker for R users:
 [https://environments.rstudio.com/docker](https://environments.rstudio.com/docker)
 
 
-To add a `Dockerfile` for your compendium, use `dockerfile = TRUE` in 
+To add a `Dockerfile` to your compendium, use `dockerfile = TRUE` in 
 `rcompendium::new_compendium()` or call the function `rcompendium::add_dockerfile()` 
 after `rcompendium::new_compendium()`. 
 
@@ -242,7 +242,7 @@ FROM rocker/rstudio:4.1.3
 MAINTAINER John Doe <john.doe@domain.com>
 
 
-## Install system dependencies ----
+## Install system dependencies (for devtools) ----
 
 RUN sudo apt update -yq \
  && sudo apt install --no-install-recommends libxml2-dev -yq \
@@ -287,20 +287,28 @@ RUN R -e "install.packages('remotes', repos = c(CRAN = 'https://cloud.r-project.
 <br />
 
 By default the Docker image is based on [rocker/rstudio](https://hub.docker.com/r/rocker/rstudio).
-You can customize this `Dockerfile` (e.g. system dependencies) and use a different 
-default Docker image (i.e. `tidyverse`, `verse`, `geospatial`, etc.). 
+You can customize this `Dockerfile` (e.g. adding system dependencies) and use a
+different default Docker image (i.e. `tidyverse`, `verse`, `geospatial`, etc.). 
 For more information: 
 [https://github.com/rocker-org/rocker-versioned2](https://github.com/rocker-org/rocker-versioned2)
 
-By default the versions of R and `renv` (if applicable) specified in the 
+The versions of R and `renv` (if applicable) specified in the 
 `Dockerfile` are the same as the local system.
 
-Once the project is ready to be shared, user must build the Docker image by
-running: `docker build -t "image_name" .`
+When the image will be built, the whole project will be added to the image. When
+a container will be launched the default working directory will be the root of the
+project.
 
-Then to run a container, user must run:
+<br />
+
+Once the project is ready to be shared, the collaborator (or you) must follow 
+these steps: 
+
+1. Clone the repository
+2. Build the Docker image (in a terminal) from the `Dockerfile` by
+running: `docker build -t "image_name" .` (this can take time)
+3. Start a container (in a terminal) from this new Docker image `image_name` by running: 
 `docker run --rm -p 127.0.0.1:8787:8787 -e DISABLE_AUTH=true image_name`
-
-A new instance of RStudio Server is available on the Web browser at the URL:
-`127.0.0.1:8787`.
-
+4. Open a Web browser and visit `127.0.0.1:8787`: a new instance of RStudio 
+Server is available with everything ready-to-use (data, code, packages, etc.)
+5. To reproduce the analysis, run: `source("make.R")`

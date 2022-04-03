@@ -102,7 +102,7 @@
 </h2>
 <p>First, create a <strong>new empty RStudio project</strong>. Let’s called it <code>comp</code>. To create a new compendium structure, run <code><a href="../reference/new_compendium.html">rcompendium::new_compendium()</a></code>.</p>
 <p>By default, the following content is created:</p>
-<pre><code>comp/                             # Root of the package
+<pre><code>comp/                             # Root of the compendium
 │
 ├── comp.Rproj                    # RStudio project (created by user, optional)
 │
@@ -118,25 +118,25 @@
 │   ├── print_msg.Rd              # Documentation of the demo R function
 │   └── pkg-package.Rd            # High-level documentation
 │
-├── DESCRIPTION                   # Project metadata                         [*]
-├── LICENSE.md                    # Content of the chosen license (GPL (&gt;= 2))
+├── DESCRIPTION                   # Project metadata                              [*]
+├── LICENSE.md                    # Content of the GPL (&gt;= 2) license (default)
 ├── NAMESPACE                     # Automatically generated
 ├── .Rbuildignore                 # List of files/folders to be ignored while 
 │                                 # checking/installing the package
 │
 ├── README.md                     # GitHub README (automatically generated)
-├── README.Rmd                    # GitHub README                            [*]
+├── README.Rmd                    # GitHub README                                 [*]
 │
 ├── data/                         # User raw data (.csv, .gpkg, etc.)
 │   ├── raw-data/                 # Read-only files
 │   └── derived-data/             # Modified data derived from raw data
 │
-├── analyses/                     # R scripts (no functions) to run analyses
+├── analyses/                     # R scripts (not function) to run analyses
 │
 ├── outputs/                      # Outputs (R objects, .csv, etc.)
 ├── figures/                      # Figures (.png, .pdf, etc.)
 │
-└── make.R                        # Main R script to run sourcing R scripts 
+└── make.R                        # Main R script to source all R scripts 
                                   # stored in analyses/
 
 [*] These files are automatically created but user needs to manually add 
@@ -187,7 +187,51 @@ Imports:
 </div>
 </div>
 <div class="section level2">
-<h2 id="section"></h2>
+<h2 id="recommendations">Recommendations<a class="anchor" aria-label="anchor" href="#recommendations"></a>
+</h2>
+<ul>
+<li>Keep the root of the project as clean as possible</li>
+<li>Store your raw data in <code>data/raw-data/</code>
+</li>
+<li>Document raw data modifications (with R scripts and/or R functions)</li>
+<li>Export modified raw data in <code>data/derived-data/</code> (or <code>outputs/</code>)</li>
+<li>Store only <strong>R functions</strong> in <code>R/</code>
+</li>
+<li>Store only <strong>R scripts</strong> and/or <strong>Rmd</strong> in <code>analyses/</code>
+</li>
+<li>Control your project with the <code>make.R</code> file (add lines to source R scripts)</li>
+<li>Built relative paths using <code>here::here()</code>
+</li>
+<li>Call external functions as <code>package::function()</code>
+</li>
+<li>Alternatively add <code>#' @import package</code> (or <code>#' @importFrom package function</code>) in <code>R/comp-package.R</code> to call external functions as <code>function()</code>
+</li>
+<li>Use <code><a href="https://devtools.r-lib.org/reference/document.html" class="external-link">devtools::document()</a></code> to update the <code>NAMESPACE</code>
+</li>
+<li>Use <code>rcompendium::add_dependencies(".")</code> to update the list of required dependencies in <code>DESCRIPTION</code>
+</li>
+<li>Do not use <code><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages()</a></code> but <code><a href="https://remotes.r-lib.org/reference/install_deps.html" class="external-link">remotes::install_deps()</a></code> (this will install required dependencies listed in <code>DESCRIPTION</code>)</li>
+<li>Do not use <code><a href="https://rdrr.io/r/base/library.html" class="external-link">library()</a></code> but <code><a href="https://devtools.r-lib.org/reference/load_all.html" class="external-link">devtools::load_all()</a></code> (this will load required dependencies listed in <code>DESCRIPTION</code> and R functions stored in <code>R/</code>)</li>
+<li>Do not source your functions but use instead <code><a href="https://devtools.r-lib.org/reference/load_all.html" class="external-link">devtools::load_all()</a></code>
+</li>
+<li>And <strong>document</strong> everything!</li>
+</ul>
+<p><br></p>
+</div>
+<div class="section level2">
+<h2 id="advanced-features">Advanced features<a class="anchor" aria-label="anchor" href="#advanced-features"></a>
+</h2>
+<div class="section level3">
+<h3 id="using-renv">Using renv<a class="anchor" aria-label="anchor" href="#using-renv"></a>
+</h3>
+<p>…</p>
+<p><br></p>
+</div>
+<div class="section level3">
+<h3 id="using-docker">Using docker<a class="anchor" aria-label="anchor" href="#using-docker"></a>
+</h3>
+<p>…</p>
+</div>
 </div>
   </div>
 

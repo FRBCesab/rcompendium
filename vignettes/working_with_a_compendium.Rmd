@@ -36,7 +36,7 @@ To create a new compendium structure, run `rcompendium::new_compendium()`.
 By default, the following content is created:
 
 ```
-comp/                             # Root of the package
+comp/                             # Root of the compendium
 │
 ├── comp.Rproj                    # RStudio project (created by user, optional)
 │
@@ -52,25 +52,25 @@ comp/                             # Root of the package
 │   ├── print_msg.Rd              # Documentation of the demo R function
 │   └── pkg-package.Rd            # High-level documentation
 │
-├── DESCRIPTION                   # Project metadata                         [*]
-├── LICENSE.md                    # Content of the chosen license (GPL (>= 2))
+├── DESCRIPTION                   # Project metadata                              [*]
+├── LICENSE.md                    # Content of the GPL (>= 2) license (default)
 ├── NAMESPACE                     # Automatically generated
 ├── .Rbuildignore                 # List of files/folders to be ignored while 
 │                                 # checking/installing the package
 │
 ├── README.md                     # GitHub README (automatically generated)
-├── README.Rmd                    # GitHub README                            [*]
+├── README.Rmd                    # GitHub README                                 [*]
 │
 ├── data/                         # User raw data (.csv, .gpkg, etc.)
 │   ├── raw-data/                 # Read-only files
 │   └── derived-data/             # Modified data derived from raw data
 │
-├── analyses/                     # R scripts (no functions) to run analyses
+├── analyses/                     # R scripts (not function) to run analyses
 │
 ├── outputs/                      # Outputs (R objects, .csv, etc.)
 ├── figures/                      # Figures (.png, .pdf, etc.)
 │
-└── make.R                        # Main R script to run sourcing R scripts 
+└── make.R                        # Main R script to source all R scripts 
                                   # stored in analyses/
 
 [*] These files are automatically created but user needs to manually add 
@@ -151,4 +151,48 @@ For further information, please read
 
 
 
-## 
+## Recommendations
+
+- Keep the root of the project as clean as possible
+- Store your raw data in `data/raw-data/`
+- Document raw data modifications (with R scripts and/or R functions)
+- Export modified raw data in `data/derived-data/` (or `outputs/`)
+- Store only **R functions** in `R/`
+- Store only **R scripts** and/or **Rmd** in `analyses/`
+- Control your project with the `make.R` file (add lines to source R scripts)
+- Built relative paths using `here::here()`
+- Call external functions as `package::function()`
+- Alternatively add `#' @import package` (or `#' @importFrom package function`) 
+in `R/comp-package.R` to call external functions as `function()`
+- Use `devtools::document()` to update the `NAMESPACE`
+- Use `rcompendium::add_dependencies(".")` to update the list of required 
+dependencies in `DESCRIPTION`
+- Do not use `install.packages()` but `remotes::install_deps()` (this will install
+required dependencies listed in `DESCRIPTION`)
+- Do not use `library()` but `devtools::load_all()` (this will load
+required dependencies listed in `DESCRIPTION` and R functions stored in `R/`)
+- Do not source your functions but use instead `devtools::load_all()`
+- And **document** everything!
+
+
+
+<br />
+
+
+
+## Advanced features
+
+### Using renv
+
+...
+
+
+
+<br />
+
+
+
+### Using docker
+
+...
+

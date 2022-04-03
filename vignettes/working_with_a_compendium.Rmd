@@ -191,7 +191,6 @@ by using the package [`renv`](https://rstudio.github.io/renv/).
 `renv` will freeze the exact package versions you depend on (in `renv.lock`). 
 This ensures that each collaborator (or you in the future) will use the exact 
 same versions.
-
 Moreover `renv` provides to each project its own private package library making 
 each project isolated from others.
 
@@ -202,7 +201,9 @@ after `rcompendium::new_compendium()`.
 The `make.R` will also be updated (replacement of `remotes::install_deps()` by 
 `renv::restore()`)
 
-**Workflow**
+<br />
+
+**Working with renv**
 
 1. Work as usual
 2. Update `NAMESPACE` with `devtools::document()`
@@ -218,5 +219,88 @@ The `make.R` will also be updated (replacement of `remotes::install_deps()` by
 
 ### Using docker
 
-...
+[Docker](https://www.docker.com/) is a tool that creates a self-contained environment
+(**containers**) within which the operating system, system libraries and software
+(i.e. R, RStudio server) are frozen and ready-to-use. The use of a container requires a 
+recipe (`Dockerfile`) that describes the steps needed to create the environment.
+From this recipe, a Docker image is built: this is a template from which a container
+will be created.
+
+More information on Docker for R users: 
+[https://environments.rstudio.com/docker](https://environments.rstudio.com/docker)
+
+
+To add a `Dockerfile` for your compendium, use `dockerfile = TRUE` in 
+`rcompendium::new_compendium()` or call the function `rcompendium::add_dockerfile()` 
+after `rcompendium::new_compendium()`. 
+
+By default `rcompendium` creates the following `Dockerfile`:
+
+```
+FROM rocker/rstudio:4.1.3
+
+MAINTAINER John Doe <john.doe@domain.com>
+
+
+## Install system dependencies ----
+
+RUN sudo apt update -yq \
+ && sudo apt install --no-install-recommends libxml2-dev -yq \
+ && sudo apt clean all \
+ && sudo apt purge \
+ && sudo rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+
+## Copy local project ----
+
+ENV folder="/home/rstudio/"
+
+COPY . $folder
+RUN chown -R rstudio:rstudio $folder
+
+
+## Set working directory ----
+
+WORKDIR $folder
+
+
+## Install R packages ----
+
+RUN R -e "install.packages('remotes', repos = c(CRAN = 'https://cloud.r-project.org'))" \
+ && R -e "remotes::install_deps(upgrade = 'never')"
+```
+
+<br />
+
+If you use `renv` with Docker (recommended) the last step will look like:
+
+```
+## Install R packages ----
+
+ENV RENV_VERSION 0.15.4
+
+RUN R -e "install.packages('remotes', repos = c(CRAN = 'https://cloud.r-project.org'))" \
+ && R -e "remotes::install_github('rstudio/renv@${RENV_VERSION}')" \
+ && sudo -u rstudio R -e "renv::restore()"
+```
+
+<br />
+
+By default the Docker image is based on [rocker/rstudio](https://hub.docker.com/r/rocker/rstudio).
+You can customize this `Dockerfile` (e.g. system dependencies) and use a different 
+default Docker image (i.e. `tidyverse`, `verse`, `geospatial`, etc.). 
+For more information: 
+[https://github.com/rocker-org/rocker-versioned2](https://github.com/rocker-org/rocker-versioned2)
+
+By default the versions of R and `renv` (if applicable) specified in the 
+`Dockerfile` are the same as the local system.
+
+Once the project is ready to be shared, user must build the Docker image by
+running: `docker build -t "image_name" .`
+
+Then to run a container, user must run:
+`docker run --rm -p 127.0.0.1:8787:8787 -e DISABLE_AUTH=true image_name`
+
+A new instance of RStudio Server is available on the Web browser at the URL:
+`127.0.0.1:8787`.
 

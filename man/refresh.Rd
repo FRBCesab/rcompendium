@@ -4,7 +4,7 @@
 \alias{refresh}
 \title{Refresh a package/research compendium}
 \usage{
-refresh(compendium = NULL, make = FALSE, check = TRUE, quiet = FALSE)
+refresh(compendium = NULL, make = FALSE, check = FALSE, quiet = FALSE)
 }
 \arguments{
 \item{compendium}{A character of length 1. The name of the folder to
@@ -22,8 +22,9 @@ but \verb{R/}, \code{NAMESPACE}, \verb{vignettes/}, and \verb{tests/} are still 
 sourced. Only for research compendium created with \code{\link[=new_compendium]{new_compendium()}}.
 Default is \code{FALSE}.}
 
-\item{check}{A logical value. If \code{TRUE} (default) package integrity is
-checked using \code{\link[devtools:check]{devtools::check()}}.}
+\item{check}{A logical value. If \code{TRUE} package integrity is checked using
+\code{\link[devtools:check]{devtools::check()}}.
+Default is \code{FALSE}.}
 
 \item{quiet}{A logical value. If \code{TRUE} (default) message are deleted.}
 }
@@ -52,7 +53,7 @@ new_package()
 ## Start developing functions ----
 ## ...
 
-## Update package (documentation, dependencies, README, check) ----
+## Update package (documentation, dependencies, README) ----
 refresh()
 }
 }

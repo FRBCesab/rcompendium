@@ -14,8 +14,9 @@
 #'   sourced. Only for research compendium created with [new_compendium()]. 
 #'   Default is `FALSE`.
 #'   
-#' @param check A logical value. If `TRUE` (default) package integrity is 
-#'   checked using [devtools::check()].
+#' @param check A logical value. If `TRUE` package integrity is checked using 
+#'   [devtools::check()].
+#'   Default is `FALSE`.
 #'   
 #' @param quiet A logical value. If `TRUE` (default) message are deleted.
 #'  
@@ -37,11 +38,11 @@
 #' ## Start developing functions ----
 #' ## ...
 #' 
-#' ## Update package (documentation, dependencies, README, check) ----
+#' ## Update package (documentation, dependencies, README) ----
 #' refresh()
 #' }
 
-refresh <- function(compendium = NULL, make = FALSE, check = TRUE, 
+refresh <- function(compendium = NULL, make = FALSE, check = FALSE, 
                     quiet = FALSE) { 
   
   

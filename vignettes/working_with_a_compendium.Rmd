@@ -184,7 +184,31 @@ required dependencies listed in `DESCRIPTION` and R functions stored in `R/`)
 
 ### Using renv
 
-...
+The default structure created by `rcompendium::new_compendium()` is a good 
+starting point for making analyses reproducible. You can increase reproducibility
+by using the package [`renv`](https://rstudio.github.io/renv/). 
+
+`renv` will freeze the exact package versions you depend on (in `renv.lock`). 
+This ensures that each collaborator (or you in the future) will use the exact 
+same versions.
+
+Moreover `renv` provides to each project its own private package library making 
+each project isolated from others.
+
+To initialize `renv` for your compendium, use `renv = TRUE` in 
+`rcompendium::new_compendium()` or call the function `rcompendium::add_renv()` 
+after `rcompendium::new_compendium()`.
+
+The `make.R` will also be updated (replacement of `remotes::install_deps()` by 
+`renv::restore()`)
+
+**Workflow**
+
+1. Work as usual
+2. Update `NAMESPACE` with `devtools::document()`
+3. Update required dependencies in `DESCRIPTION` with `rcompendium::add_dependencies(".")`
+4. Install required dependencies locally with `renv::install()`
+5. Save the local environment with `renv::snapshot()`
 
 
 

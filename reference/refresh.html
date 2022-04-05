@@ -84,7 +84,7 @@ Run analysis by sourcing make.R (only for compendium).
 </ul></div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">refresh</span><span class="op">(</span>compendium <span class="op">=</span> <span class="cn">NULL</span>, make <span class="op">=</span> <span class="cn">FALSE</span>, check <span class="op">=</span> <span class="cn">TRUE</span>, quiet <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">refresh</span><span class="op">(</span>compendium <span class="op">=</span> <span class="cn">NULL</span>, make <span class="op">=</span> <span class="cn">FALSE</span>, check <span class="op">=</span> <span class="cn">FALSE</span>, quiet <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -104,8 +104,9 @@ but <code>R/</code>, <code>NAMESPACE</code>, <code>vignettes/</code>, and <code>
 sourced. Only for research compendium created with <code><a href="new_compendium.html">new_compendium()</a></code>.
 Default is <code>FALSE</code>.</p></dd>
 <dt>check</dt>
-<dd><p>A logical value. If <code>TRUE</code> (default) package integrity is
-checked using <code><a href="https://devtools.r-lib.org/reference/check.html" class="external-link">devtools::check()</a></code>.</p></dd>
+<dd><p>A logical value. If <code>TRUE</code> package integrity is checked using
+<code><a href="https://devtools.r-lib.org/reference/check.html" class="external-link">devtools::check()</a></code>.
+Default is <code>FALSE</code>.</p></dd>
 <dt>quiet</dt>
 <dd><p>A logical value. If <code>TRUE</code> (default) message are deleted.</p></dd>
 </dl></div>
@@ -132,7 +133,7 @@ checked using <code><a href="https://devtools.r-lib.org/reference/check.html" cl
 <span class="r-in"><span class="co">## Start developing functions ----</span></span>
 <span class="r-in"><span class="co">## ...</span></span>
 <span class="r-in"></span>
-<span class="r-in"><span class="co">## Update package (documentation, dependencies, README, check) ----</span></span>
+<span class="r-in"><span class="co">## Update package (documentation, dependencies, README) ----</span></span>
 <span class="r-in"><span class="fu">refresh</span><span class="op">(</span><span class="op">)</span></span>
 <span class="r-in"><span class="op">}</span></span>
 </code></pre></div>

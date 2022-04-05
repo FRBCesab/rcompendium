@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rcompendium</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.5.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0</span>
       </span>
     </div>
 
@@ -64,12 +64,13 @@
     </div>
 
     <div class="section level2">
-<h2 class="page-header" data-toc-text="development version" id="rcompendium-development-version">rcompendium (development version)<a class="anchor" aria-label="anchor" href="#rcompendium-development-version"></a></h2>
+<h2 class="page-header" data-toc-text="1.0" id="rcompendium-10">rcompendium 1.0<a class="anchor" aria-label="anchor" href="#rcompendium-10"></a></h2>
 <ul><li>New feature: <code><a href="../reference/add_dockerfile.html">add_dockerfile()</a></code> creates a basic <code>Dockerfile</code> in compendium (new argument <code>dokerfile</code> in <code><a href="../reference/new_compendium.html">new_compendium()</a></code>) based on <code>rocker/rstudio</code>.</li>
 <li>New feature: <code><a href="../reference/add_renv.html">add_renv()</a></code> initialize <code>renv</code> environment in compendium (new argument <code>renv</code> in <code><a href="../reference/new_compendium.html">new_compendium()</a></code>)</li>
 <li>New feature: <code><a href="../reference/add_github_actions_render.html">add_github_actions_render()</a></code> will automatically render the <code>README.md</code> on GitHub server after each push. This action is triggered only if the <code>README.Rmd</code> has been modified since the last commit. Also add new argument <code>gh_render</code> in <code>new_*()</code> functions.</li>
 <li>New vignette: developing an R package</li>
 <li>New vignette: working with a compendium</li>
+<li>Function <code><a href="../reference/add_dependencies.html">add_dependencies()</a></code> allows now missing <code>R/</code> folder and improves the detection of dependencies in vignettes.</li>
 <li>Function <code><a href="../reference/add_lifecycle_badge.html">add_lifecycle_badge()</a></code> does not copy badge SVG in the project anymore. The image badge is now created using <a href="https://shields.io/" class="external-link uri">https://shields.io/</a>.</li>
 <li>Update GHA templates. They are now derived from: <a href="https://github.com/r-lib/actions/tree/v2-branch/examples" class="external-link uri">https://github.com/r-lib/actions/tree/v2-branch/examples</a>
 </li>

@@ -141,6 +141,43 @@ add_dockerfile <- function(given = NULL, family = NULL, email = NULL,
   }
   
   
+  ## Update README.Rmd ----
+  
+  if (file.exists(file.path(path_proj(), "README.Rmd"))) {
+  
+    pattern <- paste0("```\\{r eval = FALSE\\}\n",
+                      "source\\(\"make.R\"\\)\n",
+                      "```\n")
+    replace <- ""
+    gsub_in_file(file.path(path_proj(), "README.Rmd"), pattern, replace)
+    
+    pattern <- paste0("### Usage\n\n",
+                      "Clone the repository, open R/RStudio and run:\n\n")
+    replace <- "### Usage"
+    gsub_in_file(file.path(path_proj(), "README.Rmd"), pattern, replace)
+    
+    pattern <- "### Usage"
+    replace <- paste0("### Usage\n\n", 
+                      "1. Clone this repository\n",
+                      "2. Open a terminal\n",
+                      "3. Build the Docker image with:\n\n",
+                      "```sh\n",
+                      "docker build -t \"", get_package_name(), "\" .\n",
+                      "```\n\n",
+                      "4. Start a container based on this image:\n\n",
+                      "```sh\n",
+                      "docker run --rm -p 127.0.0.1:8787:8787 -e ", 
+                      "DISABLE_AUTH=true ", get_package_name(), "\n",
+                      "```\n\n",
+                      "5. On a web browser enter this URL: `127.0.0.1:8787`. ", 
+                      "A new RStudio Server\ninstance will be available.\n",
+                      "6. To run the analysis:\n\n",
+                      "```{r eval = FALSE}\n",
+                      "source(\"make.R\")\n",
+                      "```\n")
+    gsub_in_file(file.path(path_proj(), "README.Rmd"), pattern, replace)
+  }
+  
   ## Message ----
   
   if (!quiet) ui_done("Writing {ui_value('Dockerfile')} file")

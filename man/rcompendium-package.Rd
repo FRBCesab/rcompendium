@@ -118,6 +118,7 @@ calling \code{\link[gh:gh_whoami]{gh::gh_whoami()}}:\preformatted{\{
 Useful links:
 \itemize{
   \item \url{https://github.com/FRBCesab/rcompendium}
+  \item \url{https://frbcesab.github.io/rcompendium/}
   \item Report bugs at \url{https://github.com/FRBCesab/rcompendium/issues}
 }
 

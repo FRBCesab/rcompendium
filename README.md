@@ -12,7 +12,7 @@ deployment](https://github.com/FRBCesab/rcompendium/actions/workflows/pkgdown.ya
 [![Test
 coverage](https://github.com/FRBCesab/rcompendium/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/FRBCesab/rcompendium/actions/workflows/test-coverage.yaml)
 [![codecov](https://codecov.io/gh/FRBCesab/rcompendium/branch/main/graph/badge.svg)](https://app.codecov.io/gh/FRBCesab/rcompendium)
-[![License: GPL (>=
+[![License: GPL (\>=
 2)](https://img.shields.io/badge/License-GPL%20%28%3E%3D%202%29-blue.svg)](https://choosealicense.com/licenses/gpl-2.0/)
 [![LifeCycle](https://img.shields.io/badge/lifecycle-stable-green)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![Project Status:
@@ -104,8 +104,8 @@ running `rcompendium::new_compendium()`
 
 Please cite this package as:
 
-> Casajus N. (2021) rcompendium: An R package to create a package or
-> research compendium structure. Version 0.5.1,
+> Casajus N. (2022) rcompendium: An R package to create a package or
+> research compendium structure. Version 1.0,
 > <https://github.com/FRBCesab/rcompendium>.
 
 You can also run:
@@ -118,8 +118,8 @@ citation("rcompendium")
 ## @Manual{,
 ##   title  = {{rcompendium}: {An} {R} package to create a package or research compendium structure},
 ##   author = {{Casajus N.}},
-##   year   = {2021},
-##   note   = {R package version 0.5.1},
+##   year   = {2022},
+##   note   = {R package version 1.0},
 ##   url    = {https://github.com/FRBCesab/rcompendium},
 ## }
 ```

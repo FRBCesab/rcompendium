@@ -1,4 +1,4 @@
-# rcompendium (development version)
+# rcompendium 1.0
 
 * New feature: `add_dockerfile()` creates a basic `Dockerfile` in compendium (new 
 argument `dokerfile` in `new_compendium()`) based on `rocker/rstudio`.
@@ -10,6 +10,8 @@ only if the `README.Rmd` has been modified since the last commit. Also
 add new argument `gh_render` in `new_*()` functions.
 * New vignette: developing an R package
 * New vignette: working with a compendium
+* Function `add_dependencies()` allows now missing `R/` folder and improves the
+detection of dependencies in vignettes.
 * Function `add_lifecycle_badge()` does not copy badge SVG in the project 
 anymore. The image badge is now created using https://shields.io/.
 * Update GHA templates. They are now derived from:

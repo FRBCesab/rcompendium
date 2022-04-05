@@ -511,21 +511,6 @@ new_compendium <- function(compendium = ".", license = "GPL (>= 2)",
   
   
   ##
-  ## DOCKERFILE ----
-  ## 
-  
-  
-  if (dockerfile) {
-    
-    ui_title("Adding Dockerfile")
-    
-    add_dockerfile(given, family, email, open = FALSE, overwrite = overwrite, 
-                   quiet = quiet)
-  }
-  
-  
-  
-  ##
   ## UPDATE DEPENDENCIES ----
   ## 
   
@@ -701,6 +686,22 @@ new_compendium <- function(compendium = ".", license = "GPL (>= 2)",
       ui_done(paste0("Committing changes with the following message: ", 
                      "{ui_value('Setup GHA')}"))
     }
+  }
+  
+  
+  
+  
+  ##
+  ## DOCKERFILE ----
+  ## 
+  
+  
+  if (dockerfile) {
+    
+    ui_title("Adding Dockerfile")
+    
+    add_dockerfile(given, family, email, open = FALSE, overwrite = overwrite, 
+                   quiet = quiet)
   }
   
   

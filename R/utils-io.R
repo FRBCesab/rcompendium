@@ -202,3 +202,36 @@ add_sticker <- function(overwrite = FALSE, quiet = FALSE) {
   
   invisible(NULL)
 }
+
+
+#' **Search and replace strings in files**
+#' 
+#' File version of [gsub()]. Modified from [xfun::gsub_file()] allowing to 
+#' search for strings in multiple lines.
+#' 
+#' @param file Path of a single file.
+#' 
+#' @param ... Arguments passed to [gsub()].
+#'
+#' @noRd
+
+gsub_in_file <- function(file, ...) {
+  
+  if (!(file.access(file, 2) == 0 && file.access(file, 4) == 0)) {
+    stop("Unable to read or write to ", file)
+  }
+  
+  x1 <- tryCatch(xfun::read_utf8(file, error = TRUE), 
+                 error = function(e) stop(e))
+  
+  if (is.null(x1)) return(invisible(NULL))
+  
+  x1 <- paste0(x1, collapse = "\n")
+  x2 <- gsub(x = x1, ...)
+  
+  if (!identical(x1, x2)) {
+    xfun::write_utf8(x2, file)
+  }
+  
+  invisible(NULL)
+}

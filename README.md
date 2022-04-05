@@ -12,12 +12,12 @@ deployment](https://github.com/FRBCesab/rcompendium/actions/workflows/pkgdown.ya
 [![Test
 coverage](https://github.com/FRBCesab/rcompendium/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/FRBCesab/rcompendium/actions/workflows/test-coverage.yaml)
 [![codecov](https://codecov.io/gh/FRBCesab/rcompendium/branch/main/graph/badge.svg)](https://app.codecov.io/gh/FRBCesab/rcompendium)
-[![License: GPL (>=
+[![License: GPL (\>=
 2)](https://img.shields.io/badge/License-GPL%20%28%3E%3D%202%29-blue.svg)](https://choosealicense.com/licenses/gpl-2.0/)
 [![LifeCycle](https://img.shields.io/badge/lifecycle-stable-green)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![Project Status:
 Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![Dependencies](https://img.shields.io/badge/dependencies-11/77-red?style=flat)](#)
+[![Dependencies](https://img.shields.io/badge/dependencies-12/69-red?style=flat)](#)
 <!-- badges: end -->
 
 In the area of open science, making reproducible analyses is a strong

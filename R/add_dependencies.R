@@ -60,14 +60,15 @@ add_dependencies <- function(compendium = NULL) {
   is_package()
   path <- path_proj()
   
+  
   ## If no R function ----
   
-  if (!dir.exists(file.path(path, "R"))) stop("No 'R/' folder found.")
+  # if (!dir.exists(file.path(path, "R"))) stop("No 'R/' folder found.")
   
   
   ## Update Documentation & NAMESPACE ----
   
-  suppressMessages(devtools::document(quiet = TRUE))
+  # suppressMessages(devtools::document(quiet = TRUE))
   
   
   ## Detect Dependencies in NAMESPACE ----

@@ -1,3 +1,5 @@
+# rcompendium (development version)
+
 # rcompendium 1.0
 
 * New feature: `add_dockerfile()` creates a basic `Dockerfile` in compendium (new 

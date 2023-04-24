@@ -1,4 +1,9 @@
-# rcompendium (development version)
+# rcompendium 1.1
+
+* Update GitHub Actions templates (`yaml` files)
+* Detect current git branch name in `add_readme_rmd()`
+* Ignore `renv` files (R build and GitHub) in `add_renv()`
+
 
 # rcompendium 1.0
 

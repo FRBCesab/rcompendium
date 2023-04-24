@@ -47,6 +47,19 @@ add_renv <- function(quiet = FALSE) {
     }
     
     
+    ## Add renv files to .Rbuildignore ----
+    
+    add_to_buildignore("renv/")
+    add_to_buildignore(".Rprofile")
+    add_to_buildignore("renv.lock")
+    
+    
+    ## Add renv files to .Rbuildignore ----
+    
+    add_to_gitignore("renv/")
+    add_to_gitignore(".Rprofile")
+    
+    
     ## Add renv to Import tag in DESCRIPTION ----
     
     descr <- read_descr()

@@ -9,15 +9,9 @@ status](https://www.r-pkg.org/badges/version/rcompendium)](https://CRAN.R-projec
 check](https://github.com/FRBCesab/rcompendium/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/FRBCesab/rcompendium/actions/workflows/R-CMD-check.yaml)
 [![Website
 deployment](https://github.com/FRBCesab/rcompendium/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/FRBCesab/rcompendium/actions/workflows/pkgdown.yaml)
-[![Test
-coverage](https://github.com/FRBCesab/rcompendium/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/FRBCesab/rcompendium/actions/workflows/test-coverage.yaml)
 [![codecov](https://codecov.io/gh/FRBCesab/rcompendium/branch/main/graph/badge.svg)](https://app.codecov.io/gh/FRBCesab/rcompendium)
-[![License: GPL (>=
+[![License: GPL (\>=
 2)](https://img.shields.io/badge/License-GPL%20%28%3E%3D%202%29-blue.svg)](https://choosealicense.com/licenses/gpl-2.0/)
-[![LifeCycle](https://img.shields.io/badge/lifecycle-stable-green)](https://lifecycle.r-lib.org/articles/stages.html#stable)
-[![Project Status:
-Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![Dependencies](https://img.shields.io/badge/dependencies-12/69-red?style=flat)](#)
 <!-- badges: end -->
 
 In the area of open science, making reproducible analyses is a strong
@@ -31,20 +25,22 @@ organizing files.
 A full ready-to-work structure will be set up with the following
 features:
 
--   Initialization of the [GIT](https://git-scm.com/) version control.
--   Creation of a minimal R package structure (`DESCRIPTION` and
-    `NAMESPACE` files, and `R/` and `man/` folders).
--   Creation of additional files (`LICENSE.md`, `inst/CITATION`, etc.).
--   Creation of a *Get started* vignette in `vignettes/`.
--   Setting the units tests process in `tests/`.
--   Creation of a `README.Rmd` with HexSticker (template) and badges.
--   Autocompletion of maintainer information.
--   Creation of a GitHub repository.
--   Configuration of GitHub Actions to automatically:
-    -   check and test package (`R CMD Check`);
-    -   report the code coverage (`covr`);
-    -   build and deploy website (`pkgdown`);
-    -   render `README.md`.
+- Initialization of version control with [git](https://git-scm.com/).
+- Creation of a minimal R package structure (`DESCRIPTION` and
+  `NAMESPACE` files, and `R/` and `man/` folders).
+- Creation of additional files (`LICENSE.md`, `inst/CITATION`, etc.).
+- Creation of a *Get started* vignette in `vignettes/` (package only).
+- Setting the units tests process in `tests/`.
+- Creation of a `README.Rmd` with HexSticker (template) and badges.
+- Autocompletion of maintainer information.
+- Initialization of the `renv` system (if required).
+- Creation of a Dockerfile (if required).
+- Creation of a GitHub repository.
+- Configuration of GitHub Actions to automatically:
+  - check and test package (`R CMD Check`);
+  - report the code coverage (`covr`);
+  - build and deploy website (`pkgdown`);
+  - render `README.md`.
 
 This package heavily relies on the R packages
 [`devtools`](https://devtools.r-lib.org) and
@@ -86,26 +82,17 @@ and
 
 Others available vignettes:
 
--   [Developing a
-    Package](https://frbcesab.github.io/rcompendium/articles/developing_a_package.html)
--   [Working with a
-    Compendium](https://frbcesab.github.io/rcompendium/articles/working_with_a_compendium.html)
-
-## Examples
-
-:boom: This [package](https://github.com/ahasverus/demo.package) was set
-up by running `rcompendium::new_package()`
-
-:boom: This [research
-compendium](https://github.com/ahasverus/demo.compendium) was set up by
-running `rcompendium::new_compendium()`
+- [Developing a
+  Package](https://frbcesab.github.io/rcompendium/articles/developing_a_package.html)
+- [Working with a
+  Compendium](https://frbcesab.github.io/rcompendium/articles/working_with_a_compendium.html)
 
 ## Citation
 
 Please cite this package as:
 
-> Casajus N. (2022) rcompendium: An R package to create a package or
-> research compendium structure. Version 1.0,
+> Casajus N. (2023) rcompendium: An R package to create a package or
+> research compendium structure. Version 1.1,
 > <https://github.com/FRBCesab/rcompendium>.
 
 You can also run:
@@ -118,8 +105,8 @@ citation("rcompendium")
 ## @Manual{,
 ##   title  = {{rcompendium}: {An} {R} package to create a package or research compendium structure},
 ##   author = {{Casajus N.}},
-##   year   = {2022},
-##   note   = {R package version 1.0},
+##   year   = {2023},
+##   note   = {R package version 1.1},
 ##   url    = {https://github.com/FRBCesab/rcompendium},
 ## }
 ```
@@ -138,11 +125,10 @@ By contributing to this project, you agree to abide by its terms.
 ## Colophon
 
 This package is the result of intense discussions and feedback from the
-training course [Data Toolbox for Reproducible Research in Computational
-Ecology](https://github.com/FRBCesab/datatoolbox) (in French).
+training course [Reproducible Research in Computational
+Ecology](https://rdatatoolbox.github.io/).
 
 `rcompendium` is largely inspired by the package
 [`rrtools`](https://github.com/benmarwick/rrtools) developed by [Ben
 Marwick *et al.*](https://github.com/benmarwick) and tries to respect
-the standard defined by the community. **Special thanks to these
-developers!**
+the standard defined by the community.

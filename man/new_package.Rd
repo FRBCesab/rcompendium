@@ -224,15 +224,19 @@ always be able to modify them on-the-fly (i.e. by using arguments of the
 
 
 First run \code{\link[gh:gh_whoami]{gh::gh_whoami()}} to see if your git is correctly configured. If
-so you should see something like:\preformatted{\{
+so you should see something like:
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{\{
   "name": "John Doe",
   "login": "jdoe",
   "html_url": "https://github.com/jdoe",
   ...
 \}
-}
+}\if{html}{\out{</div>}}
 
-Otherwise you might need to run:\preformatted{gert::git_config_global_set(name  = "user.name", 
+Otherwise you might need to run:
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{gert::git_config_global_set(name  = "user.name", 
                             value = "John Doe")
                             
 gert::git_config_global_set(name  = "user.email", 
@@ -240,7 +244,7 @@ gert::git_config_global_set(name  = "user.email",
                             
 gert::git_config_global_set(name  = "github.user", 
                             value = "jdoe")
-}
+}\if{html}{\out{</div>}}
 
 See \code{\link[gert:git_config]{gert::git_config_global_set()}} for further information.
 }
@@ -265,14 +269,16 @@ Run \code{\link[usethis:github-token]{usethis::gh_token_help()}} for more inform
 configuring a \strong{GITHUB PAT}.
 
 If everything is well configured you should see something like this after
-calling \code{\link[gh:gh_whoami]{gh::gh_whoami()}}:\preformatted{\{
+calling \code{\link[gh:gh_whoami]{gh::gh_whoami()}}:
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{\{
   "name": "John Doe",
   "login": "jdoe",
   "html_url": "https://github.com/jdoe",
   "scopes": "delete_repo, repo, workflow",
   "token": "ghp_99z9...z9"
 \}
-}
+}\if{html}{\out{</div>}}
 
 And you will be able to create a GitHub repository directly from R!
 }

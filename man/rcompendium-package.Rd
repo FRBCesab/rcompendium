@@ -53,15 +53,19 @@ in the functions \verb{new_*()} and \verb{add_*()}) or permanently by re-running
 
 
 To see if \strong{git} is correctly configured on your laptop, run
-\code{\link[gh:gh_whoami]{gh::gh_whoami()}}. You should see something like:\preformatted{\{
+\code{\link[gh:gh_whoami]{gh::gh_whoami()}}. You should see something like:
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{\{
   "name": "John Doe",
   "login": "jdoe",
   "html_url": "https://github.com/jdoe",
   ...
 \}
-}
+}\if{html}{\out{</div>}}
 
-Otherwise you might need to run:\preformatted{gert::git_config_global_set(name  = "user.name", 
+Otherwise you might need to run:
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{gert::git_config_global_set(name  = "user.name", 
                             value = "John Doe")
                             
 gert::git_config_global_set(name  = "user.email", 
@@ -69,7 +73,7 @@ gert::git_config_global_set(name  = "user.email",
                             
 gert::git_config_global_set(name  = "github.user", 
                             value = "jdoe")
-}
+}\if{html}{\out{</div>}}
 
 See \code{\link[gert:git_config]{gert::git_config_global_set()}} for further information.
 }
@@ -94,14 +98,16 @@ Run \code{\link[usethis:github-token]{usethis::gh_token_help()}} for more inform
 configuring a \strong{GITHUB PAT}.
 
 If everything is well configured, you should see something like this after
-calling \code{\link[gh:gh_whoami]{gh::gh_whoami()}}:\preformatted{\{
+calling \code{\link[gh:gh_whoami]{gh::gh_whoami()}}:
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{\{
   "name": "John Doe",
   "login": "jdoe",
   "html_url": "https://github.com/jdoe",
   "scopes": "repo, workflow",
   "token": "ghp_...z99Z"
 \}
-}
+}\if{html}{\out{</div>}}
 }
 
 \section{Resources}{

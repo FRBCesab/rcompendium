@@ -1,11 +1,11 @@
-pandoc: 2.7.3
-pkgdown: 2.0.2
+pandoc: 2.19.2
+pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   developing_a_package: developing_a_package.html
   rcompendium: rcompendium.html
   working_with_a_compendium: working_with_a_compendium.html
-last_built: 2022-04-07T09:17Z
+last_built: 2023-04-24T08:48Z
 urls:
   reference: https://frbcesab.github.io/rcompendium/reference
   article: https://frbcesab.github.io/rcompendium/articles

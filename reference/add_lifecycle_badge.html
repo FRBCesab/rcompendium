@@ -81,7 +81,7 @@ with the line <code>&lt;!-- badges: end --&gt;</code>.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">add_lifecycle_badge</span><span class="op">(</span>lifecycle <span class="op">=</span> <span class="st">"experimental"</span>, quiet <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">add_lifecycle_badge</span><span class="op">(</span>lifecycle <span class="op">=</span> <span class="st">"experimental"</span>, quiet <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -89,13 +89,18 @@ with the line <code>&lt;!-- badges: end --&gt;</code>.</p>
     <dl><dt>lifecycle</dt>
 <dd><p>A character of length 1. Accepted stages are:
 <code>'experimental'</code> (default), <code>'stable'</code>, <code>'deprecated'</code>, or <code>'superseded'</code>.</p></dd>
+
+
 <dt>quiet</dt>
 <dd><p>A logical value. If <code>TRUE</code> messages are deleted. Default is
 <code>FALSE</code>.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A badge as a markdown expression.</p>
+    
+
+<p>A badge as a markdown expression.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -127,10 +132,10 @@ available and is scheduled for removal.</p></li>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="fu">add_lifecycle_badge</span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">add_lifecycle_badge</span><span class="op">(</span>lifecycle <span class="op">=</span> <span class="st">"stable"</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="fu">add_lifecycle_badge</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">add_lifecycle_badge</span><span class="op">(</span>lifecycle <span class="op">=</span> <span class="st">"stable"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -145,7 +150,7 @@ available and is scheduled for removal.</p></li>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

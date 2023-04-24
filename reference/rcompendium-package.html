@@ -119,23 +119,22 @@ in the functions <code>new_*()</code> and <code>add_*()</code>) or permanently b
 
 
 <p>To see if <strong>git</strong> is correctly configured on your laptop, run
-<code><a href="https://gh.r-lib.org/reference/gh_whoami.html" class="external-link">gh::gh_whoami()</a></code>. You should see something like:</p><div class="sourceCode"><pre><code>{
-  "name": "John Doe",
-  "login": "jdoe",
-  "html_url": "https://github.com/jdoe",
-  ...
-}
-</code></pre></div>
-
-<p>Otherwise you might need to run:</p><div class="sourceCode"><pre><code><span class="fu">gert</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/gert/reference/git_config.html" class="external-link">git_config_global_set</a></span><span class="op">(</span>name  <span class="op">=</span> <span class="st">"user.name"</span>, 
-                            value <span class="op">=</span> <span class="st">"John Doe"</span><span class="op">)</span>
-                            
-<span class="fu">gert</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/gert/reference/git_config.html" class="external-link">git_config_global_set</a></span><span class="op">(</span>name  <span class="op">=</span> <span class="st">"user.email"</span>, 
-                            value <span class="op">=</span> <span class="st">"john.doe@domain.com"</span><span class="op">)</span>
-                            
-<span class="fu">gert</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/gert/reference/git_config.html" class="external-link">git_config_global_set</a></span><span class="op">(</span>name  <span class="op">=</span> <span class="st">"github.user"</span>, 
-                            value <span class="op">=</span> <span class="st">"jdoe"</span><span class="op">)</span></code></pre></div>
-
+<code><a href="https://gh.r-lib.org/reference/gh_whoami.html" class="external-link">gh::gh_whoami()</a></code>. You should see something like:</p>
+<p></p><div class="sourceCode"><pre><code><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"name"</span><span class="sc">:</span> <span class="st">"John Doe"</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"login"</span><span class="sc">:</span> <span class="st">"jdoe"</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"html_url"</span><span class="sc">:</span> <span class="st">"https://github.com/jdoe"</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre><p></p></div>
+<p>Otherwise you might need to run:</p>
+<p></p><div class="sourceCode"><pre><code><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>gert<span class="sc">::</span><span class="fu">git_config_global_set</span>(<span class="at">name  =</span> <span class="st">"user.name"</span>, </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">value =</span> <span class="st">"John Doe"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                            </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>gert<span class="sc">::</span><span class="fu">git_config_global_set</span>(<span class="at">name  =</span> <span class="st">"user.email"</span>, </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                            <span class="at">value =</span> <span class="st">"john.doe@domain.com"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                            </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>gert<span class="sc">::</span><span class="fu">git_config_global_set</span>(<span class="at">name  =</span> <span class="st">"github.user"</span>, </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                            <span class="at">value =</span> <span class="st">"jdoe"</span>)</span></code></pre><p></p></div>
 <p>See <code><a href="https://docs.ropensci.org/gert/reference/git_config.html" class="external-link">gert::git_config_global_set()</a></code> for further information.</p>
     </div>
     <div id="creating-a-github-repo">
@@ -154,15 +153,14 @@ and adding the following line: <code>GITHUB_PAT='ghp_99z9...z9'</code>.</p></li>
 </ol><p>Run <code><a href="https://usethis.r-lib.org/reference/github-token.html" class="external-link">usethis::gh_token_help()</a></code> for more information about getting and
 configuring a <strong>GITHUB PAT</strong>.</p>
 <p>If everything is well configured, you should see something like this after
-calling <code><a href="https://gh.r-lib.org/reference/gh_whoami.html" class="external-link">gh::gh_whoami()</a></code>:</p><div class="sourceCode"><pre><code>{
-  "name": "John Doe",
-  "login": "jdoe",
-  "html_url": "https://github.com/jdoe",
-  "scopes": "repo, workflow",
-  "token": "ghp_...z99Z"
-}
-</code></pre></div>
-
+calling <code><a href="https://gh.r-lib.org/reference/gh_whoami.html" class="external-link">gh::gh_whoami()</a></code>:</p>
+<p></p><div class="sourceCode"><pre><code><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"name"</span><span class="sc">:</span> <span class="st">"John Doe"</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"login"</span><span class="sc">:</span> <span class="st">"jdoe"</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"html_url"</span><span class="sc">:</span> <span class="st">"https://github.com/jdoe"</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"scopes"</span><span class="sc">:</span> <span class="st">"repo, workflow"</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"token"</span><span class="sc">:</span> <span class="st">"ghp_...z99Z"</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre><p></p></div>
     </div>
     <div id="resources">
     <h2>Resources</h2>
@@ -197,7 +195,7 @@ calling <code><a href="https://gh.r-lib.org/reference/gh_whoami.html" class="ext
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

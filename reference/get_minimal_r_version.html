@@ -73,7 +73,7 @@ the <code>Depends</code> field of the <code>DESCRIPTION</code> file.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">get_minimal_r_version</span><span class="op">(</span>pkg <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_minimal_r_version</span><span class="op">(</span>pkg <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -82,10 +82,13 @@ the <code>Depends</code> field of the <code>DESCRIPTION</code> file.</p>
 <dd><p>A character of length 1. The name of a CRAN package or <code>NULL</code>
 (default). If <code>NULL</code> get minimal required R version of the local
 (uninstalled) project (package or compendium).</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A character with the minimal required R version.</p>
+    
+
+<p>A character with the minimal required R version.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
@@ -97,16 +100,16 @@ the <code>Depends</code> field of the <code>DESCRIPTION</code> file.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="co">## Update dependencies ----</span></span>
-<span class="r-in"><span class="fu"><a href="add_dependencies.html">add_dependencies</a></span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Minimal R version of a project ----</span></span>
-<span class="r-in"><span class="fu">get_minimal_r_version</span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Minimal R version of a CRAN package ----</span></span>
-<span class="r-in"><span class="fu">get_minimal_r_version</span><span class="op">(</span><span class="st">"usethis"</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="co">## Update dependencies ----</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="add_dependencies.html">add_dependencies</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Minimal R version of a project ----</span></span></span>
+<span class="r-in"><span><span class="fu">get_minimal_r_version</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Minimal R version of a CRAN package ----</span></span></span>
+<span class="r-in"><span><span class="fu">get_minimal_r_version</span><span class="op">(</span><span class="st">"usethis"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -121,7 +124,7 @@ the <code>Depends</code> field of the <code>DESCRIPTION</code> file.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

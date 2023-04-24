@@ -73,7 +73,7 @@ be untracked by <strong>git</strong> are just added to this file.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">add_to_gitignore</span><span class="op">(</span><span class="va">x</span>, open <span class="op">=</span> <span class="cn">FALSE</span>, quiet <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">add_to_gitignore</span><span class="op">(</span><span class="va">x</span>, open <span class="op">=</span> <span class="cn">FALSE</span>, quiet <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -81,16 +81,23 @@ be untracked by <strong>git</strong> are just added to this file.</p>
     <dl><dt>x</dt>
 <dd><p>A character vector. One or several files/folders names to be added
 to the <code>.gitignore</code>.</p></dd>
+
+
 <dt>open</dt>
 <dd><p>A logical value. If <code>TRUE</code> the <code>.gitignore</code> file is opened in
 the editor. Default is <code>FALSE</code>.</p></dd>
+
+
 <dt>quiet</dt>
 <dd><p>A logical value. If <code>TRUE</code> messages are deleted. Default is
 <code>FALSE</code>.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>No return value.</p>
+    
+
+<p>No return value.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
@@ -106,10 +113,10 @@ the editor. Default is <code>FALSE</code>.</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="fu">add_to_gitignore</span><span class="op">(</span>open <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">add_to_gitignore</span><span class="op">(</span><span class="st">".DS_Store"</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="fu">add_to_gitignore</span><span class="op">(</span>open <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">add_to_gitignore</span><span class="op">(</span><span class="st">".DS_Store"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -124,7 +131,7 @@ the editor. Default is <code>FALSE</code>.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

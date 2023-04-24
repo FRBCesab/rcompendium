@@ -81,7 +81,7 @@
 
       
 
-      </header><script src="developing_a_package_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Developing an R package</h1>
@@ -95,12 +95,15 @@
     
     
 <p><br></p>
-<p><strong>PLEASE READ THE <a href="https://frbcesab.github.io/rcompendium/articles/rcompendium.html">GET STARTED</a> VIGNETTE FIRST</strong></p>
+<p><strong>PLEASE READ THE <a href="https://frbcesab.github.io/rcompendium/articles/rcompendium.html">GET
+STARTED</a> VIGNETTE FIRST</strong></p>
 <p><br></p>
 <div class="section level2">
 <h2 id="package-content">Package content<a class="anchor" aria-label="anchor" href="#package-content"></a>
 </h2>
-<p>First, create a <strong>new empty RStudio project</strong>. Let’s called it <code>pkg</code>. To create a new package structure, run <code><a href="../reference/new_package.html">rcompendium::new_package()</a></code>.</p>
+<p>First, create a <strong>new empty RStudio project</strong>. Let’s
+called it <code>pkg</code>. To create a new package structure, run
+<code><a href="../reference/new_package.html">rcompendium::new_package()</a></code>.</p>
 <p>By default, the following content is created:</p>
 <pre><code>pkg/                              # Root of the package
 │
@@ -155,7 +158,12 @@
 [*] These files are automatically created but user needs to manually add 
     some information.</code></pre>
 <p><br></p>
-<p>In addition, a new GitHub repository will be created directly from R. It will be available at: <code>https://github.com/{{account}}/pkg/</code> (where <code>{{account}}</code> is either your GitHub account or a GitHub organization). A few minutes later, the website (<a href="https://pkgdown.r-lib.org/" class="external-link"><code>pkgdown</code></a>) will be deployed at: <code>https://{{account}}.github.io/pkg/</code>.</p>
+<p>In addition, a new GitHub repository will be created directly from R.
+It will be available at:
+<code>https://github.com/{{account}}/pkg/</code> (where
+<code>{{account}}</code> is either your GitHub account or a GitHub
+organization). A few minutes later, the website (<a href="https://pkgdown.r-lib.org/" class="external-link"><code>pkgdown</code></a>) will be
+deployed at: <code>https://{{account}}.github.io/pkg/</code>.</p>
 <p><br></p>
 </div>
 <div class="section level2">
@@ -164,7 +172,9 @@
 <div class="section level3">
 <h3 id="description">DESCRIPTION<a class="anchor" aria-label="anchor" href="#description"></a>
 </h3>
-<p>The <code>DESCRIPTION</code> file contains important package metadata. By default, <code>rcompendium</code> creates the following file:</p>
+<p>The <code>DESCRIPTION</code> file contains important package
+metadata. By default, <code>rcompendium</code> creates the following
+file:</p>
 <pre><code>Package: pkg
 Type: Package
 Title: The Title of the Project                                              [*]
@@ -193,13 +203,20 @@ Config/testthat/edition: 3
 
 [*] Title and Description must be adapted by user.</code></pre>
 <p>For further information, please read <a href="https://r-pkgs.org/description.html" class="external-link">https://r-pkgs.org/description.html</a>.</p>
-<p><strong>N.B.</strong> If you change <code>Title</code>, <code>Description</code>, <code>Version</code>, and <code>Authors@R</code> values, do not forget to also change citation information in <code>inst/CITATION</code> and <code>README.Rmd</code>.</p>
+<p><strong>N.B.</strong> If you change <code>Title</code>,
+<code>Description</code>, <code>Version</code>, and
+<code>Authors@R</code> values, do not forget to also change citation
+information in <code>inst/CITATION</code> and
+<code>README.Rmd</code>.</p>
 <p><br></p>
 </div>
 <div class="section level3">
 <h3 id="readme">README<a class="anchor" aria-label="anchor" href="#readme"></a>
 </h3>
-<p>The <code>README.md</code> is the homepage of your repository on GitHub. Its purpose is to help visitor to understand your project. Always edit the <code>README.Rmd</code> (not the <code>.md</code> version).</p>
+<p>The <code>README.md</code> is the homepage of your repository on
+GitHub. Its purpose is to help visitor to understand your project.
+Always edit the <code>README.Rmd</code> (not the <code>.md</code>
+version).</p>
 <p>For further information, please read <a href="https://r-pkgs.org/release.html#readme" class="external-link">https://r-pkgs.org/release.html#readme</a>.</p>
 <p><br></p>
 </div>
@@ -211,11 +228,14 @@ Config/testthat/edition: 3
 <ol style="list-style-type: decimal">
 <li>Implement new function in <code>R/</code>
 </li>
-<li>Document function using the <a href="https://roxygen2.r-lib.org/articles/roxygen2.html" class="external-link">roxygen syntax</a>
+<li>Document function using the <a href="https://roxygen2.r-lib.org/articles/roxygen2.html" class="external-link">roxygen
+syntax</a>
 </li>
-<li>Update functions doc (<code>man/</code>) and <code>NAMESPACE</code> with <code><a href="https://devtools.r-lib.org/reference/document.html" class="external-link">devtools::document()</a></code>
+<li>Update functions doc (<code>man/</code>) and <code>NAMESPACE</code>
+with <code><a href="https://devtools.r-lib.org/reference/document.html" class="external-link">devtools::document()</a></code>
 </li>
-<li>Update list of required packages in <code>DESCRIPTION</code> with <code><a href="../reference/add_dependencies.html">rcompendium::add_dependencies()</a></code>
+<li>Update list of required packages in <code>DESCRIPTION</code> with
+<code><a href="../reference/add_dependencies.html">rcompendium::add_dependencies()</a></code>
 </li>
 <li>Implement units tests using <a href="https://testthat.r-lib.org/" class="external-link"><code>testthat</code></a>
 </li>
@@ -223,9 +243,11 @@ Config/testthat/edition: 3
 <li>Check and test the package with <code><a href="https://devtools.r-lib.org/reference/check.html" class="external-link">devtools::check()</a></code>
 </li>
 </ol>
-<p>You can also provide data with your package. See <code><a href="https://usethis.r-lib.org/reference/use_data.html" class="external-link">?usethis::use_data</a></code>.</p>
+<p>You can also provide data with your package. See
+<code><a href="https://usethis.r-lib.org/reference/use_data.html" class="external-link">?usethis::use_data</a></code>.</p>
 <p><br></p>
-<p>We strongly recommend that you read the book <a href="https://r-pkgs.org/" class="external-link">R packages</a> by Hadley Wickham and Jenny Bryan.</p>
+<p>We strongly recommend that you read the book <a href="https://r-pkgs.org/" class="external-link">R packages</a> by Hadley Wickham and Jenny
+Bryan.</p>
 <p><br></p>
 </div>
 <div class="section level2">
@@ -233,11 +255,14 @@ Config/testthat/edition: 3
 </h2>
 <ul>
 <li>
-<a href="https://r-pkgs.org/" class="external-link">R packages</a> by Hadley Wickham and Jenny Bryan</li>
+<a href="https://r-pkgs.org/" class="external-link">R packages</a> by Hadley Wickham and
+Jenny Bryan</li>
 <li>
-<a href="https://cran.r-project.org/doc/manuals/r-release/R-exts.html" class="external-link">Writing R extensions</a> by the R Development Core Team</li>
+<a href="https://cran.r-project.org/doc/manuals/r-release/R-exts.html" class="external-link">Writing
+R extensions</a> by the R Development Core Team</li>
 <li>
-<a href="https://www.taylorfrancis.com/books/mono/10.1201/9781315381305/extending-john-chambers" class="external-link">Extending R</a> by John M. Chambers</li>
+<a href="https://www.taylorfrancis.com/books/mono/10.1201/9781315381305/extending-john-chambers" class="external-link">Extending
+R</a> by John M. Chambers</li>
 </ul>
 </div>
   </div>
@@ -259,7 +284,7 @@ Config/testthat/edition: 3
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>

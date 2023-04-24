@@ -159,7 +159,7 @@ Essential features of an R package are created (\code{DESCRIPTION} and
 (by using \code{\link[=setwd]{setwd()}} or by opening the \code{Rproj} in a new RStudio session).
 \strong{The name of the package will be the same as the name of this folder}.
 Some rules must be respected:
-\url{https://r-pkgs.org/workflows101.html#naming}.
+\url{https://r-pkgs.org/workflow101.html#name-your-package}.
 
 Some fields of the \code{DESCRIPTION} file (maintainer information, package name,
 license, URLs, and  \code{roxygen2} version)  are automatically filled but

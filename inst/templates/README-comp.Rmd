@@ -40,25 +40,25 @@ This repository is structured as follow:
 - [`data/`](https://github.com/{{github}}/{{project_name}}/tree/master/data):
 contains all raw data required to perform analyses
 
-- [`analyses/`](https://github.com/{{github}}/{{project_name}}/tree/master/analyses/):
+- [`analyses/`](https://github.com/{{github}}/{{project_name}}/tree/{{branch}}/analyses/):
 contains R scripts to run each step of the workflow
 
-- [`outputs/`](https://github.com/{{github}}/{{project_name}}/tree/master/outputs):
+- [`outputs/`](https://github.com/{{github}}/{{project_name}}/tree/{{branch}}/outputs):
 contains all the results created during the workflow
 
-- [`figures/`](https://github.com/{{github}}/{{project_name}}/tree/master/figures):
+- [`figures/`](https://github.com/{{github}}/{{project_name}}/tree/{{branch}}/figures):
 contains all the figures created during the workflow
 
-- [`R/`](https://github.com/{{github}}/{{project_name}}/tree/master/R):
+- [`R/`](https://github.com/{{github}}/{{project_name}}/tree/{{branch}}/R):
 contains R functions developed especially for this project
 
-- [`man/`](https://github.com/{{github}}/{{project_name}}/tree/master/man):
+- [`man/`](https://github.com/{{github}}/{{project_name}}/tree/{{branch}}/man):
 contains help files of R functions
 
-- [`DESCRIPTION`](https://github.com/{{github}}/{{project_name}}/tree/master/DESCRIPTION):
+- [`DESCRIPTION`](https://github.com/{{github}}/{{project_name}}/tree/{{branch}}/DESCRIPTION):
 contains project metadata (author, date, dependencies, etc.)
 
-- [`make.R`](https://github.com/{{github}}/{{project_name}}/tree/master/make.R):
+- [`make.R`](https://github.com/{{github}}/{{project_name}}/tree/{{branch}}/make.R):
 main R script to run the entire project by calling each R script stored in the `analyses/` folder
 
 

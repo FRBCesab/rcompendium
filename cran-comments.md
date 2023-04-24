@@ -1,33 +1,22 @@
 ## Resubmit comments
 
-* Implement new features:
-  * `add_dockerfile()`
-  * `add_renv()`
-  * `add_github_actions_render()`
-* Add new vignettes:
-  * `vignettes/developing_a_package.Rmd`
-  * `vignettes/working_with_a_compendium.Rmd`)
-* Improve some functions
-* Review function documentation
-* For a complete overview of the new version, please see `NEWS.md`
+* Update GitHub Actions templates (`yaml` files)
+* Detect current git branch name in `add_readme_rmd()`
+* Ignore `renv` files (R build and GitHub) in `add_renv()`
 
 
 ## Test environments
 
 * Local
-  * macOS 11.6 install, R 4.1.3
+  * Arch Linux 6.2.12-arch1-1 install, R 4.3.0
 * GitHub Actions
-  * macOS 11.6.5, R-release (R 4.1.3)
-  * Windows Server 2022, R-release (R 4.1.3)
-  * Ubuntu 18.04.6 LTS, R-devel, R-release (R 4.1.3), R-oldrel
+  * macOS 12.6.5, R-release (R 4.3.0)
+  * Windows Server 2022, R-release (R 4.3.0)
+  * Ubuntu 22.04.2 LTS, R-devel, R-release (R 4.3.0), R-oldrel
 * WinBuilder
   * r-devel
   * r-release
   * r-oldrel
-* R-hub
-  * Windows Server 2022, R-devel 64 bit
-  * Ubuntu Linux 20.04.1 LTS, R-release, GCC
-  * Fedora Linux, R-devel, clang, gfortran
 
 
 ## R CMD check results

@@ -615,7 +615,7 @@ new_package <- function(license = "GPL (>= 2)", status = NULL,
   ## Commit changes ----
   
   invisible(gert::git_add("."))
-  invisible(gert::git_commit("Init repo"))
+  invisible(gert::git_commit("init repo"))
 
   if (!quiet) {
     ui_done(paste0("Committing changes with the following message: ", 
@@ -728,7 +728,7 @@ new_package <- function(license = "GPL (>= 2)", status = NULL,
     ui_title("Committing changes")
     
     invisible(gert::git_add("."))
-    invisible(gert::git_commit("Setup GHA"))
+    invisible(gert::git_commit("ci: setup actions"))
     
     if (!quiet) {
       
@@ -802,7 +802,7 @@ new_package <- function(license = "GPL (>= 2)", status = NULL,
   ui_title("Committing changes")
   
   invisible(gert::git_add("."))
-  invisible(gert::git_commit("Edit README"))
+  invisible(gert::git_commit("doc: update README"))
     
   if (!quiet) {
     

@@ -4,6 +4,7 @@
 * Untrack (by git) `man/` folder and `NAMESPACE` for compendium
 * Remove dependencies badge in README
 * Change default values of `lifecycle` and `status` arguments in `new_package()`
+* Change commit messages in `new_*()` functions (conventional commits)
 
 # rcompendium 1.1
 

@@ -740,7 +740,7 @@ new_compendium <- function(compendium = ".", license = "GPL (>= 2)",
     add_repostatus_badge(status, quiet = quiet)
   }
   
-  add_dependencies_badge(quiet = quiet)
+  # add_dependencies_badge(quiet = quiet)
   
   
   

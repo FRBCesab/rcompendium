@@ -748,6 +748,8 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
   ui_title("Adding Badges to README") 
   
   
+  add_cran_badge(quiet = quiet)
+  
   if (gh_check) {
     add_github_actions_check_badge(organisation, quiet = quiet)
   }
@@ -761,7 +763,6 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
     add_codecov_badge(organisation, quiet = quiet)
   }
   
-  add_cran_badge(quiet = quiet)
   add_license_badge(quiet = quiet)
   
   if (!is.null(lifecycle)) {
@@ -772,7 +773,7 @@ new_package <- function(license = "GPL (>= 2)", status = "concept",
     add_repostatus_badge(status, quiet = quiet)
   }
   
-  add_dependencies_badge(quiet = quiet)
+  # add_dependencies_badge(quiet = quiet)
   
   
   

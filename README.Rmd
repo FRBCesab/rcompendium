@@ -119,7 +119,7 @@ compendium structure. Version 1.1, https://github.com/FRBCesab/rcompendium.
 
 You can also run:
 
-```{r eval = FALSE}
+```{r eval=FALSE}
 citation("rcompendium")
 
 ## A BibTeX entry for LaTeX users is:

@@ -152,7 +152,6 @@ By contributing to this project, you agree to abide by its terms.
 ## Colophon
 
 
-
 This package is the result of intense discussions and feedback from the training 
 course [Reproducible Research in Computational Ecology](https://rdatatoolbox.github.io/). 
 

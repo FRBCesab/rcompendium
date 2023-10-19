@@ -450,6 +450,8 @@ new_compendium <- function(compendium = ".", license = "GPL (>= 2)",
   
   suppressMessages(devtools::document(quiet = TRUE))
   
+  add_to_gitignore("man/", quiet = quiet)
+  add_to_gitignore("NAMESPACE", quiet = quiet)
   
   
   ##

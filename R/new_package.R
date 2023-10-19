@@ -43,25 +43,25 @@
 #' 
 #' @param status A character vector of length 1. The status of the project 
 #'   according to the standard defined by the  \url{https://www.repostatus.org} 
-#'   project. One among `'concept'` (default), `'wip'`, `'suspended'`, 
+#'   project. One among `'concept'`, `'wip'`, `'suspended'`, 
 #'   `'abandoned'`, `'active'`, `'inactive'`, or `'unsupported'`. 
 #'   See [add_repostatus_badge()] for further information. 
 #'   
 #'   This argument is used to add a badge to the `README.Rmd` to help visitors 
 #'   to better understand your project. If you don't want this badge use 
-#'   `status = NULL`.
+#'   `status = NULL` (default). 
 #'   
 #'   This status can be added/changed later by using [add_repostatus_badge()].
 #' 
 #' @param lifecycle A character vector of length 1. The life cycle stage of the 
 #'   project according to the standard defined at  
 #'   \url{https://lifecycle.r-lib.org/articles/stages.html}. One among 
-#'   `'experimental'` (default), `'stable'`, `'deprecated'`, or `'superseded'`.
+#'   `'experimental'`, `'stable'`, `'deprecated'`, or `'superseded'`.
 #'   See [add_lifecycle_badge()] for further information. 
 #'   
 #'   This argument is used to add a badge to the `README.Rmd` to help visitors 
 #'   to better understand your project. If you don't want this badge use 
-#'   `lifecycle = NULL`. 
+#'   `lifecycle = NULL` (default). 
 #'   
 #'   This stage can be added/changed later by using [add_lifecycle_badge()].
 #' 
@@ -280,8 +280,8 @@
 #' refresh()
 #' }
 
-new_package <- function(license = "GPL (>= 2)", status = "concept", 
-                        lifecycle = "experimental", vignette = TRUE, 
+new_package <- function(license = "GPL (>= 2)", status = NULL, 
+                        lifecycle = NULL, vignette = TRUE, 
                         test = TRUE, create_repo = TRUE, private = FALSE, 
                         gh_check = TRUE, codecov = TRUE, website = TRUE, 
                         gh_render = TRUE, given = NULL, family = NULL, 

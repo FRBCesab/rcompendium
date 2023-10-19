@@ -6,8 +6,8 @@
 \usage{
 new_package(
   license = "GPL (>= 2)",
-  status = "concept",
-  lifecycle = "experimental",
+  status = NULL,
+  lifecycle = NULL,
   vignette = TRUE,
   test = TRUE,
   create_repo = TRUE,
@@ -36,25 +36,25 @@ the README).}
 
 \item{status}{A character vector of length 1. The status of the project
 according to the standard defined by the  \url{https://www.repostatus.org}
-project. One among \code{'concept'} (default), \code{'wip'}, \code{'suspended'},
+project. One among \code{'concept'}, \code{'wip'}, \code{'suspended'},
 \code{'abandoned'}, \code{'active'}, \code{'inactive'}, or \code{'unsupported'}.
 See \code{\link[=add_repostatus_badge]{add_repostatus_badge()}} for further information.
 
 This argument is used to add a badge to the \code{README.Rmd} to help visitors
 to better understand your project. If you don't want this badge use
-\code{status = NULL}.
+\code{status = NULL} (default).
 
 This status can be added/changed later by using \code{\link[=add_repostatus_badge]{add_repostatus_badge()}}.}
 
 \item{lifecycle}{A character vector of length 1. The life cycle stage of the
 project according to the standard defined at
 \url{https://lifecycle.r-lib.org/articles/stages.html}. One among
-\code{'experimental'} (default), \code{'stable'}, \code{'deprecated'}, or \code{'superseded'}.
+\code{'experimental'}, \code{'stable'}, \code{'deprecated'}, or \code{'superseded'}.
 See \code{\link[=add_lifecycle_badge]{add_lifecycle_badge()}} for further information.
 
 This argument is used to add a badge to the \code{README.Rmd} to help visitors
 to better understand your project. If you don't want this badge use
-\code{lifecycle = NULL}.
+\code{lifecycle = NULL} (default).
 
 This stage can be added/changed later by using \code{\link[=add_lifecycle_badge]{add_lifecycle_badge()}}.}
 

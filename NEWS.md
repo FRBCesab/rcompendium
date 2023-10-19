@@ -2,7 +2,8 @@
 
 * Update GitHub Actions templates (`yaml` files)
 * Untrack (by git) `man/` folder and `NAMESPACE` for compendium
-
+* Remove dependencies badge in README
+* Change default values of `lifecycle` and `status` arguments in `new_package()`
 
 # rcompendium 1.1
 

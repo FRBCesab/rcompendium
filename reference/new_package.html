@@ -121,8 +121,8 @@ will be added in the <code>.github/</code> folder. See below the section
     <div id="ref-usage">
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">new_package</span><span class="op">(</span></span>
 <span>  license <span class="op">=</span> <span class="st">"GPL (&gt;= 2)"</span>,</span>
-<span>  status <span class="op">=</span> <span class="st">"concept"</span>,</span>
-<span>  lifecycle <span class="op">=</span> <span class="st">"experimental"</span>,</span>
+<span>  status <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  lifecycle <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  vignette <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  test <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  create_repo <span class="op">=</span> <span class="cn">TRUE</span>,</span>
@@ -155,12 +155,12 @@ the README).</p></dd>
 <dt>status</dt>
 <dd><p>A character vector of length 1. The status of the project
 according to the standard defined by the  <a href="https://www.repostatus.org" class="external-link">https://www.repostatus.org</a>
-project. One among <code>'concept'</code> (default), <code>'wip'</code>, <code>'suspended'</code>,
+project. One among <code>'concept'</code>, <code>'wip'</code>, <code>'suspended'</code>,
 <code>'abandoned'</code>, <code>'active'</code>, <code>'inactive'</code>, or <code>'unsupported'</code>.
 See <code><a href="add_repostatus_badge.html">add_repostatus_badge()</a></code> for further information.</p>
 <p>This argument is used to add a badge to the <code>README.Rmd</code> to help visitors
 to better understand your project. If you don't want this badge use
-<code>status = NULL</code>.</p>
+<code>status = NULL</code> (default).</p>
 <p>This status can be added/changed later by using <code><a href="add_repostatus_badge.html">add_repostatus_badge()</a></code>.</p></dd>
 
 
@@ -168,11 +168,11 @@ to better understand your project. If you don't want this badge use
 <dd><p>A character vector of length 1. The life cycle stage of the
 project according to the standard defined at
 <a href="https://lifecycle.r-lib.org/articles/stages.html" class="external-link">https://lifecycle.r-lib.org/articles/stages.html</a>. One among
-<code>'experimental'</code> (default), <code>'stable'</code>, <code>'deprecated'</code>, or <code>'superseded'</code>.
+<code>'experimental'</code>, <code>'stable'</code>, <code>'deprecated'</code>, or <code>'superseded'</code>.
 See <code><a href="add_lifecycle_badge.html">add_lifecycle_badge()</a></code> for further information.</p>
 <p>This argument is used to add a badge to the <code>README.Rmd</code> to help visitors
 to better understand your project. If you don't want this badge use
-<code>lifecycle = NULL</code>.</p>
+<code>lifecycle = NULL</code> (default).</p>
 <p>This stage can be added/changed later by using <code><a href="add_lifecycle_badge.html">add_lifecycle_badge()</a></code>.</p></dd>
 
 

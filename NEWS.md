@@ -1,3 +1,9 @@
+# rcompendium 1.1.9999
+
+* Update GitHub Actions templates (`yaml` files)
+* Untrack (by git) `man/` folder and `NAMESPACE` for compendium
+
+
 # rcompendium 1.1
 
 * Update GitHub Actions templates (`yaml` files)

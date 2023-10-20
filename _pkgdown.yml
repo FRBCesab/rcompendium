@@ -36,6 +36,7 @@ reference:
   - add_license
   - add_package_doc
   - add_citation
+  - add_contributing
   - add_testthat
   - add_vignette
   - add_readme_rmd

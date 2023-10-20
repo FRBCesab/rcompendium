@@ -57,6 +57,18 @@ references:
     name: R Foundation for Statistical Computing
   version: '>= 2.10'
 - type: software
+  title: cffr
+  abstract: 'cffr: Generate Citation File Format (''cff'') Metadata for R Packages'
+  notes: Imports
+  url: https://docs.ropensci.org/cffr/
+  repository: https://CRAN.R-project.org/package=cffr
+  authors:
+  - family-names: Hernangómez
+    given-names: Diego
+    email: diego.hernangomezherrero@gmail.com
+    orcid: https://orcid.org/0000-0001-8457-4658
+  year: '2023'
+- type: software
   title: clisymbols
   abstract: 'clisymbols: Unicode Symbols at the R Prompt'
   notes: Imports

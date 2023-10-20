@@ -170,3 +170,35 @@ is_gh_repo <- function(owner, repo) {
   tryCatch(gh::gh("GET /repos/{owner}/{repo}", repo = repo, 
                   owner = owner), error = function(e) NULL)
 }
+
+
+
+#' **Get current/default git branch name**
+#' 
+#' @noRd
+
+get_git_branch_name <- function() {
+  
+  is_git()
+  
+  current_branch <- gert::git_branch()
+  
+  if (is.null(current_branch)) {
+    
+    config <- as.data.frame(gert::git_config_global())
+    
+    default_branch <- config[which(config$"name" == "init.defaultbranch"),
+                             "value"]
+    
+    if (length(default_branch) == 0) {
+      
+      current_branch <- "master"  
+      
+    } else {
+      
+      current_branch <- default_branch
+    }
+  }
+  
+  current_branch
+}

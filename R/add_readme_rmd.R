@@ -123,7 +123,7 @@ add_readme_rmd <- function(type = "package", given = NULL, family = NULL,
   xfun::gsub_file(path, "{{given}}", given, fixed = TRUE)
   xfun::gsub_file(path, "{{family}}", family, fixed = TRUE)
   xfun::gsub_file(path, "{{github}}", github, fixed = TRUE)
-  xfun::gsub_file(path, "{{branch}}", "main", fixed = TRUE)      #
+  xfun::gsub_file(path, "{{branch}}", get_git_branch_name(), fixed = TRUE)
   
   
   ## Message ----

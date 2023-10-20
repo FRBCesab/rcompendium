@@ -10,6 +10,7 @@ the `CITATION.cff` file
 * Modify `add_citation()` to create two additional files: `CITATION.cff` and
 `.github/workflows/update-citation-cff.yaml`
 * Improve detection of dependencies in `get_deps_*()` functions
+* New feature: `get_git_branch_name()` detect git branch name
 
 
 # rcompendium 1.1

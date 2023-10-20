@@ -24,6 +24,7 @@ add_testthat()
 Other create files: 
 \code{\link{add_citation}()},
 \code{\link{add_compendium}()},
+\code{\link{add_contributing}()},
 \code{\link{add_description}()},
 \code{\link{add_dockerfile}()},
 \code{\link{add_license}()},

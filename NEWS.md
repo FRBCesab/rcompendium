@@ -5,12 +5,13 @@
 * Remove dependencies badge in README
 * Change default values of `lifecycle` and `status` arguments in `new_package()`
 * Change commit messages in `new_*()` functions (conventional commits)
-* New feature: `add_github_actions_citation()` add a new GitHub action to update
+* New feature: `add_github_actions_citation()` adds a new GitHub action to update
 the `CITATION.cff` file
 * Modify `add_citation()` to create two additional files: `CITATION.cff` and
 `.github/workflows/update-citation-cff.yaml`
 * Improve detection of dependencies in `get_deps_*()` functions
-* New feature: `get_git_branch_name()` detect git branch name
+* New feature: `get_git_branch_name()` detects git branch name
+* New feature: `add_contributing()` adds a `CONTRIBUTING.md` file and issue templates
 
 
 # rcompendium 1.1

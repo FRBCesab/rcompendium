@@ -9,6 +9,8 @@
 the `CITATION.cff` file
 * Modify `add_citation()` to create two additional files: `CITATION.cff` and
 `.github/workflows/update-citation-cff.yaml`
+* Improve detection of dependencies in `get_deps_*()` functions
+
 
 # rcompendium 1.1
 

@@ -52,11 +52,37 @@ get_deps_in_functions_r <- function() {
     
     ## Functions called as pkg::fun() ----
     
-    pattern <- "[A-Z|a-z|0-9|\\.]{1,}::[A-Z|a-z|0-9|\\.|_]{1,}"
+    pattern <- paste0("[A-Z|a-z|0-9|\\.]{1,}\\s{0,}", 
+                      "::", 
+                      "\\s{0,}[A-Z|a-z|0-9|\\.|_]{1,}")
     
     funs <- unlist(lapply(x, function(x) {
       unlist(stringr::str_extract_all(x, pattern))
     }))
+    
+    funs <- gsub("\\s", "", funs)
+    
+    
+    ## Attached Packages ----
+    
+    pattern <- c(paste0("library\\s{0,}\\(\\s{0,}([A-Z|a-z|0-9|\\.]{1,}|",
+                        "\"\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\"|",
+                        "\'\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\')"),
+                 paste0("require\\s{0,}\\(\\s{0,}([A-Z|a-z|0-9|\\.]{1,}|",
+                        "\"\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\"|",
+                        "\'\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\')"))
+    pattern <- paste0(pattern, collapse = "|")
+    
+    pkgs <- unlist(lapply(x, function(x) {
+      unlist(stringr::str_extract_all(x, pattern))
+    }))
+    
+    pkgs <- gsub("library\\(|require\\(|\"|\'", "", pkgs)
+    
+    
+    ## Merge dependencies ----
+    
+    funs <- sort(unique(c(funs, pkgs)))
     
     
     if (!length(funs)) {
@@ -185,24 +211,33 @@ get_deps_in_examples <- function() {
     
     ## Functions called as pkg::fun() ----
     
-    pattern <- "[A-Z|a-z|0-9|\\.]{1,}::[A-Z|a-z|0-9|\\.|_]{1,}"
+    pattern <- paste0("[A-Z|a-z|0-9|\\.]{1,}\\s{0,}", 
+                      "::", 
+                      "\\s{0,}[A-Z|a-z|0-9|\\.|_]{1,}")
     
     funs <- unlist(lapply(x, function(x) {
       unlist(stringr::str_extract_all(x, pattern))
     }))
     
+    funs <- gsub("\\s", "", funs)
+    
     
     ## Attached Packages ----
     
-    pattern <- c("library\\(([A-Z|a-z|0-9|\\.]{1,}|\"[A-Z|a-z|0-9|\\.]{1,}\")",
-                 "require\\(([A-Z|a-z|0-9|\\.]{1,}|\"[A-Z|a-z|0-9|\\.]{1,}\")")
+    pattern <- c(paste0("library\\s{0,}\\(\\s{0,}([A-Z|a-z|0-9|\\.]{1,}|",
+                        "\"\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\"|",
+                        "\'\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\')"),
+                 paste0("require\\s{0,}\\(\\s{0,}([A-Z|a-z|0-9|\\.]{1,}|",
+                        "\"\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\"|",
+                        "\'\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\')"))
     pattern <- paste0(pattern, collapse = "|")
     
     pkgs <- unlist(lapply(x, function(x) {
       unlist(stringr::str_extract_all(x, pattern))
     }))
     
-    pkgs <- gsub("library\\(|require\\(|\"", "", pkgs)
+    pkgs <- gsub("\\s", "", pkgs)
+    pkgs <- gsub("library\\(|require\\(|\"|\'", "", pkgs)
     
     
     ## Merge dependencies ----
@@ -289,24 +324,32 @@ get_deps_extra <- function(compendium = NULL) {
     
     ## Functions called as pkg::fun() ----
     
-    pattern <- "[A-Z|a-z|0-9|\\.]{1,}::[A-Z|a-z|0-9|\\.|_]{1,}"
+    pattern <- paste0("[A-Z|a-z|0-9|\\.]{1,}\\s{0,}", 
+                      "::", 
+                      "\\s{0,}[A-Z|a-z|0-9|\\.|_]{1,}")
     
     funs <- unlist(lapply(x, function(x) {
       unlist(stringr::str_extract_all(x, pattern))
     }))
     
+    funs <- gsub("\\s", "", funs)
+    
     
     ## Attached Packages ----
     
-    pattern <- c("library\\(([A-Z|a-z|0-9|\\.]{1,}|\"[A-Z|a-z|0-9|\\.]{1,}\")",
-                 "require\\(([A-Z|a-z|0-9|\\.]{1,}|\"[A-Z|a-z|0-9|\\.]{1,}\")")
+    pattern <- c(paste0("library\\s{0,}\\(\\s{0,}([A-Z|a-z|0-9|\\.]{1,}|",
+                        "\"\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\"|",
+                        "\'\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\')"),
+                 paste0("require\\s{0,}\\(\\s{0,}([A-Z|a-z|0-9|\\.]{1,}|",
+                        "\"\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\"|",
+                        "\'\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\')"))
     pattern <- paste0(pattern, collapse = "|")
     
     pkgs <- unlist(lapply(x, function(x) {
       unlist(stringr::str_extract_all(x, pattern))
     }))
     
-    pkgs <- gsub("library\\(|require\\(|\"", "", pkgs)
+    pkgs <- gsub("library\\(|require\\(|\"|\'", "", pkgs)
     
     
     ## Merge dependencies ----
@@ -397,31 +440,41 @@ get_deps_in_vignettes <- function() {
     
     ## Remove inline code (not evaluated) ----
     
-    pattern <- "`[A-Z|a-z|0-9|\\.]{2,}::[A-Z|a-z|0-9|\\.|_]{1,}"
+    pattern <- paste0("`[A-Z|a-z|0-9|\\.]{1,}\\s{0,}", 
+                      "::", 
+                      "\\s{0,}[A-Z|a-z|0-9|\\.|_]{1,}")
     
     x <- lapply(x, function(x) gsub(pattern, "", x))
     
     
     ## Functions called as pkg::fun() ----
     
-    pattern <- "[A-Z|a-z|0-9|\\.]{1,}::[A-Z|a-z|0-9|\\.|_]{1,}"
+    pattern <- paste0("[A-Z|a-z|0-9|\\.]{1,}\\s{0,}", 
+                      "::", 
+                      "\\s{0,}[A-Z|a-z|0-9|\\.|_]{1,}")
     
     funs <- unlist(lapply(x, function(x) {
       unlist(stringr::str_extract_all(x, pattern))
     }))
     
+    funs <- gsub("\\s", "", funs)
+    
     
     ## Attached Packages ----
     
-    pattern <- c("library\\(([A-Z|a-z|0-9|\\.]{1,}|\"[A-Z|a-z|0-9|\\.]{1,}\")",
-                 "require\\(([A-Z|a-z|0-9|\\.]{1,}|\"[A-Z|a-z|0-9|\\.]{1,}\")")
+    pattern <- c(paste0("library\\s{0,}\\(\\s{0,}([A-Z|a-z|0-9|\\.]{1,}|",
+                        "\"\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\"|",
+                        "\'\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\')"),
+                 paste0("require\\s{0,}\\(\\s{0,}([A-Z|a-z|0-9|\\.]{1,}|",
+                        "\"\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\"|",
+                        "\'\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\')"))
     pattern <- paste0(pattern, collapse = "|")
     
     pkgs <- unlist(lapply(x, function(x) {
       unlist(stringr::str_extract_all(x, pattern))
     }))
     
-    pkgs <- gsub("library\\(|require\\(|\"", "", pkgs)
+    pkgs <- gsub("library\\(|require\\(|\"|\'", "", pkgs)
     
     
     ## Merge dependencies ----
@@ -505,24 +558,32 @@ get_deps_in_tests <- function() {
     
     ## Functions called as pkg::fun() ----
     
-    pattern <- "[A-Z|a-z|0-9|\\.]{1,}::[A-Z|a-z|0-9|\\.|_]{1,}"
+    pattern <- paste0("[A-Z|a-z|0-9|\\.]{1,}\\s{0,}", 
+                      "::", 
+                      "\\s{0,}[A-Z|a-z|0-9|\\.|_]{1,}")
     
     funs <- unlist(lapply(x, function(x) {
       unlist(stringr::str_extract_all(x, pattern))
     }))
     
+    funs <- gsub("\\s", "", funs)
+    
     
     ## Attached Packages ----
     
-    pattern <- c("library\\(([A-Z|a-z|0-9|\\.]{1,}|\"[A-Z|a-z|0-9|\\.]{1,}\")",
-                 "require\\(([A-Z|a-z|0-9|\\.]{1,}|\"[A-Z|a-z|0-9|\\.]{1,}\")")
+    pattern <- c(paste0("library\\s{0,}\\(\\s{0,}([A-Z|a-z|0-9|\\.]{1,}|",
+                        "\"\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\"|",
+                        "\'\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\')"),
+                 paste0("require\\s{0,}\\(\\s{0,}([A-Z|a-z|0-9|\\.]{1,}|",
+                        "\"\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\"|",
+                        "\'\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\')"))
     pattern <- paste0(pattern, collapse = "|")
     
     pkgs <- unlist(lapply(x, function(x) {
       unlist(stringr::str_extract_all(x, pattern))
     }))
     
-    pkgs <- gsub("library\\(|require\\(|\"", "", pkgs)
+    pkgs <- gsub("library\\(|require\\(|\"|\'", "", pkgs)
     
     
     ## Merge dependencies ----

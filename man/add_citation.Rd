@@ -41,6 +41,17 @@ No return value.
 This function creates a \code{CITATION} file in the folder \verb{inst/}. This file
 contains a BiBTeX entry to cite the package as a manual. User will need to
 edit by hand some information (title, version, etc.).
+
+Two additional files are also created:
+\itemize{
+\item a \code{CITATION.cff} file: a plain text file with human- and machine-readable
+citation information for software. This file is a feature introduced by
+GitHub. For more information:
+\url{https://ropensci.org/blog/2021/11/23/cffr/}.
+\item a \code{.github/workflows/update-citation-cff.yaml} file: a configuration file
+to setup GitHub Actions to update the \code{CITATION.cff} each time the
+\code{DESCRIPTION} file or the \code{inst/CITATION} is modified.
+}
 }
 \examples{
 \dontrun{

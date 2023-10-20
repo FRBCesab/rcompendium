@@ -5,6 +5,10 @@
 * Remove dependencies badge in README
 * Change default values of `lifecycle` and `status` arguments in `new_package()`
 * Change commit messages in `new_*()` functions (conventional commits)
+* New feature: `add_github_actions_citation()` add a new GitHub action to update
+the `CITATION.cff` file
+* Modify `add_citation()` to create two additional files: `CITATION.cff` and
+`.github/workflows/update-citation-cff.yaml`
 
 # rcompendium 1.1
 

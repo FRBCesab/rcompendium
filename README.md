@@ -113,18 +113,18 @@ citation("rcompendium")
 
 ## Contributing
 
-You are welcome to contribute to the `rcompendium` project. Please read
-our [Contribution
-Guidelines](https://frbcesab.github.io/rcompendium/CONTRIBUTING.html).
+All types of contributions are encouraged and valued. For more
+information, check out our [Contribution
+Guidelines](https://github.com/FRBCesab/rcompendium/blob/main/CONTRIBUTING.md).
 
 Please note that the `rcompendium` project is released with a
 [Contributor Code of
-Conduct](https://frbcesab.github.io/rcompendium/CODE_OF_CONDUCT.html).
+Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html).
 By contributing to this project, you agree to abide by its terms.
 
 ## Colophon
 
-This package is the result of intense discussions and feedback from the
+This package is the result of intense discussions and feedbacks from the
 training course [Reproducible Research in Computational
 Ecology](https://rdatatoolbox.github.io/).
 

@@ -36,6 +36,7 @@ reference:
   - add_license
   - add_package_doc
   - add_citation
+  - add_code_of_conduct
   - add_contributing
   - add_testthat
   - add_vignette

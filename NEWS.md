@@ -12,6 +12,7 @@ the `CITATION.cff` file
 * Improve detection of dependencies in `get_deps_*()` functions
 * New feature: `get_git_branch_name()` detects git branch name
 * New feature: `add_contributing()` adds a `CONTRIBUTING.md` file and issue templates
+* New feature: `add_code_of_conduct()` adds a `CODE_OF_CONDUCT.md` file
 
 
 # rcompendium 1.1

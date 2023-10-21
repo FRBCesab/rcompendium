@@ -62,6 +62,7 @@ citation("pkg")    # If you have installed your package <pkg>
 }
 \seealso{
 Other create files: 
+\code{\link{add_code_of_conduct}()},
 \code{\link{add_compendium}()},
 \code{\link{add_contributing}()},
 \code{\link{add_description}()},

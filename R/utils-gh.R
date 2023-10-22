@@ -187,16 +187,28 @@ get_git_branch_name <- function() {
     
     config <- as.data.frame(gert::git_config_global())
     
-    default_branch <- config[which(config$"name" == "init.defaultbranch"),
+    default_global <- config[which(config$"name" == "init.defaultbranch" &
+                                     config$"level" == "global"),
                              "value"]
     
-    if (length(default_branch) == 0) {
+    if (length(default_global) == 1) {
       
-      current_branch <- "master"  
-      
+      current_branch <- default_global
+    
     } else {
       
-      current_branch <- default_branch
+      default_system <- config[which(config$"name" == "init.defaultbranch" &
+                                       config$"level" == "system"),
+                               "value"]
+      
+      if (length(default_system) == 0) {
+        
+        current_branch <- "master"  
+        
+      } else {
+        
+        current_branch <- default_system
+      }
     }
   }
   

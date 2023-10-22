@@ -572,7 +572,7 @@ new_compendium <- function(compendium = ".", license = "GPL (>= 2)",
   
   if (!quiet) {
     ui_done(paste0("Committing changes with the following message: ", 
-                   "{ui_value('Init repo')}"))
+                   "{ui_value('init repo')}"))
   }
   
   
@@ -686,7 +686,7 @@ new_compendium <- function(compendium = ".", license = "GPL (>= 2)",
     if (!quiet) {
       
       ui_done(paste0("Committing changes with the following message: ", 
-                     "{ui_value('Setup GHA')}"))
+                     "{ui_value('ci: setup actions')}"))
     }
   }
   
@@ -774,7 +774,7 @@ new_compendium <- function(compendium = ".", license = "GPL (>= 2)",
   if (!quiet) {
     
     ui_done(paste0("Committing changes with the following message: ", 
-                   "{ui_value('Edit README')}"))
+                   "{ui_value('doc: update README')}"))
   }
   
   

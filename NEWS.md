@@ -1,18 +1,26 @@
 # rcompendium 1.1.9999
 
-* Update GitHub Actions templates (`yaml` files)
-* Untrack (by git) `man/` folder and `NAMESPACE` for compendium
-* Remove dependencies badge in README
-* Change default values of `lifecycle` and `status` arguments in `new_package()`
-* Change commit messages in `new_*()` functions (conventional commits)
-* New feature: `add_github_actions_citation()` adds a new GitHub action to update
-the `CITATION.cff` file
-* Modify `add_citation()` to create two additional files: `CITATION.cff` and
-`.github/workflows/update-citation-cff.yaml`
-* Improve detection of dependencies in `get_deps_*()` functions
-* New feature: `get_git_branch_name()` detects git branch name
-* New feature: `add_contributing()` adds a `CONTRIBUTING.md` file and issue templates
-* New feature: `add_code_of_conduct()` adds a `CODE_OF_CONDUCT.md` file
+* **New features**
+
+  * `get_git_branch_name()` detects git branch name
+  * `add_contributing()` adds a `CONTRIBUTING.md` file and issue templates
+  * `add_code_of_conduct()` adds a `CODE_OF_CONDUCT.md` file
+  * `add_github_actions_citation()` adds a new GitHub action to update the 
+  `CITATION.cff` file
+
+* **Improvements**
+
+  * `get_deps_*()` better detects project dependencies
+  * `add_citation()` creates now two additional files: `CITATION.cff` and
+  `.github/workflows/update-citation-cff.yaml`
+
+* **Minor changes**
+
+  * Update GitHub Actions templates (`yaml` files)
+  * The `man/` folder and `NAMESPACE` are now untracked by git (for compendium only)
+  * Remove dependencies badge in README
+  * Change default values of `lifecycle` and `status` arguments in `new_package()`
+  * Change commit messages in `new_*()` functions (conventional commits)
 
 
 # rcompendium 1.1

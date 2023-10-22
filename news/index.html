@@ -65,19 +65,34 @@
 
     <div class="section level2">
 <h2 class="page-header" data-toc-text="1.1.9999" id="rcompendium-119999">rcompendium 1.1.9999<a class="anchor" aria-label="anchor" href="#rcompendium-119999"></a></h2>
+<ul><li>
+<p><strong>New features</strong></p>
+<ul><li>
+<code>get_git_branch_name()</code> detects git branch name</li>
+<li>
+<code><a href="../reference/add_contributing.html">add_contributing()</a></code> adds a <code>CONTRIBUTING.md</code> file and issue templates</li>
+<li>
+<code><a href="../reference/add_code_of_conduct.html">add_code_of_conduct()</a></code> adds a <code>CODE_OF_CONDUCT.md</code> file</li>
+<li>
+<code><a href="../reference/add_github_actions_citation.html">add_github_actions_citation()</a></code> adds a new GitHub action to update the <code>CITATION.cff</code> file</li>
+</ul></li>
+<li>
+<p><strong>Improvements</strong></p>
+<ul><li>
+<code>get_deps_*()</code> better detects project dependencies</li>
+<li>
+<code><a href="../reference/add_citation.html">add_citation()</a></code> creates now two additional files: <code>CITATION.cff</code> and <code>.github/workflows/update-citation-cff.yaml</code>
+</li>
+</ul></li>
+<li>
+<p><strong>Minor changes</strong></p>
 <ul><li>Update GitHub Actions templates (<code>yaml</code> files)</li>
-<li>Untrack (by git) <code>man/</code> folder and <code>NAMESPACE</code> for compendium</li>
+<li>The <code>man/</code> folder and <code>NAMESPACE</code> are now untracked by git (for compendium only)</li>
 <li>Remove dependencies badge in README</li>
 <li>Change default values of <code>lifecycle</code> and <code>status</code> arguments in <code><a href="../reference/new_package.html">new_package()</a></code>
 </li>
 <li>Change commit messages in <code>new_*()</code> functions (conventional commits)</li>
-<li>New feature: <code><a href="../reference/add_github_actions_citation.html">add_github_actions_citation()</a></code> adds a new GitHub action to update the <code>CITATION.cff</code> file</li>
-<li>Modify <code><a href="../reference/add_citation.html">add_citation()</a></code> to create two additional files: <code>CITATION.cff</code> and <code>.github/workflows/update-citation-cff.yaml</code>
-</li>
-<li>Improve detection of dependencies in <code>get_deps_*()</code> functions</li>
-<li>New feature: <code>get_git_branch_name()</code> detects git branch name</li>
-<li>New feature: <code><a href="../reference/add_contributing.html">add_contributing()</a></code> adds a <code>CONTRIBUTING.md</code> file and issue templates</li>
-<li>New feature: <code><a href="../reference/add_code_of_conduct.html">add_code_of_conduct()</a></code> adds a <code>CODE_OF_CONDUCT.md</code> file</li>
+</ul></li>
 </ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="1.1" id="rcompendium-11">rcompendium 1.1<small>2023-04-24</small><a class="anchor" aria-label="anchor" href="#rcompendium-11"></a></h2>

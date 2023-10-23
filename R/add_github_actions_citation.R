@@ -7,6 +7,8 @@
 #' from \url{https://github.com/r-lib/actions/tree/v2-branch/examples}.
 #' This file will be written as `.github/workflows/update-citation-cff.yaml`.
 #' 
+#' This function also create the `CITATION.cff` using the package [cffr].
+#' 
 #' @param open A logical value. If `TRUE` (default) the file is opened in the 
 #'   editor.
 #' 
@@ -72,6 +74,16 @@ add_github_actions_citation <- function(open = FALSE, overwrite = FALSE,
   if (!quiet) 
     ui_done(paste0("Writing {ui_value('.github/workflows/", 
                    "update-citation-cff.yaml')} file"))
+  
+  
+  ## Add CITATION.cff file ----
+  
+  cffr::cff_write(verbose = FALSE)
+  
+  
+  ## Messages ----
+  
+  if (!quiet) ui_done("Writing {ui_value('CITATION.cff')} file")
   
   if (open) edit_file(path)
   

@@ -5,15 +5,6 @@
 #' contains a BiBTeX entry to cite the package as a manual. User will need to
 #' edit by hand some information (title, version, etc.).
 #' 
-#' Two additional files are also created:
-#' - a `CITATION.cff` file: a plain text file with human- and machine-readable 
-#' citation information for software. This file is a feature introduced by 
-#' GitHub. For more information: 
-#' \url{https://ropensci.org/blog/2021/11/23/cffr/}.
-#' - a `.github/workflows/update-citation-cff.yaml` file: a configuration file 
-#' to setup GitHub Actions to update the `CITATION.cff` each time the 
-#' `DESCRIPTION` file or the `inst/CITATION` is modified.
-#' 
 #' @param organisation A character of length 1. The name of the GitHub 
 #'   organisation to host the package. If `NULL` (default) the GitHub account 
 #'   will be used. This argument is used to set the URL of the package 
@@ -119,23 +110,7 @@ add_citation <- function(given = NULL, family = NULL, organisation = NULL,
   ## Messages ----
   
   if (!quiet) ui_done("Writing {ui_value('inst/CITATION')} file")
-  
-  
-  ## Add CITATION.cff file ----
-  
-  cffr::cff_write(verbose = FALSE)
-  
-  
-  ## Messages ----
-  
-  if (!quiet) ui_done("Writing {ui_value('CITATION.cff')} file")
-  
-  
-  ## Add Github action to update CITATION.cff ----
-  
-  add_github_actions_citation(overwrite = TRUE)
 
-  
   if (open) edit_file(path)
   
   invisible(NULL)

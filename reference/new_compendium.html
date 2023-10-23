@@ -126,7 +126,7 @@ project (e.g. R functions) can be used (or installed) as a R package.</p>
 
     <div id="ref-usage">
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">new_compendium</span><span class="op">(</span></span>
-<span>  compendium <span class="op">=</span> <span class="st">"."</span>,</span>
+<span>  compendium <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  license <span class="op">=</span> <span class="st">"GPL (&gt;= 2)"</span>,</span>
 <span>  status <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  lifecycle <span class="op">=</span> <span class="cn">NULL</span>,</span>
@@ -153,10 +153,8 @@ project (e.g. R functions) can be used (or installed) as a R package.</p>
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>compendium</dt>
-<dd><p>A character vector of length 1. By default, compendium
-folders are created at the root of the project. User can change their
-location with this argument. For instance, if <code>compendium = 'analysis'</code>,
-compendium folders will be created inside the directory <code>analysis/</code>.</p></dd>
+<dd><p>A character vector specifying the folders to be created.
+See <code><a href="add_compendium.html">add_compendium()</a></code> for further information.</p></dd>
 
 
 <dt>license</dt>

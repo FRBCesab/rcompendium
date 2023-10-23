@@ -13,10 +13,12 @@
   * `get_deps_*()` better detects project dependencies
   * `add_citation()` creates now two additional files: `CITATION.cff` and
   `.github/workflows/update-citation-cff.yaml`
+  * `add_compendium()` allows now the user to choose its own compendium structure
 
 * **Minor changes**
 
   * Update GitHub Actions templates (`yaml` files)
+  * Update README templates
   * The `man/` folder and `NAMESPACE` are now untracked by git (for compendium only)
   * Remove dependencies badge in README
   * Change default values of `lifecycle` and `status` arguments in `new_package()`

@@ -2,29 +2,32 @@
 % Please edit documentation in R/add_compendium.R
 \name{add_compendium}
 \alias{add_compendium}
-\title{Create compendium folders}
+\title{Create additional folders}
 \usage{
-add_compendium(compendium = ".")
+add_compendium(compendium = NULL, quiet = FALSE)
 }
 \arguments{
-\item{compendium}{A character of length 1. By default, compendium folders
-are created at the root of the project. User can change their location
-with this argument. For instance, if \code{compendium = 'analysis'}, compendium
-folders will be created inside the directory \verb{analysis/}.}
+\item{compendium}{A character vector specifying the folders to be created.}
+
+\item{quiet}{A logical value. If \code{TRUE} messages are deleted. Default is
+\code{FALSE}.}
 }
 \value{
 No return value.
 }
 \description{
-This function creates the following additional folders \verb{data/}, \verb{analyses/},
-\verb{outputs/}, and \verb{figures/}. Each folder has a \code{README.md} to provide
-instructions. The argument \code{compendium} allows user to choose if these
-folders are created at the root of the project (default) or nested inside a
-parent directory. All theses folders are added to the \code{.Rbuildignore} file.
+This function creates a compendium, i.e. additional folders to a package
+structure. By default, the following directories are created:
+\code{data/raw-data}, \code{data/derived-data}, \verb{analyses/}, \verb{outputs/}, and
+\verb{figures/}. A \code{README.md} is added to each folder and must be edited. The
+argument \code{compendium} allows user to choose its own compendium structure.
+All theses folders are added to the \code{.Rbuildignore} file.
 }
 \examples{
 \dontrun{
 add_compendium()
+add_compendium(compendium = "paper")
+add_compendium(compendium = c("data", "outputs", "code", "manuscript"))
 }
 }
 \seealso{

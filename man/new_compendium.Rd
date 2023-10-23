@@ -5,7 +5,7 @@
 \title{Create an R compendium structure}
 \usage{
 new_compendium(
-  compendium = ".",
+  compendium = NULL,
   license = "GPL (>= 2)",
   status = NULL,
   lifecycle = NULL,
@@ -29,10 +29,8 @@ new_compendium(
 )
 }
 \arguments{
-\item{compendium}{A character vector of length 1. By default, compendium
-folders are created at the root of the project. User can change their
-location with this argument. For instance, if \code{compendium = 'analysis'},
-compendium folders will be created inside the directory \verb{analysis/}.}
+\item{compendium}{A character vector specifying the folders to be created.
+See \code{\link[=add_compendium]{add_compendium()}} for further information.}
 
 \item{license}{A character vector of length 1. The license to be used for
 this project. Run \code{\link[=get_licenses]{get_licenses()}} to choose an appropriate one. Default

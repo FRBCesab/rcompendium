@@ -37,10 +37,8 @@
 #' All these files/folders are added to the `.Rbuildignore` so the rest of the
 #' project (e.g. R functions) can be used (or installed) as a R package.
 #' 
-#' @param compendium A character vector of length 1. By default, compendium 
-#'   folders are created at the root of the project. User can change their 
-#'   location with this argument. For instance, if `compendium = 'analysis'`, 
-#'   compendium folders will be created inside the directory `analysis/`.
+#' @param compendium A character vector specifying the folders to be created.
+#'   See [add_compendium()] for further information.
 #' 
 #' @param license A character vector of length 1. The license to be used for 
 #'   this project. Run [get_licenses()] to choose an appropriate one. Default 
@@ -188,7 +186,7 @@
 #' refresh()
 #' }
 
-new_compendium <- function(compendium = ".", license = "GPL (>= 2)", 
+new_compendium <- function(compendium = NULL, license = "GPL (>= 2)", 
                            status = NULL, lifecycle = NULL, vignette = FALSE, 
                            test = FALSE, create_repo = TRUE, private = FALSE, 
                            gh_check = FALSE, codecov = FALSE, website = FALSE, 
@@ -419,9 +417,9 @@ new_compendium <- function(compendium = ".", license = "GPL (>= 2)",
   if (!quiet) ui_done("Creating {ui_value('R/')} directory")
   
   
-  dir.create(file.path(path_proj(), "man"), showWarnings = FALSE)
+  # dir.create(file.path(path_proj(), "man"), showWarnings = FALSE)
   
-  if (!quiet) ui_done("Creating {ui_value('man/')} directory")
+  # if (!quiet) ui_done("Creating {ui_value('man/')} directory")
   
   if (!quiet) ui_line()
   
@@ -448,7 +446,7 @@ new_compendium <- function(compendium = ".", license = "GPL (>= 2)",
   if (!quiet) ui_line()
   if (!quiet) ui_done("Writing {ui_value('R/fun-demo.R')} file")
   
-  suppressMessages(devtools::document(quiet = TRUE))
+  # suppressMessages(devtools::document(quiet = TRUE))
   
   add_to_gitignore("man/", quiet = quiet)
   add_to_gitignore("NAMESPACE", quiet = quiet)
@@ -462,7 +460,7 @@ new_compendium <- function(compendium = ".", license = "GPL (>= 2)",
   
   ui_title("Creating Compendium Folders")  
   
-  add_compendium(compendium)
+  add_compendium(compendium, quiet = quiet)
   ui_line()
   
   add_makefile(given, family, email, open = FALSE, overwrite = overwrite, 
@@ -799,13 +797,21 @@ new_compendium <- function(compendium = ".", license = "GPL (>= 2)",
   if (test) 
     ui_todo(paste0("Write your units tests in the ", 
                    "{ui_value('tests/testthat/')} directory"))
+  
+  if (!is.null(compendium)) {
+    
+    ui_line()
+    ui_todo("Put your data in {ui_value('data/raw-data')} directory")
+    ui_todo("Write your R scripts in the {ui_value('analyses/')} directory")
+    ui_todo("Source your R scripts in the {ui_value('make.R')} file")
+    ui_todo(paste0("Export your derived data in the ", 
+                   "{ui_value('data/derived-data/')} directory"))
+    ui_todo("Export your outputs in the {ui_value('outputs/')} directory")
+    ui_todo("Export your figures in the {ui_value('figures/')} directory")
+  }
+  
   ui_line()
-  ui_todo("Put your data in {ui_value('data/')} directory")
-  ui_todo("Write your R scripts in the {ui_value('analyses/')} directory")
-  ui_todo("Export your outputs in the {ui_value('outputs/')} directory")
-  ui_todo("Export your figures in the {ui_value('figures/')} directory")
-  ui_line()
-  ui_todo("Refresh your package with {ui_code('refresh()')}")
+
   ui_todo("...and commit your changes!")
   
   invisible(NULL)

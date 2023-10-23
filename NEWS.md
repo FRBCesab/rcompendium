@@ -13,8 +13,6 @@
 * **Improvements**
 
   * `get_deps_*()` better detects project dependencies
-  * `add_citation()` creates now two additional files: `CITATION.cff` and
-  `.github/workflows/update-citation-cff.yaml`
   * `add_compendium()` allows now the user to choose its own compendium structure
 
 * **Minor changes**

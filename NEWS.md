@@ -22,6 +22,10 @@
   * Change default values of `lifecycle` and `status` arguments in `new_package()`
   * Change commit messages in `new_*()` functions (conventional commits)
 
+* **Deprecated**
+
+  * `refresh()` is now deprecated and will be deleted in the new version
+
 
 # rcompendium 1.1
 

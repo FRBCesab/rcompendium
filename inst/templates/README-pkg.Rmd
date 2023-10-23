@@ -21,7 +21,31 @@ knitr::opts_chunk$set(collapse  = TRUE,
 <!-- badges: end -->
 
 
-The goal of the R package `{{project_name}}` is to **{{ PLEASE ADD A FEW LINES }}**
+
+<p align="left">
+  • <a href="#overview">Overview</a><br>
+  • <a href="#features">Features</a><br>
+  • <a href="#installation">Installation</a><br>
+  • <a href="#get-started">Get started</a><br>
+  • <a href="#long-form-documentations">Long-form documentations</a><br>
+  • <a href="#citation">Citation</a><br>
+  • <a href="#contributing">Contributing</a><br>
+  • <a href="#acknowledgments">Acknowledgments</a><br>
+  • <a href="#references">References</a>
+</p>
+
+
+
+## Overview
+
+
+The R package `{{project_name}}`... **{{ DESCRIBE YOUR PACKAGE }}**
+
+
+
+## Features
+
+The main purpose of `{{project_name}}` is to... **{{ DESCRIBE THE MAIN FEATURES }}**
 
 
 
@@ -29,36 +53,69 @@ The goal of the R package `{{project_name}}` is to **{{ PLEASE ADD A FEW LINES }
 
 You can install the development version from [GitHub](https://github.com/) with:
 
-```{r eval = FALSE}
-# install.packages("remotes")
+```{r eval=FALSE}
+## Install < remotes > package (if not already installed) ----
+if (!requireNamespace("remotes", quietly = TRUE)) {
+  install.packages("remotes")
+}
+
+## Install < {{project_name}} > from GitHub ----
 remotes::install_github("{{github}}/{{project_name}}")
 ```
 
 Then you can attach the package `{{project_name}}`:
 
-```{r eval = FALSE}
+```{r eval=FALSE}
 library("{{project_name}}")
 ```
 
 
 
-## Overview
+## Get started
 
-Here is an overview of `{{project_name}}` content: **{{ PLEASE ADD A FEW LINES }}**
+For an overview of the main features of `{{project_name}}`, please read the 
+[Get started](https://{{github}}.github.io/{{project_name}}/articles/{{project_name}}.html)
+vignette.
+
+
+
+## Long-form documentations
+
+`{{project_name}}` provides **{{ NUMBER OF VIGNETTES }}** vignettes to learn more about the package:
+
+- the [Get started](https://{{github}}.github.io/{{project_name}}/articles/{{project_name}}.html)
+vignette describes the core features of the package
+- **{{ LIST ADDITIONAL VIGNETTES }}**
 
 
 
 ## Citation
 
-Please cite this package as: 
+Please cite `{{project_name}}` as: 
 
 > {{family}} {{given}} (`r format(Sys.Date(), "%Y")`) {{project_name}}: An R 
-package to **{{ TITLE }}**. R package version {{pkg_version}}.
+package to **{{ TITLE }}**. R package version {{pkg_version}}. 
+<https://github.com/{{github}}/{{project_name}}/>
 
 
 
-## Code of Conduct
+## Contributing
+
+All types of contributions are encouraged and valued. For more information, 
+check out our [Contributor Guidelines](https://github.com/{{github}}/{{project_name}}/blob/main/CONTRIBUTING.md).
 
 Please note that the `{{project_name}}` project is released with a 
-[Contributor Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/). 
+[Contributor Code of Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html). 
 By contributing to this project, you agree to abide by its terms.
+
+
+
+## Acknowledgments
+
+**{{ OPTIONAL SECTION }}**
+
+
+
+## References
+
+**{{ OPTIONAL SECTION }}**

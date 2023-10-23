@@ -7,6 +7,8 @@
   * `add_code_of_conduct()` adds a `CODE_OF_CONDUCT.md` file
   * `add_github_actions_citation()` adds a new GitHub action to update the 
   `CITATION.cff` file
+  * `add_github_actions_document()` adds a new GitHub action to update `Rd` files,
+  the `NAMESPACE` and the `DESCRIPTION` files
 
 * **Improvements**
 

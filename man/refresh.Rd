@@ -32,6 +32,8 @@ Default is \code{FALSE}.}
 No return value.
 }
 \description{
+\strong{This function is about to be removed from \code{rcompendium}.}
+
 This function refreshes a package/research compendium. It will:
 \itemize{
 \item Update \code{.Rd} files and \code{NAMESPACE} by using \code{\link[devtools:document]{devtools::document()}};

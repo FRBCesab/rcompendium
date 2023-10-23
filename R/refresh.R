@@ -1,6 +1,8 @@
 #' Refresh a package/research compendium
 #' 
 #' @description 
+#' **This function is about to be removed from `rcompendium`.**
+#' 
 #' This function refreshes a package/research compendium. It will:
 #' * Update `.Rd` files and `NAMESPACE` by using [devtools::document()];
 #' * Update external packages (in `DESCRIPTION` file) by using 
@@ -45,6 +47,8 @@
 refresh <- function(compendium = NULL, make = FALSE, check = FALSE, 
                     quiet = FALSE) { 
   
+  
+  .Deprecated(msg = "This function is about to be removed from 'rcompendium'")
   
   is_package()
   

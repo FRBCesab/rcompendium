@@ -25,6 +25,8 @@ to update the \code{CITATION.cff}.
 This workflow is derived
 from \url{https://github.com/r-lib/actions/tree/v2-branch/examples}.
 This file will be written as \code{.github/workflows/update-citation-cff.yaml}.
+
+This function also create the \code{CITATION.cff} using the package \link{cffr}.
 }
 \examples{
 \dontrun{

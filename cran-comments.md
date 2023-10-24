@@ -1,7 +1,6 @@
 ## Resubmit comments
 
-* **New features**
-
+* New features
   * `get_git_branch_name()` detects git branch name
   * `add_contributing()` adds a `CONTRIBUTING.md` file and issue templates
   * `add_code_of_conduct()` adds a `CODE_OF_CONDUCT.md` file
@@ -10,8 +9,7 @@
   * `add_github_actions_document()` adds a new GitHub action to update `Rd` files,
   the `NAMESPACE` and the `DESCRIPTION` files
 
-* **Improvements**
-
+* Improvements
   * `get_deps_*()` better detects project dependencies
   * `add_compendium()` allows now the user to choose its own compendium structure
 
@@ -30,7 +28,10 @@
   * r-devel
   * r-release
   * r-oldrel
-
+* Rhub
+  * Windows Server 2022, R-devel, 64 bit
+  * Fedora Linux, R-devel, clang, gfortran
+  * Ubuntu Linux 20.04.1 LTS, R-release, GCC
 
 ## R CMD check results
 

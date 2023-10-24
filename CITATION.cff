@@ -8,7 +8,7 @@ message: 'To cite package "rcompendium" in publications use:'
 type: software
 license: GPL-2.0-or-later
 title: 'rcompendium: Create a Package or Research Compendium Structure'
-version: '1.1'
+version: '1.2'
 abstract: 'Makes easier the creation of R package or research compendium (i.e. a predefined
   files/folders structure) so that users can focus on the code/analysis instead of
   wasting time organizing files. A full ready-to-work structure is set up with some
@@ -28,7 +28,7 @@ preferred-citation:
   authors:
   - name: Casajus N.
   year: '2023'
-  notes: R package version 1.1
+  notes: R package version 1.2
   url: https://github.com/FRBCesab/rcompendium
 repository: https://CRAN.R-project.org/package=rcompendium
 repository-code: https://github.com/FRBCesab/rcompendium

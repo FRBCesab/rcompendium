@@ -70,6 +70,14 @@
 #'   
 #'   This stage can be added/changed later by using [add_lifecycle_badge()].
 #' 
+#' @param contributing A logical value. If `TRUE` (default) adds a 
+#'   `CONTRIBUTING.md` file and `ISSUE_TEMPLATES`. See [add_contributing()] for
+#'   further information.
+#' 
+#' @param code_of_conduct A logical value. If `TRUE` (default) adds a 
+#'   `CODE_OF_CONDUCT.md` file. See [add_code_of_conduct()] for further 
+#'   information.
+#' 
 #' @param vignette A logical value. If `TRUE` creates a vignette in 
 #'   `vignettes/`. Packages [`knitr`](https://yihui.org/knitr/) and 
 #'   [`rmarkdown`](https://rmarkdown.rstudio.com/) are also added to the 
@@ -107,6 +115,12 @@
 #' @param gh_render A logical value. If `TRUE` configures GitHub 
 #'   Actions to automatically knit the `README.Rmd` after each push. 
 #'   See [add_github_actions_render()] for further information. 
+#'   
+#'   If `create_repo = FALSE` this argument is ignored. Default is `FALSE`.
+#'   
+#' @param gh_citation A logical value. If `TRUE` configures GitHub 
+#'   Actions to automatically update the `CITATION.cff` file. 
+#'   See [add_github_actions_citation()] for further information. 
 #'   
 #'   If `create_repo = FALSE` this argument is ignored. Default is `FALSE`.
 #'   
@@ -187,12 +201,14 @@
 #' }
 
 new_compendium <- function(compendium = NULL, license = "GPL (>= 2)", 
-                           status = NULL, lifecycle = NULL, vignette = FALSE, 
+                           status = NULL, lifecycle = NULL, contributing = TRUE,
+                           code_of_conduct = TRUE, vignette = FALSE, 
                            test = FALSE, create_repo = TRUE, private = FALSE, 
                            gh_check = FALSE, codecov = FALSE, website = FALSE, 
-                           gh_render = FALSE, given = NULL, family = NULL, 
-                           email = NULL, orcid = NULL, organisation = NULL, 
-                           renv = FALSE, dockerfile = FALSE, overwrite = FALSE, 
+                           gh_render = FALSE, gh_citation = FALSE, given = NULL,
+                           family = NULL, email = NULL, orcid = NULL, 
+                           organisation = NULL, renv = FALSE, 
+                           dockerfile = FALSE, overwrite = FALSE, 
                            quiet = FALSE) { 
   
   ## If not RStudio ----
@@ -302,10 +318,11 @@ new_compendium <- function(compendium = NULL, license = "GPL (>= 2)",
     
   } else {
     
-    gh_check  <- FALSE
-    codecov   <- FALSE
-    website   <- FALSE
-    gh_render <- FALSE
+    gh_check    <- FALSE
+    codecov     <- FALSE
+    website     <- FALSE
+    gh_render   <- FALSE
+    gh_citation <- FALSE
   }
   
   
@@ -522,6 +539,36 @@ new_compendium <- function(compendium = NULL, license = "GPL (>= 2)",
   
   
   ##
+  ## ADDING CONTRIBUTING ----
+  ## 
+  
+  
+  if (contributing) {
+    
+    ui_title("Adding Contributing")
+    
+    add_contributing(email = email, organisation = organisation, open = FALSE, 
+                     overwrite = overwrite, quiet = quiet)
+  } 
+  
+  
+  
+  ##
+  ## ADDING CODE OF CONDUCT ----
+  ## 
+  
+  
+  if (code_of_conduct) {
+    
+    ui_title("Adding Code of conduct")
+    
+    add_code_of_conduct(email = email, open = FALSE, overwrite = overwrite, 
+                        quiet = quiet)
+  }
+  
+  
+  
+  ##
   ## ADDING README ----
   ## 
   
@@ -669,12 +716,28 @@ new_compendium <- function(compendium = NULL, license = "GPL (>= 2)",
   
   
   ##
+  ## GHA CITATION ----
+  ## 
+  
+  
+  
+  if (gh_citation) {
+    
+    ui_title("Configuring GH Actions - CITATION.cff")
+    
+    add_github_actions_citation(quiet = quiet)
+    add_to_buildignore(".github", quiet = quiet)
+  }
+  
+  
+  
+  ##
   ## SECOND COMMIT ----
   ## 
   
   
   
-  if (gh_check || codecov || website || gh_render) {
+  if (gh_check || codecov || website || gh_render || gh_citation) {
     
     ui_title("Committing changes")
     

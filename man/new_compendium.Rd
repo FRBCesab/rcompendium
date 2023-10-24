@@ -9,6 +9,8 @@ new_compendium(
   license = "GPL (>= 2)",
   status = NULL,
   lifecycle = NULL,
+  contributing = TRUE,
+  code_of_conduct = TRUE,
   vignette = FALSE,
   test = FALSE,
   create_repo = TRUE,
@@ -17,6 +19,7 @@ new_compendium(
   codecov = FALSE,
   website = FALSE,
   gh_render = FALSE,
+  gh_citation = FALSE,
   given = NULL,
   family = NULL,
   email = NULL,
@@ -62,6 +65,14 @@ to better understand your project. Default is \code{lifecycle = NULL}.
 
 This stage can be added/changed later by using \code{\link[=add_lifecycle_badge]{add_lifecycle_badge()}}.}
 
+\item{contributing}{A logical value. If \code{TRUE} (default) adds a
+\code{CONTRIBUTING.md} file and \code{ISSUE_TEMPLATES}. See \code{\link[=add_contributing]{add_contributing()}} for
+further information.}
+
+\item{code_of_conduct}{A logical value. If \code{TRUE} (default) adds a
+\code{CODE_OF_CONDUCT.md} file. See \code{\link[=add_code_of_conduct]{add_code_of_conduct()}} for further
+information.}
+
 \item{vignette}{A logical value. If \code{TRUE} creates a vignette in
 \verb{vignettes/}. Packages \href{https://yihui.org/knitr/}{\code{knitr}} and
 \href{https://rmarkdown.rstudio.com/}{\code{rmarkdown}} are also added to the
@@ -106,6 +117,12 @@ If \code{create_repo = FALSE} this argument is ignored. Default is \code{FALSE}.
 \item{gh_render}{A logical value. If \code{TRUE} configures GitHub
 Actions to automatically knit the \code{README.Rmd} after each push.
 See \code{\link[=add_github_actions_render]{add_github_actions_render()}} for further information.
+
+If \code{create_repo = FALSE} this argument is ignored. Default is \code{FALSE}.}
+
+\item{gh_citation}{A logical value. If \code{TRUE} configures GitHub
+Actions to automatically update the \code{CITATION.cff} file.
+See \code{\link[=add_github_actions_citation]{add_github_actions_citation()}} for further information.
 
 If \code{create_repo = FALSE} this argument is ignored. Default is \code{FALSE}.}
 

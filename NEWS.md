@@ -1,4 +1,4 @@
-# rcompendium 1.1.9999
+# rcompendium 1.2
 
 * **New features**
 

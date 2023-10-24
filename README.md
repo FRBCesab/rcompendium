@@ -92,7 +92,7 @@ Others available vignettes:
 Please cite this package as:
 
 > Casajus N. (2023) rcompendium: An R package to create a package or
-> research compendium structure. Version 1.1,
+> research compendium structure. Version 1.2,
 > <https://github.com/FRBCesab/rcompendium>.
 
 You can also run:

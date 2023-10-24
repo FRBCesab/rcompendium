@@ -130,6 +130,8 @@ project (e.g. R functions) can be used (or installed) as a R package.</p>
 <span>  license <span class="op">=</span> <span class="st">"GPL (&gt;= 2)"</span>,</span>
 <span>  status <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  lifecycle <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  contributing <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  code_of_conduct <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  vignette <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  test <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  create_repo <span class="op">=</span> <span class="cn">TRUE</span>,</span>
@@ -138,6 +140,7 @@ project (e.g. R functions) can be used (or installed) as a R package.</p>
 <span>  codecov <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  website <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  gh_render <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  gh_citation <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  given <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  family <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  email <span class="op">=</span> <span class="cn">NULL</span>,</span>
@@ -186,6 +189,18 @@ See <code><a href="add_lifecycle_badge.html">add_lifecycle_badge()</a></code> fo
 <p>This argument is used to add a badge to the <code>README.Rmd</code> to help visitors
 to better understand your project. Default is <code>lifecycle = NULL</code>.</p>
 <p>This stage can be added/changed later by using <code><a href="add_lifecycle_badge.html">add_lifecycle_badge()</a></code>.</p></dd>
+
+
+<dt>contributing</dt>
+<dd><p>A logical value. If <code>TRUE</code> (default) adds a
+<code>CONTRIBUTING.md</code> file and <code>ISSUE_TEMPLATES</code>. See <code><a href="add_contributing.html">add_contributing()</a></code> for
+further information.</p></dd>
+
+
+<dt>code_of_conduct</dt>
+<dd><p>A logical value. If <code>TRUE</code> (default) adds a
+<code>CODE_OF_CONDUCT.md</code> file. See <code><a href="add_code_of_conduct.html">add_code_of_conduct()</a></code> for further
+information.</p></dd>
 
 
 <dt>vignette</dt>
@@ -244,6 +259,13 @@ automatically configured to deploy website.</p>
 <dd><p>A logical value. If <code>TRUE</code> configures GitHub
 Actions to automatically knit the <code>README.Rmd</code> after each push.
 See <code><a href="add_github_actions_render.html">add_github_actions_render()</a></code> for further information.</p>
+<p>If <code>create_repo = FALSE</code> this argument is ignored. Default is <code>FALSE</code>.</p></dd>
+
+
+<dt>gh_citation</dt>
+<dd><p>A logical value. If <code>TRUE</code> configures GitHub
+Actions to automatically update the <code>CITATION.cff</code> file.
+See <code><a href="add_github_actions_citation.html">add_github_actions_citation()</a></code> for further information.</p>
 <p>If <code>create_repo = FALSE</code> this argument is ignored. Default is <code>FALSE</code>.</p></dd>
 
 

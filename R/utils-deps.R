@@ -46,8 +46,10 @@ get_deps_in_functions_r <- function() {
     
     ## Remove messages ----
     
-    x <- lapply(x, function(x) gsub("\".*\"", "", x))
-    x <- lapply(x, function(x) gsub("\'.*\'", "", x))
+    x <- lapply(x, function(x) gsub("\".{0,}\'.{0,}\'.{0,}\"", "", x))
+    x <- lapply(x, function(x) gsub("\'.{0,}\".{0,}\".{0,}\'", "", x))
+    x <- lapply(x, function(x) gsub("\".{0,}\\\".{0,}\\\".{0,}\"", "", x))
+    x <- lapply(x, function(x) gsub("\'.{0,}\\\'.{0,}\\\'.{0,}\'", "", x))
     
     
     ## Functions called as pkg::fun() ----
@@ -77,6 +79,7 @@ get_deps_in_functions_r <- function() {
       unlist(stringr::str_extract_all(x, pattern))
     }))
     
+    pkgs <- gsub("\\s", "", pkgs)
     pkgs <- gsub("library\\(|require\\(|\"|\'", "", pkgs)
     
     
@@ -318,8 +321,10 @@ get_deps_extra <- function(compendium = NULL) {
     
     ## Remove messages ----
     
-    x <- lapply(x, function(x) gsub("\".*\"", "", x))
-    x <- lapply(x, function(x) gsub("\'.*\'", "", x))
+    x <- lapply(x, function(x) gsub("\".{0,}\'.{0,}\'.{0,}\"", "", x))
+    x <- lapply(x, function(x) gsub("\'.{0,}\".{0,}\".{0,}\'", "", x))
+    x <- lapply(x, function(x) gsub("\".{0,}\\\".{0,}\\\".{0,}\"", "", x))
+    x <- lapply(x, function(x) gsub("\'.{0,}\\\'.{0,}\\\'.{0,}\'", "", x))
     
     
     ## Functions called as pkg::fun() ----
@@ -349,6 +354,7 @@ get_deps_extra <- function(compendium = NULL) {
       unlist(stringr::str_extract_all(x, pattern))
     }))
     
+    pkgs <- gsub("\\s", "", pkgs)
     pkgs <- gsub("library\\(|require\\(|\"|\'", "", pkgs)
     
     
@@ -434,8 +440,10 @@ get_deps_in_vignettes <- function() {
     
     ## Remove messages ----
     
-    x <- lapply(x, function(x) gsub("\".*\"", "", x))
-    x <- lapply(x, function(x) gsub("\'.*\'", "", x))
+    x <- lapply(x, function(x) gsub("\".{0,}\'.{0,}\'.{0,}\"", "", x))
+    x <- lapply(x, function(x) gsub("\'.{0,}\".{0,}\".{0,}\'", "", x))
+    x <- lapply(x, function(x) gsub("\".{0,}\\\".{0,}\\\".{0,}\"", "", x))
+    x <- lapply(x, function(x) gsub("\'.{0,}\\\'.{0,}\\\'.{0,}\'", "", x))
     
     
     ## Remove inline code (not evaluated) ----
@@ -474,6 +482,7 @@ get_deps_in_vignettes <- function() {
       unlist(stringr::str_extract_all(x, pattern))
     }))
     
+    pkgs <- gsub("\\s", "", pkgs)
     pkgs <- gsub("library\\(|require\\(|\"|\'", "", pkgs)
     
     
@@ -552,8 +561,10 @@ get_deps_in_tests <- function() {
     
     ## Remove messages ----
     
-    x <- lapply(x, function(x) gsub("\".*\"", "", x))
-    x <- lapply(x, function(x) gsub("\'.*\'", "", x))
+    x <- lapply(x, function(x) gsub("\".{0,}\'.{0,}\'.{0,}\"", "", x))
+    x <- lapply(x, function(x) gsub("\'.{0,}\".{0,}\".{0,}\'", "", x))
+    x <- lapply(x, function(x) gsub("\".{0,}\\\".{0,}\\\".{0,}\"", "", x))
+    x <- lapply(x, function(x) gsub("\'.{0,}\\\'.{0,}\\\'.{0,}\'", "", x))
     
     
     ## Functions called as pkg::fun() ----
@@ -583,6 +594,7 @@ get_deps_in_tests <- function() {
       unlist(stringr::str_extract_all(x, pattern))
     }))
     
+    pkgs <- gsub("\\s", "", pkgs)
     pkgs <- gsub("library\\(|require\\(|\"|\'", "", pkgs)
     
     

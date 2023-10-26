@@ -149,17 +149,34 @@ add_badge <- function(badge, pattern) {
 #'   
 #' @noRd
 
-add_sticker <- function(overwrite = FALSE, quiet = FALSE) {
+add_sticker <- function(type, overwrite = FALSE, quiet = FALSE) {
   
+  if (missing(type)) {
+    stop("Argument 'type' is required.")
+  }
+  
+  if (is.null(type)) {
+    stop("Argument 'type' must be 'package' or 'compendium'.")
+  }
+  
+  if (length(type) != 1) {
+    stop("Argument 'type' must be 'package' or 'compendium'.") 
+  }
+  
+  if (!(tolower(type) %in% c("package", "compendium"))) {
+    stop("Argument 'type' must be 'package' or 'compendium'.")
+  }
+  
+  type <- tolower(type)
   
   stop_if_not_logical(overwrite, quiet)
   
-  path <- file.path(path_proj(), "man", "figures", "package-sticker.png")
+  path <- file.path(path_proj(), "man", "figures", paste0(type, "-sticker.png"))
   
   if (file.exists(path) && !overwrite) {
     
-    stop("A 'man/figures/package-sticker.png' is already present. If you want ",
-         "to replace it, please use `overwrite = TRUE`.")
+    stop(paste0("A 'man/figures/", type, "-sticker.png' is already present. ",
+         "If you want to replace it, please use `overwrite = TRUE`."))
   }
   
   
@@ -168,32 +185,35 @@ add_sticker <- function(overwrite = FALSE, quiet = FALSE) {
                recursive = TRUE)
     
   invisible(
-    file.copy(system.file(file.path("templates", "package-sticker.png"), 
+    file.copy(system.file(file.path("templates", paste0(type, "-sticker.png")), 
                           package = "rcompendium"), path, overwrite = TRUE))
   
-
-  if (!dir.exists(file.path(path_proj(), "inst", "package-sticker")))
-    dir.create(file.path(path_proj(), "inst", "package-sticker"), 
-               showWarnings = FALSE, recursive = TRUE)
-  
-  
-  path <- file.path(path_proj(), "inst", "package-sticker", "r_logo.png")
-  
-  if (!file.exists(path)) {
-    invisible(
-      file.copy(system.file(file.path("templates", "r_logo.png"), 
-                            package = "rcompendium"), path, overwrite = FALSE))
+  if (type == "package") {
+    
+    if (!dir.exists(file.path(path_proj(), "inst", "package-sticker")))
+      dir.create(file.path(path_proj(), "inst", "package-sticker"), 
+                 showWarnings = FALSE, recursive = TRUE)
+    
+    path <- file.path(path_proj(), "inst", "package-sticker", "r_logo.png")
+    
+    if (!file.exists(path)) {
+      invisible(
+        file.copy(system.file(file.path("templates", "r_logo.png"), 
+                              package = "rcompendium"), path, 
+                  overwrite = FALSE))
+    }
+    
+    
+    path <- file.path(path_proj(), "inst", "package-sticker", 
+                      "package-sticker.R")
+    
+    if (!file.exists(path)) {
+      invisible(
+        file.copy(system.file(file.path("templates", "package-sticker.R"), 
+                              package = "rcompendium"), path, 
+                  overwrite = FALSE))
+    }
   }
-  
-  
-  path <- file.path(path_proj(), "inst", "package-sticker", "package-sticker.R")
-  
-  if (!file.exists(path)) {
-    invisible(
-      file.copy(system.file(file.path("templates", "package-sticker.R"), 
-                            package = "rcompendium"), path, overwrite = FALSE))
-  }
-  
   
   if (!quiet) {
     ui_done(paste0("Adding {ui_value('package-sticker.png')} to ", 

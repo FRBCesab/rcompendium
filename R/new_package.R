@@ -629,7 +629,7 @@ new_package <- function(license = "GPL (>= 2)", status = NULL,
   add_readme_rmd(type = "package", given, family, organisation, open = FALSE, 
                  overwrite = overwrite, quiet = quiet)
   
-  add_sticker(overwrite = overwrite, quiet = quiet)
+  add_sticker(type = "package", overwrite = overwrite, quiet = quiet)
   
   
   

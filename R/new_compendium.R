@@ -581,7 +581,7 @@ new_compendium <- function(compendium = NULL, license = "GPL (>= 2)",
   add_readme_rmd(type = "compendium", given, family, organisation, 
                  open = FALSE, overwrite = overwrite, quiet = quiet)
   
-  # add_sticker(overwrite = overwrite, quiet = quiet)
+  add_sticker(type = "compendium", overwrite = overwrite, quiet = quiet)
   
   
   

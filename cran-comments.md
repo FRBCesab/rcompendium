@@ -1,17 +1,11 @@
 ## Resubmit comments
 
-* New features
-  * `get_git_branch_name()` detects git branch name
-  * `add_contributing()` adds a `CONTRIBUTING.md` file and issue templates
-  * `add_code_of_conduct()` adds a `CODE_OF_CONDUCT.md` file
-  * `add_github_actions_citation()` adds a new GitHub action to update the 
-  `CITATION.cff` file
-  * `add_github_actions_document()` adds a new GitHub action to update `Rd` files,
-  the `NAMESPACE` and the `DESCRIPTION` files
+Sorry for the short delay between this submission and the previous one.
+This new version provides important bug fix.
 
 * Improvements
   * `get_deps_*()` better detects project dependencies
-  * `add_compendium()` allows now the user to choose its own compendium structure
+  * `add_sticker()` now provide a template for compendium
 
 * And other minor changes
 

@@ -1,11 +1,9 @@
 ## Resubmit comments
 
-Sorry for the short delay between this submission and the previous one.
-This new version provides important bug fix.
-
-* Improvements
-  * `get_deps_*()` better detects project dependencies
-  * `add_sticker()` now provide a template for compendium
+* Bug fixes
+  * `get_deps_*()` better detects project dependencies and does not delete 
+  packages called w/ `library("pkg")` or `library('pkg')`
+  * `add_sticker()` now copies the sticker template for compendium
 
 * And other minor changes
 
@@ -29,8 +27,11 @@ This new version provides important bug fix.
 
 ## R CMD check results
 
-0 error | 0 warning | 0 note
+0 error | 0 warning | 1 note
 
+* Days since last update: 2
+  * Sorry for the short delay between this submission and the previous one. This 
+  new version provides important bug fixes.
 
 ## Downstream dependencies
 

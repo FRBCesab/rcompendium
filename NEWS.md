@@ -1,13 +1,15 @@
 # rcompendium 1.3
 
-* **Improvements**
+* **Bug fixes**
 
-  * `get_deps_*()` better detects project dependencies
-  * `add_sticker()` now provide a template for compendium
+  * `get_deps_*()` better detects project dependencies and does not delete 
+  packages called w/ `library("pkg")` or `library('pkg')`
+  * `add_sticker()` now copies the sticker template for compendium
 
 * **Minor changes**
 
-  * Provide instructions for installing V8 engine
+  * Provide instructions for installing V8 engine on Unix systems
+
 
 # rcompendium 1.2
 

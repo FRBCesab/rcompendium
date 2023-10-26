@@ -42,7 +42,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">rcompendium</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.3</span>
       </span>
     </div>
 
@@ -136,6 +136,13 @@
 <span></span>
 <span><span class="co">## Install dev version of &lt; rcompendium &gt; from GitHub ----</span></span>
 <span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"FRBCesab/rcompendium"</span><span class="op">)</span></span></code></pre></div>
+<p><strong>Note:</strong> On Unix system you may have an error during the installation linked to the <a href="https://v8.dev/" class="external-link"><strong>V8 JavaScript engine</strong></a>. This software is required by the R package <a href="https://docs.ropensci.org/cffr/" class="external-link"><code>cffr</code></a> (included in <code>rcompendium</code>). Run the following line and try to reinstall <code>rcompendium</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">## Fix V8 issues ----</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Sys.setenv.html" class="external-link">Sys.setenv</a></span><span class="op">(</span>DOWNLOAD_STATIC_LIBV8 <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## Install &lt; rcompendium &gt; ----</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"rcompendium"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
@@ -152,10 +159,10 @@
 </h2>
 <p>Please cite this package as:</p>
 <blockquote>
-<p>Casajus N. (2023) rcompendium: An R package to create a package or research compendium structure. Version 1.2, <a href="https://github.com/FRBCesab/rcompendium" class="external-link uri">https://github.com/FRBCesab/rcompendium</a>.</p>
+<p>Casajus N. (2023) rcompendium: An R package to create a package or research compendium structure. Version 1.3, <a href="https://github.com/FRBCesab/rcompendium" class="external-link uri">https://github.com/FRBCesab/rcompendium</a>.</p>
 </blockquote>
 <p>You can also run:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/citation.html" class="external-link">citation</a></span><span class="op">(</span><span class="st">"rcompendium"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co">## A BibTeX entry for LaTeX users is:</span></span>
@@ -164,7 +171,7 @@
 <span><span class="co">##   title  = {{rcompendium}: {An} {R} package to create a package or research compendium structure},</span></span>
 <span><span class="co">##   author = {{Casajus N.}},</span></span>
 <span><span class="co">##   year   = {2023},</span></span>
-<span><span class="co">##   note   = {R package version 1.1},</span></span>
+<span><span class="co">##   note   = {R package version 1.3},</span></span>
 <span><span class="co">##   url    = {https://github.com/FRBCesab/rcompendium},</span></span>
 <span><span class="co">## }</span></span></code></pre></div>
 </div>

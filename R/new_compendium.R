@@ -658,7 +658,6 @@ new_compendium <- function(compendium = NULL, license = "GPL (>= 2)",
     ui_title("Configuring GH Actions - R CMD CHECK")
     
     add_github_actions_check(quiet = quiet)
-    add_to_buildignore(".github", quiet = quiet)
   }
   
   
@@ -674,7 +673,6 @@ new_compendium <- function(compendium = NULL, license = "GPL (>= 2)",
     ui_title("Configuring GH Actions - Code Coverage")
     
     add_github_actions_codecov(quiet = quiet)
-    add_to_buildignore(".github", quiet = quiet)
   }
   
   
@@ -690,7 +688,6 @@ new_compendium <- function(compendium = NULL, license = "GPL (>= 2)",
     ui_title("Configuring GH Actions - Render README")
     
     add_github_actions_render(quiet = quiet)
-    add_to_buildignore(".github", quiet = quiet)
   }
   
   
@@ -706,7 +703,6 @@ new_compendium <- function(compendium = NULL, license = "GPL (>= 2)",
     ui_title("Configuring GH Actions - Website deployment")
     
     add_github_actions_pkgdown()
-    add_to_buildignore(".github", quiet = quiet)
     
     ui_line()
     
@@ -726,7 +722,6 @@ new_compendium <- function(compendium = NULL, license = "GPL (>= 2)",
     ui_title("Configuring GH Actions - CITATION.cff")
     
     add_github_actions_citation(quiet = quiet)
-    add_to_buildignore(".github", quiet = quiet)
   }
   
   

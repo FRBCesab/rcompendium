@@ -66,6 +66,8 @@ add_github_actions_citation <- function(open = FALSE, overwrite = FALSE,
   dir.create(file.path(path_proj(), ".github", "workflows"), 
              showWarnings = FALSE, recursive = TRUE)
   
+  add_to_buildignore(".github", quiet = FALSE)
+  
   invisible(
     file.copy(system.file(file.path("templates", "update-citation-cff.yaml"), 
                           package = "rcompendium"), path))

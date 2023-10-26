@@ -63,6 +63,8 @@ add_github_actions_codecov <- function(open = FALSE, overwrite = FALSE,
   dir.create(file.path(path_proj(), ".github", "workflows"), 
              showWarnings = FALSE, recursive = TRUE)
   
+  add_to_buildignore(".github", quiet = FALSE)
+  
   invisible(
     file.copy(system.file(file.path("templates", "test-coverage.yaml"), 
                           package = "rcompendium"), path))

@@ -64,12 +64,14 @@ add_github_actions_render <- function(open = FALSE, overwrite = FALSE,
   dir.create(file.path(path_proj(), ".github", "workflows"), 
              showWarnings = FALSE, recursive = TRUE)
   
+  add_to_buildignore(".github", quiet = FALSE)
+  
   invisible(
     file.copy(system.file(file.path("templates", "render-README.yaml"), 
                           package = "rcompendium"), path))
   
   
-  if (!quiet) 
+  if (!quiet)
     ui_done("Writing {ui_value('.github/workflows/render-README.yaml')} file")
   
   if (open) edit_file(path)

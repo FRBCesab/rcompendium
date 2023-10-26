@@ -71,6 +71,20 @@ if (!requireNamespace("remotes", quietly = TRUE)) {
 remotes::install_github("FRBCesab/rcompendium")
 ```
 
+**Note:** On Unix system you may have an error during the installation
+linked to the [**V8 JavaScript engine**](https://v8.dev/). This software
+is required by the R package [`cffr`](https://docs.ropensci.org/cffr/)
+(included in `rcompendium`). Run the following line and try to reinstall
+`rcompendium`.
+
+``` r
+## Fix V8 issues ----
+Sys.setenv(DOWNLOAD_STATIC_LIBV8 = 1)
+
+## Install < rcompendium > ----
+install.packages("rcompendium")
+```
+
 ## Usage
 
 Please read the [Get

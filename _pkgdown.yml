@@ -1,5 +1,8 @@
 url: https://frbcesab.github.io/rcompendium
 
+template:
+  bootstrap: 5
+
 reference:
 - title: Prerequisites
   desc: |

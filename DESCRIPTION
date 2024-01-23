@@ -1,7 +1,7 @@
 Package: rcompendium
 Type: Package
 Title: Create a Package or Research Compendium Structure
-Version: 1.3
+Version: 1.3.9000
 Authors@R: c(
     person(given   = "Nicolas",
            family  = "Casajus",
@@ -39,7 +39,7 @@ Imports:
     utils,
     xfun
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1
 VignetteBuilder: knitr
 Suggests: 
     fs,

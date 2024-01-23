@@ -3,7 +3,6 @@
 \docType{package}
 \name{rcompendium-package}
 \alias{rcompendium-package}
-\alias{_PACKAGE}
 \alias{rcompendium}
 \title{Create a package or research compendium structure}
 \description{

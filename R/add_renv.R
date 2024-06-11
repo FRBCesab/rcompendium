@@ -41,7 +41,7 @@ add_renv <- function(quiet = FALSE) {
       ui_done("Creating {ui_value('renv/')}")
       ui_done("Writing {ui_value('.Rprofile')}")
       ui_done("Writing {ui_value('renv.lock')}")
-      ui_line()
+      cli::cat_line()
       ui_todo("Call {ui_code('renv::install()')} to install packages")
       ui_todo("Call {ui_code('renv::snapshot()')} to update the lockfile")  
     }

@@ -106,7 +106,7 @@ add_dependencies <- function(compendium = NULL) {
                    "{ui_value('NAMESPACE')}:"))
     ui_line("{ui_code(duplicated_deps)}")
     ui_todo("You can omit package name when calling these functions")
-    ui_line()
+    cli::cat_line()
   }
 
   
@@ -192,11 +192,11 @@ add_dependencies <- function(compendium = NULL) {
   
   if (!length(pkgs_in_depends)) {
   
-    ui_line("  {clisymbols::symbol$radio_on} No package found")
+    ui_line("  {cli::symbol$radio_on} No package found")
   
   } else {
   
-    ui_line(paste0("  {clisymbols::symbol$radio_on} Found ", 
+    ui_line(paste0("  {cli::symbol$radio_on} Found ", 
                    "{ui_value(length(pkgs_in_depends))} package(s)"))
   }
   
@@ -226,11 +226,11 @@ add_dependencies <- function(compendium = NULL) {
     
     # Message
     
-    ui_line(paste0("  {clisymbols::symbol$radio_on} Found ", 
+    ui_line(paste0("  {cli::symbol$radio_on} Found ", 
                    "{ui_value(length(pkgs_in_imports))} package(s)")) 
     
     msg <- paste0("Imports: ", paste0(pkgs_in_imports, collapse = ", "))
-    ui_line(paste0("  {clisymbols::symbol$radio_on} Adding the following ", 
+    ui_line(paste0("  {cli::symbol$radio_on} Adding the following ", 
                    "line in {ui_value('DESCRIPTION')}: {ui_code(msg)}"))
 
     pkgs_in_imports <- paste0(pkgs_in_imports, collapse = ",\n    ")
@@ -238,7 +238,7 @@ add_dependencies <- function(compendium = NULL) {
 
   } else {
     
-    ui_line("  {clisymbols::symbol$radio_on} No package found")
+    ui_line("  {cli::symbol$radio_on} No package found")
     
     pos <- which(colnames(descr) == "Imports")
     if (length(pos)) descr <- descr[ , -pos]
@@ -271,11 +271,11 @@ add_dependencies <- function(compendium = NULL) {
     
     # Message
     
-    ui_line(paste0("  {clisymbols::symbol$radio_on} Found ", 
+    ui_line(paste0("  {cli::symbol$radio_on} Found ", 
                    "{ui_value(length(pkgs_in_suggests))} package(s)"))
     
     msg <- paste0("Suggests: ", paste0(pkgs_in_suggests, collapse = ", "))
-    ui_line(paste0("  {clisymbols::symbol$radio_on} Adding the following ", 
+    ui_line(paste0("  {cli::symbol$radio_on} Adding the following ", 
                    "line in {ui_value('DESCRIPTION')}: {ui_code(msg)}"))
     
     
@@ -284,7 +284,7 @@ add_dependencies <- function(compendium = NULL) {
     
   } else {
     
-    ui_line("  {clisymbols::symbol$radio_on} No package found")
+    ui_line("  {cli::symbol$radio_on} No package found")
     
     pos <- which(colnames(descr) %in% c("Suggests", "VignetteBuilder"))
     if (length(pos)) descr <- descr[ , -pos]

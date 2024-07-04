@@ -147,11 +147,11 @@ proj_in_proj <- function() {
 ui_title <- function(texte) {
   
   
-  ui_line()
-  cat(clisymbols::symbol$radio_on, 
-      crayon::bold(crayon::underline(texte)))
-  ui_line()
-  ui_line()
+  cli::cat_line()
+  cat(cli::symbol$radio_on, 
+      cli::style_bold(cli::style_underline(texte)))
+  cli::cat_line()
+  cli::cat_line()
   
   invisible(NULL)
 }

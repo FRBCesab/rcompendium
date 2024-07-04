@@ -500,7 +500,7 @@ new_package <- function(license = "GPL (>= 2)", status = NULL,
   add_to_buildignore(".Rproj.user", quiet = quiet)
   add_to_buildignore(".DS_Store", quiet = quiet)
   
-  if (!quiet) ui_line()
+  if (!quiet) cli::cat_line()
   
   
   ## Create DESCRIPTION ----
@@ -508,14 +508,14 @@ new_package <- function(license = "GPL (>= 2)", status = NULL,
   add_description(given, family, email, orcid, organisation, open = FALSE, 
                   overwrite = overwrite, quiet = quiet)
   
-  if (!quiet) ui_line()
+  if (!quiet) cli::cat_line()
   
   
   ## Add LICENSE ----
   
   add_license(license, given, family, quiet = quiet)
   
-  if (!quiet) ui_line()
+  if (!quiet) cli::cat_line()
   
   
   ## Create folders ----
@@ -529,7 +529,7 @@ new_package <- function(license = "GPL (>= 2)", status = NULL,
   
   if (!quiet) ui_done("Creating {ui_value('man/')} directory")
   
-  if (!quiet) ui_line()
+  if (!quiet) cli::cat_line()
   
   
   ## Package doc bonus ----
@@ -551,7 +551,7 @@ new_package <- function(license = "GPL (>= 2)", status = NULL,
                 overwrite = overwrite)) 
   }
   
-  if (!quiet) ui_line()
+  if (!quiet) cli::cat_line()
   if (!quiet) ui_done("Writing {ui_value('R/fun-demo.R')} file")
   
   suppressMessages(devtools::document(quiet = TRUE))
@@ -752,7 +752,7 @@ new_package <- function(license = "GPL (>= 2)", status = NULL,
     
     add_github_actions_pkgdown()
     
-    ui_line()
+    cli::cat_line()
     
     usethis::use_github_pages(branch = "gh-pages")
   }
@@ -890,7 +890,7 @@ new_package <- function(license = "GPL (>= 2)", status = NULL,
     ui_todo(paste0("Write your units tests in the ", 
                    "{ui_value('tests/testthat/')} directory"))
   
-  ui_line()
+  cli::cat_line()
   
   ui_todo("...and commit your changes!")
   

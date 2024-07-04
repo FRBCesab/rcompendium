@@ -409,7 +409,7 @@ new_compendium <- function(compendium = NULL, license = "GPL (>= 2)",
   add_to_buildignore(".Rproj.user", quiet = quiet)
   add_to_buildignore(".DS_Store", quiet = quiet)
   
-  if (!quiet) ui_line()
+  if (!quiet) cli::cat_line()
   
   
   ## Create DESCRIPTION ----
@@ -417,14 +417,14 @@ new_compendium <- function(compendium = NULL, license = "GPL (>= 2)",
   add_description(given, family, email, orcid, organisation, open = FALSE, 
                   overwrite = overwrite, quiet = quiet)
   
-  if (!quiet) ui_line()
+  if (!quiet) cli::cat_line()
   
   
   ## Add LICENSE ----
   
   add_license(license, given, family, quiet = quiet)
   
-  if (!quiet) ui_line()
+  if (!quiet) cli::cat_line()
   
   
   ## Create folders ----
@@ -438,7 +438,7 @@ new_compendium <- function(compendium = NULL, license = "GPL (>= 2)",
   
   # if (!quiet) ui_done("Creating {ui_value('man/')} directory")
   
-  if (!quiet) ui_line()
+  if (!quiet) cli::cat_line()
   
   
   ## Package doc bonus ----
@@ -460,7 +460,7 @@ new_compendium <- function(compendium = NULL, license = "GPL (>= 2)",
                 overwrite = overwrite)) 
   }
   
-  if (!quiet) ui_line()
+  if (!quiet) cli::cat_line()
   if (!quiet) ui_done("Writing {ui_value('R/fun-demo.R')} file")
   
   # suppressMessages(devtools::document(quiet = TRUE))
@@ -478,7 +478,7 @@ new_compendium <- function(compendium = NULL, license = "GPL (>= 2)",
   ui_title("Creating Compendium Folders")  
   
   add_compendium(compendium, quiet = quiet)
-  ui_line()
+  cli::cat_line()
   
   add_makefile(given, family, email, open = FALSE, overwrite = overwrite, 
                quiet = quiet)
@@ -704,7 +704,7 @@ new_compendium <- function(compendium = NULL, license = "GPL (>= 2)",
     
     add_github_actions_pkgdown()
     
-    ui_line()
+    cli::cat_line()
     
     usethis::use_github_pages(branch = "gh-pages")
   }
@@ -858,7 +858,7 @@ new_compendium <- function(compendium = NULL, license = "GPL (>= 2)",
   
   if (!is.null(compendium)) {
     
-    ui_line()
+    cli::cat_line()
     ui_todo("Put your data in {ui_value('data/raw-data')} directory")
     ui_todo("Write your R scripts in the {ui_value('analyses/')} directory")
     ui_todo("Source your R scripts in the {ui_value('make.R')} file")
@@ -868,7 +868,7 @@ new_compendium <- function(compendium = NULL, license = "GPL (>= 2)",
     ui_todo("Export your figures in the {ui_value('figures/')} directory")
   }
   
-  ui_line()
+  cli::cat_line()
 
   ui_todo("...and commit your changes!")
   

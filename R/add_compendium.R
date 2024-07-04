@@ -67,7 +67,7 @@ add_compendium <- function(compendium = NULL, quiet = FALSE) {
         
         ui_done(paste0("Adding a {ui_value('README.md')} to ", 
                        "{ui_value(paste0(compendium[i], '/'))} directory"))
-        ui_line()
+        cli::cat_line()
       }
     }
   }

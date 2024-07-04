@@ -1,7 +1,7 @@
-# -----------------------------------------------------------
-# CITATION file created with {cffr} R package, v0.5.0
+# --------------------------------------------
+# CITATION file created with {cffr} R package
 # See also: https://docs.ropensci.org/cffr/
-# -----------------------------------------------------------
+# --------------------------------------------
  
 cff-version: 1.2.0
 message: 'To cite package "rcompendium" in publications use:'
@@ -16,7 +16,7 @@ abstract: 'Makes easier the creation of R package or research compendium (i.e. a
   (check package integrity under several OS, test code with ''testthat'', and build
   and deploy website using ''pkgdown''). This package heavily relies on the R packages
   ''devtools'' and ''usethis'' and follows recommendations made by Wickham H. (2015)
-  <ISBN:9781491910597> and Marwick B. et al. (2018) <doi:10.7287/peerj.preprints.3192v2>.'
+  <ISBN:9781491910597> and Marwick B. et al. (2018) <https://doi.org/10.7287/peerj.preprints.3192v2>.'
 authors:
 - family-names: Casajus
   given-names: Nicolas
@@ -50,11 +50,10 @@ references:
   url: https://www.R-project.org/
   authors:
   - name: R Core Team
-  location:
-    name: Vienna, Austria
-  year: '2024'
   institution:
     name: R Foundation for Statistical Computing
+    address: Vienna, Austria
+  year: '2024'
   version: '>= 2.10'
 - type: software
   title: cffr
@@ -69,24 +68,11 @@ references:
     orcid: https://orcid.org/0000-0001-8457-4658
   year: '2024'
 - type: software
-  title: clisymbols
-  abstract: 'clisymbols: Unicode Symbols at the R Prompt'
+  title: cli
+  abstract: 'cli: Helpers for Developing Command Line Interfaces'
   notes: Imports
-  url: https://github.com/gaborcsardi/clisymbols
-  repository: https://CRAN.R-project.org/package=clisymbols
-  authors:
-  - family-names: Csárdi
-    given-names: Gábor
-    email: csardi.gabor@gmail.com
-  - family-names: Sorhus
-    given-names: Sindre
-  year: '2024'
-- type: software
-  title: crayon
-  abstract: 'crayon: Colored Terminal Output'
-  notes: Imports
-  url: https://github.com/r-lib/crayon#readme
-  repository: https://CRAN.R-project.org/package=crayon
+  url: https://cli.r-lib.org
+  repository: https://CRAN.R-project.org/package=cli
   authors:
   - family-names: Csárdi
     given-names: Gábor
@@ -278,11 +264,10 @@ references:
   notes: Imports
   authors:
   - name: R Core Team
-  location:
-    name: Vienna, Austria
-  year: '2024'
   institution:
     name: R Foundation for Statistical Computing
+    address: Vienna, Austria
+  year: '2024'
 - type: software
   title: xfun
   abstract: 'xfun: Supporting Functions for Packages Maintained by ''Yihui Xie'''
@@ -306,7 +291,7 @@ references:
     given-names: Jim
   - family-names: Wickham
     given-names: Hadley
-    email: hadley@rstudio.com
+    email: hadley@posit.co
   - family-names: Csárdi
     given-names: Gábor
     email: csardi.gabor@gmail.com
@@ -359,3 +344,4 @@ references:
   - family-names: Chang
     given-names: Winston
   year: '2024'
+

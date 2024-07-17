@@ -414,7 +414,7 @@ get_deps_in_vignettes <- function() {
   }
   
   x <- list.files(path = file.path(path, "vignettes"), 
-                  pattern = "\\.R$|\\.Rmd$", full.names = TRUE, 
+                  pattern = "\\.R$|\\.Rmd$|\\.qmd$", full.names = TRUE, 
                   ignore.case = TRUE, recursive = TRUE)
   
   if (!length(x)) {

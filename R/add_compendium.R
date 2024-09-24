@@ -31,8 +31,7 @@ add_compendium <- function(compendium = NULL, quiet = FALSE) {
   stop_if_not_logical(quiet)
   
   if (is.null(compendium)) {
-    compendium <- c("data/raw-data", "data/derived-data", "outputs", "figures",
-                    "analyses")
+    compendium <- c("data", "outputs", "figures", "analyses")
   }
   
   if (!is.character(compendium)) {

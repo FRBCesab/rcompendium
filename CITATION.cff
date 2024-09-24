@@ -9,6 +9,9 @@ type: software
 license: GPL-2.0-or-later
 title: 'rcompendium: Create a Package or Research Compendium Structure'
 version: 1.3.9000
+identifiers:
+- type: doi
+  value: 10.32614/CRAN.package.rcompendium
 abstract: 'Makes easier the creation of R package or research compendium (i.e. a predefined
   files/folders structure) so that users can focus on the code/analysis instead of
   wasting time organizing files. A full ready-to-work structure is set up with some
@@ -67,6 +70,7 @@ references:
     email: diego.hernangomezherrero@gmail.com
     orcid: https://orcid.org/0000-0001-8457-4658
   year: '2024'
+  doi: 10.32614/CRAN.package.cffr
 - type: software
   title: cli
   abstract: 'cli: Helpers for Developing Command Line Interfaces'
@@ -78,6 +82,7 @@ references:
     given-names: Gábor
     email: csardi.gabor@gmail.com
   year: '2024'
+  doi: 10.32614/CRAN.package.cli
 - type: software
   title: devtools
   abstract: 'devtools: Tools to Make Developing R Packages Easier'
@@ -96,6 +101,7 @@ references:
     email: jenny@rstudio.com
     orcid: https://orcid.org/0000-0002-6983-2759
   year: '2024'
+  doi: 10.32614/CRAN.package.devtools
 - type: software
   title: gert
   abstract: 'gert: Simple Git Client for R'
@@ -105,9 +111,10 @@ references:
   authors:
   - family-names: Ooms
     given-names: Jeroen
-    email: jeroen@berkeley.edu
+    email: jeroenooms@gmail.com
     orcid: https://orcid.org/0000-0002-4035-0289
   year: '2024'
+  doi: 10.32614/CRAN.package.gert
 - type: software
   title: gh
   abstract: 'gh: ''GitHub'' ''API'''
@@ -120,6 +127,7 @@ references:
   - family-names: Wickham
     given-names: Hadley
   year: '2024'
+  doi: 10.32614/CRAN.package.gh
 - type: software
   title: gtools
   abstract: 'gtools: Various R Programming Tools'
@@ -144,6 +152,7 @@ references:
   - family-names: Moeller
     given-names: Steffen
   year: '2024'
+  doi: 10.32614/CRAN.package.gtools
 - type: software
   title: renv
   abstract: 'renv: Project Environments'
@@ -160,6 +169,7 @@ references:
     email: hadley@rstudio.com
     orcid: https://orcid.org/0000-0003-4757-117X
   year: '2024'
+  doi: 10.32614/CRAN.package.renv
 - type: software
   title: rmarkdown
   abstract: 'rmarkdown: Dynamic Documents for R'
@@ -203,6 +213,7 @@ references:
     email: rich@posit.co
     orcid: https://orcid.org/0000-0003-3925-190X
   year: '2024'
+  doi: 10.32614/CRAN.package.rmarkdown
 - type: software
   title: rstudioapi
   abstract: 'rstudioapi: Safely Access the RStudio API'
@@ -223,6 +234,7 @@ references:
     given-names: Gary
     email: gary@posit.co
   year: '2024'
+  doi: 10.32614/CRAN.package.rstudioapi
 - type: software
   title: stringr
   abstract: 'stringr: Simple, Consistent Wrappers for Common String Operations'
@@ -234,6 +246,7 @@ references:
     given-names: Hadley
     email: hadley@posit.co
   year: '2024'
+  doi: 10.32614/CRAN.package.stringr
 - type: software
   title: usethis
   abstract: 'usethis: Automate Package and Project Setup'
@@ -258,6 +271,7 @@ references:
     email: andy.teucher@posit.co
     orcid: https://orcid.org/0000-0002-7840-692X
   year: '2024'
+  doi: 10.32614/CRAN.package.usethis
 - type: software
   title: utils
   abstract: 'R: A Language and Environment for Statistical Computing'
@@ -280,6 +294,7 @@ references:
     email: xie@yihui.name
     orcid: https://orcid.org/0000-0003-0645-5666
   year: '2024'
+  doi: 10.32614/CRAN.package.xfun
 - type: software
   title: fs
   abstract: 'fs: Cross-Platform File System Operations Based on ''libuv'''
@@ -296,6 +311,7 @@ references:
     given-names: Gábor
     email: csardi.gabor@gmail.com
   year: '2024'
+  doi: 10.32614/CRAN.package.fs
 - type: software
   title: knitr
   abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
@@ -308,6 +324,7 @@ references:
     email: xie@yihui.name
     orcid: https://orcid.org/0000-0003-0645-5666
   year: '2024'
+  doi: 10.32614/CRAN.package.knitr
 - type: software
   title: testthat
   abstract: 'testthat: Unit Testing for R'
@@ -319,6 +336,7 @@ references:
     given-names: Hadley
     email: hadley@posit.co
   year: '2024'
+  doi: 10.32614/CRAN.package.testthat
   version: '>= 3.0.0'
 - type: software
   title: withr
@@ -344,4 +362,5 @@ references:
   - family-names: Chang
     given-names: Winston
   year: '2024'
+  doi: 10.32614/CRAN.package.withr
 

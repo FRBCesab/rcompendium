@@ -8,13 +8,13 @@ output: github_document
 ```{r, include = FALSE}
 knitr::opts_chunk$set(collapse  = TRUE,
                       comment   = "#>",
-                      fig.path  = "man/figures/",
+                      fig.path  = "figures/readme/",
                       out.width = "100%")
 ```
 
 
 
-{{project_name}} <img src="man/figures/compendium-sticker.png" align="right" style="float:right; height:120px;"/>
+{{project_name}} <img src="figures/readme/compendium-sticker.png" align="right" style="float:right; height:120px;"/>
 =========================================================
 
 <!-- badges: start -->

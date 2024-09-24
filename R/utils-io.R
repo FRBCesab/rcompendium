@@ -171,17 +171,30 @@ add_sticker <- function(type, overwrite = FALSE, quiet = FALSE) {
   
   stop_if_not_logical(overwrite, quiet)
   
-  path <- file.path(path_proj(), "man", "figures", paste0(type, "-sticker.png"))
+  if (type == "package") {
+    
+    path <- file.path(path_proj(), "man", "figures", 
+                      paste0(type, "-sticker.png"))
+    
+    pathdir <- file.path("man", "figures")
+    
+  } else {
+    
+    path <- file.path(path_proj(), "figures", "readme",
+                      paste0(type, "-sticker.png")) 
+    
+    pathdir <- file.path("figures", "readme")
+  }
   
   if (file.exists(path) && !overwrite) {
     
-    stop(paste0("A 'man/figures/", type, "-sticker.png' is already present. ",
-         "If you want to replace it, please use `overwrite = TRUE`."))
+    stop(paste0("A '", pathdir, "/", type, "-sticker.png' is already present. ",
+                "If you want to replace it, please use `overwrite = TRUE`."))
   }
   
   
-  if (!dir.exists(file.path(path_proj(), "man", "figures")))
-    dir.create(file.path(path_proj(), "man", "figures"), showWarnings = FALSE, 
+  if (!dir.exists(file.path(path_proj(), pathdir)))
+    dir.create(file.path(path_proj(), pathdir), showWarnings = FALSE, 
                recursive = TRUE)
     
   invisible(

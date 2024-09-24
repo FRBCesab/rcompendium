@@ -1,5 +1,14 @@
 # rcompendium 1.3.9000 (development version)
 
+* **Bug fixes**
+
+  * `add_sticker()` copies the sticker template in `figures/readme/` and no more in `man/figures/` (listed in the `.gitignore`)
+
+* **Minor changes**
+
+  * Remove dependency to `crayon` and `clisymbols` in favor of `cli`
+  * Improve templates
+  * `add_compendium()` does not create subfolders in `data/`
 
 
 # rcompendium 1.3

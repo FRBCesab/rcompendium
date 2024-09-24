@@ -18,10 +18,10 @@ No return value.
 \description{
 This function creates a compendium, i.e. additional folders to a package
 structure. By default, the following directories are created:
-\code{data/raw-data}, \code{data/derived-data}, \verb{analyses/}, \verb{outputs/}, and
-\verb{figures/}. A \code{README.md} is added to each folder and must be edited. The
-argument \code{compendium} allows user to choose its own compendium structure.
-All theses folders are added to the \code{.Rbuildignore} file.
+\code{data}, \verb{analyses/}, \verb{outputs/}, and  \verb{figures/}. A \code{README.md} is added to
+each folder and must be edited. The argument \code{compendium} allows user to
+hoose its own compendium structure. All theses folders are added to the
+\code{.Rbuildignore} file.
 }
 \examples{
 \dontrun{

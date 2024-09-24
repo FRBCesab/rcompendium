@@ -3,10 +3,10 @@
 #' @description
 #' This function creates a compendium, i.e. additional folders to a package 
 #' structure. By default, the following directories are created: 
-#' `data/raw-data`, `data/derived-data`, `analyses/`, `outputs/`, and 
-#' `figures/`. A `README.md` is added to each folder and must be edited. The 
-#' argument `compendium` allows user to choose its own compendium structure. 
-#' All theses folders are added to the `.Rbuildignore` file.
+#' `data`, `analyses/`, `outputs/`, and  `figures/`. A `README.md` is added to 
+#' each folder and must be edited. The argument `compendium` allows user to 
+#' hoose its own compendium structure. All theses folders are added to the 
+#' `.Rbuildignore` file.
 #' 
 #' @param compendium A character vector specifying the folders to be created.
 #'   

@@ -24,7 +24,8 @@ knitr::opts_chunk$set(collapse  = TRUE,
 
 <p align="left">
   • <a href="#overview">Overview</a><br>
-  • <a href="#features">Features</a><br>
+  • <a href="#data-sources">Data sources</a><br>
+  • <a href="#workflow">Workflow</a><br>
   • <a href="#content">Content</a><br>
   • <a href="#installation">Installation</a><br>
   • <a href="#usage">Usage</a><br>
@@ -38,14 +39,28 @@ knitr::opts_chunk$set(collapse  = TRUE,
 
 ## Overview
 
-This research compendium... **{{ DESCRIBE YOUR PROJECT }}**
+This project is dedicated to... **{{ DESCRIBE YOUR PROJECT }}**
 
 
 
-## Features
+## Data sources
 
-The main purpose of this compendium is to... **{{ DESCRIBE THE MAIN FEATURES }}**
+This project uses the following databases:
 
+**{{ DESCRIBE THE DATA SOURCES }}**
+
+<!--
+| Database        | Usage                                                | Reference                 | Link      |
+| :-------------- | :--------------------------------------------------- | :------------------------ | :-------: |
+| Database name   | Explain the purpose of this database in the analysis | Database reference        | [link](#) |
+-->
+
+
+## Workflow
+
+The analysis pipeline follows these steps:
+
+**{{ DESCRIBE THE PIPELINE }}**
 
 
 ## Content
@@ -61,7 +76,7 @@ main R script to run the entire project
 - [`R/`](https://github.com/{{github}}/{{project_name}}/tree/{{branch}}/R):
 contains R functions developed especially for this project
 
-- **{{ LIST ADDITIONAL FILES/FOLDER }}**
+**{{ LIST ADDITIONAL FILES/FOLDER }}**
 
 
 

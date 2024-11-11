@@ -49,7 +49,8 @@ get_all_functions <- function() {
     
     ## Extract function names ----
     
-    x <- lapply(x, function(x) x[grep(" <- function\\(", x)])
+    x <- lapply(x, function(x) x[grep("\\s{0,}(<-|=)\\s{0,}function\\s{0,}\\(", 
+                                      x)])
     x <- lapply(x, function(x) gsub("\\s{0,}(<-|=)\\s{0,}function.*", "", x))
     
     x <- unlist(x)

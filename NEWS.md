@@ -2,6 +2,7 @@
 
 * **Bug fixes**
 
+  * `get_all_functions()` better detects functions (e.g. `function ()`)
   * `add_sticker()` copies the sticker template in `figures/readme/` and no more in `man/figures/` (listed in the `.gitignore`)
 
 * **Minor changes**

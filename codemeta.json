@@ -132,6 +132,18 @@
     },
     "4": {
       "@type": "SoftwareApplication",
+      "identifier": "codemetar",
+      "name": "codemetar",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=codemetar"
+    },
+    "5": {
+      "@type": "SoftwareApplication",
       "identifier": "devtools",
       "name": "devtools",
       "provider": {
@@ -142,7 +154,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=devtools"
     },
-    "5": {
+    "6": {
       "@type": "SoftwareApplication",
       "identifier": "gert",
       "name": "gert",
@@ -154,7 +166,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=gert"
     },
-    "6": {
+    "7": {
       "@type": "SoftwareApplication",
       "identifier": "gh",
       "name": "gh",
@@ -166,7 +178,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=gh"
     },
-    "7": {
+    "8": {
       "@type": "SoftwareApplication",
       "identifier": "gtools",
       "name": "gtools",
@@ -178,7 +190,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=gtools"
     },
-    "8": {
+    "9": {
       "@type": "SoftwareApplication",
       "identifier": "renv",
       "name": "renv",
@@ -190,7 +202,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=renv"
     },
-    "9": {
+    "10": {
       "@type": "SoftwareApplication",
       "identifier": "rmarkdown",
       "name": "rmarkdown",
@@ -202,7 +214,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=rmarkdown"
     },
-    "10": {
+    "11": {
       "@type": "SoftwareApplication",
       "identifier": "rstudioapi",
       "name": "rstudioapi",
@@ -214,7 +226,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=rstudioapi"
     },
-    "11": {
+    "12": {
       "@type": "SoftwareApplication",
       "identifier": "stringr",
       "name": "stringr",
@@ -226,7 +238,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=stringr"
     },
-    "12": {
+    "13": {
       "@type": "SoftwareApplication",
       "identifier": "usethis",
       "name": "usethis",
@@ -238,12 +250,12 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=usethis"
     },
-    "13": {
+    "14": {
       "@type": "SoftwareApplication",
       "identifier": "utils",
       "name": "utils"
     },
-    "14": {
+    "15": {
       "@type": "SoftwareApplication",
       "identifier": "xfun",
       "name": "xfun",
@@ -257,7 +269,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "1030.353KB",
+  "fileSize": "1030.368KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",

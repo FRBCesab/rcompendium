@@ -11,3 +11,4 @@
 ^CRAN-SUBMISSION$
 ^CITATION\.cff$
 ^CONTRIBUTING\.md$
+^codemeta\.json$

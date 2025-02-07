@@ -83,6 +83,7 @@ reference:
   - add_github_actions_codecov
   - add_github_actions_render
   - add_github_actions_citation
+  - add_github_actions_codemeta
   - add_github_actions_document
   
 - title: Utilities functions

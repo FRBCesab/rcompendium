@@ -67,12 +67,14 @@ get_deps_in_functions_r <- function() {
     
     ## Attached Packages ----
     
-    pattern <- c(paste0("library\\s{0,}\\(\\s{0,}([A-Z|a-z|0-9|\\.]{1,}|",
-                        "\"\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\"|",
-                        "\'\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\')"),
-                 paste0("require\\s{0,}\\(\\s{0,}([A-Z|a-z|0-9|\\.]{1,}|",
-                        "\"\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\"|",
-                        "\'\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\')"))
+    pattern <- c(
+      paste0("(^|\\s{1,})library\\s{0,}\\(\\s{0,}([A-Z|a-z|0-9|\\.]{1,}|",
+             "\"\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\"|",
+             "\'\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\')"),
+      paste0("require\\s{0,}\\(\\s{0,}([A-Z|a-z|0-9|\\.]{1,}|",
+             "\"\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\"|",
+             "\'\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\')"))
+    
     pattern <- paste0(pattern, collapse = "|")
     
     pkgs <- unlist(lapply(x, function(x) {
@@ -227,12 +229,14 @@ get_deps_in_examples <- function() {
     
     ## Attached Packages ----
     
-    pattern <- c(paste0("library\\s{0,}\\(\\s{0,}([A-Z|a-z|0-9|\\.]{1,}|",
-                        "\"\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\"|",
-                        "\'\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\')"),
-                 paste0("require\\s{0,}\\(\\s{0,}([A-Z|a-z|0-9|\\.]{1,}|",
-                        "\"\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\"|",
-                        "\'\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\')"))
+    pattern <- c(
+      paste0("(^|\\s{1,})library\\s{0,}\\(\\s{0,}([A-Z|a-z|0-9|\\.]{1,}|",
+             "\"\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\"|",
+             "\'\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\')"),
+      paste0("require\\s{0,}\\(\\s{0,}([A-Z|a-z|0-9|\\.]{1,}|",
+             "\"\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\"|",
+             "\'\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\')"))
+    
     pattern <- paste0(pattern, collapse = "|")
     
     pkgs <- unlist(lapply(x, function(x) {
@@ -342,12 +346,14 @@ get_deps_extra <- function(compendium = NULL) {
     
     ## Attached Packages ----
     
-    pattern <- c(paste0("library\\s{0,}\\(\\s{0,}([A-Z|a-z|0-9|\\.]{1,}|",
-                        "\"\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\"|",
-                        "\'\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\')"),
-                 paste0("require\\s{0,}\\(\\s{0,}([A-Z|a-z|0-9|\\.]{1,}|",
-                        "\"\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\"|",
-                        "\'\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\')"))
+    pattern <- c(
+      paste0("(^|\\s{1,})library\\s{0,}\\(\\s{0,}([A-Z|a-z|0-9|\\.]{1,}|",
+             "\"\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\"|",
+             "\'\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\')"),
+      paste0("require\\s{0,}\\(\\s{0,}([A-Z|a-z|0-9|\\.]{1,}|",
+             "\"\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\"|",
+             "\'\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\')"))
+    
     pattern <- paste0(pattern, collapse = "|")
     
     pkgs <- unlist(lapply(x, function(x) {
@@ -470,12 +476,14 @@ get_deps_in_vignettes <- function() {
     
     ## Attached Packages ----
     
-    pattern <- c(paste0("library\\s{0,}\\(\\s{0,}([A-Z|a-z|0-9|\\.]{1,}|",
-                        "\"\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\"|",
-                        "\'\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\')"),
-                 paste0("require\\s{0,}\\(\\s{0,}([A-Z|a-z|0-9|\\.]{1,}|",
-                        "\"\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\"|",
-                        "\'\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\')"))
+    pattern <- c(
+      paste0("(^|\\s{1,})library\\s{0,}\\(\\s{0,}([A-Z|a-z|0-9|\\.]{1,}|",
+             "\"\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\"|",
+             "\'\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\')"),
+      paste0("require\\s{0,}\\(\\s{0,}([A-Z|a-z|0-9|\\.]{1,}|",
+             "\"\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\"|",
+             "\'\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\')"))
+    
     pattern <- paste0(pattern, collapse = "|")
     
     pkgs <- unlist(lapply(x, function(x) {
@@ -583,12 +591,14 @@ get_deps_in_tests <- function() {
     
     ## Attached Packages ----
     
-    pattern <- c(paste0("library\\s{0,}\\(\\s{0,}([A-Z|a-z|0-9|\\.]{1,}|",
-                        "\"\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\"|",
-                        "\'\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\')"),
-                 paste0("require\\s{0,}\\(\\s{0,}([A-Z|a-z|0-9|\\.]{1,}|",
-                        "\"\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\"|",
-                        "\'\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\')"))
+    pattern <- c(
+      paste0("(^|\\s{1,})library\\s{0,}\\(\\s{0,}([A-Z|a-z|0-9|\\.]{1,}|",
+             "\"\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\"|",
+             "\'\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\')"),
+      paste0("require\\s{0,}\\(\\s{0,}([A-Z|a-z|0-9|\\.]{1,}|",
+             "\"\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\"|",
+             "\'\\s{0,}[A-Z|a-z|0-9|\\.]{1,}\\s{0,}\')"))
+    
     pattern <- paste0(pattern, collapse = "|")
     
     pkgs <- unlist(lapply(x, function(x) {

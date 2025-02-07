@@ -289,7 +289,7 @@ get_deps_extra <- function(compendium = NULL) {
   if (!dir.exists(path)) return(NULL)
   
   x <- list.files(path, 
-                  pattern = "\\.R$|\\.Rmd$", full.names = TRUE, 
+                  pattern = "\\.R$|\\.Rmd$|\\.qmd$", full.names = TRUE, 
                   ignore.case = TRUE, recursive = TRUE)
   
   pos <- grep(paste0(.Platform$file.sep, 
@@ -365,7 +365,7 @@ get_deps_extra <- function(compendium = NULL) {
     
     ## Check if .Rmd ----
     
-    x <- list.files(path, pattern = "\\.Rmd$", 
+    x <- list.files(path, pattern = "\\.Rmd$|\\.qmd$", 
                     full.names = TRUE, ignore.case = TRUE, recursive = TRUE)
     
     pos <- grep(paste0(.Platform$file.sep, 
@@ -414,7 +414,7 @@ get_deps_in_vignettes <- function() {
   }
   
   x <- list.files(path = file.path(path, "vignettes"), 
-                  pattern = "\\.R$|\\.Rmd$", full.names = TRUE, 
+                  pattern = "\\.R$|\\.Rmd$|\\.qmd$", full.names = TRUE, 
                   ignore.case = TRUE, recursive = TRUE)
   
   if (!length(x)) {
@@ -493,8 +493,9 @@ get_deps_in_vignettes <- function() {
     
     ## Check if .Rmd ----
     
-    x <- list.files(path = file.path(path, "vignettes"), pattern = "\\.Rmd$", 
-                    full.names = TRUE, ignore.case = TRUE, recursive = TRUE)
+    x <- list.files(path = file.path(path, "vignettes"), 
+                    pattern = "\\.Rmd$|\\.qmd$", full.names = TRUE, 
+                    ignore.case = TRUE, recursive = TRUE)
     
     if (length(x)) funs <- sort(unique(c(funs, "knitr", "rmarkdown")))
     

@@ -19,6 +19,7 @@ new_package(
   website = TRUE,
   gh_render = TRUE,
   gh_citation = TRUE,
+  gh_codemeta = TRUE,
   given = NULL,
   family = NULL,
   email = NULL,
@@ -118,6 +119,12 @@ If \code{create_repo = FALSE} this argument is ignored.}
 \item{gh_citation}{A logical value. If \code{TRUE} (default) configures GitHub
 Actions to automatically update the \code{CITATION.cff} file.
 See \code{\link[=add_github_actions_citation]{add_github_actions_citation()}} for further information.
+
+If \code{create_repo = FALSE} this argument is ignored.}
+
+\item{gh_codemeta}{A logical value. If \code{TRUE} (default) configures GitHub
+Actions to automatically update the \code{codemeta.json} file.
+See \code{\link[=add_github_actions_codemeta]{add_github_actions_codemeta()}} for further information.
 
 If \code{create_repo = FALSE} this argument is ignored.}
 
@@ -263,7 +270,7 @@ gert::git_config_global_set(name  = "github.user",
                             value = "jdoe")
 }\if{html}{\out{</div>}}
 
-See \code{\link[gert:git_config]{gert::git_config_global_set()}} for further information.
+See \code{\link[gert:git_config_global_set]{gert::git_config_global_set()}} for further information.
 }
 
 \section{Creating a GitHub repo}{
@@ -278,11 +285,11 @@ If you don't have a \strong{GITHUB PAT} locally stored, you must:
 \enumerate{
 \item Obtain a new one from your GitHub account. \strong{Make sure to select
 at least the first two scopes (private repository and workflow)}
-\item Store it in the \verb{~/.Renviron} file by using \code{\link[usethis:edit]{usethis::edit_r_environ()}}
+\item Store it in the \verb{~/.Renviron} file by using \code{\link[usethis:edit_r_environ]{usethis::edit_r_environ()}}
 and adding the following line: \code{GITHUB_PAT='ghp_99z9...z9'}
 }
 
-Run \code{\link[usethis:github-token]{usethis::gh_token_help()}} for more information about getting and
+Run \code{\link[usethis:gh_token_help]{usethis::gh_token_help()}} for more information about getting and
 configuring a \strong{GITHUB PAT}.
 
 If everything is well configured you should see something like this after

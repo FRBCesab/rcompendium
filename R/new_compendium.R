@@ -124,6 +124,12 @@
 #'   
 #'   If `create_repo = FALSE` this argument is ignored. Default is `FALSE`.
 #'   
+#' @param gh_codemeta A logical value. If `TRUE` (default) configures GitHub 
+#'   Actions to automatically update the `codemeta.json` file. 
+#'   See [add_github_actions_codemeta()] for further information. 
+#'   
+#'   If `create_repo = FALSE` this argument is ignored.
+#' 
 #' @param codecov A logical value. If `TRUE` configures GitHub Actions to 
 #'   automatically report the code coverage of units tests after each push. 
 #'   See [add_github_actions_codecov()] for further information. 
@@ -205,10 +211,10 @@ new_compendium <- function(compendium = NULL, license = "GPL (>= 2)",
                            code_of_conduct = TRUE, vignette = FALSE, 
                            test = FALSE, create_repo = TRUE, private = FALSE, 
                            gh_check = FALSE, codecov = FALSE, website = FALSE, 
-                           gh_render = FALSE, gh_citation = FALSE, given = NULL,
-                           family = NULL, email = NULL, orcid = NULL, 
-                           organisation = NULL, renv = FALSE, 
-                           dockerfile = FALSE, overwrite = FALSE, 
+                           gh_render = FALSE, gh_citation = FALSE, 
+                           gh_codemeta = FALSE, given = NULL, family = NULL, 
+                           email = NULL, orcid = NULL, organisation = NULL, 
+                           renv = FALSE, dockerfile = FALSE, overwrite = FALSE, 
                            quiet = FALSE) { 
   
   ## If not RStudio ----
@@ -323,6 +329,7 @@ new_compendium <- function(compendium = NULL, license = "GPL (>= 2)",
     website     <- FALSE
     gh_render   <- FALSE
     gh_citation <- FALSE
+    gh_codemeta <- FALSE
   }
   
   
@@ -723,7 +730,22 @@ new_compendium <- function(compendium = NULL, license = "GPL (>= 2)",
     
     add_github_actions_citation(quiet = quiet)
   }
+
   
+
+  ##
+  ## GHA CODEMETA ----
+  ## 
+  
+  
+  
+  if (gh_codemeta) {
+    
+    ui_title("Configuring GH Actions - codemeta.json")
+    
+    add_github_actions_codemeta(quiet = quiet)
+  }
+
   
   
   ##
@@ -732,7 +754,8 @@ new_compendium <- function(compendium = NULL, license = "GPL (>= 2)",
   
   
   
-  if (gh_check || codecov || website || gh_render || gh_citation) {
+  if (gh_check || codecov || gh_render || website || gh_citation || 
+      gh_codemeta) {
     
     ui_title("Committing changes")
     

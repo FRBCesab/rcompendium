@@ -20,6 +20,7 @@ new_compendium(
   website = FALSE,
   gh_render = FALSE,
   gh_citation = FALSE,
+  gh_codemeta = FALSE,
   given = NULL,
   family = NULL,
   email = NULL,
@@ -125,6 +126,12 @@ Actions to automatically update the \code{CITATION.cff} file.
 See \code{\link[=add_github_actions_citation]{add_github_actions_citation()}} for further information.
 
 If \code{create_repo = FALSE} this argument is ignored. Default is \code{FALSE}.}
+
+\item{gh_codemeta}{A logical value. If \code{TRUE} (default) configures GitHub
+Actions to automatically update the \code{codemeta.json} file.
+See \code{\link[=add_github_actions_codemeta]{add_github_actions_codemeta()}} for further information.
+
+If \code{create_repo = FALSE} this argument is ignored.}
 
 \item{given}{A character vector of length 1. The given name of the
 maintainer of the package. If \code{NULL} (default) the function will try to

@@ -109,6 +109,12 @@
 #'   See [add_github_actions_citation()] for further information. 
 #'   
 #'   If `create_repo = FALSE` this argument is ignored.
+#'   
+#' @param gh_codemeta A logical value. If `TRUE` (default) configures GitHub 
+#'   Actions to automatically update the `codemeta.json` file. 
+#'   See [add_github_actions_codemeta()] for further information. 
+#'   
+#'   If `create_repo = FALSE` this argument is ignored.
 #' 
 #' @param codecov A logical value. If `TRUE` (default) configures GitHub 
 #'   Actions to automatically report the code coverage of units tests after 
@@ -299,9 +305,10 @@ new_package <- function(license = "GPL (>= 2)", status = NULL,
                         code_of_conduct = TRUE, vignette = TRUE, 
                         test = TRUE, create_repo = TRUE, private = FALSE, 
                         gh_check = TRUE, codecov = TRUE, website = TRUE, 
-                        gh_render = TRUE, gh_citation = TRUE, given = NULL, 
-                        family = NULL, email = NULL, orcid = NULL, 
-                        organisation = NULL, overwrite = FALSE, quiet = FALSE) {
+                        gh_render = TRUE, gh_citation = TRUE, 
+                        gh_codemeta = TRUE, given = NULL, family = NULL, 
+                        email = NULL, orcid = NULL, organisation = NULL, 
+                        overwrite = FALSE, quiet = FALSE) {
   
   
   ## If not RStudio ----
@@ -418,6 +425,7 @@ new_package <- function(license = "GPL (>= 2)", status = NULL,
     website     <- FALSE
     gh_render   <- FALSE
     gh_citation <- FALSE
+    gh_codemeta <- FALSE
   }
   
   
@@ -775,12 +783,28 @@ new_package <- function(license = "GPL (>= 2)", status = NULL,
   
   
   ##
+  ## GHA CODEMETA ----
+  ## 
+  
+  
+  
+  if (gh_codemeta) {
+    
+    ui_title("Configuring GH Actions - codemeta.json")
+    
+    add_github_actions_codemeta(quiet = quiet)
+  }
+
+  
+
+  ##
   ## SECOND COMMIT ----
   ## 
   
   
   
-  if (gh_check || codecov || gh_render || website || gh_citation) {
+  if (gh_check || codecov || gh_render || website || gh_citation || 
+      gh_codemeta) {
     
     ui_title("Committing changes")
     

@@ -134,6 +134,7 @@ will be added in the <code>.github/</code> folder. See below the section
 <span>  website <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  gh_render <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  gh_citation <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  gh_codemeta <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  given <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  family <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  email <span class="op">=</span> <span class="cn">NULL</span>,</span>
@@ -255,6 +256,13 @@ See <code><a href="add_github_actions_render.html">add_github_actions_render()</
 <dd><p>A logical value. If <code>TRUE</code> (default) configures GitHub
 Actions to automatically update the <code>CITATION.cff</code> file.
 See <code><a href="add_github_actions_citation.html">add_github_actions_citation()</a></code> for further information.</p>
+<p>If <code>create_repo = FALSE</code> this argument is ignored.</p></dd>
+
+
+<dt id="arg-gh-codemeta">gh_codemeta<a class="anchor" aria-label="anchor" href="#arg-gh-codemeta"></a></dt>
+<dd><p>A logical value. If <code>TRUE</code> (default) configures GitHub
+Actions to automatically update the <code>codemeta.json</code> file.
+See <code><a href="add_github_actions_codemeta.html">add_github_actions_codemeta()</a></code> for further information.</p>
 <p>If <code>create_repo = FALSE</code> this argument is ignored.</p></dd>
 
 

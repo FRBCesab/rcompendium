@@ -74,7 +74,7 @@ gert::git_config_global_set(name  = "github.user",
                             value = "jdoe")
 }\if{html}{\out{</div>}}
 
-See \code{\link[gert:git_config]{gert::git_config_global_set()}} for further information.
+See \code{\link[gert:git_config_global_set]{gert::git_config_global_set()}} for further information.
 }
 
 \section{Creating a GitHub repo}{
@@ -89,11 +89,11 @@ If you don't have a \strong{GITHUB PAT} locally stored, you must:
 \enumerate{
 \item Visit the page \url{https://github.com/settings/tokens} and create a new
 token;
-\item Store it in the \verb{~/.Renviron} file by using \code{\link[usethis:edit]{usethis::edit_r_environ()}}
+\item Store it in the \verb{~/.Renviron} file by using \code{\link[usethis:edit_r_environ]{usethis::edit_r_environ()}}
 and adding the following line: \code{GITHUB_PAT='ghp_99z9...z9'}.
 }
 
-Run \code{\link[usethis:github-token]{usethis::gh_token_help()}} for more information about getting and
+Run \code{\link[usethis:gh_token_help]{usethis::gh_token_help()}} for more information about getting and
 configuring a \strong{GITHUB PAT}.
 
 If everything is well configured, you should see something like this after

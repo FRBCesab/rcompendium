@@ -105,8 +105,8 @@ Others available vignettes:
 
 Please cite this package as:
 
-> Casajus N. (2023) rcompendium: An R package to create a package or
-> research compendium structure. Version 1.3,
+> Casajus N. (2025) rcompendium: An R package to create a package or
+> research compendium structure. Version 1.4,
 > <https://github.com/FRBCesab/rcompendium>.
 
 You can also run:
@@ -115,12 +115,12 @@ You can also run:
 citation("rcompendium")
 
 ## A BibTeX entry for LaTeX users is:
-## 
+##
 ## @Manual{,
 ##   title  = {{rcompendium}: {An} {R} package to create a package or research compendium structure},
 ##   author = {{Casajus N.}},
-##   year   = {2023},
-##   note   = {R package version 1.3},
+##   year   = {2025},
+##   note   = {R package version 1.4},
 ##   url    = {https://github.com/FRBCesab/rcompendium},
 ## }
 ```

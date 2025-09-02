@@ -1,9 +1,16 @@
-# rcompendium 1.3.9000 (development version)
+# rcompendium 1.4.0
+
+* **New features**
+
+  * `add_github_actions_codemeta()` creates a `codemeta.json` file at the root of the project and adds a GH action to automatically update this file by GitHub servers.
 
 * **Bug fixes**
 
   * `get_all_functions()` better detects functions (e.g. `function ()`)
+  * `get_all_functions()` ignores `julia_library()` functions
+  * `get_all_functions()` screens Quarto files
   * `add_sticker()` copies the sticker template in `figures/readme/` and no more in `man/figures/` (listed in the `.gitignore`)
+  * Fix CRAN note about cross-references for external packages
 
 * **Minor changes**
 

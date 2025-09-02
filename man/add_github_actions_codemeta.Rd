@@ -26,7 +26,8 @@ This workflow is derived
 from \url{https://github.com/r-lib/actions/tree/v2-branch/examples}.
 This file will be written as \code{.github/workflows/update-citation-cff.yaml}.
 
-This function also create the \code{codemeta.json} using the package \link{codemetar}.
+This function also creates the \code{codemeta.json} using the function
+\code{\link[codemetar:write_codemeta]{codemetar::write_codemeta()}}.
 }
 \examples{
 \dontrun{

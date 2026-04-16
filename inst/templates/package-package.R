@@ -1,7 +1,7 @@
 #' @keywords internal
 "_PACKAGE"
 
-# Imports: start ---- 
+# Imports: start ----
 # Imports: end ----
 
 NULL

@@ -1,14 +1,12 @@
 #' {{project_name}}: A Research Compendium
-#' 
-#' @description 
-#' A paragraph providing a full description of the project and describing each 
+#'
+#' @description
+#' A paragraph providing a full description of the project and describing each
 #' step of the workflow.
-#' 
+#'
 #' @author {{given}} {{family}} \email{{{email}}}
-#' 
+#'
 #' @date {{date}}
-
-
 
 ## Install Dependencies (listed in DESCRIPTION) ----
 
@@ -19,11 +17,9 @@ devtools::install_deps(upgrade = "never")
 
 devtools::load_all(here::here())
 
-
 ## Global Variables ----
 
 # You can list global variables here (or in a separate R script)
-
 
 ## Run Project ----
 

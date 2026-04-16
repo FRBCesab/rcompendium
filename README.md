@@ -12,6 +12,10 @@ deployment](https://github.com/FRBCesab/rcompendium/actions/workflows/pkgdown.ya
 [![codecov](https://codecov.io/gh/FRBCesab/rcompendium/branch/main/graph/badge.svg)](https://app.codecov.io/gh/FRBCesab/rcompendium)
 [![License: GPL (\>=
 2)](https://img.shields.io/badge/License-GPL%20%28%3E%3D%202%29-blue.svg)](https://choosealicense.com/licenses/gpl-2.0/)
+[![Total
+downloads](https://cranlogs.r-pkg.org/badges/grand-total/rcompendium?color=orange)](https://CRAN.R-project.org/package=rcompendium)
+[![Monthly
+downloads](https://cranlogs.r-pkg.org/badges/rcompendium)](https://CRAN.R-project.org/package=rcompendium)
 <!-- badges: end -->
 
 In the area of open science, making reproducible analyses is a strong

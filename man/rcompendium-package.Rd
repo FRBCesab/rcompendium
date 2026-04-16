@@ -64,13 +64,13 @@ To see if \strong{git} is correctly configured on your laptop, run
 
 Otherwise you might need to run:
 
-\if{html}{\out{<div class="sourceCode">}}\preformatted{gert::git_config_global_set(name  = "user.name", 
+\if{html}{\out{<div class="sourceCode">}}\preformatted{gert::git_config_global_set(name  = "user.name",
                             value = "John Doe")
-                            
-gert::git_config_global_set(name  = "user.email", 
+
+gert::git_config_global_set(name  = "user.email",
                             value = "john.doe@domain.com")
-                            
-gert::git_config_global_set(name  = "github.user", 
+
+gert::git_config_global_set(name  = "github.user",
                             value = "jdoe")
 }\if{html}{\out{</div>}}
 

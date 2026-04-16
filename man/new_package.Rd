@@ -260,13 +260,13 @@ so you should see something like:
 
 Otherwise you might need to run:
 
-\if{html}{\out{<div class="sourceCode">}}\preformatted{gert::git_config_global_set(name  = "user.name", 
+\if{html}{\out{<div class="sourceCode">}}\preformatted{gert::git_config_global_set(name  = "user.name",
                             value = "John Doe")
-                            
-gert::git_config_global_set(name  = "user.email", 
+
+gert::git_config_global_set(name  = "user.email",
                             value = "john.doe@domain.com")
-                            
-gert::git_config_global_set(name  = "github.user", 
+
+gert::git_config_global_set(name  = "github.user",
                             value = "jdoe")
 }\if{html}{\out{</div>}}
 
@@ -312,8 +312,8 @@ And you will be able to create a GitHub repository directly from R!
 library(rcompendium)
 
 ## Define **ONCE FOR ALL** your credentials ----
-set_credentials(given = "John", family = "Doe", 
-                email = "john.doe@domain.com", 
+set_credentials(given = "John", family = "Doe",
+                email = "john.doe@domain.com",
                 orcid = "9999-9999-9999-9999", protocol = "ssh")
 
 ## Create an R package ----

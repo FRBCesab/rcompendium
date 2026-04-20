@@ -1,0 +1,293 @@
+# Working with a Compendium
+
+  
+
+**PLEASE READ THE [GET
+STARTED](https://frbcesab.github.io/rcompendium/articles/rcompendium.html)
+VIGNETTE FIRST**
+
+  
+
+## Compendium content
+
+First, create a **new empty RStudio project**. Let’s called it `comp`.
+To create a new compendium structure, run
+[`rcompendium::new_compendium()`](https://frbcesab.github.io/rcompendium/reference/new_compendium.md).
+
+By default, the following content is created:
+
+    comp/                             # Root of the compendium
+    │
+    ├── comp.Rproj                    # RStudio project (created by user, optional)
+    │
+    ├── .git/                         # GIT tracking folder
+    ├── .gitignore                    # List of files/folders to be ignored by GIT
+    |                                 # (specific to R language)
+    │
+    ├── R/                            # R functions location
+    │   ├── fun-demo.R                # Example of an R function (to remove)
+    │   └── comp-package.R            # Dummy R file for high-level documentation
+    │
+    ├── man/                          # R functions helps (automatically updated)
+    │   ├── print_msg.Rd              # Documentation of the demo R function
+    │   └── pkg-package.Rd            # High-level documentation
+    │
+    ├── DESCRIPTION                   # Project metadata                              [*]
+    ├── LICENSE.md                    # Content of the GPL (>= 2) license (default)
+    ├── NAMESPACE                     # Automatically generated
+    ├── .Rbuildignore                 # List of files/folders to be ignored while 
+    │                                 # checking/installing the package
+    │
+    ├── README.md                     # GitHub README (automatically generated)
+    ├── README.Rmd                    # GitHub README                                 [*]
+    │
+    ├── data/                         # User raw data (.csv, .gpkg, etc.)
+    │   ├── raw-data/                 # Read-only files
+    │   └── derived-data/             # Modified data derived from raw data
+    │
+    ├── analyses/                     # R scripts (not function) to run analyses
+    │
+    ├── outputs/                      # Outputs (R objects, .csv, etc.)
+    ├── figures/                      # Figures (.png, .pdf, etc.)
+    │
+    └── make.R                        # Main R script to source all R scripts 
+                                      # stored in analyses/
+
+    [*] These files are automatically created but user needs to manually add 
+        some information.
+
+  
+
+If `create_repo = TRUE` (default), a new GitHub repository will be
+created directly from R. It will be available at:
+`https://github.com/{{account}}/comp/` (where `{{account}}` is either
+your GitHub account or a GitHub organization). This repository can be
+private if `private = TRUE`.
+
+  
+
+## Compendium metadata
+
+### DESCRIPTION
+
+The `DESCRIPTION` file contains important compendium metadata. By
+default `rcompendium` creates the following file:
+
+    Package: comp
+    Type: Package
+    Title: The Title of the Project                                              [*]
+    Version: 0.0.0.9000
+    Authors@R: c(
+        person(given   = "John",
+               family  = "Doe",
+               role    = c("aut", "cre", "cph"),
+               email   = "john.doe@domain.com",
+               comment = c(ORCID = "9999-9999-9999-9999")))
+    Description: A paragraph providing a full description of the project (on     [*] 
+        several lines...)
+    URL: https://github.com/jdoe/comp
+    BugReports: https://github.com/jdoe/comp/issues
+    License: GPL (>= 2)
+    Encoding: UTF-8
+    Roxygen: list(markdown = TRUE)
+    RoxygenNote: 7.1.2
+    Imports: 
+        devtools,
+        here
+
+    [*] Title and Description must be adapted by user.
+
+This `DESCRIPTION` file is specific to R package but it can be used to
+work with research compendia (see below). For further information on how
+to edit this file, please read <https://r-pkgs.org/description.html>.
+
+  
+
+### README
+
+The `README.md` is the homepage of your repository on GitHub. Its
+purpose is to help visitor to understand your project. Always edit the
+`README.Rmd` (not the `.md` version).
+
+For further information, please read
+<https://r-pkgs.org/release.html?q=README#readme>.
+
+  
+
+## Recommendations
+
+- Keep the root of the project as clean as possible
+- Store your raw data in `data/raw-data/`
+- Document raw data modifications (with R scripts and/or R functions)
+- Export modified raw data in `data/derived-data/` (or `outputs/`)
+- Store only **R functions** in `R/`
+- Store only **R scripts** and/or **Rmd** in `analyses/`
+- Control your project with the `make.R` file (add lines to source R
+  scripts)
+- Built relative paths using `here::here()`
+- Call external functions as `package::function()`
+- Alternatively add `#' @import package` (or
+  `#' @importFrom package function`) in `R/comp-package.R` to call
+  external functions as `function()`
+- Use
+  [`devtools::document()`](https://devtools.r-lib.org/reference/document.html)
+  to update the `NAMESPACE`
+- Use `rcompendium::add_dependencies(".")` to update the list of
+  required dependencies in `DESCRIPTION`
+- Do not use
+  [`install.packages()`](https://rdrr.io/r/utils/install.packages.html)
+  but
+  [`remotes::install_deps()`](https://remotes.r-lib.org/reference/install_deps.html)
+  (this will install required dependencies listed in `DESCRIPTION`)
+- Do not use [`library()`](https://rdrr.io/r/base/library.html) but
+  [`devtools::load_all()`](https://devtools.r-lib.org/reference/load_all.html)
+  (this will load required dependencies listed in `DESCRIPTION` and R
+  functions stored in `R/`)
+- Do not source your functions but use instead
+  [`devtools::load_all()`](https://devtools.r-lib.org/reference/load_all.html)
+- And **document** everything!
+
+  
+
+## Advanced features
+
+### Using renv
+
+The default structure created by
+[`rcompendium::new_compendium()`](https://frbcesab.github.io/rcompendium/reference/new_compendium.md)
+is a good starting point for making analyses reproducible. You can
+increase reproducibility by using the package
+[`renv`](https://rstudio.github.io/renv/).
+
+`renv` will freeze the exact package versions you depend on (in
+`renv.lock`). This ensures that each collaborator (or you in the future)
+will use the exact same versions of these packages. Moreover `renv`
+provides to each project its own private package library making each
+project isolated from others.
+
+To initialize `renv` for your compendium, use `renv = TRUE` in
+[`rcompendium::new_compendium()`](https://frbcesab.github.io/rcompendium/reference/new_compendium.md)
+or call the function
+[`rcompendium::add_renv()`](https://frbcesab.github.io/rcompendium/reference/add_renv.md)
+after
+[`rcompendium::new_compendium()`](https://frbcesab.github.io/rcompendium/reference/new_compendium.md).
+
+The `make.R` will also be updated (replacement of
+[`remotes::install_deps()`](https://remotes.r-lib.org/reference/install_deps.html)
+by
+[`renv::restore()`](https://rstudio.github.io/renv/reference/restore.html))
+
+  
+
+**Working with renv**
+
+1.  Work as usual
+2.  Update `NAMESPACE` with
+    [`devtools::document()`](https://devtools.r-lib.org/reference/document.html)
+3.  Update required dependencies in `DESCRIPTION` with
+    `rcompendium::add_dependencies(".")`
+4.  Install required dependencies locally with
+    [`renv::install()`](https://rstudio.github.io/renv/reference/install.html)
+5.  Save the local environment with
+    [`renv::snapshot()`](https://rstudio.github.io/renv/reference/snapshot.html)
+
+  
+
+### Using docker
+
+[Docker](https://www.docker.com/) is a tool that creates a
+self-contained environment (**containers**) within which the operating
+system, system libraries and software (i.e. R, RStudio server) are
+frozen and ready-to-use. The use of a container requires a recipe
+(`Dockerfile`) that describes the steps needed to create the
+environment. From this recipe, a Docker image is built: this is a
+template from which a container will be created.
+
+More information on Docker for R users:
+<https://environments.rstudio.com/docker>
+
+To add a `Dockerfile` to your compendium, use `dockerfile = TRUE` in
+[`rcompendium::new_compendium()`](https://frbcesab.github.io/rcompendium/reference/new_compendium.md)
+or call the function
+[`rcompendium::add_dockerfile()`](https://frbcesab.github.io/rcompendium/reference/add_dockerfile.md)
+after
+[`rcompendium::new_compendium()`](https://frbcesab.github.io/rcompendium/reference/new_compendium.md).
+
+By default `rcompendium` creates the following `Dockerfile`:
+
+    FROM rocker/rstudio:4.1.3
+
+    MAINTAINER John Doe <john.doe@domain.com>
+
+
+    ## Install system dependencies (for devtools) ----
+
+    RUN sudo apt update -yq \
+     && sudo apt install --no-install-recommends libxml2-dev -yq \
+     && sudo apt clean all \
+     && sudo apt purge \
+     && sudo rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+
+    ## Copy local project ----
+
+    ENV folder="/home/rstudio/"
+
+    COPY . $folder
+    RUN chown -R rstudio:rstudio $folder
+
+
+    ## Set working directory ----
+
+    WORKDIR $folder
+
+
+    ## Install R packages ----
+
+    RUN R -e "install.packages('remotes', repos = c(CRAN = 'https://cloud.r-project.org'))" \
+     && R -e "remotes::install_deps(upgrade = 'never')"
+
+  
+
+If you use `renv` with Docker (recommended) the last step will look
+like:
+
+    ## Install R packages ----
+
+    ENV RENV_VERSION 0.15.4
+
+    RUN R -e "install.packages('remotes', repos = c(CRAN = 'https://cloud.r-project.org'))" \
+     && R -e "remotes::install_github('rstudio/renv@${RENV_VERSION}')" \
+     && sudo -u rstudio R -e "renv::restore()"
+
+  
+
+By default the Docker image is based on
+[rocker/rstudio](https://hub.docker.com/r/rocker/rstudio). You can
+customize this `Dockerfile` (e.g. adding system dependencies) and use a
+different default Docker image (i.e. `tidyverse`, `verse`, `geospatial`,
+etc.). For more information:
+<https://github.com/rocker-org/rocker-versioned2>
+
+The versions of R and `renv` (if applicable) specified in the
+`Dockerfile` are the same as the local system.
+
+When the image will be built, the whole project will be added to the
+image. When a container will be launched the default working directory
+will be the root of the project.
+
+  
+
+Once the project is ready to be shared, the collaborator (or you) must
+follow these steps:
+
+1.  Clone the repository
+2.  Build the Docker image (in a terminal) from the `Dockerfile` by
+    running: `docker build -t "image_name" .` (this can take time)
+3.  Start a container (in a terminal) from this new Docker image
+    `image_name` by running:
+    `docker run --rm -p 127.0.0.1:8787:8787 -e DISABLE_AUTH=true image_name`
+4.  Open a Web browser and visit `127.0.0.1:8787`: a new instance of
+    RStudio Server is available with everything ready-to-use (data,
+    code, packages, etc.)
+5.  To reproduce the analysis, run: `source("make.R")`

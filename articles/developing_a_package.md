@@ -1,0 +1,172 @@
+# Developing an R package
+
+  
+
+**PLEASE READ THE [GET
+STARTED](https://frbcesab.github.io/rcompendium/articles/rcompendium.html)
+VIGNETTE FIRST**
+
+  
+
+## Package content
+
+First, create a **new empty RStudio project**. Let’s called it `pkg`. To
+create a new package structure, run
+[`rcompendium::new_package()`](https://frbcesab.github.io/rcompendium/reference/new_package.md).
+
+By default, the following content is created:
+
+    pkg/                              # Root of the package
+    │
+    ├── pkg.Rproj                     # RStudio project (created by user, optional)
+    │
+    ├── .git/                         # GIT tracking folder
+    ├── .gitignore                    # List of files/folders to be ignored by GIT
+    |                                 # (specific to R language)
+    |
+    ├── .github/                      # (optional) GitHub Actions settings
+    │   └── workflows/
+    │       ├── pkgdown.yaml          # Configuration file to build & deploy website
+    │       ├── R-CMD-check.yaml      # Configuration file to check & test package
+    │       ├── render-README.yaml    # Configuration file to render the README.md
+    │       └── test-coverage.yaml    # Configuration file to report code coverage
+    │
+    ├── _pkgdown.yaml                 # (optional) User website settings
+    │
+    ├── R/                            # R functions location
+    │   ├── fun-demo.R                # Example of an R function (to remove)
+    │   └── pkg-package.R             # Dummy R file for package-level documentation
+    │
+    ├── man/                          # R functions helps (automatically updated)
+    │   ├── print_msg.Rd              # Documentation of the demo R function
+    │   ├── pkg-package.Rd            # Package-level documentation
+    │   └── figures/                  # Figures for the README 
+    │       └── package-sticker.png   # Package sticker template
+    │
+    ├── tests/                        # (optional) Units tests location
+    │   ├── testthat.R                # Units tests settings
+    │   └── testthat/                 # Units tests location
+    │       └── test-demo.R           # Units tests for the demo function (to remove)
+    |
+    ├── vignettes/                    # (optional) Vignettes location
+    │   └── pkg.Rmd                   # Get started tutorial                          [*]
+    │
+    ├── DESCRIPTION                   # Project metadata                              [*]
+    ├── LICENSE.md                    # Content of the GPL (>= 2) license (default)
+    ├── NAMESPACE                     # Automatically generated
+    ├── .Rbuildignore                 # List of files/folders to be ignored while 
+    │                                 # checking/installing the package
+    ├── inst/
+    │   ├── CITATION                  # BiBTeX entry to cite the package              [*]
+    │   └── package-sticker/
+    │       ├── package-sticker.R     # Code to generate package sticker
+    │       └── r_logo.png            # R logo
+    │
+    ├── README.md                     # GitHub README (automatically generated)
+    └── README.Rmd                    # GitHub README                                 [*]
+
+
+    [*] These files are automatically created but user needs to manually add 
+        some information.
+
+  
+
+In addition, a new GitHub repository will be created directly from R. It
+will be available at: `https://github.com/{{account}}/pkg/` (where
+`{{account}}` is either your GitHub account or a GitHub organization). A
+few minutes later, the website ([`pkgdown`](https://pkgdown.r-lib.org/))
+will be deployed at: `https://{{account}}.github.io/pkg/`.
+
+  
+
+## Package metadata
+
+### DESCRIPTION
+
+The `DESCRIPTION` file contains important package metadata. By default,
+`rcompendium` creates the following file:
+
+    Package: pkg
+    Type: Package
+    Title: The Title of the Project                                              [*]
+    Version: 0.0.0.9000
+    Authors@R: c(
+        person(given   = "John",
+               family  = "Doe",
+               role    = c("aut", "cre", "cph"),
+               email   = "john.doe@domain.com",
+               comment = c(ORCID = "9999-9999-9999-9999")))
+    Description: A paragraph providing a full description of the project (on     [*] 
+        several lines...)
+    URL: https://github.com/jdoe/pkg
+    BugReports: https://github.com/jdoe/pkg/issues
+    License: GPL (>= 2)
+    Encoding: UTF-8
+    Roxygen: list(markdown = TRUE)
+    RoxygenNote: 7.1.2
+    VignetteBuilder: knitr
+    Suggests: 
+        knitr,
+        rmarkdown,
+        testthat (>= 3.0.0)
+    Config/testthat/edition: 3
+
+
+    [*] Title and Description must be adapted by user.
+
+For further information, please read
+<https://r-pkgs.org/description.html>.
+
+**N.B.** If you change `Title`, `Description`, `Version`, and
+`Authors@R` values, do not forget to also change citation information in
+`inst/CITATION` and `README.Rmd`.
+
+  
+
+### README
+
+The `README.md` is the homepage of your repository on GitHub. Its
+purpose is to help visitor to understand your project. Always edit the
+`README.Rmd` (not the `.md` version).
+
+For further information, please read
+<https://r-pkgs.org/release.html#readme>.
+
+  
+
+## Recommended workflow
+
+The recommended workflow is:
+
+1.  Implement new function in `R/`
+2.  Document function using the [roxygen
+    syntax](https://roxygen2.r-lib.org/articles/roxygen2.html)
+3.  Update functions doc (`man/`) and `NAMESPACE` with
+    [`devtools::document()`](https://devtools.r-lib.org/reference/document.html)
+4.  Update list of required packages in `DESCRIPTION` with
+    [`rcompendium::add_dependencies()`](https://frbcesab.github.io/rcompendium/reference/add_dependencies.md)
+5.  Implement units tests using
+    [`testthat`](https://testthat.r-lib.org/)
+6.  Edit vignette to illustrate the new feature
+7.  Check and test the package with
+    [`devtools::check()`](https://devtools.r-lib.org/reference/check.html)
+
+You can also provide data with your package. See
+[`?usethis::use_data`](https://usethis.r-lib.org/reference/use_data.html).
+
+  
+
+We strongly recommend that you read the book [R
+packages](https://r-pkgs.org/) by Hadley Wickham and Jenny Bryan.
+
+  
+
+## Resources
+
+- [R packages](https://r-pkgs.org/) by Hadley Wickham and Jenny Bryan
+- [Writing R
+  extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html)
+  by the R Development Core Team
+- [Extending
+  R](https://www.taylorfrancis.com/books/mono/10.1201/9781315381305/extending-john-chambers)
+  by John M. Chambers

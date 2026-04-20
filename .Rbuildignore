@@ -12,3 +12,5 @@
 ^CITATION\.cff$
 ^CONTRIBUTING\.md$
 ^codemeta\.json$
+^[.]?air[.]toml$
+^\.vscode$

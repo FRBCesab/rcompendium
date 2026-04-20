@@ -47,7 +47,7 @@ library(rcompendium)
 
 ## Define **ONCE FOR ALL** your credentials ----
 
-set_credentials("John", "Doe", "john.doe@domain.com", 
+set_credentials("John", "Doe", "john.doe@domain.com",
                 orcid = "9999-9999-9999-9999", protocol = "https")
 }
 }

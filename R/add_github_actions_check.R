@@ -60,7 +60,7 @@ add_github_actions_check <- function(
     }
   }
 
-  ## Copy Template ----
+  ## Download template ----
 
   dir.create(
     file.path(path_proj(), ".github", "workflows"),
@@ -70,14 +70,10 @@ add_github_actions_check <- function(
 
   add_to_buildignore(".github", quiet = FALSE)
 
-  invisible(
-    file.copy(
-      system.file(
-        file.path("templates", "R-CMD-check.yaml"),
-        package = "rcompendium"
-      ),
-      path
-    )
+  download_template(
+    slug = "actions/R-CMD-check.yaml",
+    filename = "R-CMD-check.yaml",
+    outdir = file.path(path_proj(), ".github", "workflows")
   )
 
   if (!quiet) {

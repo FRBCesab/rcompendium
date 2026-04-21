@@ -88,18 +88,16 @@ add_citation <- function(
   pkg_version <- get_package_version()
   year <- format(Sys.Date(), "%Y")
 
-  ## Copy Template ----
+  ## Download template ----
 
   if (!dir.exists(file.path(path_proj(), "inst"))) {
     dir.create(file.path(path_proj(), "inst"), showWarnings = FALSE)
   }
 
-  invisible(
-    file.copy(
-      system.file(file.path("templates", "citation"), package = "rcompendium"),
-      path,
-      overwrite = TRUE
-    )
+  download_template(
+    slug = "package/CITATION",
+    filename = "CITATION",
+    outdir = file.path(path_proj(), "inst")
   )
 
   ## Change defaults values ----

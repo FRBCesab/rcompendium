@@ -52,15 +52,10 @@ add_package_doc <- function(open = TRUE, overwrite = FALSE, quiet = FALSE) {
     dir.create(file.path(path_proj(), "R"), showWarnings = FALSE)
   }
 
-  invisible(
-    file.copy(
-      system.file(
-        file.path("templates", "package-package.R"),
-        package = "rcompendium"
-      ),
-      path,
-      overwrite = TRUE
-    )
+  download_template(
+    slug = "package/package-package.R",
+    filename = filename,
+    outdir = file.path(path_proj(), "R")
   )
 
   if (!quiet) {

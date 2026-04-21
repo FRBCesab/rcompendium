@@ -34,14 +34,10 @@ add_to_gitignore <- function(x, open = FALSE, quiet = FALSE) {
   ## Copy Template ----
 
   if (!file.exists(path)) {
-    invisible(
-      file.copy(
-        system.file(
-          file.path("templates", "gitignore"),
-          package = "rcompendium"
-        ),
-        path
-      )
+    download_template(
+      slug = "git/gitignore",
+      filename = ".gitignore",
+      outdir = NULL
     )
 
     if (!quiet) ui_done("Writing {ui_value('.gitignore')} file")

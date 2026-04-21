@@ -54,7 +54,7 @@ add_github_actions_codecov <- function(
     }
   }
 
-  ## Copy Template ----
+  ## Download template ----
 
   dir.create(
     file.path(path_proj(), ".github", "workflows"),
@@ -64,14 +64,10 @@ add_github_actions_codecov <- function(
 
   add_to_buildignore(".github", quiet = FALSE)
 
-  invisible(
-    file.copy(
-      system.file(
-        file.path("templates", "test-coverage.yaml"),
-        package = "rcompendium"
-      ),
-      path
-    )
+  download_template(
+    slug = "actions/test-coverage.yaml",
+    filename = "test-coverage.yaml",
+    outdir = file.path(path_proj(), ".github", "workflows")
   )
 
   if (!quiet) {

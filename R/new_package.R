@@ -584,16 +584,11 @@ new_package <- function(
 
   ## Demo R function ----
 
-  if (!file.exists(file.path(path_proj(), "R", "fun-demo.R"))) {
-    invisible(
-      file.copy(
-        system.file(
-          file.path("templates", "fun-demo.R"),
-          package = "rcompendium"
-        ),
-        file.path(path_proj(), "R", "fun-demo.R"),
-        overwrite = overwrite
-      )
+  if (!file.exists(file.path(path_proj(), "R", "print_msg.R"))) {
+    download_template(
+      slug = "package/print_msg.R",
+      filename = "print_msg.R",
+      outdir = file.path(path_proj(), "R")
     )
   }
 

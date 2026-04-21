@@ -62,7 +62,7 @@ add_github_actions_citation <- function(
     }
   }
 
-  ## Copy Template ----
+  ## Download template ----
 
   dir.create(
     file.path(path_proj(), ".github", "workflows"),
@@ -72,14 +72,10 @@ add_github_actions_citation <- function(
 
   add_to_buildignore(".github", quiet = FALSE)
 
-  invisible(
-    file.copy(
-      system.file(
-        file.path("templates", "update-citation-cff.yaml"),
-        package = "rcompendium"
-      ),
-      path
-    )
+  download_template(
+    slug = "actions/update-citation-cff.yaml",
+    filename = "update-citation-cff.yaml",
+    outdir = file.path(path_proj(), ".github", "workflows")
   )
 
   if (!quiet) {

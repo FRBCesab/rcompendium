@@ -58,7 +58,7 @@ add_github_actions_codemeta <- function(
     }
   }
 
-  ## Copy Template ----
+  ## Download template ----
 
   dir.create(
     file.path(path_proj(), ".github", "workflows"),
@@ -68,14 +68,10 @@ add_github_actions_codemeta <- function(
 
   add_to_buildignore(".github", quiet = FALSE)
 
-  invisible(
-    file.copy(
-      system.file(
-        file.path("templates", "update-codemeta.yaml"),
-        package = "rcompendium"
-      ),
-      path
-    )
+  download_template(
+    slug = "actions/update-codemeta.yaml",
+    filename = "update-codemeta.yaml",
+    outdir = file.path(path_proj(), ".github", "workflows")
   )
 
   if (!quiet) {

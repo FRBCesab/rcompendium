@@ -305,3 +305,48 @@ gsub_in_file <- function(file, ...) {
 
   invisible(NULL)
 }
+
+
+#' **URL of the template GitHub repository**
+#' 
+#' @noRd
+
+template_url <- function() {
+  "https://raw.githubusercontent.com/FRBCesab/r-templates/refs/heads/main/"
+}
+
+
+#' **Helper function to download a file from the template GitHub repo**
+#' 
+#' @param slug a character of length 1. End of the file URL
+#'   (e.g. `package/CITATION`)
+#' 
+#' @param filename a character of length 1. The name of the file stored locally.
+#' 
+#' @param outdir a character of length 1. The name of the folder to save the 
+#'   file in. Defaut is `NULL` (i.e. root of the project).
+#' 
+#' @noRd
+
+download_template <- function(slug, filename, outdir = NULL) {
+  stop_if_not_string(slug, filename)
+
+  if (!is.null(outdir)) {
+    stop_if_not_string(outdir)
+  }
+
+  if (is.null(outdir)) {
+    destfile <- file.path(path_proj(), filename)
+  } else {
+    destfile <- file.path(path_proj(), outdir, filename)
+  }
+
+  utils::download.file(
+    url = paste0(template_url(), slug),
+    destfile = destfile,
+    mode = "wb",
+    quiet = TRUE
+  )
+
+  invisible(NULL)
+}

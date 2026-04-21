@@ -43,7 +43,7 @@ add_github_actions_document <- function(
     path_proj(),
     ".github",
     "workflows",
-    "document-package.yaml"
+    "update-Rd-files.yaml"
   )
 
   ## Do not replace current file but open it if required ----
@@ -51,7 +51,7 @@ add_github_actions_document <- function(
   if (file.exists(path) && !overwrite) {
     if (!open) {
       stop(
-        "An '.github/workflows/document-package.yaml' file is already ",
+        "An '.github/workflows/update-Rd-files.yaml' file is already ",
         "present. If you want to replace it, please use `overwrite = TRUE`."
       )
     } else {
@@ -60,7 +60,7 @@ add_github_actions_document <- function(
     }
   }
 
-  ## Copy Template ----
+  ## Download template ----
 
   dir.create(
     file.path(path_proj(), ".github", "workflows"),
@@ -70,20 +70,16 @@ add_github_actions_document <- function(
 
   add_to_buildignore(".github", quiet = FALSE)
 
-  invisible(
-    file.copy(
-      system.file(
-        file.path("templates", "document-package.yaml"),
-        package = "rcompendium"
-      ),
-      path
-    )
+  download_template(
+    slug = "actions/update-Rd-files.yaml",
+    filename = "update-Rd-files.yaml",
+    outdir = file.path(path_proj(), ".github", "workflows")
   )
 
   if (!quiet) {
     ui_done(paste0(
       "Writing ",
-      "{ui_value('.github/workflows/document-package.yaml')} ",
+      "{ui_value('.github/workflows/update-Rd-files.yaml')} ",
       "file"
     ))
   }

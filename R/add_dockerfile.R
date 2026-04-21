@@ -97,30 +97,18 @@ add_dockerfile <- function(
 
   renv_version <- utils::packageVersion("renv")
 
-  ## Copy Templates ----
+  ## Download templates ----
 
-  invisible(
-    file.copy(
-      system.file(
-        file.path("templates", "Dockerfile"),
-        package = "rcompendium"
-      ),
-      path,
-      overwrite = TRUE
-    )
+  download_template(
+    slug = "docker/Dockerfile",
+    filename = "Dockerfile",
+    outdir = NULL
   )
 
-  path <- file.path(path_proj(), ".dockerignore")
-
-  invisible(
-    file.copy(
-      system.file(
-        file.path("templates", "dockerignore"),
-        package = "rcompendium"
-      ),
-      path,
-      overwrite = TRUE
-    )
+  download_template(
+    slug = "docker/dockerignore",
+    filename = ".dockerignore",
+    outdir = NULL
   )
 
   path <- file.path(path_proj(), "Dockerfile")
@@ -128,8 +116,6 @@ add_dockerfile <- function(
   ## Update default values ----
 
   xfun::gsub_file(path, "{{r_version}}", r_version, fixed = TRUE)
-  xfun::gsub_file(path, "{{given}}", given, fixed = TRUE)
-  xfun::gsub_file(path, "{{family}}", family, fixed = TRUE)
   xfun::gsub_file(path, "{{email}}", email, fixed = TRUE)
 
   ## Install R packages ----

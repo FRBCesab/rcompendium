@@ -171,7 +171,7 @@ add_sticker <- function(type, overwrite = FALSE, quiet = FALSE) {
       path_proj(),
       "man",
       "figures",
-      paste0(type, "-sticker.png")
+      "logo.png"
     )
 
     pathdir <- file.path("man", "figures")
@@ -180,7 +180,7 @@ add_sticker <- function(type, overwrite = FALSE, quiet = FALSE) {
       path_proj(),
       "figures",
       "readme",
-      paste0(type, "-sticker.png")
+      "logo.png"
     )
 
     pathdir <- file.path("figures", "readme")
@@ -191,8 +191,7 @@ add_sticker <- function(type, overwrite = FALSE, quiet = FALSE) {
       "A '",
       pathdir,
       "/",
-      type,
-      "-sticker.png' is already present. ",
+      "logo.png' is already present. ",
       "If you want to replace it, please use `overwrite = TRUE`."
     ))
   }
@@ -205,15 +204,10 @@ add_sticker <- function(type, overwrite = FALSE, quiet = FALSE) {
     )
   }
 
-  invisible(
-    file.copy(
-      system.file(
-        file.path("templates", paste0(type, "-sticker.png")),
-        package = "rcompendium"
-      ),
-      path,
-      overwrite = TRUE
-    )
+  download_template(
+    slug = paste0("hexsticker/", type, "-sticker.png"),
+    filename = "logo.png",
+    outdir = file.path(path_proj(), pathdir)
   )
 
   if (type == "package") {
@@ -228,15 +222,10 @@ add_sticker <- function(type, overwrite = FALSE, quiet = FALSE) {
     path <- file.path(path_proj(), "inst", "package-sticker", "r_logo.png")
 
     if (!file.exists(path)) {
-      invisible(
-        file.copy(
-          system.file(
-            file.path("templates", "r_logo.png"),
-            package = "rcompendium"
-          ),
-          path,
-          overwrite = FALSE
-        )
+      download_template(
+        slug = "hexsticker/r_logo.png",
+        filename = "r_logo.png",
+        outdir = file.path(path_proj(), "inst", "package-sticker")
       )
     }
 
@@ -244,19 +233,14 @@ add_sticker <- function(type, overwrite = FALSE, quiet = FALSE) {
       path_proj(),
       "inst",
       "package-sticker",
-      "package-sticker.R"
+      "create_package_sticker.R"
     )
 
     if (!file.exists(path)) {
-      invisible(
-        file.copy(
-          system.file(
-            file.path("templates", "package-sticker.R"),
-            package = "rcompendium"
-          ),
-          path,
-          overwrite = FALSE
-        )
+      download_template(
+        slug = "hexsticker/create_package_sticker.R",
+        filename = "create_package_sticker.R",
+        outdir = file.path(path_proj(), "inst", "package-sticker")
       )
     }
   }
@@ -308,7 +292,7 @@ gsub_in_file <- function(file, ...) {
 
 
 #' **URL of the template GitHub repository**
-#' 
+#'
 #' @noRd
 
 template_url <- function() {
@@ -317,15 +301,15 @@ template_url <- function() {
 
 
 #' **Helper function to download a file from the template GitHub repo**
-#' 
+#'
 #' @param slug a character of length 1. End of the file URL
 #'   (e.g. `package/CITATION`)
-#' 
+#'
 #' @param filename a character of length 1. The name of the file stored locally.
-#' 
-#' @param outdir a character of length 1. The name of the folder to save the 
+#'
+#' @param outdir a character of length 1. The name of the folder to save the
 #'   file in. Defaut is `NULL` (i.e. root of the project).
-#' 
+#'
 #' @noRd
 
 download_template <- function(slug, filename, outdir = NULL) {

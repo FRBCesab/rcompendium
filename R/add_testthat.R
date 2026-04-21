@@ -21,18 +21,13 @@ add_testthat <- function() {
   if (!file.exists(file.path(path_proj(), "tests", "testthat.R"))) {
     usethis::use_testthat()
 
-    path <- file.path(path_proj(), "tests", "testthat", "test-demo.R")
+    path <- file.path(path_proj(), "tests", "testthat", "test-print_msg.R")
 
     if (!file.exists(path)) {
-      invisible(
-        file.copy(
-          system.file(
-            file.path("templates", "test-demo.R"),
-            package = "rcompendium"
-          ),
-          path,
-          overwrite = TRUE
-        )
+      download_template(
+        slug = "package/test-print_msg.R",
+        filename = "test-print_msg.R",
+        outdir = file.path(path_proj(), "tests", "testthat")
       )
     }
   }

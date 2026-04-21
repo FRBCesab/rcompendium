@@ -88,17 +88,12 @@ add_contributing <- function(
   project_name <- get_package_name()
   branch <- get_git_branch_name()
 
-  ## Copy Template ----
+  ## Download template ----
 
-  invisible(
-    file.copy(
-      system.file(
-        file.path("templates", "CONTRIBUTING.md"),
-        package = "rcompendium"
-      ),
-      path,
-      overwrite = TRUE
-    )
+  download_template(
+    slug = "contributing/CONTRIBUTING.md",
+    filename = "CONTRIBUTING.md",
+    outdir = NULL
   )
 
   ## Change defaults values ----
@@ -149,15 +144,10 @@ add_contributing <- function(
       ))
     }
 
-    invisible(
-      file.copy(
-        system.file(
-          file.path("templates", template_name),
-          package = "rcompendium"
-        ),
-        path_issue,
-        overwrite = TRUE
-      )
+    download_template(
+      slug = paste0("issues/", template_name),
+      filename = template_name,
+      outdir = file.path(path_proj(), ".github", "ISSUE_TEMPLATE")
     )
 
     if (!quiet) {

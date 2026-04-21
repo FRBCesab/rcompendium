@@ -89,15 +89,10 @@ add_vignette <- function(
     dir.create(file.path(path_proj(), "vignettes"), showWarnings = FALSE)
   }
 
-  invisible(
-    file.copy(
-      system.file(
-        file.path("templates", "package-vignette.Rmd"),
-        package = "rcompendium"
-      ),
-      path,
-      overwrite = TRUE
-    )
+  download_template(
+    slug = "package/package-vignette.Rmd",
+    filename = ".gitignore",
+    outdir = file.path(path_proj(), "vignettes")
   )
 
   ## Replace default values ----
@@ -197,5 +192,6 @@ add_vignette <- function(
   if (open) {
     edit_file(path)
   }
+
   invisible(NULL)
 }

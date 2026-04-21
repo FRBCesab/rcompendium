@@ -59,17 +59,12 @@ add_code_of_conduct <- function(
 
   stop_if_not_string(email)
 
-  ## Copy Template ----
+  ## Download template ----
 
-  invisible(
-    file.copy(
-      system.file(
-        file.path("templates", "CODE_OF_CONDUCT.md"),
-        package = "rcompendium"
-      ),
-      path,
-      overwrite = TRUE
-    )
+  download_template(
+    slug = "contributing/CODE_OF_CONDUCT.md",
+    filename = "CODE_OF_CONDUCT.md",
+    outdir = NULL
   )
 
   ## Change defaults values ----

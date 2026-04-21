@@ -71,14 +71,12 @@ add_makefile <- function(
   project_name <- get_package_name()
   today <- format(Sys.time(), "%Y/%m/%d")
 
-  ## Copy Template ----
+  ## Download template ----
 
-  invisible(
-    file.copy(
-      system.file(file.path("templates", "make.R"), package = "rcompendium"),
-      path,
-      overwrite = TRUE
-    )
+  download_template(
+    slug = "others/make.R",
+    filename = "make.R",
+    outdir = NULL
   )
 
   ## Update default values ----

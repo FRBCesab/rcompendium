@@ -100,17 +100,12 @@ add_description <- function(
   project_name <- get_package_name()
   roxygen2_version <- get_roxygen2_version()
 
-  ## Copy Template ----
+  ## Download template ----
 
-  invisible(
-    file.copy(
-      system.file(
-        file.path("templates", "DESCRIPTION"),
-        package = "rcompendium"
-      ),
-      path,
-      overwrite = TRUE
-    )
+  download_template(
+    slug = "package/DESCRIPTION",
+    filename = "DESCRIPTION",
+    outdir = NULL
   )
 
   ## Change default values (in file) ----

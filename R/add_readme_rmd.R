@@ -102,26 +102,16 @@ add_readme_rmd <- function(
   ## Copy Template ----
 
   if (type == "package") {
-    invisible(
-      file.copy(
-        system.file(
-          file.path("templates", "README-pkg.Rmd"),
-          package = "rcompendium"
-        ),
-        path,
-        overwrite = TRUE
-      )
+    download_template(
+      slug = "readme/README-package.Rmd",
+      filename = "README.Rmd",
+      outdir = NULL
     )
   } else {
-    invisible(
-      file.copy(
-        system.file(
-          file.path("templates", "README-comp.Rmd"),
-          package = "rcompendium"
-        ),
-        path,
-        overwrite = TRUE
-      )
+    download_template(
+      slug = "readme/README-compendium.Rmd",
+      filename = "README.Rmd",
+      outdir = NULL
     )
   }
 

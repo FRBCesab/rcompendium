@@ -121,21 +121,18 @@ add_license <- function(
     ))
   }
 
-  ## Copy LICENSE file (MIT) ----
+  ## Download LICENSE file (MIT) ----
 
   if (license == "MIT") {
-    invisible(
-      file.copy(
-        system.file(
-          file.path("licenses", "copyright-mit"),
-          package = "rcompendium"
-        ),
-        file.path(path, "LICENSE"),
-        overwrite = TRUE
-      )
+    download_template(
+      slug = "licenses/copyright-mit",
+      filename = "LICENSE",
+      outdir = NULL
     )
 
-    if (!quiet) ui_done("Writing {ui_value('LICENSE')} file")
+    if (!quiet) {
+      ui_done("Writing {ui_value('LICENSE')} file")
+    }
   } else {
     if (file.exists(file.path(path, "LICENSE"))) {
       invisible(file.remove(file.path(path, "LICENSE")))
@@ -146,12 +143,10 @@ add_license <- function(
 
   license_file <- paste("license", licenses[license_id, "file"], sep = "-")
 
-  invisible(
-    file.copy(
-      system.file(file.path("licenses", license_file), package = "rcompendium"),
-      file.path(path, "LICENSE.md"),
-      overwrite = TRUE
-    )
+  download_template(
+    slug = paste0("licenses/", license_file),
+    filename = "LICENSE.md",
+    outdir = NULL
   )
 
   if (!quiet) {

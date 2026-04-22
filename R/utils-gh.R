@@ -225,3 +225,23 @@ get_git_branch_name <- function() {
 
   current_branch
 }
+
+
+#' **URL of the GitHub Action templates**
+#'
+#' @noRd
+
+template_repo_url <- function() {
+  "/repos/frbcesab/r-templates/contents/actions"
+}
+
+
+#' **Clean GitHub action names**
+#'
+#' @noRd
+
+clean_gh_action_name <- function(x) {
+  x <- tolower(x)
+  x <- gsub("\\.(yaml|yml)$", "", x)
+  x
+}

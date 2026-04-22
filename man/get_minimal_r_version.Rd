@@ -35,6 +35,7 @@ get_minimal_r_version("usethis")
 Other utilities functions: 
 \code{\link{get_all_dependencies}()},
 \code{\link{get_all_functions}()},
+\code{\link{get_available_gh_actions}()},
 \code{\link{get_licenses}()}
 }
 \concept{utilities functions}

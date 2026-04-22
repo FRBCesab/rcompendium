@@ -78,13 +78,7 @@ reference:
   - add_r_depend
   - add_to_gitignore
   - add_to_buildignore
-  - add_github_actions_check
-  - add_github_actions_pkgdown
-  - add_github_actions_codecov
-  - add_github_actions_render
-  - add_github_actions_citation
-  - add_github_actions_codemeta
-  - add_github_actions_document
+  - add_github_action
   
 - title: Utilities functions
   desc: |
@@ -93,4 +87,5 @@ reference:
   - get_licenses
   - get_all_dependencies
   - get_all_functions
+  - get_available_gh_actions
   - get_minimal_r_version

@@ -19,7 +19,7 @@ A badge as a markdown expression.
 }
 \description{
 This function adds a \strong{Website} badge to the \code{README.Rmd}. This function
-must be run after \code{\link[=add_github_actions_pkgdown]{add_github_actions_pkgdown()}} which will setup
+must be run after \code{\link[=add_github_action]{add_github_action()}} which will setup
 GitHub Actions to build and deploy the package website.
 
 Make sure that 1) a \code{README.Rmd} file exists at the project root and 2) it

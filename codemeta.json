@@ -8,13 +8,13 @@
   "codeRepository": "https://github.com/FRBCesab/rcompendium",
   "issueTracker": "https://github.com/FRBCesab/rcompendium/issues",
   "license": "https://spdx.org/licenses/GPL-2.0",
-  "version": "1.4",
+  "version": "2.0.0.9000",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.5.1 (2025-06-13)",
+  "runtimePlatform": "R version 4.5.3 (2026-03-11)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -108,18 +108,6 @@
     },
     "2": {
       "@type": "SoftwareApplication",
-      "identifier": "cffr",
-      "name": "cffr",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=cffr"
-    },
-    "3": {
-      "@type": "SoftwareApplication",
       "identifier": "cli",
       "name": "cli",
       "provider": {
@@ -130,19 +118,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=cli"
     },
-    "4": {
-      "@type": "SoftwareApplication",
-      "identifier": "codemetar",
-      "name": "codemetar",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=codemetar"
-    },
-    "5": {
+    "3": {
       "@type": "SoftwareApplication",
       "identifier": "devtools",
       "name": "devtools",
@@ -154,7 +130,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=devtools"
     },
-    "6": {
+    "4": {
       "@type": "SoftwareApplication",
       "identifier": "gert",
       "name": "gert",
@@ -166,7 +142,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=gert"
     },
-    "7": {
+    "5": {
       "@type": "SoftwareApplication",
       "identifier": "gh",
       "name": "gh",
@@ -178,7 +154,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=gh"
     },
-    "8": {
+    "6": {
       "@type": "SoftwareApplication",
       "identifier": "gtools",
       "name": "gtools",
@@ -190,7 +166,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=gtools"
     },
-    "9": {
+    "7": {
       "@type": "SoftwareApplication",
       "identifier": "renv",
       "name": "renv",
@@ -202,7 +178,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=renv"
     },
-    "10": {
+    "8": {
       "@type": "SoftwareApplication",
       "identifier": "rmarkdown",
       "name": "rmarkdown",
@@ -214,7 +190,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=rmarkdown"
     },
-    "11": {
+    "9": {
       "@type": "SoftwareApplication",
       "identifier": "rstudioapi",
       "name": "rstudioapi",
@@ -226,7 +202,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=rstudioapi"
     },
-    "12": {
+    "10": {
       "@type": "SoftwareApplication",
       "identifier": "stringr",
       "name": "stringr",
@@ -238,7 +214,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=stringr"
     },
-    "13": {
+    "11": {
       "@type": "SoftwareApplication",
       "identifier": "usethis",
       "name": "usethis",
@@ -250,12 +226,12 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=usethis"
     },
-    "14": {
+    "12": {
       "@type": "SoftwareApplication",
       "identifier": "utils",
       "name": "utils"
     },
-    "15": {
+    "13": {
       "@type": "SoftwareApplication",
       "identifier": "xfun",
       "name": "xfun",
@@ -269,7 +245,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "1037.914KB",
+  "fileSize": "633.043KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -282,7 +258,7 @@
       ],
       "name": "{rcompendium}: {An} {R} package to create a package or research compendium structure",
       "url": "https://github.com/FRBCesab/rcompendium",
-      "description": "R package version 1.4"
+      "description": "R package version 2.0.0.9000"
     }
   ],
   "releaseNotes": "https://github.com/FRBCesab/rcompendium/blob/main/NEWS.md",

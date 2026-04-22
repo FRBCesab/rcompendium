@@ -24,9 +24,7 @@ License: GPL (>= 2)
 Encoding: UTF-8
 Depends: R (>= 2.10)
 Imports: 
-    cffr,
     cli,
-    codemetar,
     devtools,
     gert,
     gh,

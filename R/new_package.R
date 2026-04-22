@@ -763,6 +763,13 @@ new_package <- function(
     cli::cat_line()
 
     usethis::use_github_pages(branch = "gh-pages")
+
+    ## Write (Empty) Custom Config file ---
+
+    if (!file.exists(file.path(path_proj(), "_pkgdown.yaml"))) {
+      file.create(file.path(path_proj(), "_pkgdown.yaml"))
+      add_to_buildignore("_pkgdown.yaml", quiet = quiet)
+    }
   }
 
   ##

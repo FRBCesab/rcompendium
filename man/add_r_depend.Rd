@@ -23,6 +23,7 @@ add_r_depend()
 \seealso{
 Other development functions: 
 \code{\link{add_dependencies}()},
+\code{\link{add_github_action}()},
 \code{\link{add_github_actions_check}()},
 \code{\link{add_github_actions_citation}()},
 \code{\link{add_github_actions_codecov}()},

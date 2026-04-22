@@ -16,6 +16,7 @@
   * Set up Air formatter for the repository ([#76](https://github.com/FRBCesab/rcompendium/pull/76))
   * Add dependabot for GitHub Actions([#77](https://github.com/FRBCesab/rcompendium/pull/77))
   * Add download badges in README ([#78](https://github.com/FRBCesab/rcompendium/pull/78))
+  * Remove dependency to `cffr` and `codemetar` packages ([#87](https://github.com/FRBCesab/rcompendium/pull/87))
 
 # rcompendium 1.4.0
 

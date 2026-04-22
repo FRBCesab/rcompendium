@@ -7,7 +7,7 @@
 
 * **New features**
 
-  * Add a new internal function `download_template()` to download a file template from the GitHub repo <https://github.com/frbcesab/r-templates>
+  * Add a new internal function `download_template()` to download a file template from the GitHub repo <https://github.com/frbcesab/r-templates> ([#85](https://github.com/FRBCesab/rcompendium/pull/85))
 
 * **Bug fixes**
 
@@ -15,6 +15,7 @@
 
   * Set up Air formatter for the repository ([#76](https://github.com/FRBCesab/rcompendium/pull/76))
   * Add dependabot for GitHub Actions([#77](https://github.com/FRBCesab/rcompendium/pull/77))
+  * Add download badges in README ([#78](https://github.com/FRBCesab/rcompendium/pull/78))
 
 # rcompendium 1.4.0
 

@@ -57,7 +57,7 @@ Creating a GitHub repo.'><meta property="og:image" content="https://frbcesab.git
 
     <a class="navbar-brand me-2" href="../index.html">rcompendium</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.0.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -223,7 +223,7 @@ user GitHub account (or organisation). Default is <code>private = FALSE</code>.<
 <dd><p>A logical value. If <code>TRUE</code> (default) configures GitHub
 Actions to automatically check and test the package after each push. This
 will run <code>R CMD check</code> on the three major operating systems (Ubuntu, macOS,
-and Windows) on the latest release of R. See <code><a href="add_github_actions_check.html">add_github_actions_check()</a></code>
+and Windows) on the latest release of R. See <code><a href="add_github_action.html">add_github_action()</a></code>
 for further information.</p>
 <p>If <code>create_repo = FALSE</code> this argument is ignored.</p></dd>
 
@@ -231,7 +231,7 @@ for further information.</p>
 <dt id="arg-codecov">codecov<a class="anchor" aria-label="anchor" href="#arg-codecov"></a></dt>
 <dd><p>A logical value. If <code>TRUE</code> (default) configures GitHub
 Actions to automatically report the code coverage of units tests after
-each push. See <code><a href="add_github_actions_codecov.html">add_github_actions_codecov()</a></code> for further information.</p>
+each push. See <code><a href="add_github_action.html">add_github_action()</a></code> for further information.</p>
 <p>If <code>create_repo = FALSE</code> this argument is ignored.</p></dd>
 
 
@@ -248,21 +248,21 @@ automatically configured to deploy website.</p>
 <dt id="arg-gh-render">gh_render<a class="anchor" aria-label="anchor" href="#arg-gh-render"></a></dt>
 <dd><p>A logical value. If <code>TRUE</code> (default) configures GitHub
 Actions to automatically knit the <code>README.Rmd</code> after each push.
-See <code><a href="add_github_actions_render.html">add_github_actions_render()</a></code> for further information.</p>
+See <code><a href="add_github_action.html">add_github_action()</a></code> for further information.</p>
 <p>If <code>create_repo = FALSE</code> this argument is ignored.</p></dd>
 
 
 <dt id="arg-gh-citation">gh_citation<a class="anchor" aria-label="anchor" href="#arg-gh-citation"></a></dt>
 <dd><p>A logical value. If <code>TRUE</code> (default) configures GitHub
 Actions to automatically update the <code>CITATION.cff</code> file.
-See <code><a href="add_github_actions_citation.html">add_github_actions_citation()</a></code> for further information.</p>
+See <code><a href="add_github_action.html">add_github_action()</a></code> for further information.</p>
 <p>If <code>create_repo = FALSE</code> this argument is ignored.</p></dd>
 
 
 <dt id="arg-gh-codemeta">gh_codemeta<a class="anchor" aria-label="anchor" href="#arg-gh-codemeta"></a></dt>
 <dd><p>A logical value. If <code>TRUE</code> (default) configures GitHub
 Actions to automatically update the <code>codemeta.json</code> file.
-See <code><a href="add_github_actions_codemeta.html">add_github_actions_codemeta()</a></code> for further information.</p>
+See <code><a href="add_github_action.html">add_github_action()</a></code> for further information.</p>
 <p>If <code>create_repo = FALSE</code> this argument is ignored.</p></dd>
 
 

@@ -1,12 +1,49 @@
 # Changelog
 
+## rcompendium 2.0.0.9000
+
+- **BREAKING CHANGE**
+
+  - Remove file templates and licenses from the package. These files are
+    now hosted on <https://github.com/frbcesab/r-templates>, providing
+    more flexibility in updating these files without releasing a new
+    version of `rcompendium`
+    ([\#207ae09](https://github.com/FRBCesab/rcompendium/commit/207ae09ebcc6519258807014c9e9752ecd2f73bf)).
+  - Remove all `add_github_actions_*()` functions. A new generic
+    function
+    [`add_github_action()`](https://frbcesab.github.io/rcompendium/reference/add_github_action.md)
+    has been implemented to set up any GitHub Action. This function
+    downloads YAML files from the GitHub repository (see above),
+    providing more flexibility in updating these files
+    ([\#87](https://github.com/FRBCesab/rcompendium/pull/87)).
+
+- **New features**
+
+  - Add a new internal function `download_template()` to download a file
+    template from the GitHub repo
+    <https://github.com/frbcesab/r-templates>
+    ([\#85](https://github.com/FRBCesab/rcompendium/pull/85))
+
+- **Bug fixes**
+
+- **Minor changes**
+
+  - Set up Air formatter for the repository
+    ([\#76](https://github.com/FRBCesab/rcompendium/pull/76))
+  - Add dependabot for GitHub
+    Actions([\#77](https://github.com/FRBCesab/rcompendium/pull/77))
+  - Add download badges in README
+    ([\#78](https://github.com/FRBCesab/rcompendium/pull/78))
+  - Remove dependency to `cffr` and `codemetar` packages
+    ([\#87](https://github.com/FRBCesab/rcompendium/pull/87))
+
 ## rcompendium 1.4.0
 
 - **New features**
 
-  - [`add_github_actions_codemeta()`](https://frbcesab.github.io/rcompendium/reference/add_github_actions_codemeta.md)
-    creates a `codemeta.json` file at the root of the project and adds a
-    GH action to automatically update this file by GitHub servers.
+  - `add_github_actions_codemeta()` creates a `codemeta.json` file at
+    the root of the project and adds a GH action to automatically update
+    this file by GitHub servers.
 
 - **Bug fixes**
 
@@ -54,11 +91,10 @@ CRAN release: 2023-10-24
     adds a `CONTRIBUTING.md` file and issue templates
   - [`add_code_of_conduct()`](https://frbcesab.github.io/rcompendium/reference/add_code_of_conduct.md)
     adds a `CODE_OF_CONDUCT.md` file
-  - [`add_github_actions_citation()`](https://frbcesab.github.io/rcompendium/reference/add_github_actions_citation.md)
-    adds a new GitHub action to update the `CITATION.cff` file
-  - [`add_github_actions_document()`](https://frbcesab.github.io/rcompendium/reference/add_github_actions_document.md)
-    adds a new GitHub action to update `Rd` files, the `NAMESPACE` and
-    the `DESCRIPTION` files
+  - `add_github_actions_citation()` adds a new GitHub action to update
+    the `CITATION.cff` file
+  - `add_github_actions_document()` adds a new GitHub action to update
+    `Rd` files, the `NAMESPACE` and the `DESCRIPTION` files
 
 - **Improvements**
 
@@ -106,12 +142,10 @@ CRAN release: 2022-04-06
   [`add_renv()`](https://frbcesab.github.io/rcompendium/reference/add_renv.md)
   initialize `renv` environment in compendium (new argument `renv` in
   [`new_compendium()`](https://frbcesab.github.io/rcompendium/reference/new_compendium.md))
-- New feature:
-  [`add_github_actions_render()`](https://frbcesab.github.io/rcompendium/reference/add_github_actions_render.md)
-  will automatically render the `README.md` on GitHub server after each
-  push. This action is triggered only if the `README.Rmd` has been
-  modified since the last commit. Also add new argument `gh_render` in
-  `new_*()` functions.
+- New feature: `add_github_actions_render()` will automatically render
+  the `README.md` on GitHub server after each push. This action is
+  triggered only if the `README.Rmd` has been modified since the last
+  commit. Also add new argument `gh_render` in `new_*()` functions.
 - New vignette: developing an R package
 - New vignette: working with a compendium
 - Function
@@ -173,7 +207,7 @@ After first submission to CRAN:
 
 - New features:
   [`add_testthat()`](https://frbcesab.github.io/rcompendium/reference/add_testthat.md),
-  [`add_github_actions_codecov()`](https://frbcesab.github.io/rcompendium/reference/add_github_actions_codecov.md),
+  `add_github_actions_codecov()`,
   [`add_github_actions_codecov_badge()`](https://frbcesab.github.io/rcompendium/reference/add_github_actions_codecov_badge.md),
   and
   [`add_codecov_badge()`](https://frbcesab.github.io/rcompendium/reference/add_codecov_badge.md)

@@ -32,6 +32,7 @@ A list of three vectors:
 
 Other utilities functions:
 [`get_all_functions()`](https://frbcesab.github.io/rcompendium/reference/get_all_functions.md),
+[`get_available_gh_actions()`](https://frbcesab.github.io/rcompendium/reference/get_available_gh_actions.md),
 [`get_licenses()`](https://frbcesab.github.io/rcompendium/reference/get_licenses.md),
 [`get_minimal_r_version()`](https://frbcesab.github.io/rcompendium/reference/get_minimal_r_version.md)
 

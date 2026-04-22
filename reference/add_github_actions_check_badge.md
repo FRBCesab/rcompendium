@@ -2,7 +2,7 @@
 
 This function adds a **R CMD Check** badge to the `README.Rmd`. This
 function must be run after
-[`add_github_actions_check()`](https://frbcesab.github.io/rcompendium/reference/add_github_actions_check.md)
+[`add_github_action()`](https://frbcesab.github.io/rcompendium/reference/add_github_action.md)
 which will setup GitHub Actions to check and test the package.
 
 Make sure that 1) a `README.Rmd` file exists at the project root and 2)

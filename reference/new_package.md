@@ -153,7 +153,7 @@ new_package(
   automatically check and test the package after each push. This will
   run `R CMD check` on the three major operating systems (Ubuntu, macOS,
   and Windows) on the latest release of R. See
-  [`add_github_actions_check()`](https://frbcesab.github.io/rcompendium/reference/add_github_actions_check.md)
+  [`add_github_action()`](https://frbcesab.github.io/rcompendium/reference/add_github_action.md)
   for further information.
 
   If `create_repo = FALSE` this argument is ignored.
@@ -163,7 +163,7 @@ new_package(
   A logical value. If `TRUE` (default) configures GitHub Actions to
   automatically report the code coverage of units tests after each push.
   See
-  [`add_github_actions_codecov()`](https://frbcesab.github.io/rcompendium/reference/add_github_actions_codecov.md)
+  [`add_github_action()`](https://frbcesab.github.io/rcompendium/reference/add_github_action.md)
   for further information.
 
   If `create_repo = FALSE` this argument is ignored.
@@ -184,7 +184,7 @@ new_package(
 
   A logical value. If `TRUE` (default) configures GitHub Actions to
   automatically knit the `README.Rmd` after each push. See
-  [`add_github_actions_render()`](https://frbcesab.github.io/rcompendium/reference/add_github_actions_render.md)
+  [`add_github_action()`](https://frbcesab.github.io/rcompendium/reference/add_github_action.md)
   for further information.
 
   If `create_repo = FALSE` this argument is ignored.
@@ -193,7 +193,7 @@ new_package(
 
   A logical value. If `TRUE` (default) configures GitHub Actions to
   automatically update the `CITATION.cff` file. See
-  [`add_github_actions_citation()`](https://frbcesab.github.io/rcompendium/reference/add_github_actions_citation.md)
+  [`add_github_action()`](https://frbcesab.github.io/rcompendium/reference/add_github_action.md)
   for further information.
 
   If `create_repo = FALSE` this argument is ignored.
@@ -202,7 +202,7 @@ new_package(
 
   A logical value. If `TRUE` (default) configures GitHub Actions to
   automatically update the `codemeta.json` file. See
-  [`add_github_actions_codemeta()`](https://frbcesab.github.io/rcompendium/reference/add_github_actions_codemeta.md)
+  [`add_github_action()`](https://frbcesab.github.io/rcompendium/reference/add_github_action.md)
   for further information.
 
   If `create_repo = FALSE` this argument is ignored.

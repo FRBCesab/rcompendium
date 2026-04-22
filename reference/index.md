@@ -109,20 +109,8 @@ These functions update fields in `DESCRIPTION` (`add_dependencies` and
   : Add to the .gitignore file
 - [`add_to_buildignore()`](https://frbcesab.github.io/rcompendium/reference/add_to_buildignore.md)
   : Add to the .Rbuildignore file
-- [`add_github_actions_check()`](https://frbcesab.github.io/rcompendium/reference/add_github_actions_check.md)
-  : Setup GitHub Actions to check package
-- [`add_github_actions_pkgdown()`](https://frbcesab.github.io/rcompendium/reference/add_github_actions_pkgdown.md)
-  : Setup GitHub Actions to build and deploy package website
-- [`add_github_actions_codecov()`](https://frbcesab.github.io/rcompendium/reference/add_github_actions_codecov.md)
-  : Setup GitHub Actions to report code coverage
-- [`add_github_actions_render()`](https://frbcesab.github.io/rcompendium/reference/add_github_actions_render.md)
-  : Setup GitHub Actions to render README
-- [`add_github_actions_citation()`](https://frbcesab.github.io/rcompendium/reference/add_github_actions_citation.md)
-  : Setup GitHub Actions to update CITATION.cff
-- [`add_github_actions_codemeta()`](https://frbcesab.github.io/rcompendium/reference/add_github_actions_codemeta.md)
-  : Setup GitHub Actions to update codemeta.json
-- [`add_github_actions_document()`](https://frbcesab.github.io/rcompendium/reference/add_github_actions_document.md)
-  : Setup GitHub Actions to document package
+- [`add_github_action()`](https://frbcesab.github.io/rcompendium/reference/add_github_action.md)
+  : Set up a GitHub Action workflow
 
 ## Utilities functions
 
@@ -134,5 +122,7 @@ These functions return objects but do not edit any file.
   : Get all external dependencies
 - [`get_all_functions()`](https://frbcesab.github.io/rcompendium/reference/get_all_functions.md)
   : List all functions in the package
+- [`get_available_gh_actions()`](https://frbcesab.github.io/rcompendium/reference/get_available_gh_actions.md)
+  : List available GitHub Actions
 - [`get_minimal_r_version()`](https://frbcesab.github.io/rcompendium/reference/get_minimal_r_version.md)
   : Get required minimal R version

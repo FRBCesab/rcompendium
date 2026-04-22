@@ -28,6 +28,7 @@ A `data.frame` with the following two variables:
 Other utilities functions:
 [`get_all_dependencies()`](https://frbcesab.github.io/rcompendium/reference/get_all_dependencies.md),
 [`get_all_functions()`](https://frbcesab.github.io/rcompendium/reference/get_all_functions.md),
+[`get_available_gh_actions()`](https://frbcesab.github.io/rcompendium/reference/get_available_gh_actions.md),
 [`get_minimal_r_version()`](https://frbcesab.github.io/rcompendium/reference/get_minimal_r_version.md)
 
 ## Examples

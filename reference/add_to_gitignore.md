@@ -34,13 +34,7 @@ No return value.
 
 Other development functions:
 [`add_dependencies()`](https://frbcesab.github.io/rcompendium/reference/add_dependencies.md),
-[`add_github_actions_check()`](https://frbcesab.github.io/rcompendium/reference/add_github_actions_check.md),
-[`add_github_actions_citation()`](https://frbcesab.github.io/rcompendium/reference/add_github_actions_citation.md),
-[`add_github_actions_codecov()`](https://frbcesab.github.io/rcompendium/reference/add_github_actions_codecov.md),
-[`add_github_actions_codemeta()`](https://frbcesab.github.io/rcompendium/reference/add_github_actions_codemeta.md),
-[`add_github_actions_document()`](https://frbcesab.github.io/rcompendium/reference/add_github_actions_document.md),
-[`add_github_actions_pkgdown()`](https://frbcesab.github.io/rcompendium/reference/add_github_actions_pkgdown.md),
-[`add_github_actions_render()`](https://frbcesab.github.io/rcompendium/reference/add_github_actions_render.md),
+[`add_github_action()`](https://frbcesab.github.io/rcompendium/reference/add_github_action.md),
 [`add_r_depend()`](https://frbcesab.github.io/rcompendium/reference/add_r_depend.md),
 [`add_to_buildignore()`](https://frbcesab.github.io/rcompendium/reference/add_to_buildignore.md)
 

@@ -759,7 +759,7 @@ new_package <- function(
     ui_title("Configuring GH Actions - Website deployment")
 
     add_github_action("pkgdown", quiet = quiet)
-    
+
     cli::cat_line()
 
     usethis::use_github_pages(branch = "gh-pages")

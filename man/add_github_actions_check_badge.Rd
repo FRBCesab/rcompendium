@@ -19,7 +19,7 @@ A badge as a markdown expression.
 }
 \description{
 This function adds a \strong{R CMD Check} badge to the \code{README.Rmd}. This function
-must be run after \code{\link[=add_github_actions_check]{add_github_actions_check()}} which will setup GitHub
+must be run after \code{\link[=add_github_action]{add_github_action()}} which will setup GitHub
 Actions to check and test the package.
 
 Make sure that 1) a \code{README.Rmd} file exists at the project root and 2) it

@@ -2,7 +2,7 @@
 #'
 #' @description
 #' This function adds a **Test coverage** badge to the `README.Rmd`. This
-#' function must be run after [add_github_actions_codecov()] which will setup
+#' function must be run after [add_github_action()] which will setup
 #' GitHub Actions to report the percentage of code cover by units tests.
 #'
 #' Make sure that 1) a `README.Rmd` file exists at the project root and 2) it

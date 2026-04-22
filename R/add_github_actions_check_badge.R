@@ -2,7 +2,7 @@
 #'
 #' @description
 #' This function adds a **R CMD Check** badge to the `README.Rmd`. This function
-#' must be run after [add_github_actions_check()] which will setup GitHub
+#' must be run after [add_github_action()] which will setup GitHub
 #' Actions to check and test the package.
 #'
 #' Make sure that 1) a `README.Rmd` file exists at the project root and 2) it

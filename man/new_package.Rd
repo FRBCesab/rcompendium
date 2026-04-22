@@ -90,14 +90,14 @@ user GitHub account (or organisation). Default is \code{private = FALSE}.}
 \item{gh_check}{A logical value. If \code{TRUE} (default) configures GitHub
 Actions to automatically check and test the package after each push. This
 will run \verb{R CMD check} on the three major operating systems (Ubuntu, macOS,
-and Windows) on the latest release of R. See \code{\link[=add_github_actions_check]{add_github_actions_check()}}
+and Windows) on the latest release of R. See \code{\link[=add_github_action]{add_github_action()}}
 for further information.
 
 If \code{create_repo = FALSE} this argument is ignored.}
 
 \item{codecov}{A logical value. If \code{TRUE} (default) configures GitHub
 Actions to automatically report the code coverage of units tests after
-each push. See \code{\link[=add_github_actions_codecov]{add_github_actions_codecov()}} for further information.
+each push. See \code{\link[=add_github_action]{add_github_action()}} for further information.
 
 If \code{create_repo = FALSE} this argument is ignored.}
 
@@ -112,19 +112,19 @@ If \code{create_repo = FALSE} this argument is ignored.}
 
 \item{gh_render}{A logical value. If \code{TRUE} (default) configures GitHub
 Actions to automatically knit the \code{README.Rmd} after each push.
-See \code{\link[=add_github_actions_render]{add_github_actions_render()}} for further information.
+See \code{\link[=add_github_action]{add_github_action()}} for further information.
 
 If \code{create_repo = FALSE} this argument is ignored.}
 
 \item{gh_citation}{A logical value. If \code{TRUE} (default) configures GitHub
 Actions to automatically update the \code{CITATION.cff} file.
-See \code{\link[=add_github_actions_citation]{add_github_actions_citation()}} for further information.
+See \code{\link[=add_github_action]{add_github_action()}} for further information.
 
 If \code{create_repo = FALSE} this argument is ignored.}
 
 \item{gh_codemeta}{A logical value. If \code{TRUE} (default) configures GitHub
 Actions to automatically update the \code{codemeta.json} file.
-See \code{\link[=add_github_actions_codemeta]{add_github_actions_codemeta()}} for further information.
+See \code{\link[=add_github_action]{add_github_action()}} for further information.
 
 If \code{create_repo = FALSE} this argument is ignored.}
 

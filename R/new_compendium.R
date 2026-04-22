@@ -107,32 +107,32 @@
 #' @param gh_check A logical value. If `TRUE` configures GitHub
 #'   Actions to automatically check and test the package after each push. This
 #'   will run `R CMD check` on the three major operating systems (Ubuntu, macOS,
-#'   and Windows) on the latest release of R. See [add_github_actions_check()]
+#'   and Windows) on the latest release of R. See [add_github_action()]
 #'   for further information.
 #'
 #'   If `create_repo = FALSE` this argument is ignored. Default is `FALSE`.
 #'
 #' @param gh_render A logical value. If `TRUE` configures GitHub
 #'   Actions to automatically knit the `README.Rmd` after each push.
-#'   See [add_github_actions_render()] for further information.
+#'   See [add_github_action()] for further information.
 #'
 #'   If `create_repo = FALSE` this argument is ignored. Default is `FALSE`.
 #'
 #' @param gh_citation A logical value. If `TRUE` configures GitHub
 #'   Actions to automatically update the `CITATION.cff` file.
-#'   See [add_github_actions_citation()] for further information.
+#'   See [add_github_action()] for further information.
 #'
 #'   If `create_repo = FALSE` this argument is ignored. Default is `FALSE`.
 #'
 #' @param gh_codemeta A logical value. If `TRUE` (default) configures GitHub
 #'   Actions to automatically update the `codemeta.json` file.
-#'   See [add_github_actions_codemeta()] for further information.
+#'   See [add_github_action()] for further information.
 #'
 #'   If `create_repo = FALSE` this argument is ignored.
 #'
 #' @param codecov A logical value. If `TRUE` configures GitHub Actions to
 #'   automatically report the code coverage of units tests after each push.
-#'   See [add_github_actions_codecov()] for further information.
+#'   See [add_github_action()] for further information.
 #'
 #'   If `create_repo = FALSE` this argument is ignored. Default is `FALSE`.
 #'
@@ -668,7 +668,7 @@ new_compendium <- function(
   if (gh_check) {
     ui_title("Configuring GH Actions - R CMD CHECK")
 
-    add_github_actions_check(quiet = quiet)
+    add_github_action("R-CMD-check", quiet = quiet)
   }
 
   ##
@@ -678,7 +678,7 @@ new_compendium <- function(
   if (codecov) {
     ui_title("Configuring GH Actions - Code Coverage")
 
-    add_github_actions_codecov(quiet = quiet)
+    add_github_action("test-coverage", quiet = quiet)
   }
 
   ##
@@ -688,7 +688,7 @@ new_compendium <- function(
   if (gh_render) {
     ui_title("Configuring GH Actions - Render README")
 
-    add_github_actions_render(quiet = quiet)
+    add_github_action("render-README", quiet = quiet)
   }
 
   ##
@@ -698,7 +698,7 @@ new_compendium <- function(
   if (website) {
     ui_title("Configuring GH Actions - Website deployment")
 
-    add_github_actions_pkgdown()
+    add_github_action("pkgdown", quiet = quiet)
 
     cli::cat_line()
 
@@ -712,7 +712,7 @@ new_compendium <- function(
   if (gh_citation) {
     ui_title("Configuring GH Actions - CITATION.cff")
 
-    add_github_actions_citation(quiet = quiet)
+    add_github_action("update-citation-cff", quiet = quiet)
   }
 
   ##
@@ -722,7 +722,7 @@ new_compendium <- function(
   if (gh_codemeta) {
     ui_title("Configuring GH Actions - codemeta.json")
 
-    add_github_actions_codemeta(quiet = quiet)
+    add_github_action("update-codemeta", quiet = quiet)
   }
 
   ##

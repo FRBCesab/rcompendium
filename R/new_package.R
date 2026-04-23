@@ -38,8 +38,7 @@
 #'   Default is `license = 'GPL (>= 2)'`
 #'
 #'   The license can be changed later by calling [add_license()] (and
-#'   [add_license_badge()] or [refresh()] to update the corresponding badge in
-#'   the README).
+#'   [add_license_badge()] to update the corresponding badge in the README).
 #'
 #' @param status A character vector of length 1. The status of the project
 #'   according to the standard defined by the  \url{https://www.repostatus.org}
@@ -190,7 +189,7 @@
 #' 5. Implement, document & test functions (the fun part);
 #' 6. Update the project (update `.Rd` files, `NAMESPACE`, external
 #'   dependencies in `DESCRIPTION`, re-knit `README.Rmd`, and check package
-#'   integrity) with [refresh()];
+#'   integrity);
 #' 7. Repeat steps 5 and 6 while developing the package.
 #'
 #'
@@ -295,9 +294,6 @@
 #'
 #' ## Start developing functions ----
 #' ## ...
-#'
-#' ## Update package (documentation, dependencies, README, check) ----
-#' refresh()
 #' }
 
 new_package <- function(

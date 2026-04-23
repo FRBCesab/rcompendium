@@ -45,8 +45,7 @@
 #'   is `license = 'GPL (>= 2)'`
 #'
 #'   The license can be changed later by calling [add_license()] (and
-#'   [add_license_badge()] or [refresh()] to update the corresponding badge in
-#'   the README).
+#'   [add_license_badge()] to update the corresponding badge in the README).
 #'
 #' @param status A character vector of length 1. The status of the project
 #'   according to the standard defined by the \url{https://www.repostatus.org}
@@ -201,9 +200,6 @@
 #'
 #' ## Start adding data and developing functions and scripts ----
 #' ## ...
-#'
-#' ## Update package (documentation, dependencies, README, check) ----
-#' refresh()
 #' }
 
 new_compendium <- function(

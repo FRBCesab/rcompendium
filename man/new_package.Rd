@@ -35,8 +35,7 @@ this package. Run \code{\link[=get_licenses]{get_licenses()}} to choose an appro
 Default is \code{license = 'GPL (>= 2)'}
 
 The license can be changed later by calling \code{\link[=add_license]{add_license()}} (and
-\code{\link[=add_license_badge]{add_license_badge()}} or \code{\link[=refresh]{refresh()}} to update the corresponding badge in
-the README).}
+\code{\link[=add_license_badge]{add_license_badge()}} to update the corresponding badge in the README).}
 
 \item{status}{A character vector of length 1. The status of the project
 according to the standard defined by the  \url{https://www.repostatus.org}
@@ -220,7 +219,7 @@ repository);
 \item Implement, document & test functions (the fun part);
 \item Update the project (update \code{.Rd} files, \code{NAMESPACE}, external
 dependencies in \code{DESCRIPTION}, re-knit \code{README.Rmd}, and check package
-integrity) with \code{\link[=refresh]{refresh()}};
+integrity);
 \item Repeat steps 5 and 6 while developing the package.
 }
 }
@@ -321,15 +320,11 @@ new_package()
 
 ## Start developing functions ----
 ## ...
-
-## Update package (documentation, dependencies, README, check) ----
-refresh()
 }
 }
 \seealso{
 Other setup functions: 
 \code{\link{new_compendium}()},
-\code{\link{refresh}()},
 \code{\link{set_credentials}()}
 }
 \concept{setup functions}

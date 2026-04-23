@@ -54,7 +54,6 @@ set_credentials("John", "Doe", "john.doe@domain.com",
 \seealso{
 Other setup functions: 
 \code{\link{new_compendium}()},
-\code{\link{new_package}()},
-\code{\link{refresh}()}
+\code{\link{new_package}()}
 }
 \concept{setup functions}

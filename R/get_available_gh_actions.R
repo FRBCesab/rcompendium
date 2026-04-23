@@ -25,5 +25,6 @@ get_available_gh_actions <- function() {
   )
 
   actions <- unlist(lapply(actions, function(x) x[["name"]]))
+  actions <- actions[-which(actions == "dependabot.yaml")]
   gsub("\\.(yaml|yml)$", "", actions)
 }

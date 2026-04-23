@@ -28,7 +28,7 @@ Other utilities functions:
 
 ``` r
 get_available_gh_actions()
-#> [1] "R-CMD-check"         "check-format"        "dependabot"         
+#> [1] "R-CMD-check"         "README.md"           "check-format"       
 #> [4] "pkgdown"             "render-README"       "test-coverage"      
 #> [7] "update-Rd-files"     "update-citation-cff" "update-codemeta"    
 ```

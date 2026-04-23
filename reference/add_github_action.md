@@ -9,8 +9,7 @@ Available workflows are derived from
 hosted on a different repository
 <https://github.com/FRBCesab/r-templates/tree/main/actions>.
 
-Configuration files will be written in `.github/workflows/` (or in
-`.github/` for the `dependabot.yaml` action).
+Configuration files will be written in `.github/workflows/`.
 
 ## Usage
 
@@ -88,10 +87,11 @@ after each push or pull request:
   `codemeta.json` to the main branch. User need to fetch the new
   version.
 
-- `dependabot`: this action will be triggered once a week to check for
-  dependency updates (used by the GitHub Actions of the repository). If
-  an update is available, this bot will open a Pull Request and user
-  will be invited to review changes.
+If one of these GitHub Actions is added to the project, this function
+will also create a `dependabot.yaml` file in `.github/`. This action
+will be triggered once a week to check for dependency updates (used by
+any GitHub Action of the repository). If an update is available, this
+bot will open a Pull Request and user will be invited to review changes.
 
 ## See also
 

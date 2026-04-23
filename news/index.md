@@ -23,6 +23,9 @@
     template from the GitHub repo
     <https://github.com/frbcesab/r-templates>
     ([\#85](https://github.com/FRBCesab/rcompendium/pull/85))
+  - `add_github_actions_*()` automatically creates a
+    `.github/dependabot.yaml` file if one GitHub Action is set up
+    ([\#89](https://github.com/FRBCesab/rcompendium/pull/89))
 
 - **Bug fixes**
 

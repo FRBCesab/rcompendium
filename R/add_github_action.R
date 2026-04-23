@@ -10,8 +10,7 @@
 #' hosted on a different repository
 #' \url{https://github.com/FRBCesab/r-templates/tree/main/actions}.
 #'
-#' Configuration files will be written in `.github/workflows/`
-#' (or in `.github/` for the `dependabot.yaml` action).
+#' Configuration files will be written in `.github/workflows/`.
 #'
 #' @param name A character of length 1. The name of the GitHub Action to set up.
 #'   Run [get_available_gh_actions()] to list available GitHub Actions.
@@ -64,10 +63,11 @@
 #' is modified. This action will commit and push the updated `codemeta.json` to
 #' the main branch. User need to fetch the new version.
 #'
-#' - `dependabot`: this action will be triggered once a week to check for
-#' dependency updates (used by the GitHub Actions of the repository). If an
-#' update is available, this bot will open a Pull Request and user will be
-#' invited to review changes.
+#' If one of these GitHub Actions is added to the project, this function will
+#' also create a `dependabot.yaml` file in `.github/`. This action will be
+#' triggered once a week to check for dependency updates (used by any GitHub
+#' Action of the repository). If an update is available, this bot will open a
+#' Pull Request and user will be invited to review changes.
 #'
 #' @return No return value.
 #'
@@ -111,18 +111,11 @@ add_github_action <- function(
     )
   }
 
-  ## Get action file name ----
+  ## Create file name & path ----
 
   action <- available_actions[which(tolower(available_actions) == action)]
   filename <- paste0(action, ".yaml")
-
-  ## Define final directory ----
-
-  if (action == "dependabot") {
-    path <- file.path(".github")
-  } else {
-    path <- file.path(".github", "workflows")
-  }
+  path <- file.path(".github", "workflows")
 
   ## Do not replace current file but open it if required ----
 
@@ -168,6 +161,27 @@ add_github_action <- function(
 
   if (open) {
     edit_file(path)
+  }
+
+  ## Add dependabot ----
+
+  filename <- "dependabot.yaml"
+  path <- file.path(".github")
+
+  if (!file.exists(file.path(path_proj(), path, filename))) {
+    download_template(
+      slug = paste0("actions/", filename),
+      filename = filename,
+      outdir = path
+    )
+
+    if (!quiet) {
+      ui_done(paste0(
+        "Writing {ui_value('",
+        file.path(path, filename),
+        "')} file"
+      ))
+    }
   }
 
   invisible(NULL)

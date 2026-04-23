@@ -5,6 +5,10 @@
   * Remove file templates and licenses from the package. These files are now hosted on <https://github.com/frbcesab/r-templates>, providing more flexibility in updating these files without releasing a new version of `rcompendium` ([#207ae09](https://github.com/FRBCesab/rcompendium/commit/207ae09ebcc6519258807014c9e9752ecd2f73bf)).
   * Remove all `add_github_actions_*()` functions. A new generic function `add_github_action()` has been implemented to set up any GitHub Action. This function downloads YAML files from the GitHub repository (see above), providing more flexibility in updating these files ([#87](https://github.com/FRBCesab/rcompendium/pull/87)).
 
+* **Deprecated**
+
+  * `refresh()` is no more available in this version
+
 * **New features**
 
   * Add a new internal function `download_template()` to download a file template from the GitHub repo <https://github.com/frbcesab/r-templates> ([#85](https://github.com/FRBCesab/rcompendium/pull/85))

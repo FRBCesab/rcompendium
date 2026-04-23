@@ -32,8 +32,7 @@ Available workflows are derived from
 hosted on a different repository
 \url{https://github.com/FRBCesab/r-templates/tree/main/actions}.
 
-Configuration files will be written in \verb{.github/workflows/}
-(or in \verb{.github/} for the \code{dependabot.yaml} action).
+Configuration files will be written in \verb{.github/workflows/}.
 }
 \details{
 Here is a list of commonly used GitHub Actions that will be triggered after
@@ -66,11 +65,13 @@ file for software (not only R packages). This action is triggered if
 the \code{DESCRIPTION} file and/or the \code{inst/CITATION} file and/or the \code{README.md}
 is modified. This action will commit and push the updated \code{codemeta.json} to
 the main branch. User need to fetch the new version.
-\item \code{dependabot}: this action will be triggered once a week to check for
-dependency updates (used by the GitHub Actions of the repository). If an
-update is available, this bot will open a Pull Request and user will be
-invited to review changes.
 }
+
+If one of these GitHub Actions is added to the project, this function will
+also create a \code{dependabot.yaml} file in \verb{.github/}. This action will be
+triggered once a week to check for dependency updates (used by any GitHub
+Action of the repository). If an update is available, this bot will open a
+Pull Request and user will be invited to review changes.
 }
 \examples{
 \dontrun{

@@ -60,14 +60,13 @@ You can install the stable version from
 [CRAN](https://cran.r-project.org/) with:
 
 ``` r
-## Install stable version of {rcompendium} from CRAN ----
 install.packages("rcompendium")
 ```
 
 Or using [`pak`](https://pak.r-lib.org/):
 
 ``` r
-## Install stable version of {rcompendium} from CRAN ----
+## install.packages("pak")
 pak::pak("rcompendium")
 ```
 
@@ -76,17 +75,19 @@ pak::pak("rcompendium")
 You can install the development version from
 [GitHub](https://github.com/FRBCesab/rcompendium) with:
 
-``` r
-## Install dev version of {rcompendium} from GitHub ----
-remotes::install_github("FRBCesab/rcompendium")
-```
+- Using [`remotes`](https://remotes.r-lib.org/):
 
-Or using [`pak`](https://pak.r-lib.org/):
+  ``` r
+  ## install.packages("remotes")
+  remotes::install_github("FRBCesab/rcompendium")
+  ```
 
-``` r
-## Install dev version of {rcompendium} from GitHub ----
-pak::pak("FRBCesab/rcompendium")
-```
+- Or using [`pak`](https://pak.r-lib.org/):
+
+  ``` r
+  ## install.packages("pak")
+  pak::pak("FRBCesab/rcompendium")
+  ```
 
 ## Usage
 

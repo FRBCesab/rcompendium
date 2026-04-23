@@ -71,8 +71,6 @@ new_package(
   [`add_license()`](https://frbcesab.github.io/rcompendium/reference/add_license.md)
   (and
   [`add_license_badge()`](https://frbcesab.github.io/rcompendium/reference/add_license_badge.md)
-  or
-  [`refresh()`](https://frbcesab.github.io/rcompendium/reference/refresh.md)
   to update the corresponding badge in the README).
 
 - status:
@@ -291,8 +289,7 @@ The recommended workflow is:
 
 6.  Update the project (update `.Rd` files, `NAMESPACE`, external
     dependencies in `DESCRIPTION`, re-knit `README.Rmd`, and check
-    package integrity) with
-    [`refresh()`](https://frbcesab.github.io/rcompendium/reference/refresh.md);
+    package integrity);
 
 7.  Repeat steps 5 and 6 while developing the package.
 
@@ -383,7 +380,6 @@ And you will be able to create a GitHub repository directly from R!
 
 Other setup functions:
 [`new_compendium()`](https://frbcesab.github.io/rcompendium/reference/new_compendium.md),
-[`refresh()`](https://frbcesab.github.io/rcompendium/reference/refresh.md),
 [`set_credentials()`](https://frbcesab.github.io/rcompendium/reference/set_credentials.md)
 
 ## Examples
@@ -402,8 +398,5 @@ new_package()
 
 ## Start developing functions ----
 ## ...
-
-## Update package (documentation, dependencies, README, check) ----
-refresh()
 } # }
 ```

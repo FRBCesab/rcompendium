@@ -51,8 +51,7 @@ No return value.
 
 Other setup functions:
 [`new_compendium()`](https://frbcesab.github.io/rcompendium/reference/new_compendium.md),
-[`new_package()`](https://frbcesab.github.io/rcompendium/reference/new_package.md),
-[`refresh()`](https://frbcesab.github.io/rcompendium/reference/refresh.md)
+[`new_package()`](https://frbcesab.github.io/rcompendium/reference/new_package.md)
 
 ## Examples
 

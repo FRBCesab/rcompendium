@@ -17,9 +17,8 @@ function must be run one time. The function `new_package` must be used
 to create an R package structure whereas `new_compendium` creates a new
 research compendium structure (i.e. R package structure with some
 additional files/folders). After that user can start to develop his/her
-project and run `refresh` to frequently update the package/compendium
-components (`Rd` files, `NAMESPACE`, dependencies, badges, `README.md`,
-etc.)
+project and frequently update the package/compendium components (`Rd`
+files, `NAMESPACE`, dependencies, badges, `README.md`, etc.)
 
 - [`set_credentials()`](https://frbcesab.github.io/rcompendium/reference/set_credentials.md)
   : Store credentials to the .Rprofile
@@ -27,17 +26,14 @@ etc.)
   : Create an R package structure
 - [`new_compendium()`](https://frbcesab.github.io/rcompendium/reference/new_compendium.md)
   : Create an R compendium structure
-- [`refresh()`](https://frbcesab.github.io/rcompendium/reference/refresh.md)
-  : Refresh a package/research compendium
 
 ## Create files
 
 These function write files specific to R package and research compendium
-(`add_makefile`). They are called by the main functions `new_package`,
-`new_compendium`, and `refresh` but they also can be used to overwrite
-files (with `overwrite = TRUE`) in case of broken code. When
-`open = TRUE` and `overwrite = FALSE` (default) files are open in the
-editor.
+(`add_makefile`). They are called by the main functions `new_package`
+and `new_compendium` but they also can be used to overwrite files (with
+`overwrite = TRUE`) in case of broken code. When `open = TRUE` and
+`overwrite = FALSE` (default) files are open in the editor.
 
 - [`add_description()`](https://frbcesab.github.io/rcompendium/reference/add_description.md)
   : Create a DESCRIPTION file
@@ -69,10 +65,9 @@ editor.
 ## README badges
 
 These functions add badges to the `README.Rmd`. They are called by the
-main functions `new_package`, `new_compendium`, and `refresh` but they
-also can be used to update badges if license, lifecycle, repository
-status change or to update number of dependencies
-(`add_dependencies_badge`).
+main functions `new_package` and `new_compendium` but they also can be
+used to update badges if license, lifecycle, repository status change or
+to update number of dependencies (`add_dependencies_badge`).
 
 - [`add_cran_badge()`](https://frbcesab.github.io/rcompendium/reference/add_cran_badge.md)
   : Add a CRAN Status badge

@@ -55,7 +55,7 @@
       </dl></div><div class="section level2">
       <h2 id="setup-functions">Setup functions<a class="anchor" aria-label="anchor" href="#setup-functions"></a></h2>
 
-      <div class="section-desc"><p>These four functions are usually the only ones user needs to run. The use of <code>set_credentials</code> is strongly recommended to permanently store user information (name, email, orcid, etc.) in the <code>.Rprofile</code>. This function must be run one time. The function <code>new_package</code> must be used to create an R package structure whereas <code>new_compendium</code> creates a new research compendium structure (i.e. R package structure with some additional files/folders). After that user can start to develop his/her project and run <code>refresh</code> to frequently update the package/compendium components (<code>Rd</code> files, <code>NAMESPACE</code>, dependencies, badges, <code>README.md</code>, etc.)</p></div>
+      <div class="section-desc"><p>These four functions are usually the only ones user needs to run. The use of <code>set_credentials</code> is strongly recommended to permanently store user information (name, email, orcid, etc.) in the <code>.Rprofile</code>. This function must be run one time. The function <code>new_package</code> must be used to create an R package structure whereas <code>new_compendium</code> creates a new research compendium structure (i.e. R package structure with some additional files/folders). After that user can start to develop his/her project and frequently update the package/compendium components (<code>Rd</code> files, <code>NAMESPACE</code>, dependencies, badges, <code>README.md</code>, etc.)</p></div>
 
       <dl></dl></div><div class="section level2">
 
@@ -82,17 +82,10 @@
 
         </dt>
         <dd>Create an R compendium structure</dd>
-
-        <dt>
-
-          <code><a href="refresh.html">refresh()</a></code>
-
-        </dt>
-        <dd>Refresh a package/research compendium</dd>
       </dl></div><div class="section level2">
       <h2 id="create-files">Create files<a class="anchor" aria-label="anchor" href="#create-files"></a></h2>
 
-      <div class="section-desc"><p>These function write files specific to R package and research compendium (<code>add_makefile</code>). They are called by the main functions <code>new_package</code>, <code>new_compendium</code>, and <code>refresh</code> but they also can be used to overwrite files (with <code>overwrite = TRUE</code>) in case of broken code. When <code>open = TRUE</code> and <code>overwrite = FALSE</code> (default) files are open in the editor.</p></div>
+      <div class="section-desc"><p>These function write files specific to R package and research compendium (<code>add_makefile</code>). They are called by the main functions <code>new_package</code> and <code>new_compendium</code> but they also can be used to overwrite files (with <code>overwrite = TRUE</code>) in case of broken code. When <code>open = TRUE</code> and <code>overwrite = FALSE</code> (default) files are open in the editor.</p></div>
 
       <dl></dl></div><div class="section level2">
 
@@ -192,7 +185,7 @@
       </dl></div><div class="section level2">
       <h2 id="readme-badges">README badges<a class="anchor" aria-label="anchor" href="#readme-badges"></a></h2>
 
-      <div class="section-desc"><p>These functions add badges to the <code>README.Rmd</code>. They are called by the main functions <code>new_package</code>, <code>new_compendium</code>, and <code>refresh</code> but they also can be used to update badges if license, lifecycle, repository status change or to update number of dependencies (<code>add_dependencies_badge</code>).</p></div>
+      <div class="section-desc"><p>These functions add badges to the <code>README.Rmd</code>. They are called by the main functions <code>new_package</code> and <code>new_compendium</code> but they also can be used to update badges if license, lifecycle, repository status change or to update number of dependencies (<code>add_dependencies_badge</code>).</p></div>
 
       <dl></dl></div><div class="section level2">
 

@@ -103,8 +103,6 @@ new_compendium(
   [`add_license()`](https://frbcesab.github.io/rcompendium/reference/add_license.md)
   (and
   [`add_license_badge()`](https://frbcesab.github.io/rcompendium/reference/add_license_badge.md)
-  or
-  [`refresh()`](https://frbcesab.github.io/rcompendium/reference/refresh.md)
   to update the corresponding badge in the README).
 
 - status:
@@ -314,7 +312,6 @@ No return value.
 
 Other setup functions:
 [`new_package()`](https://frbcesab.github.io/rcompendium/reference/new_package.md),
-[`refresh()`](https://frbcesab.github.io/rcompendium/reference/refresh.md),
 [`set_credentials()`](https://frbcesab.github.io/rcompendium/reference/set_credentials.md)
 
 ## Examples
@@ -333,8 +330,5 @@ new_compendium()
 
 ## Start adding data and developing functions and scripts ----
 ## ...
-
-## Update package (documentation, dependencies, README, check) ----
-refresh()
 } # }
 ```

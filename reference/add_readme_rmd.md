@@ -2,8 +2,7 @@
 
 This function creates a `README.Rmd` file at the root of the project
 based on a template. Once edited user needs to knit it into a
-`README.md` (or use the function
-[`refresh()`](https://frbcesab.github.io/rcompendium/reference/refresh.md)).
+`README.md`.
 
 ## Usage
 

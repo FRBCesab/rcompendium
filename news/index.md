@@ -17,6 +17,11 @@
     providing more flexibility in updating these files
     ([\#87](https://github.com/FRBCesab/rcompendium/pull/87)).
 
+- **Deprecated**
+
+  - `refresh()` is no more available in this version
+    ([\#91](https://github.com/FRBCesab/rcompendium/pull/91))
+
 - **New features**
 
   - Add a new internal function `download_template()` to download a file
@@ -118,8 +123,7 @@ CRAN release: 2023-10-24
 
 - **Deprecated**
 
-  - [`refresh()`](https://frbcesab.github.io/rcompendium/reference/refresh.md)
-    is now deprecated and will be deleted in the new version
+  - `refresh()` is now deprecated and will be deleted in the new version
 
 ## rcompendium 1.1
 

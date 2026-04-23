@@ -7,7 +7,7 @@
 
 * **Deprecated**
 
-  * `refresh()` is no more available in this version
+  * `refresh()` is no more available in this version ([#91](https://github.com/FRBCesab/rcompendium/pull/91))
 
 * **New features**
 

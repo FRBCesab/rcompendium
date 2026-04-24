@@ -22,6 +22,7 @@
   * Add dependabot for GitHub Actions([#77](https://github.com/FRBCesab/rcompendium/pull/77))
   * Add download badges in README ([#78](https://github.com/FRBCesab/rcompendium/pull/78))
   * Remove dependency to `cffr` and `codemetar` packages ([#87](https://github.com/FRBCesab/rcompendium/pull/87))
+  * Rename `add_cran_badge()` in `add_cran_version_badge()` ([#96](https://github.com/FRBCesab/rcompendium/pull/96))
 
 # rcompendium 1.4.0
 

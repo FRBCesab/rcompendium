@@ -77,6 +77,9 @@
 #'   `CODE_OF_CONDUCT.md` file. See [add_code_of_conduct()] for further
 #'   information.
 #'
+#' @param code_owners A logical value. If `TRUE` (default) adds a
+#'   `CODEOWNERS` file. See [add_codeowners()] for further information.
+#'
 #' @param vignette A logical value. If `TRUE` creates a vignette in
 #'   `vignettes/`. Packages [`knitr`](https://yihui.org/knitr/) and
 #'   [`rmarkdown`](https://rmarkdown.rstudio.com/) are also added to the
@@ -209,6 +212,7 @@ new_compendium <- function(
   lifecycle = NULL,
   contributing = TRUE,
   code_of_conduct = TRUE,
+  code_owners = TRUE,
   vignette = FALSE,
   test = FALSE,
   create_repo = TRUE,
@@ -582,6 +586,20 @@ new_compendium <- function(
 
     add_code_of_conduct(
       email = email,
+      open = FALSE,
+      overwrite = overwrite,
+      quiet = quiet
+    )
+  }
+
+  ##
+  ## ADDING CODEOWNERS ----
+  ##
+
+  if (code_owners) {
+    ui_title("Adding CODEOWNERS")
+
+    add_codeowners(
       open = FALSE,
       overwrite = overwrite,
       quiet = quiet

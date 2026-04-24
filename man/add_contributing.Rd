@@ -56,6 +56,7 @@ add_contributing()
 Other create files: 
 \code{\link{add_citation}()},
 \code{\link{add_code_of_conduct}()},
+\code{\link{add_codeowners}()},
 \code{\link{add_compendium}()},
 \code{\link{add_description}()},
 \code{\link{add_dockerfile}()},

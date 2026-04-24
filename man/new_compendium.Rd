@@ -11,6 +11,7 @@ new_compendium(
   lifecycle = NULL,
   contributing = TRUE,
   code_of_conduct = TRUE,
+  code_owners = TRUE,
   vignette = FALSE,
   test = FALSE,
   create_repo = TRUE,
@@ -72,6 +73,9 @@ further information.}
 \item{code_of_conduct}{A logical value. If \code{TRUE} (default) adds a
 \code{CODE_OF_CONDUCT.md} file. See \code{\link[=add_code_of_conduct]{add_code_of_conduct()}} for further
 information.}
+
+\item{code_owners}{A logical value. If \code{TRUE} (default) adds a
+\code{CODEOWNERS} file. See \code{\link[=add_codeowners]{add_codeowners()}} for further information.}
 
 \item{vignette}{A logical value. If \code{TRUE} creates a vignette in
 \verb{vignettes/}. Packages \href{https://yihui.org/knitr/}{\code{knitr}} and

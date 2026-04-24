@@ -46,7 +46,6 @@ edit by hand some information (title, version, etc.).
 \dontrun{
 add_citation()
 readCitationFile("inst/CITATION")
-citation("pkg")    # If you have installed your package <pkg>
 }
 }
 \seealso{

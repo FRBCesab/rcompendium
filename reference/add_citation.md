@@ -74,6 +74,5 @@ Other create files:
 if (FALSE) { # \dontrun{
 add_citation()
 readCitationFile("inst/CITATION")
-citation("pkg")    # If you have installed your package <pkg>
 } # }
 ```

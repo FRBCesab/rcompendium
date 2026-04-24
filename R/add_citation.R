@@ -61,7 +61,7 @@ add_citation <- function(
   if (should_create_file(full_path, overwrite)) {
     ensure_dir_exists(dirname(full_path))
 
-    create_citation_template(rel_path, meta)
+    create_template("package/CITATION", rel_path, meta)
 
     ui_file_written(rel_path, quiet)
   }

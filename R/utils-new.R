@@ -58,7 +58,7 @@ resolve_project_meta <- function(...) {
     orcid = orcid,
     github_user = get_github_user(),
     github_account = resolve_github_account(args$organisation),
-    package_name = get_package_name(),
+    project_name = get_package_name(),
     year = format(Sys.Date(), "%Y")
   )
 }
@@ -115,30 +115,14 @@ ensure_dir_exists <- function(path) {
 }
 
 
-#' Download the CITATION file and replace default values
+#' Download a file template and replace default values
+#' @param slug a character of length of 1. The URL slug of the file template.
 #' @param path a character of length of 1. The absolute path of the file.
 #' @param meta a list of the project metadata.
 #' @noRd
-create_citation_template <- function(path, meta) {
+create_template <- function(slug, path, meta) {
   download_template(
-    slug = "package/CITATION",
-    filename = basename(path),
-    outdir = dirname(path)
-  )
-
-  populate_template(build_full_path(path), meta)
-
-  invisible(NULL)
-}
-
-
-#' Download the CODE_OF_CONDUCT file and replace default values
-#' @param path a character of length of 1. The absolute path of the file.
-#' @param meta a list of the project metadata.
-#' @noRd
-create_code_of_conduct_template <- function(path, meta) {
-  download_template(
-    slug = "contributing/CODE_OF_CONDUCT.MD",
+    slug = slug,
     filename = basename(path),
     outdir = dirname(path)
   )

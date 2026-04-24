@@ -42,7 +42,7 @@ add_code_of_conduct <- function(
   if (should_create_file(full_path, overwrite)) {
     ensure_dir_exists(dirname(full_path))
 
-    create_code_of_conduct_template(rel_path, meta)
+    create_template("contributing/CODE_OF_CONDUCT.md", rel_path, meta)
 
     ui_file_written(rel_path, quiet)
 

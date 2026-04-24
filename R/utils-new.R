@@ -56,11 +56,20 @@ resolve_project_meta <- function(...) {
     family = family,
     email = email,
     orcid = orcid,
+
+    project_name = get_package_name(),
     github_user = get_github_user(),
     github_account = resolve_github_account(args$organisation),
-    project_name = get_package_name(),
     git_branch = get_git_branch_name(),
+
+    r_version = paste(
+      utils::sessionInfo()$"R.version"$"major",
+      utils::sessionInfo()$"R.version"$"minor",
+      sep = "."
+    ),
     roxygen2_version = get_roxygen2_version(),
+    renv_version = utils::packageVersion("renv"),
+
     year = format(Sys.Date(), "%Y")
   )
 }

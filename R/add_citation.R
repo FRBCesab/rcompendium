@@ -31,7 +31,6 @@
 #' \dontrun{
 #' add_citation()
 #' readCitationFile("inst/CITATION")
-#' citation("pkg")    # If you have installed your package <pkg>
 #' }
 
 add_citation <- function(
@@ -44,80 +43,26 @@ add_citation <- function(
 ) {
   stop_if_not_logical(open, overwrite, quiet)
 
-  path <- file.path(path_proj(), "inst", "CITATION")
+  full_path <- build_full_path("inst", "CITATION")
+  rel_path <- build_rel_path("inst", "CITATION")
 
-  ## Do not replace current file but open it if required ----
+  assert_file_not_exists_or_overwrite(rel_path, overwrite)
 
-  if (file.exists(path) && !overwrite) {
-    if (!open) {
-      stop(
-        "An 'inst/CITATION' file is already present. If you want to ",
-        "replace it, please use `overwrite = TRUE`."
-      )
-    } else {
-      edit_file(path)
-      return(invisible(NULL))
-    }
-  }
-
-  ## Get fields values ----
-
-  if (is.null(given)) {
-    given <- getOption("given")
-  }
-  if (is.null(family)) {
-    family <- getOption("family")
-  }
-
-  if (!is.null(organisation)) {
-    github <- organisation
-  } else {
-    github <- gh::gh_whoami()$"login"
-
-    if (is.null(github)) {
-      stop(
-        "Unable to find GitHub username. Please run ",
-        "`?gert::git_config_global` for more information."
-      )
-    }
-  }
-
-  stop_if_not_string(given, family, github)
-
-  project_name <- get_package_name()
-  pkg_version <- get_package_version()
-  year <- format(Sys.Date(), "%Y")
-
-  ## Download template ----
-
-  if (!dir.exists(file.path(path_proj(), "inst"))) {
-    dir.create(file.path(path_proj(), "inst"), showWarnings = FALSE)
-  }
-
-  download_template(
-    slug = "package/CITATION",
-    filename = "CITATION",
-    outdir = file.path(path_proj(), "inst")
+  meta <- resolve_project_meta(
+    given = given,
+    family = family,
+    organisation = organisation
   )
 
-  ## Change defaults values ----
+  if (should_create_file(full_path, overwrite)) {
+    ensure_dir_exists(dirname(full_path))
 
-  xfun::gsub_file(path, "{{project_name}}", project_name, fixed = TRUE)
-  xfun::gsub_file(path, "{{pkg_version}}", pkg_version, fixed = TRUE)
-  xfun::gsub_file(path, "{{year}}", year, fixed = TRUE)
-  xfun::gsub_file(path, "{{given}}", given, fixed = TRUE)
-  xfun::gsub_file(path, "{{family}}", family, fixed = TRUE)
-  xfun::gsub_file(path, "{{github}}", github, fixed = TRUE)
+    create_citation_template(rel_path, meta)
 
-  ## Messages ----
-
-  if (!quiet) {
-    ui_done("Writing {ui_value('inst/CITATION')} file")
+    ui_file_written(rel_path, quiet)
   }
 
-  if (open) {
-    edit_file(path)
-  }
+  open_file_if_needed(full_path, open)
 
   invisible(NULL)
 }

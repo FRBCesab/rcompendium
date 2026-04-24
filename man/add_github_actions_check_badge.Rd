@@ -36,6 +36,7 @@ add_github_actions_check_badge()
 \seealso{
 Other adding badges: 
 \code{\link{add_codecov_badge}()},
+\code{\link{add_cran_downloads_badge}()},
 \code{\link{add_cran_version_badge}()},
 \code{\link{add_dependencies_badge}()},
 \code{\link{add_github_actions_codecov_badge}()},

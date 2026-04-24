@@ -55,6 +55,9 @@ add_citation <- function(
     organisation = organisation
   )
 
+  stop_if_null_or_empty(meta$given, "given")
+  stop_if_null_or_empty(meta$family, "family")
+
   if (should_create_file(full_path, overwrite)) {
     ensure_dir_exists(dirname(full_path))
 

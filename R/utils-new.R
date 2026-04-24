@@ -51,9 +51,6 @@ resolve_project_meta <- function(...) {
   email <- args$email %||% getOption("email")
   orcid <- args$orcid %||% getOption("orcid")
 
-  stop_if_null_or_empty(given, "given")
-  stop_if_null_or_empty(family, "family")
-
   list(
     given = given,
     family = family,

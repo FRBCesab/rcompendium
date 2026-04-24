@@ -1,7 +1,7 @@
-#' Add CRAN monthly downloads badge
+#' Add CRAN total download badge
 #'
 #' @description
-#' This function adds a **CRAN monthly downloads** badge to the `README.Rmd`.
+#' This function adds a **CRAN total download** badge to the `README.Rmd`.
 #'
 #' Make sure that 1) a `README.Rmd` file exists at the project root and 2) it
 #' contains a block starting with the line `<!-- badges: start -->` and ending
@@ -20,29 +20,29 @@
 #'
 #' @examples
 #' \dontrun{
-#' add_cran_downloads_badge()
+#' add_cran_total_download_badge()
 #' }
 
-add_cran_downloads_badge <- function(quiet = FALSE) {
+add_cran_total_download_badge <- function(quiet = FALSE) {
   stop_if_not_logical(quiet)
 
   ## Create Badge Markdown Expression ----
 
   project_name <- get_package_name()
 
-  alt <- "Monthly downloads"
+  alt <- "Total downloads"
   href <- paste0("https://CRAN.R-project.org/package=", project_name)
-  img <- paste0("https://cranlogs.r-pkg.org/badges/", project_name)
+  img <- paste0("https://cranlogs.r-pkg.org/badges/grand-total/", project_name)
 
   badge <- paste0("[![", alt, "](", img, ")](", href, ")")
 
   ## Add Badge ----
 
-  add_badge(badge, pattern = "Monthly downloads")
+  add_badge(badge, pattern = alt)
 
   if (!quiet) {
     ui_done(paste0(
-      "Adding {ui_field('Monthly downloads')} badge to ",
+      "Adding {ui_field('Total downloads')} badge to ",
       "{ui_value('README.Rmd')}"
     ))
   }

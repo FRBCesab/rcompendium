@@ -2,7 +2,7 @@
 % Please edit documentation in R/add_cran_downloads_badge.R
 \name{add_cran_downloads_badge}
 \alias{add_cran_downloads_badge}
-\title{Add CRAN monthly download badge}
+\title{Add CRAN monthly downloads badge}
 \usage{
 add_cran_downloads_badge(quiet = FALSE)
 }
@@ -14,8 +14,7 @@ add_cran_downloads_badge(quiet = FALSE)
 A badge as a markdown expression.
 }
 \description{
-This function adds a \strong{CRAN monthly download} (i.e. CRAN version) badge to
-the \code{README.Rmd}.
+This function adds a \strong{CRAN monthly downloads} badge to the \code{README.Rmd}.
 
 Make sure that 1) a \code{README.Rmd} file exists at the project root and 2) it
 contains a block starting with the line \verb{<!-- badges: start -->} and ending
@@ -31,6 +30,7 @@ add_cran_downloads_badge()
 \seealso{
 Other adding badges: 
 \code{\link{add_codecov_badge}()},
+\code{\link{add_cran_total_download_badge}()},
 \code{\link{add_cran_version_badge}()},
 \code{\link{add_dependencies_badge}()},
 \code{\link{add_github_actions_check_badge}()},

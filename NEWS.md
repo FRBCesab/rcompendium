@@ -13,7 +13,7 @@
 
   * Add a new internal function `download_template()` to download a file template from the GitHub repo <https://github.com/frbcesab/r-templates> ([#85](https://github.com/FRBCesab/rcompendium/pull/85))
   * `add_github_actions_*()` automatically creates a `.github/dependabot.yaml` file if one GitHub Action is set up ([#89](https://github.com/FRBCesab/rcompendium/pull/89))
-  * `add_cran_downloads_badge()` adds a CRAN Monthly downloads badge to the `README.Rmd`
+  * `add_cran_downloads_badge()` & `add_cran_total_download_badge()` add CRAN downloads badge to the `README.Rmd` ([#96](https://github.com/FRBCesab/rcompendium/pull/96))
 
 * **Bug fixes**
 

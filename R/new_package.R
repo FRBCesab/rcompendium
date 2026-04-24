@@ -815,6 +815,7 @@ new_package <- function(
   ui_title("Adding Badges to README")
 
   add_cran_version_badge(quiet = quiet)
+  add_cran_total_download_badge(quiet = quiet)
   add_cran_downloads_badge(quiet = quiet)
 
   if (gh_check) {

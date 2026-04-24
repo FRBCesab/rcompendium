@@ -66,7 +66,9 @@ The project can have the following status:
 
 Other adding badges:
 [`add_codecov_badge()`](https://frbcesab.github.io/rcompendium/reference/add_codecov_badge.md),
-[`add_cran_badge()`](https://frbcesab.github.io/rcompendium/reference/add_cran_badge.md),
+[`add_cran_downloads_badge()`](https://frbcesab.github.io/rcompendium/reference/add_cran_downloads_badge.md),
+[`add_cran_total_download_badge()`](https://frbcesab.github.io/rcompendium/reference/add_cran_total_download_badge.md),
+[`add_cran_version_badge()`](https://frbcesab.github.io/rcompendium/reference/add_cran_version_badge.md),
 [`add_dependencies_badge()`](https://frbcesab.github.io/rcompendium/reference/add_dependencies_badge.md),
 [`add_github_actions_check_badge()`](https://frbcesab.github.io/rcompendium/reference/add_github_actions_check_badge.md),
 [`add_github_actions_codecov_badge()`](https://frbcesab.github.io/rcompendium/reference/add_github_actions_codecov_badge.md),

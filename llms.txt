@@ -204,8 +204,12 @@ main functions `new_package` and `new_compendium` but they also can be
 used to update badges if license, lifecycle, repository status change or
 to update number of dependencies (`add_dependencies_badge`).
 
-- [`add_cran_badge()`](https://frbcesab.github.io/rcompendium/reference/add_cran_badge.md)
-  : Add a CRAN Status badge
+- [`add_cran_version_badge()`](https://frbcesab.github.io/rcompendium/reference/add_cran_version_badge.md)
+  : Add a CRAN version badge
+- [`add_cran_downloads_badge()`](https://frbcesab.github.io/rcompendium/reference/add_cran_downloads_badge.md)
+  : Add CRAN monthly downloads badge
+- [`add_cran_total_download_badge()`](https://frbcesab.github.io/rcompendium/reference/add_cran_total_download_badge.md)
+  : Add CRAN total download badge
 - [`add_dependencies_badge()`](https://frbcesab.github.io/rcompendium/reference/add_dependencies_badge.md)
   : Add a Dependencies badge
 - [`add_license_badge()`](https://frbcesab.github.io/rcompendium/reference/add_license_badge.md)

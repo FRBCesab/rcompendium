@@ -31,6 +31,11 @@
   - `add_github_actions_*()` automatically creates a
     `.github/dependabot.yaml` file if one GitHub Action is set up
     ([\#89](https://github.com/FRBCesab/rcompendium/pull/89))
+  - [`add_cran_downloads_badge()`](https://frbcesab.github.io/rcompendium/reference/add_cran_downloads_badge.md)
+    &
+    [`add_cran_total_download_badge()`](https://frbcesab.github.io/rcompendium/reference/add_cran_total_download_badge.md)
+    add CRAN downloads badge to the `README.Rmd`
+    ([\#96](https://github.com/FRBCesab/rcompendium/pull/96))
 
 - **Bug fixes**
 
@@ -44,6 +49,9 @@
     ([\#78](https://github.com/FRBCesab/rcompendium/pull/78))
   - Remove dependency to `cffr` and `codemetar` packages
     ([\#87](https://github.com/FRBCesab/rcompendium/pull/87))
+  - Rename `add_cran_badge()` in
+    [`add_cran_version_badge()`](https://frbcesab.github.io/rcompendium/reference/add_cran_version_badge.md)
+    ([\#96](https://github.com/FRBCesab/rcompendium/pull/96))
 
 ## rcompendium 1.4.0
 

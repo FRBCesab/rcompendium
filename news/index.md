@@ -34,8 +34,10 @@
   - [`add_cran_downloads_badge()`](https://frbcesab.github.io/rcompendium/reference/add_cran_downloads_badge.md)
     &
     [`add_cran_total_download_badge()`](https://frbcesab.github.io/rcompendium/reference/add_cran_total_download_badge.md)
-    add CRAN downloads badge to the `README.Rmd`
+    adds CRAN downloads badge to the `README.Rmd`
     ([\#96](https://github.com/FRBCesab/rcompendium/pull/96))
+  - [`add_codeowners()`](https://frbcesab.github.io/rcompendium/reference/add_codeowners.md)
+    creates a `.github/CODEOWNERS` file
 
 - **Bug fixes**
 

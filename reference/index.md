@@ -47,6 +47,8 @@ and `new_compendium` but they also can be used to overwrite files (with
   : Add code of conduct
 - [`add_contributing()`](https://frbcesab.github.io/rcompendium/reference/add_contributing.md)
   : Add contribution guidelines
+- [`add_codeowners()`](https://frbcesab.github.io/rcompendium/reference/add_codeowners.md)
+  : Create a CODEOWNERS file
 - [`add_testthat()`](https://frbcesab.github.io/rcompendium/reference/add_testthat.md)
   : Initialize units tests
 - [`add_vignette()`](https://frbcesab.github.io/rcompendium/reference/add_vignette.md)

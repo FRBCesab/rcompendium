@@ -69,6 +69,7 @@ No return value.
 Other create files:
 [`add_citation()`](https://frbcesab.github.io/rcompendium/reference/add_citation.md),
 [`add_code_of_conduct()`](https://frbcesab.github.io/rcompendium/reference/add_code_of_conduct.md),
+[`add_codeowners()`](https://frbcesab.github.io/rcompendium/reference/add_codeowners.md),
 [`add_compendium()`](https://frbcesab.github.io/rcompendium/reference/add_compendium.md),
 [`add_contributing()`](https://frbcesab.github.io/rcompendium/reference/add_contributing.md),
 [`add_dockerfile()`](https://frbcesab.github.io/rcompendium/reference/add_dockerfile.md),

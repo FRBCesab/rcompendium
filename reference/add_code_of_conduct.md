@@ -43,6 +43,7 @@ No return value.
 
 Other create files:
 [`add_citation()`](https://frbcesab.github.io/rcompendium/reference/add_citation.md),
+[`add_codeowners()`](https://frbcesab.github.io/rcompendium/reference/add_codeowners.md),
 [`add_compendium()`](https://frbcesab.github.io/rcompendium/reference/add_compendium.md),
 [`add_contributing()`](https://frbcesab.github.io/rcompendium/reference/add_contributing.md),
 [`add_description()`](https://frbcesab.github.io/rcompendium/reference/add_description.md),

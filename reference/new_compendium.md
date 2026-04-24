@@ -62,6 +62,7 @@ new_compendium(
   lifecycle = NULL,
   contributing = TRUE,
   code_of_conduct = TRUE,
+  code_owners = TRUE,
   vignette = FALSE,
   test = FALSE,
   create_repo = TRUE,
@@ -149,6 +150,12 @@ new_compendium(
   A logical value. If `TRUE` (default) adds a `CODE_OF_CONDUCT.md` file.
   See
   [`add_code_of_conduct()`](https://frbcesab.github.io/rcompendium/reference/add_code_of_conduct.md)
+  for further information.
+
+- code_owners:
+
+  A logical value. If `TRUE` (default) adds a `CODEOWNERS` file. See
+  [`add_codeowners()`](https://frbcesab.github.io/rcompendium/reference/add_codeowners.md)
   for further information.
 
 - vignette:

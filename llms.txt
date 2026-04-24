@@ -36,26 +36,40 @@ Marwick](https://peerj.com/preprints/3192/).
 
 ## Installation
 
+### Stable version
+
 You can install the stable version from
 [CRAN](https://cran.r-project.org/) with:
 
 ``` r
-## Install stable version of < rcompendium > from CRAN ----
 install.packages("rcompendium")
 ```
 
-Or you can install the development version from
-[GitHub](https://github.com/) with:
+Or using [`pak`](https://pak.r-lib.org/):
 
 ``` r
-## Install < remotes > package (if not already installed) ----
-if (!requireNamespace("remotes", quietly = TRUE)) {
-  install.packages("remotes")
-}
-
-## Install dev version of < rcompendium > from GitHub ----
-remotes::install_github("FRBCesab/rcompendium")
+## install.packages("pak")
+pak::pak("rcompendium")
 ```
+
+### Development version
+
+You can install the development version from
+[GitHub](https://github.com/FRBCesab/rcompendium) with:
+
+- Using [`remotes`](https://remotes.r-lib.org/):
+
+  ``` r
+  ## install.packages("remotes")
+  remotes::install_github("FRBCesab/rcompendium")
+  ```
+
+- Or using [`pak`](https://pak.r-lib.org/):
+
+  ``` r
+  ## install.packages("pak")
+  pak::pak("FRBCesab/rcompendium")
+  ```
 
 ## Usage
 

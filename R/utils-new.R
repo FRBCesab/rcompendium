@@ -198,3 +198,27 @@ stop_if_null_or_empty <- function(value, name) {
 
   invisible(NULL)
 }
+
+
+#' Error if the current working directory is not a project/package
+#' @noRd
+stop_if_not_project <- function() {
+  markers <- c(
+    "DESCRIPTION",
+    ".git",
+    ".Rproj",
+    ".here",
+    "renv.lock",
+    ".vscode/settings.json"
+  )
+
+  if (all(!file.exists(markers))) {
+    stop(paste0(
+      "The path '",
+      getwd(),
+      "' does not appear to be inside a project or package."
+    ))
+  }
+
+  invisible(NULL)
+}

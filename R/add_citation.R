@@ -41,6 +41,7 @@ add_citation <- function(
   overwrite = FALSE,
   quiet = FALSE
 ) {
+  stop_if_not_project()
   stop_if_not_logical(open, overwrite, quiet)
 
   full_path <- build_full_path("inst", "CITATION")

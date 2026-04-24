@@ -1,8 +1,8 @@
 #' Add a CRAN version badge
 #'
 #' @description
-#' This function adds a **CRAN Status** (i.e. CRAN version) badge to the 
-#' `README.Rmd`. If the package is not hosted on the CRAN the badge will 
+#' This function adds a **CRAN Status** (i.e. CRAN version) badge to the
+#' `README.Rmd`. If the package is not hosted on the CRAN the badge will
 #' indicate _not published on the CRAN_.
 #'
 #' Make sure that 1) a `README.Rmd` file exists at the project root and 2) it

@@ -1,7 +1,7 @@
 #' Add CRAN monthly download badge
 #'
 #' @description
-#' This function adds a **CRAN monthly download** (i.e. CRAN version) badge to 
+#' This function adds a **CRAN monthly download** (i.e. CRAN version) badge to
 #' the `README.Rmd`.
 #'
 #' Make sure that 1) a `README.Rmd` file exists at the project root and 2) it

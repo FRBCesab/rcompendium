@@ -44,7 +44,6 @@
 #   expect_invisible(add_license(license = "MIT", "John", "Doe", quiet = TRUE))
 # })
 
-
 # test_that("Check Credentials", {
 #   withr::local_options(list(
 #     "given" = "john",
@@ -63,7 +62,6 @@
 
 #   expect_invisible(add_license(license = "MIT", quiet = TRUE))
 # })
-
 
 # test_that("Check Files and Overwrite", {
 #   withr::local_options(list(

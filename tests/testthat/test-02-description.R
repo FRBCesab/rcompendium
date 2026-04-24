@@ -91,7 +91,6 @@ test_that("Check Inputs", {
 #   expect_true("DESCRIPTION" %in% list.files(getwd()))
 # })
 
-
 # test_that("Check Creation - Credentials in Rprofile", {
 #   create_temp_compendium()
 

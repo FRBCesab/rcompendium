@@ -64,38 +64,42 @@ This package heavily relies on the R packages
 [Hadley Wickham & Jenny Bryan](https://r-pkgs.org) and 
 [Ben Marwick](https://peerj.com/preprints/3192/).
 
-
-
-
 ## Installation
 
-
+### Stable version
 
 You can install the stable version from [CRAN](https://cran.r-project.org/) with:
 
 ```{r eval=FALSE}
-## Install stable version of < rcompendium > from CRAN ----
 install.packages("rcompendium")
 ```
 
-
-Or you can install the development version from [GitHub](https://github.com/) with:
+Or using [`pak`](https://pak.r-lib.org/):
 
 ```{r eval=FALSE}
-## Install < remotes > package (if not already installed) ----
-if (!requireNamespace("remotes", quietly = TRUE)) {
-  install.packages("remotes")
-}
-
-## Install dev version of < rcompendium > from GitHub ----
-remotes::install_github("FRBCesab/rcompendium")
+## install.packages("pak")
+pak::pak("rcompendium")
 ```
 
+### Development version
 
+You can install the development version from [GitHub](https://github.com/FRBCesab/rcompendium) with:
+
+- Using [`remotes`](https://remotes.r-lib.org/):
+
+  ```{r eval=FALSE}
+  ## install.packages("remotes")
+  remotes::install_github("FRBCesab/rcompendium")
+  ```
+
+- Or using [`pak`](https://pak.r-lib.org/):
+
+  ```{r eval=FALSE}
+  ## install.packages("pak")
+  pak::pak("FRBCesab/rcompendium")
+  ```
 
 ## Usage
-
-
 
 Please read the 
 [Get started](https://frbcesab.github.io/rcompendium/articles/rcompendium.html) vignette
@@ -108,11 +112,7 @@ Others available vignettes:
 - [Developing a Package](https://frbcesab.github.io/rcompendium/articles/developing_a_package.html)
 - [Working with a Compendium](https://frbcesab.github.io/rcompendium/articles/working_with_a_compendium.html)
 
-
-
 ## Citation
-
-
 
 Please cite this package as: 
 
@@ -135,11 +135,7 @@ citation("rcompendium")
 ## }
 ```
 
-
-
 ## Contributing
-
-
 
 All types of contributions are encouraged and valued. For more information, 
 check out our [Contribution Guidelines](https://github.com/FRBCesab/rcompendium/blob/main/CONTRIBUTING.md).
@@ -148,12 +144,7 @@ Please note that the `rcompendium` project is released with a
 [Contributor Code of Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html). 
 By contributing to this project, you agree to abide by its terms.
 
-
-
-
 ## Colophon
-
-
 
 This package is the result of intense discussions and feedbacks from the training 
 course [Reproducible Research in Computational Ecology](https://rdatatoolbox.github.io/). 

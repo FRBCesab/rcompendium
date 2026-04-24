@@ -3,6 +3,7 @@
 export(add_citation)
 export(add_code_of_conduct)
 export(add_codecov_badge)
+export(add_codeowners)
 export(add_compendium)
 export(add_contributing)
 export(add_cran_downloads_badge)

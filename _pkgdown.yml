@@ -57,7 +57,7 @@ reference:
   contents: 
   - add_cran_version_badge
   - add_cran_downloads_badge
-  - add_cran_monthly_download_badge
+  - add_cran_total_download_badge
   - add_dependencies_badge
   - add_license_badge
   - add_lifecycle_badge

@@ -2,7 +2,7 @@
 % Please edit documentation in R/add_description.R
 \name{add_description}
 \alias{add_description}
-\title{Create a DESCRIPTION file}
+\title{Add a DESCRIPTION file}
 \usage{
 add_description(
   given = NULL,
@@ -29,14 +29,14 @@ maintainer.}
 
 \item{organisation}{A character of length 1. The name of the GitHub
 organisation to host the package. If \code{NULL} (default) the GitHub account
-will be used.}
+will be used. This argument is used to set the URL of the package
+(hosted on GitHub).}
 
 \item{open}{A logical value. If \code{TRUE} (default) the file is opened in the
 editor.}
 
-\item{overwrite}{A logical value. If a \code{DESCRIPTION} is already present and
-\code{overwrite = TRUE}, this file will be erased and replaced. Default is
-\code{FALSE}.}
+\item{overwrite}{A logical value. If this file is already present and
+\code{overwrite = TRUE}, it will be erased and replaced. Default is \code{FALSE}.}
 
 \item{quiet}{A logical value. If \code{TRUE} messages are deleted. Default is
 \code{FALSE}.}
@@ -50,7 +50,7 @@ file contains metadata of the project. Some information (title, description,
 version, etc.) must be edited by hand. For more information:
 \url{https://r-pkgs.org/description.html}.
 User credentials can be passed as arguments but it is recommended to store
-them in the \code{.Rprofile} file with \code{\link[=set_credentials]{set_credentials()}}.
+them in the \code{.Rprofile} file of the project with \code{\link[=set_credentials]{set_credentials()}}.
 }
 \examples{
 \dontrun{

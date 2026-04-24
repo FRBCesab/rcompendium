@@ -60,6 +60,7 @@ resolve_project_meta <- function(...) {
     github_account = resolve_github_account(args$organisation),
     project_name = get_package_name(),
     git_branch = get_git_branch_name(),
+    roxygen2_version = get_roxygen2_version(),
     year = format(Sys.Date(), "%Y")
   )
 }

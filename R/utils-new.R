@@ -132,6 +132,23 @@ create_citation_template <- function(path, meta) {
 }
 
 
+#' Download the CODE_OF_CONDUCT file and replace default values
+#' @param path a character of length of 1. The absolute path of the file.
+#' @param meta a list of the project metadata.
+#' @noRd
+create_code_of_conduct_template <- function(path, meta) {
+  download_template(
+    slug = "contributing/CODE_OF_CONDUCT.MD",
+    filename = basename(path),
+    outdir = dirname(path)
+  )
+
+  populate_citation_template(build_full_path(path), meta)
+
+  invisible(NULL)
+}
+
+
 #' Replace default values in the CITATION file
 #' @param path a character of length of 1. The absolute path of the file.
 #' @param meta a list of the project metadata.
@@ -142,6 +159,17 @@ populate_citation_template <- function(path, meta) {
   xfun::gsub_file(path, "{{family}}", meta$family, fixed = TRUE)
   xfun::gsub_file(path, "{{github}}", meta$github_account, fixed = TRUE)
   xfun::gsub_file(path, "{{year}}", meta$year, fixed = TRUE)
+
+  invisible(NULL)
+}
+
+
+#' Replace default values in the CODE_OF_CONDUCT file
+#' @param path a character of length of 1. The absolute path of the file.
+#' @param meta a list of the project metadata.
+#' @noRd
+populate_code_of_conduct_template <- function(path, meta) {
+  xfun::gsub_file(path, "{{email}}", meta$email, fixed = TRUE)
 
   invisible(NULL)
 }

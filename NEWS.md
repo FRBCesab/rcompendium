@@ -13,6 +13,7 @@
 
   * Add a new internal function `download_template()` to download a file template from the GitHub repo <https://github.com/frbcesab/r-templates> ([#85](https://github.com/FRBCesab/rcompendium/pull/85))
   * `add_github_actions_*()` automatically creates a `.github/dependabot.yaml` file if one GitHub Action is set up ([#89](https://github.com/FRBCesab/rcompendium/pull/89))
+  * `add_cran_downloads_badge()` & `add_cran_total_download_badge()` add CRAN downloads badge to the `README.Rmd` ([#96](https://github.com/FRBCesab/rcompendium/pull/96))
 
 * **Bug fixes**
 
@@ -22,6 +23,7 @@
   * Add dependabot for GitHub Actions([#77](https://github.com/FRBCesab/rcompendium/pull/77))
   * Add download badges in README ([#78](https://github.com/FRBCesab/rcompendium/pull/78))
   * Remove dependency to `cffr` and `codemetar` packages ([#87](https://github.com/FRBCesab/rcompendium/pull/87))
+  * Rename `add_cran_badge()` in `add_cran_version_badge()` ([#96](https://github.com/FRBCesab/rcompendium/pull/96))
 
 # rcompendium 1.4.0
 

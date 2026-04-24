@@ -1,9 +1,9 @@
-#' Add a CRAN Status badge
+#' Add a CRAN version badge
 #'
 #' @description
-#' This function adds a **CRAN Status** badge to the `README.Rmd`. If the
-#' package is not hosted on the CRAN the badge will indicate
-#' _not published on the CRAN_.
+#' This function adds a **CRAN Status** (i.e. CRAN version) badge to the
+#' `README.Rmd`. If the package is not hosted on the CRAN the badge will
+#' indicate _not published on the CRAN_.
 #'
 #' Make sure that 1) a `README.Rmd` file exists at the project root and 2) it
 #' contains a block starting with the line `<!-- badges: start -->` and ending
@@ -22,10 +22,10 @@
 #'
 #' @examples
 #' \dontrun{
-#' add_cran_badge()
+#' add_cran_version_badge()
 #' }
 
-add_cran_badge <- function(quiet = FALSE) {
+add_cran_version_badge <- function(quiet = FALSE) {
   stop_if_not_logical(quiet)
 
   ## Create Badge Markdown Expression ----

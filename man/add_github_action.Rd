@@ -80,6 +80,7 @@ add_github_action(name = "R-CMD-check")
 }
 \seealso{
 Other development functions: 
+\code{\link{add_dependabot}()},
 \code{\link{add_dependencies}()},
 \code{\link{add_r_depend}()},
 \code{\link{add_to_buildignore}()},

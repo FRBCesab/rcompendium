@@ -6,15 +6,7 @@
 #' compendium. The content of this file provides some guidelines. See also
 #' [new_compendium()] for further information.
 #'
-#' @param open A logical value. If `TRUE` (default) the file is opened in the
-#'   editor.
-#'
-#' @param overwrite A logical value. If this file is already present and
-#'   `overwrite = TRUE`, it will be erased and replaced. Default is `FALSE`.
-#'
-#' @param quiet A logical value. If `TRUE` messages are deleted. Default is
-#'   `FALSE`.
-#'
+#' @inheritParams add_citation
 #' @inheritParams set_credentials
 #'
 #' @return No return value.
@@ -36,68 +28,33 @@ add_makefile <- function(
   overwrite = FALSE,
   quiet = FALSE
 ) {
+  stop_if_not_project()
   stop_if_not_logical(open, overwrite, quiet)
 
-  path <- file.path(path_proj(), "make.R")
+  rel_path <- build_rel_path("make.R")
+  full_path <- build_full_path(rel_path)
 
-  ## Do not replace current file but open it if required ----
+  assert_file_not_exists_or_overwrite(rel_path, overwrite)
 
-  if (file.exists(path) && !overwrite) {
-    if (!open) {
-      stop(
-        "A 'make.R' file is already present. If you want to ",
-        "replace it, please use `overwrite = TRUE`."
-      )
-    } else {
-      edit_file(path)
-      return(invisible(NULL))
-    }
-  }
-
-  ## Get fields values ----
-
-  if (is.null(given)) {
-    given <- getOption("given")
-  }
-  if (is.null(family)) {
-    family <- getOption("family")
-  }
-  if (is.null(email)) {
-    email <- getOption("email")
-  }
-
-  stop_if_not_string(given, family, email)
-
-  project_name <- get_package_name()
-  today <- format(Sys.time(), "%Y/%m/%d")
-
-  ## Download template ----
-
-  download_template(
-    slug = "others/make.R",
-    filename = "make.R",
-    outdir = NULL
+  meta <- resolve_project_meta(
+    given = given,
+    family = family,
+    email = email
   )
 
-  ## Update default values ----
+  stop_if_null_or_empty(meta$given, "given")
+  stop_if_null_or_empty(meta$family, "family")
+  stop_if_null_or_empty(meta$email, "email")
 
-  xfun::gsub_file(path, "{{date}}", today, fixed = TRUE)
-  xfun::gsub_file(path, "{{project_name}}", project_name, fixed = TRUE)
-  xfun::gsub_file(path, "{{given}}", given, fixed = TRUE)
-  xfun::gsub_file(path, "{{family}}", family, fixed = TRUE)
-  xfun::gsub_file(path, "{{email}}", email, fixed = TRUE)
+  if (should_create_file(full_path, overwrite)) {
+    ensure_dir_exists(dirname(full_path))
 
-  ## Message ----
+    create_template("others/make.R", rel_path, meta)
 
-  if (!quiet) {
-    ui_done("Writing {ui_value('make.R')} file")
+    ui_file_written(rel_path, quiet)
   }
 
-  add_to_buildignore("make.R", quiet = quiet)
-
-  if (open) {
-    edit_file(path)
-  }
+  open_file_if_needed(full_path, open)
 
   invisible(NULL)
 }

@@ -81,6 +81,7 @@ reference:
   - add_to_gitignore
   - add_to_buildignore
   - add_github_action
+  - add_dependabot
   
 - title: Utilities functions
   desc: |

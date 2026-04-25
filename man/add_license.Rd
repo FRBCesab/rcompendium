@@ -2,23 +2,19 @@
 % Please edit documentation in R/add_license.R
 \name{add_license}
 \alias{add_license}
-\title{Add a LICENSE}
+\title{Add a LICENSE file}
 \usage{
 add_license(license = NULL, given = NULL, family = NULL, quiet = FALSE)
 }
 \arguments{
-\item{license}{A character of length 1. The chosen license.
+\item{license}{A character of length 1. The license name.
 Run \code{\link[=get_licenses]{get_licenses()}}) to select an appropriate one.}
 
-\item{given}{A character of length 1. The given name of the copyright holder.
-Only required if \code{license = 'MIT'}. If is \code{NULL} (default) and
-\code{license = 'MIT'}, this function will try to retrieve the value of this
-parameter from the \code{.Rprofile} file (edited with \code{\link[=set_credentials]{set_credentials()}}).}
+\item{given}{A character of length 1. The given name of the project
+maintainer.}
 
-\item{family}{A character of length 1. The family name of the copyright
-holder. Only required if \code{license = 'MIT'}. If is \code{NULL} (default) and
-\code{license = 'MIT'}, this function will try to retrieve the value of this
-parameter from the \code{.Rprofile} file (edited with \code{\link[=set_credentials]{set_credentials()}}).}
+\item{family}{A character of length 1. The family name of the project
+maintainer.}
 
 \item{quiet}{A logical value. If \code{TRUE} messages are deleted. Default is
 \code{FALSE}.}
@@ -29,7 +25,7 @@ No return value.
 \description{
 This function adds a license to the project. It will add the license name
 in the \code{License} field of the \code{DESCRIPTION} file and write the content of
-the license in the \code{License.md} file.
+the license in a \code{LICENSE.md} file.
 }
 \examples{
 \dontrun{

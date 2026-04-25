@@ -56,10 +56,26 @@ resolve_project_meta <- function(...) {
     family = family,
     email = email,
     orcid = orcid,
+
+    project_name = get_package_name(),
+    project_version = get_package_version(),
+    license = get_project_license_name(),
+    license_url = get_project_license_url(),
+
     github_user = get_github_user(),
     github_account = resolve_github_account(args$organisation),
-    package_name = get_package_name(),
-    year = format(Sys.Date(), "%Y")
+    git_branch = get_git_branch_name(),
+
+    r_version = paste(
+      utils::sessionInfo()$"R.version"$"major",
+      utils::sessionInfo()$"R.version"$"minor",
+      sep = "."
+    ),
+    roxygen2_version = get_roxygen2_version(),
+    renv_version = utils::packageVersion("renv"),
+
+    year = format(Sys.Date(), "%Y"),
+    date = format(Sys.time(), "%Y/%m/%d")
   )
 }
 
@@ -115,33 +131,43 @@ ensure_dir_exists <- function(path) {
 }
 
 
-#' Download the CITATION file and replace default values
+#' Download a file template and replace default values
+#' @param slug a character of length of 1. The URL slug of the file template.
 #' @param path a character of length of 1. The absolute path of the file.
 #' @param meta a list of the project metadata.
 #' @noRd
-create_citation_template <- function(path, meta) {
+create_template <- function(slug, path, meta) {
   download_template(
-    slug = "package/CITATION",
+    slug = slug,
     filename = basename(path),
     outdir = dirname(path)
   )
 
-  populate_citation_template(build_full_path(path), meta)
+  populate_template(build_full_path(path), meta)
 
   invisible(NULL)
 }
 
 
-#' Replace default values in the CITATION file
+#' Replace default values in templates
 #' @param path a character of length of 1. The absolute path of the file.
 #' @param meta a list of the project metadata.
 #' @noRd
-populate_citation_template <- function(path, meta) {
-  xfun::gsub_file(path, "{{project_name}}", meta$package_name, fixed = TRUE)
-  xfun::gsub_file(path, "{{given}}", meta$given, fixed = TRUE)
-  xfun::gsub_file(path, "{{family}}", meta$family, fixed = TRUE)
-  xfun::gsub_file(path, "{{github}}", meta$github_account, fixed = TRUE)
-  xfun::gsub_file(path, "{{year}}", meta$year, fixed = TRUE)
+populate_template <- function(path, meta) {
+  for (name in names(meta)) {
+    value <- meta[[name]]
+
+    if (!is.null(value)) {
+      placeholder <- paste0("{{", name, "}}")
+
+      xfun::gsub_file(
+        path,
+        pattern = placeholder,
+        replacement = as.character(value),
+        fixed = TRUE
+      )
+    }
+  }
 
   invisible(NULL)
 }
@@ -159,6 +185,18 @@ ui_file_written <- function(path, quiet = FALSE) {
   invisible(NULL)
 }
 
+
+#' Inform user that a file has been written
+#' @param path a character of length of 1. The absolute path of the file.
+#' @param quiet a logical of length 1.
+#' @noRd
+ui_file_not_written <- function(path, quiet = FALSE) {
+  if (!quiet) {
+    cli::cli_alert_danger("The {.file {path}} file already exists")
+  }
+
+  invisible(NULL)
+}
 
 #' Open a file if required
 #' @param path a character of length of 1. The absolute path of the file.
@@ -218,4 +256,179 @@ stop_if_not_project <- function() {
   }
 
   invisible(NULL)
+}
+
+
+#' Error if the license name if not available
+#' @param license a character of length of 1. The name of the license.
+#' @noRd
+assert_valid_license_name <- function(license) {
+  stop_if_null_or_empty(license)
+  stop_if_not_string(license)
+
+  license_id <- which(licenses$tag == license)
+
+  if (length(license_id) == 0) {
+    stop(
+      "Invalid license. Please use `get_licenses()` to select an ",
+      "appropriate one."
+    )
+  }
+
+  invisible(NULL)
+}
+
+
+#' Error if given & family are not provided (MIT only)
+#' @param license a character of length of 1. The name of the license.
+#' @param meta a list of the project metadata.
+#' @noRd
+assert_valid_mit_meta <- function(license, meta) {
+  if (license == "MIT") {
+    if (is.null(meta$given)) {
+      stop(
+        "Given name of the coypright holder is mandatory with the ",
+        "license MIT. Please use the argument `given` or the function ",
+        "`set_credentials()`.",
+        call. = FALSE
+      )
+    }
+
+    if (is.null(meta$family)) {
+      stop(
+        "Family name of the coypright holder is mandatory with the ",
+        "license MIT. Please use the argument `family` or the function ",
+        "`set_credentials()`.",
+        call. = FALSE
+      )
+    }
+
+    stop_if_not_string(meta$given)
+    stop_if_not_string(meta$family)
+  }
+
+  invisible(NULL)
+}
+
+
+#' Return TRUE if the license should be added/updated
+#' @param license a character of length of 1. The name of the license.
+#' @noRd
+should_update_license <- function(license) {
+  descr_license <- get_project_license_name()
+
+  if (!is.null(descr_license)) {
+    if (descr_license == license) {
+      return(FALSE)
+    } else {
+      return(TRUE)
+    }
+  }
+}
+
+
+#' Update the License field in the DESCRIPTION file
+#' @param license a character of length of 1. The name of the license.
+#' @noRd
+update_license_field_in_desc <- function(license, quiet = FALSE) {
+  descr <- read_descr()
+  descr$"License" <- ifelse(license == "MIT", "MIT + file LICENSE", license)
+  write_descr(descr)
+
+  if (!quiet) {
+    cli::cli_alert_success(
+      "Setting {.field License} field in DESCRIPTION to {.val {license}}"
+    )
+  }
+
+  invisible(NULL)
+}
+
+
+#' Update the License field in the DESCRIPTION file
+#' @param license a character of length of 1. The name of the license.
+#' @param meta a list of the project metadata.
+#' @noRd
+create_mit_copyright_holder_file <- function(license, meta, quiet = FALSE) {
+  full_path <- build_full_path("LICENSE")
+
+  if (license == "MIT") {
+    content <- c(
+      paste("YEAR:", meta$year),
+      paste("COPYRIGHT HOLDER:", meta$given, meta$family)
+    )
+
+    writeLines(text = content, con = full_path)
+
+    ui_file_written("LICENSE", quiet = quiet)
+  } else {
+    if (file.exists(full_path)) {
+      invisible(
+        file.remove(full_path)
+      )
+    }
+  }
+
+  invisible(NULL)
+}
+
+
+#' Retrive license information (file name, url, etc.)
+#' @param license a character of length of 1. The name of the license.
+#' @noRd
+get_license_meta <- function(license) {
+  license_id <- which(licenses$tag == license)
+  as.list(licenses[license_id, ])
+}
+
+
+#' Error if the GH Action name if not available
+#' @param name a character of length of 1. The name of the GH Action.
+#' @noRd
+assert_valid_gh_action_name <- function(name) {
+  available_actions <- get_available_gh_actions()
+
+  if (!(name %in% available_actions)) {
+    stop(
+      paste0(
+        "The action '",
+        name,
+        "' is not available. Please run ",
+        "`get_available_gh_actions()` to list available GitHub Actions."
+      )
+    )
+  }
+
+  invisible(NULL)
+}
+
+
+#' Error if the project is not package or compendium
+#' @param type a character of length of 1. The type of the project.
+#' @noRd
+assert_valid_project_type <- function(type) {
+  stop_if_null_or_empty(type)
+  stop_if_not_string(type)
+
+  if (!(type %in% c("package", "compendium"))) {
+    stop("Argument 'type' must be 'package' or 'compendium'.", call. = FALSE)
+  }
+
+  invisible(NULL)
+}
+
+
+#' Retrieve the name of the license used in the project
+#' @noRd
+get_project_license_name <- function() {
+  descr_file <- read_descr()
+  gsub(" \\+ file LICENSE", "", descr_file$License)
+}
+
+
+#' Retrieve the URL of the license used in the project
+#' @noRd
+get_project_license_url <- function() {
+  license <- get_project_license_name()
+  get_license_meta(license)$url
 }

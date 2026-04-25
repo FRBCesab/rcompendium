@@ -2,7 +2,7 @@
 % Please edit documentation in R/add_contributing.R
 \name{add_contributing}
 \alias{add_contributing}
-\title{Add contribution guidelines}
+\title{Add a CONTRIBUTING file}
 \usage{
 add_contributing(
   email = NULL,
@@ -21,11 +21,11 @@ organisation to host the package. If \code{NULL} (default) the GitHub account
 will be used. This argument is used to set the URL of the package
 (hosted on GitHub).}
 
-\item{open}{A logical value. If \code{TRUE} (default) the \code{CONTRIBUTING.md} file
-is opened in the editor.}
+\item{open}{A logical value. If \code{TRUE} (default) the file is opened in the
+editor.}
 
-\item{overwrite}{A logical value. If files are already present and
-\code{overwrite = TRUE}, they will be erased and replaced. Default is \code{FALSE}.}
+\item{overwrite}{A logical value. If this file is already present and
+\code{overwrite = TRUE}, it will be erased and replaced. Default is \code{FALSE}.}
 
 \item{quiet}{A logical value. If \code{TRUE} messages are deleted. Default is
 \code{FALSE}.}
@@ -34,18 +34,8 @@ is opened in the editor.}
 No return value.
 }
 \description{
-This function creates several files to help the user to learn how to
-contribute to the project:
-\itemize{
-\item \code{CONTRIBUTING.md}: general guidelines outlining the best way to contribute
-to the project (can be modified);
-\item \code{.github/ISSUE_TEMPLATE/bug_report.md}: an issue template to report a bug
-(can be modified);
-\item \code{.github/ISSUE_TEMPLATE/feature_request.md}: an issue template to suggest
-a new feature (can be modified);
-\item \code{.github/ISSUE_TEMPLATE/other_issue.md}: an issue template for all other
-types of issue (can be modified).
-}
+This function creates a \code{CONTRIBUTING.md} file providing general guidelines
+outlining the best way to contribute to the project (need to be adapted).
 }
 \examples{
 \dontrun{

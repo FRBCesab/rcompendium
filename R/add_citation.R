@@ -44,8 +44,8 @@ add_citation <- function(
   stop_if_not_project()
   stop_if_not_logical(open, overwrite, quiet)
 
-  full_path <- build_full_path("inst", "CITATION")
   rel_path <- build_rel_path("inst", "CITATION")
+  full_path <- build_full_path(rel_path)
 
   assert_file_not_exists_or_overwrite(rel_path, overwrite)
 
@@ -61,7 +61,7 @@ add_citation <- function(
   if (should_create_file(full_path, overwrite)) {
     ensure_dir_exists(dirname(full_path))
 
-    create_citation_template(rel_path, meta)
+    create_template("package/CITATION", rel_path, meta)
 
     ui_file_written(rel_path, quiet)
   }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/add_code_of_conduct.R
 \name{add_code_of_conduct}
 \alias{add_code_of_conduct}
-\title{Add code of conduct}
+\title{Add a CODE OF CONDUCT file}
 \usage{
 add_code_of_conduct(
   email = NULL,
@@ -15,11 +15,11 @@ add_code_of_conduct(
 \item{email}{A character of length 1. The email address of the project
 maintainer.}
 
-\item{open}{A logical value. If \code{TRUE} (default) the \code{CONTRIBUTING.md} file
-is opened in the editor.}
+\item{open}{A logical value. If \code{TRUE} (default) the file is opened in the
+editor.}
 
-\item{overwrite}{A logical value. If files are already present and
-\code{overwrite = TRUE}, they will be erased and replaced. Default is \code{FALSE}.}
+\item{overwrite}{A logical value. If this file is already present and
+\code{overwrite = TRUE}, it will be erased and replaced. Default is \code{FALSE}.}
 
 \item{quiet}{A logical value. If \code{TRUE} messages are deleted. Default is
 \code{FALSE}.}

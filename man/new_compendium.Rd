@@ -16,6 +16,7 @@ new_compendium(
   test = FALSE,
   create_repo = TRUE,
   private = FALSE,
+  issue_templates = TRUE,
   gh_check = FALSE,
   codecov = FALSE,
   website = FALSE,
@@ -94,6 +95,10 @@ See the section \strong{Creating a GitHub repo} of the help page of
 
 \item{private}{A logical value. If \code{TRUE} creates a private repository on
 user GitHub account (or organisation). Default is \code{private = FALSE}.}
+
+\item{issue_templates}{A logical value. If \code{TRUE} (default) creates GitHub
+Issue Templates (\code{md} files) in \code{.github/ISSUE_TEMPLATES}.
+See \code{\link[=add_issue_template]{add_issue_template()}} for further information.}
 
 \item{gh_check}{A logical value. If \code{TRUE} configures GitHub
 Actions to automatically check and test the package after each push. This

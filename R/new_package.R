@@ -92,6 +92,10 @@
 #' @param private A logical value. If `TRUE` creates a private repository on
 #'   user GitHub account (or organisation). Default is `private = FALSE`.
 #'
+#' @param issue_templates A logical value. If `TRUE` (default) creates GitHub
+#'   Issue Templates (`md` files) in `.github/ISSUE_TEMPLATES`.
+#'   See [add_issue_template()] for further information.
+#'
 #' @param gh_check A logical value. If `TRUE` (default) configures GitHub
 #'   Actions to automatically check and test the package after each push. This
 #'   will run `R CMD check` on the three major operating systems (Ubuntu, macOS,
@@ -310,6 +314,7 @@ new_package <- function(
   test = TRUE,
   create_repo = TRUE,
   private = FALSE,
+  issue_templates = TRUE,
   gh_check = TRUE,
   codecov = TRUE,
   website = TRUE,
@@ -664,6 +669,25 @@ new_package <- function(
       overwrite = overwrite,
       quiet = quiet
     )
+  }
+
+  ##
+  ## ADDING CODEOWNERS ----
+  ##
+
+  if (issue_templates) {
+    ui_title("Adding ISSUE_TEMPLATE")
+
+    issues <- get_available_issue_templates()
+
+    for (issue in issues) {
+      add_issue_template(
+        name = issue,
+        open = FALSE,
+        overwrite = overwrite,
+        quiet = quiet
+      )
+    }
   }
 
   ##

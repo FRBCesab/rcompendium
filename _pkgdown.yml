@@ -41,6 +41,7 @@ reference:
   - add_code_of_conduct
   - add_contributing
   - add_codeowners
+  - add_issue_template
   - add_testthat
   - add_vignette
   - add_readme_rmd
@@ -91,4 +92,5 @@ reference:
   - get_all_dependencies
   - get_all_functions
   - get_available_gh_actions
+  - get_available_issue_templates
   - get_minimal_r_version

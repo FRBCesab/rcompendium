@@ -6,14 +6,7 @@
 #' (where `pkg` is the name of the package). It a good place to put general
 #' directives like `@import` and `@importFrom`.
 #'
-#' @param open A logical value. If `TRUE` (default) the file is opened in the
-#'   editor.
-#'
-#' @param overwrite A logical value. If this file is already present and
-#'   `overwrite = TRUE`, it will be erased and replaced. Default is `FALSE`.
-#'
-#' @param quiet A logical value. If `TRUE` messages are deleted. Default is
-#'   `FALSE`.
+#' @inheritParams add_citation
 #'
 #' @return No return value.
 #'
@@ -26,45 +19,30 @@
 #' add_package_doc()
 #' }
 
-add_package_doc <- function(open = TRUE, overwrite = FALSE, quiet = FALSE) {
+add_package_doc <- function(
+  open = TRUE,
+  overwrite = FALSE,
+  quiet = FALSE
+) {
+  stop_if_not_project()
   stop_if_not_logical(open, overwrite, quiet)
 
-  filename <- paste0(get_package_name(), "-package.R")
-  path <- file.path(path_proj(), "R", filename)
+  meta <- resolve_project_meta()
 
-  ## Do not replace current file but open it if required ----
+  full_path <- build_full_path("R", paste0(meta$project_name, "-package.R"))
+  rel_path <- build_rel_path("R", paste0(meta$project_name, "-package.R"))
 
-  if (file.exists(path) && !overwrite) {
-    if (!open) {
-      stop(
-        "A 'R/",
-        filename,
-        "' file is already present. If you want to ",
-        "replace it, please use `overwrite = TRUE`."
-      )
-    } else {
-      edit_file(path)
-      return(invisible(NULL))
-    }
+  assert_file_not_exists_or_overwrite(rel_path, overwrite)
+
+  if (should_create_file(full_path, overwrite)) {
+    ensure_dir_exists(dirname(full_path))
+
+    create_template("package/package-package.R", rel_path, meta)
+
+    ui_file_written(rel_path, quiet)
   }
 
-  if (!dir.exists(file.path(path_proj(), "R"))) {
-    dir.create(file.path(path_proj(), "R"), showWarnings = FALSE)
-  }
-
-  download_template(
-    slug = "package/package-package.R",
-    filename = filename,
-    outdir = file.path(path_proj(), "R")
-  )
-
-  if (!quiet) {
-    ui_done("Writing {ui_value(paste0('R/', filename))} file")
-  }
-
-  if (open) {
-    edit_file(path)
-  }
+  open_file_if_needed(full_path, open)
 
   invisible(NULL)
 }

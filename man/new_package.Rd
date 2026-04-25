@@ -15,6 +15,7 @@ new_package(
   test = TRUE,
   create_repo = TRUE,
   private = FALSE,
+  issue_templates = TRUE,
   gh_check = TRUE,
   codecov = TRUE,
   website = TRUE,
@@ -89,6 +90,10 @@ See below the section \strong{Creating a GitHub repo}.}
 
 \item{private}{A logical value. If \code{TRUE} creates a private repository on
 user GitHub account (or organisation). Default is \code{private = FALSE}.}
+
+\item{issue_templates}{A logical value. If \code{TRUE} (default) creates GitHub
+Issue Templates (\code{md} files) in \code{.github/ISSUE_TEMPLATES}.
+See \code{\link[=add_issue_template]{add_issue_template()}} for further information.}
 
 \item{gh_check}{A logical value. If \code{TRUE} (default) configures GitHub
 Actions to automatically check and test the package after each push. This

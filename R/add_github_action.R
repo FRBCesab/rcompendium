@@ -86,103 +86,31 @@ add_github_action <- function(
   overwrite = FALSE,
   quiet = FALSE
 ) {
-  stop_if_not_logical(open, overwrite, quiet)
+  stop_if_not_project()
   stop_if_not_string(name)
+  stop_if_not_logical(open, overwrite, quiet)
 
-  ## Check if user is using git ----
+  assert_valid_gh_action_name(name)
 
-  if (!dir.exists(file.path(path_proj(), ".git"))) {
-    stop("The project is not versioned with git.")
+  full_path <- build_full_path(".github", "workflows", paste0(name, ".yaml"))
+  rel_path <- build_rel_path(".github", "workflows", paste0(name, ".yaml"))
+
+  assert_file_not_exists_or_overwrite(rel_path, overwrite)
+
+  meta <- resolve_project_meta()
+
+  if (should_create_file(full_path, overwrite)) {
+    ensure_dir_exists(dirname(full_path))
+
+    create_template(paste0("actions/", basename(rel_path)), rel_path, meta)
+
+    ui_file_written(rel_path, quiet)
+    add_to_buildignore(".github", quiet = quiet)
+
+    add_dependabot(overwrite = overwrite, quiet = quiet)
   }
 
-  ## Check if action is available ----
-
-  action <- clean_gh_action_name(name)
-  available_actions <- get_available_gh_actions()
-
-  if (!(action %in% tolower(available_actions))) {
-    stop(
-      paste0(
-        "The action '",
-        name,
-        "' is not available. Please run ",
-        "`get_available_gh_actions()` to list available GitHub Actions."
-      )
-    )
-  }
-
-  ## Create file name & path ----
-
-  action <- available_actions[which(tolower(available_actions) == action)]
-  filename <- paste0(action, ".yaml")
-  path <- file.path(".github", "workflows")
-
-  ## Do not replace current file but open it if required ----
-
-  if (file.exists(file.path(path_proj(), path, filename)) && !overwrite) {
-    if (!open) {
-      stop(
-        paste0(
-          "A '",
-          file.path(path, filename),
-          "' file already exists. ",
-          "If you want to replace it, please use `overwrite = TRUE`."
-        )
-      )
-    } else {
-      edit_file(file.path(path_proj(), path, filename))
-      return(invisible(NULL))
-    }
-  }
-
-  ## Download template ----
-
-  dir.create(
-    file.path(path_proj(), path),
-    showWarnings = FALSE,
-    recursive = TRUE
-  )
-
-  add_to_buildignore(".github", quiet = FALSE)
-
-  download_template(
-    slug = paste0("actions/", filename),
-    filename = filename,
-    outdir = path
-  )
-
-  if (!quiet) {
-    ui_done(paste0(
-      "Writing {ui_value('",
-      file.path(path, filename),
-      "')} file"
-    ))
-  }
-
-  if (open) {
-    edit_file(path)
-  }
-
-  ## Add dependabot ----
-
-  filename <- "dependabot.yaml"
-  path <- file.path(".github")
-
-  if (!file.exists(file.path(path_proj(), path, filename))) {
-    download_template(
-      slug = paste0("actions/", filename),
-      filename = filename,
-      outdir = path
-    )
-
-    if (!quiet) {
-      ui_done(paste0(
-        "Writing {ui_value('",
-        file.path(path, filename),
-        "')} file"
-      ))
-    }
-  }
+  open_file_if_needed(full_path, open)
 
   invisible(NULL)
 }

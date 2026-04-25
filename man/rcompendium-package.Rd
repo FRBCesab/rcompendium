@@ -113,9 +113,11 @@ calling \code{\link[gh:gh_whoami]{gh::gh_whoami()}}:
 
 \itemize{
 \item Developing an R package:
-\url{https://frbcesab.github.io/rcompendium/articles/developing_a_package.html}
+\url{https://frbcesab.github.io/rcompendium/articles/
+developing_a_package.html}
 \item Working with a compendium:
-\url{https://frbcesab.github.io/rcompendium/articles/working_with_a_compendium.html}
+\url{https://frbcesab.github.io/rcompendium/articles/
+working_with_a_compendium.html}
 }
 }
 

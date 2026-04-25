@@ -377,3 +377,24 @@ get_license_meta <- function(license) {
   license_id <- which(licenses$tag == license)
   as.list(licenses[license_id, ])
 }
+
+
+#' Error if the GH Action name if not available
+#' @param name a character of length of 1. The name of the GH Action.
+#' @noRd
+assert_valid_gh_action_name <- function(name) {
+  available_actions <- get_available_gh_actions()
+
+  if (!(name %in% available_actions)) {
+    stop(
+      paste0(
+        "The action '",
+        name,
+        "' is not available. Please run ",
+        "`get_available_gh_actions()` to list available GitHub Actions."
+      )
+    )
+  }
+
+  invisible(NULL)
+}

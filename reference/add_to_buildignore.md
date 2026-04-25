@@ -36,6 +36,7 @@ Other development functions:
 [`add_dependabot()`](https://frbcesab.github.io/rcompendium/reference/add_dependabot.md),
 [`add_dependencies()`](https://frbcesab.github.io/rcompendium/reference/add_dependencies.md),
 [`add_github_action()`](https://frbcesab.github.io/rcompendium/reference/add_github_action.md),
+[`add_issue_template()`](https://frbcesab.github.io/rcompendium/reference/add_issue_template.md),
 [`add_r_depend()`](https://frbcesab.github.io/rcompendium/reference/add_r_depend.md),
 [`add_to_gitignore()`](https://frbcesab.github.io/rcompendium/reference/add_to_gitignore.md)
 

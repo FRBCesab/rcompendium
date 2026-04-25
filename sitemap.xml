@@ -28,6 +28,7 @@
 <url><loc>https://frbcesab.github.io/rcompendium/reference/add_github_actions_check_badge.html</loc></url>
 <url><loc>https://frbcesab.github.io/rcompendium/reference/add_github_actions_codecov_badge.html</loc></url>
 <url><loc>https://frbcesab.github.io/rcompendium/reference/add_github_actions_pkgdown_badge.html</loc></url>
+<url><loc>https://frbcesab.github.io/rcompendium/reference/add_issue_template.html</loc></url>
 <url><loc>https://frbcesab.github.io/rcompendium/reference/add_license.html</loc></url>
 <url><loc>https://frbcesab.github.io/rcompendium/reference/add_license_badge.html</loc></url>
 <url><loc>https://frbcesab.github.io/rcompendium/reference/add_lifecycle_badge.html</loc></url>
@@ -44,6 +45,7 @@
 <url><loc>https://frbcesab.github.io/rcompendium/reference/get_all_dependencies.html</loc></url>
 <url><loc>https://frbcesab.github.io/rcompendium/reference/get_all_functions.html</loc></url>
 <url><loc>https://frbcesab.github.io/rcompendium/reference/get_available_gh_actions.html</loc></url>
+<url><loc>https://frbcesab.github.io/rcompendium/reference/get_available_issue_templates.html</loc></url>
 <url><loc>https://frbcesab.github.io/rcompendium/reference/get_licenses.html</loc></url>
 <url><loc>https://frbcesab.github.io/rcompendium/reference/get_minimal_r_version.html</loc></url>
 <url><loc>https://frbcesab.github.io/rcompendium/reference/index.html</loc></url>

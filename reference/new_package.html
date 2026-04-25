@@ -130,6 +130,7 @@ will be added in the <code>.github/</code> folder. See below the section
 <span>  test <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  create_repo <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  private <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  issue_templates <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  gh_check <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  codecov <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  website <span class="op">=</span> <span class="cn">TRUE</span>,</span>
@@ -222,6 +223,12 @@ See below the section <strong>Creating a GitHub repo</strong>.</p></dd>
 <dt id="arg-private">private<a class="anchor" aria-label="anchor" href="#arg-private"></a></dt>
 <dd><p>A logical value. If <code>TRUE</code> creates a private repository on
 user GitHub account (or organisation). Default is <code>private = FALSE</code>.</p></dd>
+
+
+<dt id="arg-issue-templates">issue_templates<a class="anchor" aria-label="anchor" href="#arg-issue-templates"></a></dt>
+<dd><p>A logical value. If <code>TRUE</code> (default) creates GitHub
+Issue Templates (<code>md</code> files) in <code>.github/ISSUE_TEMPLATES</code>.
+See <code><a href="add_issue_template.html">add_issue_template()</a></code> for further information.</p></dd>
 
 
 <dt id="arg-gh-check">gh_check<a class="anchor" aria-label="anchor" href="#arg-gh-check"></a></dt>

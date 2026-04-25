@@ -67,6 +67,7 @@ new_compendium(
   test = FALSE,
   create_repo = TRUE,
   private = FALSE,
+  issue_templates = TRUE,
   gh_check = FALSE,
   codecov = FALSE,
   website = FALSE,
@@ -183,6 +184,13 @@ new_compendium(
 
   A logical value. If `TRUE` creates a private repository on user GitHub
   account (or organisation). Default is `private = FALSE`.
+
+- issue_templates:
+
+  A logical value. If `TRUE` (default) creates GitHub Issue Templates
+  (`md` files) in `.github/ISSUE_TEMPLATES`. See
+  [`add_issue_template()`](https://frbcesab.github.io/rcompendium/reference/add_issue_template.md)
+  for further information.
 
 - gh_check:
 

@@ -184,6 +184,8 @@ and `new_compendium` but they also can be used to overwrite files (with
   : Add a CONTRIBUTING file
 - [`add_codeowners()`](https://frbcesab.github.io/rcompendium/reference/add_codeowners.md)
   : Create a CODEOWNERS file
+- [`add_issue_template()`](https://frbcesab.github.io/rcompendium/reference/add_issue_template.md)
+  : Set up an Issue Template file
 - [`add_testthat()`](https://frbcesab.github.io/rcompendium/reference/add_testthat.md)
   : Initialize units tests
 - [`add_vignette()`](https://frbcesab.github.io/rcompendium/reference/add_vignette.md)
@@ -262,6 +264,8 @@ These functions return objects but do not edit any file.
   : List all functions in the package
 - [`get_available_gh_actions()`](https://frbcesab.github.io/rcompendium/reference/get_available_gh_actions.md)
   : List available GitHub Actions
+- [`get_available_issue_templates()`](https://frbcesab.github.io/rcompendium/reference/get_available_issue_templates.md)
+  : List available ISSUE TEMPLATE
 - [`get_minimal_r_version()`](https://frbcesab.github.io/rcompendium/reference/get_minimal_r_version.md)
   : Get required minimal R version
 

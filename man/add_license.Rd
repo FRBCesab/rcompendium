@@ -10,11 +10,11 @@ add_license(license = NULL, given = NULL, family = NULL, quiet = FALSE)
 \item{license}{A character of length 1. The license name.
 Run \code{\link[=get_licenses]{get_licenses()}}) to select an appropriate one.}
 
-\item{given}{A character of length 1. The given name of the project
-maintainer.}
+\item{given}{a \code{character} of length 1. The given name of the user
+(considered as the maintainer and code owner of the project).}
 
-\item{family}{A character of length 1. The family name of the project
-maintainer.}
+\item{family}{a \code{character} of length 1. The family name of the user
+(considered as the maintainer and code owner of the project).}
 
 \item{quiet}{A logical value. If \code{TRUE} messages are deleted. Default is
 \code{FALSE}.}

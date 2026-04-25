@@ -14,11 +14,11 @@ add_citation(
 )
 }
 \arguments{
-\item{given}{A character of length 1. The given name of the project
-maintainer.}
+\item{given}{a \code{character} of length 1. The given name of the user
+(considered as the maintainer and code owner of the project).}
 
-\item{family}{A character of length 1. The family name of the project
-maintainer.}
+\item{family}{a \code{character} of length 1. The family name of the user
+(considered as the maintainer and code owner of the project).}
 
 \item{organisation}{A character of length 1. The name of the GitHub
 organisation to host the package. If \code{NULL} (default) the GitHub account

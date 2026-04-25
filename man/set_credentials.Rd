@@ -2,53 +2,66 @@
 % Please edit documentation in R/set_credentials.R
 \name{set_credentials}
 \alias{set_credentials}
-\title{Store credentials to the .Rprofile}
+\title{Store user information in the .Rprofile}
 \usage{
 set_credentials(
   given = NULL,
   family = NULL,
   email = NULL,
   orcid = NULL,
-  protocol = NULL
+  github_user = NULL,
+  protocol = "https",
+  open = TRUE
 )
 }
 \arguments{
-\item{given}{A character of length 1. The given name of the project
-maintainer.}
+\item{given}{a \code{character} of length 1. The given name of the user
+(considered as the maintainer and code owner of the project).}
 
-\item{family}{A character of length 1. The family name of the project
-maintainer.}
+\item{family}{a \code{character} of length 1. The family name of the user
+(considered as the maintainer and code owner of the project).}
 
-\item{email}{A character of length 1. The email address of the project
-maintainer.}
+\item{email}{a \code{character} of length 1. The email address of the user
+(considered as the maintainer and code owner of the project).}
 
-\item{orcid}{A character of length 1. The ORCID of the project maintainer.}
+\item{orcid}{a \code{character} of length 1. The ORCID of the user
+(considered as the maintainer and code owner of the project).}
 
-\item{protocol}{A character of length 1. The GIT protocol used to
-communicate with the GitHub remote. One of \code{'https'} or \code{'ssh'}. If you
-don't know, keep the default value (i.e. \code{NULL}) and the protocol will be
-\code{'https'}.}
+\item{github_user}{a \code{character} of length 1. The GitHub account name of the
+user (considered as the maintainer and code owner of the project).}
+
+\item{protocol}{a \code{character} of length 1. The GIT protocol used to
+communicate with GitHub. One of \code{'https'} or \code{'ssh'}. If you
+don't know, keep the default value (i.e. \code{https}).}
+
+\item{open}{a \code{logical} value. If \code{TRUE} (default) the \code{.Rprofile} is opened
+in the default text editor (recommended).}
 }
 \value{
 No return value.
 }
 \description{
-This function is used to store user credentials in the \code{.Rprofile} file.
-Accepted credentials are listed below. This function is useful if user
-creates a lot of packages and/or research compendiums.
+This function is used to store user credentials (given and family names,
+email, ORCID, GitHub username, etc.) in the \code{.Rprofile} file.
+This function is useful to store user credentials once for all especially if
+the user creates a lot of R projects and/or if the user manually calls
+the \verb{add_*()} functions.
 
-If the \code{.Rprofile} file does not exist this function will create it. Users
-need to paste the content of the clipboard to this file.
+This function will create the \code{.Rprofile} file if it does not exist. Then,
+the user needs to paste the content of the clipboard to this file (open by
+the function).
 }
 \examples{
 \dontrun{
-library(rcompendium)
-
-
-## Define **ONCE FOR ALL** your credentials ----
-
-set_credentials("John", "Doe", "john.doe@domain.com",
-                orcid = "9999-9999-9999-9999", protocol = "https")
+set_credentials(
+  given = "John",
+  family = "Doe",
+  email = "john.doe@domain.com",
+  orcid = "9999-9999-9999-9999",
+  github_user = "jdoe",
+  protocol = "https",
+  open = TRUE
+)
 }
 }
 \seealso{

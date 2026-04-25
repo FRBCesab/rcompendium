@@ -89,7 +89,7 @@ get_deps_in_functions_r <- function() {
     if (!length(funs)) {
       return(NULL)
     } else {
-      pos <- grep(get_package_name(), funs)
+      pos <- grep(get_project_name(), funs)
       if (length(pos)) {
         funs <- funs[-pos]
       }
@@ -244,7 +244,7 @@ get_deps_in_examples <- function() {
     if (!length(funs)) {
       return(NULL)
     } else {
-      pos <- grep(get_package_name(), funs)
+      pos <- grep(get_project_name(), funs)
       if (length(pos)) {
         funs <- funs[-pos]
       }
@@ -399,7 +399,7 @@ get_deps_extra <- function(compendium = NULL) {
     if (!length(funs)) {
       return(NULL)
     } else {
-      pos <- grep(get_package_name(), funs)
+      pos <- grep(get_project_name(), funs)
       if (length(pos)) {
         funs <- funs[-pos]
       }
@@ -527,7 +527,7 @@ get_deps_in_vignettes <- function() {
     if (!length(funs)) {
       return(NULL)
     } else {
-      pos <- grep(get_package_name(), funs)
+      pos <- grep(get_project_name(), funs)
       if (length(pos)) {
         funs <- funs[-pos]
       }
@@ -630,7 +630,7 @@ get_deps_in_tests <- function() {
     if (!length(funs)) {
       return(NULL)
     } else {
-      pos <- grep(get_package_name(), funs)
+      pos <- grep(get_project_name(), funs)
       if (length(pos)) {
         funs <- funs[-pos]
       }

@@ -357,7 +357,7 @@ new_package <- function(
 
   ## Check for package name ----
 
-  project_name <- get_package_name()
+  project_name <- get_project_name()
 
   ## Check License ----
 

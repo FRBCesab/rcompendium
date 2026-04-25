@@ -30,7 +30,7 @@ add_cran_version_badge <- function(quiet = FALSE) {
 
   ## Create Badge Markdown Expression ----
 
-  project_name <- get_package_name()
+  project_name <- get_project_name()
 
   alt <- "CRAN status"
   href <- paste0("https://CRAN.R-project.org/package=", project_name)

@@ -146,7 +146,7 @@ add_dependencies <- function(compendium = NULL) {
 
   ## Remove Package Name ----
 
-  package_name <- get_package_name()
+  package_name <- get_project_name()
 
   deps_in_package <- deps_in_package[!(deps_in_package %in% package_name)]
   deps_suggest <- deps_suggest[!(deps_suggest %in% package_name)]

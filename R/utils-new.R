@@ -57,8 +57,8 @@ resolve_project_meta <- function(...) {
     email = email,
     orcid = orcid,
 
-    project_name = get_package_name(),
-    project_version = get_package_version(),
+    project_name = get_project_name(),
+    project_version = get_project_version(),
     license = get_project_license_name(),
     license_url = get_project_license_url(),
 

@@ -10,13 +10,11 @@ test_that("create_r_profile_content() works", {
 
   expect_equal(
     output[1],
-    "## rcompendium credentials ----",
-    fixed = TRUE
+    "## rcompendium credentials ----"
   )
 
   expect_equal(
     output[2],
-    "options(\n  given = \"John\", \n  family = \"Doe\"\n)",
-    fixed = TRUE
+    "options(\n  given = \"John\", \n  family = \"Doe\"\n)"
   )
 })

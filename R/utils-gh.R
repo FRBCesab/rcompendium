@@ -227,12 +227,12 @@ get_git_branch_name <- function() {
 }
 
 
-#' **URL of the GitHub Action templates**
+#' **URL of the templates repo**
 #'
 #' @noRd
 
 template_repo_url <- function() {
-  "/repos/frbcesab/r-templates/contents/actions"
+  "/repos/frbcesab/r-templates/contents/"
 }
 
 
@@ -244,4 +244,17 @@ clean_gh_action_name <- function(x) {
   x <- tolower(x)
   x <- gsub("\\.(yaml|yml)$", "", x)
   x
+}
+
+
+list_repo_content <- function(directory = NULL) {
+  content <- gh::gh(
+    endpoint = paste0(template_repo_url(), directory),
+    .send_headers = c(
+      `Accept` = "application/vnd.github.raw+json",
+      `Content-Type` = "application/json"
+    )
+  )
+
+  unlist(lapply(content, function(x) x[["name"]]))
 }

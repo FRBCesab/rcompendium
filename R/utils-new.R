@@ -70,7 +70,8 @@ resolve_project_meta <- function(...) {
     roxygen2_version = get_roxygen2_version(),
     renv_version = utils::packageVersion("renv"),
 
-    year = format(Sys.Date(), "%Y")
+    year = format(Sys.Date(), "%Y"),
+    date = format(Sys.time(), "%Y/%m/%d")
   )
 }
 

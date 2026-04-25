@@ -4,9 +4,9 @@
 ## Helper for tests ----
 
 local_project <- function(name = "pkgtest") {
-   # Crée un dossier temporaire de base
+  # Crée un dossier temporaire de base
   tmp <- tempfile(pattern = "tempdir")
-  
+
   # Compose le chemin complet
   dir <- file.path(tmp, name)
 

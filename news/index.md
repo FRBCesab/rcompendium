@@ -16,11 +16,10 @@
     downloads YAML files from the GitHub repository (see above),
     providing more flexibility in updating these files
     ([\#87](https://github.com/FRBCesab/rcompendium/pull/87)).
-
-- **Deprecated**
-
   - `refresh()` is no more available in this version
     ([\#91](https://github.com/FRBCesab/rcompendium/pull/91))
+  - Refactor all functions by introducing new helpers
+    ([\#102](https://github.com/FRBCesab/rcompendium/pull/102))
 
 - **New features**
 
@@ -28,16 +27,20 @@
     template from the GitHub repo
     <https://github.com/frbcesab/r-templates>
     ([\#85](https://github.com/FRBCesab/rcompendium/pull/85))
-  - `add_github_actions_*()` automatically creates a
-    `.github/dependabot.yaml` file if one GitHub Action is set up
+  - [`add_codeowners()`](https://frbcesab.github.io/rcompendium/reference/add_codeowners.md)
+    creates a `.github/CODEOWNERS` file
+  - [`add_dependabot()`](https://frbcesab.github.io/rcompendium/reference/add_dependabot.md)
+    creates a `.github/dependabot.yaml` file
+    ([\#102](https://github.com/FRBCesab/rcompendium/pull/102))
+  - [`add_github_action()`](https://frbcesab.github.io/rcompendium/reference/add_github_action.md)
+    automatically creates a `.github/dependabot.yaml` file if one GitHub
+    Action is set up
     ([\#89](https://github.com/FRBCesab/rcompendium/pull/89))
   - [`add_cran_downloads_badge()`](https://frbcesab.github.io/rcompendium/reference/add_cran_downloads_badge.md)
     &
     [`add_cran_total_download_badge()`](https://frbcesab.github.io/rcompendium/reference/add_cran_total_download_badge.md)
     adds CRAN downloads badge to the `README.Rmd`
     ([\#96](https://github.com/FRBCesab/rcompendium/pull/96))
-  - [`add_codeowners()`](https://frbcesab.github.io/rcompendium/reference/add_codeowners.md)
-    creates a `.github/CODEOWNERS` file
 
 - **Bug fixes**
 

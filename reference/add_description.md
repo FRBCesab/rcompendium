@@ -1,11 +1,11 @@
-# Create a DESCRIPTION file
+# Add a DESCRIPTION file
 
 This function creates a `DESCRIPTION` file at the root of the project.
 This file contains metadata of the project. Some information (title,
 description, version, etc.) must be edited by hand. For more
 information: <https://r-pkgs.org/description.html>. User credentials can
 be passed as arguments but it is recommended to store them in the
-`.Rprofile` file with
+`.Rprofile` file of the project with
 [`set_credentials()`](https://frbcesab.github.io/rcompendium/reference/set_credentials.md).
 
 ## Usage
@@ -44,7 +44,8 @@ add_description(
 - organisation:
 
   A character of length 1. The name of the GitHub organisation to host
-  the package. If `NULL` (default) the GitHub account will be used.
+  the package. If `NULL` (default) the GitHub account will be used. This
+  argument is used to set the URL of the package (hosted on GitHub).
 
 - open:
 
@@ -52,8 +53,8 @@ add_description(
 
 - overwrite:
 
-  A logical value. If a `DESCRIPTION` is already present and
-  `overwrite = TRUE`, this file will be erased and replaced. Default is
+  A logical value. If this file is already present and
+  `overwrite = TRUE`, it will be erased and replaced. Default is
   `FALSE`.
 
 - quiet:

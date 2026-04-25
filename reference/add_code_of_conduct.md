@@ -1,4 +1,4 @@
-# Add code of conduct
+# Add a CODE OF CONDUCT file
 
 This function creates a `CODE_OF_CONDUCT.md` file adapted from the
 Contributor Covenant, version 2.1 available at
@@ -23,13 +23,13 @@ add_code_of_conduct(
 
 - open:
 
-  A logical value. If `TRUE` (default) the `CONTRIBUTING.md` file is
-  opened in the editor.
+  A logical value. If `TRUE` (default) the file is opened in the editor.
 
 - overwrite:
 
-  A logical value. If files are already present and `overwrite = TRUE`,
-  they will be erased and replaced. Default is `FALSE`.
+  A logical value. If this file is already present and
+  `overwrite = TRUE`, it will be erased and replaced. Default is
+  `FALSE`.
 
 - quiet:
 

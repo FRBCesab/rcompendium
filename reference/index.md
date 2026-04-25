@@ -36,17 +36,17 @@ and `new_compendium` but they also can be used to overwrite files (with
 `overwrite = FALSE` (default) files are open in the editor.
 
 - [`add_description()`](https://frbcesab.github.io/rcompendium/reference/add_description.md)
-  : Create a DESCRIPTION file
+  : Add a DESCRIPTION file
 - [`add_license()`](https://frbcesab.github.io/rcompendium/reference/add_license.md)
-  : Add a LICENSE
+  : Add a LICENSE file
 - [`add_package_doc()`](https://frbcesab.github.io/rcompendium/reference/add_package_doc.md)
   : Create a package-level documentation file
 - [`add_citation()`](https://frbcesab.github.io/rcompendium/reference/add_citation.md)
   : Create a CITATION file
 - [`add_code_of_conduct()`](https://frbcesab.github.io/rcompendium/reference/add_code_of_conduct.md)
-  : Add code of conduct
+  : Add a CODE OF CONDUCT file
 - [`add_contributing()`](https://frbcesab.github.io/rcompendium/reference/add_contributing.md)
-  : Add contribution guidelines
+  : Add a CONTRIBUTING file
 - [`add_codeowners()`](https://frbcesab.github.io/rcompendium/reference/add_codeowners.md)
   : Create a CODEOWNERS file
 - [`add_testthat()`](https://frbcesab.github.io/rcompendium/reference/add_testthat.md)
@@ -112,6 +112,8 @@ These functions update fields in `DESCRIPTION` (`add_dependencies` and
   : Add to the .Rbuildignore file
 - [`add_github_action()`](https://frbcesab.github.io/rcompendium/reference/add_github_action.md)
   : Set up a GitHub Action workflow
+- [`add_dependabot()`](https://frbcesab.github.io/rcompendium/reference/add_dependabot.md)
+  : Add a DEPENDABOT file
 
 ## Utilities functions
 

@@ -136,9 +136,8 @@ For further information, please read
   required dependencies in `DESCRIPTION`
 - Do not use
   [`install.packages()`](https://rdrr.io/r/utils/install.packages.html)
-  but
-  [`remotes::install_deps()`](https://remotes.r-lib.org/reference/install_deps.html)
-  (this will install required dependencies listed in `DESCRIPTION`)
+  but `remotes::install_deps()` (this will install required dependencies
+  listed in `DESCRIPTION`)
 - Do not use [`library()`](https://rdrr.io/r/base/library.html) but
   [`devtools::load_all()`](https://devtools.r-lib.org/reference/load_all.html)
   (this will load required dependencies listed in `DESCRIPTION` and R
@@ -173,8 +172,7 @@ after
 [`rcompendium::new_compendium()`](https://frbcesab.github.io/rcompendium/reference/new_compendium.md).
 
 The `make.R` will also be updated (replacement of
-[`remotes::install_deps()`](https://remotes.r-lib.org/reference/install_deps.html)
-by
+`remotes::install_deps()` by
 [`renv::restore()`](https://rstudio.github.io/renv/reference/restore.html))
 
   

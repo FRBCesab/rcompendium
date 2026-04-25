@@ -96,6 +96,7 @@ bot will open a Pull Request and user will be invited to review changes.
 ## See also
 
 Other development functions:
+[`add_dependabot()`](https://frbcesab.github.io/rcompendium/reference/add_dependabot.md),
 [`add_dependencies()`](https://frbcesab.github.io/rcompendium/reference/add_dependencies.md),
 [`add_r_depend()`](https://frbcesab.github.io/rcompendium/reference/add_r_depend.md),
 [`add_to_buildignore()`](https://frbcesab.github.io/rcompendium/reference/add_to_buildignore.md),

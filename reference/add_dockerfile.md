@@ -6,8 +6,7 @@ a template. The Docker image is based on
 project will be copied in the image and R packages will be installed
 (using
 [`renv::restore()`](https://rstudio.github.io/renv/reference/restore.html)
-or
-[`remotes::install_deps()`](https://remotes.r-lib.org/reference/install_deps.html)).
+or `remotes::install_deps()`).
 
 In addition a `.dockerignore` file is added to ignore some files/folders
 while building the image.

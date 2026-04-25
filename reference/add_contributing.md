@@ -1,19 +1,8 @@
-# Add contribution guidelines
+# Add a CONTRIBUTING file
 
-This function creates several files to help the user to learn how to
-contribute to the project:
-
-- `CONTRIBUTING.md`: general guidelines outlining the best way to
-  contribute to the project (can be modified);
-
-- `.github/ISSUE_TEMPLATE/bug_report.md`: an issue template to report a
-  bug (can be modified);
-
-- `.github/ISSUE_TEMPLATE/feature_request.md`: an issue template to
-  suggest a new feature (can be modified);
-
-- `.github/ISSUE_TEMPLATE/other_issue.md`: an issue template for all
-  other types of issue (can be modified).
+This function creates a `CONTRIBUTING.md` file providing general
+guidelines outlining the best way to contribute to the project (need to
+be adapted).
 
 ## Usage
 
@@ -41,13 +30,13 @@ add_contributing(
 
 - open:
 
-  A logical value. If `TRUE` (default) the `CONTRIBUTING.md` file is
-  opened in the editor.
+  A logical value. If `TRUE` (default) the file is opened in the editor.
 
 - overwrite:
 
-  A logical value. If files are already present and `overwrite = TRUE`,
-  they will be erased and replaced. Default is `FALSE`.
+  A logical value. If this file is already present and
+  `overwrite = TRUE`, it will be erased and replaced. Default is
+  `FALSE`.
 
 - quiet:
 

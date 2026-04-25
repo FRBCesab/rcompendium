@@ -1,8 +1,8 @@
-# Add a LICENSE
+# Add a LICENSE file
 
 This function adds a license to the project. It will add the license
 name in the `License` field of the `DESCRIPTION` file and write the
-content of the license in the `License.md` file.
+content of the license in a `LICENSE.md` file.
 
 ## Usage
 
@@ -14,25 +14,17 @@ add_license(license = NULL, given = NULL, family = NULL, quiet = FALSE)
 
 - license:
 
-  A character of length 1. The chosen license. Run
+  A character of length 1. The license name. Run
   [`get_licenses()`](https://frbcesab.github.io/rcompendium/reference/get_licenses.md))
   to select an appropriate one.
 
 - given:
 
-  A character of length 1. The given name of the copyright holder. Only
-  required if `license = 'MIT'`. If is `NULL` (default) and
-  `license = 'MIT'`, this function will try to retrieve the value of
-  this parameter from the `.Rprofile` file (edited with
-  [`set_credentials()`](https://frbcesab.github.io/rcompendium/reference/set_credentials.md)).
+  A character of length 1. The given name of the project maintainer.
 
 - family:
 
-  A character of length 1. The family name of the copyright holder. Only
-  required if `license = 'MIT'`. If is `NULL` (default) and
-  `license = 'MIT'`, this function will try to retrieve the value of
-  this parameter from the `.Rprofile` file (edited with
-  [`set_credentials()`](https://frbcesab.github.io/rcompendium/reference/set_credentials.md)).
+  A character of length 1. The family name of the project maintainer.
 
 - quiet:
 

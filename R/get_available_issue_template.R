@@ -17,5 +17,5 @@
 
 get_available_issue_templates <- function() {
   issues <- list_template_gh_repo_content("issues")
-  gsub("\\.(yaml|yml)$", "", issues)
+  gsub("\\.md$", "", issues)
 }

@@ -7,19 +7,8 @@
 #'   `README.Rmd` specific to an R package will be created. If `compendium` a
 #'   GitHub `README.Rmd` specific to a research compendium will be created.
 #'
-#' @param organisation A character of length 1. The name of the GitHub
-#'   organisation to host the package. If `NULL` (default) the GitHub account
-#'   will be used. This argument is used to set the URL of the package
-#'   (hosted on GitHub).
-#'
-#' @param open A logical value. If `TRUE` (default) the file is opened in the
-#'   editor.
-#'
-#' @param overwrite A logical value. If this file is already present and
-#'   `overwrite = TRUE`, it will be erased and replaced. Default is `FALSE`.
-#'
-#' @param quiet A logical value. If `TRUE` messages are deleted. Default is
-#'   `FALSE`.
+#' @inheritParams add_citation
+#' @inheritParams set_credentials
 #'
 #' @inheritParams set_credentials
 #'
@@ -43,98 +32,34 @@ add_readme_rmd <- function(
   overwrite = FALSE,
   quiet = FALSE
 ) {
-  if (is.null(type)) {
-    stop("Argument 'type' must be 'package' or 'compendium'.")
-  }
-
-  if (length(type) != 1) {
-    stop("Argument 'type' must be 'package' or 'compendium'.")
-  }
-
-  if (!(tolower(type) %in% c("package", "compendium"))) {
-    stop("Argument 'type' must be 'package' or 'compendium'.")
-  }
-
+  assert_valid_project_type(type)
   stop_if_not_logical(open, overwrite, quiet)
 
-  path <- file.path(path_proj(), "README.Rmd")
+  full_path <- build_full_path("README.Rmd")
+  rel_path <- build_rel_path("README.Rmd")
 
-  ## Do not replace current file but open it if required ----
+  assert_file_not_exists_or_overwrite(rel_path, overwrite)
 
-  if (file.exists(path) && !overwrite) {
-    if (!open) {
-      stop(
-        "A 'README.Rmd' file is already present. If you want to ",
-        "replace it, please use `overwrite = TRUE`."
-      )
-    } else {
-      edit_file(path)
-      return(invisible(NULL))
-    }
+  meta <- resolve_project_meta(
+    given = given,
+    family = family,
+    organisation = organisation
+  )
+
+  stop_if_null_or_empty(meta$given, "given")
+  stop_if_null_or_empty(meta$family, "family")
+
+  if (should_create_file(full_path, overwrite)) {
+    ensure_dir_exists(dirname(full_path))
+
+    create_template(paste0("readme/README-", type, ".Rmd"), rel_path, meta)
+
+    ui_file_written(rel_path, quiet)
+    add_to_buildignore("README.Rmd", quiet = quiet)
+    add_to_buildignore("README.html", quiet = TRUE)
   }
 
-  if (is.null(given)) {
-    given <- getOption("given")
-  }
-  if (is.null(family)) {
-    family <- getOption("family")
-  }
-
-  if (!is.null(organisation)) {
-    github <- organisation
-  } else {
-    github <- gh::gh_whoami()$"login"
-
-    if (is.null(github)) {
-      stop(
-        "Unable to find GitHub username. Please run ",
-        "`?gert::git_config_global` for more information."
-      )
-    }
-  }
-
-  stop_if_not_string(given, family, github)
-
-  project_name <- get_package_name()
-  pkg_version <- get_package_version()
-
-  ## Copy Template ----
-
-  if (type == "package") {
-    download_template(
-      slug = "readme/README-package.Rmd",
-      filename = "README.Rmd",
-      outdir = NULL
-    )
-  } else {
-    download_template(
-      slug = "readme/README-compendium.Rmd",
-      filename = "README.Rmd",
-      outdir = NULL
-    )
-  }
-
-  ## Change default values (in file) ----
-
-  xfun::gsub_file(path, "{{project_name}}", project_name, fixed = TRUE)
-  xfun::gsub_file(path, "{{pkg_version}}", pkg_version, fixed = TRUE)
-  xfun::gsub_file(path, "{{given}}", given, fixed = TRUE)
-  xfun::gsub_file(path, "{{family}}", family, fixed = TRUE)
-  xfun::gsub_file(path, "{{github}}", github, fixed = TRUE)
-  xfun::gsub_file(path, "{{branch}}", get_git_branch_name(), fixed = TRUE)
-
-  ## Message ----
-
-  if (!quiet) {
-    ui_done("Writing {ui_value('README.Rmd')} file")
-  }
-
-  add_to_buildignore("README.Rmd", quiet = quiet)
-  add_to_buildignore("README.html", quiet = TRUE)
-
-  if (open) {
-    edit_file(path)
-  }
+  open_file_if_needed(full_path, open)
 
   invisible(NULL)
 }

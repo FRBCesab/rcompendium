@@ -16,7 +16,7 @@
 #' get_available_gh_actions()
 
 get_available_gh_actions <- function() {
-  actions <- list_repo_content("actions")
+  actions <- list_template_gh_repo_content("actions")
   actions <- actions[-which(actions == "dependabot.yaml")]
   gsub("\\.(yaml|yml)$", "", actions)
 }

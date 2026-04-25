@@ -247,7 +247,7 @@ clean_gh_action_name <- function(x) {
 }
 
 
-list_repo_content <- function(directory = NULL) {
+list_template_gh_repo_content <- function(directory = NULL) {
   content <- gh::gh(
     endpoint = paste0(template_repo_url(), directory),
     .send_headers = c(

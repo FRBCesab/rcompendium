@@ -22,6 +22,7 @@ get_available_gh_actions()
 Other utilities functions: 
 \code{\link{get_all_dependencies}()},
 \code{\link{get_all_functions}()},
+\code{\link{get_available_issue_templates}()},
 \code{\link{get_licenses}()},
 \code{\link{get_minimal_r_version}()}
 }

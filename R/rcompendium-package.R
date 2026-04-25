@@ -104,11 +104,9 @@
 #' @section Resources:
 #'
 #' - Developing an R package:
-#' \url{https://frbcesab.github.io/rcompendium/articles/
-#' developing_a_package.html}
+#' \url{https://frbcesab.github.io/rcompendium/articles/developing_a_package.html}
 #' - Working with a compendium:
-#' \url{https://frbcesab.github.io/rcompendium/articles/
-#' working_with_a_compendium.html}
+#' \url{https://frbcesab.github.io/rcompendium/articles/working_with_a_compendium.html}
 #'
 #'
 #' @name rcompendium-package

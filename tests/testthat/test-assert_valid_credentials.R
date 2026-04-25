@@ -206,7 +206,7 @@ test_that("assert_valid_credentials() works", {
     github_user = "jdoe",
     protocol = "ssh"
   )
-  
+
   expect_silent(assert_valid_credentials(meta))
   expect_null(x <- assert_valid_credentials(meta))
 })

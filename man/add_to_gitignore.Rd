@@ -35,6 +35,7 @@ Other development functions:
 \code{\link{add_dependabot}()},
 \code{\link{add_dependencies}()},
 \code{\link{add_github_action}()},
+\code{\link{add_issue_template}()},
 \code{\link{add_r_depend}()},
 \code{\link{add_to_buildignore}()}
 }

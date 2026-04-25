@@ -58,6 +58,10 @@ resolve_project_meta <- function(...) {
     orcid = orcid,
 
     project_name = get_package_name(),
+    project_version = get_package_version(),
+    license = get_project_license_name(),
+    license_url = get_project_license_url(),
+
     github_user = get_github_user(),
     github_account = resolve_github_account(args$organisation),
     git_branch = get_git_branch_name(),
@@ -311,8 +315,7 @@ assert_valid_mit_meta <- function(license, meta) {
 #' @param license a character of length of 1. The name of the license.
 #' @noRd
 should_update_license <- function(license) {
-  descr_license <- read_descr()$"License"
-  descr_license <- gsub(" \\+ file LICENSE", "", descr_license)
+  descr_license <- get_project_license_name()
 
   if (!is.null(descr_license)) {
     if (descr_license == license) {
@@ -397,4 +400,35 @@ assert_valid_gh_action_name <- function(name) {
   }
 
   invisible(NULL)
+}
+
+
+#' Error if the project is not package or compendium
+#' @param type a character of length of 1. The type of the project.
+#' @noRd
+assert_valid_project_type <- function(type) {
+  stop_if_null_or_empty(type)
+  stop_if_not_string(type)
+
+  if (!(type %in% c("package", "compendium"))) {
+    stop("Argument 'type' must be 'package' or 'compendium'.", call. = FALSE)
+  }
+
+  invisible(NULL)
+}
+
+
+#' Retrieve the name of the license used in the project
+#' @noRd
+get_project_license_name <- function() {
+  descr_file <- read_descr()
+  gsub(" \\+ file LICENSE", "", descr_file$License)
+}
+
+
+#' Retrieve the URL of the license used in the project
+#' @noRd
+get_project_license_url <- function() {
+  license <- get_project_license_name()
+  get_license_meta(license)$url
 }

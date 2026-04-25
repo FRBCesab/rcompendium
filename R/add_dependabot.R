@@ -30,8 +30,8 @@ add_dependabot <- function(
   stop_if_not_project()
   stop_if_not_logical(overwrite, quiet)
 
-  full_path <- build_full_path(".github", "dependabot.yaml")
   rel_path <- build_rel_path(".github", "dependabot.yaml")
+  full_path <- build_full_path(rel_path)
 
   meta <- resolve_project_meta()
 

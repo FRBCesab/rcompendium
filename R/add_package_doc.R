@@ -29,8 +29,8 @@ add_package_doc <- function(
 
   meta <- resolve_project_meta()
 
-  full_path <- build_full_path("R", paste0(meta$project_name, "-package.R"))
   rel_path <- build_rel_path("R", paste0(meta$project_name, "-package.R"))
+  full_path <- build_full_path(rel_path)
 
   assert_file_not_exists_or_overwrite(rel_path, overwrite)
 

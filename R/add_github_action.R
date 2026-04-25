@@ -92,8 +92,8 @@ add_github_action <- function(
 
   assert_valid_gh_action_name(name)
 
-  full_path <- build_full_path(".github", "workflows", paste0(name, ".yaml"))
   rel_path <- build_rel_path(".github", "workflows", paste0(name, ".yaml"))
+  full_path <- build_full_path(rel_path)
 
   assert_file_not_exists_or_overwrite(rel_path, overwrite)
 

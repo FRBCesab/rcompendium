@@ -31,8 +31,8 @@ add_makefile <- function(
   stop_if_not_project()
   stop_if_not_logical(open, overwrite, quiet)
 
-  full_path <- build_full_path("make.R")
   rel_path <- build_rel_path("make.R")
+  full_path <- build_full_path(rel_path)
 
   assert_file_not_exists_or_overwrite(rel_path, overwrite)
 

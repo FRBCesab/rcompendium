@@ -28,8 +28,8 @@ add_code_of_conduct <- function(
   stop_if_not_project()
   stop_if_not_logical(open, overwrite, quiet)
 
-  full_path <- build_full_path("CODE_OF_CONDUCT.md")
   rel_path <- build_rel_path("CODE_OF_CONDUCT.md")
+  full_path <- build_full_path(rel_path)
 
   assert_file_not_exists_or_overwrite(rel_path, overwrite)
 

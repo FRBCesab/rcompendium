@@ -35,8 +35,8 @@ add_readme_rmd <- function(
   assert_valid_project_type(type)
   stop_if_not_logical(open, overwrite, quiet)
 
-  full_path <- build_full_path("README.Rmd")
   rel_path <- build_rel_path("README.Rmd")
+  full_path <- build_full_path(rel_path)
 
   assert_file_not_exists_or_overwrite(rel_path, overwrite)
 

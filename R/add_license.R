@@ -33,8 +33,8 @@ add_license <- function(
 
   assert_valid_license_name(license)
 
-  full_path <- build_full_path("LICENSE.md")
   rel_path <- build_rel_path("LICENSE.md")
+  full_path <- build_full_path(rel_path)
 
   meta <- resolve_project_meta(
     given = given,

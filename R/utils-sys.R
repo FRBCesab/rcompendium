@@ -26,7 +26,7 @@ is_package <- function() {
 #'
 #' @noRd
 
-get_package_name <- function() {
+get_project_name <- function() {
   path <- path_proj()
 
   exploded_path <- unlist(strsplit(path, .Platform$"file.sep"))
@@ -34,11 +34,11 @@ get_package_name <- function() {
 }
 
 
-#' **Get package version**
+#' **Get project version**
 #'
 #' @noRd
 
-get_package_version <- function() {
+get_project_version <- function() {
   is_package()
 
   read_descr()$"Version"
@@ -194,6 +194,6 @@ get_rd_families <- function() {
 #' @noRd
 
 is_valid_name <- function() {
-  pkg <- get_package_name()
+  pkg <- get_project_name()
   grepl("^[a-zA-Z][a-zA-Z0-9.]+$", pkg) && !grepl("\\.$", pkg)
 }

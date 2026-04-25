@@ -28,7 +28,7 @@ add_cran_downloads_badge <- function(quiet = FALSE) {
 
   ## Create Badge Markdown Expression ----
 
-  project_name <- get_package_name()
+  project_name <- get_project_name()
 
   alt <- "Monthly downloads"
   href <- paste0("https://CRAN.R-project.org/package=", project_name)

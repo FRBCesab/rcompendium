@@ -66,7 +66,7 @@ add_github_actions_check_badge <- function(organisation = NULL, quiet = FALSE) {
 
   is_gh_user()
 
-  project_name <- get_package_name()
+  project_name <- get_project_name()
 
   ## Create Badge Markdown Expression ----
 

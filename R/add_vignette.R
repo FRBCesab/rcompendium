@@ -48,7 +48,7 @@ add_vignette <- function(
   stop_if_not_logical(open, overwrite, quiet)
 
   path <- path_proj()
-  package_name <- get_package_name()
+  package_name <- get_project_name()
 
   if (is.null(title) && !is.null(filename)) {
     title <- gsub("\\.Rmd$", "", filename)

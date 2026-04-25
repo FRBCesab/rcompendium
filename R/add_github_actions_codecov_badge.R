@@ -69,7 +69,7 @@ add_github_actions_codecov_badge <- function(
 
   is_gh_user()
 
-  project_name <- get_package_name()
+  project_name <- get_project_name()
 
   ## Create Badge Markdown Expression ----
 

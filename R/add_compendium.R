@@ -39,7 +39,7 @@ add_compendium <- function(compendium = NULL, quiet = FALSE) {
 
   path <- path_proj()
 
-  for (i in 1:length(compendium)) {
+  for (i in seq_along(compendium)) {
     if (!dir.exists(file.path(path, compendium[i]))) {
       dir.create(file.path(path, compendium[i]), recursive = TRUE)
 

@@ -1,75 +1,77 @@
 ## DESCRIPTION FILE ----
 
-#' @note Need to use GitHub organization to test functions on GH servers.
+test_that("add_description() errors - Logical args", {
+  with_local_project({
+    file.create(".here")
 
-test_that("Check Inputs", {
-  ## Init temporary folder ----
+    expect_error(add_description(open = 0))
+    expect_error(add_description(quiet = 0))
+    expect_error(add_description(overwrite = 0))
 
-  create_temp_compendium()
+    expect_error(add_description(open = NULL))
+    expect_error(add_description(quiet = NULL))
+    expect_error(add_description(overwrite = NULL))
 
-  ## Check logical ----
+    expect_error(add_description(open = "false"))
+    expect_error(add_description(quiet = "false"))
+    expect_error(add_description(overwrite = "false"))
+  })
+})
 
-  expect_error(add_description(open = 0))
-  expect_error(add_description(quiet = 0))
-  expect_error(add_description(overwrite = 0))
 
-  expect_error(add_description(open = NULL))
-  expect_error(add_description(quiet = NULL))
-  expect_error(add_description(overwrite = NULL))
+test_that("add_description() errors - set_credentials() not used", {
+  with_local_project({
+    file.create(".here")
 
-  expect_error(add_description(open = "false"))
-  expect_error(add_description(quiet = "false"))
-  expect_error(add_description(overwrite = "false"))
-
-  ## No Rprofile + Missing arguments ----
-
-  # Simulation of no Rprofile (set_credentials() not used)...
-  withr::local_options(list(
-    "given" = NULL,
-    "family" = NULL,
-    "email" = NULL,
-    "orcid" = NULL
-  ))
-
-  expect_error(
-    add_description(
-      organisation = "society",
-      open = FALSE,
-      overwrite = FALSE,
-      quiet = TRUE
+    withr::local_options(
+      list(
+        "given" = NULL,
+        "family" = NULL,
+        "email" = NULL,
+        "orcid" = NULL
+      )
     )
-  )
 
-  expect_error(
-    add_description(
-      given = "John",
-      organisation = "society",
-      open = FALSE,
-      overwrite = FALSE,
-      quiet = TRUE
+    expect_error(
+      add_description(
+        organisation = "society",
+        open = FALSE,
+        overwrite = FALSE,
+        quiet = TRUE
+      )
     )
-  )
 
-  expect_error(
-    add_description(
-      c("John", "Doe"),
-      organisation = "society",
-      open = FALSE,
-      overwrite = FALSE,
-      quiet = TRUE
+    expect_error(
+      add_description(
+        given = "John",
+        organisation = "society",
+        open = FALSE,
+        overwrite = FALSE,
+        quiet = TRUE
+      )
     )
-  )
 
-  expect_error(
-    add_description(
-      given = "John",
-      family = "Doe",
-      organisation = "society",
-      open = FALSE,
-      overwrite = FALSE,
-      quiet = TRUE
+    expect_error(
+      add_description(
+        c("John", "Doe"),
+        organisation = "society",
+        open = FALSE,
+        overwrite = FALSE,
+        quiet = TRUE
+      )
     )
-  )
+
+    expect_error(
+      add_description(
+        given = "John",
+        family = "Doe",
+        organisation = "society",
+        open = FALSE,
+        overwrite = FALSE,
+        quiet = TRUE
+      )
+    )
+  })
 })
 
 # test_that("Check Creation - Credentials on the fly", {

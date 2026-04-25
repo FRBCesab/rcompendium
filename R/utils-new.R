@@ -241,7 +241,7 @@ stop_if_not_project <- function() {
   markers <- c(
     "DESCRIPTION",
     ".git",
-    ".Rproj",
+    paste0(basename(getwd()), ".Rproj"),
     ".here",
     "renv.lock",
     ".vscode/settings.json"

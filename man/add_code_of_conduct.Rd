@@ -12,8 +12,8 @@ add_code_of_conduct(
 )
 }
 \arguments{
-\item{email}{A character of length 1. The email address of the project
-maintainer.}
+\item{email}{a \code{character} of length 1. The email address of the user
+(considered as the maintainer and code owner of the project).}
 
 \item{open}{A logical value. If \code{TRUE} (default) the file is opened in the
 editor.}

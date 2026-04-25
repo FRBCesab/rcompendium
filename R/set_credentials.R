@@ -1,28 +1,37 @@
-#' Store credentials to the .Rprofile
+#' Store user information in the .Rprofile
 #'
 #' @description
-#' This function is used to store user credentials in the `.Rprofile` file.
-#' Accepted credentials are listed below. This function is useful if user
-#' creates a lot of packages and/or research compendiums.
+#' This function is used to store user credentials (given and family names,
+#' email, ORCID, GitHub username, etc.) in the `.Rprofile` file.
+#' This function is useful to store user credentials once for all especially if
+#' the user creates a lot of R projects and/or if the user manually calls
+#' the `add_*()` functions.
 #'
-#' If the `.Rprofile` file does not exist this function will create it. Users
-#' need to paste the content of the clipboard to this file.
+#' This function will create the `.Rprofile` file if it does not exist. Then,
+#' the user needs to paste the content of the clipboard to this file (open by
+#' the function).
 #'
-#' @param given A character of length 1. The given name of the project
-#'   maintainer.
+#' @param given a `character` of length 1. The given name of the user
+#'   (considered as the maintainer and code owner of the project).
 #'
-#' @param family A character of length 1. The family name of the project
-#'   maintainer.
+#' @param family a `character` of length 1. The family name of the user
+#'   (considered as the maintainer and code owner of the project).
 #'
-#' @param email A character of length 1. The email address of the project
-#'   maintainer.
+#' @param email a `character` of length 1. The email address of the user
+#'   (considered as the maintainer and code owner of the project).
 #'
-#' @param orcid A character of length 1. The ORCID of the project maintainer.
+#' @param orcid a `character` of length 1. The ORCID of the user
+#'   (considered as the maintainer and code owner of the project).
 #'
-#' @param protocol A character of length 1. The GIT protocol used to
-#'   communicate with the GitHub remote. One of `'https'` or `'ssh'`. If you
-#'   don't know, keep the default value (i.e. `NULL`) and the protocol will be
-#'   `'https'`.
+#' @param github_user a `character` of length 1. The GitHub account name of the
+#'   user (considered as the maintainer and code owner of the project).
+#'
+#' @param protocol a `character` of length 1. The GIT protocol used to
+#'   communicate with GitHub. One of `'https'` or `'ssh'`. If you
+#'   don't know, keep the default value (i.e. `https`).
+#'
+#' @param open a `logical` value. If `TRUE` (default) the `.Rprofile` is opened
+#'   in the default text editor (recommended).
 #'
 #' @return No return value.
 #'
@@ -32,13 +41,15 @@
 #'
 #' @examples
 #' \dontrun{
-#' library(rcompendium)
-#'
-#'
-#' ## Define **ONCE FOR ALL** your credentials ----
-#'
-#' set_credentials("John", "Doe", "john.doe@domain.com",
-#'                 orcid = "9999-9999-9999-9999", protocol = "https")
+#' set_credentials(
+#'   given = "John",
+#'   family = "Doe",
+#'   email = "john.doe@domain.com",
+#'   orcid = "9999-9999-9999-9999",
+#'   github_user = "jdoe",
+#'   protocol = "https",
+#'   open = TRUE
+#' )
 #' }
 
 set_credentials <- function(
@@ -46,62 +57,25 @@ set_credentials <- function(
   family = NULL,
   email = NULL,
   orcid = NULL,
-  protocol = NULL
+  github_user = NULL,
+  protocol = "https",
+  open = TRUE
 ) {
   credentials <- as.list(match.call())[-1]
 
-  if (length(credentials)) {
-    r_prof <- "## RCompendium Credentials ----"
+  assert_valid_credentials(credentials)
+  assert_valid_git_protocol(credentials)
 
-    ## Check remote protocol ----
+  if (should_edit_r_profile(credentials)) {
+    credentials <- set_default_git_protocol(credentials)
 
-    protocol <- credentials["protocol"]$protocol
+    content <- create_r_profile_content(credentials)
 
-    if (!is.null(protocol)) {
-      stop_if_not_string(protocol)
-
-      if (!(protocol %in% c("https", "ssh"))) {
-        protocol <- NULL
-        stop("Argument 'protocol' must one among 'https' and 'ssh'.")
-      }
-
-      if (!is.null(protocol)) {
-        usethis_protocol <- getOption("usethis.protocol")
-
-        if (!is.null(usethis_protocol)) {
-          if (usethis_protocol == protocol) {
-            ui_oops("Protocol is already set to {ui_value(protocol)}")
-            protocol <- NULL
-          }
-        }
-      }
-    }
-
-    ## Check user credentials ----
-
-    credentials <- credentials[!(names(credentials) %in% "protocol")]
-
-    if (!is.null(credentials)) {
-      invisible(lapply(credentials, stop_if_not_string))
-
-      opts <- paste0(names(credentials), " = \"", unlist(credentials), "\"")
-      opts <- paste0(opts, collapse = ", ")
-
-      r_prof <- c(r_prof, paste0("options(", opts, ")", ""))
-    }
-
-    if (!is.null(protocol)) {
-      opts <- paste0("usethis.protocol = \"", protocol, "\"")
-      r_prof <- c(r_prof, paste0("options(", opts, ")", ""))
-    }
-
-    ## Re-write .Rprofile ----
-
-    ui_todo("Please paste the following lines to the {ui_value('.Rprofile')}:")
-    usethis::ui_code_block(r_prof)
+    ui_r_profile_content(content)
   }
 
-  usethis::edit_r_profile()
+  r_profile <- create_r_profile_if_needed()
+  open_file_if_needed(r_profile, open)
 
-  invisible(NULL)
+  invisible(r_profile)
 }

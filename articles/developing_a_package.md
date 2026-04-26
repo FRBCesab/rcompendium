@@ -12,7 +12,7 @@ VIGNETTE FIRST**
 
 First, create a **new empty RStudio project**. Let’s called it `pkg`. To
 create a new package structure, run
-[`rcompendium::new_package()`](https://frbcesab.github.io/rcompendium/reference/new_package.md).
+[`rcompendium::create_new_package()`](https://frbcesab.github.io/rcompendium/reference/create_new_package.md).
 
 By default, the following content is created:
 

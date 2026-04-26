@@ -75,7 +75,7 @@ STARTED</a> VIGNETTE FIRST</strong></p>
 </h2>
 <p>First, create a <strong>new empty RStudio project</strong>. Let’s
 called it <code>comp</code>. To create a new compendium structure, run
-<code><a href="../reference/new_compendium.html">rcompendium::new_compendium()</a></code>.</p>
+<code><a href="../reference/create_new_compendium.html">rcompendium::create_new_compendium()</a></code>.</p>
 <p>By default, the following content is created:</p>
 <pre><code>comp/                             # Root of the compendium
 │
@@ -227,18 +227,19 @@ listed in <code>DESCRIPTION</code> and R functions stored in
 <h3 id="using-renv">Using renv<a class="anchor" aria-label="anchor" href="#using-renv"></a>
 </h3>
 <p>The default structure created by
-<code><a href="../reference/new_compendium.html">rcompendium::new_compendium()</a></code> is a good starting point for
-making analyses reproducible. You can increase reproducibility by using
-the package <a href="https://rstudio.github.io/renv/" class="external-link"><code>renv</code></a>.</p>
+<code><a href="../reference/create_new_compendium.html">rcompendium::create_new_compendium()</a></code> is a good starting
+point for making analyses reproducible. You can increase reproducibility
+by using the package <a href="https://rstudio.github.io/renv/" class="external-link"><code>renv</code></a>.</p>
 <p><code>renv</code> will freeze the exact package versions you depend
 on (in <code>renv.lock</code>). This ensures that each collaborator (or
 you in the future) will use the exact same versions of these packages.
 Moreover <code>renv</code> provides to each project its own private
 package library making each project isolated from others.</p>
 <p>To initialize <code>renv</code> for your compendium, use
-<code>renv = TRUE</code> in <code><a href="../reference/new_compendium.html">rcompendium::new_compendium()</a></code>
-or call the function <code><a href="../reference/add_renv.html">rcompendium::add_renv()</a></code> after
-<code><a href="../reference/new_compendium.html">rcompendium::new_compendium()</a></code>.</p>
+<code>renv = TRUE</code> in
+<code><a href="../reference/create_new_compendium.html">rcompendium::create_new_compendium()</a></code> or call the function
+<code><a href="../reference/add_renv.html">rcompendium::add_renv()</a></code> after
+<code><a href="../reference/create_new_compendium.html">rcompendium::create_new_compendium()</a></code>.</p>
 <p>The <code>make.R</code> will also be updated (replacement of
 <code>remotes::install_deps()</code> by
 <code><a href="https://rstudio.github.io/renv/reference/restore.html" class="external-link">renv::restore()</a></code>)</p>
@@ -273,9 +274,9 @@ is a template from which a container will be created.</p>
 <p>More information on Docker for R users: <a href="https://environments.rstudio.com/docker" class="external-link">https://environments.rstudio.com/docker</a></p>
 <p>To add a <code>Dockerfile</code> to your compendium, use
 <code>dockerfile = TRUE</code> in
-<code><a href="../reference/new_compendium.html">rcompendium::new_compendium()</a></code> or call the function
+<code><a href="../reference/create_new_compendium.html">rcompendium::create_new_compendium()</a></code> or call the function
 <code><a href="../reference/add_dockerfile.html">rcompendium::add_dockerfile()</a></code> after
-<code><a href="../reference/new_compendium.html">rcompendium::new_compendium()</a></code>.</p>
+<code><a href="../reference/create_new_compendium.html">rcompendium::create_new_compendium()</a></code>.</p>
 <p>By default <code>rcompendium</code> creates the following
 <code>Dockerfile</code>:</p>
 <pre><code>FROM rocker/rstudio:4.1.3

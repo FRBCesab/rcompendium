@@ -69,8 +69,8 @@ No return value.
 ## See also
 
 Other setup functions:
-[`new_compendium()`](https://frbcesab.github.io/rcompendium/reference/new_compendium.md),
-[`new_package()`](https://frbcesab.github.io/rcompendium/reference/new_package.md)
+[`create_new_compendium()`](https://frbcesab.github.io/rcompendium/reference/create_new_compendium.md),
+[`create_new_package()`](https://frbcesab.github.io/rcompendium/reference/create_new_package.md)
 
 ## Examples
 

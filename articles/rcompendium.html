@@ -143,9 +143,9 @@ R!</p>
 </h3>
 <p>You can use the arguments <code>given</code>, <code>family</code>,
 <code>email</code>, and <code>orcid</code> directly with the functions
-<code>new_*()</code> and <code>add_*()</code>. But if you create a lot a
-projects (packages and/or compendia) it can be frustrating in the long
-run.</p>
+<code>create_new_*()</code> and <code>add_*()</code>. But if you create
+a lot a projects (packages and/or compendia) it can be frustrating in
+the long run.</p>
 <p>An alternative way is to use <strong>ONCE AND FOR ALL</strong> the
 function <code><a href="../reference/set_credentials.html">set_credentials()</a></code> to permanently store this
 information in the <code>~/.Rprofile</code> file. If these arguments are
@@ -155,7 +155,7 @@ save your time (it’s the purpose of this package).</p>
 <p>Even if you have stored your credentials in the
 <code>~/.Rprofile</code> file you will always be able to modify them
 on-the-fly (i.e. by using credentials arguments in the functions
-<code>new_*()</code> and <code>add_*()</code>) or permanently by
+<code>create_new_*()</code> and <code>add_*()</code>) or permanently by
 re-running <code><a href="../reference/set_credentials.html">set_credentials()</a></code>.</p>
 <p><br></p>
 </div>
@@ -170,9 +170,9 @@ already done);</li>
 <li>
 <strong>IMPORTANT -</strong> Create an new empty RStudio
 project;</li>
-<li>Run <code><a href="../reference/new_package.html">new_package()</a></code> to create a new package structure or
-<code><a href="../reference/new_compendium.html">new_compendium()</a></code> to create a new research compendium
-structure;</li>
+<li>Run <code>create_package()</code> to create a new package structure
+or <code><a href="../reference/create_new_compendium.html">create_new_compendium()</a></code> to create a new research
+compendium structure;</li>
 <li>Edit some metadata in <code>DESCRIPTION</code>,
 <code>CITATION</code>, and <code>README.Rmd</code>;</li>
 <li>Start working (add data, write and document R functions, etc.);</li>
@@ -180,9 +180,10 @@ structure;</li>
 </ol>
 <p><br></p>
 <p>In addition to these three setup functions
-(<code><a href="../reference/set_credentials.html">set_credentials()</a></code>, <code><a href="../reference/new_package.html">new_package()</a></code>,
-<code><a href="../reference/new_compendium.html">new_compendium()</a></code>), the package <code>rcompendium</code>
-offers 29 other functions. These can be grouped as:</p>
+(<code><a href="../reference/set_credentials.html">set_credentials()</a></code>, <code><a href="../reference/create_new_package.html">create_new_package()</a></code>,
+<code><a href="../reference/create_new_compendium.html">create_new_compendium()</a></code>), the package
+<code>rcompendium</code> offers 29 other functions. These can be grouped
+as:</p>
 <ul>
 <li>
 <code>add_*()</code>: functions to add/update/overwrite files,
@@ -208,7 +209,7 @@ page</a> for further details.</p>
 <span></span>
 <span><span class="co">## Create an R package structure ----</span></span>
 <span></span>
-<span><span class="fu">rcompendium</span><span class="fu">::</span><span class="fu"><a href="../reference/new_package.html">new_package</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">rcompendium</span><span class="fu">::</span><span class="fu"><a href="../reference/create_new_package.html">create_new_package</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span></span>
 <span><span class="co">## Then... </span></span>

@@ -46,6 +46,9 @@
 <li>
 <code>refresh()</code> is no more available in this version (<a href="https://github.com/FRBCesab/rcompendium/pull/91" class="external-link">#91</a>)</li>
 <li>Refactor all functions by introducing new helpers (<a href="https://github.com/FRBCesab/rcompendium/pull/102" class="external-link">#102</a>)</li>
+<li>A new argument (user credential) has been implemented: <code>github_user</code>. The GitHub username is not guessed from <code><a href="https://gh.r-lib.org/reference/gh_whoami.html" class="external-link">gh::gh_whoami()</a></code> anymore and the user needs to provide it. This new argument has been added to <code><a href="../reference/set_credentials.html">set_credentials()</a></code> (<a href="https://github.com/FRBCesab/rcompendium/pull/125" class="external-link">#125</a>) to permanently store this value.</li>
+<li>Rename <code>new_*()</code> functions in <code>create_new_*()</code>
+</li>
 </ul></li>
 <li>
 <p><strong>New features</strong></p>
@@ -58,6 +61,8 @@
 <code><a href="../reference/add_github_action.html">add_github_action()</a></code> automatically creates a <code>.github/dependabot.yaml</code> file if one GitHub Action is set up (<a href="https://github.com/FRBCesab/rcompendium/pull/89" class="external-link">#89</a>)</li>
 <li>
 <code><a href="../reference/add_cran_downloads_badge.html">add_cran_downloads_badge()</a></code> &amp; <code><a href="../reference/add_cran_total_download_badge.html">add_cran_total_download_badge()</a></code> adds CRAN downloads badge to the <code>README.Rmd</code> (<a href="https://github.com/FRBCesab/rcompendium/pull/96" class="external-link">#96</a>)</li>
+<li>
+<code><a href="../reference/add_issue_template.html">add_issue_template()</a></code> creates a <code>.github/ISSUE_TEMPLATE</code> directory and store GitHub issue templates (<a href="https://github.com/FRBCesab/rcompendium/pull/119" class="external-link">#119</a>)</li>
 </ul></li>
 <li><p><strong>Bug fixes</strong></p></li>
 <li>
@@ -141,7 +146,7 @@
 <li>Update README templates</li>
 <li>The <code>man/</code> folder and <code>NAMESPACE</code> are now untracked by git (for compendium only)</li>
 <li>Remove dependencies badge in README</li>
-<li>Change default values of <code>lifecycle</code> and <code>status</code> arguments in <code><a href="../reference/new_package.html">new_package()</a></code>
+<li>Change default values of <code>lifecycle</code> and <code>status</code> arguments in <code>new_package()</code>
 </li>
 <li>Change commit messages in <code>new_*()</code> functions (conventional commits)</li>
 </ul></li>
@@ -161,8 +166,8 @@
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.0" id="rcompendium-10">rcompendium 1.0<a class="anchor" aria-label="anchor" href="#rcompendium-10"></a></h2><p class="text-muted">CRAN release: 2022-04-06</p>
-<ul><li>New feature: <code><a href="../reference/add_dockerfile.html">add_dockerfile()</a></code> creates a basic <code>Dockerfile</code> in compendium (new argument <code>dokerfile</code> in <code><a href="../reference/new_compendium.html">new_compendium()</a></code>) based on <code>rocker/rstudio</code>.</li>
-<li>New feature: <code><a href="../reference/add_renv.html">add_renv()</a></code> initialize <code>renv</code> environment in compendium (new argument <code>renv</code> in <code><a href="../reference/new_compendium.html">new_compendium()</a></code>)</li>
+<ul><li>New feature: <code><a href="../reference/add_dockerfile.html">add_dockerfile()</a></code> creates a basic <code>Dockerfile</code> in compendium (new argument <code>dokerfile</code> in <code>new_compendium()</code>) based on <code>rocker/rstudio</code>.</li>
+<li>New feature: <code><a href="../reference/add_renv.html">add_renv()</a></code> initialize <code>renv</code> environment in compendium (new argument <code>renv</code> in <code>new_compendium()</code>)</li>
 <li>New feature: <code>add_github_actions_render()</code> will automatically render the <code>README.md</code> on GitHub server after each push. This action is triggered only if the <code>README.Rmd</code> has been modified since the last commit. Also add new argument <code>gh_render</code> in <code>new_*()</code> functions.</li>
 <li>New vignette: developing an R package</li>
 <li>New vignette: working with a compendium</li>
@@ -194,7 +199,7 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.5" id="rcompendium-05">rcompendium 0.5<a class="anchor" aria-label="anchor" href="#rcompendium-05"></a></h2>
 <ul><li>Check for valid package name</li>
-<li>Add new features: <code><a href="../reference/new_compendium.html">new_compendium()</a></code> and <code><a href="../reference/add_compendium.html">add_compendium()</a></code>
+<li>Add new features: <code>new_compendium()</code> and <code><a href="../reference/add_compendium.html">add_compendium()</a></code>
 </li>
 <li>Allow adding to <code>.gitignore</code> and <code>.Rbuildignore</code> several names</li>
 <li>Improve console messages</li>
@@ -208,7 +213,7 @@
 <h2 class="pkg-version" data-toc-text="0.4" id="rcompendium-04">rcompendium 0.4<a class="anchor" aria-label="anchor" href="#rcompendium-04"></a></h2>
 <ul><li>New features: <code><a href="../reference/add_testthat.html">add_testthat()</a></code>, <code>add_github_actions_codecov()</code>, <code><a href="../reference/add_github_actions_codecov_badge.html">add_github_actions_codecov_badge()</a></code>, and <code><a href="../reference/add_codecov_badge.html">add_codecov_badge()</a></code>
 </li>
-<li>New arguments in <code><a href="../reference/new_package.html">new_package()</a></code>: <code>test</code> and <code>codecov</code>
+<li>New arguments in <code>new_package()</code>: <code>test</code> and <code>codecov</code>
 </li>
 <li>Add a demo R function to pass test and show good practices in writing functions</li>
 </ul></div>
@@ -235,7 +240,7 @@
 </li>
 <li>Badge functions return now Markdown badges (if assigned to a variable)</li>
 <li>Badges are added at the end of the process (adding a additional commit)</li>
-<li>Change default license in <code><a href="../reference/new_package.html">new_package()</a></code>
+<li>Change default license in <code>new_package()</code>
 </li>
 <li>Improve inputs checks</li>
 <li>Change files templates (GH Actions names)</li>

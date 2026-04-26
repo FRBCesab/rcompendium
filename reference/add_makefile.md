@@ -4,7 +4,7 @@ This function creates a Make-like R file (`make.R`) at the root of the
 project based on a template. To be used only if the project is a
 research compendium. The content of this file provides some guidelines.
 See also
-[`new_compendium()`](https://frbcesab.github.io/rcompendium/reference/new_compendium.md)
+[`create_new_compendium()`](https://frbcesab.github.io/rcompendium/reference/create_new_compendium.md)
 for further information.
 
 ## Usage

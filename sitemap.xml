@@ -42,6 +42,8 @@
 <url><loc>https://frbcesab.github.io/rcompendium/reference/add_to_buildignore.html</loc></url>
 <url><loc>https://frbcesab.github.io/rcompendium/reference/add_to_gitignore.html</loc></url>
 <url><loc>https://frbcesab.github.io/rcompendium/reference/add_vignette.html</loc></url>
+<url><loc>https://frbcesab.github.io/rcompendium/reference/create_new_compendium.html</loc></url>
+<url><loc>https://frbcesab.github.io/rcompendium/reference/create_new_package.html</loc></url>
 <url><loc>https://frbcesab.github.io/rcompendium/reference/get_all_dependencies.html</loc></url>
 <url><loc>https://frbcesab.github.io/rcompendium/reference/get_all_functions.html</loc></url>
 <url><loc>https://frbcesab.github.io/rcompendium/reference/get_available_gh_actions.html</loc></url>
@@ -49,8 +51,6 @@
 <url><loc>https://frbcesab.github.io/rcompendium/reference/get_licenses.html</loc></url>
 <url><loc>https://frbcesab.github.io/rcompendium/reference/get_minimal_r_version.html</loc></url>
 <url><loc>https://frbcesab.github.io/rcompendium/reference/index.html</loc></url>
-<url><loc>https://frbcesab.github.io/rcompendium/reference/new_compendium.html</loc></url>
-<url><loc>https://frbcesab.github.io/rcompendium/reference/new_package.html</loc></url>
 <url><loc>https://frbcesab.github.io/rcompendium/reference/rcompendium-package.html</loc></url>
 <url><loc>https://frbcesab.github.io/rcompendium/reference/set_credentials.html</loc></url>
 </urlset>

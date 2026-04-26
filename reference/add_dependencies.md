@@ -46,7 +46,7 @@ add_dependencies(compendium = NULL)
   `outputs/`, `figures/`, etc. have been created in this folder), `'.'`
   (if folders `data/`, `outputs/`, `figures/`, etc. have been created at
   the root of the project), etc. See
-  [`new_compendium()`](https://frbcesab.github.io/rcompendium/reference/new_compendium.md)
+  [`create_new_compendium()`](https://frbcesab.github.io/rcompendium/reference/create_new_compendium.md)
   for further information.
 
   Default is `compendium = NULL` (i.e. no additional folder are

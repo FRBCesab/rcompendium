@@ -13,27 +13,29 @@ High level overview of the package
 These four functions are usually the only ones user needs to run. The
 use of `set_credentials` is strongly recommended to permanently store
 user information (name, email, orcid, etc.) in the `.Rprofile`. This
-function must be run one time. The function `new_package` must be used
-to create an R package structure whereas `new_compendium` creates a new
-research compendium structure (i.e. R package structure with some
-additional files/folders). After that user can start to develop his/her
-project and frequently update the package/compendium components (`Rd`
-files, `NAMESPACE`, dependencies, badges, `README.md`, etc.)
+function must be run one time. The function `create_new_package` must be
+used to create an R package structure whereas `create_new_compendium`
+creates a new research compendium structure (i.e. R package structure
+with some additional files/folders). After that user can start to
+develop his/her project and frequently update the package/compendium
+components (`Rd` files, `NAMESPACE`, dependencies, badges, `README.md`,
+etc.)
 
 - [`set_credentials()`](https://frbcesab.github.io/rcompendium/reference/set_credentials.md)
   : Store user information in the .Rprofile
-- [`new_package()`](https://frbcesab.github.io/rcompendium/reference/new_package.md)
+- [`create_new_package()`](https://frbcesab.github.io/rcompendium/reference/create_new_package.md)
   : Create an R package structure
-- [`new_compendium()`](https://frbcesab.github.io/rcompendium/reference/new_compendium.md)
+- [`create_new_compendium()`](https://frbcesab.github.io/rcompendium/reference/create_new_compendium.md)
   : Create an R compendium structure
 
 ## Create files
 
 These function write files specific to R package and research compendium
-(`add_makefile`). They are called by the main functions `new_package`
-and `new_compendium` but they also can be used to overwrite files (with
-`overwrite = TRUE`) in case of broken code. When `open = TRUE` and
-`overwrite = FALSE` (default) files are open in the editor.
+(`add_makefile`). They are called by the main functions
+`create_new_package` and `create_new_compendium` but they also can be
+used to overwrite files (with `overwrite = TRUE`) in case of broken
+code. When `open = TRUE` and `overwrite = FALSE` (default) files are
+open in the editor.
 
 - [`add_description()`](https://frbcesab.github.io/rcompendium/reference/add_description.md)
   : Add a DESCRIPTION file
@@ -69,9 +71,10 @@ and `new_compendium` but they also can be used to overwrite files (with
 ## README badges
 
 These functions add badges to the `README.Rmd`. They are called by the
-main functions `new_package` and `new_compendium` but they also can be
-used to update badges if license, lifecycle, repository status change or
-to update number of dependencies (`add_dependencies_badge`).
+main functions `create_new_package` and `create_new_compendium` but they
+also can be used to update badges if license, lifecycle, repository
+status change or to update number of dependencies
+(`add_dependencies_badge`).
 
 - [`add_cran_version_badge()`](https://frbcesab.github.io/rcompendium/reference/add_cran_version_badge.md)
   : Add a CRAN version badge

@@ -3,8 +3,8 @@
 This function returns a list of all available licenses. This is
 particularly useful to get the right spelling of the license to be
 passed to
-[`new_package()`](https://frbcesab.github.io/rcompendium/reference/new_package.md),
-[`new_compendium()`](https://frbcesab.github.io/rcompendium/reference/new_compendium.md),
+[`create_new_package()`](https://frbcesab.github.io/rcompendium/reference/create_new_package.md),
+[`create_new_compendium()`](https://frbcesab.github.io/rcompendium/reference/create_new_compendium.md),
 or
 [`add_license()`](https://frbcesab.github.io/rcompendium/reference/add_license.md).
 

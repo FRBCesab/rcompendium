@@ -20,6 +20,15 @@
     ([\#91](https://github.com/FRBCesab/rcompendium/pull/91))
   - Refactor all functions by introducing new helpers
     ([\#102](https://github.com/FRBCesab/rcompendium/pull/102))
+  - A new argument (user credential) has been implemented:
+    `github_user`. The GitHub username is not guessed from
+    [`gh::gh_whoami()`](https://gh.r-lib.org/reference/gh_whoami.html)
+    anymore and the user needs to provide it. This new argument has been
+    added to
+    [`set_credentials()`](https://frbcesab.github.io/rcompendium/reference/set_credentials.md)
+    ([\#125](https://github.com/FRBCesab/rcompendium/pull/125)) to
+    permanently store this value.
+  - Rename `new_*()` functions in `create_new_*()`
 
 - **New features**
 
@@ -41,6 +50,10 @@
     [`add_cran_total_download_badge()`](https://frbcesab.github.io/rcompendium/reference/add_cran_total_download_badge.md)
     adds CRAN downloads badge to the `README.Rmd`
     ([\#96](https://github.com/FRBCesab/rcompendium/pull/96))
+  - [`add_issue_template()`](https://frbcesab.github.io/rcompendium/reference/add_issue_template.md)
+    creates a `.github/ISSUE_TEMPLATE` directory and store GitHub issue
+    templates
+    ([\#119](https://github.com/FRBCesab/rcompendium/pull/119))
 
 - **Bug fixes**
 
@@ -131,7 +144,7 @@ CRAN release: 2023-10-24
     compendium only)
   - Remove dependencies badge in README
   - Change default values of `lifecycle` and `status` arguments in
-    [`new_package()`](https://frbcesab.github.io/rcompendium/reference/new_package.md)
+    `new_package()`
   - Change commit messages in `new_*()` functions (conventional commits)
 
 - **Deprecated**
@@ -155,13 +168,11 @@ CRAN release: 2022-04-06
 - New feature:
   [`add_dockerfile()`](https://frbcesab.github.io/rcompendium/reference/add_dockerfile.md)
   creates a basic `Dockerfile` in compendium (new argument `dokerfile`
-  in
-  [`new_compendium()`](https://frbcesab.github.io/rcompendium/reference/new_compendium.md))
-  based on `rocker/rstudio`.
+  in `new_compendium()`) based on `rocker/rstudio`.
 - New feature:
   [`add_renv()`](https://frbcesab.github.io/rcompendium/reference/add_renv.md)
   initialize `renv` environment in compendium (new argument `renv` in
-  [`new_compendium()`](https://frbcesab.github.io/rcompendium/reference/new_compendium.md))
+  `new_compendium()`)
 - New feature: `add_github_actions_render()` will automatically render
   the `README.md` on GitHub server after each push. This action is
   triggered only if the `README.Rmd` has been modified since the last
@@ -211,9 +222,7 @@ After first submission to CRAN:
 ## rcompendium 0.5
 
 - Check for valid package name
-- Add new features:
-  [`new_compendium()`](https://frbcesab.github.io/rcompendium/reference/new_compendium.md)
-  and
+- Add new features: `new_compendium()` and
   [`add_compendium()`](https://frbcesab.github.io/rcompendium/reference/add_compendium.md)
 - Allow adding to `.gitignore` and `.Rbuildignore` several names
 - Improve console messages
@@ -231,9 +240,7 @@ After first submission to CRAN:
   [`add_github_actions_codecov_badge()`](https://frbcesab.github.io/rcompendium/reference/add_github_actions_codecov_badge.md),
   and
   [`add_codecov_badge()`](https://frbcesab.github.io/rcompendium/reference/add_codecov_badge.md)
-- New arguments in
-  [`new_package()`](https://frbcesab.github.io/rcompendium/reference/new_package.md):
-  `test` and `codecov`
+- New arguments in `new_package()`: `test` and `codecov`
 - Add a demo R function to pass test and show good practices in writing
   functions
 
@@ -262,8 +269,7 @@ After first submission to CRAN:
 - Badge functions return now Markdown badges (if assigned to a variable)
 - Badges are added at the end of the process (adding a additional
   commit)
-- Change default license in
-  [`new_package()`](https://frbcesab.github.io/rcompendium/reference/new_package.md)
+- Change default license in `new_package()`
 - Improve inputs checks
 - Change files templates (GH Actions names)
 

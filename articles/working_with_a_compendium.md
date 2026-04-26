@@ -12,7 +12,7 @@ VIGNETTE FIRST**
 
 First, create a **new empty RStudio project**. Let’s called it `comp`.
 To create a new compendium structure, run
-[`rcompendium::new_compendium()`](https://frbcesab.github.io/rcompendium/reference/new_compendium.md).
+[`rcompendium::create_new_compendium()`](https://frbcesab.github.io/rcompendium/reference/create_new_compendium.md).
 
 By default, the following content is created:
 
@@ -153,7 +153,7 @@ For further information, please read
 ### Using renv
 
 The default structure created by
-[`rcompendium::new_compendium()`](https://frbcesab.github.io/rcompendium/reference/new_compendium.md)
+[`rcompendium::create_new_compendium()`](https://frbcesab.github.io/rcompendium/reference/create_new_compendium.md)
 is a good starting point for making analyses reproducible. You can
 increase reproducibility by using the package
 [`renv`](https://rstudio.github.io/renv/).
@@ -165,11 +165,11 @@ provides to each project its own private package library making each
 project isolated from others.
 
 To initialize `renv` for your compendium, use `renv = TRUE` in
-[`rcompendium::new_compendium()`](https://frbcesab.github.io/rcompendium/reference/new_compendium.md)
+[`rcompendium::create_new_compendium()`](https://frbcesab.github.io/rcompendium/reference/create_new_compendium.md)
 or call the function
 [`rcompendium::add_renv()`](https://frbcesab.github.io/rcompendium/reference/add_renv.md)
 after
-[`rcompendium::new_compendium()`](https://frbcesab.github.io/rcompendium/reference/new_compendium.md).
+[`rcompendium::create_new_compendium()`](https://frbcesab.github.io/rcompendium/reference/create_new_compendium.md).
 
 The `make.R` will also be updated (replacement of
 `remotes::install_deps()` by
@@ -205,11 +205,11 @@ More information on Docker for R users:
 <https://environments.rstudio.com/docker>
 
 To add a `Dockerfile` to your compendium, use `dockerfile = TRUE` in
-[`rcompendium::new_compendium()`](https://frbcesab.github.io/rcompendium/reference/new_compendium.md)
+[`rcompendium::create_new_compendium()`](https://frbcesab.github.io/rcompendium/reference/create_new_compendium.md)
 or call the function
 [`rcompendium::add_dockerfile()`](https://frbcesab.github.io/rcompendium/reference/add_dockerfile.md)
 after
-[`rcompendium::new_compendium()`](https://frbcesab.github.io/rcompendium/reference/new_compendium.md).
+[`rcompendium::create_new_compendium()`](https://frbcesab.github.io/rcompendium/reference/create_new_compendium.md).
 
 By default `rcompendium` creates the following `Dockerfile`:
 

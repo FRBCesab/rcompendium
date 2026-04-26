@@ -18,9 +18,9 @@ and deploy website using 'pkgdown').
 2.  Create an new empty RStudio project;
 
 3.  Run
-    [`new_package()`](https://frbcesab.github.io/rcompendium/reference/new_package.md)
+    [`create_new_package()`](https://frbcesab.github.io/rcompendium/reference/create_new_package.md)
     to create a new package structure or
-    [`new_compendium()`](https://frbcesab.github.io/rcompendium/reference/new_compendium.md)
+    [`create_new_compendium()`](https://frbcesab.github.io/rcompendium/reference/create_new_compendium.md)
     to create a new research compendium structure;
 
 4.  Edit some metadata in `DESCRIPTION`, `CITATION`, and `README.Rmd`;
@@ -32,9 +32,9 @@ and deploy website using 'pkgdown').
 ## Managing credentials
 
 You can use the arguments `given`, `family`, `email`, and `orcid`
-directly with the functions `new_*()` and `add_*()`. But if you create a
-lot a projects (packages and/or compendia) it can be frustrating in the
-long run.
+directly with the functions `create_new_*()` and `add_*()`. But if you
+create a lot a projects (packages and/or compendia) it can be
+frustrating in the long run.
 
 An alternative way is to use **ONCE AND FOR ALL** the function
 [`set_credentials()`](https://frbcesab.github.io/rcompendium/reference/set_credentials.md)
@@ -45,8 +45,8 @@ save your time (it's the purpose of this package).
 
 Even if you have stored your credentials in the `~/.Rprofile` file you
 will always be able to modify them on-the-fly (i.e. by using credentials
-arguments in the functions `new_*()` and `add_*()`) or permanently by
-re-running
+arguments in the functions `create_new_*()` and `add_*()`) or
+permanently by re-running
 [`set_credentials()`](https://frbcesab.github.io/rcompendium/reference/set_credentials.md).
 
 ## Configuring git

@@ -1,10 +1,14 @@
 # List all functions in the package
 
 This function returns a list of all the functions (exported and
-internal) available with the package. As this function scans the
-`NAMESPACE` and the `R/` folder, it is recommended to run
-[`devtools::document()`](https://devtools.r-lib.org/reference/document.html)
-before.
+internal) available with the project. As this function scans the
+`NAMESPACE` and the `R/` folder, it is recommended to:
+
+- store all the functions in the `R/` folder
+
+- run
+  [`devtools::document()`](https://devtools.r-lib.org/reference/document.html)
+  before to update the `NAMESPACE`
 
 ## Usage
 

@@ -64,7 +64,13 @@
 <li>
 <code><a href="../reference/add_issue_template.html">add_issue_template()</a></code> creates a <code>.github/ISSUE_TEMPLATE</code> directory and store GitHub issue templates (<a href="https://github.com/FRBCesab/rcompendium/pull/119" class="external-link">#119</a>)</li>
 </ul></li>
-<li><p><strong>Bug fixes</strong></p></li>
+<li>
+<p><strong>Bug fixes</strong></p>
+<ul><li>
+<code>rcompendium</code> adds support for IDE other than RStudio (Positron, VSCode, etc.). It creates an empty <code>.here</code> file if the current directory is empty and no project file is found (<code>.vscode/settings.json</code>, <code>.git</code>, etc.)</li>
+<li>
+<code><a href="../reference/get_all_functions.html">get_all_functions()</a></code> now do not detect functions defined in <code><a href="https://rdrr.io/r/base/conditions.html" class="external-link">tryCatch()</a></code> (<a href="https://github.com/FRBCesab/rcompendium/pull/131" class="external-link">#131</a>)</li>
+</ul></li>
 <li>
 <p><strong>Minor changes</strong></p>
 <ul><li>Set up Air formatter for the repository (<a href="https://github.com/FRBCesab/rcompendium/pull/76" class="external-link">#76</a>)</li>

@@ -156,7 +156,7 @@ project and frequently update the package/compendium components (`Rd`
 files, `NAMESPACE`, dependencies, badges, `README.md`, etc.)
 
 - [`set_credentials()`](https://frbcesab.github.io/rcompendium/reference/set_credentials.md)
-  : Store credentials to the .Rprofile
+  : Store user information in the .Rprofile
 - [`new_package()`](https://frbcesab.github.io/rcompendium/reference/new_package.md)
   : Create an R package structure
 - [`new_compendium()`](https://frbcesab.github.io/rcompendium/reference/new_compendium.md)

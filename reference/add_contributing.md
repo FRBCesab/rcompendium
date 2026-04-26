@@ -20,7 +20,8 @@ add_contributing(
 
 - email:
 
-  A character of length 1. The email address of the project maintainer.
+  a `character` of length 1. The email address of the user (considered
+  as the maintainer and code owner of the project).
 
 - organisation:
 

@@ -7,10 +7,20 @@ repository.
 ## Usage
 
 ``` r
-add_codeowners(open = FALSE, overwrite = FALSE, quiet = FALSE)
+add_codeowners(
+  github_user = NULL,
+  open = FALSE,
+  overwrite = FALSE,
+  quiet = FALSE
+)
 ```
 
 ## Arguments
+
+- github_user:
+
+  a `character` of length 1. The GitHub account name of the user
+  (considered as the maintainer and code owner of the project).
 
 - open:
 

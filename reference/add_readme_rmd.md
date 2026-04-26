@@ -28,11 +28,13 @@ add_readme_rmd(
 
 - given:
 
-  A character of length 1. The given name of the project maintainer.
+  a `character` of length 1. The given name of the user (considered as
+  the maintainer and code owner of the project).
 
 - family:
 
-  A character of length 1. The family name of the project maintainer.
+  a `character` of length 1. The family name of the user (considered as
+  the maintainer and code owner of the project).
 
 - organisation:
 

@@ -78,6 +78,7 @@ new_compendium(
   family = NULL,
   email = NULL,
   orcid = NULL,
+  github_user = NULL,
   organisation = NULL,
   renv = FALSE,
   dockerfile = FALSE,
@@ -283,6 +284,15 @@ new_compendium(
   A character vector of length 1. The ORCID of the maintainer of the
   package. If `NULL` (default) the function will try to get this value
   by reading the `.Rprofile` file.
+
+  For further information see
+  [`set_credentials()`](https://frbcesab.github.io/rcompendium/reference/set_credentials.md).
+
+- github_user:
+
+  A character vector of length 1. The GitHub account name of the
+  maintainer of the package. If `NULL` (default) the function will try
+  to get this value by reading the `.Rprofile` file.
 
   For further information see
   [`set_credentials()`](https://frbcesab.github.io/rcompendium/reference/set_credentials.md).

@@ -1,11 +1,14 @@
-# Store credentials to the .Rprofile
+# Store user information in the .Rprofile
 
-This function is used to store user credentials in the `.Rprofile` file.
-Accepted credentials are listed below. This function is useful if user
-creates a lot of packages and/or research compendiums.
+This function is used to store user credentials (given and family names,
+email, ORCID, GitHub username, etc.) in the `.Rprofile` file. This
+function is useful to store user credentials once for all especially if
+the user creates a lot of R projects and/or if the user manually calls
+the `add_*()` functions.
 
-If the `.Rprofile` file does not exist this function will create it.
-Users need to paste the content of the clipboard to this file.
+This function will create the `.Rprofile` file if it does not exist.
+Then, the user needs to paste the content of the clipboard to this file
+(open by the function).
 
 ## Usage
 
@@ -15,7 +18,9 @@ set_credentials(
   family = NULL,
   email = NULL,
   orcid = NULL,
-  protocol = NULL
+  github_user = NULL,
+  protocol = "https",
+  open = TRUE
 )
 ```
 
@@ -23,25 +28,39 @@ set_credentials(
 
 - given:
 
-  A character of length 1. The given name of the project maintainer.
+  a `character` of length 1. The given name of the user (considered as
+  the maintainer and code owner of the project).
 
 - family:
 
-  A character of length 1. The family name of the project maintainer.
+  a `character` of length 1. The family name of the user (considered as
+  the maintainer and code owner of the project).
 
 - email:
 
-  A character of length 1. The email address of the project maintainer.
+  a `character` of length 1. The email address of the user (considered
+  as the maintainer and code owner of the project).
 
 - orcid:
 
-  A character of length 1. The ORCID of the project maintainer.
+  a `character` of length 1. The ORCID of the user (considered as the
+  maintainer and code owner of the project).
+
+- github_user:
+
+  a `character` of length 1. The GitHub account name of the user
+  (considered as the maintainer and code owner of the project).
 
 - protocol:
 
-  A character of length 1. The GIT protocol used to communicate with the
-  GitHub remote. One of `'https'` or `'ssh'`. If you don't know, keep
-  the default value (i.e. `NULL`) and the protocol will be `'https'`.
+  a `character` of length 1. The GIT protocol used to communicate with
+  GitHub. One of `'https'` or `'ssh'`. If you don't know, keep the
+  default value (i.e. `https`).
+
+- open:
+
+  a `logical` value. If `TRUE` (default) the `.Rprofile` is opened in
+  the default text editor (recommended).
 
 ## Value
 
@@ -57,12 +76,14 @@ Other setup functions:
 
 ``` r
 if (FALSE) { # \dontrun{
-library(rcompendium)
-
-
-## Define **ONCE FOR ALL** your credentials ----
-
-set_credentials("John", "Doe", "john.doe@domain.com",
-                orcid = "9999-9999-9999-9999", protocol = "https")
+set_credentials(
+  given = "John",
+  family = "Doe",
+  email = "john.doe@domain.com",
+  orcid = "9999-9999-9999-9999",
+  github_user = "jdoe",
+  protocol = "https",
+  open = TRUE
+)
 } # }
 ```

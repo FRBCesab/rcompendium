@@ -27,19 +27,23 @@ add_description(
 
 - given:
 
-  A character of length 1. The given name of the project maintainer.
+  a `character` of length 1. The given name of the user (considered as
+  the maintainer and code owner of the project).
 
 - family:
 
-  A character of length 1. The family name of the project maintainer.
+  a `character` of length 1. The family name of the user (considered as
+  the maintainer and code owner of the project).
 
 - email:
 
-  A character of length 1. The email address of the project maintainer.
+  a `character` of length 1. The email address of the user (considered
+  as the maintainer and code owner of the project).
 
 - orcid:
 
-  A character of length 1. The ORCID of the project maintainer.
+  a `character` of length 1. The ORCID of the user (considered as the
+  maintainer and code owner of the project).
 
 - organisation:
 

@@ -1,10 +1,23 @@
 ## Utilities Functions - Get Project/System Infos ----
 
-#' **Get Project Root Path**
-#'
+#' Retrieve project root path or error
 #' @noRd
 
-path_proj <- function() usethis::proj_get()
+path_proj <- function() {
+  criterion <- rprojroot::is_r_package | rprojroot::has_file(".here")
+
+  tryCatch(
+    rprojroot::find_root(criterion),
+    error = function(e) {
+      stop(
+        "Cannot determine project root. ",
+        "Make sure you are inside an R project or a directory containing ",
+        "a '.here' file.",
+        call. = FALSE
+      )
+    }
+  )
+}
 
 
 #' **Check if current folder is a package (DESCRIPTION file)**

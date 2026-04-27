@@ -202,6 +202,19 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.rmarkdown
 - type: software
+  title: rprojroot
+  abstract: 'rprojroot: Finding Files in Project Subdirectories'
+  notes: Imports
+  url: https://rprojroot.r-lib.org/
+  repository: https://CRAN.R-project.org/package=rprojroot
+  authors:
+  - family-names: Müller
+    given-names: Kirill
+    email: kirill@cynkra.com
+    orcid: https://orcid.org/0000-0002-1416-3412
+  year: '2026'
+  doi: 10.32614/CRAN.package.rprojroot
+- type: software
   title: rstudioapi
   abstract: 'rstudioapi: Safely Access the RStudio API'
   notes: Imports

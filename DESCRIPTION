@@ -31,6 +31,7 @@ Imports:
     gtools,
     renv,
     rmarkdown,
+    rprojroot,
     rstudioapi,
     stringr,
     usethis,

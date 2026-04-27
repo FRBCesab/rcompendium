@@ -1,8 +1,11 @@
-#' Build an absolute path
+# TODO: need to check if create_template() is called w/ full path
+
+#' Build an absolute path by adding the project root path
 #' @param ... one or several folder/file names
 #' @noRd
-build_full_path <- function(...) {
-  file.path(path_proj(), ...)
+build_full_path <- function(..., path = NULL) {
+  path <- path %||% path_proj()
+  file.path(path, ...)
 }
 
 
@@ -110,7 +113,7 @@ create_template <- function(slug, path, meta) {
     outdir = dirname(path)
   )
 
-  populate_template(build_full_path(path), meta)
+  populate_template(path, meta)
 
   invisible(NULL)
 }
@@ -622,8 +625,8 @@ assert_project_file_detected <- function() {
 
 #' Error if the R/ directory does not exist
 #' @noRd
-stop_if_missing_r_dir <- function() {
-  if (!dir.exists("R")) {
+stop_if_missing_r_dir <- function(path = NULL) {
+  if (!dir.exists(build_full_path("R", path = path))) {
     stop("The directory 'R/' cannot be found.", call. = FALSE)
   }
 
@@ -633,9 +636,9 @@ stop_if_missing_r_dir <- function() {
 
 #' List the path of all R files in R/
 #' @noRd
-get_r_file_paths <- function() {
+get_r_file_paths <- function(path = NULL) {
   list.files(
-    path = "R",
+    path = build_full_path("R", path = path),
     pattern = "\\.R$",
     full.names = TRUE,
     ignore.case = TRUE
@@ -645,8 +648,8 @@ get_r_file_paths <- function() {
 
 #' Error if the R/ directory is empty
 #' @noRd
-stop_if_missing_r_files <- function() {
-  if (length(get_r_file_paths()) == 0) {
+stop_if_missing_r_files <- function(path = NULL) {
+  if (length(get_r_file_paths(path)) == 0) {
     stop("The 'R/' folder is empty.", call. = FALSE)
   }
 }
@@ -683,8 +686,8 @@ extract_r_function_names <- function(x) {
 
 #' Extract the name of the exported functions in the NAMESPACE
 #' @noRd
-extract_exported_r_function_names <- function() {
-  if (file.exists(file.path("NAMESPACE"))) {
+extract_exported_r_function_names <- function(path = NULL) {
+  if (file.exists(build_full_path("NAMESPACE", path = path))) {
     namespace <- readLines(
       con = file.path("NAMESPACE"),
       warn = FALSE
@@ -710,18 +713,18 @@ extract_exported_r_function_names <- function() {
 #' Main function to extract, clean and return function names
 #' (exported & internal)
 #' @noRd
-detect_r_function_names <- function() {
+detect_r_function_names <- function(path = NULL) {
   funs <- list(
     "external" = NULL,
     "internal" = NULL
   )
 
-  r_files <- get_r_file_paths()
+  r_files <- get_r_file_paths(path)
   r_functions <- read_r_files(r_files)
   r_functions <- extract_r_function_names(r_functions)
 
   if (length(r_functions) > 0) {
-    exported_r_functions <- extract_exported_r_function_names()
+    exported_r_functions <- extract_exported_r_function_names(path)
 
     if (length(exported_r_functions) > 0) {
       funs$"external" <- r_functions[(r_functions %in% exported_r_functions)]

@@ -9,6 +9,12 @@ test_that("stop_if_missing_r_dir() errors", {
       "The directory 'R/' cannot be found.",
       fixed = TRUE
     )
+
+    expect_error(
+      stop_if_missing_r_dir(path = getwd()),
+      "The directory 'R/' cannot be found.",
+      fixed = TRUE
+    )
   })
 })
 
@@ -19,6 +25,6 @@ test_that("stop_if_missing_r_dir() works", {
     dir.create("R")
 
     expect_silent(stop_if_missing_r_dir())
-    expect_null(x <- stop_if_missing_r_dir())
+    expect_silent(stop_if_missing_r_dir(path = getwd()))
   })
 })

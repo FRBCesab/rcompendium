@@ -43,7 +43,9 @@ add_citation <- function(
 ) {
   stop_if_not_project()
 
-  stop_if_not_logical(open, overwrite, quiet)
+  stop_if_not_logical(open)
+  stop_if_not_logical(overwrite)
+  stop_if_not_logical(quiet)
 
   path <- build_abs_path("inst", "CITATION")
 
@@ -55,8 +57,8 @@ add_citation <- function(
     organisation = organisation
   )
 
-  stop_if_null_or_empty(meta$given, "given")
-  stop_if_null_or_empty(meta$family, "family")
+  stop_if_not_string(meta$given)
+  stop_if_not_string(meta$family)
 
   if (should_create_file(path, overwrite)) {
     ensure_dir_exists(dirname(path))

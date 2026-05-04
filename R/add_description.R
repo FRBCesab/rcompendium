@@ -34,7 +34,9 @@ add_description <- function(
 ) {
   stop_if_not_project()
 
-  stop_if_not_logical(open, overwrite, quiet)
+  stop_if_not_logical(open)
+  stop_if_not_logical(overwrite)
+  stop_if_not_logical(quiet)
 
   path <- build_abs_path("DESCRIPTION")
 
@@ -48,9 +50,9 @@ add_description <- function(
     organisation = organisation
   )
 
-  stop_if_null_or_empty(meta$given, "given")
-  stop_if_null_or_empty(meta$family, "family")
-  stop_if_null_or_empty(meta$email, "email")
+  stop_if_not_string(meta$given)
+  stop_if_not_string(meta$family)
+  stop_if_not_string(meta$email)
 
   if (should_create_file(path, overwrite)) {
     ensure_dir_exists(dirname(path))

@@ -34,7 +34,9 @@ add_readme_rmd <- function(
 ) {
   stop_if_not_project()
 
-  stop_if_not_logical(open, overwrite, quiet)
+  stop_if_not_logical(open)
+  stop_if_not_logical(overwrite)
+  stop_if_not_logical(quiet)
   stop_if_not_string(type)
   assert_valid_project_type(type)
 
@@ -48,8 +50,8 @@ add_readme_rmd <- function(
     organisation = organisation
   )
 
-  stop_if_null_or_empty(meta$given, "given")
-  stop_if_null_or_empty(meta$family, "family")
+  stop_if_not_string(meta$given)
+  stop_if_not_string(meta$family)
 
   if (should_create_file(path, overwrite)) {
     ensure_dir_exists(dirname(path))

@@ -27,7 +27,9 @@ add_codeowners <- function(
 ) {
   stop_if_not_project()
 
-  stop_if_not_logical(open, overwrite, quiet)
+  stop_if_not_logical(open)
+  stop_if_not_logical(overwrite)
+  stop_if_not_logical(quiet)
 
   path <- build_abs_path(".github", "CODEOWNERS")
 
@@ -37,7 +39,7 @@ add_codeowners <- function(
     github_user = github_user
   )
 
-  stop_if_null_or_empty(meta$github_user, "github_user")
+  stop_if_not_string(meta$github_user)
 
   if (should_create_file(path, overwrite)) {
     ensure_dir_exists(dirname(path))

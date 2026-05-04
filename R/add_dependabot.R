@@ -29,7 +29,8 @@ add_dependabot <- function(
 ) {
   stop_if_not_project()
 
-  stop_if_not_logical(overwrite, quiet)
+  stop_if_not_logical(overwrite)
+  stop_if_not_logical(quiet)
 
   path <- build_abs_path(".github", "dependabot.yaml")
 

@@ -57,7 +57,9 @@ add_dockerfile <- function(
   overwrite = FALSE,
   quiet = FALSE
 ) {
-  stop_if_not_logical(open, overwrite, quiet)
+  stop_if_not_logical(open)
+  stop_if_not_logical(overwrite)
+  stop_if_not_logical(quiet)
 
   path <- build_abs_path("Dockerfile")
 
@@ -87,7 +89,9 @@ add_dockerfile <- function(
     email <- getOption("email")
   }
 
-  stop_if_not_string(given, family, email)
+  stop_if_not_string(given)
+  stop_if_not_string(family)
+  stop_if_not_string(email)
 
   r_version <- paste(
     utils::sessionInfo()$"R.version"$"major",

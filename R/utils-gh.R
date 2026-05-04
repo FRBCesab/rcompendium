@@ -32,7 +32,8 @@ is_git <- function() dir.exists(build_abs_path(".git"))
 update_gh_repo <- function(owner, repo, website = TRUE, quiet = FALSE) {
   stop_if_not_project()
 
-  stop_if_not_logical(website, quiet)
+  stop_if_not_logical(website)
+  stop_if_not_logical(quiet)
 
   ## Checks inputs ----
 
@@ -43,7 +44,8 @@ update_gh_repo <- function(owner, repo, website = TRUE, quiet = FALSE) {
     stop("Argument 'repo' is missing.")
   }
 
-  stop_if_not_string(owner, repo)
+  stop_if_not_string(owner)
+  stop_if_not_string(repo)
 
   ## Is GITHUB PAT ----
 
@@ -175,7 +177,8 @@ is_gh_repo <- function(owner, repo) {
     stop("Argument 'repo' is missing.")
   }
 
-  stop_if_not_string(owner, repo)
+  stop_if_not_string(owner)
+  stop_if_not_string(repo)
 
   tryCatch(
     gh::gh("GET /repos/{owner}/{repo}", repo = repo, owner = owner),

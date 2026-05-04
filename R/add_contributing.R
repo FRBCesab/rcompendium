@@ -27,7 +27,9 @@ add_contributing <- function(
 ) {
   stop_if_not_project()
 
-  stop_if_not_logical(open, overwrite, quiet)
+  stop_if_not_logical(open)
+  stop_if_not_logical(overwrite)
+  stop_if_not_logical(quiet)
 
   path <- build_abs_path("CONTRIBUTING.md")
 
@@ -38,7 +40,7 @@ add_contributing <- function(
     organisation = organisation
   )
 
-  stop_if_null_or_empty(meta$email, "email")
+  stop_if_not_string(meta$email)
 
   if (should_create_file(path, overwrite)) {
     ensure_dir_exists(dirname(path))

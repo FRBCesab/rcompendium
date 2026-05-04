@@ -31,7 +31,8 @@ add_to_buildignore <- function(x, open = FALSE, quiet = FALSE) {
     stop("Argument 'x' is missing.")
   }
 
-  stop_if_not_logical(open, quiet)
+  stop_if_not_logical(open)
+  stop_if_not_logical(quiet)
 
   path <- build_abs_path(".Rbuildignore")
 

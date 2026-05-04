@@ -164,7 +164,8 @@ add_sticker <- function(type, overwrite = FALSE, quiet = FALSE) {
 
   type <- tolower(type)
 
-  stop_if_not_logical(overwrite, quiet)
+  stop_if_not_logical(overwrite)
+  stop_if_not_logical(quiet)
 
   if (type == "package") {
     path <- build_abs_path(
@@ -304,7 +305,8 @@ template_url <- function() {
 #' @noRd
 
 download_template <- function(slug, filename) {
-  stop_if_not_string(slug, filename)
+  stop_if_not_string(slug)
+  stop_if_not_string(filename)
 
   utils::download.file(
     url = paste0(template_url(), slug),

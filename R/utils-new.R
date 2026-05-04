@@ -165,28 +165,10 @@ open_file_if_needed <- function(path, open) {
 }
 
 
-#' Error if an argument is NULL or empty
-#' @noRd
-stop_if_null_or_empty <- function(value, name) {
-  if (is.null(value) || identical(value, "") || length(value) == 0) {
-    stop(
-      paste0(
-        "Argument '",
-        name,
-        "' is required but is NULL or empty."
-      )
-    )
-  }
-
-  invisible(NULL)
-}
-
-
 #' Error if the license name if not available
 #' @param license a character of length of 1. The name of the license.
 #' @noRd
 assert_valid_license_name <- function(license) {
-  stop_if_null_or_empty(license)
   stop_if_not_string(license)
 
   license_id <- which(licenses$tag == license)
@@ -208,7 +190,7 @@ assert_valid_license_name <- function(license) {
 #' @noRd
 assert_valid_mit_meta <- function(license, meta) {
   if (license == "MIT") {
-    if (is.null(meta$given)) {
+    if (is.null(given)) {
       stop(
         "Given name of the coypright holder is mandatory with the ",
         "license MIT. Please use the argument `given` or the function ",
@@ -330,7 +312,6 @@ assert_valid_gh_action_name <- function(name) {
 #' @param type a character of length of 1. The type of the project.
 #' @noRd
 assert_valid_project_type <- function(type) {
-  stop_if_null_or_empty(type)
   stop_if_not_string(type)
 
   if (!(type %in% c("package", "compendium"))) {
@@ -401,34 +382,28 @@ assert_valid_git_protocol <- function(meta) {
 assert_valid_credentials <- function(meta) {
   if (!is.null(meta)) {
     if ("given" %in% names(meta)) {
-      given <- meta[["given"]]
-      stop_if_not_string(given)
+      stop_if_not_string(meta$given)
     }
 
     if ("family" %in% names(meta)) {
-      family <- meta[["family"]]
-      stop_if_not_string(family)
+      stop_if_not_string(meta$family)
     }
 
     if ("email" %in% names(meta)) {
-      email <- meta[["email"]]
-      stop_if_not_string(email)
+      stop_if_not_string(meta$email)
     }
 
     if ("orcid" %in% names(meta)) {
-      orcid <- meta[["orcid"]]
-      stop_if_not_string(orcid)
+      stop_if_not_string(meta$orcid)
     }
 
     if ("github_user" %in% names(meta)) {
-      github_user <- meta[["github_user"]]
-      stop_if_not_string(github_user)
+      stop_if_not_string(meta$github_user)
     }
 
     if (!is.null(meta[["protocol"]])) {
       if ("protocol" %in% names(meta)) {
-        protocol <- meta[["protocol"]]
-        stop_if_not_string(protocol)
+        stop_if_not_string(meta$protocol)
       }
     }
   }

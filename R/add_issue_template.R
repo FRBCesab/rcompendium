@@ -31,7 +31,10 @@ add_issue_template <- function(
 ) {
   stop_if_not_project()
 
-  stop_if_not_logical(open, overwrite, quiet)
+  stop_if_not_logical(open)
+  stop_if_not_logical(overwrite)
+  stop_if_not_logical(quiet)
+
   stop_if_not_string(name)
   assert_valid_issue_template_name(name)
 

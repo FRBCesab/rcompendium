@@ -37,6 +37,7 @@ add_readme_rmd <- function(
   stop_if_not_logical(open)
   stop_if_not_logical(overwrite)
   stop_if_not_logical(quiet)
+
   stop_if_not_string(type)
   assert_valid_project_type(type)
 

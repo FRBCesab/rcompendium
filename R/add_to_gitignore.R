@@ -27,6 +27,8 @@
 #' }
 
 add_to_gitignore <- function(x, open = FALSE, quiet = FALSE) {
+  stop_if_not_project()
+
   stop_if_not_logical(open)
   stop_if_not_logical(quiet)
 

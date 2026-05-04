@@ -31,6 +31,7 @@ add_license <- function(
   stop_if_not_project()
 
   stop_if_not_logical(quiet)
+
   stop_if_not_string(license)
   assert_valid_license_name(license)
 

@@ -45,6 +45,8 @@ add_vignette <- function(
   overwrite = FALSE,
   quiet = FALSE
 ) {
+  stop_if_not_project()
+
   stop_if_not_logical(open)
   stop_if_not_logical(overwrite)
   stop_if_not_logical(quiet)

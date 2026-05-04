@@ -17,9 +17,11 @@ get_project_name <- function() {
 #' @noRd
 
 get_project_version <- function() {
-  stop_if_not_project()
-
-  read_descr()$"Version"
+  if (file.exists(build_abs_path("DESCRIPTION"))) {
+    return(read_descr()$"Version")
+  } else {
+    return(NULL)
+  }
 }
 
 

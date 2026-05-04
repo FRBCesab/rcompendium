@@ -190,7 +190,7 @@ assert_valid_license_name <- function(license) {
 #' @noRd
 assert_valid_mit_meta <- function(license, meta) {
   if (license == "MIT") {
-    if (is.null(given)) {
+    if (is.null(meta$given)) {
       stop(
         "Given name of the coypright holder is mandatory with the ",
         "license MIT. Please use the argument `given` or the function ",
@@ -282,8 +282,12 @@ create_mit_copyright_holder_file <- function(license, meta, quiet = FALSE) {
 #' @param license a character of length of 1. The name of the license.
 #' @noRd
 get_license_meta <- function(license) {
-  license_id <- which(licenses$tag == license)
-  as.list(licenses[license_id, ])
+  if (!is.null(license)) {
+    license_id <- which(licenses$tag == license)
+    return(as.list(licenses[license_id, ]))
+  } else {
+    return(NULL)
+  }
 }
 
 
@@ -325,8 +329,12 @@ assert_valid_project_type <- function(type) {
 #' Retrieve the name of the license used in the project
 #' @noRd
 get_project_license_name <- function() {
-  descr_file <- read_descr()
-  gsub(" \\+ file LICENSE", "", descr_file$License)
+  if (file.exists(build_abs_path("DESCRIPTION"))) {
+    descr_file <- read_descr()
+    return(gsub(" \\+ file LICENSE", "", descr_file$License))
+  } else {
+    return(NULL)
+  }
 }
 
 
@@ -334,7 +342,12 @@ get_project_license_name <- function() {
 #' @noRd
 get_project_license_url <- function() {
   license <- get_project_license_name()
-  get_license_meta(license)$url
+
+  if (!is.null(license)) {
+    return(get_license_meta(license)$url)
+  } else {
+    return(NULL)
+  }
 }
 
 

@@ -29,3 +29,12 @@ create_dummy_desc_file <- function() {
   writeLines(content, "DESCRIPTION")
   invisible(NULL)
 }
+
+
+expect_path_equal <- function(object, expected) {
+  norm <- function(x) {
+    normalizePath(x, winslash = "/", mustWork = FALSE)
+  }
+
+  testthat::expect_equal(norm(object), norm(expected))
+}

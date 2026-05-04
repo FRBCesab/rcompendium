@@ -11,88 +11,88 @@ test_that("resolve_project_root() - In project", {
   with_local_project({
     initialize_project(quiet = TRUE)
 
-    expect_equal(normalizePath(resolve_project_root()), normalizePath(getwd()))
+    expect_path_equal(resolve_project_root(), getwd())
   })
 
   with_local_project({
     file.create(".here")
 
-    expect_equal(normalizePath(resolve_project_root()), normalizePath(getwd()))
+    expect_path_equal(resolve_project_root(), getwd())
   })
 
   with_local_project({
     create_dummy_desc_file()
 
-    expect_equal(normalizePath(resolve_project_root()), normalizePath(getwd()))
+    expect_path_equal(resolve_project_root(), getwd())
   })
 
   with_local_project({
     dir.create(".git")
 
-    expect_equal(normalizePath(resolve_project_root()), normalizePath(getwd()))
+    expect_path_equal(resolve_project_root(), getwd())
   })
 
   with_local_project({
     dir.create(".vscode")
     file.create(file.path(".vscode", "settings.json"))
 
-    expect_equal(normalizePath(resolve_project_root()), normalizePath(getwd()))
+    expect_path_equal(resolve_project_root(), getwd())
   })
 
   with_local_project({
     content <- "\"Packages\": { }"
     writeLines(content, "renv.lock")
 
-    expect_equal(normalizePath(resolve_project_root()), normalizePath(getwd()))
+    expect_path_equal(resolve_project_root(), getwd())
   })
 
   with_local_project({
     content <- "Version: 0.0.0"
     writeLines(content, "pkgtest.Rproj")
 
-    expect_equal(normalizePath(resolve_project_root()), normalizePath(getwd()))
+    expect_path_equal(resolve_project_root(), getwd())
   })
 
   with_local_project({
     file.create("_pkgdown.yaml")
 
-    expect_equal(normalizePath(resolve_project_root()), normalizePath(getwd()))
+    expect_path_equal(resolve_project_root(), getwd())
   })
 
   with_local_project({
     file.create("_pkgdown.yml")
 
-    expect_equal(normalizePath(resolve_project_root()), normalizePath(getwd()))
+    expect_path_equal(resolve_project_root(), getwd())
   })
 
   with_local_project({
     file.create("_quarto.yml")
 
-    expect_equal(normalizePath(resolve_project_root()), normalizePath(getwd()))
+    expect_path_equal(resolve_project_root(), getwd())
   })
 
   with_local_project({
     file.create(".projectile")
 
-    expect_equal(normalizePath(resolve_project_root()), normalizePath(getwd()))
+    expect_path_equal(resolve_project_root(), getwd())
   })
 
   with_local_project({
     file.create("_targets.R")
 
-    expect_equal(normalizePath(resolve_project_root()), normalizePath(getwd()))
+    expect_path_equal(resolve_project_root(), getwd())
   })
 
   with_local_project({
     file.create("remake.yml")
 
-    expect_equal(normalizePath(resolve_project_root()), normalizePath(getwd()))
+    expect_path_equal(resolve_project_root(), getwd())
   })
 
   with_local_project({
     dir.create(".drake")
 
-    expect_equal(normalizePath(resolve_project_root()), normalizePath(getwd()))
+    expect_path_equal(resolve_project_root(), getwd())
   })
 })
 
@@ -101,20 +101,20 @@ test_that("resolve_project_root() - In subfolder", {
   with_local_project({
     initialize_project(quiet = TRUE)
 
-    wd <- normalizePath(getwd())
+    wd <- getwd()
     dir.create("dummy")
     withr::local_dir("dummy")
 
-    expect_equal(normalizePath(resolve_project_root()), wd)
+    expect_path_equal(resolve_project_root(), wd)
   })
 
   with_local_project({
     create_dummy_desc_file()
 
-    wd <- normalizePath(getwd())
+    wd <- getwd()
     dir.create("dummy/dumby", recursive = TRUE)
     withr::local_dir("dummy/dumby")
 
-    expect_equal(normalizePath(resolve_project_root()), wd)
+    expect_path_equal(resolve_project_root(), wd)
   })
 })

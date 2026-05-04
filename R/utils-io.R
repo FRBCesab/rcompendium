@@ -20,7 +20,7 @@ edit_file <- function(path) {
 #' @noRd
 
 read_descr <- function() {
-  is_package()
+  stop_if_not_project()
 
   path <- build_abs_path()
 
@@ -41,7 +41,7 @@ read_descr <- function() {
 #' @noRd
 
 write_descr <- function(descr_file) {
-  is_package()
+  stop_if_not_project()
 
   path <- build_abs_path()
 

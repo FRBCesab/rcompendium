@@ -30,7 +30,7 @@ is_git <- function() dir.exists(build_abs_path(".git"))
 #' @noRd
 
 update_gh_repo <- function(owner, repo, website = TRUE, quiet = FALSE) {
-  is_package()
+  stop_if_not_project()
 
   stop_if_not_logical(website, quiet)
 

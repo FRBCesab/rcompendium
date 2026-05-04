@@ -1,20 +1,5 @@
 ## Utilities Functions - Get Project/System Infos ----
 
-#' **Check if current folder is a package (DESCRIPTION file)**
-#'
-#' @noRd
-
-is_package <- function() {
-  path <- build_abs_path()
-
-  if (!file.exists(file.path(path, "DESCRIPTION"))) {
-    stop("No 'DESCRIPTION' file found.")
-  }
-
-  invisible(NULL)
-}
-
-
 #' **Get project name**
 #'
 #' @noRd
@@ -32,7 +17,7 @@ get_project_name <- function() {
 #' @noRd
 
 get_project_version <- function() {
-  is_package()
+  stop_if_not_project()
 
   read_descr()$"Version"
 }

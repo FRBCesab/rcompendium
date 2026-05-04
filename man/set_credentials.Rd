@@ -65,8 +65,8 @@ set_credentials(
 }
 }
 \seealso{
-Other setup functions: 
-\code{\link{create_new_compendium}()},
-\code{\link{create_new_package}()}
+Other setup functions:
+\code{\link[=create_new_compendium]{create_new_compendium()}},
+\code{\link[=create_new_package]{create_new_package()}}
 }
 \concept{setup functions}

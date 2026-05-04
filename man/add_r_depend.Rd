@@ -21,12 +21,12 @@ add_r_depend()
 }
 }
 \seealso{
-Other development functions: 
-\code{\link{add_dependabot}()},
-\code{\link{add_dependencies}()},
-\code{\link{add_github_action}()},
-\code{\link{add_issue_template}()},
-\code{\link{add_to_buildignore}()},
-\code{\link{add_to_gitignore}()}
+Other development functions:
+\code{\link[=add_dependabot]{add_dependabot()}},
+\code{\link[=add_dependencies]{add_dependencies()}},
+\code{\link[=add_github_action]{add_github_action()}},
+\code{\link[=add_issue_template]{add_issue_template()}},
+\code{\link[=add_to_buildignore]{add_to_buildignore()}},
+\code{\link[=add_to_gitignore]{add_to_gitignore()}}
 }
 \concept{development functions}

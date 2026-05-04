@@ -2,140 +2,206 @@
 
 test_that("assert_valid_credentials() errors", {
   expect_error(
+    assert_valid_credentials(list(given = NULL)),
+    "The argument 'given' cannot be NULL.",
+    fixed = TRUE
+  )
+
+  expect_error(
+    assert_valid_credentials(list(given = NA_character_)),
+    "The argument 'given' cannot be NA.",
+    fixed = TRUE
+  )
+
+  expect_error(
     assert_valid_credentials(list(given = 12)),
-    "Argument 'given' must be a character of length 1.",
+    "The argument 'given' must be a character of length 1.",
     fixed = TRUE
   )
 
   expect_error(
     assert_valid_credentials(list(given = TRUE)),
-    "Argument 'given' must be a character of length 1.",
+    "The argument 'given' must be a character of length 1.",
     fixed = TRUE
   )
 
   expect_error(
     assert_valid_credentials(list(given = letters)),
-    "Argument 'given' must be a character of length 1.",
+    "The argument 'given' must be a character of length 1.",
+    fixed = TRUE
+  )
+
+  expect_error(
+    assert_valid_credentials(list(family = NULL)),
+    "The argument 'family' cannot be NULL.",
+    fixed = TRUE
+  )
+
+  expect_error(
+    assert_valid_credentials(list(family = NA_character_)),
+    "The argument 'family' cannot be NA.",
     fixed = TRUE
   )
 
   expect_error(
     assert_valid_credentials(list(family = 12)),
-    "Argument 'family' must be a character of length 1.",
+    "The argument 'family' must be a character of length 1.",
     fixed = TRUE
   )
 
   expect_error(
     assert_valid_credentials(list(family = TRUE)),
-    "Argument 'family' must be a character of length 1.",
+    "The argument 'family' must be a character of length 1.",
     fixed = TRUE
   )
 
   expect_error(
     assert_valid_credentials(list(family = letters)),
-    "Argument 'family' must be a character of length 1.",
+    "The argument 'family' must be a character of length 1.",
     fixed = TRUE
   )
 
   expect_error(
     assert_valid_credentials(list(given = "John", family = letters)),
-    "Argument 'family' must be a character of length 1.",
+    "The argument 'family' must be a character of length 1.",
+    fixed = TRUE
+  )
+
+  expect_error(
+    assert_valid_credentials(list(email = NULL)),
+    "The argument 'email' cannot be NULL.",
+    fixed = TRUE
+  )
+
+  expect_error(
+    assert_valid_credentials(list(email = NA_character_)),
+    "The argument 'email' cannot be NA.",
     fixed = TRUE
   )
 
   expect_error(
     assert_valid_credentials(list(email = 12)),
-    "Argument 'email' must be a character of length 1.",
+    "The argument 'email' must be a character of length 1.",
     fixed = TRUE
   )
 
   expect_error(
     assert_valid_credentials(list(email = TRUE)),
-    "Argument 'email' must be a character of length 1.",
+    "The argument 'email' must be a character of length 1.",
     fixed = TRUE
   )
 
   expect_error(
     assert_valid_credentials(list(email = letters)),
-    "Argument 'email' must be a character of length 1.",
+    "The argument 'email' must be a character of length 1.",
     fixed = TRUE
   )
 
   expect_error(
     assert_valid_credentials(list(given = "John", email = letters)),
-    "Argument 'email' must be a character of length 1.",
+    "The argument 'email' must be a character of length 1.",
+    fixed = TRUE
+  )
+
+  expect_error(
+    assert_valid_credentials(list(orcid = NULL)),
+    "The argument 'orcid' cannot be NULL.",
+    fixed = TRUE
+  )
+
+  expect_error(
+    assert_valid_credentials(list(orcid = NA_character_)),
+    "The argument 'orcid' cannot be NA.",
     fixed = TRUE
   )
 
   expect_error(
     assert_valid_credentials(list(orcid = 12)),
-    "Argument 'orcid' must be a character of length 1.",
+    "The argument 'orcid' must be a character of length 1.",
     fixed = TRUE
   )
 
   expect_error(
     assert_valid_credentials(list(orcid = TRUE)),
-    "Argument 'orcid' must be a character of length 1.",
+    "The argument 'orcid' must be a character of length 1.",
     fixed = TRUE
   )
 
   expect_error(
     assert_valid_credentials(list(orcid = letters)),
-    "Argument 'orcid' must be a character of length 1.",
+    "The argument 'orcid' must be a character of length 1.",
     fixed = TRUE
   )
 
   expect_error(
     assert_valid_credentials(list(given = "John", orcid = letters)),
-    "Argument 'orcid' must be a character of length 1.",
+    "The argument 'orcid' must be a character of length 1.",
+    fixed = TRUE
+  )
+
+  expect_error(
+    assert_valid_credentials(list(github_user = NULL)),
+    "The argument 'github_user' cannot be NULL.",
+    fixed = TRUE
+  )
+
+  expect_error(
+    assert_valid_credentials(list(github_user = NA_character_)),
+    "The argument 'github_user' cannot be NA.",
     fixed = TRUE
   )
 
   expect_error(
     assert_valid_credentials(list(github_user = 12)),
-    "Argument 'github_user' must be a character of length 1.",
+    "The argument 'github_user' must be a character of length 1.",
     fixed = TRUE
   )
 
   expect_error(
     assert_valid_credentials(list(github_user = TRUE)),
-    "Argument 'github_user' must be a character of length 1.",
+    "The argument 'github_user' must be a character of length 1.",
     fixed = TRUE
   )
 
   expect_error(
     assert_valid_credentials(list(github_user = letters)),
-    "Argument 'github_user' must be a character of length 1.",
+    "The argument 'github_user' must be a character of length 1.",
     fixed = TRUE
   )
 
   expect_error(
     assert_valid_credentials(list(given = "John", github_user = letters)),
-    "Argument 'github_user' must be a character of length 1.",
+    "The argument 'github_user' must be a character of length 1.",
+    fixed = TRUE
+  )
+
+  expect_error(
+    assert_valid_credentials(list(protocol = NA_character_)),
+    "The argument 'protocol' cannot be NA.",
     fixed = TRUE
   )
 
   expect_error(
     assert_valid_credentials(list(protocol = 12)),
-    "Argument 'protocol' must be a character of length 1.",
+    "The argument 'protocol' must be a character of length 1.",
     fixed = TRUE
   )
 
   expect_error(
     assert_valid_credentials(list(protocol = TRUE)),
-    "Argument 'protocol' must be a character of length 1.",
+    "The argument 'protocol' must be a character of length 1.",
     fixed = TRUE
   )
 
   expect_error(
     assert_valid_credentials(list(protocol = letters)),
-    "Argument 'protocol' must be a character of length 1.",
+    "The argument 'protocol' must be a character of length 1.",
     fixed = TRUE
   )
 
   expect_error(
     assert_valid_credentials(list(given = "John", protocol = letters)),
-    "Argument 'protocol' must be a character of length 1.",
+    "The argument 'protocol' must be a character of length 1.",
     fixed = TRUE
   )
 })

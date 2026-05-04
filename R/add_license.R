@@ -29,12 +29,12 @@ add_license <- function(
   quiet = FALSE
 ) {
   stop_if_not_project()
-  stop_if_not_logical(quiet)
 
+  stop_if_not_logical(quiet)
+  stop_if_not_string(license)
   assert_valid_license_name(license)
 
-  rel_path <- build_rel_path("LICENSE.md")
-  full_path <- build_full_path(rel_path)
+  path <- build_abs_path("LICENSE.md")
 
   meta <- resolve_project_meta(
     given = given,
@@ -50,11 +50,11 @@ add_license <- function(
 
     create_template(
       slug = paste0("licenses/license-", get_license_meta(license)[["file"]]),
-      path = rel_path,
+      path = path,
       meta = meta
     )
 
-    ui_file_written(rel_path, quiet)
+    ui_file_written(path, quiet)
     add_to_buildignore("LICENSE.md", quiet = quiet)
   } else {
     cli::cli_alert_danger(

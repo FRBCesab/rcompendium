@@ -501,8 +501,7 @@ create_new_compendium <- function(
   if (!file.exists(file.path(path_proj(), "R", "print_msg.R"))) {
     download_template(
       slug = "package/print_msg.R",
-      filename = "print_msg.R",
-      outdir = file.path(path_proj(), "R")
+      filename = file.path(path_proj(), "R", "print_msg.R")
     )
   }
 

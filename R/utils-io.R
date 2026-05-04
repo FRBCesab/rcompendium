@@ -206,8 +206,7 @@ add_sticker <- function(type, overwrite = FALSE, quiet = FALSE) {
 
   download_template(
     slug = paste0("hexsticker/", type, "-sticker.png"),
-    filename = "logo.png",
-    outdir = file.path(path_proj(), pathdir)
+    filename = file.path(path_proj(), pathdir, "logo.png")
   )
 
   if (type == "package") {
@@ -224,8 +223,12 @@ add_sticker <- function(type, overwrite = FALSE, quiet = FALSE) {
     if (!file.exists(path)) {
       download_template(
         slug = "hexsticker/r_logo.png",
-        filename = "r_logo.png",
-        outdir = file.path(path_proj(), "inst", "package-sticker")
+        filename = file.path(
+          path_proj(),
+          "inst",
+          "package-sticker",
+          "r_logo.png"
+        )
       )
     }
 
@@ -239,8 +242,12 @@ add_sticker <- function(type, overwrite = FALSE, quiet = FALSE) {
     if (!file.exists(path)) {
       download_template(
         slug = "hexsticker/create_package_sticker.R",
-        filename = "create_package_sticker.R",
-        outdir = file.path(path_proj(), "inst", "package-sticker")
+        filename = file.path(
+          path_proj(),
+          "inst",
+          "package-sticker",
+          "create_package_sticker.R"
+        )
       )
     }
   }
@@ -305,29 +312,16 @@ template_url <- function() {
 #' @param slug a character of length 1. End of the file URL
 #'   (e.g. `package/CITATION`)
 #'
-#' @param filename a character of length 1. The name of the file stored locally.
-#'
-#' @param outdir a character of length 1. The name of the folder to save the
-#'   file in. Defaut is `NULL` (i.e. root of the project).
+#' @param filename a character of length 1. The absolute path of the file.
 #'
 #' @noRd
 
-download_template <- function(slug, filename, outdir = NULL) {
+download_template <- function(slug, filename) {
   stop_if_not_string(slug, filename)
-
-  if (!is.null(outdir)) {
-    stop_if_not_string(outdir)
-  }
-
-  if (is.null(outdir)) {
-    destfile <- file.path(path_proj(), filename)
-  } else {
-    destfile <- file.path(path_proj(), outdir, filename)
-  }
 
   utils::download.file(
     url = paste0(template_url(), slug),
-    destfile = destfile,
+    destfile = filename,
     mode = "wb",
     quiet = TRUE
   )

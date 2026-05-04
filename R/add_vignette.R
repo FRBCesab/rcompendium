@@ -91,8 +91,7 @@ add_vignette <- function(
 
   download_template(
     slug = "package/package-vignette.Rmd",
-    filename = ".gitignore",
-    outdir = file.path(path_proj(), "vignettes")
+    filename = path
   )
 
   ## Replace default values ----

@@ -26,8 +26,7 @@ add_testthat <- function() {
     if (!file.exists(path)) {
       download_template(
         slug = "package/test-print_msg.R",
-        filename = "test-print_msg.R",
-        outdir = file.path(path_proj(), "tests", "testthat")
+        filename = path
       )
     }
   }

@@ -101,14 +101,12 @@ add_dockerfile <- function(
 
   download_template(
     slug = "docker/Dockerfile",
-    filename = "Dockerfile",
-    outdir = NULL
+    filename = build_abs_path("Dockerfile")
   )
 
   download_template(
     slug = "docker/dockerignore",
-    filename = ".dockerignore",
-    outdir = NULL
+    filename = build_abs_path(".dockerignore")
   )
 
   path <- file.path(path_proj(), "Dockerfile")

@@ -36,8 +36,7 @@ add_to_gitignore <- function(x, open = FALSE, quiet = FALSE) {
   if (!file.exists(path)) {
     download_template(
       slug = "git/gitignore",
-      filename = ".gitignore",
-      outdir = NULL
+      filename = build_abs_path(".gitignore")
     )
 
     if (!quiet) ui_done("Writing {ui_value('.gitignore')} file")

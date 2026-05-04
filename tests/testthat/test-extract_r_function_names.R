@@ -4,9 +4,9 @@ test_that("read_r_files() works", {
   with_local_project({
     initialize_project(quiet = TRUE)
 
-    dir.create("R")
+    dir.create(build_abs_path("R"))
 
-    asserts <- file.path("R", "asserts.R")
+    asserts <- build_abs_path("R", "asserts.R")
     content <- c(
       "#' @noRd",
       "`%||%` <- function(x, y) {",
@@ -18,7 +18,7 @@ test_that("read_r_files() works", {
 
     writeLines(content, asserts)
 
-    helpers <- file.path("R", "helpers.R")
+    helpers <- build_abs_path("R", "helpers.R")
     content <- c(
       "#' @noRd",
       "try_read <- function(file) {",
@@ -30,7 +30,7 @@ test_that("read_r_files() works", {
 
     writeLines(content, helpers)
 
-    zzz <- file.path("R", "zzz.R")
+    zzz <- build_abs_path("R", "zzz.R")
     file.create(zzz)
 
     path <- get_r_file_paths()

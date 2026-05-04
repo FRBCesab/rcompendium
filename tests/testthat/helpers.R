@@ -22,3 +22,10 @@ with_local_project <- function(expr, name = "pkgtest") {
 
   withr::with_dir(dir, eval(substitute(expr), parent.frame()))
 }
+
+
+create_dummy_desc_file <- function() {
+  content <- "Package: pkgtest\nType: Package"
+  writeLines(content, "DESCRIPTION")
+  invisible(NULL)
+}

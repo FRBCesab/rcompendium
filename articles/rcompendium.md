@@ -39,6 +39,7 @@ should see something like:
 Otherwise you might need to run:
 
 ``` r
+
 gert::git_config_global_set(name = "user.name",   value = "John Doe")
 gert::git_config_global_set(name = "user.email",  value = "john.doe@domain.com")
 gert::git_config_global_set(name = "github.user", value = "jdoe")
@@ -146,6 +147,7 @@ further details.
 **To sum up**
 
 ``` r
+
 ## Define ONCE FOR ALL your credentials ----
 
 rcompendium::set_credentials(given = "John", family = "Doe", 

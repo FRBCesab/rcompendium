@@ -133,3 +133,8 @@ Useful links:
 **Maintainer**: Nicolas Casajus
 <nicolas.casajus@fondationbiodiversite.fr>
 ([ORCID](https://orcid.org/0000-0002-5537-5294)) \[copyright holder\]
+
+Authors:
+
+- Nicolas Casajus <nicolas.casajus@fondationbiodiversite.fr>
+  ([ORCID](https://orcid.org/0000-0002-5537-5294)) \[copyright holder\]

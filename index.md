@@ -42,12 +42,14 @@ You can install the stable version from
 [CRAN](https://cran.r-project.org/) with:
 
 ``` r
+
 install.packages("rcompendium")
 ```
 
 Or using [`pak`](https://pak.r-lib.org/):
 
 ``` r
+
 ## install.packages("pak")
 pak::pak("rcompendium")
 ```
@@ -60,6 +62,7 @@ You can install the development version from
 - Using [`remotes`](https://remotes.r-lib.org/):
 
   ``` r
+
   ## install.packages("remotes")
   remotes::install_github("FRBCesab/rcompendium")
   ```
@@ -67,6 +70,7 @@ You can install the development version from
 - Or using [`pak`](https://pak.r-lib.org/):
 
   ``` r
+
   ## install.packages("pak")
   pak::pak("FRBCesab/rcompendium")
   ```
@@ -98,6 +102,7 @@ Please cite this package as:
 You can also run:
 
 ``` r
+
 citation("rcompendium")
 
 ## A BibTeX entry for LaTeX users is:

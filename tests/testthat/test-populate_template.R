@@ -4,7 +4,7 @@ test_that("populate_template() works - no metadata", {
   with_local_project({
     initialize_project(quiet = TRUE)
 
-    path <- build_full_path("LICENSE")
+    path <- build_abs_path("LICENSE")
 
     content <- c("YEAR: {{year}}", "COPYRIGHT HOLDER: {{given}} {{family}}")
     writeLines(text = content, con = path)
@@ -25,7 +25,7 @@ test_that("populate_template() works - unused metadata", {
   with_local_project({
     initialize_project(quiet = TRUE)
 
-    path <- build_full_path("LICENSE")
+    path <- build_abs_path("LICENSE")
 
     content <- c("YEAR: {{year}}", "COPYRIGHT HOLDER: {{given}} {{family}}")
     writeLines(text = content, con = path)
@@ -46,7 +46,7 @@ test_that("populate_template() works - one used metadata", {
   with_local_project({
     initialize_project(quiet = TRUE)
 
-    path <- build_full_path("LICENSE")
+    path <- build_abs_path("LICENSE")
 
     content <- c("YEAR: {{year}}", "COPYRIGHT HOLDER: {{given}} {{family}}")
     writeLines(text = content, con = path)
@@ -67,7 +67,7 @@ test_that("populate_template() works - one used metadata & one is NULL", {
   with_local_project({
     initialize_project(quiet = TRUE)
 
-    path <- build_full_path("LICENSE")
+    path <- build_abs_path("LICENSE")
 
     content <- c("YEAR: {{year}}", "COPYRIGHT HOLDER: {{given}} {{family}}")
     writeLines(text = content, con = path)
@@ -88,7 +88,7 @@ test_that("populate_template() works - many used metadata", {
   with_local_project({
     initialize_project(quiet = TRUE)
 
-    path <- build_full_path("LICENSE")
+    path <- build_abs_path("LICENSE")
 
     content <- c("YEAR: {{year}}", "COPYRIGHT HOLDER: {{given}} {{family}}")
     writeLines(text = content, con = path)

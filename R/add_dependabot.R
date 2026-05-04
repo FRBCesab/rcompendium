@@ -28,19 +28,19 @@ add_dependabot <- function(
   quiet = FALSE
 ) {
   stop_if_not_project()
+
   stop_if_not_logical(overwrite, quiet)
 
-  rel_path <- build_rel_path(".github", "dependabot.yaml")
-  full_path <- build_full_path(rel_path)
+  path <- build_abs_path(".github", "dependabot.yaml")
 
   meta <- resolve_project_meta()
 
-  if (should_create_file(full_path, overwrite)) {
-    ensure_dir_exists(dirname(full_path))
+  if (should_create_file(path, overwrite)) {
+    ensure_dir_exists(dirname(path))
 
-    create_template(paste0("actions/", basename(rel_path)), rel_path, meta)
+    create_template(paste0("actions/", basename(path)), path, meta)
 
-    ui_file_written(rel_path, quiet)
+    ui_file_written(path, quiet)
     add_to_buildignore(".github", quiet = quiet)
   }
 

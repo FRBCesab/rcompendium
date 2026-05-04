@@ -4,8 +4,9 @@ test_that("read_r_files() works - empty R files", {
   with_local_project({
     initialize_project(quiet = TRUE)
 
-    dir.create("R")
-    asserts <- file.path("R", "asserts.R")
+    dir.create(build_abs_path("R"))
+
+    asserts <- build_abs_path("R", "asserts.R")
     file.create(asserts)
 
     path <- get_r_file_paths()
@@ -15,7 +16,7 @@ test_that("read_r_files() works - empty R files", {
     expect_equal(length(x), length(path))
     expect_equal(length(x[[1]]), 0L)
 
-    helpers <- file.path("R", "helpers.R")
+    helpers <- build_abs_path("R", "helpers.R")
     file.create(helpers)
 
     path <- get_r_file_paths()
@@ -32,9 +33,9 @@ test_that("read_r_files() works - R files w/ content", {
   with_local_project({
     initialize_project(quiet = TRUE)
 
-    dir.create("R")
+    dir.create(build_abs_path("R"))
 
-    asserts <- file.path("R", "asserts.R")
+    asserts <- build_abs_path("R", "asserts.R")
     content <- c(
       "#' @noRd",
       "`%||%` <- function(x, y) {",
@@ -56,7 +57,7 @@ test_that("read_r_files() works - R files w/ content", {
     expect_equal(x[[1]][1], "#' @noRd")
     expect_equal(x[[1]][5], "")
 
-    helpers <- file.path("R", "helpers.R")
+    helpers <- build_abs_path("R", "helpers.R")
     content <- c(
       "#' @noRd",
       "try_read <- function(file) {",
@@ -83,7 +84,7 @@ test_that("read_r_files() works - R files w/ content", {
     expect_equal(x[[2]][1], "#' @noRd")
     expect_equal(x[[2]][4], "    stop(e)")
 
-    zzz <- file.path("R", "zzz.R")
+    zzz <- build_abs_path("R", "zzz.R")
     file.create(zzz)
 
     path <- get_r_file_paths()

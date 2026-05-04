@@ -26,31 +26,33 @@ add_codeowners <- function(
   quiet = FALSE
 ) {
   stop_if_not_project()
+
   stop_if_not_logical(open, overwrite, quiet)
 
-  rel_path <- build_rel_path(".github", "CODEOWNERS")
-  full_path <- build_full_path(rel_path)
+  path <- build_abs_path(".github", "CODEOWNERS")
 
-  assert_file_not_exists_or_overwrite(rel_path, overwrite)
+  assert_file_not_exists_or_overwrite(path, overwrite)
 
   meta <- resolve_project_meta(
     github_user = github_user
   )
 
-  if (should_create_file(full_path, overwrite)) {
-    ensure_dir_exists(dirname(full_path))
+  stop_if_null_or_empty(meta$github_user, "github_user")
+
+  if (should_create_file(path, overwrite)) {
+    ensure_dir_exists(dirname(path))
 
     writeLines(
       text = paste0("* @", meta$github_user),
-      con = full_path
+      con = path
     )
 
-    ui_file_written(rel_path, quiet)
+    ui_file_written(path, quiet)
 
     add_to_buildignore(".github", quiet = quiet)
   }
 
-  open_file_if_needed(full_path, open)
+  open_file_if_needed(path, open)
 
   invisible(NULL)
 }

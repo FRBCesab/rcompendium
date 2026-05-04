@@ -46,7 +46,7 @@ versions of R.
 of R code covered by unit tests) to \url{https://about.codecov.io/}.
 \item \code{pkgdown}: build and publish the \code{pkgdown} website of the package on a
 dedicated \strong{gh-pages} branch. The repository may need further configuration
-(see \code{\link[usethis:use_pkgdown]{usethis::use_pkgdown_github_pages()}}).
+(see \code{\link[usethis:use_pkgdown_github_pages]{usethis::use_pkgdown_github_pages()}}).
 \item \code{check-format}: set up the Air formatter for R and check the code format.
 This action will fail if any files need to be reformatted with Air.
 \item \code{render-README}: render the \code{README.Rmd} only if it has been modified.
@@ -79,12 +79,12 @@ add_github_action(name = "R-CMD-check")
 }
 }
 \seealso{
-Other development functions: 
-\code{\link{add_dependabot}()},
-\code{\link{add_dependencies}()},
-\code{\link{add_issue_template}()},
-\code{\link{add_r_depend}()},
-\code{\link{add_to_buildignore}()},
-\code{\link{add_to_gitignore}()}
+Other development functions:
+\code{\link[=add_dependabot]{add_dependabot()}},
+\code{\link[=add_dependencies]{add_dependencies()}},
+\code{\link[=add_issue_template]{add_issue_template()}},
+\code{\link[=add_r_depend]{add_r_depend()}},
+\code{\link[=add_to_buildignore]{add_to_buildignore()}},
+\code{\link[=add_to_gitignore]{add_to_gitignore()}}
 }
 \concept{development functions}

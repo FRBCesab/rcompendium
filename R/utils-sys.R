@@ -1,33 +1,11 @@
 ## Utilities Functions - Get Project/System Infos ----
 
-#' **Get Project Root Path**
-#'
-#' @noRd
-
-path_proj <- function() usethis::proj_get()
-
-
-#' **Check if current folder is a package (DESCRIPTION file)**
-#'
-#' @noRd
-
-is_package <- function() {
-  path <- path_proj()
-
-  if (!file.exists(file.path(path, "DESCRIPTION"))) {
-    stop("No 'DESCRIPTION' file found.")
-  }
-
-  invisible(NULL)
-}
-
-
 #' **Get project name**
 #'
 #' @noRd
 
 get_project_name <- function() {
-  path <- path_proj()
+  path <- build_abs_path()
 
   exploded_path <- unlist(strsplit(path, .Platform$"file.sep"))
   exploded_path[length(exploded_path)]
@@ -39,7 +17,7 @@ get_project_name <- function() {
 #' @noRd
 
 get_project_version <- function() {
-  is_package()
+  stop_if_not_project()
 
   read_descr()$"Version"
 }
@@ -81,7 +59,7 @@ get_r_version <- function() {
 #' @noRd
 
 git_in_git <- function() {
-  paths <- unlist(strsplit(path_proj(), .Platform$file.sep))
+  paths <- unlist(strsplit(build_abs_path(), .Platform$file.sep))
 
   for (i in 1:(length(paths) - 1)) {
     recursive_path <- paste0(
@@ -108,7 +86,7 @@ git_in_git <- function() {
 #' @noRd
 
 proj_in_proj <- function() {
-  paths <- unlist(strsplit(path_proj(), .Platform$file.sep))
+  paths <- unlist(strsplit(build_abs_path(), .Platform$file.sep))
 
   for (i in 1:(length(paths) - 1)) {
     recursive_path <- paste0(paths[1:i], collapse = .Platform$file.sep)
@@ -153,7 +131,7 @@ ui_title <- function(texte, quiet = FALSE) {
 #' @noRd
 
 get_rd_families <- function() {
-  path <- path_proj()
+  path <- build_abs_path()
 
   if (!dir.exists(file.path(path, "R"))) {
     stop("The directory 'R/' cannot be found.")

@@ -31,12 +31,12 @@ add_to_gitignore(".DS_Store")
 }
 }
 \seealso{
-Other development functions: 
-\code{\link{add_dependabot}()},
-\code{\link{add_dependencies}()},
-\code{\link{add_github_action}()},
-\code{\link{add_issue_template}()},
-\code{\link{add_r_depend}()},
-\code{\link{add_to_buildignore}()}
+Other development functions:
+\code{\link[=add_dependabot]{add_dependabot()}},
+\code{\link[=add_dependencies]{add_dependencies()}},
+\code{\link[=add_github_action]{add_github_action()}},
+\code{\link[=add_issue_template]{add_issue_template()}},
+\code{\link[=add_r_depend]{add_r_depend()}},
+\code{\link[=add_to_buildignore]{add_to_buildignore()}}
 }
 \concept{development functions}

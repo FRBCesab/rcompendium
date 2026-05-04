@@ -68,19 +68,19 @@ add_dockerfile()
 }
 }
 \seealso{
-Other create files: 
-\code{\link{add_citation}()},
-\code{\link{add_code_of_conduct}()},
-\code{\link{add_codeowners}()},
-\code{\link{add_compendium}()},
-\code{\link{add_contributing}()},
-\code{\link{add_description}()},
-\code{\link{add_license}()},
-\code{\link{add_makefile}()},
-\code{\link{add_package_doc}()},
-\code{\link{add_readme_rmd}()},
-\code{\link{add_renv}()},
-\code{\link{add_testthat}()},
-\code{\link{add_vignette}()}
+Other create files:
+\code{\link[=add_citation]{add_citation()}},
+\code{\link[=add_code_of_conduct]{add_code_of_conduct()}},
+\code{\link[=add_codeowners]{add_codeowners()}},
+\code{\link[=add_compendium]{add_compendium()}},
+\code{\link[=add_contributing]{add_contributing()}},
+\code{\link[=add_description]{add_description()}},
+\code{\link[=add_license]{add_license()}},
+\code{\link[=add_makefile]{add_makefile()}},
+\code{\link[=add_package_doc]{add_package_doc()}},
+\code{\link[=add_readme_rmd]{add_readme_rmd()}},
+\code{\link[=add_renv]{add_renv()}},
+\code{\link[=add_testthat]{add_testthat()}},
+\code{\link[=add_vignette]{add_vignette()}}
 }
 \concept{create files}

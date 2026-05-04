@@ -37,9 +37,7 @@ add_github_actions_pkgdown_badge <- function(
 
   ## Check if GH Actions are set ----
 
-  if (
-    !file.exists(file.path(path_proj(), ".github", "workflows", "pkgdown.yaml"))
-  ) {
+  if (!file.exists(build_abs_path(".github", "workflows", "pkgdown.yaml"))) {
     stop("Please run `add_github_actions_pkgdown()` to setup GitHub Actions.")
   }
 

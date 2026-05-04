@@ -59,7 +59,7 @@ add_dockerfile <- function(
 ) {
   stop_if_not_logical(open, overwrite, quiet)
 
-  path <- file.path(path_proj(), "Dockerfile")
+  path <- build_abs_path("Dockerfile")
 
   ## Do not replace current file but open it if required ----
 
@@ -101,17 +101,15 @@ add_dockerfile <- function(
 
   download_template(
     slug = "docker/Dockerfile",
-    filename = "Dockerfile",
-    outdir = NULL
+    filename = build_abs_path("Dockerfile")
   )
 
   download_template(
     slug = "docker/dockerignore",
-    filename = ".dockerignore",
-    outdir = NULL
+    filename = build_abs_path(".dockerignore")
   )
 
-  path <- file.path(path_proj(), "Dockerfile")
+  path <- build_abs_path("Dockerfile")
 
   ## Update default values ----
 
@@ -120,7 +118,7 @@ add_dockerfile <- function(
 
   ## Install R packages ----
 
-  if (file.exists(file.path(path_proj(), "renv.lock"))) {
+  if (file.exists(build_abs_path("renv.lock"))) {
     pattern <- "ENV RENV_VERSION {{renv_version}}\n"
     pattern <- paste0(
       pattern,
@@ -151,21 +149,21 @@ add_dockerfile <- function(
 
   ## Update README.Rmd ----
 
-  if (file.exists(file.path(path_proj(), "README.Rmd"))) {
+  if (file.exists(build_abs_path("README.Rmd"))) {
     pattern <- paste0(
       "```\\{r eval = FALSE\\}\n",
       "source\\(\"make.R\"\\)\n",
       "```\n"
     )
     replace <- ""
-    gsub_in_file(file.path(path_proj(), "README.Rmd"), pattern, replace)
+    gsub_in_file(build_abs_path("README.Rmd"), pattern, replace)
 
     pattern <- paste0(
       "### Usage\n\n",
       "Clone the repository, open R/RStudio and run:\n\n"
     )
     replace <- "### Usage"
-    gsub_in_file(file.path(path_proj(), "README.Rmd"), pattern, replace)
+    gsub_in_file(build_abs_path("README.Rmd"), pattern, replace)
 
     pattern <- "### Usage"
     replace <- paste0(
@@ -192,7 +190,7 @@ add_dockerfile <- function(
       "source(\"make.R\")\n",
       "```\n"
     )
-    gsub_in_file(file.path(path_proj(), "README.Rmd"), pattern, replace)
+    gsub_in_file(build_abs_path("README.Rmd"), pattern, replace)
   }
 
   ## Message ----

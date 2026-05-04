@@ -512,14 +512,14 @@ create_new_package <- function(
   ## Init GIT (if required) ----
 
   if (!is_git()) {
-    gert::git_init(file.path(path_proj()))
+    gert::git_init(build_abs_path())
     ui_done("Init {ui_value('git')} versioning")
   }
 
   ## Add/Replace R-specific gitignore ----
 
-  if (file.exists(file.path(path_proj(), ".gitignore"))) {
-    invisible(file.remove(file.path(path_proj(), ".gitignore")))
+  if (file.exists(build_abs_path(".gitignore"))) {
+    invisible(file.remove(build_abs_path(".gitignore")))
   }
 
   add_to_gitignore()
@@ -567,13 +567,13 @@ create_new_package <- function(
 
   ## Create folders ----
 
-  dir.create(file.path(path_proj(), "R"), showWarnings = FALSE)
+  dir.create(build_abs_path("R"), showWarnings = FALSE)
 
   if (!quiet) {
     ui_done("Creating {ui_value('R/')} directory")
   }
 
-  dir.create(file.path(path_proj(), "man"), showWarnings = FALSE)
+  dir.create(build_abs_path("man"), showWarnings = FALSE)
 
   if (!quiet) {
     ui_done("Creating {ui_value('man/')} directory")
@@ -598,11 +598,10 @@ create_new_package <- function(
 
   ## Demo R function ----
 
-  if (!file.exists(file.path(path_proj(), "R", "print_msg.R"))) {
+  if (!file.exists(build_abs_path("R", "print_msg.R"))) {
     download_template(
       slug = "package/print_msg.R",
-      filename = "print_msg.R",
-      outdir = file.path(path_proj(), "R")
+      filename = build_abs_path("R", "print_msg.R")
     )
   }
 
@@ -724,7 +723,7 @@ create_new_package <- function(
   ui_title("Kniting README")
 
   rmarkdown::render(
-    file.path(path_proj(), "README.Rmd"),
+    build_abs_path("README.Rmd"),
     output_format = "md_document",
     quiet = TRUE
   )
@@ -813,8 +812,8 @@ create_new_package <- function(
 
     ## Write (Empty) Custom Config file ---
 
-    if (!file.exists(file.path(path_proj(), "_pkgdown.yaml"))) {
-      file.create(file.path(path_proj(), "_pkgdown.yaml"))
+    if (!file.exists(build_abs_path("_pkgdown.yaml"))) {
+      file.create(build_abs_path("_pkgdown.yaml"))
       add_to_buildignore("_pkgdown.yaml", quiet = quiet)
     }
   }
@@ -901,7 +900,7 @@ create_new_package <- function(
   ui_title("Kniting README")
 
   rmarkdown::render(
-    file.path(path_proj(), "README.Rmd"),
+    build_abs_path("README.Rmd"),
     output_format = "md_document",
     quiet = TRUE
   )

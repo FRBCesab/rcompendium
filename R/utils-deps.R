@@ -7,8 +7,9 @@
 #' @noRd
 
 get_deps_in_functions_r <- function() {
-  is_package()
-  path <- path_proj()
+  stop_if_not_project()
+
+  path <- build_abs_path()
 
   # if (!dir.exists(file.path(path, "R"))) {
   #   stop("The directory 'R/' cannot be found.")
@@ -107,8 +108,9 @@ get_deps_in_functions_r <- function() {
 #' @noRd
 
 get_deps_in_namespace <- function() {
-  is_package()
-  path <- path_proj()
+  stop_if_not_project()
+
+  path <- build_abs_path()
 
   if (file.exists(file.path(path, "NAMESPACE"))) {
     namespace <- readLines(con = file.path(path, "NAMESPACE"), warn = FALSE)
@@ -142,8 +144,9 @@ get_deps_in_namespace <- function() {
 #' @noRd
 
 get_deps_in_examples <- function() {
-  is_package()
-  path <- path_proj()
+  stop_if_not_project()
+
+  path <- build_abs_path()
 
   if (!dir.exists(file.path(path, "R"))) {
     stop("The directory 'R/' cannot be found.")
@@ -270,8 +273,9 @@ get_deps_extra <- function(compendium = NULL) {
 
   stop_if_not_string(compendium)
 
-  is_package()
-  path <- path_proj()
+  stop_if_not_project()
+
+  path <- build_abs_path()
 
   if (compendium != "." && compendium != getwd() && compendium != path) {
     path <- file.path(path, compendium)
@@ -419,8 +423,9 @@ get_deps_extra <- function(compendium = NULL) {
 #' @noRd
 
 get_deps_in_vignettes <- function() {
-  is_package()
-  path <- path_proj()
+  stop_if_not_project()
+
+  path <- build_abs_path()
 
   if (!dir.exists(file.path(path, "vignettes"))) {
     # ui_oops("No {ui_value('vignettes/')} folder found.")
@@ -546,8 +551,9 @@ get_deps_in_vignettes <- function() {
 #' @noRd
 
 get_deps_in_tests <- function() {
-  is_package()
-  path <- path_proj()
+  stop_if_not_project()
+
+  path <- build_abs_path()
 
   if (!dir.exists(file.path(path, "tests"))) {
     # ui_oops("No {ui_value('tests/')} folder found.")

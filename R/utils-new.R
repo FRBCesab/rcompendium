@@ -1,19 +1,3 @@
-#' Build an absolute path
-#' @param ... one or several folder/file names
-#' @noRd
-build_full_path <- function(...) {
-  file.path(path_proj(), ...)
-}
-
-
-#' Build a path relative to the project root
-#' @param ... one or several folder/file names
-#' @noRd
-build_rel_path <- function(...) {
-  file.path(...)
-}
-
-
 #' Error if a file exists and if overwrite is FALSE
 #' @param path a character of length of 1. The relative path of the file
 #' @param overwrite a logical of length 1.
@@ -23,7 +7,7 @@ assert_file_not_exists_or_overwrite <- function(path, overwrite) {
     stop(
       paste0(
         "The file '",
-        path,
+        extract_rel_path(path),
         "' already exists. ",
         "To replace it, please use `overwrite = TRUE`."
       ),
@@ -104,13 +88,8 @@ ensure_dir_exists <- function(path) {
 #' @param meta a list of the project metadata.
 #' @noRd
 create_template <- function(slug, path, meta) {
-  download_template(
-    slug = slug,
-    filename = basename(path),
-    outdir = dirname(path)
-  )
-
-  populate_template(build_full_path(path), meta)
+  download_template(slug, path)
+  populate_template(path, meta)
 
   invisible(NULL)
 }
@@ -146,6 +125,7 @@ populate_template <- function(path, meta) {
 #' @noRd
 ui_file_written <- function(path, quiet = FALSE) {
   if (!quiet) {
+    path <- extract_rel_path(path)
     cli::cli_alert_success("Writing {.file {path}} file")
   }
 
@@ -196,21 +176,6 @@ stop_if_null_or_empty <- function(value, name) {
         "' is required but is NULL or empty."
       )
     )
-  }
-
-  invisible(NULL)
-}
-
-
-#' Error if the current working directory is not a project/package
-#' @noRd
-stop_if_not_project <- function() {
-  if (!assert_project_file_detected()) {
-    stop(paste0(
-      "The path '",
-      getwd(),
-      "' does not appear to be inside a project or package."
-    ))
   }
 
   invisible(NULL)
@@ -308,7 +273,7 @@ update_license_field_in_desc <- function(license, quiet = FALSE) {
 #' @param meta a list of the project metadata.
 #' @noRd
 create_mit_copyright_holder_file <- function(license, meta, quiet = FALSE) {
-  full_path <- build_full_path("LICENSE")
+  full_path <- build_abs_path("LICENSE")
 
   if (license == "MIT") {
     content <- c(
@@ -562,8 +527,9 @@ create_r_profile_if_needed <- function() {
 initialize_project <- function(quiet = FALSE) {
   ui_title("Initializing project", quiet)
 
-  if (!assert_project_file_detected()) {
+  if (is.null(resolve_project_root())) {
     content <- list.files(getwd(), all.files = TRUE, no.. = TRUE)
+
     if (length(content) == 0) {
       invisible(file.create(".here"))
       ui_file_written(".here", quiet)
@@ -596,34 +562,10 @@ ui_project_initialized <- function(path, quiet = FALSE) {
 }
 
 
-#' Assert if current directory is an R project
-#' @noRd
-assert_project_file_detected <- function() {
-  markers <- c(
-    "DESCRIPTION",
-    ".git",
-    paste0(basename(getwd()), ".Rproj"),
-    ".here",
-    "renv.lock",
-    ".vscode/settings.json",
-    "_pkgdown.yaml",
-    "_pkgdown.yml",
-    "_quarto.yaml",
-    "_quarto.yml"
-  )
-
-  if (all(!file.exists(markers))) {
-    return(FALSE)
-  } else {
-    return(TRUE)
-  }
-}
-
-
 #' Error if the R/ directory does not exist
 #' @noRd
 stop_if_missing_r_dir <- function() {
-  if (!dir.exists("R")) {
+  if (!dir.exists(build_abs_path("R"))) {
     stop("The directory 'R/' cannot be found.", call. = FALSE)
   }
 
@@ -635,7 +577,7 @@ stop_if_missing_r_dir <- function() {
 #' @noRd
 get_r_file_paths <- function() {
   list.files(
-    path = "R",
+    path = build_abs_path("R"),
     pattern = "\\.R$",
     full.names = TRUE,
     ignore.case = TRUE
@@ -684,9 +626,11 @@ extract_r_function_names <- function(x) {
 #' Extract the name of the exported functions in the NAMESPACE
 #' @noRd
 extract_exported_r_function_names <- function() {
-  if (file.exists(file.path("NAMESPACE"))) {
+  path <- build_abs_path("NAMESPACE")
+
+  if (file.exists(path)) {
     namespace <- readLines(
-      con = file.path("NAMESPACE"),
+      con = path,
       warn = FALSE
     )
 

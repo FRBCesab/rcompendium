@@ -25,24 +25,24 @@ add_package_doc <- function(
   quiet = FALSE
 ) {
   stop_if_not_project()
+
   stop_if_not_logical(open, overwrite, quiet)
 
   meta <- resolve_project_meta()
 
-  rel_path <- build_rel_path("R", paste0(meta$project_name, "-package.R"))
-  full_path <- build_full_path(rel_path)
+  path <- build_abs_path("R", paste0(meta$project_name, "-package.R"))
 
-  assert_file_not_exists_or_overwrite(rel_path, overwrite)
+  assert_file_not_exists_or_overwrite(path, overwrite)
 
-  if (should_create_file(full_path, overwrite)) {
-    ensure_dir_exists(dirname(full_path))
+  if (should_create_file(path, overwrite)) {
+    ensure_dir_exists(dirname(path))
 
-    create_template("package/package-package.R", rel_path, meta)
+    create_template("package/package-package.R", path, meta)
 
-    ui_file_written(rel_path, quiet)
+    ui_file_written(path, quiet)
   }
 
-  open_file_if_needed(full_path, open)
+  open_file_if_needed(path, open)
 
   invisible(NULL)
 }

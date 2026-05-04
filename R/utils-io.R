@@ -20,9 +20,9 @@ edit_file <- function(path) {
 #' @noRd
 
 read_descr <- function() {
-  is_package()
+  stop_if_not_project()
 
-  path <- path_proj()
+  path <- build_abs_path()
 
   col_names <- colnames(read.dcf(file.path(path, "DESCRIPTION")))
 
@@ -41,9 +41,9 @@ read_descr <- function() {
 #' @noRd
 
 write_descr <- function(descr_file) {
-  is_package()
+  stop_if_not_project()
 
-  path <- path_proj()
+  path <- build_abs_path()
 
   write.dcf(
     descr_file,
@@ -66,7 +66,7 @@ write_descr <- function(descr_file) {
 #' @noRd
 
 add_badge <- function(badge, pattern) {
-  path <- path_proj()
+  path <- build_abs_path()
 
   ## Checks ----
 
@@ -167,17 +167,15 @@ add_sticker <- function(type, overwrite = FALSE, quiet = FALSE) {
   stop_if_not_logical(overwrite, quiet)
 
   if (type == "package") {
-    path <- file.path(
-      path_proj(),
+    path <- build_abs_path(
       "man",
       "figures",
       "logo.png"
     )
 
-    pathdir <- file.path("man", "figures")
+    pathdir <- build_abs_path("man", "figures")
   } else {
-    path <- file.path(
-      path_proj(),
+    path <- build_abs_path(
       "figures",
       "readme",
       "logo.png"
@@ -196,9 +194,9 @@ add_sticker <- function(type, overwrite = FALSE, quiet = FALSE) {
     ))
   }
 
-  if (!dir.exists(file.path(path_proj(), pathdir))) {
+  if (!dir.exists(build_abs_path(pathdir))) {
     dir.create(
-      file.path(path_proj(), pathdir),
+      build_abs_path(pathdir),
       showWarnings = FALSE,
       recursive = TRUE
     )
@@ -206,31 +204,28 @@ add_sticker <- function(type, overwrite = FALSE, quiet = FALSE) {
 
   download_template(
     slug = paste0("hexsticker/", type, "-sticker.png"),
-    filename = "logo.png",
-    outdir = file.path(path_proj(), pathdir)
+    filename = build_abs_path(pathdir, "logo.png")
   )
 
   if (type == "package") {
-    if (!dir.exists(file.path(path_proj(), "inst", "package-sticker"))) {
+    if (!dir.exists(build_abs_path("inst", "package-sticker"))) {
       dir.create(
-        file.path(path_proj(), "inst", "package-sticker"),
+        build_abs_path("inst", "package-sticker"),
         showWarnings = FALSE,
         recursive = TRUE
       )
     }
 
-    path <- file.path(path_proj(), "inst", "package-sticker", "r_logo.png")
+    path <- build_abs_path("inst", "package-sticker", "r_logo.png")
 
     if (!file.exists(path)) {
       download_template(
         slug = "hexsticker/r_logo.png",
-        filename = "r_logo.png",
-        outdir = file.path(path_proj(), "inst", "package-sticker")
+        filename = path
       )
     }
 
-    path <- file.path(
-      path_proj(),
+    path <- build_abs_path(
       "inst",
       "package-sticker",
       "create_package_sticker.R"
@@ -239,8 +234,7 @@ add_sticker <- function(type, overwrite = FALSE, quiet = FALSE) {
     if (!file.exists(path)) {
       download_template(
         slug = "hexsticker/create_package_sticker.R",
-        filename = "create_package_sticker.R",
-        outdir = file.path(path_proj(), "inst", "package-sticker")
+        filename = path
       )
     }
   }
@@ -305,29 +299,16 @@ template_url <- function() {
 #' @param slug a character of length 1. End of the file URL
 #'   (e.g. `package/CITATION`)
 #'
-#' @param filename a character of length 1. The name of the file stored locally.
-#'
-#' @param outdir a character of length 1. The name of the folder to save the
-#'   file in. Defaut is `NULL` (i.e. root of the project).
+#' @param filename a character of length 1. The absolute path of the file.
 #'
 #' @noRd
 
-download_template <- function(slug, filename, outdir = NULL) {
+download_template <- function(slug, filename) {
   stop_if_not_string(slug, filename)
-
-  if (!is.null(outdir)) {
-    stop_if_not_string(outdir)
-  }
-
-  if (is.null(outdir)) {
-    destfile <- file.path(path_proj(), filename)
-  } else {
-    destfile <- file.path(path_proj(), outdir, filename)
-  }
 
   utils::download.file(
     url = paste0(template_url(), slug),
-    destfile = destfile,
+    destfile = filename,
     mode = "wb",
     quiet = TRUE
   )

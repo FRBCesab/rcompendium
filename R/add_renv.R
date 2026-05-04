@@ -21,7 +21,7 @@
 add_renv <- function(quiet = FALSE) {
   stop_if_not_logical(quiet)
 
-  if (!file.exists(file.path(path_proj(), "renv.lock"))) {
+  if (!file.exists(build_abs_path("renv.lock"))) {
     ## Disable renv messages ----
 
     renv_verbose <- options()$"renv.verbose"
@@ -97,7 +97,7 @@ add_renv <- function(quiet = FALSE) {
 
     ## Update makefile ----
 
-    path <- file.path(path_proj(), "make.R")
+    path <- build_abs_path("make.R")
 
     if (file.exists(path)) {
       xfun::gsub_file(

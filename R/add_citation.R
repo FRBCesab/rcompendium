@@ -42,12 +42,12 @@ add_citation <- function(
   quiet = FALSE
 ) {
   stop_if_not_project()
+
   stop_if_not_logical(open, overwrite, quiet)
 
-  rel_path <- build_rel_path("inst", "CITATION")
-  full_path <- build_full_path(rel_path)
+  path <- build_abs_path("inst", "CITATION")
 
-  assert_file_not_exists_or_overwrite(rel_path, overwrite)
+  assert_file_not_exists_or_overwrite(path, overwrite)
 
   meta <- resolve_project_meta(
     given = given,
@@ -58,15 +58,15 @@ add_citation <- function(
   stop_if_null_or_empty(meta$given, "given")
   stop_if_null_or_empty(meta$family, "family")
 
-  if (should_create_file(full_path, overwrite)) {
-    ensure_dir_exists(dirname(full_path))
+  if (should_create_file(path, overwrite)) {
+    ensure_dir_exists(dirname(path))
 
-    create_template("package/CITATION", rel_path, meta)
+    create_template("package/CITATION", path, meta)
 
-    ui_file_written(rel_path, quiet)
+    ui_file_written(path, quiet)
   }
 
-  open_file_if_needed(full_path, open)
+  open_file_if_needed(path, open)
 
   invisible(NULL)
 }

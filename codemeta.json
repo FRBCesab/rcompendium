@@ -192,6 +192,18 @@
     },
     "9": {
       "@type": "SoftwareApplication",
+      "identifier": "rprojroot",
+      "name": "rprojroot",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=rprojroot"
+    },
+    "10": {
+      "@type": "SoftwareApplication",
       "identifier": "rstudioapi",
       "name": "rstudioapi",
       "provider": {
@@ -202,7 +214,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=rstudioapi"
     },
-    "10": {
+    "11": {
       "@type": "SoftwareApplication",
       "identifier": "stringr",
       "name": "stringr",
@@ -214,7 +226,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=stringr"
     },
-    "11": {
+    "12": {
       "@type": "SoftwareApplication",
       "identifier": "usethis",
       "name": "usethis",
@@ -226,12 +238,12 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=usethis"
     },
-    "12": {
+    "13": {
       "@type": "SoftwareApplication",
       "identifier": "utils",
       "name": "utils"
     },
-    "13": {
+    "14": {
       "@type": "SoftwareApplication",
       "identifier": "xfun",
       "name": "xfun",
@@ -245,7 +257,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "627.91KB",
+  "fileSize": "695.495KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",

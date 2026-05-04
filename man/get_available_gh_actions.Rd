@@ -19,11 +19,11 @@ to be passed to \code{\link[=add_github_action]{add_github_action()}}.
 get_available_gh_actions()
 }
 \seealso{
-Other utilities functions: 
-\code{\link{get_all_dependencies}()},
-\code{\link{get_all_functions}()},
-\code{\link{get_available_issue_templates}()},
-\code{\link{get_licenses}()},
-\code{\link{get_minimal_r_version}()}
+Other utilities functions:
+\code{\link[=get_all_dependencies]{get_all_dependencies()}},
+\code{\link[=get_all_functions]{get_all_functions()}},
+\code{\link[=get_available_issue_templates]{get_available_issue_templates()}},
+\code{\link[=get_licenses]{get_licenses()}},
+\code{\link[=get_minimal_r_version]{get_minimal_r_version()}}
 }
 \concept{utilities functions}

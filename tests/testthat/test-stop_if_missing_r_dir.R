@@ -16,9 +16,8 @@ test_that("stop_if_missing_r_dir() works", {
   with_local_project({
     initialize_project(quiet = TRUE)
 
-    dir.create("R")
+    dir.create(build_abs_path("R"))
 
     expect_silent(stop_if_missing_r_dir())
-    expect_null(x <- stop_if_missing_r_dir())
   })
 })

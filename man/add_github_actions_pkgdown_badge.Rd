@@ -34,16 +34,16 @@ add_github_actions_pkgdown_badge()
 }
 }
 \seealso{
-Other adding badges: 
-\code{\link{add_codecov_badge}()},
-\code{\link{add_cran_downloads_badge}()},
-\code{\link{add_cran_total_download_badge}()},
-\code{\link{add_cran_version_badge}()},
-\code{\link{add_dependencies_badge}()},
-\code{\link{add_github_actions_check_badge}()},
-\code{\link{add_github_actions_codecov_badge}()},
-\code{\link{add_license_badge}()},
-\code{\link{add_lifecycle_badge}()},
-\code{\link{add_repostatus_badge}()}
+Other adding badges:
+\code{\link[=add_codecov_badge]{add_codecov_badge()}},
+\code{\link[=add_cran_downloads_badge]{add_cran_downloads_badge()}},
+\code{\link[=add_cran_total_download_badge]{add_cran_total_download_badge()}},
+\code{\link[=add_cran_version_badge]{add_cran_version_badge()}},
+\code{\link[=add_dependencies_badge]{add_dependencies_badge()}},
+\code{\link[=add_github_actions_check_badge]{add_github_actions_check_badge()}},
+\code{\link[=add_github_actions_codecov_badge]{add_github_actions_codecov_badge()}},
+\code{\link[=add_license_badge]{add_license_badge()}},
+\code{\link[=add_lifecycle_badge]{add_lifecycle_badge()}},
+\code{\link[=add_repostatus_badge]{add_repostatus_badge()}}
 }
 \concept{adding badges}

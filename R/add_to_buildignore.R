@@ -28,7 +28,7 @@
 
 add_to_buildignore <- function(x, open = FALSE, quiet = FALSE) {
   stop_if_not_project()
-  
+
   if (missing(x) && !open) {
     stop("Argument 'x' is missing.")
   }

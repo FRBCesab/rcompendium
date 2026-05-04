@@ -37,7 +37,7 @@ add_compendium <- function(compendium = NULL, quiet = FALSE) {
     stop("Argument 'compendium' must be a character.")
   }
 
-  path <- path_proj()
+  path <- build_abs_path()
 
   for (i in seq_along(compendium)) {
     if (!dir.exists(file.path(path, compendium[i]))) {

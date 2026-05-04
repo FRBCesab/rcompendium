@@ -78,7 +78,7 @@ add_repostatus_badge <- function(status = "concept", quiet = FALSE) {
     )
   }
 
-  if (!file.exists(file.path(path_proj(), "README.Rmd"))) {
+  if (!file.exists(build_abs_path("README.Rmd"))) {
     stop("The file 'README.Rmd' cannot be found.")
   }
 

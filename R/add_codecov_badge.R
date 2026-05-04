@@ -38,8 +38,7 @@ add_codecov_badge <- function(organisation = NULL, quiet = FALSE) {
   ## Check if GH Actions are set ----
 
   if (
-    !file.exists(file.path(
-      path_proj(),
+    !file.exists(build_abs_path(
       ".github",
       "workflows",
       "test-coverage.yaml"

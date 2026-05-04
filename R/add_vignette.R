@@ -47,7 +47,7 @@ add_vignette <- function(
 ) {
   stop_if_not_logical(open, overwrite, quiet)
 
-  path <- path_proj()
+  path <- build_abs_path()
   package_name <- get_project_name()
 
   if (is.null(title) && !is.null(filename)) {
@@ -85,8 +85,8 @@ add_vignette <- function(
     }
   }
 
-  if (!dir.exists(file.path(path_proj(), "vignettes"))) {
-    dir.create(file.path(path_proj(), "vignettes"), showWarnings = FALSE)
+  if (!dir.exists(build_abs_path("vignettes"))) {
+    dir.create(build_abs_path("vignettes"), showWarnings = FALSE)
   }
 
   download_template(
@@ -113,8 +113,8 @@ add_vignette <- function(
 
   x <- c("*.html", "*.R")
 
-  if (file.exists(file.path(path_proj(), "vignettes", ".gitignore"))) {
-    git_ignore <- readLines(file.path(path_proj(), "vignettes", ".gitignore"))
+  if (file.exists(build_abs_path("vignettes", ".gitignore"))) {
+    git_ignore <- readLines(build_abs_path("vignettes", ".gitignore"))
 
     x <- x[!(x %in% git_ignore)]
 
@@ -122,7 +122,7 @@ add_vignette <- function(
       git_ignore <- c(git_ignore, x)
       writeLines(
         git_ignore,
-        con = file.path(path_proj(), "vignettes", ".gitignore")
+        con = build_abs_path("vignettes", ".gitignore")
       )
     }
   } else {
@@ -130,7 +130,7 @@ add_vignette <- function(
       ui_done(paste0("Writing {ui_value('vignettes/.gitignore')} file"))
     }
 
-    writeLines(x, con = file.path(path_proj(), "vignettes", ".gitignore"))
+    writeLines(x, con = build_abs_path("vignettes", ".gitignore"))
   }
 
   ## Add dependencies ----

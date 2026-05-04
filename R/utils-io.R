@@ -22,7 +22,7 @@ edit_file <- function(path) {
 read_descr <- function() {
   is_package()
 
-  path <- path_proj()
+  path <- build_abs_path()
 
   col_names <- colnames(read.dcf(file.path(path, "DESCRIPTION")))
 
@@ -43,7 +43,7 @@ read_descr <- function() {
 write_descr <- function(descr_file) {
   is_package()
 
-  path <- path_proj()
+  path <- build_abs_path()
 
   write.dcf(
     descr_file,
@@ -66,7 +66,7 @@ write_descr <- function(descr_file) {
 #' @noRd
 
 add_badge <- function(badge, pattern) {
-  path <- path_proj()
+  path <- build_abs_path()
 
   ## Checks ----
 
@@ -167,17 +167,15 @@ add_sticker <- function(type, overwrite = FALSE, quiet = FALSE) {
   stop_if_not_logical(overwrite, quiet)
 
   if (type == "package") {
-    path <- file.path(
-      path_proj(),
+    path <- build_abs_path(
       "man",
       "figures",
       "logo.png"
     )
 
-    pathdir <- file.path("man", "figures")
+    pathdir <- build_abs_path("man", "figures")
   } else {
-    path <- file.path(
-      path_proj(),
+    path <- build_abs_path(
       "figures",
       "readme",
       "logo.png"
@@ -196,9 +194,9 @@ add_sticker <- function(type, overwrite = FALSE, quiet = FALSE) {
     ))
   }
 
-  if (!dir.exists(file.path(path_proj(), pathdir))) {
+  if (!dir.exists(build_abs_path(pathdir))) {
     dir.create(
-      file.path(path_proj(), pathdir),
+      build_abs_path(pathdir),
       showWarnings = FALSE,
       recursive = TRUE
     )
@@ -206,34 +204,28 @@ add_sticker <- function(type, overwrite = FALSE, quiet = FALSE) {
 
   download_template(
     slug = paste0("hexsticker/", type, "-sticker.png"),
-    filename = file.path(path_proj(), pathdir, "logo.png")
+    filename = build_abs_path(pathdir, "logo.png")
   )
 
   if (type == "package") {
-    if (!dir.exists(file.path(path_proj(), "inst", "package-sticker"))) {
+    if (!dir.exists(build_abs_path("inst", "package-sticker"))) {
       dir.create(
-        file.path(path_proj(), "inst", "package-sticker"),
+        build_abs_path("inst", "package-sticker"),
         showWarnings = FALSE,
         recursive = TRUE
       )
     }
 
-    path <- file.path(path_proj(), "inst", "package-sticker", "r_logo.png")
+    path <- build_abs_path("inst", "package-sticker", "r_logo.png")
 
     if (!file.exists(path)) {
       download_template(
         slug = "hexsticker/r_logo.png",
-        filename = file.path(
-          path_proj(),
-          "inst",
-          "package-sticker",
-          "r_logo.png"
-        )
+        filename = path
       )
     }
 
-    path <- file.path(
-      path_proj(),
+    path <- build_abs_path(
       "inst",
       "package-sticker",
       "create_package_sticker.R"
@@ -242,12 +234,7 @@ add_sticker <- function(type, overwrite = FALSE, quiet = FALSE) {
     if (!file.exists(path)) {
       download_template(
         slug = "hexsticker/create_package_sticker.R",
-        filename = file.path(
-          path_proj(),
-          "inst",
-          "package-sticker",
-          "create_package_sticker.R"
-        )
+        filename = path
       )
     }
   }

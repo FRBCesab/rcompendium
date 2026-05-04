@@ -4,7 +4,7 @@
 #'
 #' @noRd
 
-is_git <- function() dir.exists(file.path(path_proj(), ".git"))
+is_git <- function() dir.exists(build_abs_path(".git"))
 
 
 #' **Update GitHub Repository Informations**

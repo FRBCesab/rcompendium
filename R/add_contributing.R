@@ -57,8 +57,7 @@ add_contributing <- function(
   # template_names <- c("bug_report.md", "feature_request.md", "other_issue.md")
 
   # for (template_name in template_names) {
-  #   path_issue <- file.path(
-  #     path_proj(),
+  #   path_issue <- build_abs_path(
   #     ".github",
   #     "ISSUE_TEMPLATE",
   #     template_name
@@ -78,7 +77,7 @@ add_contributing <- function(
   #   download_template(
   #     slug = paste0("issues/", template_name),
   #     filename = template_name,
-  #     outdir = file.path(path_proj(), ".github", "ISSUE_TEMPLATE")
+  #     outdir = build_abs_path(".github", "ISSUE_TEMPLATE")
   #   )
 
   #   if (!quiet) {

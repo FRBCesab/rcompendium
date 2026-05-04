@@ -18,10 +18,10 @@
 #' }
 
 add_testthat <- function() {
-  if (!file.exists(file.path(path_proj(), "tests", "testthat.R"))) {
+  if (!file.exists(build_abs_path("tests", "testthat.R"))) {
     usethis::use_testthat()
 
-    path <- file.path(path_proj(), "tests", "testthat", "test-print_msg.R")
+    path <- build_abs_path("tests", "testthat", "test-print_msg.R")
 
     if (!file.exists(path)) {
       download_template(

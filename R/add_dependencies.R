@@ -58,7 +58,7 @@ add_dependencies <- function(compendium = NULL) {
   }
 
   is_package()
-  path <- path_proj()
+  path <- build_abs_path()
 
   ## If no R function ----
 

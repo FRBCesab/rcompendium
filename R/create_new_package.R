@@ -346,12 +346,10 @@ create_new_package <- function(
 
   ## Check for inceptions ----
 
-  git_in_git()
-  proj_in_proj()
+  stop_if_git_in_git()
+  stop_if_proj_in_proj()
 
-  if (!is_valid_name()) {
-    stop("Invalid package name.")
-  }
+  stop_if_invalid_project_name()
 
   ## Check if git is well configured ----
 
@@ -511,10 +509,7 @@ create_new_package <- function(
 
   ## Init GIT (if required) ----
 
-  if (!is_git()) {
-    gert::git_init(build_abs_path())
-    ui_done("Init {ui_value('git')} versioning")
-  }
+  initialize_git()
 
   ## Add/Replace R-specific gitignore ----
 

@@ -49,7 +49,7 @@ add_citation <- function(
 
   path <- build_abs_path("inst", "CITATION")
 
-  assert_file_not_exists_or_overwrite(path, overwrite)
+  stop_if_file_exists(path, overwrite)
 
   meta <- resolve_project_meta(
     given = given,
@@ -61,7 +61,7 @@ add_citation <- function(
   stop_if_not_string(meta$family)
 
   if (should_create_file(path, overwrite)) {
-    ensure_dir_exists(dirname(path))
+    create_folder_if_needed(dirname(path))
 
     create_template("package/CITATION", path, meta)
 

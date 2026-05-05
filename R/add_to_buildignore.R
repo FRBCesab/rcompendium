@@ -78,9 +78,7 @@ add_to_buildignore <- function(x, open = FALSE, quiet = FALSE) {
     }
   }
 
-  if (open) {
-    edit_file(path)
-  }
+  open_file_if_needed(path, open)
 
   invisible(NULL)
 }

@@ -37,7 +37,7 @@ add_dependabot <- function(
   meta <- resolve_project_meta()
 
   if (should_create_file(path, overwrite)) {
-    ensure_dir_exists(dirname(path))
+    create_folder_if_needed(dirname(path))
 
     create_template(paste0("actions/", basename(path)), path, meta)
 

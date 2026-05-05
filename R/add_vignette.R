@@ -84,7 +84,7 @@ add_vignette <- function(
         "to replace it, please use `overwrite = TRUE`."
       )
     } else {
-      edit_file(path)
+      open_file_if_needed(path, open)
       return(invisible(NULL))
     }
   }
@@ -192,9 +192,7 @@ add_vignette <- function(
 
   write_descr(descr)
 
-  if (open) {
-    edit_file(path)
-  }
+  open_file_if_needed(path, open)
 
   invisible(NULL)
 }

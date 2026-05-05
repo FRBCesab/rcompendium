@@ -33,7 +33,7 @@ add_code_of_conduct <- function(
 
   path <- build_abs_path("CODE_OF_CONDUCT.md")
 
-  assert_file_not_exists_or_overwrite(path, overwrite)
+  stop_if_file_exists(path, overwrite)
 
   meta <- resolve_project_meta(
     email = email
@@ -42,7 +42,7 @@ add_code_of_conduct <- function(
   stop_if_not_string(meta$email)
 
   if (should_create_file(path, overwrite)) {
-    ensure_dir_exists(dirname(path))
+    create_folder_if_needed(dirname(path))
 
     create_template("contributing/CODE_OF_CONDUCT.md", path, meta)
 

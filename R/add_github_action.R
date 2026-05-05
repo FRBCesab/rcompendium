@@ -93,16 +93,16 @@ add_github_action <- function(
   stop_if_not_logical(quiet)
 
   stop_if_not_string(name)
-  assert_valid_gh_action_name(name)
+  stop_if_invalid_gh_action_name(name)
 
   path <- build_abs_path(".github", "workflows", paste0(name, ".yaml"))
 
-  assert_file_not_exists_or_overwrite(path, overwrite)
+  stop_if_file_exists(path, overwrite)
 
   meta <- resolve_project_meta()
 
   if (should_create_file(path, overwrite)) {
-    ensure_dir_exists(dirname(path))
+    create_folder_if_needed(dirname(path))
 
     create_template(paste0("actions/", basename(path)), path, meta)
 

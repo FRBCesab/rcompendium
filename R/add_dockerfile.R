@@ -72,7 +72,7 @@ add_dockerfile <- function(
         "replace it, please use `overwrite = TRUE`."
       )
     } else {
-      edit_file(path)
+      open_file_if_needed(path, open)
       return(invisible(NULL))
     }
   }
@@ -206,9 +206,7 @@ add_dockerfile <- function(
   add_to_buildignore("Dockerfile", quiet = quiet)
   add_to_buildignore(".dockerignore", quiet = quiet)
 
-  if (open) {
-    edit_file(path)
-  }
+  open_file_if_needed(path, open)
 
   invisible(NULL)
 }

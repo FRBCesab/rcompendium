@@ -36,7 +36,7 @@ add_makefile <- function(
 
   path <- build_abs_path("make.R")
 
-  assert_file_not_exists_or_overwrite(path, overwrite)
+  stop_if_file_exists(path, overwrite)
 
   meta <- resolve_project_meta(
     given = given,
@@ -49,7 +49,7 @@ add_makefile <- function(
   stop_if_not_string(meta$email)
 
   if (should_create_file(path, overwrite)) {
-    ensure_dir_exists(dirname(path))
+    create_folder_if_needed(dirname(path))
 
     create_template("others/make.R", path, meta)
 

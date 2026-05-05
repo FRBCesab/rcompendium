@@ -63,8 +63,8 @@ set_credentials <- function(
 ) {
   credentials <- as.list(match.call())[-1]
 
-  assert_valid_credentials(credentials)
-  assert_valid_git_protocol(credentials)
+  stop_if_invalid_credentials(credentials)
+  stop_if_invalid_git_protocol(credentials)
 
   if (should_edit_r_profile(credentials)) {
     credentials <- set_default_git_protocol(credentials)

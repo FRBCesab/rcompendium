@@ -26,16 +26,18 @@ add_package_doc <- function(
 ) {
   stop_if_not_project()
 
-  stop_if_not_logical(open, overwrite, quiet)
+  stop_if_not_logical(open)
+  stop_if_not_logical(overwrite)
+  stop_if_not_logical(quiet)
 
   meta <- resolve_project_meta()
 
   path <- build_abs_path("R", paste0(meta$project_name, "-package.R"))
 
-  assert_file_not_exists_or_overwrite(path, overwrite)
+  stop_if_file_exists(path, overwrite)
 
   if (should_create_file(path, overwrite)) {
-    ensure_dir_exists(dirname(path))
+    create_folder_if_needed(dirname(path))
 
     create_template("package/package-package.R", path, meta)
 

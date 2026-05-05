@@ -27,11 +27,14 @@
 #' }
 
 add_to_buildignore <- function(x, open = FALSE, quiet = FALSE) {
+  stop_if_not_project()
+
   if (missing(x) && !open) {
     stop("Argument 'x' is missing.")
   }
 
-  stop_if_not_logical(open, quiet)
+  stop_if_not_logical(open)
+  stop_if_not_logical(quiet)
 
   path <- build_abs_path(".Rbuildignore")
 
@@ -75,9 +78,7 @@ add_to_buildignore <- function(x, open = FALSE, quiet = FALSE) {
     }
   }
 
-  if (open) {
-    edit_file(path)
-  }
+  open_file_if_needed(path, open)
 
   invisible(NULL)
 }

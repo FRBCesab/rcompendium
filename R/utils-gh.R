@@ -1,12 +1,5 @@
 ## Utilities functions - GITHUB ----
 
-#' **Check if project is versioned**
-#'
-#' @noRd
-
-is_git <- function() dir.exists(build_abs_path(".git"))
-
-
 #' **Update GitHub Repository Informations**
 #'
 #' @description
@@ -32,7 +25,8 @@ is_git <- function() dir.exists(build_abs_path(".git"))
 update_gh_repo <- function(owner, repo, website = TRUE, quiet = FALSE) {
   stop_if_not_project()
 
-  stop_if_not_logical(website, quiet)
+  stop_if_not_logical(website)
+  stop_if_not_logical(quiet)
 
   ## Checks inputs ----
 
@@ -43,7 +37,8 @@ update_gh_repo <- function(owner, repo, website = TRUE, quiet = FALSE) {
     stop("Argument 'repo' is missing.")
   }
 
-  stop_if_not_string(owner, repo)
+  stop_if_not_string(owner)
+  stop_if_not_string(repo)
 
   ## Is GITHUB PAT ----
 
@@ -175,86 +170,11 @@ is_gh_repo <- function(owner, repo) {
     stop("Argument 'repo' is missing.")
   }
 
-  stop_if_not_string(owner, repo)
+  stop_if_not_string(owner)
+  stop_if_not_string(repo)
 
   tryCatch(
     gh::gh("GET /repos/{owner}/{repo}", repo = repo, owner = owner),
     error = function(e) NULL
   )
-}
-
-
-#' **Get current/default git branch name**
-#'
-#' @noRd
-
-get_git_branch_name <- function() {
-  is_git()
-
-  current_branch <- gert::git_branch()
-
-  if (is.null(current_branch)) {
-    config <- as.data.frame(gert::git_config_global())
-
-    default_global <- config[
-      which(
-        config$"name" == "init.defaultbranch" &
-          config$"level" == "global"
-      ),
-      "value"
-    ]
-
-    if (length(default_global) == 1) {
-      current_branch <- default_global
-    } else {
-      default_system <- config[
-        which(
-          config$"name" == "init.defaultbranch" &
-            config$"level" == "system"
-        ),
-        "value"
-      ]
-
-      if (length(default_system) == 0) {
-        current_branch <- "master"
-      } else {
-        current_branch <- default_system
-      }
-    }
-  }
-
-  current_branch
-}
-
-
-#' **URL of the templates repo**
-#'
-#' @noRd
-
-template_repo_url <- function() {
-  "/repos/frbcesab/r-templates/contents/"
-}
-
-
-#' **Clean GitHub action names**
-#'
-#' @noRd
-
-clean_gh_action_name <- function(x) {
-  x <- tolower(x)
-  x <- gsub("\\.(yaml|yml)$", "", x)
-  x
-}
-
-
-list_template_gh_repo_content <- function(directory = NULL) {
-  content <- gh::gh(
-    endpoint = paste0(template_repo_url(), directory),
-    .send_headers = c(
-      `Accept` = "application/vnd.github.raw+json",
-      `Content-Type` = "application/json"
-    )
-  )
-
-  unlist(lapply(content, function(x) x[["name"]]))
 }

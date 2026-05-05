@@ -16,6 +16,6 @@
 #' get_available_issue_templates()
 
 get_available_issue_templates <- function() {
-  issues <- list_template_gh_repo_content("issues")
+  issues <- list_template_files("issues")
   gsub("\\.md$", "", issues)
 }

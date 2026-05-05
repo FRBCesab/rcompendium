@@ -27,20 +27,22 @@ add_code_of_conduct <- function(
 ) {
   stop_if_not_project()
 
-  stop_if_not_logical(open, overwrite, quiet)
+  stop_if_not_logical(open)
+  stop_if_not_logical(overwrite)
+  stop_if_not_logical(quiet)
 
   path <- build_abs_path("CODE_OF_CONDUCT.md")
 
-  assert_file_not_exists_or_overwrite(path, overwrite)
+  stop_if_file_exists(path, overwrite)
 
   meta <- resolve_project_meta(
     email = email
   )
 
-  stop_if_null_or_empty(meta$email, "email")
+  stop_if_not_string(meta$email)
 
   if (should_create_file(path, overwrite)) {
-    ensure_dir_exists(dirname(path))
+    create_folder_if_needed(dirname(path))
 
     create_template("contributing/CODE_OF_CONDUCT.md", path, meta)
 

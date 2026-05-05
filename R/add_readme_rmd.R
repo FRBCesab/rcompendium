@@ -34,13 +34,15 @@ add_readme_rmd <- function(
 ) {
   stop_if_not_project()
 
-  stop_if_not_logical(open, overwrite, quiet)
-  stop_if_not_string(type)
-  assert_valid_project_type(type)
+  stop_if_not_logical(open)
+  stop_if_not_logical(overwrite)
+  stop_if_not_logical(quiet)
+
+  stop_if_invalid_project_type(type)
 
   path <- build_abs_path("README.Rmd")
 
-  assert_file_not_exists_or_overwrite(path, overwrite)
+  stop_if_file_exists(path, overwrite)
 
   meta <- resolve_project_meta(
     given = given,
@@ -48,11 +50,11 @@ add_readme_rmd <- function(
     organisation = organisation
   )
 
-  stop_if_null_or_empty(meta$given, "given")
-  stop_if_null_or_empty(meta$family, "family")
+  stop_if_not_string(meta$given)
+  stop_if_not_string(meta$family)
 
   if (should_create_file(path, overwrite)) {
-    ensure_dir_exists(dirname(path))
+    create_folder_if_needed(dirname(path))
 
     create_template(paste0("readme/README-", type, ".Rmd"), path, meta)
 

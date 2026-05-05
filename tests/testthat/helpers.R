@@ -38,3 +38,9 @@ expect_path_equal <- function(object, expected) {
 
   testthat::expect_equal(norm(object), norm(expected))
 }
+
+
+get_arg_label <- function(x) {
+  expr <- substitute(x)
+  get_arg_name(expr)
+}

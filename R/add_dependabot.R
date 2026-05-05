@@ -29,14 +29,15 @@ add_dependabot <- function(
 ) {
   stop_if_not_project()
 
-  stop_if_not_logical(overwrite, quiet)
+  stop_if_not_logical(overwrite)
+  stop_if_not_logical(quiet)
 
   path <- build_abs_path(".github", "dependabot.yaml")
 
   meta <- resolve_project_meta()
 
   if (should_create_file(path, overwrite)) {
-    ensure_dir_exists(dirname(path))
+    create_folder_if_needed(dirname(path))
 
     create_template(paste0("actions/", basename(path)), path, meta)
 

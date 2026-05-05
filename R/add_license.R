@@ -31,8 +31,7 @@ add_license <- function(
   stop_if_not_project()
 
   stop_if_not_logical(quiet)
-  stop_if_not_string(license)
-  assert_valid_license_name(license)
+  stop_if_invalid_license_name(license)
 
   path <- build_abs_path("LICENSE.md")
 
@@ -41,7 +40,7 @@ add_license <- function(
     family = family
   )
 
-  assert_valid_mit_meta(license, meta)
+  stop_if_invalid_mit_meta(license, meta)
 
   if (should_update_license(license)) {
     update_license_field_in_desc(license, quiet)

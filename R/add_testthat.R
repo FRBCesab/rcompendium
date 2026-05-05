@@ -18,6 +18,8 @@
 #' }
 
 add_testthat <- function() {
+  stop_if_not_project()
+
   if (!file.exists(build_abs_path("tests", "testthat.R"))) {
     usethis::use_testthat()
 

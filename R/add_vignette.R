@@ -45,7 +45,11 @@ add_vignette <- function(
   overwrite = FALSE,
   quiet = FALSE
 ) {
-  stop_if_not_logical(open, overwrite, quiet)
+  stop_if_not_project()
+
+  stop_if_not_logical(open)
+  stop_if_not_logical(overwrite)
+  stop_if_not_logical(quiet)
 
   path <- build_abs_path()
   package_name <- get_project_name()
@@ -80,7 +84,7 @@ add_vignette <- function(
         "to replace it, please use `overwrite = TRUE`."
       )
     } else {
-      edit_file(path)
+      open_file_if_needed(path, open)
       return(invisible(NULL))
     }
   }
@@ -188,9 +192,7 @@ add_vignette <- function(
 
   write_descr(descr)
 
-  if (open) {
-    edit_file(path)
-  }
+  open_file_if_needed(path, open)
 
   invisible(NULL)
 }

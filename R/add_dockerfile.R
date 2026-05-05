@@ -57,7 +57,9 @@ add_dockerfile <- function(
   overwrite = FALSE,
   quiet = FALSE
 ) {
-  stop_if_not_logical(open, overwrite, quiet)
+  stop_if_not_logical(open)
+  stop_if_not_logical(overwrite)
+  stop_if_not_logical(quiet)
 
   path <- build_abs_path("Dockerfile")
 
@@ -70,7 +72,7 @@ add_dockerfile <- function(
         "replace it, please use `overwrite = TRUE`."
       )
     } else {
-      edit_file(path)
+      open_file_if_needed(path, open)
       return(invisible(NULL))
     }
   }
@@ -87,7 +89,9 @@ add_dockerfile <- function(
     email <- getOption("email")
   }
 
-  stop_if_not_string(given, family, email)
+  stop_if_not_string(given)
+  stop_if_not_string(family)
+  stop_if_not_string(email)
 
   r_version <- paste(
     utils::sessionInfo()$"R.version"$"major",
@@ -202,9 +206,7 @@ add_dockerfile <- function(
   add_to_buildignore("Dockerfile", quiet = quiet)
   add_to_buildignore(".dockerignore", quiet = quiet)
 
-  if (open) {
-    edit_file(path)
-  }
+  open_file_if_needed(path, open)
 
   invisible(NULL)
 }

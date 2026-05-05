@@ -1,25 +1,29 @@
 ## ui_file_written() ----
 
-test_that("ui_file_written() works - verbose", {
+test_that("ui_file_written() works - No quiet", {
   with_local_project({
     initialize_project(quiet = TRUE)
-    path <- build_abs_path(".github", "dependabot.yaml")
 
-    expect_no_message(suppressMessages(ui_file_written(path)))
-    expect_null(x <- suppressMessages(ui_file_written(path)))
+    path <- file.path(".github", "dependabot.yaml")
 
-    expect_no_message(suppressMessages(ui_file_written(path, quiet = FALSE)))
-    expect_null(x <- suppressMessages(ui_file_written(path, quiet = FALSE)))
+    expect_snapshot({
+      ui_file_written(path, quiet = FALSE)
+    })
   })
 })
 
-test_that("ui_file_written() works - quiet", {
+test_that("ui_file_written() works - Quiet", {
   with_local_project({
     initialize_project(quiet = TRUE)
 
-    path <- build_abs_path(".github", "dependabot.yaml")
+    path <- file.path(".github", "dependabot.yaml")
 
-    expect_silent(ui_file_written(path, quiet = TRUE))
-    expect_null(x <- ui_file_written(path, quiet = TRUE))
+    expect_no_message({
+      ui_file_written(path, quiet = TRUE)
+    })
+
+    expect_silent({
+      ui_file_written(path, quiet = TRUE)
+    })
   })
 })

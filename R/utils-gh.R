@@ -178,4 +178,3 @@ is_gh_repo <- function(owner, repo) {
     error = function(e) NULL
   )
 }
-

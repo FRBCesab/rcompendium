@@ -25,7 +25,13 @@ with_local_project <- function(expr, name = "pkgtest") {
 
 
 create_dummy_desc_file <- function() {
-  content <- "Package: pkgtest\nType: Package"
+  content <- c(
+    "Package: pkgtest",
+    "Type: Package",
+    "Version: 1.2.3",
+    "License: GPL (>= 2)"
+  )
+
   writeLines(content, "DESCRIPTION")
   invisible(NULL)
 }

@@ -2,42 +2,36 @@
 #' @noRd
 get_git_branch_name <- function() {
   if (should_init_git()) {
-    stop("The project is not versioned by git.", call. = FALSE)
+    return(NULL)
   }
 
   current_branch <- gert::git_branch()
 
-  if (is.null(current_branch)) {
-    config <- as.data.frame(gert::git_config_global())
-
-    default_global <- config[
-      which(
-        config$"name" == "init.defaultbranch" &
-          config$"level" == "global"
-      ),
-      "value"
-    ]
-
-    if (length(default_global) == 1) {
-      current_branch <- default_global
-    } else {
-      default_system <- config[
-        which(
-          config$"name" == "init.defaultbranch" &
-            config$"level" == "system"
-        ),
-        "value"
-      ]
-
-      if (length(default_system) == 0) {
-        current_branch <- "master"
-      } else {
-        current_branch <- default_system
-      }
-    }
+  if (!is.null(current_branch)) {
+    return(current_branch)
   }
 
-  current_branch
+  config <- as.data.frame(gert::git_config_global())
+
+  get_default_branch <- function(config, default) {
+    val <- config$value[
+      config$name == "init.defaultbranch" & config$level == "global"
+    ]
+    if (length(val) == 1) {
+      return(val)
+    }
+
+    val <- config$value[
+      config$name == "init.defaultbranch" & config$level == "system"
+    ]
+    if (length(val) == 1) {
+      return(val)
+    }
+
+    default
+  }
+
+  get_default_branch(config, default = "master")
 }
 
 

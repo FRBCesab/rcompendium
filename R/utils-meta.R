@@ -1,35 +1,90 @@
-#' Retrieve and assert project metadata
+#' Retrieve project metadata
+#' @param ... any metadata options (given, email, etc.) or empty
+#' @param include a vector of valid blocks
+#' @noRd
+resolve_project_meta <- function(..., include = .DEFAULT_BLOCKS) {
+  valid_blocks <- .DEFAULT_BLOCKS
+
+  if (any(is.na(include))) {
+    stop(
+      "Argument 'include' cannot contain NA values.",
+      call. = FALSE
+    )
+  }
+
+  if (any(!(include %in% valid_blocks))) {
+    stop(
+      sprintf(
+        "Invalid 'include' value(s): '%s'. Valid values are '%s'.",
+        paste(setdiff(include, valid_blocks), collapse = "', '"),
+        paste(valid_blocks, collapse = "', '")
+      ),
+      call. = FALSE
+    )
+  }
+
+  add_block <- function(cond, fn) if (cond) fn() else list()
+
+  meta <- c(
+    add_block("user" %in% include, function() collect_user_meta(...)),
+    add_block("project" %in% include, collect_project_meta),
+    add_block("git" %in% include, collect_git_meta),
+    add_block("runtime" %in% include, collect_runtime_meta)
+  )
+
+  meta
+}
+
+
+#' Collect user metadata
 #' @param ... any metadata options (given, email, etc.) or empty
 #' @noRd
-resolve_project_meta <- function(...) {
+collect_user_meta <- function(...) {
   args <- list(...)
 
-  given <- args$given %||% getOption("given")
-  family <- args$family %||% getOption("family")
-  email <- args$email %||% getOption("email")
-  orcid <- args$orcid %||% getOption("orcid")
-  github_user <- args$github_user %||% getOption("github_user")
-  github_account <- args$organisation %||% github_user
+  get_or_option <- function(name) args[[name]] %||% getOption(name)
 
   list(
-    given = given,
-    family = family,
-    email = email,
-    orcid = orcid,
+    given = get_or_option("given"),
+    family = get_or_option("family"),
+    email = get_or_option("email"),
+    orcid = get_or_option("orcid"),
+    github_user = get_or_option("github_user"),
+    github_account = args[["organisation"]] %||% get_or_option("github_user")
+  )
+}
 
+
+#' Collect project metadata
+#' @noRd
+collect_project_meta <- function() {
+  list(
     project_name = get_project_name(),
     project_version = get_project_version(),
     license = get_project_license_name(),
-    license_url = get_project_license_url(),
+    license_url = get_project_license_url()
+  )
+}
 
-    github_user = github_user,
-    github_account = github_account,
-    git_branch = get_git_branch_name(),
 
+#' Collect git metadata
+#' @noRd
+collect_git_meta <- function() {
+  branch <- get_git_branch_name()
+  list(
+    git_branch = branch,
+    git_available = !is.null(branch)
+  )
+}
+
+
+#' Collect runtime metadata
+#' @noRd
+collect_runtime_meta <- function() {
+  list(
     r_version = get_r_version(),
     roxygen2_version = get_roxygen2_version(),
-    renv_version = utils::packageVersion("renv"),
-
+    renv_version = get_renv_version(),
     year = format(Sys.Date(), "%Y"),
     date = format(Sys.time(), "%Y/%m/%d")
   )
@@ -78,8 +133,16 @@ stop_if_invalid_credentials <- function(meta) {
 stop_if_invalid_project_type <- function(type) {
   stop_if_not_string(type)
 
-  if (!(type %in% c("package", "compendium"))) {
-    stop("Argument 'type' must be 'package' or 'compendium'.", call. = FALSE)
+  valid_types <- c("package", "compendium")
+
+  if (!(type %in% valid_types)) {
+    stop(
+      sprintf(
+        "Argument 'type' must be one of '%s'.",
+        paste(valid_types, collapse = "', '")
+      ),
+      call. = FALSE
+    )
   }
 
   invisible(NULL)
@@ -89,25 +152,29 @@ stop_if_invalid_project_type <- function(type) {
 #' Get the project name
 #' @noRd
 get_project_name <- function() {
-  dirname(build_abs_path())
+  basename(build_abs_path())
 }
 
 
 #' Get the project version
 #' @noRd
 get_project_version <- function() {
-  if (file.exists(build_abs_path("DESCRIPTION"))) {
-    return(read_descr()$"Version")
-  } else {
+  path <- build_abs_path("DESCRIPTION")
+
+  if (!file.exists(path)) {
     return(NULL)
   }
+
+  desc <- read_descr()
+
+  desc[["Version"]] %||% NULL
 }
 
 
 #' Get roxygen2 version
 #' @noRd
 get_roxygen2_version <- function() {
-  if (!length(find.package("roxygen2", quiet = TRUE))) {
+  if (!requireNamespace("roxygen2", quietly = TRUE)) {
     stop("The package 'roxygen2' is required.", call. = FALSE)
   }
 
@@ -115,16 +182,23 @@ get_roxygen2_version <- function() {
 }
 
 
+#' Get renv version
+#' @noRd
+get_renv_version <- function() {
+  if (!requireNamespace("renv", quietly = TRUE)) {
+    return(NULL)
+  }
+
+  as.character(utils::packageVersion("renv"))
+}
+
+
 #' Get installed R version
 #' @noRd
 get_r_version <- function() {
-  r_version <- paste(
-    utils::sessionInfo()["R.version"][[1]]["major"],
-    utils::sessionInfo()["R.version"][[1]]["minor"],
-    sep = "."
+  paste0(
+    R.version[["major"]],
+    ".",
+    strsplit(R.version[["minor"]], ".", fixed = TRUE)[[1]][1]
   )
-
-  r_version <- unlist(strsplit(r_version, "\\."))
-  r_version <- paste(r_version[1], r_version[2], sep = ".")
-  r_version
 }

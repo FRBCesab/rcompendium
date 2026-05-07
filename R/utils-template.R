@@ -41,7 +41,7 @@ download_template <- function(slug, filename) {
   stop_if_not_string(slug)
   stop_if_not_string(filename)
 
-  url <- paste0(get_template_file_url(), slug)
+  url <- paste0(.TEMPLATE_FILE_URL, slug)
   req <- httr2::request(url)
   req <- httr2::req_method(req, "GET")
 
@@ -79,15 +79,33 @@ populate_template <- function(path, meta) {
 }
 
 
-#' URL of the templates repo (API)
+#' List templates of a directory
+#' @param directory a character of length of 1. The name of the GH directory.
 #' @noRd
-get_template_repo_url <- function() {
-  "/repos/frbcesab/r-templates/contents/"
-}
+list_template_files <- function(directory = NULL) {
+  if (!is.null(directory)) {
+    endpoint <- paste0(.GITHUB_API_ENDPOINT, directory)
+  } else {
+    endpoint <- .GITHUB_API_ENDPOINT
+  }
 
+  req <- httr2::request(.GITHUB_API_URL)
+  req <- httr2::req_url_path_append(req, endpoint)
+  req <- httr2::req_headers(
+    req,
+    `Accept` = "application/vnd.github.raw+json",
+    `Content-Type` = "application/json",
+    `X-GitHub-Api-Version` = .GITHUB_API_VERSION
+  )
 
-#' URL of the template GitHub repository
-#' @noRd
-get_template_file_url <- function() {
-  "https://raw.githubusercontent.com/FRBCesab/r-templates/refs/heads/main/"
+  resp <- httr2::req_perform(req)
+
+  httr2::resp_check_status(resp)
+
+  content <- httr2::resp_body_json(resp)
+
+  files <- vapply(content, function(x) x$name %||% NA_character_, character(1))
+  types <- vapply(content, function(x) x$type %||% NA_character_, character(1))
+
+  files[!is.na(files) & types %in% "file" & files != "README.md"]
 }

@@ -8,7 +8,7 @@ stop_if_invalid_license_name <- function(license) {
 
   if (length(license_id) == 0) {
     stop(
-      "Invalid license. Please use `get_licenses()` to select an ",
+      "Invalid license. Please use `get_available_licenses()` to select an ",
       "appropriate one."
     )
   }
@@ -123,11 +123,10 @@ update_license_field_in_desc <- function(license, quiet = FALSE) {
   descr$"License" <- ifelse(license == "MIT", "MIT + file LICENSE", license)
   write_descr(descr)
 
-  if (!quiet) {
-    cli::cli_alert_success(
-      "Setting {.field License} field in DESCRIPTION to {.val {license}}"
-    )
-  }
+  ui_success(
+    "Setting {.field License} field in DESCRIPTION to {.val {license}}",
+    quiet = quiet
+  )
 
   invisible(NULL)
 }
@@ -137,13 +136,19 @@ update_license_field_in_desc <- function(license, quiet = FALSE) {
 #' @param license a character of length of 1. The name of the license.
 #' @noRd
 should_update_license <- function(license) {
-  descr_license <- get_project_license_name()
+  if (!is.null(license)) {
+    descr_license <- get_project_license_name()
 
-  if (!is.null(descr_license)) {
-    if (descr_license == license) {
-      return(FALSE)
+    if (!is.null(descr_license)) {
+      if (descr_license == license) {
+        return(FALSE)
+      } else {
+        return(TRUE)
+      }
     } else {
-      return(TRUE)
+      return(FALSE)
     }
+  } else {
+    return(FALSE)
   }
 }

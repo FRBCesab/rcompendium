@@ -29,6 +29,7 @@ Imports:
     gert,
     gh,
     gtools,
+    httr2,
     renv,
     rmarkdown,
     roxygen2,
@@ -44,6 +45,7 @@ Suggests:
     fs,
     knitr,
     testthat (>= 3.0.0),
+    vcr,
     withr
 Config/testthat/edition: 3
 Config/roxygen2/version: 8.0.0

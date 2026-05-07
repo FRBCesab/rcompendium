@@ -41,12 +41,15 @@ download_template <- function(slug, filename) {
   stop_if_not_string(slug)
   stop_if_not_string(filename)
 
-  utils::download.file(
-    url = paste0(get_template_file_url(), slug),
-    destfile = filename,
-    mode = "wb",
-    quiet = TRUE
-  )
+  url <- paste0(get_template_file_url(), slug)
+  req <- httr2::request(url)
+  req <- httr2::req_method(req, "GET")
+
+  resp <- httr2::req_perform(req)
+
+  httr2::resp_check_status(resp)
+
+  writeBin(httr2::resp_body_raw(resp), filename)
 
   invisible(NULL)
 }

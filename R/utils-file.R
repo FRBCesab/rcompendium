@@ -33,6 +33,9 @@ gsub_in_file <- function(file, pattern, replacement) {
     stop("Cannot write the '", file, "' file", call. = FALSE)
   }
 
+  opts <- options(encoding = "native.enc")
+  on.exit(options(opts), add = TRUE)
+
   x <- tryCatch(
     readLines(file, encoding = "UTF-8", warn = FALSE),
     error = function(e) {
@@ -48,7 +51,7 @@ gsub_in_file <- function(file, pattern, replacement) {
   text_new <- gsub(pattern, replacement, text, fixed = TRUE)
 
   if (!identical(text, text_new)) {
-    writeLines(text_new, file, useBytes = TRUE)
+    writeLines(enc2utf8(text_new), file, useBytes = TRUE)
   }
 
   invisible(NULL)

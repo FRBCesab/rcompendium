@@ -36,8 +36,7 @@ Imports:
     rprojroot,
     stringr,
     usethis,
-    utils,
-    xfun
+    utils
 Roxygen: list(markdown = TRUE)
 VignetteBuilder: knitr
 Suggests: 

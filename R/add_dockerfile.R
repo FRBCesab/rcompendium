@@ -117,8 +117,8 @@ add_dockerfile <- function(
 
   ## Update default values ----
 
-  xfun::gsub_file(path, "{{r_version}}", r_version, fixed = TRUE)
-  xfun::gsub_file(path, "{{email}}", email, fixed = TRUE)
+  gsub_in_file(path, "{{r_version}}", r_version)
+  gsub_in_file(path, "{{email}}", email)
 
   ## Install R packages ----
 
@@ -136,8 +136,8 @@ add_dockerfile <- function(
     )
     pattern <- paste0(pattern, "\n && sudo -u rstudio R -e \"renv::restore()\"")
 
-    xfun::gsub_file(path, "{{install_packages}}", pattern, fixed = TRUE)
-    xfun::gsub_file(path, "{{renv_version}}", renv_version, fixed = TRUE)
+    gsub_in_file(path, "{{install_packages}}", pattern)
+    gsub_in_file(path, "{{renv_version}}", renv_version)
   } else {
     pattern <- paste0(
       "RUN R -e \"install.packages('remotes', ",
@@ -148,7 +148,7 @@ add_dockerfile <- function(
       "\n && R -e \"remotes::install_deps(upgrade = 'never')\""
     )
 
-    xfun::gsub_file(path, "{{install_packages}}", pattern, fixed = TRUE)
+    gsub_in_file(path, "{{install_packages}}", pattern)
   }
 
   ## Update README.Rmd ----

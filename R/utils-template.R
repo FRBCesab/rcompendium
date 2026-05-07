@@ -66,12 +66,7 @@ populate_template <- function(path, meta) {
     if (!is.null(value)) {
       placeholder <- paste0("{{", name, "}}")
 
-      xfun::gsub_file(
-        path,
-        pattern = placeholder,
-        replacement = as.character(value),
-        fixed = TRUE
-      )
+      gsub_in_file(path, placeholder, as.character(value))
     }
   }
 

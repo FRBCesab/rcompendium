@@ -104,8 +104,8 @@ add_vignette <- function(
     title <- "Get started"
   }
 
-  xfun::gsub_file(path, "{{title}}", title, fixed = TRUE)
-  xfun::gsub_file(path, "{{project_name}}", package_name, fixed = TRUE)
+  gsub_in_file(path, "{{title}}", title)
+  gsub_in_file(path, "{{project_name}}", package_name)
 
   ## Message ----
 

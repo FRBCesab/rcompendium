@@ -100,11 +100,10 @@ add_renv <- function(quiet = FALSE) {
     path <- build_abs_path("make.R")
 
     if (file.exists(path)) {
-      xfun::gsub_file(
+      gsub_in_file(
         path,
         "devtools::install_deps(upgrade = \"never\")",
-        "renv::restore()",
-        fixed = TRUE
+        "renv::restore()"
       )
     }
   }

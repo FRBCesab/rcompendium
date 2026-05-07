@@ -14,7 +14,7 @@ http_interactions:
       content-length: '10043'
       content-security-policy: default-src 'none'
       content-type: application/json; charset=utf-8
-      date: Thu, 07 May 2026 09:09:34 GMT
+      date: Thu, 07 May 2026 09:41:52 GMT
       etag: '"82dcfcc61dace3bdc899dbd07c4dfa72d34c91ad"'
       last-modified: Sat, 25 Apr 2026 13:50:21 GMT
       referrer-policy: origin-when-cross-origin, strict-origin-when-cross-origin
@@ -27,11 +27,11 @@ http_interactions:
       server: github.com
       accept-ranges: bytes
       x-ratelimit-limit: '60'
-      x-ratelimit-remaining: '47'
-      x-ratelimit-used: '13'
+      x-ratelimit-remaining: '15'
+      x-ratelimit-used: '45'
       x-ratelimit-resource: core
       x-ratelimit-reset: '1778147321'
-      x-github-request-id: DA0A:1070BA:332820F:30CDE52:69FC56CE
+      x-github-request-id: C278:276E08:38A88CF:360FBD4:69FC5E76
     body:
       string: |
         [
@@ -244,5 +244,5 @@ http_interactions:
             }
           }
         ]
-  recorded_at: 2026-05-07 09:09:34
+  recorded_at: 2026-05-07 09:42:14
 recorded_with: VCR-vcr/2.1.0

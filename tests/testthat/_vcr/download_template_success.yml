@@ -16,18 +16,18 @@ http_interactions:
       x-github-request-id: B978:1B894A:5A4E05:682896:69FC56D3
       content-encoding: gzip
       accept-ranges: bytes
-      date: Thu, 07 May 2026 09:17:16 GMT
+      date: Thu, 07 May 2026 09:42:13 GMT
       via: 1.1 varnish
-      x-served-by: cache-mrs10581-MRS
+      x-served-by: cache-mrs10566-MRS
       x-cache: HIT
-      x-cache-hits: '0'
-      x-timer: S1778145436.118421,VS0,VE135
+      x-cache-hits: '3'
+      x-timer: S1778146934.659474,VS0,VE0
       vary: Authorization,Accept-Encoding
       access-control-allow-origin: '*'
       cross-origin-resource-policy: cross-origin
-      x-fastly-request-id: e1b3c643049f34978954b233dd6d1eedcb62fda4
-      expires: Thu, 07 May 2026 09:22:16 GMT
-      source-age: '0'
+      x-fastly-request-id: 4780472523d97277af794077e9fd397c61545621
+      expires: Thu, 07 May 2026 09:47:13 GMT
+      source-age: '111'
       content-length: '237'
     body:
       string: |
@@ -41,5 +41,5 @@ http_interactions:
           note    = "R package version 0.0.0.9000",
           url     = "https://github.com/{{github_account}}/{{project_name}}"
         )
-  recorded_at: 2026-05-07 09:17:16
+  recorded_at: 2026-05-07 09:42:13
 recorded_with: VCR-vcr/2.1.0

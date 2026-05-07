@@ -1,0 +1,200 @@
+http_interactions:
+- request:
+    method: GET
+    uri: https://api.github.com/repos/frbcesab/r-templates/contents/actions
+  response:
+    status: 200
+    headers:
+      access-control-allow-origin: '*'
+      access-control-expose-headers: ETag, Link, Location, Retry-After, X-GitHub-OTP,
+        X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource,
+        X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval,
+        X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
+      cache-control: public, max-age=60, s-maxage=60
+      content-security-policy: default-src 'none'
+      date: Thu, 07 May 2026 09:42:14 GMT
+      etag: '"82dcfcc61dace3bdc899dbd07c4dfa72d34c91ad"'
+      last-modified: Sat, 25 Apr 2026 13:50:21 GMT
+      referrer-policy: origin-when-cross-origin, strict-origin-when-cross-origin
+      vary: Accept, Accept-Encoding, Accept, X-Requested-With
+      x-content-type-options: nosniff
+      x-frame-options: deny
+      x-github-api-version-selected: '2022-11-28'
+      x-xss-protection: '0'
+      server: github.com
+      content-length: '9483'
+      content-type: application/json; charset=utf-8
+      x-github-media-type: github.v3; param=raw; format=json
+      accept-ranges: bytes
+      x-ratelimit-limit: '60'
+      x-ratelimit-remaining: '11'
+      x-ratelimit-used: '49'
+      x-ratelimit-resource: core
+      x-ratelimit-reset: '1778147321'
+      x-github-request-id: C278:276E08:38A92A8:3610525:69FC5E77
+    body:
+      string: |
+        [
+          {
+            "name": "R-CMD-check.yaml",
+            "path": "actions/R-CMD-check.yaml",
+            "sha": "3e9844093d456121d7d1bbb736043084a4e02c62",
+            "size": 1395,
+            "url": "https://api.github.com/repos/FRBCesab/r-templates/contents/actions/R-CMD-check.yaml?ref=main",
+            "html_url": "https://github.com/FRBCesab/r-templates/blob/main/actions/R-CMD-check.yaml",
+            "git_url": "https://api.github.com/repos/FRBCesab/r-templates/git/blobs/3e9844093d456121d7d1bbb736043084a4e02c62",
+            "download_url": "https://raw.githubusercontent.com/FRBCesab/r-templates/main/actions/R-CMD-check.yaml",
+            "type": "file",
+            "_links": {
+              "self": "https://api.github.com/repos/FRBCesab/r-templates/contents/actions/R-CMD-check.yaml?ref=main",
+              "git": "https://api.github.com/repos/FRBCesab/r-templates/git/blobs/3e9844093d456121d7d1bbb736043084a4e02c62",
+              "html": "https://github.com/FRBCesab/r-templates/blob/main/actions/R-CMD-check.yaml"
+            }
+          },
+          {
+            "name": "README.md",
+            "path": "actions/README.md",
+            "sha": "92138d7508b7abfc9bcc0dfc328d71bc2645ee5a",
+            "size": 2728,
+            "url": "https://api.github.com/repos/FRBCesab/r-templates/contents/actions/README.md?ref=main",
+            "html_url": "https://github.com/FRBCesab/r-templates/blob/main/actions/README.md",
+            "git_url": "https://api.github.com/repos/FRBCesab/r-templates/git/blobs/92138d7508b7abfc9bcc0dfc328d71bc2645ee5a",
+            "download_url": "https://raw.githubusercontent.com/FRBCesab/r-templates/main/actions/README.md",
+            "type": "file",
+            "_links": {
+              "self": "https://api.github.com/repos/FRBCesab/r-templates/contents/actions/README.md?ref=main",
+              "git": "https://api.github.com/repos/FRBCesab/r-templates/git/blobs/92138d7508b7abfc9bcc0dfc328d71bc2645ee5a",
+              "html": "https://github.com/FRBCesab/r-templates/blob/main/actions/README.md"
+            }
+          },
+          {
+            "name": "check-format.yaml",
+            "path": "actions/check-format.yaml",
+            "sha": "f298b5343d58a4cee8649698008a25f79e010ca1",
+            "size": 431,
+            "url": "https://api.github.com/repos/FRBCesab/r-templates/contents/actions/check-format.yaml?ref=main",
+            "html_url": "https://github.com/FRBCesab/r-templates/blob/main/actions/check-format.yaml",
+            "git_url": "https://api.github.com/repos/FRBCesab/r-templates/git/blobs/f298b5343d58a4cee8649698008a25f79e010ca1",
+            "download_url": "https://raw.githubusercontent.com/FRBCesab/r-templates/main/actions/check-format.yaml",
+            "type": "file",
+            "_links": {
+              "self": "https://api.github.com/repos/FRBCesab/r-templates/contents/actions/check-format.yaml?ref=main",
+              "git": "https://api.github.com/repos/FRBCesab/r-templates/git/blobs/f298b5343d58a4cee8649698008a25f79e010ca1",
+              "html": "https://github.com/FRBCesab/r-templates/blob/main/actions/check-format.yaml"
+            }
+          },
+          {
+            "name": "dependabot.yaml",
+            "path": "actions/dependabot.yaml",
+            "sha": "65e471c69e07c5a5a512009f1ebe48437e3618c7",
+            "size": 293,
+            "url": "https://api.github.com/repos/FRBCesab/r-templates/contents/actions/dependabot.yaml?ref=main",
+            "html_url": "https://github.com/FRBCesab/r-templates/blob/main/actions/dependabot.yaml",
+            "git_url": "https://api.github.com/repos/FRBCesab/r-templates/git/blobs/65e471c69e07c5a5a512009f1ebe48437e3618c7",
+            "download_url": "https://raw.githubusercontent.com/FRBCesab/r-templates/main/actions/dependabot.yaml",
+            "type": "file",
+            "_links": {
+              "self": "https://api.github.com/repos/FRBCesab/r-templates/contents/actions/dependabot.yaml?ref=main",
+              "git": "https://api.github.com/repos/FRBCesab/r-templates/git/blobs/65e471c69e07c5a5a512009f1ebe48437e3618c7",
+              "html": "https://github.com/FRBCesab/r-templates/blob/main/actions/dependabot.yaml"
+            }
+          },
+          {
+            "name": "pkgdown.yaml",
+            "path": "actions/pkgdown.yaml",
+            "sha": "a8937fe884fd372b6aed9ce13d38e12d7621e2f4",
+            "size": 1300,
+            "url": "https://api.github.com/repos/FRBCesab/r-templates/contents/actions/pkgdown.yaml?ref=main",
+            "html_url": "https://github.com/FRBCesab/r-templates/blob/main/actions/pkgdown.yaml",
+            "git_url": "https://api.github.com/repos/FRBCesab/r-templates/git/blobs/a8937fe884fd372b6aed9ce13d38e12d7621e2f4",
+            "download_url": "https://raw.githubusercontent.com/FRBCesab/r-templates/main/actions/pkgdown.yaml",
+            "type": "file",
+            "_links": {
+              "self": "https://api.github.com/repos/FRBCesab/r-templates/contents/actions/pkgdown.yaml?ref=main",
+              "git": "https://api.github.com/repos/FRBCesab/r-templates/git/blobs/a8937fe884fd372b6aed9ce13d38e12d7621e2f4",
+              "html": "https://github.com/FRBCesab/r-templates/blob/main/actions/pkgdown.yaml"
+            }
+          },
+          {
+            "name": "render-README.yaml",
+            "path": "actions/render-README.yaml",
+            "sha": "85bb83ebaaf3c74c8bd17e7b8f77dc3a522af237",
+            "size": 1161,
+            "url": "https://api.github.com/repos/FRBCesab/r-templates/contents/actions/render-README.yaml?ref=main",
+            "html_url": "https://github.com/FRBCesab/r-templates/blob/main/actions/render-README.yaml",
+            "git_url": "https://api.github.com/repos/FRBCesab/r-templates/git/blobs/85bb83ebaaf3c74c8bd17e7b8f77dc3a522af237",
+            "download_url": "https://raw.githubusercontent.com/FRBCesab/r-templates/main/actions/render-README.yaml",
+            "type": "file",
+            "_links": {
+              "self": "https://api.github.com/repos/FRBCesab/r-templates/contents/actions/render-README.yaml?ref=main",
+              "git": "https://api.github.com/repos/FRBCesab/r-templates/git/blobs/85bb83ebaaf3c74c8bd17e7b8f77dc3a522af237",
+              "html": "https://github.com/FRBCesab/r-templates/blob/main/actions/render-README.yaml"
+            }
+          },
+          {
+            "name": "test-coverage.yaml",
+            "path": "actions/test-coverage.yaml",
+            "sha": "7c7abd63bfa3d5a158750e1fe45d17b9ea5c51da",
+            "size": 1375,
+            "url": "https://api.github.com/repos/FRBCesab/r-templates/contents/actions/test-coverage.yaml?ref=main",
+            "html_url": "https://github.com/FRBCesab/r-templates/blob/main/actions/test-coverage.yaml",
+            "git_url": "https://api.github.com/repos/FRBCesab/r-templates/git/blobs/7c7abd63bfa3d5a158750e1fe45d17b9ea5c51da",
+            "download_url": "https://raw.githubusercontent.com/FRBCesab/r-templates/main/actions/test-coverage.yaml",
+            "type": "file",
+            "_links": {
+              "self": "https://api.github.com/repos/FRBCesab/r-templates/contents/actions/test-coverage.yaml?ref=main",
+              "git": "https://api.github.com/repos/FRBCesab/r-templates/git/blobs/7c7abd63bfa3d5a158750e1fe45d17b9ea5c51da",
+              "html": "https://github.com/FRBCesab/r-templates/blob/main/actions/test-coverage.yaml"
+            }
+          },
+          {
+            "name": "update-Rd-files.yaml",
+            "path": "actions/update-Rd-files.yaml",
+            "sha": "766918dfea28a14f52e875e022b84e433cb10b6d",
+            "size": 1188,
+            "url": "https://api.github.com/repos/FRBCesab/r-templates/contents/actions/update-Rd-files.yaml?ref=main",
+            "html_url": "https://github.com/FRBCesab/r-templates/blob/main/actions/update-Rd-files.yaml",
+            "git_url": "https://api.github.com/repos/FRBCesab/r-templates/git/blobs/766918dfea28a14f52e875e022b84e433cb10b6d",
+            "download_url": "https://raw.githubusercontent.com/FRBCesab/r-templates/main/actions/update-Rd-files.yaml",
+            "type": "file",
+            "_links": {
+              "self": "https://api.github.com/repos/FRBCesab/r-templates/contents/actions/update-Rd-files.yaml?ref=main",
+              "git": "https://api.github.com/repos/FRBCesab/r-templates/git/blobs/766918dfea28a14f52e875e022b84e433cb10b6d",
+              "html": "https://github.com/FRBCesab/r-templates/blob/main/actions/update-Rd-files.yaml"
+            }
+          },
+          {
+            "name": "update-citation-cff.yaml",
+            "path": "actions/update-citation-cff.yaml",
+            "sha": "0fd7790c5287d339b1824bc48b62e782ddbbba7c",
+            "size": 1112,
+            "url": "https://api.github.com/repos/FRBCesab/r-templates/contents/actions/update-citation-cff.yaml?ref=main",
+            "html_url": "https://github.com/FRBCesab/r-templates/blob/main/actions/update-citation-cff.yaml",
+            "git_url": "https://api.github.com/repos/FRBCesab/r-templates/git/blobs/0fd7790c5287d339b1824bc48b62e782ddbbba7c",
+            "download_url": "https://raw.githubusercontent.com/FRBCesab/r-templates/main/actions/update-citation-cff.yaml",
+            "type": "file",
+            "_links": {
+              "self": "https://api.github.com/repos/FRBCesab/r-templates/contents/actions/update-citation-cff.yaml?ref=main",
+              "git": "https://api.github.com/repos/FRBCesab/r-templates/git/blobs/0fd7790c5287d339b1824bc48b62e782ddbbba7c",
+              "html": "https://github.com/FRBCesab/r-templates/blob/main/actions/update-citation-cff.yaml"
+            }
+          },
+          {
+            "name": "update-codemeta.yaml",
+            "path": "actions/update-codemeta.yaml",
+            "sha": "d39f18f6c146501e4af870375e1349e661ab21ac",
+            "size": 976,
+            "url": "https://api.github.com/repos/FRBCesab/r-templates/contents/actions/update-codemeta.yaml?ref=main",
+            "html_url": "https://github.com/FRBCesab/r-templates/blob/main/actions/update-codemeta.yaml",
+            "git_url": "https://api.github.com/repos/FRBCesab/r-templates/git/blobs/d39f18f6c146501e4af870375e1349e661ab21ac",
+            "download_url": "https://raw.githubusercontent.com/FRBCesab/r-templates/main/actions/update-codemeta.yaml",
+            "type": "file",
+            "_links": {
+              "self": "https://api.github.com/repos/FRBCesab/r-templates/contents/actions/update-codemeta.yaml?ref=main",
+              "git": "https://api.github.com/repos/FRBCesab/r-templates/git/blobs/d39f18f6c146501e4af870375e1349e661ab21ac",
+              "html": "https://github.com/FRBCesab/r-templates/blob/main/actions/update-codemeta.yaml"
+            }
+          }
+        ]
+  recorded_at: 2026-05-07 09:42:15
+recorded_with: VCR-vcr/2.1.0

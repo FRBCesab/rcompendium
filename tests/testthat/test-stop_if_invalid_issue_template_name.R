@@ -5,12 +5,6 @@ test_that("stop_if_invalid_issue_template_name() works", {
     expect_invisible(
       stop_if_invalid_issue_template_name("bug_report")
     )
-
-    # Nom invalide
-    expect_error(
-      stop_if_invalid_issue_template_name("this_template_does_not_exist"),
-      "The issue template 'this_template_does_not_exist' is not available"
-    )
   })
 })
 
@@ -19,7 +13,11 @@ test_that("stop_if_invalid_issue_template_name() errors", {
   vcr::use_cassette("stop_if_invalid_issue_template_name_error", {
     expect_error(
       stop_if_invalid_issue_template_name("invalid_issue"),
-      "The issue template 'invalid_issue' is not available"
+      paste0(
+        "The issue template 'invalid_issue' is not available. Please run ",
+        "`get_available_issue_templates()` to list available Issue Templates."
+      ),
+      fixed = TRUE
     )
   })
 })

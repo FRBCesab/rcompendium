@@ -11,10 +11,8 @@ http_interactions:
         X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval,
         X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
       cache-control: public, max-age=60, s-maxage=60
-      content-length: '1866'
       content-security-policy: default-src 'none'
-      content-type: application/json; charset=utf-8
-      date: Thu, 07 May 2026 09:28:49 GMT
+      date: Thu, 07 May 2026 09:42:14 GMT
       etag: '"82dcfcc61dace3bdc899dbd07c4dfa72d34c91ad"'
       last-modified: Sat, 25 Apr 2026 13:50:21 GMT
       referrer-policy: origin-when-cross-origin, strict-origin-when-cross-origin
@@ -22,16 +20,18 @@ http_interactions:
       x-content-type-options: nosniff
       x-frame-options: deny
       x-github-api-version-selected: '2022-11-28'
-      x-github-media-type: github.v3; param=raw; format=json
       x-xss-protection: '0'
       server: github.com
+      content-length: '1866'
+      content-type: application/json; charset=utf-8
+      x-github-media-type: github.v3; param=raw; format=json
       accept-ranges: bytes
       x-ratelimit-limit: '60'
-      x-ratelimit-remaining: '41'
-      x-ratelimit-used: '19'
+      x-ratelimit-remaining: '9'
+      x-ratelimit-used: '51'
       x-ratelimit-resource: core
       x-ratelimit-reset: '1778147321'
-      x-github-request-id: CA0E:BDF3D:35653FE:32E0573:69FC5B55
+      x-github-request-id: C278:276E08:38A947C:36106DC:69FC5E77
     body:
       string: |
         [
@@ -68,5 +68,5 @@ http_interactions:
             }
           }
         ]
-  recorded_at: 2026-05-07 09:28:53
+  recorded_at: 2026-05-07 09:42:15
 recorded_with: VCR-vcr/2.1.0

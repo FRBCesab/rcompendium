@@ -5,7 +5,7 @@ http_interactions:
   response:
     status: 200
     headers:
-      date: Thu, 07 May 2026 09:09:34 GMT
+      date: Thu, 07 May 2026 09:41:52 GMT
       content-type: application/json; charset=utf-8
       cache-control: public, max-age=60, s-maxage=60
       vary: Accept,Accept-Encoding, Accept, X-Requested-With
@@ -32,12 +32,12 @@ http_interactions:
       server: github.com
       accept-ranges: bytes
       x-ratelimit-limit: '60'
-      x-ratelimit-remaining: '46'
-      x-ratelimit-used: '14'
+      x-ratelimit-remaining: '14'
+      x-ratelimit-used: '46'
       x-ratelimit-resource: core
       x-ratelimit-reset: '1778147321'
       content-length: '399'
-      x-github-request-id: DA0A:1070BA:332853B:30CE1B5:69FC56CE
+      x-github-request-id: C278:276E08:38A8A09:360FD14:69FC5E76
     body:
       string: |
         [
@@ -74,5 +74,5 @@ http_interactions:
             }
           }
         ]
-  recorded_at: 2026-05-07 09:09:34
+  recorded_at: 2026-05-07 09:42:14
 recorded_with: VCR-vcr/2.1.0

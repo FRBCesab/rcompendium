@@ -16,7 +16,9 @@ This is particularly useful to get the right spelling of the Issue Templates
 to be passed to \code{\link[=add_issue_template]{add_issue_template()}}.
 }
 \examples{
+\dontrun{
 get_available_issue_templates()
+}
 }
 \seealso{
 Other utilities functions:

@@ -16,7 +16,9 @@ This is particularly useful to get the right spelling of the GitHub Action
 to be passed to \code{\link[=add_github_action]{add_github_action()}}.
 }
 \examples{
+\dontrun{
 get_available_gh_actions()
+}
 }
 \seealso{
 Other utilities functions:

@@ -13,7 +13,9 @@
 #' @family utilities functions
 #'
 #' @examples
+#' \dontrun{
 #' get_available_gh_actions()
+#' }
 
 get_available_gh_actions <- function() {
   actions <- list_template_files("actions")

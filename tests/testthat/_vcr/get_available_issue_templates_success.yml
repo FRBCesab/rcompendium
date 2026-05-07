@@ -1,0 +1,72 @@
+http_interactions:
+- request:
+    method: GET
+    uri: https://api.github.com/repos/frbcesab/r-templates/contents/issues
+  response:
+    status: 200
+    headers:
+      access-control-allow-origin: '*'
+      access-control-expose-headers: ETag, Link, Location, Retry-After, X-GitHub-OTP,
+        X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource,
+        X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval,
+        X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
+      cache-control: public, max-age=60, s-maxage=60
+      content-length: '1866'
+      content-security-policy: default-src 'none'
+      content-type: application/json; charset=utf-8
+      date: Thu, 07 May 2026 09:25:09 GMT
+      etag: '"82dcfcc61dace3bdc899dbd07c4dfa72d34c91ad"'
+      last-modified: Sat, 25 Apr 2026 13:50:21 GMT
+      referrer-policy: origin-when-cross-origin, strict-origin-when-cross-origin
+      vary: Accept, Accept-Encoding, Accept, X-Requested-With
+      x-content-type-options: nosniff
+      x-frame-options: deny
+      x-github-api-version-selected: '2022-11-28'
+      x-github-media-type: github.v3; param=raw; format=json
+      x-xss-protection: '0'
+      server: github.com
+      accept-ranges: bytes
+      x-ratelimit-limit: '60'
+      x-ratelimit-remaining: '44'
+      x-ratelimit-used: '16'
+      x-ratelimit-resource: core
+      x-ratelimit-reset: '1778147321'
+      x-github-request-id: 8E84:2ACBFE:351C678:3296DB1:69FC5A75
+    body:
+      string: |
+        [
+          {
+            "name": "bug_report.md",
+            "path": "issues/bug_report.md",
+            "sha": "f389a8610f145bdca4b170e4bf8ae7e9754c6abe",
+            "size": 447,
+            "url": "https://api.github.com/repos/FRBCesab/r-templates/contents/issues/bug_report.md?ref=main",
+            "html_url": "https://github.com/FRBCesab/r-templates/blob/main/issues/bug_report.md",
+            "git_url": "https://api.github.com/repos/FRBCesab/r-templates/git/blobs/f389a8610f145bdca4b170e4bf8ae7e9754c6abe",
+            "download_url": "https://raw.githubusercontent.com/FRBCesab/r-templates/main/issues/bug_report.md",
+            "type": "file",
+            "_links": {
+              "self": "https://api.github.com/repos/FRBCesab/r-templates/contents/issues/bug_report.md?ref=main",
+              "git": "https://api.github.com/repos/FRBCesab/r-templates/git/blobs/f389a8610f145bdca4b170e4bf8ae7e9754c6abe",
+              "html": "https://github.com/FRBCesab/r-templates/blob/main/issues/bug_report.md"
+            }
+          },
+          {
+            "name": "feature_request.md",
+            "path": "issues/feature_request.md",
+            "sha": "aa6bc66439edfb348d53a6e4445728511f4d3bed",
+            "size": 196,
+            "url": "https://api.github.com/repos/FRBCesab/r-templates/contents/issues/feature_request.md?ref=main",
+            "html_url": "https://github.com/FRBCesab/r-templates/blob/main/issues/feature_request.md",
+            "git_url": "https://api.github.com/repos/FRBCesab/r-templates/git/blobs/aa6bc66439edfb348d53a6e4445728511f4d3bed",
+            "download_url": "https://raw.githubusercontent.com/FRBCesab/r-templates/main/issues/feature_request.md",
+            "type": "file",
+            "_links": {
+              "self": "https://api.github.com/repos/FRBCesab/r-templates/contents/issues/feature_request.md?ref=main",
+              "git": "https://api.github.com/repos/FRBCesab/r-templates/git/blobs/aa6bc66439edfb348d53a6e4445728511f4d3bed",
+              "html": "https://github.com/FRBCesab/r-templates/blob/main/issues/feature_request.md"
+            }
+          }
+        ]
+  recorded_at: 2026-05-07 09:25:09
+recorded_with: VCR-vcr/2.1.0

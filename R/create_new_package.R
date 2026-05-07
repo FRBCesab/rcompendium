@@ -34,7 +34,7 @@
 #' **Creating a GitHub repo**.
 #'
 #' @param license A character vector of length 1. The license to be used for
-#'   this package. Run [get_licenses()] to choose an appropriate one.
+#'   this package. Run [get_available_licenses()] to choose an appropriate one.
 #'   Default is `license = 'GPL (>= 2)'`
 #'
 #'   The license can be changed later by calling [add_license()] (and
@@ -368,7 +368,7 @@ create_new_package <- function(
 
   if (!length(which(licenses$tag == license))) {
     stop(
-      "Invalid license. Please use `get_licenses()` to choose an ",
+      "Invalid license. Please use `get_available_licenses()` to choose an ",
       "appropriate one."
     )
   }

@@ -37,6 +37,6 @@ Other utilities functions:
 \code{\link[=get_all_functions]{get_all_functions()}},
 \code{\link[=get_available_gh_actions]{get_available_gh_actions()}},
 \code{\link[=get_available_issue_templates]{get_available_issue_templates()}},
-\code{\link[=get_licenses]{get_licenses()}}
+\code{\link[=get_available_licenses]{get_available_licenses()}}
 }
 \concept{utilities functions}

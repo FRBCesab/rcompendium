@@ -25,7 +25,7 @@ Other utilities functions:
 \code{\link[=get_all_dependencies]{get_all_dependencies()}},
 \code{\link[=get_all_functions]{get_all_functions()}},
 \code{\link[=get_available_issue_templates]{get_available_issue_templates()}},
-\code{\link[=get_licenses]{get_licenses()}},
+\code{\link[=get_available_licenses]{get_available_licenses()}},
 \code{\link[=get_minimal_r_version]{get_minimal_r_version()}}
 }
 \concept{utilities functions}

@@ -41,8 +41,8 @@
 #'   See [add_compendium()] for further information.
 #'
 #' @param license A character vector of length 1. The license to be used for
-#'   this project. Run [get_licenses()] to choose an appropriate one. Default
-#'   is `license = 'GPL (>= 2)'`
+#'   this project. Run [get_available_licenses()] to choose an appropriate one.
+#'   Default is `license = 'GPL (>= 2)'`
 #'
 #'   The license can be changed later by calling [add_license()] (and
 #'   [add_license_badge()] to update the corresponding badge in the README).
@@ -276,7 +276,7 @@ create_new_compendium <- function(
 
   if (!length(which(licenses$tag == license))) {
     stop(
-      "Invalid license. Please use `get_licenses()` to choose an ",
+      "Invalid license. Please use `get_available_licenses()` to choose an ",
       "appropriate one."
     )
   }

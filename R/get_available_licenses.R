@@ -14,6 +14,6 @@
 #' @family utilities functions
 #'
 #' @examples
-#' get_licenses()
+#' get_available_licenses()
 
-get_licenses <- function() licenses[, c("tag", "url")]
+get_available_licenses <- function() licenses[, c("tag", "url")]

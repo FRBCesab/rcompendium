@@ -34,7 +34,6 @@ Imports:
     rmarkdown,
     roxygen2,
     rprojroot,
-    rstudioapi,
     stringr,
     usethis,
     utils,

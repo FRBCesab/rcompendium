@@ -255,8 +255,6 @@ create_new_compendium <- function(
   ## Check for inceptions ----
 
   stop_if_git_in_git()
-  stop_if_proj_in_proj()
-
   stop_if_invalid_project_name()
 
   ## Check if git is well configured ----

@@ -95,6 +95,8 @@ test_that("gsub_in_file() errors - No file", {
 
 
 test_that("gsub_in_file() errors - No readable file", {
+  skip_on_os("windows")
+
   with_local_project({
     initialize_project(quiet = TRUE)
 

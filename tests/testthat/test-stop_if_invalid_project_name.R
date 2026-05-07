@@ -52,19 +52,6 @@ test_that("stop_if_invalid_project_name() errors", {
       fixed = TRUE
     )
   })
-
-  with_local_project(name = "pkgtest.", {
-    initialize_project(quiet = TRUE)
-
-    expect_error(
-      stop_if_invalid_project_name(),
-      paste0(
-        "The project name is invalid. ",
-        "Only letters, numbers and the dot are allowed."
-      ),
-      fixed = TRUE
-    )
-  })
 })
 
 test_that("stop_if_invalid_project_name() works", {

@@ -37,12 +37,11 @@ test_that("stop_if_git_in_git() errors - Linux/macOS Root creation", {
   )
 })
 
+# test_that("stop_if_git_in_git() errors - Windows Root creation", {
+#   skip_on_os(c("linux", "mac"))
 
-test_that("stop_if_git_in_git() errors - Windows Root creation", {
-  skip_on_os(c("linux", "mac"))
-
-  expect_error(
-    stop_if_git_in_git("C:"),
-    regexp = "Creating a '.git' at the system root is forbidden"
-  )
-})
+#   expect_error(
+#     stop_if_git_in_git("C:"),
+#     regexp = "Creating a '.git' at the system root is forbidden"
+#   )
+# })

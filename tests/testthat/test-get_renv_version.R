@@ -11,3 +11,12 @@ test_that("get_renv_version() works", {
   expect_match(res, "^[0-9]+\\.[0-9]+(\\.[0-9]+)?")
   expect_equal(res, expected)
 })
+
+
+test_that("get_renv_version() errors", {
+  local_mocked_bindings(
+    is_pkg_installed = function(...) FALSE
+  )
+
+  expect_null(get_renv_version())
+})

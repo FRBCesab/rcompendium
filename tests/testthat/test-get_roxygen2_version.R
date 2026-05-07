@@ -11,3 +11,16 @@ test_that("get_roxygen2_version() works", {
   expect_match(res, "^[0-9]+\\.[0-9]+(\\.[0-9]+)?")
   expect_equal(res, expected)
 })
+
+
+test_that("get_roxygen2_version() errors", {
+  local_mocked_bindings(
+    is_pkg_installed = function(...) FALSE
+  )
+
+  expect_error(
+    get_roxygen2_version(),
+    "The package 'roxygen2' is required.",
+    fixed = TRUE
+  )
+})

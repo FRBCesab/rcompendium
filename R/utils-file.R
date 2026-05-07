@@ -15,6 +15,7 @@ open_file_if_needed <- function(path, open) {
 #' @param file a character of length 1. The path of a single file.
 #' @param pattern a character of length 1. The pattern to replace.
 #' @param replacement a character of length 1. The replacement of the pattern.
+#' @note Inspired from `xfun::gsub_file()`
 #' @noRd
 gsub_in_file <- function(file, pattern, replacement) {
   stop_if_not_string(file)

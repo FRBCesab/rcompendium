@@ -1,0 +1,78 @@
+http_interactions:
+- request:
+    method: GET
+    uri: https://api.github.com/repos/frbcesab/r-templates/contents/git
+  response:
+    status: 200
+    headers:
+      date: Thu, 07 May 2026 09:09:34 GMT
+      content-type: application/json; charset=utf-8
+      cache-control: public, max-age=60, s-maxage=60
+      vary: Accept,Accept-Encoding, Accept, X-Requested-With
+      etag: W/"82dcfcc61dace3bdc899dbd07c4dfa72d34c91ad"
+      last-modified: Sat, 25 Apr 2026 13:50:21 GMT
+      x-github-media-type: github.v3; param=raw; format=json
+      deprecation: Tue, 10 Mar 2026 00:00:00 GMT
+      sunset: Fri, 10 Mar 2028 00:00:00 GMT
+      link: <https://docs.github.com/en/rest/about-the-rest-api/api-versions>; rel="deprecation";
+        type="text/html"
+      x-github-api-version-selected: '2022-11-28'
+      access-control-expose-headers: ETag, Link, Location, Retry-After, X-GitHub-OTP,
+        X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource,
+        X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval,
+        X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
+      access-control-allow-origin: '*'
+      strict-transport-security: max-age=31536000; includeSubdomains; preload
+      x-frame-options: deny
+      x-content-type-options: nosniff
+      x-xss-protection: '0'
+      referrer-policy: origin-when-cross-origin, strict-origin-when-cross-origin
+      content-security-policy: default-src 'none'
+      content-encoding: gzip
+      server: github.com
+      accept-ranges: bytes
+      x-ratelimit-limit: '60'
+      x-ratelimit-remaining: '46'
+      x-ratelimit-used: '14'
+      x-ratelimit-resource: core
+      x-ratelimit-reset: '1778147321'
+      content-length: '399'
+      x-github-request-id: DA0A:1070BA:332853B:30CE1B5:69FC56CE
+    body:
+      string: |
+        [
+          {
+            "name": "README.md",
+            "path": "git/README.md",
+            "sha": "a6eb60eef84e3ca5ea676b0f31dec4893c7b0660",
+            "size": 185,
+            "url": "https://api.github.com/repos/FRBCesab/r-templates/contents/git/README.md?ref=main",
+            "html_url": "https://github.com/FRBCesab/r-templates/blob/main/git/README.md",
+            "git_url": "https://api.github.com/repos/FRBCesab/r-templates/git/blobs/a6eb60eef84e3ca5ea676b0f31dec4893c7b0660",
+            "download_url": "https://raw.githubusercontent.com/FRBCesab/r-templates/main/git/README.md",
+            "type": "file",
+            "_links": {
+              "self": "https://api.github.com/repos/FRBCesab/r-templates/contents/git/README.md?ref=main",
+              "git": "https://api.github.com/repos/FRBCesab/r-templates/git/blobs/a6eb60eef84e3ca5ea676b0f31dec4893c7b0660",
+              "html": "https://github.com/FRBCesab/r-templates/blob/main/git/README.md"
+            }
+          },
+          {
+            "name": "gitignore",
+            "path": "git/gitignore",
+            "sha": "abed36027d5e813f7ff0751f65300d61c0cfac81",
+            "size": 301,
+            "url": "https://api.github.com/repos/FRBCesab/r-templates/contents/git/gitignore?ref=main",
+            "html_url": "https://github.com/FRBCesab/r-templates/blob/main/git/gitignore",
+            "git_url": "https://api.github.com/repos/FRBCesab/r-templates/git/blobs/abed36027d5e813f7ff0751f65300d61c0cfac81",
+            "download_url": "https://raw.githubusercontent.com/FRBCesab/r-templates/main/git/gitignore",
+            "type": "file",
+            "_links": {
+              "self": "https://api.github.com/repos/FRBCesab/r-templates/contents/git/gitignore?ref=main",
+              "git": "https://api.github.com/repos/FRBCesab/r-templates/git/blobs/abed36027d5e813f7ff0751f65300d61c0cfac81",
+              "html": "https://github.com/FRBCesab/r-templates/blob/main/git/gitignore"
+            }
+          }
+        ]
+  recorded_at: 2026-05-07 09:09:34
+recorded_with: VCR-vcr/2.1.0

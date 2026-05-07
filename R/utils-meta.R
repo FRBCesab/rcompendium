@@ -174,7 +174,7 @@ get_project_version <- function() {
 #' Get roxygen2 version
 #' @noRd
 get_roxygen2_version <- function() {
-  if (!requireNamespace("roxygen2", quietly = TRUE)) {
+  if (!is_pkg_installed("roxygen2")) {
     stop("The package 'roxygen2' is required.", call. = FALSE)
   }
 
@@ -185,11 +185,18 @@ get_roxygen2_version <- function() {
 #' Get renv version
 #' @noRd
 get_renv_version <- function() {
-  if (!requireNamespace("renv", quietly = TRUE)) {
+  if (!is_pkg_installed("renv")) {
     return(NULL)
   }
 
   as.character(utils::packageVersion("renv"))
+}
+
+
+#' Helper for tests
+#' @noRd
+is_pkg_installed <- function(pkg) {
+  requireNamespace(pkg, quietly = TRUE)
 }
 
 

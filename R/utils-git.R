@@ -5,13 +5,13 @@ get_git_branch_name <- function() {
     return(NULL)
   }
 
-  current_branch <- gert::git_branch()
+  current_branch <- git_branch()
 
   if (!is.null(current_branch)) {
     return(current_branch)
   }
 
-  config <- as.data.frame(gert::git_config_global())
+  config <- as.data.frame(git_config_global())
 
   get_default_branch <- function(config, default) {
     val <- config$value[

@@ -1,0 +1,32 @@
+http_interactions:
+- request:
+    method: GET
+    uri: https://raw.githubusercontent.com/FRBCesab/r-templates/refs/heads/main/package/INVALID
+  response:
+    status: 404
+    headers:
+      content-security-policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+      strict-transport-security: max-age=31536000
+      x-content-type-options: nosniff
+      x-frame-options: deny
+      x-xss-protection: 1; mode=block
+      content-type: text/plain; charset=utf-8
+      x-github-request-id: 6434:2F8795:36C926:40D7AA:69FC3427
+      accept-ranges: bytes
+      date: Thu, 07 May 2026 06:41:43 GMT
+      via: 1.1 varnish
+      x-served-by: cache-mrs1050107-MRS
+      x-cache: MISS
+      x-cache-hits: '0'
+      x-timer: S1778136104.801161,VS0,VE133
+      vary: Authorization,Accept-Encoding
+      access-control-allow-origin: '*'
+      cross-origin-resource-policy: cross-origin
+      x-fastly-request-id: c68649bea0090baa82fa5f9f59829162e28ff52d
+      expires: Thu, 07 May 2026 06:46:43 GMT
+      source-age: '0'
+      content-length: '14'
+    body:
+      string: '404: Not Found'
+  recorded_at: 2026-05-07 06:41:44
+recorded_with: VCR-vcr/2.1.0

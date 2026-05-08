@@ -4,14 +4,22 @@ read_descr <- function() {
   path <- build_abs_path("DESCRIPTION")
 
   if (!file.exists(path)) {
-    stop("The file 'DESCRIPTION' does not exist.", call. = FALSE)
+    stop("The 'DESCRIPTION' file does not exist.", call. = FALSE)
   }
 
-  col_names <- colnames(read.dcf(path))
+  raw <- tryCatch(
+    read.dcf(path),
+    error = function(e) {
+      stop("The 'DESCRIPTION' file is not a valid DCF file.", call. = FALSE)
+    }
+  )
+
+  col_names <- colnames(raw)
+
   descr <- read.dcf(path, keep.white = col_names)
 
   if (nrow(descr) != 1) {
-    stop("Malformed 'DESCRIPTION' file")
+    stop("Malformed 'DESCRIPTION' file.", call. = FALSE)
   }
 
   as.data.frame(descr, stringsAsFactors = FALSE)
@@ -21,8 +29,6 @@ read_descr <- function() {
 #' Write DESCRIPTION (erase content)
 #' @noRd
 write_descr <- function(descr_file) {
-  stop_if_not_project()
-
   path <- build_abs_path("DESCRIPTION")
 
   write.dcf(

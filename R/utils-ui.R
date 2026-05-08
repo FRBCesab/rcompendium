@@ -68,3 +68,11 @@ ui_title <- function(texte, quiet = FALSE) {
 
   invisible(NULL)
 }
+
+ui_success <- function(texte, quiet = FALSE) {
+  if (!quiet) {
+    cli::cli_alert_success(texte)
+  }
+
+  invisible(NULL)
+}

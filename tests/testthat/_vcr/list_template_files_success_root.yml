@@ -1,0 +1,248 @@
+http_interactions:
+- request:
+    method: GET
+    uri: https://api.github.com/repos/frbcesab/r-templates/contents/
+  response:
+    status: 200
+    headers:
+      access-control-allow-origin: '*'
+      access-control-expose-headers: ETag, Link, Location, Retry-After, X-GitHub-OTP,
+        X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource,
+        X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval,
+        X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
+      cache-control: public, max-age=60, s-maxage=60
+      content-length: '10043'
+      content-security-policy: default-src 'none'
+      content-type: application/json; charset=utf-8
+      date: Thu, 07 May 2026 09:41:52 GMT
+      etag: '"82dcfcc61dace3bdc899dbd07c4dfa72d34c91ad"'
+      last-modified: Sat, 25 Apr 2026 13:50:21 GMT
+      referrer-policy: origin-when-cross-origin, strict-origin-when-cross-origin
+      vary: Accept, Accept-Encoding, Accept, X-Requested-With
+      x-content-type-options: nosniff
+      x-frame-options: deny
+      x-github-api-version-selected: '2022-11-28'
+      x-github-media-type: github.v3; param=raw; format=json
+      x-xss-protection: '0'
+      server: github.com
+      accept-ranges: bytes
+      x-ratelimit-limit: '60'
+      x-ratelimit-remaining: '15'
+      x-ratelimit-used: '45'
+      x-ratelimit-resource: core
+      x-ratelimit-reset: '1778147321'
+      x-github-request-id: C278:276E08:38A88CF:360FBD4:69FC5E76
+    body:
+      string: |
+        [
+          {
+            "name": "LICENSE",
+            "path": "LICENSE",
+            "sha": "0909dcf88476bebb16c378a49ce50af22d14dd49",
+            "size": 1072,
+            "url": "https://api.github.com/repos/FRBCesab/r-templates/contents/LICENSE?ref=main",
+            "html_url": "https://github.com/FRBCesab/r-templates/blob/main/LICENSE",
+            "git_url": "https://api.github.com/repos/FRBCesab/r-templates/git/blobs/0909dcf88476bebb16c378a49ce50af22d14dd49",
+            "download_url": "https://raw.githubusercontent.com/FRBCesab/r-templates/main/LICENSE",
+            "type": "file",
+            "_links": {
+              "self": "https://api.github.com/repos/FRBCesab/r-templates/contents/LICENSE?ref=main",
+              "git": "https://api.github.com/repos/FRBCesab/r-templates/git/blobs/0909dcf88476bebb16c378a49ce50af22d14dd49",
+              "html": "https://github.com/FRBCesab/r-templates/blob/main/LICENSE"
+            }
+          },
+          {
+            "name": "README.md",
+            "path": "README.md",
+            "sha": "ab9486cc3292608223cb46d4dd4f916e5087ffe0",
+            "size": 2743,
+            "url": "https://api.github.com/repos/FRBCesab/r-templates/contents/README.md?ref=main",
+            "html_url": "https://github.com/FRBCesab/r-templates/blob/main/README.md",
+            "git_url": "https://api.github.com/repos/FRBCesab/r-templates/git/blobs/ab9486cc3292608223cb46d4dd4f916e5087ffe0",
+            "download_url": "https://raw.githubusercontent.com/FRBCesab/r-templates/main/README.md",
+            "type": "file",
+            "_links": {
+              "self": "https://api.github.com/repos/FRBCesab/r-templates/contents/README.md?ref=main",
+              "git": "https://api.github.com/repos/FRBCesab/r-templates/git/blobs/ab9486cc3292608223cb46d4dd4f916e5087ffe0",
+              "html": "https://github.com/FRBCesab/r-templates/blob/main/README.md"
+            }
+          },
+          {
+            "name": "actions",
+            "path": "actions",
+            "sha": "2eb0b70d0cfb021271f0611e3729871da5e23cba",
+            "size": 0,
+            "url": "https://api.github.com/repos/FRBCesab/r-templates/contents/actions?ref=main",
+            "html_url": "https://github.com/FRBCesab/r-templates/tree/main/actions",
+            "git_url": "https://api.github.com/repos/FRBCesab/r-templates/git/trees/2eb0b70d0cfb021271f0611e3729871da5e23cba",
+            "download_url": null,
+            "type": "dir",
+            "_links": {
+              "self": "https://api.github.com/repos/FRBCesab/r-templates/contents/actions?ref=main",
+              "git": "https://api.github.com/repos/FRBCesab/r-templates/git/trees/2eb0b70d0cfb021271f0611e3729871da5e23cba",
+              "html": "https://github.com/FRBCesab/r-templates/tree/main/actions"
+            }
+          },
+          {
+            "name": "air",
+            "path": "air",
+            "sha": "2f2bdebae6282c1a9dad6a66143b813095ea9249",
+            "size": 0,
+            "url": "https://api.github.com/repos/FRBCesab/r-templates/contents/air?ref=main",
+            "html_url": "https://github.com/FRBCesab/r-templates/tree/main/air",
+            "git_url": "https://api.github.com/repos/FRBCesab/r-templates/git/trees/2f2bdebae6282c1a9dad6a66143b813095ea9249",
+            "download_url": null,
+            "type": "dir",
+            "_links": {
+              "self": "https://api.github.com/repos/FRBCesab/r-templates/contents/air?ref=main",
+              "git": "https://api.github.com/repos/FRBCesab/r-templates/git/trees/2f2bdebae6282c1a9dad6a66143b813095ea9249",
+              "html": "https://github.com/FRBCesab/r-templates/tree/main/air"
+            }
+          },
+          {
+            "name": "contributing",
+            "path": "contributing",
+            "sha": "b3d620aaaba0c90655015df468f7678e3a39bece",
+            "size": 0,
+            "url": "https://api.github.com/repos/FRBCesab/r-templates/contents/contributing?ref=main",
+            "html_url": "https://github.com/FRBCesab/r-templates/tree/main/contributing",
+            "git_url": "https://api.github.com/repos/FRBCesab/r-templates/git/trees/b3d620aaaba0c90655015df468f7678e3a39bece",
+            "download_url": null,
+            "type": "dir",
+            "_links": {
+              "self": "https://api.github.com/repos/FRBCesab/r-templates/contents/contributing?ref=main",
+              "git": "https://api.github.com/repos/FRBCesab/r-templates/git/trees/b3d620aaaba0c90655015df468f7678e3a39bece",
+              "html": "https://github.com/FRBCesab/r-templates/tree/main/contributing"
+            }
+          },
+          {
+            "name": "docker",
+            "path": "docker",
+            "sha": "9f2b32740d40917176694226093fec568f6e8736",
+            "size": 0,
+            "url": "https://api.github.com/repos/FRBCesab/r-templates/contents/docker?ref=main",
+            "html_url": "https://github.com/FRBCesab/r-templates/tree/main/docker",
+            "git_url": "https://api.github.com/repos/FRBCesab/r-templates/git/trees/9f2b32740d40917176694226093fec568f6e8736",
+            "download_url": null,
+            "type": "dir",
+            "_links": {
+              "self": "https://api.github.com/repos/FRBCesab/r-templates/contents/docker?ref=main",
+              "git": "https://api.github.com/repos/FRBCesab/r-templates/git/trees/9f2b32740d40917176694226093fec568f6e8736",
+              "html": "https://github.com/FRBCesab/r-templates/tree/main/docker"
+            }
+          },
+          {
+            "name": "git",
+            "path": "git",
+            "sha": "679a2511b7ef4713f99df9d7fec9aa45825155d0",
+            "size": 0,
+            "url": "https://api.github.com/repos/FRBCesab/r-templates/contents/git?ref=main",
+            "html_url": "https://github.com/FRBCesab/r-templates/tree/main/git",
+            "git_url": "https://api.github.com/repos/FRBCesab/r-templates/git/trees/679a2511b7ef4713f99df9d7fec9aa45825155d0",
+            "download_url": null,
+            "type": "dir",
+            "_links": {
+              "self": "https://api.github.com/repos/FRBCesab/r-templates/contents/git?ref=main",
+              "git": "https://api.github.com/repos/FRBCesab/r-templates/git/trees/679a2511b7ef4713f99df9d7fec9aa45825155d0",
+              "html": "https://github.com/FRBCesab/r-templates/tree/main/git"
+            }
+          },
+          {
+            "name": "hexsticker",
+            "path": "hexsticker",
+            "sha": "a130166d302ab8110cd0675459a995a32a990bd0",
+            "size": 0,
+            "url": "https://api.github.com/repos/FRBCesab/r-templates/contents/hexsticker?ref=main",
+            "html_url": "https://github.com/FRBCesab/r-templates/tree/main/hexsticker",
+            "git_url": "https://api.github.com/repos/FRBCesab/r-templates/git/trees/a130166d302ab8110cd0675459a995a32a990bd0",
+            "download_url": null,
+            "type": "dir",
+            "_links": {
+              "self": "https://api.github.com/repos/FRBCesab/r-templates/contents/hexsticker?ref=main",
+              "git": "https://api.github.com/repos/FRBCesab/r-templates/git/trees/a130166d302ab8110cd0675459a995a32a990bd0",
+              "html": "https://github.com/FRBCesab/r-templates/tree/main/hexsticker"
+            }
+          },
+          {
+            "name": "issues",
+            "path": "issues",
+            "sha": "46becd110753f7bb71296a711c6f29834b212b10",
+            "size": 0,
+            "url": "https://api.github.com/repos/FRBCesab/r-templates/contents/issues?ref=main",
+            "html_url": "https://github.com/FRBCesab/r-templates/tree/main/issues",
+            "git_url": "https://api.github.com/repos/FRBCesab/r-templates/git/trees/46becd110753f7bb71296a711c6f29834b212b10",
+            "download_url": null,
+            "type": "dir",
+            "_links": {
+              "self": "https://api.github.com/repos/FRBCesab/r-templates/contents/issues?ref=main",
+              "git": "https://api.github.com/repos/FRBCesab/r-templates/git/trees/46becd110753f7bb71296a711c6f29834b212b10",
+              "html": "https://github.com/FRBCesab/r-templates/tree/main/issues"
+            }
+          },
+          {
+            "name": "licenses",
+            "path": "licenses",
+            "sha": "a394c9f942492284456a0d2dd4da9f8c37e913e3",
+            "size": 0,
+            "url": "https://api.github.com/repos/FRBCesab/r-templates/contents/licenses?ref=main",
+            "html_url": "https://github.com/FRBCesab/r-templates/tree/main/licenses",
+            "git_url": "https://api.github.com/repos/FRBCesab/r-templates/git/trees/a394c9f942492284456a0d2dd4da9f8c37e913e3",
+            "download_url": null,
+            "type": "dir",
+            "_links": {
+              "self": "https://api.github.com/repos/FRBCesab/r-templates/contents/licenses?ref=main",
+              "git": "https://api.github.com/repos/FRBCesab/r-templates/git/trees/a394c9f942492284456a0d2dd4da9f8c37e913e3",
+              "html": "https://github.com/FRBCesab/r-templates/tree/main/licenses"
+            }
+          },
+          {
+            "name": "others",
+            "path": "others",
+            "sha": "7df18ed27381480f50947f5c1eadefeded75d0f2",
+            "size": 0,
+            "url": "https://api.github.com/repos/FRBCesab/r-templates/contents/others?ref=main",
+            "html_url": "https://github.com/FRBCesab/r-templates/tree/main/others",
+            "git_url": "https://api.github.com/repos/FRBCesab/r-templates/git/trees/7df18ed27381480f50947f5c1eadefeded75d0f2",
+            "download_url": null,
+            "type": "dir",
+            "_links": {
+              "self": "https://api.github.com/repos/FRBCesab/r-templates/contents/others?ref=main",
+              "git": "https://api.github.com/repos/FRBCesab/r-templates/git/trees/7df18ed27381480f50947f5c1eadefeded75d0f2",
+              "html": "https://github.com/FRBCesab/r-templates/tree/main/others"
+            }
+          },
+          {
+            "name": "package",
+            "path": "package",
+            "sha": "8499e07b8892831e7998ad01d18995b54f02df8e",
+            "size": 0,
+            "url": "https://api.github.com/repos/FRBCesab/r-templates/contents/package?ref=main",
+            "html_url": "https://github.com/FRBCesab/r-templates/tree/main/package",
+            "git_url": "https://api.github.com/repos/FRBCesab/r-templates/git/trees/8499e07b8892831e7998ad01d18995b54f02df8e",
+            "download_url": null,
+            "type": "dir",
+            "_links": {
+              "self": "https://api.github.com/repos/FRBCesab/r-templates/contents/package?ref=main",
+              "git": "https://api.github.com/repos/FRBCesab/r-templates/git/trees/8499e07b8892831e7998ad01d18995b54f02df8e",
+              "html": "https://github.com/FRBCesab/r-templates/tree/main/package"
+            }
+          },
+          {
+            "name": "readme",
+            "path": "readme",
+            "sha": "77e8eac481a928f279701d966a79a13e5a078fa2",
+            "size": 0,
+            "url": "https://api.github.com/repos/FRBCesab/r-templates/contents/readme?ref=main",
+            "html_url": "https://github.com/FRBCesab/r-templates/tree/main/readme",
+            "git_url": "https://api.github.com/repos/FRBCesab/r-templates/git/trees/77e8eac481a928f279701d966a79a13e5a078fa2",
+            "download_url": null,
+            "type": "dir",
+            "_links": {
+              "self": "https://api.github.com/repos/FRBCesab/r-templates/contents/readme?ref=main",
+              "git": "https://api.github.com/repos/FRBCesab/r-templates/git/trees/77e8eac481a928f279701d966a79a13e5a078fa2",
+              "html": "https://github.com/FRBCesab/r-templates/tree/main/readme"
+            }
+          }
+        ]
+  recorded_at: 2026-05-07 09:42:14
+recorded_with: VCR-vcr/2.1.0

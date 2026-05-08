@@ -12,49 +12,63 @@ stop_if_invalid_project_name <- function() {
       call. = FALSE
     )
   }
-}
-
-
-#' Git Inception
-#' @noRd
-stop_if_git_in_git <- function() {
-  paths <- unlist(strsplit(build_abs_path(), .Platform$file.sep))
-
-  for (i in 1:(length(paths) - 1)) {
-    recursive_path <- paste0(
-      c(paths[1:i], ".git"),
-      collapse = .Platform$file.sep
-    )
-
-    if (dir.exists(recursive_path)) {
-      stop(
-        "You are going to create a '.git' inside a folder that is ",
-        "already versioned.\n  < ",
-        recursive_path,
-        " >"
-      )
-    }
-  }
 
   invisible(NULL)
 }
 
 
-#' Rproj Inception
+#' Split a path
 #' @noRd
-stop_if_proj_in_proj <- function() {
-  paths <- unlist(strsplit(build_abs_path(), .Platform$file.sep))
+split_path <- function(path) {
+  stop_if_not_string(path)
 
-  for (i in 1:(length(paths) - 1)) {
-    recursive_path <- paste0(paths[1:i], collapse = .Platform$file.sep)
-    recursive_path <- paste0(recursive_path, .Platform$file.sep)
+  path <- normalizePath(path, winslash = "/", mustWork = FALSE)
+  parts <- character(0)
 
-    if (length(list.files(recursive_path, pattern = "\\.Rproj$"))) {
-      stop(
-        "You have created an 'RStudio Project' inside a folder that ",
-        "is already an 'RStudio Project'."
+  while (nchar(path) > 0 && !identical(path, dirname(path))) {
+    parts <- c(basename(path), parts)
+    path <- dirname(path)
+  }
+
+  if (nchar(path) > 0) {
+    parts <- c(path, parts)
+  }
+
+  parts
+}
+
+
+#' Git Inception & root creation forbidden
+#' @noRd
+stop_if_git_in_git <- function(path = build_abs_path()) {
+  paths <- split_path(path)
+
+  if (length(paths) == 1) {
+    stop("Creating a '.git' at the system root is forbidden", call. = FALSE)
+  }
+
+  if (length(paths) > 0) {
+    if (paths[1] == "/") paths[1] <- ""
+  }
+
+  paths <- vapply(
+    seq_len(length(paths) - 1),
+    function(i) {
+      do.call(file.path, as.list(c(paths[1:i], ".git")))
+    },
+    character(1)
+  )
+
+  existing_git <- paths[dir.exists(paths)]
+  if (length(existing_git) > 0) {
+    stop(
+      paste0(
+        "You are going to create a '.git' inside a folder that is already ",
+        "versioned.\n  < ",
+        existing_git[1],
+        " >"
       )
-    }
+    )
   }
 
   invisible(NULL)

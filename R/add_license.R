@@ -6,7 +6,7 @@
 #' the license in a `LICENSE.md` file.
 #'
 #' @param license A character of length 1. The license name.
-#'   Run [get_licenses()]) to select an appropriate one.
+#'   Run [get_available_licenses()]) to select an appropriate one.
 #'
 #' @inheritParams add_citation
 #'

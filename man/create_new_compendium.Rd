@@ -40,8 +40,8 @@ create_new_compendium(
 See \code{\link[=add_compendium]{add_compendium()}} for further information.}
 
 \item{license}{A character vector of length 1. The license to be used for
-this project. Run \code{\link[=get_licenses]{get_licenses()}} to choose an appropriate one. Default
-is \code{license = 'GPL (>= 2)'}
+this project. Run \code{\link[=get_available_licenses]{get_available_licenses()}} to choose an appropriate one.
+Default is \code{license = 'GPL (>= 2)'}
 
 The license can be changed later by calling \code{\link[=add_license]{add_license()}} (and
 \code{\link[=add_license_badge]{add_license_badge()}} to update the corresponding badge in the README).}

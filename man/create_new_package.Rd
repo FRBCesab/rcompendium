@@ -34,7 +34,7 @@ create_new_package(
 }
 \arguments{
 \item{license}{A character vector of length 1. The license to be used for
-this package. Run \code{\link[=get_licenses]{get_licenses()}} to choose an appropriate one.
+this package. Run \code{\link[=get_available_licenses]{get_available_licenses()}} to choose an appropriate one.
 Default is \code{license = 'GPL (>= 2)'}
 
 The license can be changed later by calling \code{\link[=add_license]{add_license()}} (and

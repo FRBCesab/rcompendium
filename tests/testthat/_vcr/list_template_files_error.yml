@@ -1,0 +1,39 @@
+http_interactions:
+- request:
+    method: GET
+    uri: https://api.github.com/repos/frbcesab/r-templates/contents/invalid
+  response:
+    status: 404
+    headers:
+      access-control-allow-origin: '*'
+      access-control-expose-headers: ETag, Link, Location, Retry-After, X-GitHub-OTP,
+        X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource,
+        X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval,
+        X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
+      content-length: '141'
+      content-security-policy: default-src 'none'
+      content-type: application/json; charset=utf-8
+      date: Thu, 07 May 2026 09:41:52 GMT
+      referrer-policy: origin-when-cross-origin, strict-origin-when-cross-origin
+      vary: Accept-Encoding, Accept, X-Requested-With
+      x-content-type-options: nosniff
+      x-frame-options: deny
+      x-github-api-version-selected: '2022-11-28'
+      x-github-media-type: github.v3; param=raw; format=json
+      x-xss-protection: '0'
+      server: github.com
+      x-ratelimit-limit: '60'
+      x-ratelimit-remaining: '13'
+      x-ratelimit-used: '47'
+      x-ratelimit-resource: core
+      x-ratelimit-reset: '1778147321'
+      x-github-request-id: C278:276E08:38A8AE4:360FDF8:69FC5E76
+    body:
+      string: |
+        {
+          "message": "Not Found",
+          "documentation_url": "https://docs.github.com/rest/repos/contents#get-repository-content",
+          "status": "404"
+        }
+  recorded_at: 2026-05-07 09:42:14
+recorded_with: VCR-vcr/2.1.0

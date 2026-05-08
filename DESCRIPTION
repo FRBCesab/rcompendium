@@ -29,20 +29,21 @@ Imports:
     gert,
     gh,
     gtools,
+    httr2,
     renv,
     rmarkdown,
+    roxygen2,
     rprojroot,
-    rstudioapi,
     stringr,
     usethis,
-    utils,
-    xfun
+    utils
 Roxygen: list(markdown = TRUE)
 VignetteBuilder: knitr
 Suggests: 
     fs,
     knitr,
     testthat (>= 3.0.0),
+    vcr,
     withr
 Config/testthat/edition: 3
 Config/roxygen2/version: 8.0.0

@@ -13,7 +13,9 @@
 #' @family utilities functions
 #'
 #' @examples
+#' \dontrun{
 #' get_available_issue_templates()
+#' }
 
 get_available_issue_templates <- function() {
   issues <- list_template_files("issues")

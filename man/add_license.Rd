@@ -8,7 +8,7 @@ add_license(license = NULL, given = NULL, family = NULL, quiet = FALSE)
 }
 \arguments{
 \item{license}{A character of length 1. The license name.
-Run \code{\link[=get_licenses]{get_licenses()}}) to select an appropriate one.}
+Run \code{\link[=get_available_licenses]{get_available_licenses()}}) to select an appropriate one.}
 
 \item{given}{a \code{character} of length 1. The given name of the user
 (considered as the maintainer and code owner of the project).}

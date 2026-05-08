@@ -15,7 +15,7 @@ add_license(license = NULL, given = NULL, family = NULL, quiet = FALSE)
 - license:
 
   A character of length 1. The license name. Run
-  [`get_licenses()`](https://frbcesab.github.io/rcompendium/reference/get_licenses.md))
+  [`get_available_licenses()`](https://frbcesab.github.io/rcompendium/reference/get_available_licenses.md))
   to select an appropriate one.
 
 - given:

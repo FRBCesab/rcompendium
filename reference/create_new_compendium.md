@@ -99,7 +99,7 @@ create_new_compendium(
 
   A character vector of length 1. The license to be used for this
   project. Run
-  [`get_licenses()`](https://frbcesab.github.io/rcompendium/reference/get_licenses.md)
+  [`get_available_licenses()`](https://frbcesab.github.io/rcompendium/reference/get_available_licenses.md)
   to choose an appropriate one. Default is `license = 'GPL (>= 2)'`
 
   The license can be changed later by calling

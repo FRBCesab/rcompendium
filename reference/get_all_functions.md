@@ -30,7 +30,7 @@ Other utilities functions:
 [`get_all_dependencies()`](https://frbcesab.github.io/rcompendium/reference/get_all_dependencies.md),
 [`get_available_gh_actions()`](https://frbcesab.github.io/rcompendium/reference/get_available_gh_actions.md),
 [`get_available_issue_templates()`](https://frbcesab.github.io/rcompendium/reference/get_available_issue_templates.md),
-[`get_licenses()`](https://frbcesab.github.io/rcompendium/reference/get_licenses.md),
+[`get_available_licenses()`](https://frbcesab.github.io/rcompendium/reference/get_available_licenses.md),
 [`get_minimal_r_version()`](https://frbcesab.github.io/rcompendium/reference/get_minimal_r_version.md)
 
 ## Examples

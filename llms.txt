@@ -264,16 +264,16 @@ These functions update fields in `DESCRIPTION` (`add_dependencies` and
 
 These functions return objects but do not edit any file.
 
-- [`get_licenses()`](https://frbcesab.github.io/rcompendium/reference/get_licenses.md)
+- [`get_available_licenses()`](https://frbcesab.github.io/rcompendium/reference/get_available_licenses.md)
   : List all available licenses
-- [`get_all_dependencies()`](https://frbcesab.github.io/rcompendium/reference/get_all_dependencies.md)
-  : Get all external dependencies
-- [`get_all_functions()`](https://frbcesab.github.io/rcompendium/reference/get_all_functions.md)
-  : List all functions in the package
 - [`get_available_gh_actions()`](https://frbcesab.github.io/rcompendium/reference/get_available_gh_actions.md)
   : List available GitHub Actions
 - [`get_available_issue_templates()`](https://frbcesab.github.io/rcompendium/reference/get_available_issue_templates.md)
   : List available ISSUE TEMPLATE
+- [`get_all_dependencies()`](https://frbcesab.github.io/rcompendium/reference/get_all_dependencies.md)
+  : Get all external dependencies
+- [`get_all_functions()`](https://frbcesab.github.io/rcompendium/reference/get_all_functions.md)
+  : List all functions in the package
 - [`get_minimal_r_version()`](https://frbcesab.github.io/rcompendium/reference/get_minimal_r_version.md)
   : Get required minimal R version
 

@@ -76,6 +76,8 @@
     ([\#78](https://github.com/FRBCesab/rcompendium/pull/78))
   - Remove dependency to `cffr` and `codemetar` packages
     ([\#87](https://github.com/FRBCesab/rcompendium/pull/87))
+  - Remove dependency to `xfun` and `rstudioapi` packages
+    ([\#87](https://github.com/FRBCesab/rcompendium/pull/144))
   - Rename `add_cran_badge()` in
     [`add_cran_version_badge()`](https://frbcesab.github.io/rcompendium/reference/add_cran_version_badge.md)
     ([\#96](https://github.com/FRBCesab/rcompendium/pull/96))

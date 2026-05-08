@@ -53,8 +53,10 @@ references:
   url: https://www.R-project.org/
   authors:
   - name: R Core Team
+    website: https://ror.org/02zz1nj61
   institution:
-    name: 'R Foundation for Statistical Computing (ROR: <https://ror.org/05qewa988>)'
+    name: R Foundation for Statistical Computing
+    website: https://ror.org/05qewa988
     address: Vienna, Austria
   year: '2026'
   doi: 10.32614/R.manuals
@@ -142,6 +144,18 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.gtools
 - type: software
+  title: httr2
+  abstract: 'httr2: Perform HTTP Requests and Process the Responses'
+  notes: Imports
+  url: https://httr2.r-lib.org
+  repository: https://CRAN.R-project.org/package=httr2
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  year: '2026'
+  doi: 10.32614/CRAN.package.httr2
+- type: software
   title: renv
   abstract: 'renv: Project Environments'
   notes: Imports
@@ -203,6 +217,27 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.rmarkdown
 - type: software
+  title: roxygen2
+  abstract: 'roxygen2: In-Line Documentation for R'
+  notes: Imports
+  url: https://roxygen2.r-lib.org/
+  repository: https://CRAN.R-project.org/package=roxygen2
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+    orcid: https://orcid.org/0000-0003-4757-117X
+  - family-names: Danenberg
+    given-names: Peter
+    email: pcd@roxygen.org
+  - family-names: Csárdi
+    given-names: Gábor
+    email: csardi.gabor@gmail.com
+  - family-names: Eugster
+    given-names: Manuel
+  year: '2026'
+  doi: 10.32614/CRAN.package.roxygen2
+- type: software
   title: rprojroot
   abstract: 'rprojroot: Finding Files in Project Subdirectories'
   notes: Imports
@@ -215,27 +250,6 @@ references:
     orcid: https://orcid.org/0000-0002-1416-3412
   year: '2026'
   doi: 10.32614/CRAN.package.rprojroot
-- type: software
-  title: rstudioapi
-  abstract: 'rstudioapi: Safely Access the RStudio API'
-  notes: Imports
-  url: https://rstudio.github.io/rstudioapi/
-  repository: https://CRAN.R-project.org/package=rstudioapi
-  authors:
-  - family-names: Ushey
-    given-names: Kevin
-    email: kevin@rstudio.com
-  - family-names: Allaire
-    given-names: JJ
-    email: jj@posit.co
-  - family-names: Wickham
-    given-names: Hadley
-    email: hadley@posit.co
-  - family-names: Ritchie
-    given-names: Gary
-    email: gary@posit.co
-  year: '2026'
-  doi: 10.32614/CRAN.package.rstudioapi
 - type: software
   title: stringr
   abstract: 'stringr: Simple, Consistent Wrappers for Common String Operations'
@@ -279,24 +293,13 @@ references:
   notes: Imports
   authors:
   - name: R Core Team
+    website: https://ror.org/02zz1nj61
   institution:
-    name: 'R Foundation for Statistical Computing (ROR: <https://ror.org/05qewa988>)'
+    name: R Foundation for Statistical Computing
+    website: https://ror.org/05qewa988
     address: Vienna, Austria
   year: '2026'
   doi: 10.32614/R.manuals
-- type: software
-  title: xfun
-  abstract: 'xfun: Supporting Functions for Packages Maintained by ''Yihui Xie'''
-  notes: Imports
-  url: https://github.com/yihui/xfun
-  repository: https://CRAN.R-project.org/package=xfun
-  authors:
-  - family-names: Xie
-    given-names: Yihui
-    email: xie@yihui.name
-    orcid: https://orcid.org/0000-0003-0645-5666
-  year: '2026'
-  doi: 10.32614/CRAN.package.xfun
 - type: software
   title: fs
   abstract: 'fs: Cross-Platform File System Operations Based on ''libuv'''
@@ -338,6 +341,31 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.testthat
   version: '>= 3.0.0'
+- type: software
+  title: vcr
+  abstract: 'vcr: Record ''HTTP'' Calls to Disk'
+  notes: Suggests
+  url: https://github.com/ropensci/vcr/
+  repository: https://CRAN.R-project.org/package=vcr
+  authors:
+  - family-names: Chamberlain
+    given-names: Scott
+    email: myrmecocystus@gmail.com
+    orcid: https://orcid.org/0000-0003-1444-9135
+  - family-names: Wolen
+    given-names: Aaron
+    orcid: https://orcid.org/0000-0003-2542-2202
+  - family-names: Salmon
+    given-names: Maëlle
+    orcid: https://orcid.org/0000-0002-2815-0399
+  - family-names: Possenriede
+    given-names: Daniel
+    orcid: https://orcid.org/0000-0002-6738-9845
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  year: '2026'
+  doi: 10.32614/CRAN.package.vcr
 - type: software
   title: withr
   abstract: 'withr: Run Code ''With'' Temporarily Modified Global State'

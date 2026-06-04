@@ -43,7 +43,7 @@ get_all_dependencies <- function(pkg = NULL) {
 
     if (!is.null(direct_deps)) {
       direct_deps <- unlist(strsplit(direct_deps, "\n\\s+|,|,\\s+"))
-      direct_deps <- direct_deps[!(direct_deps == "")]
+      direct_deps <- direct_deps[direct_deps != ""]
 
       pkg <- direct_deps
     } else {

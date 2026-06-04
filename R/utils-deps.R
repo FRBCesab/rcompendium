@@ -664,7 +664,7 @@ get_deps_in_depends <- function() {
       deps <- deps[-r_version]
     }
 
-    deps <- deps[!(deps == "")]
+    deps <- deps[deps != ""]
     return(gsub("\\s{0,}\\(.*\\)", "", deps))
   } else {
     return(NULL)
@@ -684,7 +684,7 @@ get_deps_in_imports <- function() {
   if (!is.null(descr$"Imports")) {
     deps <- unlist(strsplit(descr$"Imports", "\n\\s+|,|,\\s+"))
 
-    return(deps[!(deps == "")])
+    return(deps[deps != ""])
   } else {
     return(NULL)
   }
@@ -703,7 +703,7 @@ get_deps_in_suggests <- function() {
   if (!is.null(descr$"Suggests")) {
     deps <- unlist(strsplit(descr$"Suggests", "\n\\s+|,|,\\s+"))
 
-    return(deps[!(deps == "")])
+    return(deps[deps != ""])
   } else {
     return(NULL)
   }

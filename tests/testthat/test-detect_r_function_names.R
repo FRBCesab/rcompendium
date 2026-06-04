@@ -13,7 +13,8 @@ test_that("detect_r_function_names() works - No functions", {
 
     writeLines(content, asserts)
 
-    expect_silent(x <- detect_r_function_names())
+    x <- detect_r_function_names()
+    expect_silent(detect_r_function_names())
     expect_true(inherits(x, "list"))
     expect_equal(length(x), 2L)
     expect_true("external" %in% names(x))
@@ -49,7 +50,8 @@ test_that("detect_r_function_names() works - No NAMESPACE", {
 
     writeLines(content, asserts)
 
-    expect_silent(x <- detect_r_function_names())
+    x <- detect_r_function_names()
+    expect_silent(detect_r_function_names())
 
     expect_true(inherits(x, "list"))
     expect_equal(length(x), 2L)
@@ -91,7 +93,8 @@ test_that("detect_r_function_names() works - R functions + Empty NAMESPACE", {
 
     file.create(build_abs_path("NAMESPACE"))
 
-    expect_silent(x <- detect_r_function_names())
+    x <- detect_r_function_names()
+    expect_silent(detect_r_function_names())
 
     expect_true(inherits(x, "list"))
     expect_equal(length(x), 2L)
@@ -140,7 +143,8 @@ test_that("detect_r_function_names() works - R functions + NAMESPACE", {
 
     writeLines(content, namespace)
 
-    expect_silent(x <- detect_r_function_names())
+    x <- detect_r_function_names()
+    expect_silent(detect_r_function_names())
 
     expect_true(inherits(x, "list"))
     expect_equal(length(x), 2L)

@@ -15,5 +15,6 @@ test_that("get_license_meta() works", {
 
 
 test_that("get_license_meta() NULL", {
-  expect_null(res <- get_license_meta(NULL))
+  res <- get_license_meta(NULL)
+  expect_null(res)
 })

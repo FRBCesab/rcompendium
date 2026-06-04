@@ -38,7 +38,7 @@ get_minimal_r_version <- function(pkg = NULL) {
     )
 
     direct_deps <- unlist(strsplit(direct_deps, "\n\\s+|,|,\\s+"))
-    direct_deps <- direct_deps[!(direct_deps == "")]
+    direct_deps <- direct_deps[direct_deps != ""]
 
     pkg <- direct_deps
   } else {

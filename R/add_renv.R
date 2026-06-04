@@ -67,14 +67,14 @@ add_renv <- function(quiet = FALSE) {
 
     if (!is.null(deps)) {
       deps <- unlist(strsplit(deps, "\n\\s+|,|,\\s+"))
-      deps <- deps[!(deps == "")]
+      deps <- deps[deps != ""]
       deps_to_add <- deps_to_add[!(deps_to_add %in% deps)]
     }
 
     if (length(deps_to_add)) {
       if (!is.null(descr$"Imports")) {
         deps_in_imports <- unlist(strsplit(descr$"Imports", "\n\\s+|,|,\\s+"))
-        deps_in_imports <- deps_in_imports[!(deps_in_imports == "")]
+        deps_in_imports <- deps_in_imports[deps_in_imports != ""]
       } else {
         deps_in_imports <- character(0)
       }

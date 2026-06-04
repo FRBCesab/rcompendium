@@ -5,14 +5,14 @@
 resolve_project_meta <- function(..., include = .DEFAULT_BLOCKS) {
   valid_blocks <- .DEFAULT_BLOCKS
 
-  if (any(is.na(include))) {
+  if (anyNA(include)) {
     stop(
       "Argument 'include' cannot contain NA values.",
       call. = FALSE
     )
   }
 
-  if (any(!(include %in% valid_blocks))) {
+  if (!all((include %in% valid_blocks))) {
     stop(
       sprintf(
         "Invalid 'include' value(s): '%s'. Valid values are '%s'.",

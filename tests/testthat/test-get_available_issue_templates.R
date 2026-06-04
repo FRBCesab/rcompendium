@@ -5,7 +5,7 @@ test_that("get_available_issue_templates() works", {
     templates <- get_available_issue_templates()
   })
 
-  expect_true(all(!grepl("\\.md$", templates)))
+  expect_true(!any(grepl("\\.md$", templates)))
   expect_true(length(templates) > 0)
   expect_true("bug_report" %in% templates)
 })

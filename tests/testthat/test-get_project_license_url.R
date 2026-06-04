@@ -44,6 +44,7 @@ test_that("get_project_license_url() works - No License", {
   with_local_project({
     initialize_project(quiet = TRUE)
 
-    expect_null(res <- get_project_license_url())
+    res <- get_project_license_url()
+    expect_null(res)
   })
 })

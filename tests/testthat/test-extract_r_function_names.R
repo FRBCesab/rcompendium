@@ -36,8 +36,7 @@ test_that("read_r_files() works", {
     path <- get_r_file_paths()
     funs <- read_r_files(path)
 
-    x <- extract_r_function_names(funs)
-    expect_silent(extract_r_function_names(funs))
+    x <- expect_silent(extract_r_function_names(funs))
 
     expect_true(inherits(x, "character"))
     expect_equal(length(x), 3L)

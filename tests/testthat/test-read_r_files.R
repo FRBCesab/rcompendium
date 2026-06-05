@@ -11,8 +11,7 @@ test_that("read_r_files() works - empty R files", {
 
     path <- get_r_file_paths()
 
-    x <- read_r_files(path)
-    expect_silent(read_r_files(path))
+    x <- expect_silent(read_r_files(path))
     expect_true(inherits(x, "list"))
     expect_equal(length(x), length(path))
     expect_equal(length(x[[1]]), 0L)
@@ -22,8 +21,7 @@ test_that("read_r_files() works - empty R files", {
 
     path <- get_r_file_paths()
 
-    x <- read_r_files(path)
-    expect_silent(read_r_files(path))
+    x <- expect_silent(read_r_files(path))
     expect_true(inherits(x, "list"))
     expect_equal(length(x), length(path))
     expect_equal(length(x[[1]]), 0L)
@@ -51,8 +49,7 @@ test_that("read_r_files() works - R files w/ content", {
 
     path <- get_r_file_paths()
 
-    x <- read_r_files(path)
-    expect_silent(read_r_files(path))
+    x <- expect_silent(read_r_files(path))
     expect_true(inherits(x, "list"))
     expect_equal(length(x), length(path))
     expect_equal(length(x[[1]]), 6L)
@@ -74,8 +71,7 @@ test_that("read_r_files() works - R files w/ content", {
 
     path <- get_r_file_paths()
 
-    x <- read_r_files(path)
-    expect_silent(read_r_files(path))
+    x <- expect_silent(read_r_files(path))
     expect_true(inherits(x, "list"))
 
     expect_equal(length(x), length(path))
@@ -93,8 +89,7 @@ test_that("read_r_files() works - R files w/ content", {
 
     path <- get_r_file_paths()
 
-    x <- read_r_files(path)
-    expect_silent(read_r_files(path))
+    x <- expect_silent(read_r_files(path))
     expect_true(inherits(x, "list"))
 
     expect_equal(length(x), length(path))

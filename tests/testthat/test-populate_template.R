@@ -11,8 +11,7 @@ test_that("populate_template() works - no metadata", {
 
     meta <- list()
 
-    expect_silent(populate_template(path, meta))
-    x <- populate_template(path, meta)
+    x <- expect_silent(populate_template(path, meta))
     expect_null(x)
 
     output <- readLines(path)
@@ -33,8 +32,7 @@ test_that("populate_template() works - unused metadata", {
 
     meta <- list(orcid = "0000-0000-0000-0000", github_user = "jdoe")
 
-    expect_silent(populate_template(path, meta))
-    x <- populate_template(path, meta)
+    x <- expect_silent(populate_template(path, meta))
     expect_null(x)
 
     output <- readLines(path)
@@ -55,8 +53,7 @@ test_that("populate_template() works - one used metadata", {
 
     meta <- list(given = "John", github_user = "jdoe")
 
-    expect_silent(populate_template(path, meta))
-    x <- populate_template(path, meta)
+    x <- expect_silent(populate_template(path, meta))
     expect_null(x)
 
     output <- readLines(path)
@@ -77,8 +74,7 @@ test_that("populate_template() works - one used metadata & one is NULL", {
 
     meta <- list(given = "John", family = NULL, github_user = "jdoe")
 
-    expect_silent(populate_template(path, meta))
-    x <- populate_template(path, meta)
+    x <- expect_silent(populate_template(path, meta))
     expect_null(x)
 
     output <- readLines(path)
@@ -104,8 +100,7 @@ test_that("populate_template() works - many used metadata", {
       github_user = "jdoe"
     )
 
-    expect_silent(populate_template(path, meta))
-    x <- populate_template(path, meta)
+    x <- expect_silent(populate_template(path, meta))
     expect_null(x)
 
     output <- readLines(path)

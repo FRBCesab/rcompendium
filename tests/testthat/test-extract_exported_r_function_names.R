@@ -57,7 +57,9 @@ test_that("extract_exported_r_function_names() works - With export()", {
 
     writeLines(content, namespace)
 
-    x <- expect_silent(extract_exported_r_function_names())
+    expect_silent({
+      x <- extract_exported_r_function_names()
+    })
     expect_true(inherits(x, "character"))
     expect_equal(length(x), 1L)
     expect_equal(x[1], "try_read")

@@ -209,59 +209,87 @@ test_that("stop_if_invalid_credentials() errors", {
 test_that("stop_if_invalid_credentials() works", {
   meta <- list()
 
-  x <- expect_silent(stop_if_invalid_credentials(meta))
+  expect_silent({
+    x <- stop_if_invalid_credentials(meta)
+  })
   expect_null(x)
 
   meta <- list(given = "John")
-  x <- expect_silent(stop_if_invalid_credentials(meta))
+  expect_silent({
+    x <- stop_if_invalid_credentials(meta)
+  })
   expect_null(x)
 
   meta <- list(family = "Doe")
-  x <- expect_silent(stop_if_invalid_credentials(meta))
+  expect_silent({
+    x <- stop_if_invalid_credentials(meta)
+  })
   expect_null(x)
 
   meta <- list(given = "John", family = "Doe")
-  x <- expect_silent(stop_if_invalid_credentials(meta))
+  expect_silent({
+    x <- stop_if_invalid_credentials(meta)
+  })
   expect_null(x)
 
   meta <- list(email = "john.doe@mail.com")
-  x <- expect_silent(stop_if_invalid_credentials(meta))
+  expect_silent({
+    x <- stop_if_invalid_credentials(meta)
+  })
   expect_null(x)
 
   meta <- list(email = "john.doe@mail.com", family = "Doe")
-  x <- expect_silent(stop_if_invalid_credentials(meta))
+  expect_silent({
+    x <- stop_if_invalid_credentials(meta)
+  })
   expect_null(x)
 
   meta <- list(orcid = "0000-0000-0000-0000")
-  x <- expect_silent(stop_if_invalid_credentials(meta))
+  expect_silent({
+    x <- stop_if_invalid_credentials(meta)
+  })
   expect_null(x)
 
   meta <- list(given = "John", orcid = "0000-0000-0000-0000")
-  x <- expect_silent(stop_if_invalid_credentials(meta))
+  expect_silent({
+    x <- stop_if_invalid_credentials(meta)
+  })
   expect_null(x)
 
   meta <- list(github_user = "jdoe")
-  x <- expect_silent(stop_if_invalid_credentials(meta))
+  expect_silent({
+    x <- stop_if_invalid_credentials(meta)
+  })
   expect_null(x)
 
   meta <- list(github_user = "jdoe", family = "Doe")
-  x <- expect_silent(stop_if_invalid_credentials(meta))
+  expect_silent({
+    x <- stop_if_invalid_credentials(meta)
+  })
   expect_null(x)
 
   meta <- list(protocol = "https")
-  x <- expect_silent(stop_if_invalid_credentials(meta))
+  expect_silent({
+    x <- stop_if_invalid_credentials(meta)
+  })
   expect_null(x)
 
   meta <- list(protocol = "https", family = "Doe")
-  x <- expect_silent(stop_if_invalid_credentials(meta))
+  expect_silent({
+    x <- stop_if_invalid_credentials(meta)
+  })
   expect_null(x)
 
   meta <- list(protocol = "ssh")
-  x <- expect_silent(stop_if_invalid_credentials(meta))
+  expect_silent({
+    x <- stop_if_invalid_credentials(meta)
+  })
   expect_null(x)
 
   meta <- list(protocol = "ssh", family = "Doe")
-  x <- expect_silent(stop_if_invalid_credentials(meta))
+  expect_silent({
+    x <- stop_if_invalid_credentials(meta)
+  })
   expect_null(x)
 
   meta <- list(
@@ -273,6 +301,8 @@ test_that("stop_if_invalid_credentials() works", {
     protocol = "ssh"
   )
 
-  x <- expect_silent(stop_if_invalid_credentials(meta))
+  expect_silent({
+    x <- stop_if_invalid_credentials(meta)
+  })
   expect_null(x)
 })

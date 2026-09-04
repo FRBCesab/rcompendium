@@ -6,14 +6,18 @@ test_that("create_folder_if_needed() works - dir not exists", {
 
     path <- build_abs_path("R")
 
-    expect_silent(create_folder_if_needed(path))
-    expect_null(x <- create_folder_if_needed(path))
+    expect_silent({
+      x <- create_folder_if_needed(path)
+    })
+    expect_null(x)
     expect_true(dir.exists(path))
 
     path <- build_abs_path("tests", "testthat")
 
-    expect_silent(create_folder_if_needed(path))
-    expect_null(x <- create_folder_if_needed(path))
+    expect_silent({
+      x <- create_folder_if_needed(path)
+    })
+    expect_null(x)
     expect_true(dir.exists(path))
   })
 })
@@ -25,15 +29,19 @@ test_that("create_folder_if_needed() works - dir exists", {
     path <- build_abs_path("man")
     dir.create(path, recursive = TRUE, showWarnings = FALSE)
 
-    expect_silent(create_folder_if_needed(path))
-    expect_null(x <- create_folder_if_needed(path))
+    expect_silent({
+      x <- create_folder_if_needed(path)
+    })
+    expect_null(x)
     expect_true(dir.exists(path))
 
     path <- build_abs_path("man", "figures")
     dir.create(path, recursive = TRUE, showWarnings = FALSE)
 
-    expect_silent(create_folder_if_needed(path))
-    expect_null(x <- create_folder_if_needed(path))
+    expect_silent({
+      x <- create_folder_if_needed(path)
+    })
+    expect_null(x)
     expect_true(dir.exists(path))
   })
 })

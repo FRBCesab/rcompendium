@@ -25,9 +25,8 @@ test_that("stop_if_file_exists() works - overwrite is TRUE", {
       stop_if_file_exists("README", overwrite = TRUE)
     )
 
-    expect_null(
-      x <- stop_if_file_exists("README", overwrite = TRUE)
-    )
+    x <- stop_if_file_exists("README", overwrite = TRUE)
+    expect_null(x)
 
     invisible(file.create("README"))
 
@@ -35,9 +34,8 @@ test_that("stop_if_file_exists() works - overwrite is TRUE", {
       stop_if_file_exists("README", overwrite = TRUE)
     )
 
-    expect_null(
-      x <- stop_if_file_exists("README", overwrite = TRUE)
-    )
+    x <- stop_if_file_exists("README", overwrite = TRUE)
+    expect_null(x)
   })
 })
 
@@ -49,8 +47,7 @@ test_that("stop_if_file_exists() works - file not exists", {
       stop_if_file_exists("README", overwrite = FALSE)
     )
 
-    expect_null(
-      x <- stop_if_file_exists("README", overwrite = FALSE)
-    )
+    x <- stop_if_file_exists("README", overwrite = FALSE)
+    expect_null(x)
   })
 })

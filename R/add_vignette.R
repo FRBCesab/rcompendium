@@ -164,14 +164,14 @@ add_vignette <- function(
 
   if (!is.null(deps)) {
     deps <- unlist(strsplit(deps, "\n\\s+|,|,\\s+"))
-    deps <- deps[!(deps == "")]
+    deps <- deps[deps != ""]
     deps_to_add <- deps_to_add[!(deps_to_add %in% deps)]
   }
 
   if (length(deps_to_add)) {
     if (!is.null(descr$"Suggests")) {
       deps_in_suggests <- unlist(strsplit(descr$"Suggests", "\n\\s+|,|,\\s+"))
-      deps_in_suggests <- deps_in_suggests[!(deps_in_suggests == "")]
+      deps_in_suggests <- deps_in_suggests[deps_in_suggests != ""]
     } else {
       deps_in_suggests <- character(0)
     }

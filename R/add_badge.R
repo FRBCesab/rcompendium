@@ -49,7 +49,7 @@ add_badge <- function(badge, pattern) {
       collapse = "\n"
     )
     badges <- unlist(strsplit(badges, "\n"))
-    badges <- badges[!(badges == "")]
+    badges <- badges[badges != ""]
   }
 
   ## Replace/Add badge ----
